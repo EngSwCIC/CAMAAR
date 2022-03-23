@@ -1,0 +1,17 @@
+{
+  "name": "sigaa-crawler",
+  "version": "1.0.0",
+  "description": "Crawler for sigaa ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Caio Peluti",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "mariadb": "^2.5.5",
+    "puppeteer": "^13.3.2",
+    "sequelize": "^6.16.1"
+  }
+}

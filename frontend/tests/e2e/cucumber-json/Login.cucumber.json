@@ -1,0 +1,52 @@
+[
+  {
+    "keyword": "Funcionalidade",
+    "name": "Fazer Login",
+    "line": 2,
+    "id": "fazer-login",
+    "tags": [],
+    "uri": "Login.feature",
+    "elements": [
+      {
+        "id": "fazer-login;pagina-de-cadastro",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Pagina de Cadastro",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que nao estou autenticado",
+            "result": {
+              "status": "passed",
+              "duration": 52000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 6,
+            "name": "eu vou para a rota \"/\"",
+            "result": {
+              "status": "passed",
+              "duration": 153000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 7,
+            "name": "eu deveria ver o login",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
