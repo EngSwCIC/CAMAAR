@@ -1,6 +1,6 @@
 # Projeto do CAMAAR
 
-## Back-end do projeto CAMAAR feito com Ruby on Rails 💚
+## Back-end do projeto CAMAAR feito com Ruby on Rails ♦️
 
 ## Dependências
 - Ruby 2.7.5
@@ -32,6 +32,15 @@ Estão disponíveis as seguintes rotas:
 - /auth/register
 - /users/session
 - /users/registrations
+
+## Autenticação
+
+A autenticação da API é feita com JWT( utilizando o devise como helper ).
+Para acessar endpoints protegidos basta passar um token valido no header `Authorization`.
+A estrutura do header com token seria a seguinte:
+```
+Authorization: Bearer <Token-Valido>
+```
 
 As rotas do back-end podem receber requisições https através do navegador ou 
 de ferramentas como:
