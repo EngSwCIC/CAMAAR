@@ -16,6 +16,24 @@ Primeiramente devemos instalar todas as depedencias:
 ```
 bundle install
 ```
+Após fazer o bundle install é necessario gerar uma chave para o jwt:
+
+```
+rake secret
+```
+
+Com a chave gerado precisamos adicioná-la no credentials
+```
+EDITOR=nano rails credentials:edit
+```
+> substitua o editor nano pelo que você preferir.
+
+Adicione as seguintes linha no Arquivo
+
+```
+devise:
+  JWT_SECRET_KEY: <secret-gerado>
+```
 
 Após isso basta iniciar a aplicação
 
