@@ -16,7 +16,7 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'c5d5856b6b233bfe95a9f51deef47b8903cbdfeea669396837225867c49c258dcda714aa6bf61dfca284492f244b0ffdfc457cbe1b940b52545de5aa1ffcfba0'
   config.jwt do |jwt|
-    jwt.secret = Rails.application.credentials.devise[:JWT_SECRET_KEY]
+    jwt.secret = ENV['JWT_SECRET_KEY']
   end
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -39,7 +39,7 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
-
+  
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
