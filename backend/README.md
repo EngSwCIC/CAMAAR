@@ -24,7 +24,7 @@ rails server
 ```
 O back-end ficará acessível na porta 3030. 
 
-## Rotas do back-end
+### Rotas do back-end
 
 Estão disponíveis as seguintes rotas:
 - /auth/login
@@ -33,7 +33,7 @@ Estão disponíveis as seguintes rotas:
 - /users/session
 - /users/registrations
 
-## Autenticação
+### Autenticação
 
 A autenticação da API é feita com JWT( utilizando o devise como helper ).
 Para acessar endpoints protegidos basta passar um token valido no header `Authorization`.
