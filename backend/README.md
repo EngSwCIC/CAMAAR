@@ -22,34 +22,27 @@ Após fazer o bundle install é necessario gerar uma chave para o jwt:
 rake secret
 ```
 
-Com a chave gerado precisamos adicioná-la no credentials
-```
-EDITOR=nano rails credentials:edit
-```
-> substitua o editor nano pelo que você preferir.
-
-Adicione as seguintes linha no Arquivo
+Com a chave gerada precisamos criar o arquivo application.yml no diretório config e adicionar a chave nele:
 
 ```
-devise:
-  JWT_SECRET_KEY: <secret-gerado>
+JWT_SECRET_KEY: <chave-gerada>
 ```
+> Também é possível definir a JWT_SECRET_KEY como uma variavel de ambiente
 
 Após isso basta iniciar a aplicação
 
 ```
-rails server
+rails server -p 3030
 ```
 O back-end ficará acessível na porta 3030. 
 
 ### Rotas do back-end
 
 Estão disponíveis as seguintes rotas:
-- /auth/login
-- /auth/logout
-- /auth/register
-- /users/session
-- /users/registrations
+- POST /auth/login
+  > Retorna um token valido
+- POST /auth/logout
+- POST /auth/register
 
 ### Autenticação
 
