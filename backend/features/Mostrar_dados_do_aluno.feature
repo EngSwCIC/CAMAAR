@@ -14,7 +14,7 @@ A fim de avaliar o meu desempenho na turma selecionada
   # Cenario Triste
   Cenario: Um ou mais dados do aluno na turma não estão presentes
   Dado que exista a turma "CIC0105 - ENGENHARIA DE SOFTWARE - TA (2021.2 - 35M12)" no meu histórico
-  E que algum dado meu na turma não está disponível
+  E que algum dado meu na turma "CIC0105 - ENGENHARIA DE SOFTWARE - TA (2021.2 - 35M12)" não está disponível
   Quando que eu ir para a página da turma "CIC0105 - ENGENHARIA DE SOFTWARE - TA (2021.2 - 35M12)"
   Então deve aparecer a mensagem "Não disponível" no lugar de um dado indisponível
 
