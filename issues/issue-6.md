@@ -22,7 +22,7 @@ TO-DO
 
 ## Features:
 - Tela de vizualização das avaliações de turmas.
-- - 1
+-- 1
 - Filtrar por semestre, por professor, turma etc.
 - Manual do usuário da tela de geração de relatórios.
 - Gerar relatório PDF de acordo com as informações pesquisadas.
