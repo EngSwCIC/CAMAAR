@@ -21,12 +21,12 @@ TO-DO
 - Felipe Farias da Costa 190027592
 
 ## Features:
-- Tela de vizualização das avaliações de turmas.
-  - TimeComplexity: 5
-- Filtrar por semestre, por professor, turma etc.
-  - TimeComplexity: 3
 - Manual do usuário da tela de geração de relatórios.
   - TimeComplexity: 2
+- Filtrar por semestre, por professor, turma etc.
+  - TimeComplexity: 3
+- Tela de vizualização das avaliações de turmas.
+  - TimeComplexity: 5
 - Gerar relatório PDF de acordo com as informações pesquisadas.
   - TimeComplexity: 8
 
