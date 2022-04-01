@@ -5,6 +5,9 @@
 - Quero saber sobre as avaliações das minhas turmas
 - A fim de avaliar o desempenho das turmas em que estou matriculado
 
+## Escopo:
+TO-DO
+
 ## Roles:
 ### Scrum Master:
 - Mateus Luis Oliveira 180112490
