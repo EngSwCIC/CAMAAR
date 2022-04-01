@@ -7,19 +7,19 @@
 
 ## Roles:
 ### Scrum Master:
-- Mateus Luis Olivera
+- Mateus Luis Oliveira 180112490
 
 ### Product Owner:
-- Gabriel Ligoski
+- Gabriel ligoski 190087498
 
 ### Developer's:
-- Gustavo
-- Thiago
-- Felipe
+- Gustavo Rodrigues Gualberto 190108266
+- Thiago Elias dos Reis 190126892
+- Felipe Farias da Costa 190027592
 
 ## Features:
 - Filtrar por semestre, por professor etc.
-- Pesquisar por turma.
+- Pesquisar utilizando como filtro uma turma.
 - Manual do usuário da tela de geração de relatórios.
 - Mostrar dados do aluno (frequência, menção…) na turma.
 - Gerar relatório PDF de acordo com as informações pesquisadas.
@@ -28,7 +28,11 @@
 - rule
 
 ## Responsabilities:
-- rule
+- Filtrar por semestre, por professor etc. - Gabriel
+- Pesquisar utilizando como filtro uma turma. - Thiago
+- Manual do usuário da tela de geração de relatórios. - Gustavo
+- Mostrar dados do aluno (frequência, menção…) na turma. - Felipe
+- Gerar relatório PDF de acordo com as informações pesquisadas. - Mateus
 
 ## Branching policy:
 ### *Git Flow*
