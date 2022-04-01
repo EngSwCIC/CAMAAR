@@ -30,7 +30,11 @@ TO-DO
 - rule
 
 ## Responsabilities:
+<<<<<<< HEAD
 - Tela de vizualização das avaliações de turmas. - Felipe
+=======
+- Gerar relatório de acompanhamento de turmas. - Felipe, Thiago
+>>>>>>> aba9be166e8c4bc632553bf3e6d30cc3dfbd0167
 - Filtrar por semestre, por professor, turma etc. - Gabriel
 - Manual do usuário da tela de geração de relatórios. - Gustavo
 - Gerar relatório PDF de acordo com as informações pesquisadas. - Mateus
