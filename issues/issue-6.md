@@ -30,7 +30,7 @@ TO-DO
 - rule
 
 ## Responsabilities:
-- Gerar relatório de acompanhamento de turmas. - Felipe
+- Gerar relatório de acompanhamento de turmas. - Felipe, Thiago
 - Filtrar por semestre, por professor, turma etc. - Gabriel
 - Manual do usuário da tela de geração de relatórios. - Gustavo
 - Gerar relatório PDF de acordo com as informações pesquisadas. - Mateus
