@@ -21,7 +21,7 @@ TO-DO
 - Felipe Farias da Costa 190027592
 
 ## Features:
-- Gerar relatório de acompanhamento de turmas.
+- Tela de vizualização das avaliações de turmas.
 - Filtrar por semestre, por professor, turma etc.
 - Manual do usuário da tela de geração de relatórios.
 - Gerar relatório PDF de acordo com as informações pesquisadas.
@@ -30,7 +30,7 @@ TO-DO
 - rule
 
 ## Responsabilities:
-- Gerar relatório de acompanhamento de turmas. - Felipe
+- Tela de vizualização das avaliações de turmas. - Felipe
 - Filtrar por semestre, por professor, turma etc. - Gabriel
 - Manual do usuário da tela de geração de relatórios. - Gustavo
 - Gerar relatório PDF de acordo com as informações pesquisadas. - Mateus
