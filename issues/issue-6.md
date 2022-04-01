@@ -46,3 +46,11 @@
 - **feature-descricao-curta** — (escreve 'feature-' depois a descrição) feature branches are used to develop new features for the upcoming releases. May branch off from develop and must merge into develop.
 - **hotfix-descricao-curta** — (escreve 'hotfix-' depois a descrição) hotfix branches are necessary to act immediately upon an undesired status of master. May branch off from master and must merge into master anddevelop.
 - **release-descricao-curta** — (escreve 'release-' depois a descrição) release branches support preparation of a new production release. They allow many minor bug to be fixed and preparation of meta-data for a release. May branch off from develop and must merge into master anddevelop.
+
+##Pontuação de Histórias do Usuário
+
+CENÁRIO 1 - 1P
+CENÁRIO 2 - 1P
+CENÁRIO 3 - 1P
+CENÁRIO 4 - 1P
+CENÁRIO 5 - 1P
