@@ -18,10 +18,8 @@
 - Felipe Farias da Costa 190027592
 
 ## Features:
-- Filtrar por semestre, por professor etc.
-- Pesquisar utilizando como filtro uma turma.
+- Filtrar por semestre, por professor, turma etc.
 - Manual do usuário da tela de geração de relatórios.
-- Mostrar dados do aluno (frequência, menção…) na turma.
 - Gerar relatório PDF de acordo com as informações pesquisadas.
 
 ## Business Rules:
