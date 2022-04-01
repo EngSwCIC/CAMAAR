@@ -28,10 +28,8 @@
 - rule
 
 ## Responsabilities:
-- Filtrar por semestre, por professor etc. - Gabriel
-- Pesquisar utilizando como filtro uma turma. - Thiago
+- Filtrar por semestre, por professor, turma etc. - Gabriel
 - Manual do usuário da tela de geração de relatórios. - Gustavo
-- Mostrar dados do aluno (frequência, menção…) na turma. - Felipe
 - Gerar relatório PDF de acordo com as informações pesquisadas. - Mateus
 
 ## Branching policy:
