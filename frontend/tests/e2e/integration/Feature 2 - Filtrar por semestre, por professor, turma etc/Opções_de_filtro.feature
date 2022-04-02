@@ -1,26 +1,35 @@
 # language: pt
 # encoding: utf-8
 
-Funcionalidade: Pesquisar utilizando relatório um filtro
-Eu como aluno 
-Quero saber mais informações sobre as turmas ofertadas pelo departamento CIC
-A fim de avaliar o desempenho das turmas
+Funcionalidade: Pesquisar as turmas utilizando um filtro
+Eu como aluno
+Quero filtrar as turmas por professor, disciplina ou semestre
+A fim de obter as avaliações de turmas mais rapidamente
 
-  Contexto:
-    Dado que eu esteja logado como aluno no CAMAAR
-    E eu esteja na pagina de relatório do aluno
+Contexto:
+  Dado que eu esteja logado como aluno no CAMAAR
+  E eu esteja na pagina de relatório do aluno
 
-  # Cenario Triste digitar um filtro que não há no respectivo histórico
-  Cenario: Um Aluno digita uma turma em que não participou durante toda sua graduação até o momento
-  Dado que exista a turma "CIC0105 - ENGENHARIA DE SOFTWARE - TA (2021.2 - 35M12)"
-  E que ela não esteja presente no seu histórico
-  E que não estejá cursando está matéria no semestre corrente
+Cenario: Um aluno seleciona um filtro e pesquisa não corresponde a nenhuma turma (triste)
+  Dado que eu selecione o filtro 'Disciplina'
+  E que a disciplina 'CIC0105' não tenha nenhuma turma cadastrada
   Quando eu clicar no botão "Procurar"
-  Então deve aparecer uma mensagem na tela dizendo "Turma não encontrada"
+  Então eu deveria ver uma mensagem na tela dizendo "Nenhuma turma encontrada"
 
-  # Cenario Feliz digitar uma turma que há no respectivo histórico devolvendo seus dados
-  Cenario: O professor digita uma turma em que participou em algum momento durante toda sua graduação 
-  Dado que eu digite na barra de pesquisa  a turma "CIC0105 - ENGENHARIA DE SOFTWARE - TA (2021.2 - 35M12)"
-  E que exista a turma "CIC0105 - ENGENHARIA DE SOFTWARE - TA (2021.2 - 35M12)" no meu histórico e presente no CAMAAR
+  Cenario: Pesquisa com filtro retorna resultados (feliz)
+  Dado que eu selecione o filtro 'Professor'
+  E que o(a) professor(a) 'Genaina' possui turmas cadastradas no CAMAAR
   Quando eu clicar no botão "Procurar"
-  Então deve aparecer uma mensagem na tela dizendo "Turma encontrada"
+  Então eu deveria ver a lista de turmas do(a) professor(a) 'Genaina'
+
+  Cenario: Pesquisa por semestre (feliz)
+  Dado que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR
+  E que as avaliações do semestre '2021-2' foram feitas para a turma 'A' da disciplina 'CIC0105'
+  Quando eu selecionar o semestre '2021-2'
+  Então eu deveria ver os dados referentes ao semestre selecionado
+
+  Cenario: Pesquisa por semestre (triste)
+  Dado que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR
+  E que as avaliações do semestre '2021-2' não foram feitas para a turma 'A' da disciplina 'CIC0105'
+  Quando eu selecionar o semestre '2021-2'
+  Então eu deveria ver a mensagem 'Não há avaliações para esta turma no semestre 2021-2'
