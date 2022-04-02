@@ -31,7 +31,17 @@ TO-DO
   - TimeComplexity: 8
 
 ## Business Rules:
-- rule
+-  Manual do usuário da tela de geração de relatórios:
+Caso os usuários tenham dúvidas sobre o funcionamento, ou todas as funcionalidades presentes na parte de geração de relatórios, o Manual do usuário     existe para sanar essas dúvidas, de forma simples e direta, nele é apresentado um guia passo a passo de como encontra as funcionalidades e como gerar seus possíveis resultados.
+ 
+- Filtrar por semestre, por professor, turma etc:
+Dado que o nosso trabalho está ligado a gerar relatório sobre as avaliações dos alunos e os possíveis desdobramentos dessa ideia principal, temos que possibilitar que o aluno filtre a pesquisa que ele deseje, dessa forma essa funcionalidade tem por objetivo facilitar tal ato, dijitando em um campo específico predeterminado e posteriormente clicando em "pesquisar" gerando e mostrando, de forma tabelar, os resultados.
+  
+- Tela de vizualização das avaliações de turmas:
+Tal funcionalidade permite ao usuário vizualizar, na própria tela, os resultados e os dados das avaliações das turmas, de forma simples e intuitiva, para auxiliar o aluno em suas possíveis dúvidas e anseios. 
+   
+- Gerar relatório PDF de acordo com as informações pesquisadas:
+Dado que os dados, após uma pesquisa e posterior visualização do aluno, estam disponiveis, pode-se ser desejo do usuário gerar um arquivo separado em diferentes formatos. Está funcionalidade promete atender a esse problema para dar ao usuário possíbilidades.
 
 ## Responsabilities:
 - Tela de vizualização das avaliações de turmas. - Felipe
