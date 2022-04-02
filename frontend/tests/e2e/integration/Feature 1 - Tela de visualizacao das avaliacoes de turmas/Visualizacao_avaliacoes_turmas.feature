@@ -8,8 +8,8 @@ A fim de acompanhar as turmas
     E eu esteja na página de relatório de turmas
 
   # Cenario Triste relatório não gerado
-  Cenario: Um Aluno tenta registrar seus dados ao sistema do CAMAAR e não consegue
-  Dado que exista um botão "Registrar" que não esteja funcionando
+  Cenario: Um Aluno tenta gerar um relatório de acompanhamento de turmas e não conseuge
+  Dado que exista um botão "Gerar relatório" que não esteja funcionando
   Quando eu clicar no botão "Reportar Erro"
   Então deve aparecer uma mensagem na tela dizendo "Email para reportar erros: xxxxxxx@unb.com.br"
 

@@ -2,8 +2,8 @@
 # encoding: utf-8
 
 Funcionalidade: Pesquisar utilizando relatório um filtro
-Eu como professor 
-Quero saber mais informações sobre as minhas turmas
+Eu como aluno 
+Quero saber mais informações sobre as turmas ofertadas pelo departamento CIC
 A fim de avaliar o desempenho das turmas
 
   Contexto:
