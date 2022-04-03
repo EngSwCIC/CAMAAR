@@ -1,20 +1,19 @@
 Funcionalidade: Gerar relatório
 Eu como aluno 
-Quero gerar um relatório de usuário 
-A fim de exportalo para PDF
+Quero gerar um relatório PDF a partir da pesquisa realizada 
+A fim de ter as informações salvas em um arquivo
 
-  Contexto:
-    Dado que eu esteja logado como aluno no CAMAAR
-    E eu esteja na página de relatório do aluno
+Contexto:
+  Dado que eu esteja logado como aluno no CAMAAR
+  E eu esteja na página de relatório do aluno
+  E que exista um botão "Gerar PDF"
+  
+Cenario: Um Aluno tenta gerar um relatório no sistema do CAMAAR, mas a pesquisa não retorna dados (triste)
+  Dado que a pesquisa não corresponde a nenhuma turma
+  Quando eu clicar no botão "Gerar PDF"
+  Então eu deveria ver uma mensagem na tela dizendo "Não há dados suficientes"
 
-  # Cenario Triste relatório não gerado
-  Cenario: Um Aluno tenta gerar um relatório no sistema do CAMAAR e não consegue
-  Dado que exista um botão "Gerar PDF" que não esteja funcionando
-  Quando eu clicar no botão "Reportar Erro"
-  Então deve aparecer uma mensagem na tela dizendo "Email para reportar erros: xxxxxxx@unb.com.br"
-
-  # Cenario Feliz o aluno consegue gerar o relatório com sucesso
-  Cenario: Um Aluno tenta gerar um PDF contendo o relatório e consegue
-  Dado que exista um botão "Gerar PDF"
+Cenario: Um Aluno gera um PDF contendo o relatório de acordo com sua pesquisa (feliz)
+  Dado que a pesquisa corresponde a uma ou mais turmas
   Quando o aluno  clicar no botão "Gerar PDF"
-  Então deve ser gerado um PDF para que o aluno possa guardar em seu computador
+  Então deve ser gerado um arquivo .PDF com as informações das turmas correspondentes
