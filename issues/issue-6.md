@@ -6,7 +6,36 @@
 - A fim de avaliar o desempenho das turmas em que estou matriculado
 
 ## Escopo:
-TO-DO
+### Justificativa:
+O sistema atual não possui relatórios para os alunos.
+
+### Finalidade:
+Implementar uma tela de relatórios e suas funcionalidades.
+
+### Objetivo do projeto:
+- Mostrar os relatórios dos alunos de cada turma
+- Filtrar os realatórios por profesor, disciplina, semestre, professor, turma.
+- Baixar relatório gerado
+
+### Stackholders do projeto:
+- Patrocinadora - Genaina
+- Cliente - Marcus Vinícius Lamar
+- Equipe do projeto - Mateus Luis Oliveira, Gabriel ligoski, Gustavo Rodrigues Gualberto, Thiago Elias dos Reis, Felipe Farias da Costa
+
+### Entregas do projeto (Features):
+- Manual do usuário da tela de geração de relatórios.
+  - TimeComplexity: 2
+- Filtrar por semestre, por professor, turma etc.
+  - TimeComplexity: 3
+- Tela de vizualização das avaliações de turmas.
+  - TimeComplexity: 5
+- Gerar relatório PDF de acordo com as informações pesquisadas.
+  - TimeComplexity: 8
+
+### Estimativas de Tempo e Custo:
+Prazo estimado: 5 semanas
+Custo estimado: 0
+
 
 ## Roles:
 ### Scrum Master:
@@ -19,16 +48,6 @@ TO-DO
 - Gustavo Rodrigues Gualberto 190108266
 - Thiago Elias dos Reis 190126892
 - Felipe Farias da Costa 190027592
-
-## Features:
-- Manual do usuário da tela de geração de relatórios.
-  - TimeComplexity: 2
-- Filtrar por semestre, por professor, turma etc.
-  - TimeComplexity: 3
-- Tela de vizualização das avaliações de turmas.
-  - TimeComplexity: 5
-- Gerar relatório PDF de acordo com as informações pesquisadas.
-  - TimeComplexity: 8
 
 ## Business Rules:
 -  Manual do usuário da tela de geração de relatórios:
