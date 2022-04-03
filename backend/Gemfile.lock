@@ -137,6 +137,8 @@ GEM
     nokogiri (1.13.3)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    nokogiri (1.13.3-x64-mingw32)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     puma (5.6.2)
       nio4r (~> 2.0)
@@ -184,6 +186,8 @@ GEM
     timeout (0.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2022.1)
+      tzinfo (>= 1.0.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     warden-jwt_auth (0.6.0)
@@ -198,6 +202,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   bootsnap
