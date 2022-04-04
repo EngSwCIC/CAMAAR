@@ -6,7 +6,7 @@ Feature: Sign up Students
 Background:
   Given I am on student sign up page
 
-Scenario: Signing up with valid fields (hapy path)
+Scenario: Signing up with valid fields (happy path)
   When I enter nome as "nome"
   And I enter curso as "curso"
   And I enter matricula as "123456789"

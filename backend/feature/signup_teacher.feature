@@ -6,7 +6,7 @@ Feature: Sign up Teachers
 Background:
   Given I am on teacher sign up page
 
-Scenario: Signing up with valid fields (hapy path)
+Scenario: Signing up with valid fields (happy path)
   When I enter nome as "nome"
   And I enter departamento as "departamento"
   And I enter formacao as "formacao"
