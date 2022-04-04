@@ -11,6 +11,6 @@ Cenario: O aluno preencheu o questionário corretamente e deseja enviar (feliz)
   E ser redirecionado para a página de listagem de questionários
 
 Cenario: O aluno preencheu o questionário incorretamente e deseja enviar (triste)
-  Dado que eu preenchi corretamente os dados do questionário
+  Dado que eu preenchi incorretamente os dados do questionário
   Quando eu tentar clicar no botão "Enviar"
   Então eu deveria ver uma mensagem de "Erro"
