@@ -12,9 +12,9 @@ Contexto: o questionário foi preenchido anteriormente
 Cenário: Editar a resposta do questionário
   Quando que eu clico no botão "Editar" em "Questionário de fim de semestre"
   Então eu devo ser redirecionado para a rota "/surveys/final"
-  E eu devo ver minhas respostas "Das condições de estudo"
-  E eu devo ver minhas respostas "Do ensino remoto vs presencial"
-  E eu devo ver minhas respostas "Das condições funcionais e de saúde"
+  E eu devo ver minhas respostas "Condições de estudo"
+  E eu devo ver minhas respostas "Ensino remoto vs presencial"
+  E eu devo ver minhas respostas "Condições funcionais e de saúde"
   E eu devo ver minhas respostas "Preferências por atividades síncronas e assíncronas"
   E eu devo ver minhas respostas para cada disciplina
 
