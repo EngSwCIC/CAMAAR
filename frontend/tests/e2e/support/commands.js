@@ -26,8 +26,9 @@
 
 let LOCAL_STORAGE_MEMORY = {}
 
-Cypress.Commands.add('the', testSelector=>{
-  cy.get(`[data-test-${testSelector}]`)
+Cypress.Commands.add('the', (testSelector, type='test')=>{
+  let selector = type==='test' ? `[data-test-${testSelector}]` : `[data-test-${type}-${testSelector}]`
+  cy.get(selector)
 })
 
 Cypress.Commands.add('saveLocalStorageCache', () => {

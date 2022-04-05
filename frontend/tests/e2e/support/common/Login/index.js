@@ -16,6 +16,18 @@ Then(/^(:?|eu )deveria ver [o|a] (\w+)$/, (a, id) => {
 And(/^(:?|eu )deveria ver [o|a] (\w+)$/, (a, id) => {
   the(id);
 });
+Then(/^(:?|eu )deveria ver o campo "(\w+)"$/, (a, id) => {
+  the(id);
+});
+And(/^(:?|eu )deveria ver o campo "(\w+)"$/, (a, id) => {
+  the(id);
+});
+Then(/^(:?|eu )deveria ver o botão "(\w+)"$/, (a, id) => {
+  the(id, 'button');
+});
+And(/^(:?|eu )deveria ver o botão "(\w+)"$/, (a, id) => {
+  the(id, 'button');
+});
 And(/^(:?|eu )nao deveria ver [o|a] (\w+)$/, (a, id) => {
   the(id).should("not.exist");
 });

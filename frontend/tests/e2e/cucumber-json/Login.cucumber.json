@@ -8,10 +8,10 @@
     "uri": "Login.feature",
     "elements": [
       {
-        "id": "fazer-login;pagina-de-cadastro",
+        "id": "fazer-login;pagina-de-login",
         "keyword": "Scenario",
         "line": 4,
-        "name": "Pagina de Cadastro",
+        "name": "Pagina de Login",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -22,7 +22,7 @@
             "name": "que nao estou autenticado",
             "result": {
               "status": "passed",
-              "duration": 52000000
+              "duration": 92000000
             }
           },
           {
@@ -32,17 +32,37 @@
             "name": "eu vou para a rota \"/\"",
             "result": {
               "status": "passed",
-              "duration": 153000000
+              "duration": 508000000
             }
           },
           {
             "arguments": [],
             "keyword": "Então ",
             "line": 7,
-            "name": "eu deveria ver o login",
+            "name": "eu deveria ver o campo \"Email\"",
             "result": {
               "status": "passed",
-              "duration": 9000000
+              "duration": 61000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 8,
+            "name": "eu deveria ver o campo \"Senha\"",
+            "result": {
+              "status": "passed",
+              "duration": 20000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "eu deveria ver o botão \"Login\"",
+            "result": {
+              "status": "passed",
+              "duration": 18000000
             }
           }
         ]

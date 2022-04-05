@@ -1,36 +1,42 @@
 {
   "name": "frontend",
-  "private": true,
   "version": "0.0.1",
+  "description": "Projeto CAMAAR",
+  "productName": "CAMAAR",
+  "author": "Caio Otavio Peluti Alencar <caio.alencar@icolabora.com>",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
-    "format": "prettier .  --write",
+    "dev": "quasar dev",
+    "build": "quasar build",
+    "lint": "eslint --ext .js,.vue ./",
+    "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test:e2e": "cypress open"
   },
   "dependencies": {
-    "@vuelidate/core": "^2.0.0-alpha.35",
-    "@vuelidate/validators": "^2.0.0-alpha.27",
-    "axios": "^0.26.1",
-    "pinia": "^2.0.12",
-    "vue": "^3.2.25",
-    "vue-router": "4",
-    "vue-toastification": "^2.0.0-rc.5"
+    "@quasar/extras": "^1.0.0",
+    "axios": "^0.21.1",
+    "pinia": "^2.0.11",
+    "quasar": "^2.6.0",
+    "vue": "^3.0.0",
+    "vue-i18n": "^9.0.0",
+    "vue-router": "^4.0.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^2.2.0",
-    "autoprefixer": "^10.4.4",
+    "@intlify/vite-plugin-vue-i18n": "^3.3.1",
+    "@quasar/app-vite": "^1.0.0-alpha.0",
+    "autoprefixer": "^10.4.2",
     "cypress": "^9.5.2",
     "cypress-cucumber-preprocessor": "^4.3.1",
-    "eslint": "^8.11.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^8.5.0",
-    "postcss": "^8.4.12",
-    "prettier": "^2.6.0",
-    "tailwindcss": "^3.0.23",
-    "vite": "^2.8.0"
+    "flush-promises": "^1.0.2",
+    "prettier": "^2.5.1"
+  },
+  "engines": {
+    "node": "^18 || ^16 || ^14.19",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
