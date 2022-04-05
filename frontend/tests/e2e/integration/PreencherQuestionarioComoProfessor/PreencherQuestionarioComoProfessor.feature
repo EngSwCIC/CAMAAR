@@ -12,4 +12,3 @@ Se tiver selecionado ao menos uma opção de metodologia avaliação
 E tiver selecionado ao menos uma opção de metodologia de aferição de frequência
 Quando ele clicar no botão "Finalizar Avaliação"
 Então Devem ser enviados os dados do formulário
- 
