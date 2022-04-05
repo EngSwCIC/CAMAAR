@@ -13,11 +13,12 @@ Quando ele clicar no botão "Finalizar Avaliação"
 Então Devem ser enviados os dados do formulário
 
 Cenário: Preencher questionário de avaliação com dados inválidos
-Dado que acesso tela de questionário de avaliação
-Quando eu selecionar a turma "BANCOS DE DADOS (GRADUAÇÃO) - Turma A - EDNA DIAS CANEDO"
-E selecionar "5" em todas as perguntas em escala numérica
-E marcar "Outro" para metodologia de avaliacao
-E confirmar
+Dado que o usuário está na tela de questionário de avaliação de turma
+E que ele selecionou uma turma
+Quando ele tiver terminado de selecionar todas as opções sobre o ensino da turma
+Se tiver selecionado ao menos uma opção para metodologia de avaliação
+Mas não tiver selecionado nenhuma opção para metodologia de avaliação de frequência
+Quando ele clicar no botão "Finalizar Avaliação"
 Então o sistema deve apresentar mensagem "Campos não preenchidos"
 
 Cenario: Tentar avaliar mais de três turmas
