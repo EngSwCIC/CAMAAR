@@ -3,7 +3,7 @@ Funcionalidade: Preencher questionário de avaliação como docente a fim de sub
 
 Contexto: Logado como professor
 
-Esquema do Cenário: Preencher questionário de avaliação com dados válidos
+Cenário: Preencher questionário de avaliação com dados válidos
 Dado que o usuário está na tela de preencher questionário de avaliação de turma
 E que ele selecionou uma turma
 Quando ele tiver terminado de selecionar todas as opções sobre o ensino da turma
