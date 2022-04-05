@@ -1,16 +1,23 @@
 {
   "name": "frontend",
   "version": "0.0.1",
-  "description": "Projeto CAMAAR",
-  "productName": "CAMAAR",
-  "author": "Caio Otavio Peluti Alencar <caio.alencar@icolabora.com>",
   "private": true,
+  "description": "Projeto CAMAAR",
+  "author": "Caio Otavio Peluti Alencar <caio.alencar@icolabora.com>",
   "scripts": {
-    "dev": "quasar dev",
     "build": "quasar build",
+    "test:unit": "jest --updateSnapshot",
+    "test:e2e": "cypress open",
     "lint": "eslint --ext .js,.vue ./",
+    "dev": "quasar dev",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
-    "test:e2e": "cypress open"
+    "test": "echo \"See package.json => scripts for available tests.\" && exit 0",
+    "test:unit:ci": "jest --ci",
+    "test:unit:coverage": "jest --coverage",
+    "test:unit:watch": "jest --watch",
+    "test:unit:watchAll": "jest --watchAll",
+    "serve:test:coverage": "quasar serve test/jest/coverage/lcov-report/ --port 8788",
+    "concurrently:dev:jest": "concurrently \"quasar dev\" \"jest --watch\""
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
@@ -23,20 +30,25 @@
   },
   "devDependencies": {
     "@intlify/vite-plugin-vue-i18n": "^3.3.1",
+    "@pinia/testing": "^0.0.11",
+    "@quasar/app": "^2.0.0",
     "@quasar/app-vite": "^1.0.0-alpha.0",
+    "@quasar/quasar-app-extension-testing": "^2.0.3",
+    "@quasar/quasar-app-extension-testing-unit-jest": "^3.0.0-alpha.10",
+    "@vue/cli-plugin-unit-jest": "~5.0.0",
+    "@vue/test-utils": "^2.0.0-0",
+    "@vue/vue3-jest": "^27.0.0-alpha.4",
     "autoprefixer": "^10.4.2",
+    "babel-jest": "^27.0.6",
     "cypress": "^9.5.2",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-jest": "^25.2.2",
     "eslint-plugin-vue": "^8.5.0",
     "flush-promises": "^1.0.2",
+    "jest": "^27.0.5",
     "prettier": "^2.5.1"
-  },
-  "engines": {
-    "node": "^18 || ^16 || ^14.19",
-    "npm": ">= 6.13.4",
-    "yarn": ">= 1.21.1"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
@@ -48,5 +60,11 @@
       "filePrefix": "",
       "fileSuffix": ".cucumber"
     }
-  }
+  },
+  "engines": {
+    "node": "^18 || ^16 || ^14.19",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  },
+  "productName": "CAMAAR"
 }

@@ -1,7 +1,7 @@
 <script setup>
   import { ref, reactive } from "vue";
-  import { credentialsStore } from "stores/credentials";
-  import {colors, useQuasar} from 'quasar'
+  import { credentialsStore } from "@/stores/credentials";
+  import {useQuasar} from 'quasar'
 
   const credentials = credentialsStore();
   const $q = useQuasar()
@@ -38,18 +38,18 @@
   <q-card class="rounded-border q-pa-xl hsize justify-center col-12 text-center">
     <h1 class="text-h3">Login</h1>
     <q-form ref="form" class="q-gutter-sm q-mt-xl row">
-      <q-input 
-        rounded 
-        outlined 
-        label="E-Mail" 
-        v-model="user.email" 
-        class="col-12" 
+      <q-input
+        rounded
+        outlined
+        label="E-Mail"
+        v-model="user.email"
+        class="col-12"
         :rules="[val => !!val || 'E-Mail Obrigatório']"
         data-test-email="email"
       ></q-input>
-      <q-input 
-        type="password" 
-        rounded 
+      <q-input
+        type="password"
+        rounded
         outlined
         label="Senha"
         v-model="user.password"
