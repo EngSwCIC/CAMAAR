@@ -1,41 +1,46 @@
-# CAMAAR (frontend)
+# Projeto do CAMAAR
 
-Projeto CAMAAR
+## Front-end do projeto CAMAAR feito com VueJS 💚
 
-## Install the dependencies
-```bash
+## Dependências
+- Node 16.13.0
+- Yarn
+## Desenvolvimento
+### ⚙️ Como Executar o Projeto
+
+Primeiramente devemos instalar todas as depedencias:
+
+```
 yarn
-# or
-npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
+Após isso basta rodar o script de dev:
+
 ```
-
-
-### Lint the files
-```bash
-yarn lint
-# or
-npm run lint
+yarn dev
 ```
 
 
-### Format the files
-```bash
-yarn format
-# or
-npm run format
-```
+> ⚠️ Lembre-se de inicializar o back-end quando for utilizar o front-end
 
+> O front-end espera que o back-end esteja rodando na porta 3030 do seu localhost
+### 🧪 Como executar testes
+- Testes Fim a Fim:
+  ```
+  yarn test:e2e
+  ```
+- Testes Unitarios:
+  ```
+  yarn test:unit
+  ```
 
+### Principais libs e frameworks utilizados
 
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+- [VueJS 3](https://vuejs.org/guide/introduction.html)
+- [Tailwind](https://tailwindcss.com/docs/utility-first)
+- [Vite](https://vitejs.dev/guide/)
+- [Cypress](https://docs.cypress.io/api/table-of-contents)
+- [Pinia](https://pinia.vuejs.org/core-concepts/)
+- [Axios](https://axios-http.com/ptbr/docs/intro)
+- [Vuelidate](https://vuelidate-next.netlify.app/)
+- [Toastification](https://github.com/Maronato/vue-toastification)
