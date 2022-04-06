@@ -45,3 +45,9 @@ yarn dev
 - [Jest](https://jestjs.io/pt-BR/docs/getting-started)
 - [Vue Test Utils](https://test-utils.vuejs.org/guide/)
 
+### Materiais para estudo
+- [(ENG) Basico de Vue](https://www.youtube.com/watch?v=qZXt1Aom3Cs)
+- [(PT-BR) Introdução rapida de Vue](https://youtu.be/YAaXl4mAVJw)
+- [(ENG) Pinia](https://www.youtube.com/watch?v=Ok6vO98RV_Q)
+- [(ENG) O que testar no Vue](https://www.youtube.com/watch?v=DT0p2EFTm9U)
+- [(ENG) Introdução a testes com jest para Vue](https://www.youtube.com/watch?v=Fbo4pttBZ9k)
