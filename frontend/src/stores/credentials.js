@@ -11,6 +11,7 @@ export const credentialsStore = defineStore("credentials", {
         // const { data } = await axios.post("/api/auth", user);
         // localStorage.setItem("token", data.token);
         localStorage.setItem("token", "Token temporario");
+        console.log('teste')
         return true;
       } catch (error) {
         console.error(error);

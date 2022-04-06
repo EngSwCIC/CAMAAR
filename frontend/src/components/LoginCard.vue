@@ -1,11 +1,12 @@
 <script setup>
   import { ref, reactive } from "vue";
+  import { useRouter } from 'vue-router'
   import { credentialsStore } from "@/stores/credentials";
   import {useQuasar} from 'quasar'
 
   const credentials = credentialsStore();
   const $q = useQuasar()
-
+  const router = useRouter()
   const { authenticate } = credentials;
 
   // data
@@ -21,7 +22,11 @@
     const isValid = await form.value.validate()
     if(isValid){
       try {
-        await authenticate(user);
+        const res = await authenticate(user);
+        if(res) {
+          console.log('res', router.name)
+          router.push({path: '/home'})
+        }
       } catch (e) {
         console.error(e);
           $q.notify({
@@ -42,8 +47,10 @@
         rounded
         outlined
         label="E-Mail"
+        type="email"
         v-model="user.email"
         class="col-12"
+        lazy-rules
         :rules="[val => !!val || 'E-Mail Obrigatório']"
         data-test-email="email"
       ></q-input>
@@ -54,7 +61,7 @@
         label="Senha"
         v-model="user.password"
         class="col-12"
-        :rules="[val => !!val || 'Senha Obrigatório']"
+        :rules="[val => !!val || 'Senha Obrigatória']"
         data-test-senha="senha"
       ></q-input>
       <q-btn
