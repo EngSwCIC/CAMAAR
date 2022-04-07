@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "Projeto CAMAAR",
-  "author": "Caio Otavio Peluti Alencar <caio.alencar@icolabora.com>",
+  "author": "Caio Otavio Peluti Alencar",
   "scripts": {
     "build": "quasar build",
     "test:unit": "jest --updateSnapshot",
