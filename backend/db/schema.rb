@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
     t.string "name", null: false
     t.string "registration", null: false
     t.string "user", null: false
-    t.string "ocupation", null: false
+    t.string "occupation", null: false
     t.string "degree", null: false
     t.string "course", null: false
     t.string "email", null: false
