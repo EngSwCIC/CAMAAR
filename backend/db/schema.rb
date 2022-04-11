@@ -18,7 +18,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
     t.integer "subject_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["code"], name: "index_cclasses_on_code", unique: true
     t.index ["subject_id"], name: "index_cclasses_on_subject_id"
   end
 

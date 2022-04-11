@@ -8,6 +8,5 @@ class CreateCclasses < ActiveRecord::Migration[7.0]
       t.references :subject, null: false, foreign_key: true
       t.timestamps
     end
-    add_index :cclasses, :code, unique: true
   end
 end
