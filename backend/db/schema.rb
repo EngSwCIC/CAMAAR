@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
   create_table "members", force: :cascade do |t|
     t.string "name", null: false
     t.string "registration", null: false
-    t.string "user", null: false
+    t.string "username", null: false
     t.string "occupation", null: false
     t.string "degree", null: false
     t.string "course", null: false
