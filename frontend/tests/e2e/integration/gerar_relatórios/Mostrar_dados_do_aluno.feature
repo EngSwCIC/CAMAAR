@@ -4,7 +4,7 @@
 Funcionalidade: Exibir dados do aluno
 Eu como aluno
 Quero visualizar os meus dados relacionados a uma turma na qual eu me matriculei
-A fim de avaliar o meu desempenho na turma selecionada
+A fim de ver os resultados dos questionários de avaliação respondidos na turma selecionada
 
   Contexto:
     Dado que eu esteja logado como aluno no CAMAAR
