@@ -17,3 +17,13 @@ Cenario: Um Aluno adiciona uma nova disciplina disponível em um questionário (
   Dado que o aluno possua disciplinas ainda não adicionadas
   Quando o aluno  clicar no botão "Adicionar Disciplina"
   Então deve ser gerado um novo formulário, na mesma tela, com as perguntas relacionadas a disciplina adicionada
+
+Cenario: Um Aluno deseja adicionar uma disciplina ao questionario, mas não está matriculado em nenhuma disciplina (triste)
+  Dado que o aluno não está matriculado em nenhuma disciplina
+  Quando ao tentar clicar no botão "Adicionar Disciplina"
+  Então ele deveria ver o botão "Adicionar Disciplina" desabilitado
+
+Cenario: Um Aluno deseja adicionar uma disciplina ao questionario e está matriculado em mais de uma disciplina (feliz)
+  Dado que o aluno está matriculado em mais de uma disciplina
+  Quando ao clicar no botão "Adicionar Disciplina"
+  Então ele deve ter um dropdown com todas as disciplinas que ele está matriculado como opções de escolha
