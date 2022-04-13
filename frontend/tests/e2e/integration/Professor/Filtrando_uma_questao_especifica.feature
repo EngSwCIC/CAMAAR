@@ -1,9 +1,13 @@
-Contexto: O usário está logado como professor
+#language: pt
 
 Funcionalidade: Filtrando uma questão específica.
     Como um professor
     Eu quero ver os dados de uma certa questão de uma avaliação
     Para que eu possa analisar a perfomance de minha turma.
+
+Contexto:
+    Dado que eu esteja logado como professor
+    E eu esteja na pagina de filtragem de questoes
 
 #CAMINHO FELIZ
 Cenário: Uma questão é escolhida com dados bons.
