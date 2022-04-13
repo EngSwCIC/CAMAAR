@@ -5,6 +5,10 @@ Funcionalidade: Gerar graficos para questao filtrada
     Eu quero gerar um grafico para uma questao filtrada
     A fim de visualizar as opinioes dos alunos sobre a questao
 
+Contexto:
+    Dado que eu esteja logado como professor
+    E eu esteja na pagina de filtragem de questoes
+
 # Caminho feliz
 Cenario: Gerar grafico
     Dado que eu esteja na pagina de filtragem de questoes
