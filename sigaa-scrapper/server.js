@@ -45,7 +45,6 @@ app.post("/participantes", async (req, res) => {
         if (condicional){
             let info = await getMembersInfo(page)
             info = {code: clasS.code,classCode: clasS.class.classCode,...info}
-            console.log(info)
             infos.push(info)
             await goBack(page)
         }
