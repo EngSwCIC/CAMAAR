@@ -14,8 +14,10 @@
     "@vuelidate/core": "^2.0.0-alpha.35",
     "@vuelidate/validators": "^2.0.0-alpha.27",
     "axios": "^0.26.1",
+    "chart.js": "^3.7.1",
     "pinia": "^2.0.12",
     "vue": "^3.2.25",
+    "vue-chartkick": "^1.1.0",
     "vue-router": "4",
     "vue-toastification": "^2.0.0-rc.5"
   },

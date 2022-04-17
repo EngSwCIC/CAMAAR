@@ -4,6 +4,7 @@ import { credentialsStore } from "@/store/credentials";
 
 import Login from "../views/Login.vue";
 import Home from "../views/Home.vue";
+import Professor from "../views/Professor.vue";
 
 const routes = [
   {
@@ -15,6 +16,11 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/professor",
+    name: "Professor",
+    component: Professor,
   },
 ];
 
