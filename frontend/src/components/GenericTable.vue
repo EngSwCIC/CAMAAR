@@ -1,28 +1,25 @@
 <template>
   <div class="outer" >
-    <q-table class="table" id="table" striped hover :rows=items :columns=fields></q-table>
+    <q-table id="table" :title="name" :rows="rows" :columns="fields" row-key="id" virtual-scroll/>
   </div>
 </template>
 
 <script>
   export default {
-    props: {
-        fields: {
-            type: Array,
-            required: true
-        },
 
-        items: {
-            type: Array,
-            required: true
-        },
+    props: {
+      name: {
+        type: String,
+      },
+      fields: {
+        type: Array,
+        required: true
+      },
+
+      rows: {
+        type: Array,
+        required: true
+      },
     }
   }
 </script>
-
-<style scoped >
-.table {}
-.outer {
-  margin: 35px;
-}
-</style>

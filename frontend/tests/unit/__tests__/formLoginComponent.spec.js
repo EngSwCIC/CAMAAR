@@ -8,6 +8,7 @@ import { createTestingPinia } from '@pinia/testing'
 installQuasarPlugin();
 
 const mockRouterPush = jest.fn();
+
 jest.mock('vue-router', () => ({
   useRouter: () => {
     return {
