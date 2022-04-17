@@ -1,6 +1,7 @@
 <script>
   import GenericTable from "src/components/GenericTable.vue"
   export default {
+    name: 'ImportPage',
     components: {
       GenericTable
     },
@@ -21,10 +22,10 @@
         ]
       }
     },
-    // async mounted() {
-    //   const resultado = await this.$axios.get("http://localhost:3030/turmas")
-    //   this.rows = resultado.data.rows
-    // }
+    async mounted() {
+      const resultado = await this.$axios.get("http://localhost:3030/turmas")
+      this.rows = resultado.data.rows
+    }
   }
 </script>
 

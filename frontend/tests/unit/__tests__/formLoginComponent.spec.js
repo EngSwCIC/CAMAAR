@@ -18,7 +18,7 @@ jest.mock('vue-router', () => ({
   },
 }));
 
-describe('Login Component', () => {
+describe('Login Component Tests', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });

@@ -11,10 +11,10 @@ const fields = [
   {name:'horario', align: 'center', label: 'Horário', field: 'horario'}
 ]
 const rows = [
-  { id: 1, nome: 'D', codigo: 'Dickerson', codigo_da_turma: 'Macdonald', semestre: '2020-1', horario: '2T' },
-  { id: 2, nome: 'E', codigo: 'Larsen', codigo_da_turma: 'Shaw', semestre: '2020-1', horario: '2T' },
-  { id: 3, nome: 'G', codigo: 'Geneva', codigo_da_turma: 'Wilson', semestre: '2020-1', horario: '2T' },
-  { id: 4, nome: 'T', codigo: 'Jami', codigo_da_turma: 'Carney', semestre: '2020-1', horario: '2T' }
+  { id: 1, nome: 'D', codigo: 'Dickerson', turma: 'Macdonald', semestre: '2020-1', horario: '2T' },
+  { id: 2, nome: 'E', codigo: 'Larsen', turma: 'Shaw', semestre: '2020-1', horario: '2T' },
+  { id: 3, nome: 'G', codigo: 'Geneva', turma: 'Wilson', semestre: '2020-1', horario: '2T' },
+  { id: 4, nome: 'T', codigo: 'Jami', turma: 'Carney', semestre: '2020-1', horario: '2T' }
 ] 
 // jest.mock('axios', () => ({
 //   get: () => {
@@ -23,7 +23,7 @@ const rows = [
 //     }
 //   },
 // }));
-describe('Registered Classes Component', () => {
+describe('Table of Registered Classes Tests', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });
