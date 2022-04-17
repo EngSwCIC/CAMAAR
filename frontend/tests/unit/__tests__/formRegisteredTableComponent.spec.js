@@ -1,47 +1,38 @@
 import Table from '../../../src/components/Table.vue'
 import { mount } from '@vue/test-utils';
 import { installQuasarPlugin } from '@quasar/quasar-app-extension-testing-unit-jest'
-import { createTestingPinia } from '@pinia/testing'
 
 installQuasarPlugin();
 
-jest.mock('vue-router', () => ({
-  useRouter: () => {
-    return { 
-      fields: ['nome', 'codigo', 'codigo_da_turma', 'semestre', 'horario'],
-      items: [
-        { nome: 'D', codigo: 'Dickerson', codigo_da_turma: 'Macdonald', semestre: '2020-1', horario: '2T' },
-        { nome: 'E', codigo: 'Larsen', codigo_da_turma: 'Shaw', semestre: '2020-1', horario: '2T' },
-        { nome: 'G', codigo: 'Geneva', codigo_da_turma: 'Wilson', semestre: '2020-1', horario: '2T' },
-        { nome: 'T', codigo: 'Jami', codigo_da_turma: 'Carney', semestre: '2020-1', horario: '2T' }] 
-    }
-  },
-}));
+const fields = ['nome', 'codigo', 'codigo_da_turma', 'semestre', 'horario']
+const items = [
+                { id: 1, nome: 'D', codigo: 'Dickerson', codigo_da_turma: 'Macdonald', semestre: '2020-1', horario: '2T' },
+                { id: 2, nome: 'E', codigo: 'Larsen', codigo_da_turma: 'Shaw', semestre: '2020-1', horario: '2T' },
+                { id: 3, nome: 'G', codigo: 'Geneva', codigo_da_turma: 'Wilson', semestre: '2020-1', horario: '2T' },
+                { id: 4, nome: 'T', codigo: 'Jami', codigo_da_turma: 'Carney', semestre: '2020-1', horario: '2T' }
+              ] 
 
 describe('Registered Classes Component', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });
+
   it('A tabela existe', () => {
-    const wrapper = mount(Table, {
-      global: {
-        // define uma store do pinia para testes
-        plugins: [createTestingPinia()],
-      },
+    const wrapper = mount(GenericTable, {
+      propsData: {fields: [], items: []}
     })
+    const table = wrapper.find('#table')
 
-    expect(wrapper).toContain('b-table')
+    expect(table.attributes())
   })
-  it('A tabela possui os cabeçalhos corretos', () => {
-    const wrapper = mount(Table, {
-      global: {
-        // define uma store do pinia para testes
-        plugins: [createTestingPinia()],
-      },
-    })
-    const table = wrapper.find('b-table')
-    table.find(':fields').setValue(fields)
 
-    expect(table.attributes()['fields']).toContain(fields)
+  it('A tabela possui os cabeçalhos corretos', () => {
+    const wrapper = mount(GenericTable, {
+      propsData: {fields, items}
+    })
+
+    const table = wrapper.find('#table')
+    console.log(table)
+    expect(table.attributes()['columns']).toContain(fields)
   })
 })
