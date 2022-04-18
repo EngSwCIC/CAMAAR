@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>homes</h1>
+    <h1>teste</h1>
   </div>
 </template>
 
