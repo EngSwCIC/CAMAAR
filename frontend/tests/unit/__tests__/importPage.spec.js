@@ -23,14 +23,6 @@ const $axios = {
   }
 }
 
-jest.mock('axios', () => ({
-  get: () => {
-    return {
-      registeredRows
-    }
-  },
-}));
-
 describe('Import Page Tests', () => {
   beforeEach(() => {
     jest.resetAllMocks();

@@ -10,19 +10,15 @@ const fields = [
   {name:'semestre', align: 'center', label: 'Semestre', field: 'semestre'}, 
   {name:'horario', align: 'center', label: 'Horário', field: 'horario'}
 ]
-const rows = [
+const rows1 = [
   { id: 1, nome: 'D', codigo: 'Dickerson', turma: 'Macdonald', semestre: '2020-1', horario: '2T' },
-  { id: 2, nome: 'E', codigo: 'Larsen', turma: 'Shaw', semestre: '2020-1', horario: '2T' },
-  { id: 3, nome: 'G', codigo: 'Geneva', turma: 'Wilson', semestre: '2020-1', horario: '2T' },
   { id: 4, nome: 'T', codigo: 'Jami', turma: 'Carney', semestre: '2020-1', horario: '2T' }
+]
+const rows2 = [
+  { id: 1, nome: 'D', codigo: 'Dickerson', turma: '', semestre: '2020-1', horario: '2T' },
+  { id: 4, nome: 'T', codigo: '', turma: 'Carney', semestre: '2020-1', horario: null }
 ] 
-// jest.mock('axios', () => ({
-//   get: () => {
-//     return {
-//       rows
-//     }
-//   },
-// }));
+
 describe('Table of Registered Classes Tests', () => {
   beforeEach(() => {
     jest.resetAllMocks();
@@ -39,7 +35,7 @@ describe('Table of Registered Classes Tests', () => {
 
   it('A tabela possui a quantidade certa de cabeçalhos', () => {
     const wrapper = mount(GenericTable, {
-      propsData: {fields: fields, rows: rows}
+      propsData: {fields: fields, rows: rows1}
     })
     const headers = wrapper.findAll('th')
     expect(headers.length).toBe(fields.length)
@@ -47,7 +43,7 @@ describe('Table of Registered Classes Tests', () => {
   
   it('A tabela possui os cabeçalhos corretos', () => {
     const wrapper = mount(GenericTable, {
-      propsData: {fields: fields, rows: rows}
+      propsData: {fields: fields, rows: rows1}
     })
     const headers = wrapper.findAll('th')
     let contador = 0
@@ -55,5 +51,17 @@ describe('Table of Registered Classes Tests', () => {
       expect(headers[contador].text()).toContain(field.label)
       contador++
     })
+  })
+
+  it('As células da tabela são válidas', () => {
+    const wrapper = mount(GenericTable, {
+      propsData: {fields: fields, rows: rows2}
+    })
+    const cells = wrapper.findAll('.q-virtual-scroll__content tr td')
+    // cells.forEach( cell => {
+      // expect(cell).not.toBeNull()
+      // console.log(cell.html())
+      // expect(cell.text()).not.toBe('')
+    // })
   })
 })
