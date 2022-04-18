@@ -17,6 +17,12 @@ const registeredFields = [
     {name:'horario', align: 'center', label: 'Horário', field: 'horario'}
   ]
 
+const $axios = {
+  get: (url) => {
+    return {data: {rows: registeredRows}}
+  }
+}
+
 jest.mock('axios', () => ({
   get: () => {
     return {
@@ -31,22 +37,39 @@ describe('Import Page Tests', () => {
   });
 
   it('A página existe', () => {
-    const wrapper = mount(ImportPage)
+    const wrapper = mount(ImportPage, {
+      global: {
+        mocks: {
+          $axios
+        }
+      }
+    })
     expect(wrapper).toBeTruthy()
   })
 
   it('A página possui título', () => {
-    const wrapper = mount(ImportPage)
-    const header = wrapper.find('Import Page')
-
-    expect(header.exists()).toBe(true)
+    const wrapper = mount(ImportPage, {
+      global: {
+        mocks: {
+          $axios
+        }
+      }
+    })
+    const header = wrapper.find('h1')
+    expect(header.text()).toContain('Import Page')
   })
   
   it('A página possui a tabela de turmas registradas', () => {
-    const wrapper = mount(ImportPage)
-    const table = wrapper.find('Turmas Registradas')
+    const wrapper = mount(ImportPage, {
+      global: {
+        mocks: {
+          $axios
+        }
+      }
+    })
+    const table = wrapper.find('.q-table__title')
 
-    expect(table.exists()).toBe(true)
+    expect(table.text()).toContain('Turmas Registradas')
 
     const headers = wrapper.findAll('th')
     let contador = 0
