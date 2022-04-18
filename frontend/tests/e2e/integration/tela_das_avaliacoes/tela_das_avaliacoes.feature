@@ -1,6 +1,7 @@
+#language: pt
 Funcionalidade: Visualizar avaliações de turmas que me matriculei ou desejo matricular
 Eu como aluno
-Quero visualizar qualquer uma das turmas do CIC 
+Quero visualizar qualquer uma das turmas do CIC
 A fim de poder escolher uma turma para analisar
 
 Contexto:
