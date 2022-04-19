@@ -4,10 +4,10 @@ import { installQuasarPlugin } from '@quasar/quasar-app-extension-testing-unit-j
 installQuasarPlugin();
 
 const fields = [
-  {name:'nome', align: 'center', label: 'Nome', field: 'nome'}, 
-  {name:'codigo', align: 'center', label: 'Código', field: 'codigo'}, 
-  {name:'turma', align: 'center', label: 'Turma', field: 'turma'}, 
-  {name:'semestre', align: 'center', label: 'Semestre', field: 'semestre'}, 
+  {name:'nome', align: 'center', label: 'Nome', field: 'nome'},
+  {name:'codigo', align: 'center', label: 'Código', field: 'codigo'},
+  {name:'turma', align: 'center', label: 'Turma', field: 'turma'},
+  {name:'semestre', align: 'center', label: 'Semestre', field: 'semestre'},
   {name:'horario', align: 'center', label: 'Horário', field: 'horario'}
 ]
 const rows1 = [
@@ -17,7 +17,7 @@ const rows1 = [
 const rows2 = [
   { id: 1, nome: 'D', codigo: 'Dickerson', turma: '', semestre: '2020-1', horario: '2T' },
   { id: 4, nome: 'T', codigo: '', turma: 'Carney', semestre: '2020-1', horario: null }
-] 
+]
 
 describe('Table of Registered Classes Tests', () => {
   beforeEach(() => {
@@ -33,6 +33,30 @@ describe('Table of Registered Classes Tests', () => {
     expect(table.exists()).toBe(true)
   })
 
+  it('A tabela possui o campo de busca', () => {
+    const wrapper = mount(GenericTable, {
+      propsData: {fields: [], rows: []}
+    })
+    const search = wrapper.find('#search')
+    expect(search.exists()).toBe(true)
+  })
+
+  it('Se digitar algo na busca, a tabela filtra os dados', async () => {
+    const valores = Object.values(rows1[1])
+    const wrapper = mount(GenericTable, {
+      propsData: {fields: fields, rows: rows1}
+    })
+    const searchInput = wrapper.find('#search')
+    searchInput.setValue('Jami')
+    await wrapper.vm.$nextTick()
+    const cells = wrapper.findAll('tbody td')
+    cells.forEach( cell => {
+      expect(cell).not.toBeNull()
+      expect(valores.includes(cell.text())).toBe(true)
+    })
+
+  })
+
   it('A tabela possui a quantidade certa de cabeçalhos', () => {
     const wrapper = mount(GenericTable, {
       propsData: {fields: fields, rows: rows1}
@@ -40,7 +64,7 @@ describe('Table of Registered Classes Tests', () => {
     const headers = wrapper.findAll('th')
     expect(headers.length).toBe(fields.length)
   })
-  
+
   it('A tabela possui os cabeçalhos corretos', () => {
     const wrapper = mount(GenericTable, {
       propsData: {fields: fields, rows: rows1}

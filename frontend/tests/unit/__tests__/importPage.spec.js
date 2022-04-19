@@ -10,10 +10,10 @@ const registeredRows = [
   { id: 4, nome: 'T', codigo: 'Jami', turma: 'Carney', semestre: '2020-1', horario: '2T' }
 ]
 const registeredFields = [
-    {name:'nome', align: 'center', label: 'Nome', field: 'nome'}, 
-    {name:'codigo', align: 'center', label: 'Código', field: 'codigo'}, 
-    {name:'turma', align: 'center', label: 'Turma', field: 'turma'}, 
-    {name:'semestre', align: 'center', label: 'Semestre', field: 'semestre'}, 
+    {name:'nome', align: 'center', label: 'Nome', field: 'nome'},
+    {name:'codigo', align: 'center', label: 'Código', field: 'codigo'},
+    {name:'turma', align: 'center', label: 'Turma', field: 'turma'},
+    {name:'semestre', align: 'center', label: 'Semestre', field: 'semestre'},
     {name:'horario', align: 'center', label: 'Horário', field: 'horario'}
   ]
 
@@ -50,7 +50,7 @@ describe('Import Page Tests', () => {
     const header = wrapper.find('h1')
     expect(header.text()).toContain('Import Page')
   })
-  
+
   it('A página possui a tabela de turmas registradas', () => {
     const wrapper = mount(ImportPage, {
       global: {
@@ -71,3 +71,4 @@ describe('Import Page Tests', () => {
     })
   })
 })
+

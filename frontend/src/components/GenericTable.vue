@@ -1,19 +1,40 @@
 <template>
   <div class="outer" >
-    <q-table 
-      id="table" 
-      :title="name" 
-      :rows="treatedRows" 
-      :columns="fields" 
+    <q-table
+      id="table"
+      :title="name"
+      :rows="treatedRows"
+      :columns="fields"
+      :filter="filter"
       class="col-12"
-      row-key="id" 
-      />
+      row-key="id"
+    >
+      <template v-slot:top-right>
+        <q-input
+          borderless
+          dense
+          for="search"
+          debounce="300"
+          v-model="filter"
+          placeholder="Filtrar resultado">
+          <template v-slot:append>
+            <q-icon name="search"/>
+          </template>
+        </q-input>
+      </template>
+    </q-table>
   </div>
 </template>
 
 <script>
   export default {
-    
+
+    data(){
+      return {
+        filter: null,
+      }
+    },
+
     computed: {
       treatedRows: function () {
         return this.rows.map(row => {
@@ -27,7 +48,7 @@
     },
 
     props: {
-      
+
       name: {
         type: String,
       },
