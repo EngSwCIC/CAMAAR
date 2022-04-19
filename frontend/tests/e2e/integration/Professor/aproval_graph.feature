@@ -5,6 +5,10 @@ Funcionalidade: Gráfico de aprovacão da classe
     Junto aos dados de quantidade de alunos por menção obtida
     Para que eu possa analisar a performance da turma
 
+Contexto:
+    Dado que eu esteja logado como professor
+    E eu esteja na pagina de filtragem de questoes
+
 #HAPPY PATH
 Cenário: O gráfico é gerado com sucesso
     Dado que os dados requisitados foram encontrados
