@@ -3,6 +3,10 @@ Funcionalidade: Gerar arquivo .CSV
     Eu quero poder gerar um arquivo .csv
     Para que eu possa utilizar esses dados em outra plataforma
 
+Contexto:
+    Dado que eu esteja logado como professor
+    E eu esteja na pagina de filtragem de questoes
+
 #HAPPY PATH
 Cenário: O gráfico é gerado com sucesso
     Dado que os dados requisitados foram encontrados
