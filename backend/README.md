@@ -29,6 +29,18 @@ JWT_SECRET_KEY: <chave-gerada>
 ```
 > Também é possível definir a JWT_SECRET_KEY como uma variavel de ambiente
 
+Execute o seguinte comando para aplicar as migrations ao banco de dados:
+
+```
+rake db:migrate
+```
+
+E para preencher o banco com dados iniciais extraídos do SIGAA, execute:
+
+```
+rails db:seed
+```
+
 Após isso basta iniciar a aplicação
 
 ```
@@ -54,19 +66,14 @@ Authorization: Bearer <Token-Valido>
 ```
 
 As rotas do back-end podem receber requisições https através do navegador ou 
-de ferramentas como:
+de clientes http como:
 - [Postman](https://insomnia.rest/)
 - [Insomina](https://insomnia.rest/download)
   
-### 🧪 Como executar testes
+### 🧪 Como executar testes com RSpec
 
-- Testes:
   ```
-  rails test
-  ```
-- Testes de Sistema:
-  ```
-  rails test:system
+  rspec ./spec/models/exemple_spec.rb
   ```
 
 ### Principais libs e frameworks utilizados
@@ -75,3 +82,4 @@ de ferramentas como:
 - [devise](https://github.com/heartcombo/devise)
 - [devise-jwt](https://github.com/waiting-for-dev/devise-jwt)
 - [SQLite](https://www.sqlite.org/index.html)
+- [RSpec](https://rspec.info/)
