@@ -8,6 +8,7 @@ import { createTestingPinia } from '@pinia/testing'
 installQuasarPlugin();
 
 const mockRouterPush = jest.fn();
+
 jest.mock('vue-router', () => ({
   useRouter: () => {
     return {
@@ -17,7 +18,7 @@ jest.mock('vue-router', () => ({
   },
 }));
 
-describe('Login Component', () => {
+describe('Login Component Tests', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });

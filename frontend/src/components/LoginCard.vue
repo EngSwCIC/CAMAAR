@@ -24,7 +24,6 @@
       try {
         const res = await authenticate(user);
         if(res) {
-          console.log('res', router.name)
           router.push({path: '/home'})
         }
       } catch (e) {
