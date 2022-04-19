@@ -1,7 +1,12 @@
+#language: pt
 Funcionalidade: Filtrando uma questão específica.
     Como um professor
     Eu quero ver os dados de uma certa questão de uma avaliação
     Para que eu possa analisar a perfomance de minha turma.
+
+Contexto:
+    Dado que eu esteja logado como professor
+    E eu esteja na pagina de filtragem de questoes
 
 #CAMINHO FELIZ
 Cenário: Uma questão é escolhida com dados bons.
@@ -17,7 +22,7 @@ Cenário: A questão escolhida não existe.
     Quando o professor escolher essa questão
     E nenhum dado for encontrados
     Então uma mensagem de alerta deve ser mostrada na tela do professor
-    E os resultados da filtragem ão serão mostrados em sua tela.
+    E os resultados da filtragem não serão mostrados em sua tela.
 
 #CAMINHO TRISTE
 Cenário: Os dados foram corrompidos.
