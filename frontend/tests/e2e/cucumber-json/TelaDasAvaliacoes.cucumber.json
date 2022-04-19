@@ -23,7 +23,7 @@
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
               "status": "passed",
-              "duration": 2775000000
+              "duration": 2235000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "eu estou na página de relatório do aluno",
             "result": {
               "status": "passed",
-              "duration": 115000000
+              "duration": 127000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "que nenhuma turma está cadastrada no sistema",
             "result": {
               "status": "undefined",
-              "duration": 37000000
+              "duration": 63000000
             }
           },
           {
@@ -81,7 +81,7 @@
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
               "status": "passed",
-              "duration": 2550000000
+              "duration": 2287000000
             }
           },
           {
@@ -91,7 +91,7 @@
             "name": "eu estou na página de relatório do aluno",
             "result": {
               "status": "passed",
-              "duration": 173000000
+              "duration": 143000000
             }
           },
           {
@@ -101,7 +101,7 @@
             "name": "que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR",
             "result": {
               "status": "passed",
-              "duration": 44000000
+              "duration": 56000000
             }
           },
           {
@@ -110,8 +110,8 @@
             "line": 19,
             "name": "eu clicar na disciplina 'CIC0105'",
             "result": {
-              "status": "failed",
-              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'CIC0105' but never did.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:45960:6)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:15627:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:14948:35)"
+              "status": "passed",
+              "duration": 397000000
             }
           },
           {
@@ -120,7 +120,7 @@
             "line": 20,
             "name": "eu deveria ver a turma 'A' e o nome do(a) professor(a) da disciplina 'CIC0105'",
             "result": {
-              "status": "skipped"
+              "status": "undefined"
             }
           }
         ]
@@ -140,7 +140,7 @@
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
               "status": "passed",
-              "duration": 2226000000
+              "duration": 2936000000
             }
           },
           {
@@ -150,7 +150,7 @@
             "name": "eu estou na página de relatório do aluno",
             "result": {
               "status": "passed",
-              "duration": 147000000
+              "duration": 237000000
             }
           },
           {
@@ -160,7 +160,7 @@
             "name": "que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR",
             "result": {
               "status": "passed",
-              "duration": 38000000
+              "duration": 63000000
             }
           },
           {
@@ -169,8 +169,8 @@
             "line": 24,
             "name": "eu clicar na disciplina 'CIC0105'",
             "result": {
-              "status": "failed",
-              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'CIC0105' but never did.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:45960:6)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:15627:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:14948:35)"
+              "status": "passed",
+              "duration": 356000000
             }
           },
           {
@@ -179,7 +179,7 @@
             "line": 25,
             "name": "eu clicar na turma 'A' da disciplina 'CIC0105'",
             "result": {
-              "status": "skipped"
+              "status": "undefined"
             }
           },
           {

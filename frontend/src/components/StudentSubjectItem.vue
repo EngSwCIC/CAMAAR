@@ -3,7 +3,7 @@
     <q-list bordered class="rounded-borders">
       <q-expansion-item
         expand-separator
-        label="CICXXXX — SUBJECT"
+        :label="subject.code + ' — ' + subject.name"
       >
         <q-card>
           <q-card-section>
@@ -18,5 +18,10 @@
 </template>
 
 <script setup>
-</script>
+  const props = defineProps({
+  subject: {
+    required: true
+  }
+})
 
+</script>
