@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>subjects:</h1>
+  <div fullscreen>
+    <h3>Avaliações dos alunos</h3>
     <!-- passar as disciplinas para o componente filho e mostrar na tela -->
     <StudentSubjectItem v-for="(subject, idx) in subjects" v-bind:key="idx" :subject="subject" />
   </div>
@@ -24,3 +24,13 @@
   })
 
 </script>
+
+<style>
+  h3 {
+    padding: 0;
+    font-size: 2.5em;
+    font-weight: 500;
+    margin: 64px;
+    margin-bottom: 32px;
+  }
+</style>
