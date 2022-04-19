@@ -30,7 +30,7 @@
 </script>
 
 <template>
-<div class="bg-secondary fullscreen column items-center text-center justify-center">
+<div class="bg-secondary fullscreen column items-center text-center justify-center row">
   <h1>Import Page</h1>
   <GenericTable name="Turmas Registradas"  :rows="rows" :fields="fields" />
 </div>

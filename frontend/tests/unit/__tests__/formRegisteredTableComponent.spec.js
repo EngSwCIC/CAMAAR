@@ -57,11 +57,10 @@ describe('Table of Registered Classes Tests', () => {
     const wrapper = mount(GenericTable, {
       propsData: {fields: fields, rows: rows2}
     })
-    const cells = wrapper.findAll('.q-virtual-scroll__content tr td')
-    // cells.forEach( cell => {
-      // expect(cell).not.toBeNull()
-      // console.log(cell.html())
-      // expect(cell.text()).not.toBe('')
-    // })
+    const cells = wrapper.findAll('td')
+    cells.forEach( cell => {
+      expect(cell).not.toBeNull()
+      expect(cell.text()).not.toBe('')
+    })
   })
 })
