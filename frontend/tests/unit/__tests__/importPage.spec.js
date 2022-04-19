@@ -59,16 +59,28 @@ describe('Import Page Tests', () => {
         }
       }
     })
-    const table = wrapper.find('.q-table__title')
+    const table = wrapper.find('#cadastrados .q-table__title')
 
     expect(table.text()).toContain('Turmas Registradas')
 
-    const headers = wrapper.findAll('th')
+    const headers = wrapper.findAll('#cadastrados th')
     let contador = 0
     registeredFields.forEach( field => {
       expect(headers[contador].text()).toContain(field.label)
       contador++
     })
   })
+  it('A pagina possui o botão de busca de turmas', ()=> {
+    const wrapper = mount(ImportPage, {
+      global: {
+        mocks: {
+          $axios
+        }
+      }
+    })
+    const button = wrapper.find('#searchButton')
+    expect(button.exists()).toBe(true)
+  })
+
 })
 
