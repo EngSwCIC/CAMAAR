@@ -1,10 +1,10 @@
-Feature: Gerar arquivo .pdf
+Funcionalidade: Gerar arquivo .pdf
     Como um professor
     Eu quero poder gerar um arquivo .pdf
     Para que eu possa visualizar esses dados offline
 
 #HAPPY PATH
-Scenario: O pdf é gerado com sucesso
+Cenário: O pdf é gerado com sucesso
     Dado que os dados requisitados foram encontrados
     E os dados estão formatados corretamente
     Quando o professor escolhe uma turma específica
@@ -13,7 +13,7 @@ Scenario: O pdf é gerado com sucesso
     E o arquivo .pdf é baixado do navegador.
 
 #SAD PATH
-Scenario: A turma não existe
+Cenário: A turma não existe
 
     Dado que não existem dados sobre a turma em questão
     Quando o professor escolhe a turma
@@ -23,7 +23,7 @@ Scenario: A turma não existe
     E nenhum arquivo é baixado.
 
 #SAD PATH
-Scenario: Os dados estão corrompidos ou mal formatados
+Cenário: Os dados estão corrompidos ou mal formatados
     Dado que os dados estão fora do formato padrão
     Quando o professor escolhe a turma
     E os dados não encaixam no padrão
