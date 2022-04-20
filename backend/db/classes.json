@@ -9,6 +9,15 @@
         }
     },
     {
+        "code": "CIC0097",
+        "name": "BANCOS DE DADOS",
+        "class": {
+            "classCode": "TB",
+            "semester": "2021.2",
+            "time": "35N12"
+        }
+    },
+    {
         "code": "CIC0105",
         "name": "ENGENHARIA DE SOFTWARE",
         "class": {
