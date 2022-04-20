@@ -5,16 +5,16 @@ RSpec.describe "Subjects", type: :request do
     load "#{Rails.root}/db/seeds.rb" 
   end
 
-  describe "GET /index" do
+  describe "GET /" do
     it "returns http success" do
-      get "/subjects/index"
+      get "/subjects"
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /show/:id" do
+  describe "GET /:id" do
     it "returns http success" do
-      get "/subjects/show/1"
+      get "/subjects/1"
       expect(response).to have_http_status(:success)
     end
   end

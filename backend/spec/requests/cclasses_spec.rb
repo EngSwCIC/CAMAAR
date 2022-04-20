@@ -5,16 +5,16 @@ RSpec.describe "Cclasses", type: :request do
     load "#{Rails.root}/db/seeds.rb" 
   end
 
-  describe "GET /index" do
+  describe "GET /" do
     it "returns http success" do
-      get "/cclasses/index"
+      get "/cclasses"
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /show/:id" do
+  describe "GET /:id" do
     it "returns http success" do
-      get "/cclasses/show/1"
+      get "/cclasses/1"
       expect(response).to have_http_status(:success)
     end
   end
