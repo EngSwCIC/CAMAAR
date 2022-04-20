@@ -4,7 +4,7 @@
     <!-- passar as disciplinas para o componente filho e mostrar na tela -->
     <StudentSubjectItem v-for="(subject, idx) in subjects" v-bind:key="idx"
       :subject="subject"
-      :classes="getClasses(subject)" />
+      :subject_classes="getClasses(subject)" />
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-md" style="margin-inline: 64px; padding: 0;">
-    <!-- lista com dropdown (pode ser expandida) -->
+    <!-- lista com dropdown (que pode ser expandida) -->
     <q-list bordered class="rounded-borders" style="width: 100%; margin: 0; background: #eee">
       <q-expansion-item
         expand-separator
@@ -8,8 +8,8 @@
       >
         <q-card class="cursor-pointer q-hoverable" style="background: #ccddee; font-size: 0.95em;">
           <!-- TODO: listar as turmas dessa disciplina -->
-          <q-card-section v-for="(cclass, idx) in classes" v-bind:key="idx">
-            {{formatClassCode(cclass.code)}} — {{getTeacherFromClass(cclass.id)}} —  {{cclass.time}}
+          <q-card-section v-for="(cclass, idx) in subject_classes" v-bind:key="idx">
+            {{formatClassCode(cclass.code)}} — {{teachers[idx]}} —  {{cclass.time}}
           </q-card-section>
         </q-card>
       </q-expansion-item>
@@ -19,13 +19,15 @@
 
 <script setup>
   import axios from 'axios'
-  import { ref } from 'vue'
+  import { ref, onUpdated } from 'vue'
+  import { defineProps, reactive } from "vue";
 
   const props = defineProps({
     subject: {  // disciplina
       required: true
     },
-    classes: {  // turmas da disciplina
+    subject_classes: {  // turmas da disciplina
+      type: Array,
       required: true
     },
   })
@@ -34,23 +36,34 @@
     return 'Turma ' + code[1]
   }
 
-  const teacher = ref({})
+  const teachers = reactive([])
 
-  const getTeacherFromClass = (class_id) => {
-    axios.get(`http://localhost:3030/cclasses/${class_id}/members`)
-      .then(resp => {
-        let members = resp.data
-        teacher.value = members.find(member => member['occupation'] == 'docente')
-      })
-      .catch(err => {
-        alert(err)
-        console.error(err);
-      });
+  onUpdated(async () => {
+    console.log("Mount")
+    const getTeacherFromClass = async (class_id) => {
+      console.log("request teacher")
+      let teacher;
+      await axios.get(`http://localhost:3030/cclasses/${class_id}/members`)
+        .then(resp => {
+          let members = resp.data
+          teacher = members.find(member => member['occupation'] == 'docente')
+        })
+        .catch(err => {
+          alert(err)
+          console.error(err);
+        });
 
-    if (teacher.value)
-      return teacher.value['name']
-    return 'A Definir'
-  }
+      if (teacher)
+        return teacher['name']
+      return 'A Definir'
+    }
+
+    for (let i = 0; i < props.subject_classes.length; i++) {
+      teachers[i] = await getTeacherFromClass(props.subject_classes[i].id)
+    }
+
+    console.log(teachers)
+  })
 
 </script>
 
