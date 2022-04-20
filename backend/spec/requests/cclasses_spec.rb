@@ -23,7 +23,7 @@ RSpec.describe "Cclasses", type: :request do
     it "returns members list" do
       get "/cclasses/1/members"
       response_body = JSON.parse(response.body)
-      expect(response_body.last['name']).to equal('MARISTELA TERTO DE HOLANDA')
+      expect(response_body[44]['name']).to eq('MARISTELA TERTO DE HOLANDA')
     end
   end
 
