@@ -17,7 +17,8 @@ Cenario: Não há nenhuma turma registrada para a disciplina (triste)
 Cenario: Visualiza turma cadastrada no CAMAAR (feliz)
   Dado que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR
   Quando eu clicar na disciplina 'CIC0105'
-  Então eu deveria ver a turma 'A' e o nome do(a) professor(a) da disciplina 'CIC0105'
+  Então eu deveria ver a turma 'A'
+  # E eu deveria ver nome do(a) professor(a) da disciplina 'CIC0105' da turma 'A'
 
 Cenario: Visualiza dados da turma cadastrada no CAMAAR (feliz)
   Dado que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR

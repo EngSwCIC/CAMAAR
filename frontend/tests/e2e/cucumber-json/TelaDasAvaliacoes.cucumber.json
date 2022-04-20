@@ -23,7 +23,7 @@
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
               "status": "passed",
-              "duration": 2235000000
+              "duration": 4299000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "eu estou na página de relatório do aluno",
             "result": {
               "status": "passed",
-              "duration": 127000000
+              "duration": 209000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "que nenhuma turma está cadastrada no sistema",
             "result": {
               "status": "undefined",
-              "duration": 63000000
+              "duration": 92000000
             }
           },
           {
@@ -81,7 +81,7 @@
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
               "status": "passed",
-              "duration": 2287000000
+              "duration": 3486000000
             }
           },
           {
@@ -91,7 +91,7 @@
             "name": "eu estou na página de relatório do aluno",
             "result": {
               "status": "passed",
-              "duration": 143000000
+              "duration": 189000000
             }
           },
           {
@@ -101,7 +101,7 @@
             "name": "que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR",
             "result": {
               "status": "passed",
-              "duration": 56000000
+              "duration": 97000000
             }
           },
           {
@@ -111,16 +111,17 @@
             "name": "eu clicar na disciplina 'CIC0105'",
             "result": {
               "status": "passed",
-              "duration": 397000000
+              "duration": 515000000
             }
           },
           {
             "arguments": [],
             "keyword": "Então ",
             "line": 20,
-            "name": "eu deveria ver a turma 'A' e o nome do(a) professor(a) da disciplina 'CIC0105'",
+            "name": "eu deveria ver a turma 'A'",
             "result": {
-              "status": "undefined"
+              "status": "passed",
+              "duration": 89000000
             }
           }
         ]
@@ -128,7 +129,7 @@
       {
         "id": "visualizar-avaliações-de-turmas-que-me-matriculei-ou-desejo-matricular;visualiza-dados-da-turma-cadastrada-no-camaar-(feliz)",
         "keyword": "Scenario",
-        "line": 22,
+        "line": 23,
         "name": "Visualiza dados da turma cadastrada no CAMAAR (feliz)",
         "tags": [],
         "type": "scenario",
@@ -140,7 +141,7 @@
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
               "status": "passed",
-              "duration": 2936000000
+              "duration": 2760000000
             }
           },
           {
@@ -150,33 +151,33 @@
             "name": "eu estou na página de relatório do aluno",
             "result": {
               "status": "passed",
-              "duration": 237000000
+              "duration": 213000000
             }
           },
           {
             "arguments": [],
             "keyword": "Dado ",
-            "line": 23,
+            "line": 24,
             "name": "que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR",
             "result": {
               "status": "passed",
-              "duration": 63000000
+              "duration": 81000000
             }
           },
           {
             "arguments": [],
             "keyword": "Quando ",
-            "line": 24,
+            "line": 25,
             "name": "eu clicar na disciplina 'CIC0105'",
             "result": {
               "status": "passed",
-              "duration": 356000000
+              "duration": 545000000
             }
           },
           {
             "arguments": [],
             "keyword": "E ",
-            "line": 25,
+            "line": 26,
             "name": "eu clicar na turma 'A' da disciplina 'CIC0105'",
             "result": {
               "status": "undefined"
@@ -185,7 +186,7 @@
           {
             "arguments": [],
             "keyword": "Então ",
-            "line": 26,
+            "line": 27,
             "name": "eu deveria ver os dados da turma 'A'",
             "result": {
               "status": "skipped"

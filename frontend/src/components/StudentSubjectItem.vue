@@ -6,10 +6,10 @@
         expand-separator
         :label="subject.code + ' — ' + subject.name"
       >
-        <q-card style="background: #ccddee;">
+        <q-card class="cursor-pointer q-hoverable" style="background: #ccddee; font-size: 0.95em;">
           <!-- TODO: listar as turmas dessa disciplina -->
-          <q-card-section>
-            TURMA A — NOME DO PROFESSOR — HORÁRIO
+          <q-card-section v-for="(cclass, idx) in classes" v-bind:key="idx">
+            {{formatClassCode(cclass.code)}} — {{getTeacherFromClass(cclass.id)}} —  {{cclass.time}}
           </q-card-section>
         </q-card>
       </q-expansion-item>
@@ -18,11 +18,39 @@
 </template>
 
 <script setup>
+  import axios from 'axios'
+  import { ref } from 'vue'
+
   const props = defineProps({
-  subject: {
-    required: true
+    subject: {  // disciplina
+      required: true
+    },
+    classes: {  // turmas da disciplina
+      required: true
+    },
+  })
+
+  const formatClassCode = (code) => {
+    return 'Turma ' + code[1]
   }
-})
+
+  const teacher = ref({})
+
+  const getTeacherFromClass = (class_id) => {
+    axios.get(`http://localhost:3030/cclasses/${class_id}/members`)
+      .then(resp => {
+        let members = resp.data
+        teacher.value = members.find(member => member['occupation'] == 'docente')
+      })
+      .catch(err => {
+        alert(err)
+        console.error(err);
+      });
+
+    if (teacher.value)
+      return teacher.value['name']
+    return 'A Definir'
+  }
 
 </script>
 
