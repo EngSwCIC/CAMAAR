@@ -25,7 +25,7 @@
       }
     },
     async mounted() {
-      const resultado = await this.$axios.get("http://localhost:3030/turmas")
+      const resultado = await this.$axios.get("http://localhost:3000/turmasCadastradas")
       this.rows = resultado.data.rows
     }
   }

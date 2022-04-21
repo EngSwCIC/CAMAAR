@@ -1,7 +1,7 @@
 <template>
   <q-card class="q-mb-xl row justify-center q-pa-md">
     <h3 class="col-12">Importar</h3>
-    <q-btn id="searchButton" label="Buscar Turmas" @click="search" color="secondary"/>
+    <q-btn :loading="load" id="searchButton" label="Buscar Turmas" @click="search" color="secondary"/>
     <GenericTable
       name="Importar Turmas"
       select="multiple"
@@ -19,6 +19,7 @@ export default {
   },
   data() {
     return {
+      load: false,
       rows: [],
       fields: [
         {name:'nome', align: 'center', label: 'Nome', field: 'nome'},
@@ -31,8 +32,28 @@ export default {
   },
   methods: {
     async search () {
-      const resultado = await this.$axios.get("http://localhost:3030/turmas")
-      this.rows = resultado.data.rows
+      this.load = true
+      try{
+
+        let {data: resultado} = await this.$axios.get("http://localhost:3000/turmas")
+        resultado = resultado.classes.map(turma=> {
+          return {
+            nome: turma.name,
+            codigo: turma.code,
+            turma: turma.class.classCode,
+            semestre: turma.class.semester,
+            horario: turma.class.time
+          }
+        })
+        this.rows = resultado
+
+      } catch (e) {
+        this.$q.notify({
+          color: "negative",
+          message: "Erro ao buscar turmas"
+        })
+      }
+      this.load = false
     }
   },
 }

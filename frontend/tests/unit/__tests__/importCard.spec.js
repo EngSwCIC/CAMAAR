@@ -59,11 +59,11 @@ describe('Import Page Tests', () => {
         }
       }
     })
-    const table = wrapper.find('#table .q-table__title')
+    const table = wrapper.find('#tableSelect .q-table__title')
 
     expect(table.text()).toContain('Importar Turmas')
 
-    const headers = wrapper.findAll('#table th')
+    const headers = wrapper.findAll('#tableSelect th')
     // Contador começa no 1 por causa da checkbox nos headers
     let contador = 1
     registeredFields.forEach( field => {
@@ -93,7 +93,7 @@ describe('Import Page Tests', () => {
     })
     await wrapper.find('#searchButton').trigger('click')
     await wrapper.vm.$nextTick()
-    const cells = wrapper.findAll('#table td')
+    const cells = wrapper.findAll('#tableSelect td')
     let contador = 0
     let contadorCells = 0
     cells.forEach( cell => {
