@@ -142,23 +142,55 @@ const rows = [
   }
 ]
 
+const rowsAverage = [
+  {
+    average: 'Média Unidade',
+    question1: 1,
+    question2: 2,
+    question3: 3,
+    question4: 4,
+    question5: 5,
+    question6: 3,
+    question7: 2,
+    question8: 4,
+    question9: 1,
+    question10: 2,
+    question11: 5,
+    question12: 3,
+    question13: 4,
+    question14: 1
+  },
+  {
+    average: 'Média Turma',
+    question1: 1,
+    question2: 2,
+    question3: 3,
+    question4: 4,
+    question5: 5,
+    question6: 3,
+    question7: 2,
+    question8: 4,
+    question9: 1,
+    question10: 2,
+    question11: 5,
+    question12: 3,
+    question13: 4,
+    question14: 1
+  }
+]
+
 describe('StudentClass', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = mount(StudentClass, {
       propsData: {
-        id: 1,
-        rows
+        rows,
+        rowsAverage
       }
     })
   })
 
-  it('renders-table', () => {
-    expect(wrapper.classes('q-pa-md')).toBe(true)
-  });
-
-
-  it('renders-table-correct-value', () => {
+  it('renders-tables-correct-values', () => {
     let $rows = wrapper.findAll('tbody > tr')
 
     let column1 = $rows.map(row => {
@@ -168,11 +200,13 @@ describe('StudentClass', () => {
         .text()
     })
 
-    expect(column1[0]).toBe('Maria')
-    expect(column1[1]).toBe('Duda')
-    expect(column1[2]).toBe('Cleude')
-    expect(column1[3]).toBe('Jertrudes')
-    expect(column1[4]).toBe('Lubas')
+    expect(column1[0]).toBe('Média Unidade')
+    expect(column1[1]).toBe('Média Turma')
+    expect(column1[2]).toBe('Maria')
+    expect(column1[3]).toBe('Duda')
+    expect(column1[4]).toBe('Cleude')
+    expect(column1[5]).toBe('Jertrudes')
+    expect(column1[6]).toBe('Lubas')
   });
 
 })
