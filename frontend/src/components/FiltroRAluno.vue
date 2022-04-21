@@ -26,37 +26,43 @@ const filter = async (filterArg) => {
 
 <template>
   <div class="row">
-    <q-card
-      class="rounded-border q-pa-xl hsize justify-center col-12 text-center"
-    >
-      <h1 class="text-h3">Pesquisa/Filtro</h1>
-      <q-form ref="form" class="q-gutter-sm q-mt-xl row">
-        <q-input
-          rounded
-          outlined
-          label="pesquisa"
-          type="pesquisa"
-          v-model="filterArg"
-        ></q-input>
-        <q-btn
-          rounded
-          color="secondary"
-          class="col-12"
-          size="lg"
-          @click="filter(filterArg)"
-          data-test-button-filtro="filtro"
-          >Filtro</q-btn
-        >
-      </q-form>
-    </q-card>
+    <q-form ref="form" class="q-gutter-sm q-mt-xl row">
+      <q-input
+        rounded
+        outlined
+        label="pesquisa"
+        type="pesquisa"
+        v-model="filterArg"
+      ></q-input>
+      <q-btn
+        rounded
+        color="secondary"
+        class="col-12"
+        size="lg"
+        @click="filter(filterArg)"
+        data-test-button-filtro="filtro"
+        >Filtro</q-btn
+      >
+    </q-form>
   </div>
 </template>
 
 <style scoped>
-.hsize {
-  height: 500px;
-}
-.rounded-border {
-  border-radius: 25px;
-}
+  .q-form {
+    width: 100%;
+    margin: 0 64px 24px 64px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .q-input {
+    width: 85%;
+    margin: 0;
+  }
+
+  .q-btn {
+    width: 100px;
+    margin: 0;
+  }
 </style>

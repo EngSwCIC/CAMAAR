@@ -2,6 +2,7 @@
   <div fullscreen>
     <h3>Avaliações dos alunos</h3>
     <!-- passar as disciplinas para o componente filho e mostrar na tela -->
+    <FiltroRAluno/>
     <StudentSubjectItem v-for="(subject, idx) in subjects" v-bind:key="idx"
       :subject="subject"
       :subject_classes="getClasses(subject)" />
@@ -9,6 +10,7 @@
 </template>
 
 <script setup>
+  import FiltroRAluno from 'src/components/FiltroRAluno.vue'
   import StudentSubjectItem from 'src/components/StudentSubjectItem.vue'
   import { ref, onMounted } from 'vue';
   import axios from "axios";
