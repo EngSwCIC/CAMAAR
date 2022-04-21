@@ -1,9 +1,14 @@
+#language: pt
 Funcionalidade: Gerar arquivo .pdf
     Como um professor
     Eu quero poder gerar um arquivo .pdf
     Para que eu possa visualizar esses dados offline
 
-#HAPPY PATH
+Contexto:
+    Dado que eu esteja logado como professor
+    E eu esteja na página de geração de PDF
+
+#CAMINHO FELIZ
 Cenário: O pdf é gerado com sucesso
     Dado que os dados requisitados foram encontrados
     E os dados estão formatados corretamente
@@ -12,9 +17,8 @@ Cenário: O pdf é gerado com sucesso
     E os gráficos são impressos num arquivo .pdf
     E o arquivo .pdf é baixado do navegador.
 
-#SAD PATH
+#CAMINHO TRISTE
 Cenário: A turma não existe
-
     Dado que não existem dados sobre a turma em questão
     Quando o professor escolhe a turma
     E os dados não são encontrados
@@ -22,7 +26,7 @@ Cenário: A turma não existe
     E nenhum arquivo é gerado
     E nenhum arquivo é baixado.
 
-#SAD PATH
+#CAMINHO TRISTE
 Cenário: Os dados estão corrompidos ou mal formatados
     Dado que os dados estão fora do formato padrão
     Quando o professor escolhe a turma
