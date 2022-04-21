@@ -1,5 +1,7 @@
 import LoginPage from '../pages/LoginPage.vue'
 import HomePage from  '../pages/HomePage.vue'
+import ImportPage from '../pages/ImportPage.vue'
+
 const routes = [
   {
     path: '/',
@@ -10,6 +12,11 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: HomePage,
+  },
+  {
+    path: '/import',
+    name: 'Import',
+    component: ImportPage,
   },
 
   // Always leave this as last one,
