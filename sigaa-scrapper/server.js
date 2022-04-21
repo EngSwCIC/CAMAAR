@@ -1,7 +1,7 @@
 const express = require('express')
 const puppeteer = require('puppeteer')
 require('dotenv').config()
-const {login, getClassesIds, clickMateria, getMateriaInfo, goBack, getMembersInfo} = require('./index.js')
+const {login, getClassesIds, clickMateria, clickEleicao, getMateriaInfo, goBack, getMembersInfo} = require('./index.js')
 
 // SERVER CONFIGS
 const PORT = process.env.PORT
@@ -10,7 +10,7 @@ app.use(express.json())
 
 // ROUTES
 app.post("/turmas", async (req, res) => {
-    const browser = await puppeteer.launch({ headless: true })
+    const browser = await puppeteer.launch({ headless: true, executablePath: '/usr/bin/google-chrome-stable' })
 	const page = await browser.newPage()
 	await login(page, process.env.USUARIO, process.env.PASSWORD)
     const selectors = await getClassesIds(page)
@@ -27,7 +27,7 @@ app.post("/turmas", async (req, res) => {
 })
 
 app.post("/participantes", async (req, res) => {
-    const browser = await puppeteer.launch({ headless: true })
+    const browser = await puppeteer.launch({ headless: true, executablePath: '/usr/bin/google-chrome-stable' })
 	const page = await browser.newPage()
 	await login(page, process.env.USUARIO, process.env.PASSWORD)
     const selectors = await getClassesIds(page)
