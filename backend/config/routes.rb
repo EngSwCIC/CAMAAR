@@ -5,8 +5,12 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   get '/template', to:'template#show'
+  post '/import/turmas', to:'scrapper#index'
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  get '/turmas', to: 'scrapper#show'
 end

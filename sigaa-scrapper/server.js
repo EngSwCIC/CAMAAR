@@ -10,10 +10,9 @@ app.use(express.json())
 
 // ROUTES
 app.post("/turmas", async (req, res) => {
-    const browser = await puppeteer.launch({ headless: true })
+    const browser = await puppeteer.launch({ headless: true, executablePath: '/usr/bin/google-chrome-stable' })
 	const page = await browser.newPage()
 	await login(page, process.env.USUARIO, process.env.PASSWORD)
-    await clickEleicao(page)
     const selectors = await getClassesIds(page)
     let infos = []
     console.log("Getting classes' info")
@@ -28,10 +27,9 @@ app.post("/turmas", async (req, res) => {
 })
 
 app.post("/participantes", async (req, res) => {
-    const browser = await puppeteer.launch({ headless: true })
+    const browser = await puppeteer.launch({ headless: true, executablePath: '/usr/bin/google-chrome-stable' })
 	const page = await browser.newPage()
 	await login(page, process.env.USUARIO, process.env.PASSWORD)
-    await clickEleicao(page)
     const selectors = await getClassesIds(page)
     let infos = []
     console.log("Getting members' info")
