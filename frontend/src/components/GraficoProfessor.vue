@@ -13,7 +13,7 @@ export default {
         async fetchData() {
             this.dados = null
             const res = await fetch(`https://canvasjs.com/services/data/datapoints.php?length=5&type=json`)
-            //const res = await fetch(`https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=1&length=5&type=json`)
+            // const res = await fetch(`https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=1&length=5&type=json`)
             this.dados = await res.json()
             this.um = this.dados[0][1]
             this.dois = this.dados[1][1]
@@ -26,7 +26,7 @@ export default {
         this.fetchData()
     },
         
-    name: "Professor",
+    name: "ProfessorComponent",
     components: {},
   
 };
@@ -34,6 +34,7 @@ export default {
 
 <template>
     <center>
+        <br><br><br><br>
         <div style="width:40%; height: 40%;">
             {{dados}}
             <column-chart :data="[['&#128560;', um], ['&#128577;', dois], ['&#129300;', tres], ['&#128578;', quatro], ['&#128516;', cinco]]" ytitle="Num. Alunos" ></column-chart>
