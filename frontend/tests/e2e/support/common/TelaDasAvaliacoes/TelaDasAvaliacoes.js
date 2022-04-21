@@ -39,7 +39,7 @@ Given("que eu esteja logado como aluno no CAMAAR", () => {
 })
 
 And("eu estou na página de relatório do aluno", () => {
-  cy.visit("/#/student");
+  cy.visit("/#/student-subjects");
 })
 
 Given("que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR", () => {

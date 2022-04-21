@@ -39,9 +39,7 @@
   const teachers = reactive([])
 
   onUpdated(async () => {
-    console.log("Mount")
     const getTeacherFromClass = async (class_id) => {
-      console.log("request teacher")
       let teacher;
       await axios.get(`http://localhost:3030/cclasses/${class_id}/members`)
         .then(resp => {
@@ -61,8 +59,6 @@
     for (let i = 0; i < props.subject_classes.length; i++) {
       teachers[i] = await getTeacherFromClass(props.subject_classes[i].id)
     }
-
-    console.log(teachers)
   })
 
 </script>

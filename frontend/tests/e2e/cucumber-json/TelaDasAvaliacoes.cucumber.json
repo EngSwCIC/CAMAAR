@@ -23,7 +23,7 @@
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
               "status": "passed",
-              "duration": 4299000000
+              "duration": 6117000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "eu estou na página de relatório do aluno",
             "result": {
               "status": "passed",
-              "duration": 209000000
+              "duration": 174000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "que nenhuma turma está cadastrada no sistema",
             "result": {
               "status": "undefined",
-              "duration": 92000000
+              "duration": 62000000
             }
           },
           {
@@ -81,7 +81,7 @@
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
               "status": "passed",
-              "duration": 3486000000
+              "duration": 3349000000
             }
           },
           {
@@ -91,7 +91,7 @@
             "name": "eu estou na página de relatório do aluno",
             "result": {
               "status": "passed",
-              "duration": 189000000
+              "duration": 137000000
             }
           },
           {
@@ -100,8 +100,8 @@
             "line": 18,
             "name": "que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR",
             "result": {
-              "status": "passed",
-              "duration": 97000000
+              "status": "failed",
+              "error_message": "AssertionError: expected undefined to not equal undefined\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:45986:10)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:15627:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:14948:35)"
             }
           },
           {
@@ -110,8 +110,7 @@
             "line": 19,
             "name": "eu clicar na disciplina 'CIC0105'",
             "result": {
-              "status": "passed",
-              "duration": 515000000
+              "status": "skipped"
             }
           },
           {
@@ -120,8 +119,7 @@
             "line": 20,
             "name": "eu deveria ver a turma 'A'",
             "result": {
-              "status": "passed",
-              "duration": 89000000
+              "status": "skipped"
             }
           }
         ]
@@ -141,7 +139,7 @@
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
               "status": "passed",
-              "duration": 2760000000
+              "duration": 2757000000
             }
           },
           {
@@ -151,7 +149,7 @@
             "name": "eu estou na página de relatório do aluno",
             "result": {
               "status": "passed",
-              "duration": 213000000
+              "duration": 128000000
             }
           },
           {
@@ -160,8 +158,8 @@
             "line": 24,
             "name": "que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR",
             "result": {
-              "status": "passed",
-              "duration": 81000000
+              "status": "failed",
+              "error_message": "AssertionError: expected undefined to not equal undefined\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:45986:10)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:15627:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:14948:35)"
             }
           },
           {
@@ -170,8 +168,7 @@
             "line": 25,
             "name": "eu clicar na disciplina 'CIC0105'",
             "result": {
-              "status": "passed",
-              "duration": 545000000
+              "status": "skipped"
             }
           },
           {
@@ -180,7 +177,7 @@
             "line": 26,
             "name": "eu clicar na turma 'A' da disciplina 'CIC0105'",
             "result": {
-              "status": "undefined"
+              "status": "skipped"
             }
           },
           {

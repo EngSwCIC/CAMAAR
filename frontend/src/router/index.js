@@ -14,7 +14,6 @@ import { credentialsStore } from "@/stores/credentials"
  */
 
 export default route(function (/* { store, ssrContext } */) {
-  console.log("hello")
   const createHistory = process.env.SERVER
     ? createMemoryHistory
     : (process.env.VUE_ROUTER_MODE === 'history' ? createWebHistory : createWebHashHistory)
@@ -32,7 +31,6 @@ export default route(function (/* { store, ssrContext } */) {
   Router.beforeEach(async (to) => {
     const credentials = credentialsStore();
     const isAuthenticated = await credentials.isAuthenticated();
-    console.log(isAuthenticated);
     if (!isAuthenticated && to.name !== "Login") {
       return { name: "Login" };
     }
