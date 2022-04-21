@@ -1,9 +1,11 @@
 <script>
-  import GenericTable from "src/components/GenericTable.vue"
+  import ImportCard from "src/components/ImportCard.vue"
+  import ViewClassesCard from "src/components/viewClassesCard.vue"
   export default {
     name: 'ImportPage',
     components: {
-      GenericTable
+      ImportCard,
+      ViewClassesCard
     },
     data() {
       return {
@@ -14,10 +16,10 @@
           { id: 4, nome: 'T', codigo: null, turma: 'Carney', semestre: '2020-1', horario: '' }
         ],
         fields: [
-          {name:'nome', align: 'center', label: 'Nome', field: 'nome'}, 
-          {name:'codigo', align: 'center', label: 'Código', field: 'codigo'}, 
-          {name:'turma', align: 'center', label: 'Turma', field: 'turma'}, 
-          {name:'semestre', align: 'center', label: 'Semestre', field: 'semestre'}, 
+          {name:'nome', align: 'center', label: 'Nome', field: 'nome'},
+          {name:'codigo', align: 'center', label: 'Código', field: 'codigo'},
+          {name:'turma', align: 'center', label: 'Turma', field: 'turma'},
+          {name:'semestre', align: 'center', label: 'Semestre', field: 'semestre'},
           {name:'horario', align: 'center', label: 'Horário', field: 'horario'}
         ]
       }
@@ -30,9 +32,11 @@
 </script>
 
 <template>
-<div class="bg-secondary fullscreen column items-center text-center justify-center row">
-  <h1>Import Page</h1>
-  <GenericTable name="Turmas Registradas"  :rows="rows" :fields="fields" />
+<div class="bg-secondary items-center text-center justify-center row">
+  <h1 class="col-12">Import Page</h1>
+  <ImportCard class="col-8" select="multiple" />
+  <ViewClassesCard class="col-8"/>
+
 </div>
 </template>
 

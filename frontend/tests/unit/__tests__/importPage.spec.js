@@ -10,10 +10,10 @@ const registeredRows = [
   { id: 4, nome: 'T', codigo: 'Jami', turma: 'Carney', semestre: '2020-1', horario: '2T' }
 ]
 const registeredFields = [
-    {name:'nome', align: 'center', label: 'Nome', field: 'nome'}, 
-    {name:'codigo', align: 'center', label: 'Código', field: 'codigo'}, 
-    {name:'turma', align: 'center', label: 'Turma', field: 'turma'}, 
-    {name:'semestre', align: 'center', label: 'Semestre', field: 'semestre'}, 
+    {name:'nome', align: 'center', label: 'Nome', field: 'nome'},
+    {name:'codigo', align: 'center', label: 'Código', field: 'codigo'},
+    {name:'turma', align: 'center', label: 'Turma', field: 'turma'},
+    {name:'semestre', align: 'center', label: 'Semestre', field: 'semestre'},
     {name:'horario', align: 'center', label: 'Horário', field: 'horario'}
   ]
 
@@ -50,7 +50,7 @@ describe('Import Page Tests', () => {
     const header = wrapper.find('h1')
     expect(header.text()).toContain('Import Page')
   })
-  
+
   it('A página possui a tabela de turmas registradas', () => {
     const wrapper = mount(ImportPage, {
       global: {
@@ -59,15 +59,28 @@ describe('Import Page Tests', () => {
         }
       }
     })
-    const table = wrapper.find('.q-table__title')
+    const table = wrapper.find('#cadastrados .q-table__title')
 
     expect(table.text()).toContain('Turmas Registradas')
 
-    const headers = wrapper.findAll('th')
+    const headers = wrapper.findAll('#cadastrados th')
     let contador = 0
     registeredFields.forEach( field => {
       expect(headers[contador].text()).toContain(field.label)
       contador++
     })
   })
+  it('A pagina possui o botão de busca de turmas', ()=> {
+    const wrapper = mount(ImportPage, {
+      global: {
+        mocks: {
+          $axios
+        }
+      }
+    })
+    const button = wrapper.find('#searchButton')
+    expect(button.exists()).toBe(true)
+  })
+
 })
+

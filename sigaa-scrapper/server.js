@@ -1,7 +1,7 @@
 const express = require('express')
 const puppeteer = require('puppeteer')
 require('dotenv').config()
-const {login, getClassesIds, clickMateria, getMateriaInfo, goBack, getMembersInfo} = require('./index.js')
+const {login, getClassesIds, clickMateria, clickEleicao, getMateriaInfo, goBack, getMembersInfo} = require('./index.js')
 
 // SERVER CONFIGS
 const PORT = process.env.PORT
@@ -13,6 +13,7 @@ app.post("/turmas", async (req, res) => {
     const browser = await puppeteer.launch({ headless: true })
 	const page = await browser.newPage()
 	await login(page, process.env.USUARIO, process.env.PASSWORD)
+    await clickEleicao(page)
     const selectors = await getClassesIds(page)
     let infos = []
     console.log("Getting classes' info")
@@ -30,6 +31,7 @@ app.post("/participantes", async (req, res) => {
     const browser = await puppeteer.launch({ headless: true })
 	const page = await browser.newPage()
 	await login(page, process.env.USUARIO, process.env.PASSWORD)
+    await clickEleicao(page)
     const selectors = await getClassesIds(page)
     let infos = []
     console.log("Getting members' info")
