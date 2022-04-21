@@ -13,7 +13,7 @@ const routes = [
     component: HomePage,
   },
   {
-    path: '/student/',
+    path: '/student-subjects/',
     name: 'List',
     component: StudentEvaluationsReport,
   },

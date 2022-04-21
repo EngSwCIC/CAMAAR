@@ -2,7 +2,9 @@
   <div fullscreen>
     <h3>Avaliações dos alunos</h3>
     <!-- passar as disciplinas para o componente filho e mostrar na tela -->
-    <StudentSubjectItem v-for="(subject, idx) in subjects" v-bind:key="idx" :subject="subject" />
+    <StudentSubjectItem v-for="(subject, idx) in subjects" v-bind:key="idx"
+      :subject="subject"
+      :subject_classes="getClasses(subject)" />
   </div>
 </template>
 
@@ -11,17 +13,31 @@
   import { ref, onMounted } from 'vue';
   import axios from "axios";
 
-  // obter lista de disciplinas do backend
-  const subjects = ref(["a"])
+  const subjects = ref([])
+  const classes = ref([])
   onMounted(async () => {
-    await axios.get("http://localhost:3030/subjects/index")
+    // obter lista de disciplinas do backend
+    await axios.get("http://localhost:3030/subjects")
       .then(resp => {
         subjects.value = resp.data
       })
       .catch(err => {
           console.error(err);
       });
+
+    // obter lista de todas as turmas
+    await axios.get("http://localhost:3030/cclasses")
+      .then(resp => {
+        classes.value = resp.data
+      })
+      .catch(err => {
+          console.error(err);
+      });
   })
+
+  // retorna as turmas da disciplina
+  const getClasses = (subject) => classes.value.filter(cclass => cclass.subject_id === subject.id)
+
 
 </script>
 
