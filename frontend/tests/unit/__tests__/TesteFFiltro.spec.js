@@ -1,4 +1,4 @@
-import LoginCard from '../../../src/App.vue'
+import StudentFiltro from 'frontend/src/pages/StudentFiltro.vue'
 import { mount } from '@vue/test-utils';
 import { installQuasarPlugin } from '@quasar/quasar-app-extension-testing-unit-jest'
 import { createTestingPinia } from '@pinia/testing'
@@ -26,11 +26,11 @@ describe('Filtro Component', () => {
         plugins: [createTestingPinia()],
       },
     })
-    const filtro = wrapper.find('[data-test-filtro]')
-    const pesquisa = wrapper.find('[data-test-button-pesquisa]')
+    const pesquisa = wrapper.find('[data-test-pesquisa]')
+    const filtro = wrapper.find('[data-test-button-filtro]')
     
-    expect(filtro.attributes()['aria-label']).toContain('filtro')
-    expect(button.text()).toContain('Pesquisa')
+    expect(pesquisa.attributes()['aria-label']).toContain('pesquisa')
+    expect(button.text()).toContain('filtro')
   })    
   it('Mostrar o resultado da pesquisa com o filtro aplicado', async () => {
     const wrapper = mount(LoginCard, {
@@ -41,10 +41,10 @@ describe('Filtro Component', () => {
         })],
       },
     })
-    wrapper.find('[data-test-filtro]')
+    wrapper.find('[data-test-pesquisa]')
     // Espera o nextTick para ter o tempo de validar a rule após o evento de change
     await wrapper.vm.$nextTick()
-    const button = wrapper.find('[data-test-button-pesquisa]')
+    const button = wrapper.find('[data-test-button-filtro]')
     await button.trigger('click')
     await wrapper.vm.$nextTick()
     expect(mockRouterPush).toHaveBeenCalledTimes(1)

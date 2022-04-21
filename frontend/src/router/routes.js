@@ -1,6 +1,6 @@
 import LoginPage from '../pages/LoginPage.vue'
 import HomePage from  '../pages/HomePage.vue'
-import StudentEvaluationsReport from '../pages/StudentEvaluationsReport.vue'
+import StudentFiltro from '../pages/StudentFiltro.vue'
 const routes = [
   {
     path: '/',
@@ -15,7 +15,7 @@ const routes = [
   {
     path: '/student-subjects/',
     name: 'List',
-    component: StudentEvaluationsReport,
+    component: StudentFiltro,
   },
 
   // Always leave this as last one,
