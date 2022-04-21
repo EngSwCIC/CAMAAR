@@ -1,13 +1,14 @@
+#language: pt
 Funcionalidade: Gerar relatório
-Eu como aluno 
-Quero gerar um relatório PDF a partir da pesquisa realizada 
+Eu como aluno
+Quero gerar um relatório PDF a partir da pesquisa realizada
 A fim de ter as informações salvas em um arquivo
 
 Contexto:
   Dado que eu esteja logado como aluno no CAMAAR
   E eu esteja na página de relatório do aluno
   E que exista um botão "Gerar PDF"
-  
+
 Cenario: Um Aluno tenta gerar um relatório no sistema do CAMAAR, mas a pesquisa não retorna dados (triste)
   Dado que a pesquisa não corresponde a nenhuma turma
   Quando eu clicar no botão "Gerar PDF"

@@ -1,0 +1,198 @@
+[
+  {
+    "description": "Eu como aluno\nQuero visualizar qualquer uma das turmas do CIC\nA fim de poder escolher uma turma para analisar",
+    "keyword": "Funcionalidade",
+    "name": "Visualizar avaliações de turmas que me matriculei ou desejo matricular",
+    "line": 2,
+    "id": "visualizar-avaliações-de-turmas-que-me-matriculei-ou-desejo-matricular",
+    "tags": [],
+    "uri": "TelaDasAvaliacoes.feature",
+    "elements": [
+      {
+        "id": "visualizar-avaliações-de-turmas-que-me-matriculei-ou-desejo-matricular;não-há-nenhuma-turma-registrada-para-a-disciplina-(triste)",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Não há nenhuma turma registrada para a disciplina (triste)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que eu esteja logado como aluno no CAMAAR",
+            "result": {
+              "status": "passed",
+              "duration": 2235000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "eu estou na página de relatório do aluno",
+            "result": {
+              "status": "passed",
+              "duration": 127000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 12,
+            "name": "que nenhuma turma está cadastrada no sistema",
+            "result": {
+              "status": "undefined",
+              "duration": 63000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 13,
+            "name": "eu clicar na disciplina 'CIC0105'",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 14,
+            "name": "eu deveria ver uma mensagem na tela dizendo \"Nenhuma turma cadastrada\"",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "visualizar-avaliações-de-turmas-que-me-matriculei-ou-desejo-matricular;visualiza-turma-cadastrada-no-camaar-(feliz)",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "Visualiza turma cadastrada no CAMAAR (feliz)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que eu esteja logado como aluno no CAMAAR",
+            "result": {
+              "status": "passed",
+              "duration": 2287000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "eu estou na página de relatório do aluno",
+            "result": {
+              "status": "passed",
+              "duration": 143000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 18,
+            "name": "que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR",
+            "result": {
+              "status": "passed",
+              "duration": 56000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 19,
+            "name": "eu clicar na disciplina 'CIC0105'",
+            "result": {
+              "status": "passed",
+              "duration": 397000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 20,
+            "name": "eu deveria ver a turma 'A' e o nome do(a) professor(a) da disciplina 'CIC0105'",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      },
+      {
+        "id": "visualizar-avaliações-de-turmas-que-me-matriculei-ou-desejo-matricular;visualiza-dados-da-turma-cadastrada-no-camaar-(feliz)",
+        "keyword": "Scenario",
+        "line": 22,
+        "name": "Visualiza dados da turma cadastrada no CAMAAR (feliz)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que eu esteja logado como aluno no CAMAAR",
+            "result": {
+              "status": "passed",
+              "duration": 2936000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "eu estou na página de relatório do aluno",
+            "result": {
+              "status": "passed",
+              "duration": 237000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 23,
+            "name": "que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR",
+            "result": {
+              "status": "passed",
+              "duration": 63000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 24,
+            "name": "eu clicar na disciplina 'CIC0105'",
+            "result": {
+              "status": "passed",
+              "duration": 356000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 25,
+            "name": "eu clicar na turma 'A' da disciplina 'CIC0105'",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 26,
+            "name": "eu deveria ver os dados da turma 'A'",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
