@@ -398,13 +398,23 @@
                 "email": "wilxavier@me.com"
             }
         ],
-        "docente": {
-            "nome": "MARISTELA TERTO DE HOLANDA",
-            "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO",
-            "formacao": "DOUTORADO",
-            "usuario": "83807519491",
-            "email": "mholanda@unb.br",
-            "ocupacao": "docente"
-        }
+        "docente": [
+            {
+                "nome": "MARISTELA TERTO DE HOLANDA",
+                "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO",
+                "formacao": "DOUTORADO",
+                "usuario": "83807519491",
+                "email": "mholanda@unb.br",
+                "ocupacao": "docente"
+            },
+            {
+                "nome": "GENAINA NUNES RODRIGUES",
+                "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO",
+                "formacao": "DOUTORADO",
+                "usuario": "78334926120",
+                "email": "genaina@unb.br",
+                "ocupacao": "docente"
+            }
+        ]
     }
 ]

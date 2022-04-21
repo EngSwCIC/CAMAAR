@@ -1,5 +1,6 @@
 import LoginPage from '../pages/LoginPage.vue'
 import HomePage from  '../pages/HomePage.vue'
+import StudentClass from  '../pages/StudentClass.vue'
 const routes = [
   {
     path: '/',
@@ -10,6 +11,11 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: HomePage,
+  },
+  {
+    path: '/student/:id',
+    name: 'StudentClass',
+    component: StudentClass,
   },
 
   // Always leave this as last one,
