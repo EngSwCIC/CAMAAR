@@ -11,7 +11,11 @@ file = File.read('./db/classes.json')
 classes_data = JSON.parse(file)
 
 for data in classes_data do
-  subject = Subject.create!(code: data['code'], name: data['name'])
+  if (!Subject.exists?(code: data['code'], name: data['name']))
+    subject = Subject.create!(code: data['code'], name: data['name'])
+  else
+    subject = Subject.find_by(code: data['code'])
+  end
   class_info = data['class']
   Cclass.create!(code: class_info['classCode'], semester: class_info['semester'], time: class_info['time'], subject: subject)
 end
@@ -21,19 +25,28 @@ class_members_data = JSON.parse(file)
 data = class_members_data[0]
 discentes = data['dicente']
 
-cclass = Cclass.all.first
+cclass_1 = Cclass.all.first
+cclass_3 = Cclass.all.find(3)
 
+# adiciona todos os discentes na primeira turma
 for discente in discentes do
   member = Member.create(name: discente['nome'], course: discente['curso'],
   registration: discente['matricula'], username: discente['usuario'],
   degree: discente['formacao'], occupation: discente['ocupacao'],
   email: discente['email'])
-  Enrollment.create(member: member, cclass: cclass)
+  Enrollment.create(member: member, cclass: cclass_1)
 end
 
-docente = data['docente']
-member = Member.create(name: docente['nome'], course: docente['departamento'],
-  registration: docente['usuario'], username: docente['usuario'],
-  degree: docente['formacao'], occupation: docente['ocupacao'],
-  email: docente['email'])
-Enrollment.create(member: member, cclass: cclass)
+docente_1 = data['docente'][0]
+member_1 = Member.create(name: docente_1['nome'], course: docente_1['departamento'],
+  registration: docente_1['usuario'], username: docente_1['usuario'],
+  degree: docente_1['formacao'], occupation: docente_1['ocupacao'],
+  email: docente_1['email'])
+Enrollment.create(member: member_1, cclass: cclass_1)
+
+docente_2 = data['docente'][1]
+member_2 = Member.create(name: docente_2['nome'], course: docente_2['departamento'],
+  registration: docente_2['usuario'], username: docente_2['usuario'],
+  degree: docente_2['formacao'], occupation: docente_2['ocupacao'],
+  email: docente_2['email'])
+Enrollment.create(member: member_2, cclass: cclass_3)

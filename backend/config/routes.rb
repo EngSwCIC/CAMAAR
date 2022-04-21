@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'subjects/index'
-  get 'subjects/show'
   devise_for :user, :path => '/auth', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" },
   controllers: {
     sessions: 'users/sessions',
@@ -11,7 +9,18 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get 'cclasses/index'
-  get 'cclasses/show'
+
+  # classes
+  get '/cclasses', to:'cclasses#index'
+  get '/cclasses/:id', to:'cclasses#show'
+  get '/cclasses/:id/members', to:'members#index'
+
+  # subjects
+  get '/subjects', to:'subjects#index'
+  get '/subjects/:id', to:'subjects#show'
+
+  # members
+  get '/members', to:'members#index'
+  get '/members/:id', to:'members#show'
 
 end
