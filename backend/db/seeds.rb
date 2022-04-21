@@ -50,7 +50,11 @@ member_2 = Member.create(name: docente_2['nome'], course: docente_2['departament
   degree: docente_2['formacao'], occupation: docente_2['ocupacao'],
   email: docente_2['email'])
 <<<<<<< HEAD
+<<<<<<< HEAD
 Enrollment.create(member: member_2, cclass: cclass_3)
 =======
 Enrollment.create(member: member_2, cclass: cclass_3)
 >>>>>>> 2b4fb93 (#10 Funcionalidade Filtro)
+=======
+Enrollment.create(member: member_2, cclass: cclass_3)
+>>>>>>> c31e4f68c33b3901fdd4da1280d904ef0d2e01a0
