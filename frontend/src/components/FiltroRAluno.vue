@@ -1,27 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import axios from "axios";
-const filterArg = "";
-// methods
-const filter = async (filterArg) => {
-  const subjects = ref(["a"]);
-  await axios
-    .get("http://localhost:3030/subjects/")
-    .then((resp) => {
-      subjects.value = resp.data;
-      //Faz o filtro pelo nome e código da disciplina
-     subjects.value.filter(
-        (value) =>
-          value.name.toLowerCase().indexOf(filterArg.toLowerCase()) !== -1
-          ||
-           value.code.toLowerCase().indexOf(filterArg.toLowerCase()) !== -1
-      )
-      filterArg = "";
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-};
+var filterArg = "";
 </script>
 
 <template>
@@ -39,7 +17,7 @@ const filter = async (filterArg) => {
         color="secondary"
         class="col-12"
         size="lg"
-        @click="filter(filterArg)"
+        @click="$emit('filterEvent', filterArg, filterArg = '')"
         data-test-button-filtro="filtro"
         >Filtro</q-btn
       >
@@ -48,21 +26,21 @@ const filter = async (filterArg) => {
 </template>
 
 <style scoped>
-  .q-form {
-    width: 100%;
-    margin: 0 64px 24px 64px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+.q-form {
+  width: 100%;
+  margin: 0 64px 24px 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
-  .q-input {
-    width: 85%;
-    margin: 0;
-  }
+.q-input {
+  width: 85%;
+  margin: 0;
+}
 
-  .q-btn {
-    width: 100px;
-    margin: 0;
-  }
+.q-btn {
+  width: 100px;
+  margin: 0;
+}
 </style>
