@@ -9,7 +9,7 @@
     "test:unit": "jest --updateSnapshot",
     "test:e2e": "cypress open",
     "lint": "eslint --ext .js,.vue ./",
-    "dev": "quasar dev",
+    "dev": "npx quasar dev",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"See package.json => scripts for available tests.\" && exit 0",
     "test:unit:ci": "jest --ci",

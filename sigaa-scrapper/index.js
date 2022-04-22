@@ -14,6 +14,11 @@ async function login(page, USER, PASSWORD){
 	await page.$eval(passwordSelector, (el, PASSWORD) => {el.value = PASSWORD}, PASSWORD)
 	await page.click(buttonSelector)
 }
+async function clickEleicao(page){
+	const eleicaoSelector = '#j_id_jsp_933481798_1 > div > input[type=submit]'
+	await page.waitForSelector(eleicaoSelector);
+	await page.click(`${eleicaoSelector}`)
+}
 
 async function getClassesIds(page){
 	// CLASS SELECTOR
@@ -134,4 +139,4 @@ async function getMembersInfo(page){
 	return participantes
 }
 
-module.exports = {login, getClassesIds, clickMateria, getMateriaInfo, goBack, getMembersInfo}
+module.exports = {login, clickEleicao, getClassesIds, clickMateria, getMateriaInfo, goBack, getMembersInfo}
