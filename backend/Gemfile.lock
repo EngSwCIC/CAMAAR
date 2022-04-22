@@ -46,6 +46,14 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_model_serializers (0.10.13)
+      actionpack (>= 4.1, < 7.1)
+      activemodel (>= 4.1, < 7.1)
+      case_transform (>= 0.2)
+      jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
+    active_model_serializers-jsonapi_embedded_records_deserializer (0.1.1)
+      active_model_serializers
+      railties (>= 4.0)
     activejob (7.0.2.3)
       activesupport (= 7.0.2.3)
       globalid (>= 0.3.6)
@@ -70,6 +78,9 @@ GEM
     bootsnap (1.11.1)
       msgpack (~> 1.2)
     builder (3.2.4)
+    byebug (11.1.3)
+    case_transform (0.2)
+      activesupport
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     debug (1.4.0)
@@ -97,6 +108,13 @@ GEM
     dry-core (0.7.1)
       concurrent-ruby (~> 1.0)
     erubi (1.10.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
+    fast_jsonapi (1.5)
+      activesupport (>= 4.2)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
     globalid (1.0.0)
@@ -108,6 +126,7 @@ GEM
     irb (1.4.1)
       reline (>= 0.3.0)
     json (2.6.1)
+    jsonapi-renderer (0.2.2)
     jwt (2.3.0)
     loofah (2.15.0)
       crass (~> 1.0.2)
@@ -219,10 +238,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers (~> 0.10.0)
+  active_model_serializers-jsonapi_embedded_records_deserializer
   bootsnap
+  byebug
   debug
   devise (~> 4.8)
   devise-jwt (~> 0.9.0)
+  factory_bot_rails
+  fast_jsonapi
   figaro
   json (~> 2.6.1)
   puma (~> 5.0)
@@ -233,7 +257,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.7.5p203
+   ruby 2.7.2p137
 
 BUNDLED WITH
    2.1.4
