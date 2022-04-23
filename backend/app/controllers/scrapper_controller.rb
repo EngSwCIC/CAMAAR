@@ -21,13 +21,7 @@ class ScrapperController < ApplicationController
     #end
 
     def show
-        #login = { name: '', password: ''}
-        
-        url = 'http://localhost:3030/turmas'
-        request = RestClient.post(url, {}, headers)
-        render json: {
-            classes: JSON.parse(request.body)
-        }, status: :ok
-
+        request = Api::SearchClasses.call
+        render json: request, status: :ok
     end
 end
