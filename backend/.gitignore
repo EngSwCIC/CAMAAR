@@ -75,3 +75,6 @@ yarn-debug.log*
 /public/uploads
 # Ignore application configuration
 /config/application.yml
+
+# Rubymine .idea
+.idea/
