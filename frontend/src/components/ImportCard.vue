@@ -1,13 +1,20 @@
 <template>
   <q-card class="q-mb-xl row justify-center q-pa-md">
     <h3 class="col-12">Importar</h3>
-    <q-btn id="searchButton" label="Buscar Turmas" @click="search" color="secondary"/>
-    <GenericTable
-      name="Importar Turmas"
-      select="multiple"
-      :rows="rows"
-      :fields="fields"
-    />
+    <div class="col-12" align="center">
+      <div class="col-12 q-mb-lg q-gutter-lg">
+        <q-btn id="searchButton" label="Buscar Turmas no SIGAA" @click="search" color="secondary"/>
+        <q-btn id="importButton" label="Importar para CAMAAR" @click="importSelected" color="teal-9"/>
+      </div>
+      <GenericTable
+        ref="table"
+        name="Importar Turmas"
+        select="multiple"
+        :rows="rows"
+        :fields="fields"
+        @selected="val=>selectedRows=val"
+      />
+    </div>
   </q-card>
 </template>
 
@@ -19,7 +26,11 @@ export default {
   },
   data() {
     return {
-      rows: [],
+      selectedRows: [],
+      rows: [
+        { id: 1, nome: 'D', codigo: 'CIC1923', turma: 'TA', semestre: '2021-1', horario: '2T' },
+        { id: 4, nome: 'T', codigo: 'MAT0010', turma: 'AB', semestre: '2021-1', horario: '2T' }
+      ],
       fields: [
         {name:'nome', align: 'center', label: 'Nome', field: 'nome'},
         {name:'codigo', align: 'center', label: 'Código', field: 'codigo'},
@@ -30,9 +41,47 @@ export default {
     }
   },
   methods: {
+    async importSelected() {
+      console.log("aqui")
+      if(this.selectedRows <= 0) {
+        this.$q.notify({
+          color: 'negative',
+          message: 'Selecione uma ou mais turmas para importar.'
+        })
+        return
+      }
+      const turmasImportar = this.selectedRows.map(row => {
+        return {
+          code: row.codigo,
+          classCode: row.turma
+        }
+      })
+      try {
+        const resultado = await this.$axios.post("http://localhost:3030/import/turmas", {
+          turmas: turmasImportar
+        })
+        this.$refs.table.selected = []
+
+        this.$q.notify({
+          color: 'positive',
+          message: "Turmas selecionadas importadas com sucesso."
+        })
+      } catch (e) {
+        console.log(e)
+        this.$q.notify({
+          color: 'negative',
+          message: "Não foi possível importar as turmas selecionadas."
+        })
+      }
+
+    },
     async search () {
-      const resultado = await this.$axios.get("http://localhost:3030/turmas")
-      this.rows = resultado.data.rows
+      try {
+        const resultado = await this.$axios.get("http://localhost:3030/turmas")
+        this.rows = resultado.data.rows
+      } catch (e) {
+        console.error(e)
+      }
     }
   },
 }
