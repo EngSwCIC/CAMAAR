@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  get 'subject/index'
+  get 'member/show'
   resources :surveys do
     get 'open', on: :collection
+  end
+  resources :members, only: [:show] do 
+    resources :subjects, only: [:index]
   end
   devise_for :user, :path => '/auth', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" },
   controllers: {
