@@ -1,0 +1,25 @@
+<%= content_tag :div, id: 'survey-form', class: 'columns', data: { survey: survey.to_json(except: [:created_at, :updated_at]) } do %>
+  <div class='column'>
+    <div id="form" class="card-questionario-escolha">
+      <div class="card-content">
+        <h2 class="title">Procurar Questão</h2>
+ 
+        <label>Questionário</label>
+        <input type='text' v-model="user.name" class="input">
+    
+        <label>Questão:</label>
+        <%= form_tag(questions, method: :get) do %>
+        <%= text_field_tag(:search, params[:search]) %>
+        <%= submit_tag ("Pesquisar")%>
+        <% @questions.each do |question| %>
+            <ul>
+            <li> <%= link_to question.code question.description%> </li><br>
+            </ul>
+        <%end%>
+      </div>
+      <div class="card-questionario-escolha-footer">
+        <button @click="searchInfo" class="button is-link">Buscar informações</button>
+      </div>
+    </div>
+  </div>
+<% end %>

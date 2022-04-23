@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "Surveys", type: :request do
-  describe "GET /index" do
-    pending "add some examples (or delete) #{__FILE__}"
+  context "GET #index" do
+    it 'should success and render filtration page' do
+      get '/index', params: {}
+      expect(assigns(:surveys)).to_not be_empty
+    end
   end
 end

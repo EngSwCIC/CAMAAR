@@ -15,9 +15,15 @@ class SurveysController < ApplicationController
   end
 
   def create
+    @survey = Survey.new(params[:survey])
+    if @survey.save
+      redirect_to @survey
+    else
+      render "new"
+    end
   end
 
-  def answer_params
+  def surveys_params
     ActiveModelSerializers::Deserialization.jsonapi_parse(params, polymorphic: [:survey])
     # params.require(:survey).permit()
   end
