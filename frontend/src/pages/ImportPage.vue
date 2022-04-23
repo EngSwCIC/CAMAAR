@@ -25,8 +25,16 @@
       }
     },
     async mounted() {
-      const resultado = await this.$axios.get("http://localhost:3030/turmas")
-      this.rows = resultado.data.rows
+      try {
+        const resultado = await this.$axios.get("http://localhost:3030/turmas")
+        this.rows = resultado.data.rows
+      } catch (e) {
+        console.error(e)
+        this.$q.notify({
+          color: 'negative',
+          message: 'Não foi possível carregar as turmas.'
+        })
+      }
     }
   }
 </script>
