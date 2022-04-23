@@ -22,7 +22,7 @@
             "name": "que estou na rota \"/import\"",
             "result": {
               "status": "passed",
-              "duration": 1209000000
+              "duration": 2123000000
             }
           },
           {
@@ -31,33 +31,45 @@
             "line": 6,
             "name": "que eu busquei turmas",
             "result": {
-              "status": "failed",
-              "duration": 4011000000,
-              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#undefined`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:41817:3)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:11519:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:10840:35)"
+              "status": "passed",
+              "duration": 136000000
             }
           },
           {
             "arguments": [],
             "keyword": "Quando ",
             "line": 7,
-            "name": "eu selecionar uma turma",
+            "name": "eu digitar \"banco\" no campo de pesquisa da tabela de import",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 1236000000
             }
           },
           {
             "arguments": [],
             "keyword": "E ",
             "line": 8,
-            "name": "clicar no botão de \"Importar\"",
+            "name": "selecionar a turma",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 116000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "clicar no botão \"Importar\"",
+            "result": {
+              "status": "failed",
+              "duration": 4024000000,
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#Importar`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:41810:3)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:11519:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:10840:35)"
             }
           },
           {
             "arguments": [],
             "keyword": "Então ",
-            "line": 9,
+            "line": 10,
             "name": "eu devo ver uma notificação de \"Turmas importadas com sucesso.\"",
             "result": {
               "status": "skipped"
@@ -68,7 +80,7 @@
       {
         "id": "importar-do-sigaa;tentar-importar-turmas-sem-selecionar",
         "keyword": "Scenario",
-        "line": 11,
+        "line": 12,
         "name": "Tentar importar Turmas sem selecionar",
         "tags": [],
         "type": "scenario",
@@ -76,36 +88,36 @@
           {
             "arguments": [],
             "keyword": "Dado ",
-            "line": 12,
+            "line": 13,
             "name": "que estou na rota \"/import\"",
             "result": {
               "status": "passed",
-              "duration": 1144000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 13,
-            "name": "que eu busquei turmas",
-            "result": {
-              "status": "failed",
-              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#undefined`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:41817:3)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:11519:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:10840:35)"
+              "duration": 1241000000
             }
           },
           {
             "arguments": [],
             "keyword": "E ",
             "line": 14,
+            "name": "que eu busquei turmas",
+            "result": {
+              "status": "passed",
+              "duration": 120000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 15,
             "name": "eu não selecionar uma turma",
             "result": {
-              "status": "skipped"
+              "status": "undefined"
             }
           },
           {
             "arguments": [],
             "keyword": "Quando ",
-            "line": 15,
+            "line": 16,
             "name": "clicar no botão de \"Importar\"",
             "result": {
               "status": "skipped"
@@ -114,7 +126,7 @@
           {
             "arguments": [],
             "keyword": "Então ",
-            "line": 16,
+            "line": 17,
             "name": "devo ver uma notificação de \"Selecione no mínimo uma turma\"",
             "result": {
               "status": "skipped"

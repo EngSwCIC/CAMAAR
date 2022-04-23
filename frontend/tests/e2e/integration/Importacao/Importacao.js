@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { Given, Then, And, Before } from "cypress-cucumber-preprocessor/steps";
+import { Given, When, Then, And, Before } from "cypress-cucumber-preprocessor/steps";
 const { get, visit, the, wait, intercept, clearLocalStorageCache} = cy;
 Before(() => {
   clearLocalStorageCache()
@@ -55,28 +55,35 @@ Given(`que estou na rota {string}`, (pagina) => {
   visit(`/#${pagina}`);
   wait('@buscaTurmasCadastradas')
 });
-And(`eu clicar no botão {string}`, (id) => {
+And(`clicar no botão {string}`, (id) => {
   intercept({
     method: 'get',
     url: 'http://localhost:3000/turmas'
   }).as('buscaTurmas')
   get(`#${id}`).click();
 });
-And(`que eu busquei turmas`, (id) => {
+And(`que eu busquei turmas`, () => {
   intercept({
     method: 'get',
     url: 'http://localhost:3000/turmas'
-  }).as('buscaTurmas')
-  get(`#${id}`).click();
+  }, classes).as('buscaTurmas')
+  get('#searchButton').click();
 });
-And(`não retornar nenhuma turma na tabela`, (id) => {
+When(`eu digitar {string} no campo de pesquisa da tabela de import`, (id) => {
+  get('#search').type(id);
+  wait(1000);
+})
+And('selecionar a turma', (id) => {
+  get('tbody tr .q-checkbox').click();
+});
+And('não retornar nenhuma turma na tabela', (id) => {
   wait('@buscaTurmas', {timeout: 10000})
   get('#tableSelect tbody tr').should('not.exist')
 });
-Then(`eu devo ver na tabela uma ou mais turmas`, () => {
+Then('eu devo ver na tabela uma ou mais turmas', () => {
   wait('@buscaTurmas', {timeout: 10000})
   get('#tableSelect tbody tr').should('have.length.greaterThan', 0)
 });
-Then(`eu devo ver uma notificação de {string}`, (string) => {
+Then('eu devo ver uma notificação de {string}', (string) => {
   get('.q-notification__message ').should('contain', string)
 });
