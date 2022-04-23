@@ -108,9 +108,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_233227) do
   end
 
   create_table "survey_questions", force: :cascade do |t|
-    t.string "type"
+    t.string "question_type"
     t.text "question"
-    t.boolean "optional"
+    t.boolean "optional", default: false
     t.integer "survey_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -120,6 +120,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_233227) do
   create_table "surveys", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.datetime "expiration_date"
+    t.string "semester"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
