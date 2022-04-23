@@ -1,15 +1,15 @@
-class SubjectsController < ApplicationController
+class CclassesController < ApplicationController
   def index
     head :not_found and return if params[:member_id].nil?
     @member = Member.find(params[:member_id])
 
     if !@member.blank?
-      @subjects = []
+      @cclasses = []
       for enrollment in @member.enrollments do
-        @subjects.push(enrollment.cclass.subject)
+        @cclasses.push(enrollment.cclass)
       end
 
-      render json: @subjects
+      render json: @cclasses, include: :subject
     else
       head :not_found
     end
