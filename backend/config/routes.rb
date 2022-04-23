@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'survey_answers/create'
   get 'member/show'
   resources :surveys do
     get 'open', on: :collection
