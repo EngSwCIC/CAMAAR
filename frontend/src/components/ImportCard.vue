@@ -3,7 +3,7 @@
     <h3 class="col-12">Importar</h3>
     <div class="col-12" align="center">
       <div class="col-12 q-mb-lg q-gutter-lg">
-        <q-btn id="searchButton" label="Buscar Turmas no SIGAA" @click="search" color="secondary"/>
+        <q-btn :loading="load" id="searchButton" label="Buscar Turmas no SIGAA" @click="search" color="secondary"/>
         <q-btn id="importButton" label="Importar para CAMAAR" @click="importSelected" color="teal-9"/>
       </div>
       <GenericTable
@@ -27,10 +27,8 @@ export default {
   data() {
     return {
       selectedRows: [],
-      rows: [
-        { id: 1, nome: 'D', codigo: 'CIC1923', turma: 'TA', semestre: '2021-1', horario: '2T' },
-        { id: 4, nome: 'T', codigo: 'MAT0010', turma: 'AB', semestre: '2021-1', horario: '2T' }
-      ],
+      load: false,
+      rows: [],
       fields: [
         {name:'nome', align: 'center', label: 'Nome', field: 'nome'},
         {name:'codigo', align: 'center', label: 'Código', field: 'codigo'},
@@ -42,8 +40,8 @@ export default {
   },
   methods: {
     async importSelected() {
-      console.log("aqui")
-      if(this.selectedRows <= 0) {
+      console.log(this.selectedRows)
+      if(this.selectedRows.length <= 0) {
         this.$q.notify({
           color: 'negative',
           message: 'Selecione uma ou mais turmas para importar.'
@@ -57,8 +55,8 @@ export default {
         }
       })
       try {
-        const resultado = await this.$axios.post("http://localhost:3030/import/turmas", {
-          turmas: turmasImportar
+        const resultado = await this.$axios.post("http://localhost:3000/import/turmas", {
+          classes: turmasImportar
         })
         this.$refs.table.selected = []
 
@@ -76,12 +74,28 @@ export default {
 
     },
     async search () {
-      try {
-        const resultado = await this.$axios.get("http://localhost:3030/import/turmas")
-        this.rows = resultado.data.rows
+      this.load = true
+      try{
+
+        let {data: resultado} = await this.$axios.get("http://localhost:3030/import/turmas")
+        resultado = resultado.classes.map(turma=> {
+          return {
+            nome: turma.name,
+            codigo: turma.code,
+            turma: turma.class.classCode,
+            semestre: turma.class.semester,
+            horario: turma.class.time
+          }
+        })
+        this.rows = resultado
+
       } catch (e) {
-        console.error(e)
+        this.$q.notify({
+          color: "negative",
+          message: "Erro ao buscar turmas"
+        })
       }
+      this.load = false
     }
   },
 }

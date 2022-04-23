@@ -1,7 +1,7 @@
 <template>
   <div class="outer row" v-if="!!select">
     <q-table
-      id="table"
+      id="tableSelect"
       :title="name"
       class="col-12"
       :rows="treatedRows"
