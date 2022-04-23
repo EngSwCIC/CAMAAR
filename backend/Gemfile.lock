@@ -113,6 +113,8 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faker (2.20.0)
+      i18n (>= 1.8.11, < 2)
     fast_jsonapi (1.5)
       activesupport (>= 4.2)
     figaro (1.2.0)
@@ -246,6 +248,7 @@ DEPENDENCIES
   devise (~> 4.8)
   devise-jwt (~> 0.9.0)
   factory_bot_rails
+  faker
   fast_jsonapi
   figaro
   json (~> 2.6.1)
