@@ -1,14 +1,17 @@
 class SubjectsController < ApplicationController
   def index
-    head :not_found if params[:member_id].nil?
-    @enrollments = Enrollment.where(member_id: params[:member_id])
-    puts "Enrollments for member #{params[:member_id]}: #{@enrollments.inspect}"
+    head :not_found and return if params[:member_id].nil?
+    @member = Member.find(params[:member_id])
 
-    @subjects = []
-    for enrollment in @enrollments do
-      @subjects.push(enrollment.cclass.subject)
+    if !@member.blank?
+      @subjects = []
+      for enrollment in @member.enrollments do
+        @subjects.push(enrollment.cclass.subject)
+      end
+
+      render json: @subjects
+    else
+      head :not_found
     end
-
-    render json: @subjects
   end
 end
