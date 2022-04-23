@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :surveys, only: [:index]
   resources :questions, only: [:index]
+  resources :cclasses, only: [:index]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
