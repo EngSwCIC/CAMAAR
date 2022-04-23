@@ -45,4 +45,13 @@ survey = survey_data[0]
 
 survey = Survey.create(name: survey['name'], description: survey['description'], semester: survey['semester'])
 
+#Create Survey Questions
+file = File.read('./db/survey_questions.json')
+survey_questions = JSON.parse(file)
 
+for survey_question in survey_questions do
+  SurveyQuestion.create(question_type: survey_question['question_type'], 
+    question: survey_question['question'], 
+    optional: survey_question['optional'],
+    survey: survey)
+end
