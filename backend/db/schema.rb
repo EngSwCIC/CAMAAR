@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_19_233227) do
+  create_table "answers", force: :cascade do |t|
+    t.text "content"
+    t.integer "survey_answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_answer_id"], name: "index_answers_on_survey_answer_id"
+  end
+
   create_table "cclasses", force: :cascade do |t|
     t.string "code"
     t.string "semester"
@@ -38,6 +46,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
     t.index ["jti"], name: "index_jwt_denylist_on_jti"
   end
 
+  create_table "likert_questions", force: :cascade do |t|
+    t.text "question"
+    t.integer "likert_scale_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["likert_scale_id"], name: "index_likert_questions_on_likert_scale_id"
+  end
+
+  create_table "likert_scales", force: :cascade do |t|
+    t.integer "survey_question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_question_id"], name: "index_likert_scales_on_survey_question_id"
+  end
+
   create_table "members", force: :cascade do |t|
     t.string "name", null: false
     t.string "registration", null: false
@@ -51,6 +74,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
     t.index ["registration"], name: "index_members_on_registration", unique: true
   end
 
+  create_table "multiple_choices", force: :cascade do |t|
+    t.integer "survey_question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_question_id"], name: "index_multiple_choices_on_survey_question_id"
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.text "option"
+    t.integer "multiple_choice_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["multiple_choice_id"], name: "index_options_on_multiple_choice_id"
+  end
+
   create_table "subjects", force: :cascade do |t|
     t.string "code", null: false
     t.string "name", null: false
@@ -58,6 +96,34 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_subjects_on_code", unique: true
     t.index ["name"], name: "index_subjects_on_name", unique: true
+  end
+
+  create_table "survey_answers", force: :cascade do |t|
+    t.integer "survey_id"
+    t.integer "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_survey_answers_on_member_id"
+    t.index ["survey_id"], name: "index_survey_answers_on_survey_id"
+  end
+
+  create_table "survey_questions", force: :cascade do |t|
+    t.string "question_type"
+    t.text "question"
+    t.boolean "optional", default: false
+    t.integer "survey_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_id"], name: "index_survey_questions_on_survey_id"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "expiration_date"
+    t.string "semester"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -74,8 +140,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "survey_answers"
   add_foreign_key "cclasses", "subjects"
   add_foreign_key "enrollments", "cclasses"
   add_foreign_key "enrollments", "members"
+  add_foreign_key "likert_questions", "likert_scales"
+  add_foreign_key "likert_scales", "survey_questions"
+  add_foreign_key "multiple_choices", "survey_questions"
+  add_foreign_key "options", "multiple_choices"
+  add_foreign_key "survey_answers", "members"
+  add_foreign_key "survey_answers", "surveys"
+  add_foreign_key "survey_questions", "surveys"
   add_foreign_key "users", "members"
 end
