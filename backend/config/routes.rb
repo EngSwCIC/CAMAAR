@@ -9,4 +9,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  # Rotas dos questionarios
+  get '/surveys/:id', to: "surveys#show"
+
+  # Turmas de um usuario/membro
+  get '/member_classes/:member_id', to: "cclasses#member_classes"
 end
