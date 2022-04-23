@@ -77,7 +77,7 @@ export default {
     },
     async search () {
       try {
-        const resultado = await this.$axios.get("http://localhost:3030/turmas")
+        const resultado = await this.$axios.get("http://localhost:3030/import/turmas")
         this.rows = resultado.data.rows
       } catch (e) {
         console.error(e)

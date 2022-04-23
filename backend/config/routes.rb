@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  get '/turmas', to: 'scrapper#show'
+  get '/import/turmas', to: 'scrapper#show'
+  get '/turmas', to: 'cclasses#index'
 end
