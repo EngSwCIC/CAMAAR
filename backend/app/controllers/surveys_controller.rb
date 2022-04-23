@@ -4,7 +4,7 @@ class SurveysController < ApplicationController
     filter = request.query_parameters[:filter]
 
     @surveys = if params[:filter]
-      if params[:filter][:code]
+      if params[:filter][:code] || params[:filter][:cclass]
         Survey.where(filter)
       end
     else
