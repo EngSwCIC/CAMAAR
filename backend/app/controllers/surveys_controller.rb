@@ -5,12 +5,20 @@ class SurveysController < ApplicationController
   def index
     @surveys = Survey.all
 
-    render json: @surveys, include: :survey_questions
+    render  json: @surveys, 
+            include: [:survey_questions => {include: [
+              multiple_choice: {include: :options},
+              likert_scale: {include: :likert_questions}
+            ]}]
   end
 
   # GET /surveys/1
   def show
-    render json: @survey, include: :survey_questions
+    render  json: @survey, 
+            include: [:survey_questions => {include: [
+              multiple_choice: {include: :options},
+              likert_scale: {include: :likert_questions}
+            ]}]
   end
 
   # POST /surveys
