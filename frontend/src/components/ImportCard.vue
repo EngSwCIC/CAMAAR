@@ -26,6 +26,7 @@ export default {
   },
   data() {
     return {
+      selectedRows: [],
       load: false,
       rows: [],
       fields: [
@@ -39,8 +40,8 @@ export default {
   },
   methods: {
     async importSelected() {
-      console.log("aqui")
-      if(this.selectedRows <= 0) {
+      console.log(this.selectedRows)
+      if(this.selectedRows.length <= 0) {
         this.$q.notify({
           color: 'negative',
           message: 'Selecione uma ou mais turmas para importar.'
@@ -54,8 +55,8 @@ export default {
         }
       })
       try {
-        const resultado = await this.$axios.post("http://localhost:3030/import/turmas", {
-          turmas: turmasImportar
+        const resultado = await this.$axios.post("http://localhost:3000/import/turmas", {
+          classes: turmasImportar
         })
         this.$refs.table.selected = []
 

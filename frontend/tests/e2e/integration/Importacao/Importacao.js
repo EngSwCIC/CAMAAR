@@ -60,6 +60,21 @@ And(`clicar no botão {string}`, (id) => {
     method: 'get',
     url: 'http://localhost:3000/turmas'
   }).as('buscaTurmas')
+  intercept({
+    method: 'post',
+    url: 'http://localhost:3000/import/turmas'
+  }).as('importaTurmas')
+  get(`#${id}`).click();
+});
+When(`clicar no botão {string}`, (id) => {
+  intercept({
+    method: 'get',
+    url: 'http://localhost:3000/turmas'
+  }).as('buscaTurmas')
+  intercept({
+    method: 'post',
+    url: 'http://localhost:3000/import/turmas'
+  }).as('importaTurmas')
   get(`#${id}`).click();
 });
 And(`que eu busquei turmas`, () => {
@@ -87,3 +102,6 @@ Then('eu devo ver na tabela uma ou mais turmas', () => {
 Then('eu devo ver uma notificação de {string}', (string) => {
   get('.q-notification__message ').should('contain', string)
 });
+And('esperar importar turmas', () => {
+  wait('@importaTurmas', {timeout: 10000})
+})

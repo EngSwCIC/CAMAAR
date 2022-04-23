@@ -9,6 +9,7 @@ class ScrapperController < ApplicationController
 
   def index
       params = request.body.read
+      puts params
       url = 'http://localhost:3030/participantes'
       resultado = RestClient.post(url, params, :content_type => 'application/json', :accept => 'application/json')
       resultado = JSON.parse(resultado.body)
