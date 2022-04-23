@@ -5,12 +5,12 @@ class SurveysController < ApplicationController
   def index
     @surveys = Survey.all
 
-    render json: @surveys
+    render json: @surveys, include: :survey_questions
   end
 
   # GET /surveys/1
   def show
-    render json: @survey
+    render json: @survey, include: :survey_questions
   end
 
   # POST /surveys
@@ -18,7 +18,7 @@ class SurveysController < ApplicationController
     @survey = Survey.new(survey_params)
 
     if @survey.save
-      render json: @survey, status: :created, location: @survey
+      render :show, status: :created, location: @survey
     else
       render json: @survey.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class SurveysController < ApplicationController
   # PATCH/PUT /surveys/1
   def update
     if @survey.update(survey_params)
-      render json: @survey
+      render :show
     else
       render json: @survey.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,17 @@ class SurveysController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def survey_params
-      params.require(:survey).permit(:name, :description)
+      params.require(:survey).permit(
+        :name,
+        :description,
+        :expiration_date,
+        :semester,
+        survey_questions_attributes: [
+          :question,
+          :question_type,
+          :optional,
+          multiple_choice_attributes: [ options_attributes: [:option] ],
+          likert_scale_attributes: [ likert_questions_attributes: [:question] ]
+        ])
     end
 end
