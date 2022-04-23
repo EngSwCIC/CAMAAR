@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_23_203730) do
+  create_table "answers", force: :cascade do |t|
+    t.text "content"
+    t.integer "survey_question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_question_id"], name: "index_answers_on_survey_question_id"
+  end
+
   create_table "cclasses", force: :cascade do |t|
     t.string "code"
     t.string "semester"
@@ -60,6 +68,33 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
     t.index ["name"], name: "index_subjects_on_name", unique: true
   end
 
+  create_table "survey_answers", force: :cascade do |t|
+    t.integer "survey_id", null: false
+    t.integer "enrollment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["enrollment_id"], name: "index_survey_answers_on_enrollment_id"
+    t.index ["survey_id"], name: "index_survey_answers_on_survey_id"
+  end
+
+  create_table "survey_questions", force: :cascade do |t|
+    t.string "type"
+    t.text "question"
+    t.boolean "optional"
+    t.integer "survey_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_id"], name: "index_survey_questions_on_survey_id"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "semester"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -74,8 +109,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "survey_questions"
   add_foreign_key "cclasses", "subjects"
   add_foreign_key "enrollments", "cclasses"
   add_foreign_key "enrollments", "members"
+  add_foreign_key "survey_answers", "enrollments"
+  add_foreign_key "survey_answers", "surveys"
+  add_foreign_key "survey_questions", "surveys"
   add_foreign_key "users", "members"
 end
