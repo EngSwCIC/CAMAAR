@@ -22,7 +22,7 @@
             "name": "que estou na rota \"/import\"",
             "result": {
               "status": "passed",
-              "duration": 1675000000
+              "duration": 2333000000
             }
           },
           {
@@ -32,7 +32,7 @@
             "name": "eu clicar no botão \"searchButton\"",
             "result": {
               "status": "passed",
-              "duration": 140000000
+              "duration": 127000000
             }
           },
           {
@@ -42,7 +42,7 @@
             "name": "eu devo ver na tabela uma ou mais turmas",
             "result": {
               "status": "passed",
-              "duration": 4968000000
+              "duration": 5544000000
             }
           }
         ]
@@ -67,7 +67,7 @@
             "name": "que estou na rota \"/import\"",
             "result": {
               "status": "passed",
-              "duration": 1346000000
+              "duration": 1234000000
             }
           },
           {
@@ -77,7 +77,7 @@
             "name": "eu clicar no botão \"searchButton\"",
             "result": {
               "status": "passed",
-              "duration": 131000000
+              "duration": 118000000
             }
           },
           {
@@ -87,7 +87,7 @@
             "name": "não retornar nenhuma turma na tabela",
             "result": {
               "status": "passed",
-              "duration": 30000000
+              "duration": 22000000
             }
           },
           {
@@ -97,7 +97,7 @@
             "name": "eu devo ver uma notificação de \"Erro ao buscar turmas\"",
             "result": {
               "status": "passed",
-              "duration": 32000000
+              "duration": 19000000
             }
           }
         ]

@@ -20,8 +20,12 @@ const registeredFields = [
 const $axios = {
   get: (url) => {
     return {data: {rows: registeredRows}}
+  },
+  post: (url) => {
+    return {data: {rows: registeredRows}}
   }
 }
+const notify = jest.fn()
 
 describe('Import Page Tests', () => {
   beforeEach(() => {
@@ -113,6 +117,18 @@ describe('Import Page Tests', () => {
       expect(valores.includes(cell.text())).toBe(true)
     })
   })
-
+  //TODO: Implementar testes que usam o $q.notify
+  // it('Emite alerta ao clicar no botao de importar sem Selecionar uma turma"', async ()=> {
+  //   const wrapper = mount(ImportCard, {
+  //     global: {
+  //       mocks: {
+  //         $axios
+  //       }
+  //     }
+  //   })
+  //   const button = wrapper.find('#importButton')
+  //   console.log(button)
+  //   await button.trigger('click')
+  //   expect(true).toBe(true)
+  // })
 })
-

@@ -1,0 +1,127 @@
+[
+  {
+    "keyword": "Funcionalidade",
+    "name": "Importar do SIGAA",
+    "line": 2,
+    "id": "importar-do-sigaa",
+    "tags": [],
+    "uri": "Importacao.feature",
+    "elements": [
+      {
+        "id": "importar-do-sigaa;importar-turmas-para-o-banco-de-dados",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Importar Turmas para o Banco de Dados",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que estou na rota \"/import\"",
+            "result": {
+              "status": "passed",
+              "duration": 1209000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 6,
+            "name": "que eu busquei turmas",
+            "result": {
+              "status": "failed",
+              "duration": 4011000000,
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#undefined`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:41817:3)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:11519:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:10840:35)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 7,
+            "name": "eu selecionar uma turma",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 8,
+            "name": "clicar no botão de \"Importar\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 9,
+            "name": "eu devo ver uma notificação de \"Turmas importadas com sucesso.\"",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "importar-do-sigaa;tentar-importar-turmas-sem-selecionar",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Tentar importar Turmas sem selecionar",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 12,
+            "name": "que estou na rota \"/import\"",
+            "result": {
+              "status": "passed",
+              "duration": 1144000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 13,
+            "name": "que eu busquei turmas",
+            "result": {
+              "status": "failed",
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#undefined`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:41817:3)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:11519:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:10840:35)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 14,
+            "name": "eu não selecionar uma turma",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 15,
+            "name": "clicar no botão de \"Importar\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 16,
+            "name": "devo ver uma notificação de \"Selecione no mínimo uma turma\"",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

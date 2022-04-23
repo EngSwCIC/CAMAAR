@@ -1,6 +1,7 @@
 <template>
   <q-card class="q-mb-xl row justify-center q-pa-md">
     <h3 class="col-12">Importar</h3>
+<<<<<<< HEAD
     <q-btn :loading="load" id="searchButton" label="Buscar Turmas" @click="search" color="secondary"/>
     <GenericTable
       name="Importar Turmas"
@@ -8,6 +9,22 @@
       :rows="rows"
       :fields="fields"
     />
+=======
+    <div class="col-12" align="center">
+      <div class="col-12 q-mb-lg q-gutter-lg">
+        <q-btn id="searchButton" label="Buscar Turmas no SIGAA" @click="search" color="secondary"/>
+        <q-btn id="importButton" label="Importar para CAMAAR" @click="importSelected" color="teal-9"/>
+      </div>
+      <GenericTable
+        ref="table"
+        name="Importar Turmas"
+        select="multiple"
+        :rows="rows"
+        :fields="fields"
+        @selected="val=>selectedRows=val"
+      />
+    </div>
+>>>>>>> f8a85fa24ea7530224239f40eb075ecc2fae9ace
   </q-card>
 </template>
 
@@ -31,6 +48,40 @@ export default {
     }
   },
   methods: {
+    async importSelected() {
+      console.log("aqui")
+      if(this.selectedRows <= 0) {
+        this.$q.notify({
+          color: 'negative',
+          message: 'Selecione uma ou mais turmas para importar.'
+        })
+        return
+      }
+      const turmasImportar = this.selectedRows.map(row => {
+        return {
+          code: row.codigo,
+          classCode: row.turma
+        }
+      })
+      try {
+        const resultado = await this.$axios.post("http://localhost:3030/import/turmas", {
+          turmas: turmasImportar
+        })
+        this.$refs.table.selected = []
+
+        this.$q.notify({
+          color: 'positive',
+          message: "Turmas selecionadas importadas com sucesso."
+        })
+      } catch (e) {
+        console.log(e)
+        this.$q.notify({
+          color: 'negative',
+          message: "Não foi possível importar as turmas selecionadas."
+        })
+      }
+
+    },
     async search () {
       this.load = true
       try{
