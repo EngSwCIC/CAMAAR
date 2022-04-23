@@ -4,4 +4,8 @@ class Survey < ApplicationRecord
   accepts_nested_attributes_for :survey_questions
 
   validates :name, :description, :expiration_date, :semester, presence: true
+
+  def is_expired?
+    self.expiration_date <= DateTime.now
+  end
 end
