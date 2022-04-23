@@ -1,16 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe "Answers", type: :request do
+RSpec.describe "Answers", type: :controller do
   describe "GET /index" do
-    it "assigns @answers" do
-      answer = Answer.create
-      get :index
-      expect(assigns(:answers)).to eq([answer])
+    context "everything fine" do
+      it "should get index should be OK" do
+        get '/answers'
+        expect(response).to have_http_status(200)
+      end
     end
-
-    it "renders the index template" do
-      get :index
-      expect(response).to render_template("index")
+    context "no content in model" do
+      it "should get index if it has NO CONTENT" do
+        get '/answers'
+        expect(response).not_to have_http_status(204)
+      end
     end
   end
 end

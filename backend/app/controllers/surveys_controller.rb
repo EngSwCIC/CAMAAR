@@ -1,26 +1,12 @@
 class SurveysController < ApplicationController
 
   def index
-    filter = request.query_parameters[:filter]
-
-    @surveys = if params[:filter]
-      if params[:filter][:code]
-        Survey.where(filter)
-      end
-    else
-      Survey.all
-    end
-
+    @surveys = Survey.all
     render json: SurveysSerializer.new(@surveys).serialized_json
   end
 
   def create
-    @survey = Survey.new(params[:survey])
-    if @survey.save
-      redirect_to @survey
-    else
-      render "new"
-    end
+    @survey = Survey.create(params[:survey])
   end
 
   def surveys_params
