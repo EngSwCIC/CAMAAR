@@ -9,6 +9,17 @@ installQuasarPlugin();
 //   }
 // }
 
+
+'testar se o gráfico está sendo renderizado corretamente'
+test('testar se o gráfico está sendo renderizado corretamente', () => {
+    const wrapper = mount(Professor, {
+        // mocks: {
+        //     $axios
+        // }
+    })
+    expect(wrapper.find('#grafico-professor').exists()).toBe(true)
+})
+
 test('testar se os dados estão sendo carregados corretamente',  () => {
     const wrapper = mount(Professor, {
         data() {

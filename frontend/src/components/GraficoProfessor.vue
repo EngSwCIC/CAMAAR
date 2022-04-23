@@ -1,4 +1,6 @@
 <script>
+import axios from 'axios';
+
 export default {
     data(){
         return {
@@ -12,8 +14,13 @@ export default {
     methods: {
         async fetchData() {
             this.dados = null
-            const res = await fetch(`https://canvasjs.com/services/data/datapoints.php?length=5&type=json`)
-            // const res = await fetch(`https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=1&length=5&type=json`)
+            try{
+                const res = await this.$axios.get("https://canvasjs.com/services/data/datapoints.php?length=5&type=json")
+            } catch (error) {
+                console.error(error);
+            }
+            
+            // const res = await fetch(`https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=1&length=5&type=json`);
             this.dados = await res.json()
             this.um = this.dados[0][1]
             this.dois = this.dados[1][1]
