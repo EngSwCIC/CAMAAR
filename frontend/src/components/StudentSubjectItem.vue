@@ -9,7 +9,7 @@
         <q-card class="cursor-pointer q-hoverable" style="background: #ccddee; font-size: 0.95em;">
           <!-- TODO: listar as turmas dessa disciplina -->
           <q-card-section v-for="(cclass, idx) in subject_classes" v-bind:key="idx">
-            {{formatClassCode(cclass.code)}} — {{teachers[idx]}} —  {{cclass.time}}
+            {{`${formatClassCode(cclass.code)} (${cclass.semester})`}} — {{teachers[idx]}} —  {{cclass.time}}
           </q-card-section>
         </q-card>
       </q-expansion-item>
