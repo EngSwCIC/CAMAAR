@@ -37,6 +37,9 @@
       }
     }
   }
+  const cadastrar = async () =>{
+    router.push({path: '/cadastrar'})
+  }
 </script>
 <template>
 <div class="row">
@@ -72,6 +75,14 @@
         @click="login"
         data-test-button-login="login"
       >Entrar</q-btn>
+      <q-btn
+        rounded
+        color="secondary"
+        class="col-12"
+        size="lg"
+        @click="cadastrar"
+        data-test-button-login="login"
+      >Registrar</q-btn>
     </q-form>
   </q-card>
 </div>
