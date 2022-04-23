@@ -1,8 +1,9 @@
 <template>
   <div>
-    <h1>teste</h1>
+    <ReportDownload />
   </div>
 </template>
 
 <script setup>
+import ReportDownload from '/src/components/ReportDownload.vue'
 </script>

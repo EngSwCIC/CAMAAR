@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_22_223322) do
+  create_table "answers", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.integer "option_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_answers_on_member_id"
+    t.index ["option_id"], name: "index_answers_on_option_id"
+  end
+
   create_table "cclasses", force: :cascade do |t|
     t.string "code"
     t.string "semester"
@@ -51,6 +60,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
     t.index ["registration"], name: "index_members_on_registration", unique: true
   end
 
+  create_table "options", force: :cascade do |t|
+    t.integer "question_id", null: false
+    t.string "description"
+    t.boolean "in_blank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_options_on_question_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "code"
+    t.integer "survey_id", null: false
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_id"], name: "index_questions_on_survey_id"
+  end
+
   create_table "subjects", force: :cascade do |t|
     t.string "code", null: false
     t.string "name", null: false
@@ -58,6 +85,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_subjects_on_code", unique: true
     t.index ["name"], name: "index_subjects_on_name", unique: true
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.integer "code"
+    t.string "name"
+    t.integer "cclass_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cclass_id"], name: "index_surveys_on_cclass_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -74,8 +110,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "members"
+  add_foreign_key "answers", "options"
   add_foreign_key "cclasses", "subjects"
   add_foreign_key "enrollments", "cclasses"
   add_foreign_key "enrollments", "members"
+  add_foreign_key "options", "questions"
+  add_foreign_key "questions", "surveys"
+  add_foreign_key "surveys", "cclasses"
   add_foreign_key "users", "members"
 end

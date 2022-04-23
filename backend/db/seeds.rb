@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'json'
+require 'faker'
 
 file = File.read('./db/classes.json')
 classes_data = JSON.parse(file)
@@ -37,3 +38,34 @@ member = Member.create(name: docente['nome'], course: docente['departamento'],
   degree: docente['formacao'], occupation: docente['ocupacao'],
   email: docente['email'])
 Enrollment.create(member: member, cclass: cclass)
+
+10.times do |index|
+  Survey.create(
+    code: Faker::Number.number(digits: 5),
+    name: Faker::TvShows::SiliconValley.invention,
+    cclass: Cclass.all.sample
+  )
+end
+
+10.times do |index|
+  Question.create(
+    code: Faker::Number.number(digits: 5),
+    survey: Survey.all.sample,
+    description: Faker::TvShows::Stargate.quote
+  )
+end
+
+10.times do |index|
+  Option.create(
+    question: Question.all.sample,
+    description: Faker::TvShows::SiliconValley.quote,
+    in_blank: [true, false].sample
+  )
+end
+
+10.times do |index|
+  Answer.create(
+    member: Member.all.sample,
+    option: Option.all.sample
+  )
+end
