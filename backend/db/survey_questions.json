@@ -1,0 +1,56 @@
+[
+    {
+        "question_type": "scale",
+        "question": "O plano de ensino entregue no início do semestre foi ajustado.",
+        "optional": false,
+        "survey_id": 1
+    },
+    {
+        "question_type": "scale",
+        "question": "Estou sendo efetivo na comunicação com os estudantes.",
+        "optional": false,
+        "survey_id": 1
+    },
+    {
+        "question_type": "scale",
+        "question": "Utilizo recursos didáticos síncronos.",
+        "optional": false,
+        "survey_id": 1
+    },
+    {
+        "question_type": "scale",
+        "question": "Utilizo recursos didáticos assíncronos.",
+        "optional": false,
+        "survey_id": 1
+    },
+    {
+        "question_type": "scale",
+        "question": "As estratégias didáticas adotadas nesta disciplina estão sendo efetivas para aprendizagem.",
+        "optional": false,
+        "survey_id": 1
+    },
+    {
+        "question_type": "scale",
+        "question": "A bibliografia básica da disciplina está disponível para acesso online.",
+        "optional": false,
+        "survey_id": 1
+    },
+    {
+        "question_type": "scale",
+        "question": "Os estudantes estão motivados e interessados.",
+        "optional": false,
+        "survey_id": 1
+    },
+    {
+        "question_type": "scale",
+        "question": "Os estudantes estão tendo carga de trabalho grande nesta disciplina.",
+        "optional": false,
+        "survey_id": 1
+    },
+    {
+        "question_type": "scale",
+        "question": "Os estudantes têm participado de modo efetivo.",
+        "optional": false,
+        "survey_id": 1
+    }
+]

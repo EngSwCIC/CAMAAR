@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_23_214220) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_23_211502) do
   create_table "answers", force: :cascade do |t|
     t.text "content"
     t.integer "survey_question_id", null: false
@@ -78,7 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_214220) do
   end
 
   create_table "survey_questions", force: :cascade do |t|
-    t.string "category"
+    t.string "question_type"
     t.text "question"
     t.boolean "optional"
     t.integer "survey_id", null: false
