@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :surveys
+  resources :surveys do
+    get 'open', on: :collection
+  end
   devise_for :user, :path => '/auth', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" },
   controllers: {
     sessions: 'users/sessions',

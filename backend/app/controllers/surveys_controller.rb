@@ -1,16 +1,31 @@
 class SurveysController < ApplicationController
   before_action :set_survey, only: %i[ show update destroy ]
+  before_action :set_surveys, only: %i[ index open ]
 
   # GET /surveys
   def index
-    @surveys = Survey.all
+    render  json: @surveys, 
+            include: [:survey_questions => {include: [
+              multiple_choice: {include: :options},
+              likert_scale: {include: :likert_questions}
+            ]}]
+  end
 
-    render json: @surveys, include: :survey_questions
+  def open 
+    @surveys = @surveys.select do |survey|
+      survey.is_expired? == false
+    end
+
+    index
   end
 
   # GET /surveys/1
-  def show
-    render json: @survey, include: :survey_questions
+  def show(status = nil)
+    render  json: @survey, 
+            include: [:survey_questions => {include: [
+              multiple_choice: {include: :options},
+              likert_scale: {include: :likert_questions}
+            ]}]
   end
 
   # POST /surveys
@@ -18,7 +33,7 @@ class SurveysController < ApplicationController
     @survey = Survey.new(survey_params)
 
     if @survey.save
-      render :show, status: :created, location: @survey
+      show
     else
       render json: @survey.errors, status: :unprocessable_entity
     end
@@ -27,7 +42,7 @@ class SurveysController < ApplicationController
   # PATCH/PUT /surveys/1
   def update
     if @survey.update(survey_params)
-      render :show
+      show
     else
       render json: @survey.errors, status: :unprocessable_entity
     end
@@ -39,6 +54,11 @@ class SurveysController < ApplicationController
   end
 
   private
+
+    def set_surveys
+      @surveys = Survey.all
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_survey
       @survey = Survey.find(params[:id])
