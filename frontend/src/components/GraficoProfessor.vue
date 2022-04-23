@@ -14,14 +14,19 @@ export default {
     methods: {
         async fetchData() {
             this.dados = null
-            const res = await this.$axios.get("https://canvasjs.com/services/data/datapoints.php?length=5&type=json")            
-            // const res = await fetch(`https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=1&length=5&type=json`);
-            this.dados = await res.json()
-            this.um = this.dados[0][1]
-            this.dois = this.dados[1][1]
-            this.tres = this.dados[2][1]
-            this.quatro = this.dados[3][1]
-            this.cinco = this.dados[4][1]
+            const res = await api.get("https://canvasjs.com/services/data/datapoints.php?length=5&type=json")
+                .then(response => {
+                    this.dados = response.data
+                    this.um = this.dados[0][1]
+                    this.dois = this.dados[1][1]
+                    this.tres = this.dados[2][1]
+                    this.quatro = this.dados[3][1]
+                    this.cinco = this.dados[4][1]               
+                })
+                .catch(error => {
+                    console.log(error);
+                });            
+            // const res = await fetch(`https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=1&length=5&type=json`);            
         }
     },
     mounted() {
