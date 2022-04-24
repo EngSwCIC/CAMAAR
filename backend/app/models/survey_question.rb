@@ -1,6 +1,7 @@
 class SurveyQuestion < ApplicationRecord
   belongs_to :survey
   has_many :answers, dependent: :destroy
+  has_many :options, dependent: :destroy
 
   validates :question, uniqueness: { scope: :survey_id, message: 'Questão repetida!' }
   validates :question_type, inclusion: { in: ['Dissertativa', 'Escala', 'Caixa de Seleção'],
