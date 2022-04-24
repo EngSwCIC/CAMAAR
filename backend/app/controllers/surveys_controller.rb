@@ -5,9 +5,11 @@ class SurveysController < ApplicationController
     survey = Survey.find(params[:id])
     render json: survey.to_json(
       only: [:id, :name, :description, :semester],
-      include: { survey_questions: { only: [:question_type, :question, :optional] } }
+      include: { survey_questions: {
+        only: [:question_type, :question, :optional], include: { options: { only: :option } }
+      }}
     ), status: :ok
-  rescue StandardError
-    render json: { message: "Pesquisa não encontrada" } , status: :not_found
+  rescue StandardError => e
+    render json: { message: e } , status: :not_found
   end
 end
