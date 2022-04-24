@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_23_232720) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_24_000530) do
   create_table "answers", force: :cascade do |t|
     t.text "content"
     t.integer "survey_question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "survey_answers_id", null: false
+    t.index ["survey_answers_id"], name: "index_answers_on_survey_answers_id"
     t.index ["survey_question_id"], name: "index_answers_on_survey_question_id"
   end
 
@@ -65,6 +67,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_232720) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["survey_question_id"], name: "index_options_on_survey_question_id"
+  end
+
+  create_table "selected_options", force: :cascade do |t|
+    t.string "custom_option"
+    t.integer "option_id", null: false
+    t.integer "answer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_selected_options_on_answer_id"
+    t.index ["option_id"], name: "index_selected_options_on_option_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -122,6 +134,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_232720) do
   add_foreign_key "enrollments", "cclasses"
   add_foreign_key "enrollments", "members"
   add_foreign_key "options", "survey_questions"
+  add_foreign_key "selected_options", "answers"
+  add_foreign_key "selected_options", "options"
   add_foreign_key "survey_answers", "enrollments"
   add_foreign_key "survey_answers", "surveys"
   add_foreign_key "survey_questions", "surveys"
