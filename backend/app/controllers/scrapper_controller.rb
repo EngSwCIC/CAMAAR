@@ -46,7 +46,7 @@ class ScrapperController < ApplicationController
   def show
       #login = { name: '', password: ''}
       
-      url = 'http://localhost:3030/turmas'
+      url = 'http://localhost:3000/turmas'
       request = RestClient.post(url, {}, headers)
       JSON.parse(request.body).each do |turma|
         subject = Subject.create!(code: turma['code'], name: turma['name'])

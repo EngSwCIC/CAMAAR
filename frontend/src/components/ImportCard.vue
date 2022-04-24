@@ -63,7 +63,7 @@ export default {
           color: 'positive',
           message: "Turmas selecionadas importadas com sucesso."
         })
-        this.$emit('update')
+        this.$emit('updateCadastradas')
       } catch (e) {
         console.log(e)
         this.$q.notify({

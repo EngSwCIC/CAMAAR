@@ -27,10 +27,15 @@ export default {
       ]
     }
   },
+  async mounted() {
+   const resultado = await this.$axios.get("http://localhost:3030/turmas")
+   console.log(resultado)
+   this.rows = resultado.data.rows
+  },
   methods: {
-    // Funçao que atualiza as linhas da tabela de cadastradas!
     async updateRows () {
       try{
+        console.log("oi1")
         let {data: resultado} = await this.$axios.get("http://localhost:3030/turmas")
         resultado = resultado.classes.map(turma=> {
           return {
