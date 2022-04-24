@@ -7,7 +7,7 @@ class SurveysController < ApplicationController
       only: [:id, :name, :description, :semester],
       include: { survey_questions: { only: [:question_type, :question, :optional] } }
     ), status: :ok
-  rescue StandardError => e
+  rescue StandardError
     render json: { message: "Pesquisa não encontrada" } , status: :not_found
   end
 end
