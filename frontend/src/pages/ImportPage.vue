@@ -27,6 +27,11 @@
     async mounted() {
       const resultado = await this.$axios.get("http://localhost:3000/turmasCadastradas")
       this.rows = resultado.data.rows
+    },
+    methods: {
+      async atualizaCadastradas () {
+        await this.$refs.viewRef.updateRows() 
+      }
     }
   }
 </script>
@@ -34,8 +39,8 @@
 <template>
 <div class="bg-secondary items-center text-center justify-center row">
   <h1 class="col-12">Import Page</h1>
-  <ImportCard class="col-8" select="multiple" />
-  <ViewClassesCard class="col-8"/>
+  <ImportCard @update="atualizaCadastradas" class="col-8" select="multiple" />
+  <ViewClassesCard refs="viewRef" class="col-8"/>
 
 </div>
 </template>

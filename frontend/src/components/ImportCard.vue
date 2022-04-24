@@ -12,7 +12,6 @@
         select="multiple"
         :rows="rows"
         :fields="fields"
-        @selected="val=>selectedRows=val"
       />
     </div>
   </q-card>
@@ -64,6 +63,7 @@ export default {
           color: 'positive',
           message: "Turmas selecionadas importadas com sucesso."
         })
+        this.$emit('update')
       } catch (e) {
         console.log(e)
         this.$q.notify({
