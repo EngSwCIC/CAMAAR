@@ -8,19 +8,25 @@ RSpec.describe SurveyAnswer, type: :model do
         @cclass = Cclass.new(code: "classcode", semester: "semester", time: "time", subject: @subject)
         @member = Member.new(name: "Nome", course: "Departamento",
             registration: "83807519491", username: "83807519491",
-            degree: "DOUTORADO", occupation: "docente",
-            email: "email@gmail.com")
-
-        @enrollment = Enrollment.new(cclass: @cclass, member: @member)
-        
+            degree: "DOUTORADO",
+            email: "email@gmail.com")        
     end
 
     context 'Checar criação de formulários de respostas' do
-        it 'Quando tento criar com dados válidos' do
+        it 'Quando tento criar formulário como docente' do
+            @member.occupation = "docente"
+            @enrollment = Enrollment.new(cclass: @cclass, member: @member)
             survey_answer = SurveyAnswer.new(enrollment: @enrollment, survey: @survey)
 
             expect(survey_answer).to be_valid
         end
-        
+
+        it 'Quando tento criar formulário como discente' do
+            @member.occupation = "discente"
+            @enrollment = Enrollment.new(cclass: @cclass, member: @member)
+            survey_answer = SurveyAnswer.new(enrollment: @enrollment, survey: @survey)
+
+            expect(survey_answer).to_not be_valid
+        end
     end
 end

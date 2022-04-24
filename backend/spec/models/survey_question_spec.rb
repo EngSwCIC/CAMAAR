@@ -11,7 +11,7 @@ RSpec.describe SurveyQuestion, type: :model do
       expect(survey_question).to be_valid
     end
 
-    it 'Quandos o tipo de questão é preenchido incorretamento' do
+    it 'Quandos o tipo de questão é preenchido incorretamente' do
       survey_question = SurveyQuestion.new(question_type: 'tipo_indefinido', question: 'Pergunta', optional: true, survey:@survey)
       expect(survey_question).to_not be_valid
     end
