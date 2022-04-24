@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'survey_answers/create'
   get 'member/show'
   resources :surveys do
     get 'open', on: :collection
@@ -7,6 +6,7 @@ Rails.application.routes.draw do
   resources :members, only: [:show] do 
     resources :cclasses, only: [:index]
   end
+  resources :survey_answers, only: [:create]
   devise_for :user, :path => '/auth', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" },
   controllers: {
     sessions: 'users/sessions',
