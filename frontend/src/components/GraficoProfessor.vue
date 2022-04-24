@@ -2,19 +2,22 @@
 import api from 'src/services/api.js';
 
 export default {
+    props: {
+        api_url: String
+    },
     data(){
         return {
             um: null,
             dois: null,
             tres: null,
             quatro: null,
-            cinco: null,           
-        }
-    },
+            cinco: null,                   
+        }        
+    },    
     methods: {
         async fetchData() {
             this.dados = null
-            const res = await api.get("https://canvasjs.com/services/data/datapoints.php?length=5&type=json")
+            const res = await api.get(this.api_url)
                 .then(response => {
                     this.dados = response.data
                     this.um = this.dados[0][1]
@@ -46,5 +49,7 @@ export default {
             {{dados}}
             <column-chart :data="[['&#128560;', um], ['&#128577;', dois], ['&#129300;', tres], ['&#128578;', quatro], ['&#128516;', cinco]]" ytitle="Num. Alunos" ></column-chart>
         </div>
+        <br>
+        <q-btn @click="fetchData" color="secondary" label="Atualizar" />
     </center>
 </template>
