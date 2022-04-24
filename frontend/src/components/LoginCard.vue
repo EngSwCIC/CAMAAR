@@ -25,7 +25,8 @@
         const res = await authenticate(user);
         if(res) {
           console.log('res', router.name)
-          router.push({path: '/home'})
+          router.push({path: '/professorpage'})
+          // Change path after login
         }
       } catch (e) {
         console.error(e);

@@ -1,11 +1,6 @@
 <template>
-  <div id="app" ref="testHtml">
-    <h1>Test heading</h1>
-    <div>
-      <label>Para fazer download do relatório</label>
-      <br />
-      <button @click="download">Download</button>
-    </div>
+  <div>
+    <q-btn @click="download" color="primary" label="Download do PDF" />
   </div>
 </template>
 
