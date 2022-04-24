@@ -15,4 +15,7 @@ Rails.application.routes.draw do
 
   # Turmas de um usuario/membro
   get '/member_classes/:member_id', to: "cclasses#member_classes"
+
+  # Criar respostas do questionário
+  post '/survey_answers/create', to: "survey_answers#create"
 end
