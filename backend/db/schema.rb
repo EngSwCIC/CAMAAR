@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_19_233227) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_24_001531) do
   create_table "answers", force: :cascade do |t|
     t.text "content"
     t.integer "survey_answer_id"
+    t.integer "survey_question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "question_type"
     t.index ["survey_answer_id"], name: "index_answers_on_survey_answer_id"
+    t.index ["survey_question_id"], name: "index_answers_on_survey_question_id"
   end
 
   create_table "cclasses", force: :cascade do |t|
@@ -44,6 +47,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_233227) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["jti"], name: "index_jwt_denylist_on_jti"
+  end
+
+  create_table "likert_answers", force: :cascade do |t|
+    t.text "content"
+    t.integer "answer_id"
+    t.integer "likert_question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_likert_answers_on_answer_id"
+    t.index ["likert_question_id"], name: "index_likert_answers_on_likert_question_id"
   end
 
   create_table "likert_questions", force: :cascade do |t|
@@ -101,8 +114,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_233227) do
   create_table "survey_answers", force: :cascade do |t|
     t.integer "survey_id"
     t.integer "member_id"
+    t.integer "cclass_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cclass_id"], name: "index_survey_answers_on_cclass_id"
     t.index ["member_id"], name: "index_survey_answers_on_member_id"
     t.index ["survey_id"], name: "index_survey_answers_on_survey_id"
   end
@@ -141,13 +156,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_233227) do
   end
 
   add_foreign_key "answers", "survey_answers"
+  add_foreign_key "answers", "survey_questions"
   add_foreign_key "cclasses", "subjects"
   add_foreign_key "enrollments", "cclasses"
   add_foreign_key "enrollments", "members"
+  add_foreign_key "likert_answers", "answers"
+  add_foreign_key "likert_answers", "likert_questions"
   add_foreign_key "likert_questions", "likert_scales"
   add_foreign_key "likert_scales", "survey_questions"
   add_foreign_key "multiple_choices", "survey_questions"
   add_foreign_key "options", "multiple_choices"
+  add_foreign_key "survey_answers", "cclasses"
   add_foreign_key "survey_answers", "members"
   add_foreign_key "survey_answers", "surveys"
   add_foreign_key "survey_questions", "surveys"
