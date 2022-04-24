@@ -6,4 +6,8 @@ class SurveyQuestion < ApplicationRecord
   validates :question_type, inclusion: { in: ['Dissertativa', 'Escala', 'Caixa de Seleção'],
                                     message: ' - %<value>s não é um tipo válido de alternativa! '\
                                   'Escolha entre Dissertativa, Escala e Caixa de Seleção'  }
+
+  validates :optional, inclusion: {in: [true, false], 
+                                      message: ' - %<value>s não é um tipo válido de alternativa! '\
+                                      'Escolha entre Dissertativa, Escala e Caixa de Seleção'  }
 end

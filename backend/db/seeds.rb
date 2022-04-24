@@ -53,5 +53,5 @@ for survey_question in survey_questions do
   SurveyQuestion.create(question_type: survey_question['question_type'], 
     question: survey_question['question'], 
     optional: survey_question['optional'],
-    survey: survey)
+    survey_id: survey_question['survey_id'])
 end
