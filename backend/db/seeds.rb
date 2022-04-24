@@ -57,6 +57,7 @@ end
 
 10.times do |index|
   Option.create(
+    code: Faker::Number.number(digits: 5),
     question: Question.all.sample,
     description: Faker::TvShows::SiliconValley.quote,
     in_blank: [true, false].sample
@@ -65,6 +66,7 @@ end
 
 10.times do |index|
   Answer.create(
+    code: Faker::Number.number(digits: 5),
     member: Member.all.sample,
     option: Option.all.sample
   )

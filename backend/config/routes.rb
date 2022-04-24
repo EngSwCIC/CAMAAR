@@ -6,9 +6,17 @@ Rails.application.routes.draw do
   }
   get '/template', to:'template#show'
 
-  resources :surveys, only: [:index]
-  resources :questions, only: [:index]
   resources :pdf_reports, only: [:index]
+  resources :surveys, only: [:index]
+  get '/surveys', to:'surveys#index'
+  resources :questions, only: [:index]
+  get '/questions', to:'questions#index'
+  resources :options, only: [:index]
+  get '/options', to:'options#index'
+  resources :answers, only: [:index]
+  get '/answers', to:'answers#index'
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
