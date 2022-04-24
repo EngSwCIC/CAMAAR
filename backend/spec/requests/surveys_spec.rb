@@ -13,7 +13,7 @@ RSpec.describe "Surveys", type: :request do
       end
 
       it 'returns custom not found message' do
-        expect(JSON.parse(response.body)).to eq({ 'message' => 'Pesquisa não encontrada' })
+        expect(JSON.parse(response.body)).to eq({ 'message' => 'Questionário não encontrado' })
       end
     end
 
@@ -25,6 +25,9 @@ RSpec.describe "Surveys", type: :request do
         )
         @question_1 = SurveyQuestion.create(question_type: "Escala", question: "O plano de ensino entregue foi ajustado", optional: false, survey_id: @survey.id)
         @question_2 = SurveyQuestion.create(question_type: "Caixa de Seleção", question: "Metodologia de avaliação utilizada", optional: false, survey_id: @survey.id)
+        @option1 = Option.create(option: 'Provas Síncronas', survey_question_id: @question_2.id)
+        @option2 = Option.create(option: 'Provas Assíncronas', survey_question_id: @question_2.id)
+        @option3 = Option.create(option: 'Trabalhos', survey_question_id: @question_2.id)
         get "/surveys/#{@survey.id}"
       end
 
@@ -41,12 +44,18 @@ RSpec.describe "Surveys", type: :request do
                                                   'survey_questions' => [{
                                                                            'question' => @question_1.question,
                                                                            'question_type' => @question_1.question_type,
-                                                                           'optional' => @question_1.optional
+                                                                           'optional' => @question_1.optional,
+                                                                           'options' => []
                                                                          },
                                                                          {
                                                                            'question' => @question_2.question,
                                                                            'question_type' => @question_2.question_type,
-                                                                           'optional' => @question_2.optional
+                                                                           'optional' => @question_2.optional,
+                                                                           'options' => [
+                                                                             { 'option' => @option1.option },
+                                                                             { 'option' => @option2.option },
+                                                                             { 'option' => @option3.option }
+                                                                           ]
                                                                          }
                                                   ]
                                                 })

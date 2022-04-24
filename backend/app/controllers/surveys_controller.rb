@@ -9,7 +9,7 @@ class SurveysController < ApplicationController
         only: [:question_type, :question, :optional], include: { options: { only: :option } }
       }}
     ), status: :ok
-  rescue StandardError => e
-    render json: { message: e } , status: :not_found
+  rescue StandardError
+    render json: { message: "Questionário não encontrado" } , status: :not_found
   end
 end
