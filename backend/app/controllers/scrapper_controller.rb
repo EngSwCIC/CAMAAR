@@ -20,7 +20,6 @@ class ScrapperController < ApplicationController
       resultado = RestClient.post(url, {:classes => turmasScrapper}.to_json, :content_type => 'application/json', :accept => 'application/json')
       resultado = JSON.parse(resultado)
       resultado.each do |participantes|
-        puts participantes['code']
         idMateria = Subject.where(code: participantes['code']).first.id
         turma = Cclass.where(subject_id: idMateria, code: participantes['classCode']).first
 
