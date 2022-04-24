@@ -9,7 +9,8 @@
     },
     methods: {
       async atualizaCadastradas () {
-        await this.$refs.viewRef.updateRows() 
+        console.log('teste')
+        await this.$refs.viewRef.updateRows()
       }
     }
   }
@@ -19,7 +20,7 @@
 <div class="bg-secondary items-center text-center justify-center row">
   <h1 class="col-12">Import Page</h1>
   <ImportCard @updateCadastradas="atualizaCadastradas" class="col-8" select="multiple" />
-  <ViewClassesCard refs="viewRef" class="col-8"/>
+  <ViewClassesCard ref="viewRef" class="col-8"/>
 
 </div>
 </template>

@@ -1,10 +1,10 @@
 <template>
   <q-card class="col-8 q-pa-md row justify-center" id="cadastrados">
     <h3 class="col-12">Turmas Cadastradas</h3>
-    <GenericTable 
-      name="Turmas Registradas" 
-      :rows="rows" 
-      :fields="fields" 
+    <GenericTable
+      name="Turmas Registradas"
+      :rows="rows"
+      :fields="fields"
       />
   </q-card>
 </template>
@@ -27,10 +27,21 @@ export default {
       ]
     }
   },
+
+
   async mounted() {
-   const resultado = await this.$axios.get("http://localhost:3030/turmas")
-   console.log(resultado)
-   this.rows = resultado.data.rows
+    let resultado = await this.$axios.get("http://localhost:3030/turmas")
+    console.log('rows', resultado)
+    resultado = resultado.data.classes.map(turma=> {
+      return {
+        nome: turma.name,
+        codigo: turma.code,
+        turma: turma.classCode,
+        semestre: turma.semester,
+        horario: turma.time
+      }
+    })
+    this.rows = resultado
   },
   methods: {
     async updateRows () {
@@ -41,17 +52,13 @@ export default {
           return {
             nome: turma.name,
             codigo: turma.code,
-            turma: turma.class.classCode,
-            semestre: turma.class.semester,
-            horario: turma.class.time
+            turma: turma.classCode,
+            semestre: turma.semester,
+            horario: turma.time
           }
         })
         this.rows = resultado
 
-        this.$q.notify({
-          color: 'positive',
-          message: "Turmas cadastradas atualizadas com sucesso."
-        })
       } catch (e) {
         this.$q.notify({
           color: "negative",
