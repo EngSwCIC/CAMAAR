@@ -10,7 +10,8 @@ RSpec.describe UsersController, :type => :controller do
                              created_at: "",updated_at: "")
       post :create,params:{email_pessoa: "acjpjvjp@gmail.com",senha_pessoa: "1234567",
                            created_at: "",updated_at: ""}
-      #não consegui fazer o expected mas podemos con
+      #não consegui fazer o expected mas podemos confirmar que criou no banco de dados com
+      #User.find(1)
     end
     #cenario de fracasso => quando tenta criar no bd depois de alguem já ter se cadastrado
     #
