@@ -4,7 +4,7 @@ class SurveyAnswersController < ApplicationController
     survey_answers = SurveyAnswer.new(enrollment: enrollment, survey_id: params[:survey_id])
     survey_answers.save!
     params.require(:answers).each do |answer|
-      a = Answer.new(answer.permit(:survey_question_id, :content, :survey_answers_id))
+      a = Answer.new(answer.permit(:survey_question_id, :content))
       a.survey_answer_id = survey_answers.id
       a.save!
     end
