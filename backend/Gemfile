@@ -58,5 +58,6 @@ gem "rspec-rails", "~> 5.1.1"
 gem 'metric_fu'
 gem 'rdoc'
 gem 'simplecov', require: false, group: :test
+gem "rubycritic", require: false
 
 gem "json", "~> 2.6.1"

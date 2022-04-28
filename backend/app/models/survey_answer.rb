@@ -7,6 +7,10 @@ class SurveyAnswer < ApplicationRecord
 
   validate :is_grad_student
 
+  def as_json(options: {})
+    super(include: [:answers => {include: :likert_answers}])
+  end
+
   private
 
   def is_grad_student

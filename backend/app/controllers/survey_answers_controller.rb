@@ -8,7 +8,7 @@ class SurveyAnswersController < ApplicationController
     @survey_answer = SurveyAnswer.new(survey_answer_params)
 
     if @survey_answer.save
-      render json: @survey_answer, include: [:answers => {include: :likert_answers}]
+      render json: @survey_answer
     else
       render json: @survey_answer.errors, status: :unprocessable_entity
     end
@@ -17,13 +17,13 @@ class SurveyAnswersController < ApplicationController
   private
 
   # Funcao para decodificar o JWT
-  def get_user_from_token
-    puts request.headers['Authorization']
-    jwt_payload = JWT.decode(request.headers['Authorization'].split(' ')[1], 
-      ENV['JWT_SECRET_KEY']).first
-    user_id = jwt_payload['sub']
-    user = User.find(user_id.to_s)
-  end
+  # def get_user_from_token
+  #   puts request.headers['Authorization']
+  #   jwt_payload = JWT.decode(request.headers['Authorization'].split(' ')[1], 
+  #     ENV['JWT_SECRET_KEY']).first
+  #   user_id = jwt_payload['sub']
+  #   user = User.find(user_id.to_s)
+  # end
 
   def survey_answer_params
     params.require(:survey_answer)
