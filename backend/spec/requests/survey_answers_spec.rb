@@ -73,38 +73,4 @@ RSpec.describe "/survey_answers", type: :request do
       end
     end
   end
-
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested survey_answer" do
-        survey_answer = SurveyAnswer.create! valid_attributes
-        patch survey_answer_url(survey_answer),
-              params: { survey_answer: new_attributes }, as: :json
-        survey_answer.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "renders a JSON response with the survey_answer" do
-        survey_answer = SurveyAnswer.create! valid_attributes
-        patch survey_answer_url(survey_answer),
-              params: { survey_answer: new_attributes }, as: :json
-        expect(response).to have_http_status(:ok)
-        expect(response.content_type).to match(a_string_including("application/json"))
-      end
-    end
-
-    context "with invalid parameters" do
-      it "renders a JSON response with errors for the survey_answer" do
-        survey_answer = SurveyAnswer.create! valid_attributes
-        patch survey_answer_url(survey_answer),
-              params: { survey_answer: invalid_attributes }, as: :json
-        expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to match(a_string_including("application/json"))
-      end
-    end
-  end
 end
