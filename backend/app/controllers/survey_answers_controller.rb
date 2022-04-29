@@ -1,5 +1,18 @@
+##
+# Classe Controller que define as ações capazes de serem feitas para manipular um SurveyAnswer
+# por meio da aplicação
+
 class SurveyAnswersController < ApplicationController
   # before_action :authenticate_user!
+
+  ##
+  # Método usado para criação de um novo +SurveyAnswer+ usando valores
+  # recebidos via parâmetro das requisição POST HTTP
+  #
+  # Responde renderizando uma resposta com o SurveyAnswer criado no formato JSON e 
+  # status +ok (200)+ em caso de sucesso, ou renderizando uma resposta com os erros
+  # de criação do SurveyAnswer no formato JSON e status +unprocessable_entity (422)+
+  # em caso de erro durante a criação
 
   def create
     # @current_user = get_user_from_token
@@ -24,6 +37,9 @@ class SurveyAnswersController < ApplicationController
   #   user_id = jwt_payload['sub']
   #   user = User.find(user_id.to_s)
   # end
+
+  ##
+  # Método que filtra parametros desejados para criação de +SurveyAnswer+
 
   def survey_answer_params
     params.require(:survey_answer)
