@@ -1,12 +1,22 @@
 <template>
     <center>
         <br><br>
-        <div class="q-pa-md">
+        <div class="dropdown-survey">
+            <li v-for="attribute in attributes" :key="attribute.id">
+                <span v-for="childAttribute in attribute.children" :key="childAttribute.id">
+                    <span>{{attribute.id}}</span>
+                </span>
+            </li>
             <q-btn-dropdown color="pink" label="Escolha a Avaliação" dropdown-icon="change_history">
             <q-list class="surveys">
-                <q-item clickable v-close-popup v-for="survey in surveys" :key="survey.id" class='survey-item'>
+                <q-item clickable v-close-popup v-for="survey in data" :key="survey.id" class='survey-item'>
                 <q-item-section>
-                    <q-item-label>{{ survey.id }}: {{ survey.code}}></q-item-label>
+                    <q-item-label>{{ survey.id }}></q-item-label>
+                </q-item-section>
+                </q-item>
+                <q-item clickable v-close-popup>
+                <q-item-section>
+                    <q-item-label>{{surveys}}</q-item-label>
                 </q-item-section>
                 </q-item>
             </q-list>
@@ -19,13 +29,13 @@ import api from "src/services/api.js";
 export default {
     data () {
         return {
-        surveys: []
+            data: null
         }
     },
     created () {
         api
-        .get('/surveys')
-        .then(response => (this.surveys = response.data))
+        .get('/surveys.json')
+        .then(response => (this.attributes = response.data['attributes']))
     }
   }
 </script>
