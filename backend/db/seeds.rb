@@ -40,6 +40,5 @@ Enrollment.create(member: member, cclass: cclass)
 
 file = File.read('./db/survey_test.json')
 survey_data = JSON.parse(file)
-questions = survey_data['survey_questions']
 
 survey = Survey.create(survey_data)
