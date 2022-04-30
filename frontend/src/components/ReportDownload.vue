@@ -8,7 +8,7 @@
 import { jsPDF } from "jspdf";
 import api from "src/services/api.js";
 
-const download = () => {
+const download = (surveys) => {
   api.get("/pdf_reports", {
       params: {
         // class_id: 1

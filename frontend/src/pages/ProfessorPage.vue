@@ -1,6 +1,9 @@
 <script setup>
+import VueChartkick from 'vue-chartkick'
+import 'chartkick/chart.js'
 import ProfessorComponent from "src/components/GraficoProfessor.vue";
 import ReportDownload from "/src/components/ReportDownload.vue";
+import FilteringSurvey from 'src/components/FilteringSurvey.vue'
 </script>
 
 <script>
@@ -34,6 +37,7 @@ export default {
   <div>
     <br /><br /><br /><br />
     <center>
+      <FilteringSurvey/>
       <div class="q-pa-md q-gutter-sm">
         <q-btn
           @click="toggle"
@@ -45,7 +49,7 @@ export default {
       <ReportDownload />
     </center>
     <div v-if="isHidden">
-      <ProfessorComponent :api_url="api_url_child" />
+      <GraficoProfessor/>
     </div>
   </div>
 </template>

@@ -1,11 +1,12 @@
 <template>
   <div>
     <ReportDownload />
-    <FilteringCard />
+    <FilteringSurvey />
+    <FilteringCclasses />
   </div>
 </template>
 
 <script setup>
 import ReportDownload from '/src/components/ReportDownload.vue';
-import FilteringCard from 'src/components/FilteringCard.vue';
+import FilteringSurvey from 'src/components/FilteringSurvey.vue';
 </script>

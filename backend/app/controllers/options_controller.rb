@@ -1,6 +1,5 @@
 class OptionsController < ApplicationController
   
-
   def index
     @options = Option.all
     render json: OptionsSerializer.new(@options).serialized_json
