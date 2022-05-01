@@ -1,37 +1,31 @@
 <template>
-  <div>
-    <ul v-for="cclass in cclasses" v-bind:key="cclass.code">
-      <li>{{cclass.code}} {{cclass.name}}</li>
-    </ul>
-  </div>
+<div class="card text-center m-3">
+    <q-btn-dropdown color="pink" label="Escolher turma" dropdown-icon="change_history">
+      <q-list v-for="item in cclassess" :key="item.id">
+            <q-list v-for="itemx in item" :key="itemx.id">
+                <q-item clickable v-close-popup >
+                <q-item-section>
+                    <q-item-label> {{ itemx['attributes']['id'] - itemx['attributes']['code'] - itemx['attributes']['semester'] - itemx['attributes']['time'] }}</q-item-label>
+                </q-item-section>
+                </q-item>
+            </q-list>
+      </q-list>
+    </q-btn-dropdown>
+</div>
 </template>
 
 <script>
-import api from 'src/services/api.js';
 export default {
-  props: {
-        api_url: String
-    },
+  name: "filtering-cclasses",
   data() {
     return {
-      cclasses: [],
+      cclassess: null
     };
   },
-  methods: {
-    async getData() {
-      try {
-        let response = await fetch("api_url/cclasses");
-        this.cclasses = await response.json();;
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  },
-  created() {
-    this.getData();
-  },
-
-  name: "FilteringCclasses",
-  components: {},
+  async created() {
+    // GET request using fetch with async/await
+    const response = await fetch("http://127.0.0.1:3000/cclasses");
+    this.cclassess = await response.json();
+  }
 };
 </script>
