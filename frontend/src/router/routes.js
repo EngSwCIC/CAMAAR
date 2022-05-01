@@ -1,5 +1,6 @@
 import LoginPage from "../pages/LoginPage.vue";
 import HomePage from "../pages/HomePage.vue";
+import SurveyPage from "../pages/SurveyPage.vue";
 const routes = [
   {
     path: "/",
@@ -12,11 +13,10 @@ const routes = [
     component: HomePage,
   },
   {
-    path: "/questionario",
+    path: "/survey/:id",
     name: "Questionário",
     component: SurveyPage,
   },
-
   // Always leave this as last one,
   // but you can also remove it
   {

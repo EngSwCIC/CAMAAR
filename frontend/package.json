@@ -20,7 +20,7 @@
     "concurrently:dev:jest": "concurrently \"quasar dev\" \"jest --watch\""
   },
   "dependencies": {
-    "@quasar/extras": "^1.0.0",
+    "@quasar/extras": "^1.13.6",
     "axios": "^0.21.1",
     "pinia": "^2.0.11",
     "quasar": "^2.6.0",
