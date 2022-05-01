@@ -1,8 +1,11 @@
 <template>
   <div>
-    <h1>teste</h1>
+    <ReportDownload />
+    <FilteringCard />
   </div>
 </template>
 
 <script setup>
+import ReportDownload from '/src/components/ReportDownload.vue';
+import FilteringCard from 'src/components/FilteringCard.vue';
 </script>

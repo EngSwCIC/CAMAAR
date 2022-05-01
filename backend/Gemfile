@@ -60,3 +60,6 @@ gem "json", "~> 2.6.1"
 gem 'fast_jsonapi'
 gem 'active_model_serializers', '~> 0.10.0'   # Gem necessária para serialização
 gem 'active_model_serializers-jsonapi_embedded_records_deserializer'
+gem 'rails-controller-testing'
+gem 'pry'
+gem 'pry-rails'

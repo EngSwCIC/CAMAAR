@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_22_223322) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_23_111156) do
   create_table "answers", force: :cascade do |t|
     t.integer "member_id", null: false
     t.integer "option_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "code"
     t.index ["member_id"], name: "index_answers_on_member_id"
     t.index ["option_id"], name: "index_answers_on_option_id"
   end
@@ -66,6 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_22_223322) do
     t.boolean "in_blank"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "code"
     t.index ["question_id"], name: "index_options_on_question_id"
   end
 
