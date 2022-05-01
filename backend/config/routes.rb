@@ -10,13 +10,13 @@ Rails.application.routes.draw do
   resources :surveys, only: [:index]
   get '/surveys', to:'surveys#index'
   resources :questions, only: [:index]
+  resources :cclasses, only: [:index]
   get '/questions', to:'questions#index'
   resources :options, only: [:index]
   get '/options', to:'options#index'
   resources :answers, only: [:index]
   get '/answers', to:'answers#index'
   resources :cclasses, only: [:index]
-
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
