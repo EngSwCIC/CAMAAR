@@ -51,7 +51,7 @@ export default {
         return
       }
       try {
-        const resultado = await this.$axios.post("http://localhost:3030/import/turmas", {
+        const resultado = await this.$axios.post("http://localhost:3000/import/turmas", {
           classes: this.selectedRows
         })
         this.$refs.table.selected = []
@@ -74,7 +74,7 @@ export default {
       this.load = true
       try{
 
-        let {data: resultado} = await this.$axios.get("http://localhost:3030/import/turmas")
+        let {data: resultado} = await this.$axios.get("http://localhost:3000/import/turmas")
         let contador = 0
         resultado = resultado.classes.map(turma=> {
           contador++

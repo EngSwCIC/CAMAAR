@@ -30,7 +30,7 @@ export default {
 
 
   async mounted() {
-    let resultado = await this.$axios.get("http://localhost:3030/turmas")
+    let resultado = await this.$axios.get("http://localhost:3000/turmas")
     console.log('rows', resultado)
     resultado = resultado.data.classes.map(turma=> {
       return {
@@ -46,8 +46,7 @@ export default {
   methods: {
     async updateRows () {
       try{
-        console.log("oi1")
-        let {data: resultado} = await this.$axios.get("http://localhost:3030/turmas")
+        let {data: resultado} = await this.$axios.get("http://localhost:3000/turmas")
         resultado = resultado.classes.map(turma=> {
           return {
             nome: turma.name,

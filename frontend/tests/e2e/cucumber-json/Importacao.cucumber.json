@@ -22,7 +22,7 @@
             "name": "que estou na rota \"/import\"",
             "result": {
               "status": "passed",
-              "duration": 2142000000
+              "duration": 3310000000
             }
           },
           {
@@ -32,7 +32,7 @@
             "name": "que eu busquei turmas",
             "result": {
               "status": "passed",
-              "duration": 136000000
+              "duration": 243000000
             }
           },
           {
@@ -41,8 +41,9 @@
             "line": 7,
             "name": "clicar no botão \"importButton\"",
             "result": {
-              "status": "passed",
-              "duration": 132000000
+              "status": "failed",
+              "duration": 4076000000,
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#importButton`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:41814:3)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:11519:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:10840:35)"
             }
           },
           {
@@ -51,8 +52,7 @@
             "line": 8,
             "name": "eu devo ver uma notificação de \"Selecione uma ou mais turmas para importar.\"",
             "result": {
-              "status": "passed",
-              "duration": 33000000
+              "status": "skipped"
             }
           }
         ]
@@ -72,7 +72,7 @@
             "name": "que estou na rota \"/import\"",
             "result": {
               "status": "passed",
-              "duration": 1210000000
+              "duration": 1854000000
             }
           },
           {
@@ -82,7 +82,7 @@
             "name": "que eu busquei turmas",
             "result": {
               "status": "passed",
-              "duration": 118000000
+              "duration": 215000000
             }
           },
           {
@@ -92,7 +92,7 @@
             "name": "eu digitar \"engenharia\" no campo de pesquisa da tabela de import",
             "result": {
               "status": "passed",
-              "duration": 1294000000
+              "duration": 1441000000
             }
           },
           {
@@ -101,8 +101,8 @@
             "line": 15,
             "name": "selecionar a turma",
             "result": {
-              "status": "passed",
-              "duration": 121000000
+              "status": "failed",
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `tbody tr .q-checkbox`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:41839:3)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:11519:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:10840:35)"
             }
           },
           {
@@ -111,8 +111,7 @@
             "line": 16,
             "name": "clicar no botão \"importButton\"",
             "result": {
-              "status": "passed",
-              "duration": 143000000
+              "status": "skipped"
             }
           },
           {
@@ -121,8 +120,7 @@
             "line": 17,
             "name": "esperar importar turmas",
             "result": {
-              "status": "passed",
-              "duration": 5997000000
+              "status": "skipped"
             }
           },
           {
@@ -131,8 +129,16 @@
             "line": 18,
             "name": "eu devo ver uma notificação de \"Turmas selecionadas importadas com sucesso.\"",
             "result": {
-              "status": "passed",
-              "duration": 28000000
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 19,
+            "name": "eu devo ver \"engenharia\" na tabela de turmas cadastradas",
+            "result": {
+              "status": "skipped"
             }
           }
         ]

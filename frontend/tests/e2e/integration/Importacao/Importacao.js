@@ -48,15 +48,13 @@ const classes = {
 Given(`que estou na rota {string}`, (pagina) => {
   intercept({
     method: 'get',
-    url: 'http://localhost:3000/turmasCadastradas'
+    url: 'http://localhost:3000/turmas'
   },
   classes
   ).as('buscaTurmasCadastradas')
   visit(`/#${pagina}`);
   wait('@buscaTurmasCadastradas')
 });
-
-
 And(`clicar no botão {string}`, (id) => {
   intercept({
     method: 'get',
