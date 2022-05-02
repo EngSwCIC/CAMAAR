@@ -1,5 +1,5 @@
 <template>
-  <q-card class="q-mb-xl row justify-center q-pa-md">
+  <q-card class="q-mb-xl row justify-center q-pa-md" id="importTable">
     <h3 class="col-12">Importar</h3>
     <div class="col-12" align="center">
       <div class="col-12 q-mb-lg q-gutter-lg">

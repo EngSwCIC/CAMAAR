@@ -2,6 +2,7 @@
   <q-card class="col-8 q-pa-md row justify-center" id="cadastrados">
     <h3 class="col-12">Turmas Cadastradas</h3>
     <GenericTable
+      ref="table"
       name="Turmas Registradas"
       :rows="rows"
       :fields="fields"

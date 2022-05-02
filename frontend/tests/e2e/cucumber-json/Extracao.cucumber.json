@@ -1,0 +1,107 @@
+[
+  {
+    "keyword": "Funcionalidade",
+    "name": "Extrair do SIGAA",
+    "line": 2,
+    "id": "extrair-do-sigaa",
+    "tags": [],
+    "uri": "Extracao.feature",
+    "elements": [
+      {
+        "id": "extrair-do-sigaa;buscar-turmas-para-importação",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Buscar Turmas para importação",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que estou na rota \"/import\"",
+            "result": {
+              "status": "passed",
+              "duration": 7015000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 6,
+            "name": "eu clicar no botão \"searchButton\"",
+            "result": {
+              "status": "passed",
+              "duration": 16150000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 7,
+            "name": "eu devo ver na tabela uma ou mais turmas",
+            "result": {
+              "status": "passed",
+              "duration": 303000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "extrair-do-sigaa;buscar-turmas-para-importação-sem-resultado",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Buscar Turmas para importação sem resultado",
+        "tags": [
+          {
+            "name": "@mockTurmasVazias",
+            "line": 9
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 11,
+            "name": "que estou na rota \"/import\"",
+            "result": {
+              "status": "passed",
+              "duration": 6464000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 12,
+            "name": "eu clicar no botão \"searchButton\"",
+            "result": {
+              "status": "passed",
+              "duration": 1517000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 13,
+            "name": "não retornar nenhuma turma na tabela",
+            "result": {
+              "status": "passed",
+              "duration": 231000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 14,
+            "name": "eu devo ver uma notificação de \"Erro ao buscar turmas\"",
+            "result": {
+              "status": "passed",
+              "duration": 151000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

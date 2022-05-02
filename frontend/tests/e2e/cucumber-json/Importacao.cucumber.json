@@ -8,56 +8,6 @@
     "uri": "Importacao.feature",
     "elements": [
       {
-        "id": "importar-do-sigaa;tentar-importar-turmas-sem-selecionar",
-        "keyword": "Scenario",
-        "line": 4,
-        "name": "Tentar importar Turmas sem selecionar",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Dado ",
-            "line": 5,
-            "name": "que estou na rota \"/import\"",
-            "result": {
-              "status": "passed",
-              "duration": 3310000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 6,
-            "name": "que eu busquei turmas",
-            "result": {
-              "status": "passed",
-              "duration": 243000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Quando ",
-            "line": 7,
-            "name": "clicar no botão \"importButton\"",
-            "result": {
-              "status": "failed",
-              "duration": 4076000000,
-              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#importButton`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:41814:3)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:11519:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:10840:35)"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Então ",
-            "line": 8,
-            "name": "eu devo ver uma notificação de \"Selecione uma ou mais turmas para importar.\"",
-            "result": {
-              "status": "skipped"
-            }
-          }
-        ]
-      },
-      {
         "id": "importar-do-sigaa;importar-turmas-para-o-banco-de-dados",
         "keyword": "Scenario",
         "line": 10,
@@ -72,7 +22,7 @@
             "name": "que estou na rota \"/import\"",
             "result": {
               "status": "passed",
-              "duration": 1854000000
+              "duration": 5332000000
             }
           },
           {
@@ -82,17 +32,17 @@
             "name": "que eu busquei turmas",
             "result": {
               "status": "passed",
-              "duration": 215000000
+              "duration": 1033000000
             }
           },
           {
             "arguments": [],
             "keyword": "Quando ",
             "line": 14,
-            "name": "eu digitar \"engenharia\" no campo de pesquisa da tabela de import",
+            "name": "eu digitar \"software\" no campo de pesquisa da tabela de importação",
             "result": {
               "status": "passed",
-              "duration": 1441000000
+              "duration": 2354000000
             }
           },
           {
@@ -101,8 +51,8 @@
             "line": 15,
             "name": "selecionar a turma",
             "result": {
-              "status": "failed",
-              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `tbody tr .q-checkbox`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:41839:3)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:11519:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Importacao.feature:10840:35)"
+              "status": "passed",
+              "duration": 10849000000
             }
           },
           {
@@ -111,7 +61,8 @@
             "line": 16,
             "name": "clicar no botão \"importButton\"",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 630000000
             }
           },
           {
@@ -120,7 +71,8 @@
             "line": 17,
             "name": "esperar importar turmas",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 16501000000
             }
           },
           {
@@ -129,16 +81,18 @@
             "line": 18,
             "name": "eu devo ver uma notificação de \"Turmas selecionadas importadas com sucesso.\"",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 280000000
             }
           },
           {
             "arguments": [],
             "keyword": "E ",
             "line": 19,
-            "name": "eu devo ver \"engenharia\" na tabela de turmas cadastradas",
+            "name": "eu devo ver \"SOFTWARE\" na tabela de turmas cadastradas",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 421000000
             }
           }
         ]
