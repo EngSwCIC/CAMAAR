@@ -2,7 +2,7 @@
   <div class="q-pa-md">
     <q-table
         title="Média das avaliações"
-        :rows="props.rowsAverage"
+        :rows="rowsAverage"
         :columns="columnsAverage"
         row-key="name"
     />
@@ -10,7 +10,7 @@
   <div class="q-pa-md">
     <q-table
         title="Avaliação dos Estudantes"
-        :rows="props.rows"
+        :rows="rows"
         :columns="columns"
         row-key="name"
     />
@@ -18,34 +18,33 @@
 </template>
 
 <script setup>
+import { useRoute } from 'vue-router'
+import {onMounted} from 'vue';
+import axios from "axios";
 
-//TODO resolver problema com cors
-// import { useRoute } from 'vue-router'
-// import {onMounted} from 'vue';
-// import axios from "axios";
-//
-// const route = useRoute()
-//
-// let selectedClass = {};
-// let selectedSubject = {};
-//
-// onMounted(async () => {
-//   // cors não permite...
-//   await axios.get("http://localhost:3030/cclasses/" + route.params.id)
-//       .then(resp => {
-//         selectedClass = resp.data
-//         axios.get("http://localhost:3030/subjects/" + resp.data.subject_id)
-//             .then(resp => {
-//               selectedSubject = resp.data
-//             })
-//             .catch(err => {
-//               console.error(err);
-//             });
-//       })
-//       .catch(err => {
-//         console.error(err);
-//       });
-// })
+const route = useRoute()
+
+let selectedClass = {};
+let selectedSubject = {};
+
+onMounted(async () => {
+  await axios.get("http://localhost:3030/cclasses/" + route.params.id)
+      .then(resp => {
+        selectedClass = resp.data
+        console.log(resp)
+        axios.get("http://localhost:3030/subjects/" + resp.data.subject_id)
+            .then(resp => {
+              console.log(resp)
+              selectedSubject = resp.data
+            })
+            .catch(err => {
+              console.error(err);
+            });
+      })
+      .catch(err => {
+        console.error(err);
+      });
+})
 
 const props = defineProps({
   rows: Array,
