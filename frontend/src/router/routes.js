@@ -15,7 +15,7 @@ const routes = [
     component: HomePage,
   },
   {
-    path: '/student/:id',
+    path: '/student-class/:id',
     name: 'StudentClass',
     component: StudentClass,
   },
