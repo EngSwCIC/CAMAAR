@@ -8,7 +8,7 @@ Before(() => {
   the('Senha').type('testa')
   the('Login', 'button').click()
 })
-Before({ tags: '@mockTurmasVazias' },() => {
+Before({ tags: '@mockTurmaCadastradas' },() => {
   intercept({
     method: 'get',
     url: 'http://localhost:3000/turmas'
@@ -55,6 +55,8 @@ Given(`que estou na rota {string}`, (pagina) => {
   visit(`/#${pagina}`);
   wait('@buscaTurmasCadastradas')
 });
+
+
 And(`clicar no botão {string}`, (id) => {
   intercept({
     method: 'get',
@@ -104,4 +106,18 @@ Then('eu devo ver uma notificação de {string}', (string) => {
 });
 And('esperar importar turmas', () => {
   wait('@importaTurmas', {timeout: 10000})
+});
+And('eu devo ver {string} na tabela de turmas cadastradas', (string) => {
+  intercept({
+    method: 'get',
+    url: 'http://localhost:3000/turmas'
+  }).as('buscaTurmas')
+  intercept({
+    method: 'post',
+    url: 'http://localhost:3000/import/turmas'
+  }).as('importaTurmas')
+  get(`#${id}`).click();
+  wait('@buscaTurmas', {timeout: 10000})
+  wait('@importaTurmas', {timeout: 10000})
+  get('#tableSelect tbody tr').should('contain', string)
 })
