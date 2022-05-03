@@ -1,9 +1,11 @@
 class SurveyAnswersController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def create
-    @current_user = get_user_from_token
-    @member = Member.find(@current_user.member_id)
+    # @current_user = get_user_from_token
+    # @member = Member.find(@current_user.member_id)
+    # Usa id = 1 para membro pra teste de protótipo
+    @member = Member.find(1)
 
     head :unprocessable_entity and return if @member.blank?
       
@@ -21,6 +23,7 @@ class SurveyAnswersController < ApplicationController
 
   # Funcao para decodificar o JWT
   def get_user_from_token
+    puts request.headers['Authorization']
     jwt_payload = JWT.decode(request.headers['Authorization'].split(' ')[1], 
       ENV['JWT_SECRET_KEY']).first
     user_id = jwt_payload['sub']

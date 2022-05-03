@@ -5,12 +5,12 @@
 	"semester": "2021/2",
 	"survey_questions_attributes": [
 		{
-			"question": "pergunta",
+			"question": "Sugestões ou comentários adicionais para esta disciplina.",
 			"question_type": "discursive",
 			"optional": true
 		},
 		{
-			"question": "pergunta multipla escolha",
+			"question": "Uma pergunta múltipla escolha.",
 			"question_type": "multiple_choice",
 			"optional": false,
 			"multiple_choice_attributes": {
@@ -20,21 +20,60 @@
 					},
 					{
 						"option": "option 2"
+					},
+					{
+						"option": "option 3"
+					},
+					{
+						"option": "option 4"
+					},
+					{
+						"option": "option 5"
 					}
 				]
 			}
 		},
 		{
-			"question": "pergunta escala de likert",
+			"question": "Sobre o ensino da disciplina/turma, julgue cada item e marque a coluna correspondente ao valor de seu julgamento.",
 			"question_type": "likert_scale",
 			"optional": false,
 			"likert_scale_attributes": {
 				"likert_questions_attributes": [
 					{
-						"question": "question 1"
+						"question": "O professor apresentou o plano de ensino de maneira clara e coerente com a ementa."
 					},
 					{
-						"question": "question 2"
+						"question": "O professor foi efetivo na comunicação com os estudantes (clareza nos objetivos e estratégias didáticas)."
+					},
+					{
+						"question": "O professor utilizou preferencialmente recursos didáticos síncronos."
+					},
+					{
+						"question": "O professor utilizou preferencialmente recursos didáticos assíncronos."
+					},
+					{
+						"question": "As estratégias didáticas da disciplina foram efetivas para aprendizagem."
+					},
+					{
+						"question": "A bibliografia básica da disciplina estava disponível para acesso online."
+					},
+					{
+						"question": "Tive curiosidade ou interesse na disciplina."
+					},
+					{
+						"question": "As estratégias adotadas foram efetivas para o meu engajamento na disciplina."
+					},
+					{
+						"question": "As estratégias adotadas foram efetivas para o meu engajamento na disciplina."
+					},
+					{
+						"question": "O apoio pedagógico do professor e/ou monitor(es) foi efetivo para a disciplina."
+					},
+					{
+						"question": "O professor utilizou recursos diversificados de mídias digitais (áudio, vídeo, podcast, etc.)."
+					},
+					{
+						"question": "Os materiais disponibilizados fizeram uso de linguagem clara e coerente com os objetivos da disciplina."
 					}
 				]
 			}
