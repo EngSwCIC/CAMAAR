@@ -49,7 +49,11 @@ RSpec.describe ScrapperController, :type => :controller do
             expect(response.body).to eq("{\"classes\":{\"classes\":[{\"code\":\"CIC0097\",\"name\":\"BANCOS DE DADOS\",\"class\":{\"classCode\":\"TA\",\"semester\":\"2021.2\",\"time\":\"35T45\"}},{\"code\":\"CIC0105\",\"name\":\"ENGENHARIA DE SOFTWARE\",\"class\":{\"classCode\":\"TA\",\"semester\":\"2021.2\",\"time\":\"35M12\"}},{\"code\":\"CIC0202\",\"name\":\"PROGRAMAÇÃO CONCORRENTE\",\"class\":{\"classCode\":\"TA\",\"semester\":\"2021.2\",\"time\":\"35M34\"}}]}}")
         end
 
-
+        it 'should not return a empty response' do
+          get :show
+          expect(response).to have_http_status(200)
+          expect(response.body).not_to be nil
+        end
     end
 
 end
