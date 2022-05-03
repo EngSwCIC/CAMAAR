@@ -2,6 +2,7 @@
   <q-card class="col-8 q-pa-md row justify-center" id="cadastrados">
     <h3 class="col-12">Turmas Cadastradas</h3>
     <GenericTable
+      ref="table"
       name="Turmas Registradas"
       :rows="rows"
       :fields="fields"
@@ -30,7 +31,7 @@ export default {
 
 
   async mounted() {
-    let resultado = await this.$axios.get("http://localhost:3030/turmas")
+    let resultado = await this.$axios.get("http://localhost:3000/turmas")
     console.log('rows', resultado)
     resultado = resultado.data.classes.map(turma=> {
       return {
@@ -46,8 +47,7 @@ export default {
   methods: {
     async updateRows () {
       try{
-        console.log("oi1")
-        let {data: resultado} = await this.$axios.get("http://localhost:3030/turmas")
+        let {data: resultado} = await this.$axios.get("http://localhost:3000/turmas")
         resultado = resultado.classes.map(turma=> {
           return {
             nome: turma.name,

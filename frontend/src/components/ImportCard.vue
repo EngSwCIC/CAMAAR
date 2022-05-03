@@ -1,5 +1,5 @@
 <template>
-  <q-card class="q-mb-xl row justify-center q-pa-md">
+  <q-card class="q-mb-xl row justify-center q-pa-md" id="importTable">
     <h3 class="col-12">Importar</h3>
     <div class="col-12" align="center">
       <div class="col-12 q-mb-lg q-gutter-lg">
@@ -51,7 +51,7 @@ export default {
         return
       }
       try {
-        const resultado = await this.$axios.post("http://localhost:3030/import/turmas", {
+        const resultado = await this.$axios.post("http://localhost:3000/import/turmas", {
           classes: this.selectedRows
         })
         this.$refs.table.selected = []
@@ -74,7 +74,7 @@ export default {
       this.load = true
       try{
 
-        let {data: resultado} = await this.$axios.get("http://localhost:3030/import/turmas")
+        let {data: resultado} = await this.$axios.get("http://localhost:3000/import/turmas")
         let contador = 0
         resultado = resultado.classes.map(turma=> {
           contador++

@@ -8,56 +8,6 @@
     "uri": "Importacao.feature",
     "elements": [
       {
-        "id": "importar-do-sigaa;tentar-importar-turmas-sem-selecionar",
-        "keyword": "Scenario",
-        "line": 4,
-        "name": "Tentar importar Turmas sem selecionar",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Dado ",
-            "line": 5,
-            "name": "que estou na rota \"/import\"",
-            "result": {
-              "status": "passed",
-              "duration": 2142000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 6,
-            "name": "que eu busquei turmas",
-            "result": {
-              "status": "passed",
-              "duration": 136000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Quando ",
-            "line": 7,
-            "name": "clicar no botão \"importButton\"",
-            "result": {
-              "status": "passed",
-              "duration": 132000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Então ",
-            "line": 8,
-            "name": "eu devo ver uma notificação de \"Selecione uma ou mais turmas para importar.\"",
-            "result": {
-              "status": "passed",
-              "duration": 33000000
-            }
-          }
-        ]
-      },
-      {
         "id": "importar-do-sigaa;importar-turmas-para-o-banco-de-dados",
         "keyword": "Scenario",
         "line": 10,
@@ -72,7 +22,7 @@
             "name": "que estou na rota \"/import\"",
             "result": {
               "status": "passed",
-              "duration": 1210000000
+              "duration": 5332000000
             }
           },
           {
@@ -82,17 +32,17 @@
             "name": "que eu busquei turmas",
             "result": {
               "status": "passed",
-              "duration": 118000000
+              "duration": 1033000000
             }
           },
           {
             "arguments": [],
             "keyword": "Quando ",
             "line": 14,
-            "name": "eu digitar \"engenharia\" no campo de pesquisa da tabela de import",
+            "name": "eu digitar \"software\" no campo de pesquisa da tabela de importação",
             "result": {
               "status": "passed",
-              "duration": 1294000000
+              "duration": 2354000000
             }
           },
           {
@@ -102,7 +52,7 @@
             "name": "selecionar a turma",
             "result": {
               "status": "passed",
-              "duration": 121000000
+              "duration": 10849000000
             }
           },
           {
@@ -112,7 +62,7 @@
             "name": "clicar no botão \"importButton\"",
             "result": {
               "status": "passed",
-              "duration": 143000000
+              "duration": 630000000
             }
           },
           {
@@ -122,7 +72,7 @@
             "name": "esperar importar turmas",
             "result": {
               "status": "passed",
-              "duration": 5997000000
+              "duration": 16501000000
             }
           },
           {
@@ -132,7 +82,17 @@
             "name": "eu devo ver uma notificação de \"Turmas selecionadas importadas com sucesso.\"",
             "result": {
               "status": "passed",
-              "duration": 28000000
+              "duration": 280000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 19,
+            "name": "eu devo ver \"SOFTWARE\" na tabela de turmas cadastradas",
+            "result": {
+              "status": "passed",
+              "duration": 421000000
             }
           }
         ]

@@ -8,7 +8,7 @@ Before(() => {
   the('Senha').type('testa')
   the('Login', 'button').click()
 })
-Before({ tags: '@mockTurmasVazias' },() => {
+Before({ tags: '@mockTurmaCadastradas' },() => {
   intercept({
     method: 'get',
     url: 'http://localhost:3000/turmas'
@@ -48,7 +48,7 @@ const classes = {
 Given(`que estou na rota {string}`, (pagina) => {
   intercept({
     method: 'get',
-    url: 'http://localhost:3000/turmasCadastradas'
+    url: 'http://localhost:3000/turmas'
   },
   classes
   ).as('buscaTurmasCadastradas')
@@ -64,7 +64,7 @@ And(`clicar no botão {string}`, (id) => {
     method: 'post',
     url: 'http://localhost:3000/import/turmas'
   }).as('importaTurmas')
-  get(`#${id}`).click();
+  get(`#${id}`, {timeout: 20000}).click();
 });
 When(`clicar no botão {string}`, (id) => {
   intercept({
@@ -75,7 +75,7 @@ When(`clicar no botão {string}`, (id) => {
     method: 'post',
     url: 'http://localhost:3000/import/turmas'
   }).as('importaTurmas')
-  get(`#${id}`).click();
+  get(`#${id}`, {timeout: 20000}).click();
 });
 And(`que eu busquei turmas`, () => {
   intercept({
@@ -84,24 +84,27 @@ And(`que eu busquei turmas`, () => {
   }, classes).as('buscaTurmas')
   get('#searchButton').click();
 });
-When(`eu digitar {string} no campo de pesquisa da tabela de import`, (id) => {
-  get('#search').type(id);
+When(`eu digitar {string} no campo de pesquisa da tabela de importação`, (id) => {
+  get('#importTable #search').type(id);
   wait(1000);
 })
-And('selecionar a turma', (id) => {
-  get('tbody tr .q-checkbox').click();
+And('selecionar a turma', () => {
+  get('tbody tr .q-checkbox', {timeout: 20000}).first().click();
 });
 And('não retornar nenhuma turma na tabela', (id) => {
-  wait('@buscaTurmas', {timeout: 10000})
+  wait('@buscaTurmas', {timeout: 20000})
   get('#tableSelect tbody tr').should('not.exist')
 });
 Then('eu devo ver na tabela uma ou mais turmas', () => {
-  wait('@buscaTurmas', {timeout: 10000})
+  wait('@buscaTurmas', {timeout: 20000})
   get('#tableSelect tbody tr').should('have.length.greaterThan', 0)
 });
 Then('eu devo ver uma notificação de {string}', (string) => {
   get('.q-notification__message ').should('contain', string)
 });
 And('esperar importar turmas', () => {
-  wait('@importaTurmas', {timeout: 10000})
+  wait('@importaTurmas', {timeout: 20000})
+});
+And('eu devo ver {string} na tabela de turmas cadastradas', (string) => {
+  get('#table tbody tr td').should('contain', string)
 })
