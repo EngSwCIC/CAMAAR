@@ -11,7 +11,7 @@ Before(() => {
 Before({ tags: '@mockTurmasVazias' },() => {
   intercept({
     method: 'get',
-    url: 'http://localhost:3000/turmas'
+    url: 'http://localhost:3000/import/turmas'
   }, {}).as('buscaTurmas')
 })
 const classes = {
@@ -48,26 +48,26 @@ const classes = {
 Given(`que estou na rota {string}`, (pagina) => {
   intercept({
     method: 'get',
-    url: 'http://localhost:3000/turmasCadastradas'
+    url: 'http://localhost:3000/turmas'
   },
   classes
-  ).as('buscaTurmasCadastradas')
+  ).as('buscaTurmas')
   visit(`/#${pagina}`);
-  wait('@buscaTurmasCadastradas')
+  wait('@buscaTurmas', {timeout: 20000})
 });
 And(`eu clicar no botão {string}`, (id) => {
   intercept({
     method: 'get',
-    url: 'http://localhost:3000/turmas'
-  }).as('buscaTurmas')
+    url: 'http://localhost:3000/import/turmas'
+  }).as('importTurmas')
   get(`#${id}`).click();
+  wait('@importTurmas', {timeout: 20000})
 });
 And(`não retornar nenhuma turma na tabela`, (id) => {
-  wait('@buscaTurmas', {timeout: 10000})
+  wait('@buscaTurmas', {timeout: 20000})
   get('#tableSelect tbody tr').should('not.exist')
 });
 Then(`eu devo ver na tabela uma ou mais turmas`, () => {
-  wait('@buscaTurmas', {timeout: 10000})
   get('#tableSelect tbody tr').should('have.length.greaterThan', 0)
 });
 Then(`eu devo ver uma notificação de {string}`, (string) => {
