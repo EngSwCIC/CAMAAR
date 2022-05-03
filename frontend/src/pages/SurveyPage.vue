@@ -1,10 +1,12 @@
 <template>
-<div v-if="survey">
-    <h2> {{ survey.name }} </h2>
-    <p> {{ survey.description }} </p>
+<div class="survey-container" v-if="survey">
+    <h1 class="title"> {{ survey.name + ' - Semestre ' + survey.semester }} </h1>
+    <p class="description">{{ survey.description }}</p>
     <div v-for="(cclass, c_index) in cclasses" :key="cclass.id">
         <div>
-            <h4>{{ cclass.subject.code + ' - ' + cclass.subject.name }}</h4>
+            <h2 class="subject">
+                {{ cclass.subject.code + ' - ' + cclass.subject.name + ' - ' + cclass.code }}
+            </h2>
         </div>
         <div v-for="(question, q_index) in survey.survey_questions" :key="question.id" >
             <SurveyQuestion
@@ -17,6 +19,7 @@
     <q-btn
         @click="submitAnswer"
         rounded
+        size="lg"
         color="secondary"
     >Enviar</q-btn>
 </div>
@@ -69,6 +72,7 @@ export default {
         // Temporariamente usa id de membro = 1 para protótipo do questionário
         const res_c = await axios.get(`http://localhost:3000/members/${1}/cclasses`)
         this.cclasses = res_c.data
+        console.log(this.cclasses)
 
         this.cclasses.forEach(cclass => {
            this.survey_answers.push({
@@ -82,7 +86,7 @@ export default {
                             likert_answers_attributes: question.likert_scale.likert_questions.map(l_question => (
                                 {
                                     likert_question_id: l_question.id,
-                                    content: ''
+                                    content: null
                                 }
                             ))
                         }
@@ -90,7 +94,7 @@ export default {
                         return {
                             survey_question_id: question.id,
                             question_type: question.question_type,
-                            content: ''
+                            content: null
                         }
 
                })
@@ -130,3 +134,24 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.survey-container {
+    margin: auto;
+    max-width: 1000px;
+    width: 95%;
+    margin-bottom: 50px;
+}
+
+.title {
+    font-size: 3rem;
+}
+
+.description {
+    font-size: 1rem;
+}
+
+.subject {
+    font-size: 2rem;
+}
+</style>
