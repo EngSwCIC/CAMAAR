@@ -9,10 +9,16 @@ class ScrapperController < ApplicationController
 
   def index
       params = request.body.read
-      url = 'http://localhost:3030/participantes'
-      resultado = RestClient.post(url, params, :content_type => 'application/json', :accept => 'application/json')
-      resultado = JSON.parse(resultado.body)
-      puts resultado
+      turmasScrapper = []
+      JSON.parse(params)['classes'].each do |turma|
+        turmasScrapper.append({:code => turma['codigo'], :classCode => turma['turma']})
+        subject = Subject.create!(code: turma['codigo'], name: turma['nome'])
+        Cclass.create!(code: turma['turma'], semester: turma['semestre'], time: turma['horario'], subject: subject)
+      end
+
+      url = 'http://localhost:3000/participantes'
+      resultado = RestClient.post(url, {:classes => turmasScrapper}.to_json, :content_type => 'application/json', :accept => 'application/json')
+      resultado = JSON.parse(resultado)
       resultado.each do |participantes|
         puts participantes['code']
         idMateria = Subject.where(code: participantes['code']).first.id
@@ -38,18 +44,16 @@ class ScrapperController < ApplicationController
       }, status: :ok
   end
 
-    def show
-        request = Api::SearchClasses.call
-        #render json: request, status: :ok
-    
-        JSON.parse(request).each do |turma|
-            subject = Subject.create!(code: turma['code'], name: turma['name'])
-            class_info = turma['class']
-            Cclass.create!(code: class_info['classCode'], semester: class_info['semester'], time: class_info['time'], subject: subject)
-        end
-        render json: {
-            classes: JSON.parse(request)
-        }, status: :ok
+  #def parse(request)
+  #    JSON.parse(request.body)
+  #end
 
-    end
+  def show
+    request = Api::SearchClasses.call
+    #render json: request, status: :ok
+
+    render json: {
+        classes: JSON.parse(request)
+    }, status: :ok
+  end
 end

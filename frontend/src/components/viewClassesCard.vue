@@ -1,7 +1,11 @@
 <template>
   <q-card class="col-8 q-pa-md row justify-center" id="cadastrados">
     <h3 class="col-12">Turmas Cadastradas</h3>
-    <GenericTable name="Turmas Registradas" :rows="rows" :fields="fields" />
+    <GenericTable
+      name="Turmas Registradas"
+      :rows="rows"
+      :fields="fields"
+      />
   </q-card>
 </template>
 
@@ -13,12 +17,7 @@ export default {
   },
   data() {
     return {
-      rows: [
-        { id: 1, nome: 'D', codigo: 'Dickerson', turma: 'Macdonald', semestre: '2020-1', horario: '2T' },
-        { id: 2, nome: 'E', codigo: 'Larsen', turma: 'Shaw', semestre: '2020-1', horario: '2T' },
-        { id: 3, nome: 'G', codigo: 'Geneva', turma: 'Wilson', semestre: '2020-1', horario: '2T' },
-        { id: 4, nome: 'T', codigo: null, turma: 'Carney', semestre: '2020-1', horario: '' }
-      ],
+      rows: [],
       fields: [
         {name:'nome', align: 'center', label: 'Nome', field: 'nome'},
         {name:'codigo', align: 'center', label: 'Código', field: 'codigo'},
@@ -28,6 +27,46 @@ export default {
       ]
     }
   },
+
+
+  async mounted() {
+    let resultado = await this.$axios.get("http://localhost:3030/turmas")
+    console.log('rows', resultado)
+    resultado = resultado.data.classes.map(turma=> {
+      return {
+        nome: turma.name,
+        codigo: turma.code,
+        turma: turma.classCode,
+        semestre: turma.semester,
+        horario: turma.time
+      }
+    })
+    this.rows = resultado
+  },
+  methods: {
+    async updateRows () {
+      try{
+        console.log("oi1")
+        let {data: resultado} = await this.$axios.get("http://localhost:3030/turmas")
+        resultado = resultado.classes.map(turma=> {
+          return {
+            nome: turma.name,
+            codigo: turma.code,
+            turma: turma.classCode,
+            semestre: turma.semester,
+            horario: turma.time
+          }
+        })
+        this.rows = resultado
+
+      } catch (e) {
+        this.$q.notify({
+          color: "negative",
+          message: "Erro ao buscar turmas cadastradas"
+        })
+      }
+    }
+  }
 }
 </script>
 

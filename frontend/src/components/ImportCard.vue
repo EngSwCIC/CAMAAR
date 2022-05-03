@@ -3,8 +3,8 @@
     <h3 class="col-12">Importar</h3>
     <div class="col-12" align="center">
       <div class="col-12 q-mb-lg q-gutter-lg">
-        <q-btn id="searchButton" label="Buscar Turmas no SIGAA" @click="search" color="secondary"/>
-        <q-btn id="importButton" label="Importar para CAMAAR" @click="importSelected" color="teal-9"/>
+        <q-btn :loading="load" :disabled="loadImport" id="searchButton" label="Buscar Turmas no SIGAA" @click="search" color="secondary"/>
+        <q-btn :loading="loadImport" :disabled="load" v-if="rows.length" id="importButton" label="Importar para CAMAAR" @click="importSelected" color="teal-9"/>
       </div>
       <GenericTable
         ref="table"
@@ -12,7 +12,7 @@
         select="multiple"
         :rows="rows"
         :fields="fields"
-        @selected="val=>selectedRows=val"
+        @selected="val => selectedRows = val"
       />
     </div>
   </q-card>
@@ -27,10 +27,9 @@ export default {
   data() {
     return {
       selectedRows: [],
-      rows: [
-        { id: 1, nome: 'D', codigo: 'CIC1923', turma: 'TA', semestre: '2021-1', horario: '2T' },
-        { id: 4, nome: 'T', codigo: 'MAT0010', turma: 'AB', semestre: '2021-1', horario: '2T' }
-      ],
+      load: false,
+      loadImport: false,
+      rows: [],
       fields: [
         {name:'nome', align: 'center', label: 'Nome', field: 'nome'},
         {name:'codigo', align: 'center', label: 'Código', field: 'codigo'},
@@ -42,23 +41,18 @@ export default {
   },
   methods: {
     async importSelected() {
-      console.log("aqui")
-      if(this.selectedRows <= 0) {
+      this.loadImport = true
+      console.log(this.selectedRows)
+      if(this.selectedRows.length <= 0) {
         this.$q.notify({
           color: 'negative',
           message: 'Selecione uma ou mais turmas para importar.'
         })
         return
       }
-      const turmasImportar = this.selectedRows.map(row => {
-        return {
-          code: row.codigo,
-          classCode: row.turma
-        }
-      })
       try {
         const resultado = await this.$axios.post("http://localhost:3030/import/turmas", {
-          turmas: turmasImportar
+          classes: this.selectedRows
         })
         this.$refs.table.selected = []
 
@@ -66,6 +60,7 @@ export default {
           color: 'positive',
           message: "Turmas selecionadas importadas com sucesso."
         })
+        this.$emit('updateCadastradas')
       } catch (e) {
         console.log(e)
         this.$q.notify({
@@ -73,15 +68,34 @@ export default {
           message: "Não foi possível importar as turmas selecionadas."
         })
       }
-
+      this.loadImport = false
     },
     async search () {
-      try {
-        const resultado = await this.$axios.get("http://localhost:3030/turmas")
-        this.rows = resultado.data.rows
+      this.load = true
+      try{
+
+        let {data: resultado} = await this.$axios.get("http://localhost:3030/import/turmas")
+        let contador = 0
+        resultado = resultado.classes.map(turma=> {
+          contador++
+          return {
+            id: contador,
+            nome: turma.name,
+            codigo: turma.code,
+            turma: turma.class.classCode,
+            semestre: turma.class.semester,
+            horario: turma.class.time
+          }
+        })
+        this.rows = resultado
+
       } catch (e) {
-        console.error(e)
+        this.$q.notify({
+          color: "negative",
+          message: "Erro ao buscar turmas"
+        })
       }
+      this.load = false
     }
   },
 }
