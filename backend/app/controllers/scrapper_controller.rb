@@ -21,9 +21,7 @@ class ScrapperController < ApplicationController
             Cclass.create!(code: turma['turma'], semester: turma['semestre'], time: turma['horario'], subject: subject)
           end
       end
-
-      url = 'http://localhost:3030/participantes'
-      resultado = RestClient.post(url, {:classes => turmasScrapper}.to_json, :content_type => 'application/json', :accept => 'application/json')
+      resultado = Api::ImportData.call(params)
       resultado = JSON.parse(resultado)
       resultado.each do |participantes|
         idMateria = Subject.where(code: participantes['code']).first.id
