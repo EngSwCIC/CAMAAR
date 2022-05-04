@@ -52,15 +52,10 @@ class ScrapperController < ApplicationController
   #end
 
   def show
-      #login = { name: '', password: ''}
-      
-      url = 'http://localhost:3030/turmas'
-      request = RestClient.post(url, {}, headers)
-     
-      # turmasCadastradas = Cclass.joins(:subject).select("cclasses.id, cclasses.code as classCode, cclasses.semester, cclasses.time, subjects.code as code, subjects.name")
-      render json: {
-          classes: JSON.parse(request.body)
-      }, status: :ok
-
+    request = Api::SearchClasses.call
+    
+    render json: {
+        classes: JSON.parse(request)
+    }, status: :ok
   end
 end
