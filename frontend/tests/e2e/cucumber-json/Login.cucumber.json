@@ -22,7 +22,7 @@
             "name": "que nao estou autenticado",
             "result": {
               "status": "passed",
-              "duration": 92000000
+              "duration": 502000000
             }
           },
           {
@@ -32,7 +32,7 @@
             "name": "eu vou para a rota \"/\"",
             "result": {
               "status": "passed",
-              "duration": 508000000
+              "duration": 1482000000
             }
           },
           {
@@ -42,7 +42,7 @@
             "name": "eu deveria ver o campo \"Email\"",
             "result": {
               "status": "passed",
-              "duration": 61000000
+              "duration": 90000000
             }
           },
           {
@@ -52,7 +52,7 @@
             "name": "eu deveria ver o campo \"Senha\"",
             "result": {
               "status": "passed",
-              "duration": 20000000
+              "duration": 39000000
             }
           },
           {
@@ -62,7 +62,7 @@
             "name": "eu deveria ver o botão \"Login\"",
             "result": {
               "status": "passed",
-              "duration": 18000000
+              "duration": 29000000
             }
           }
         ]

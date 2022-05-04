@@ -1,3 +1,4 @@
+#language: pt
 Funcionalidade: Adição de disciplina ao questionário durante a resposta
 Eu como aluno
 quero adicionar mais uma turma ao meu questionário
