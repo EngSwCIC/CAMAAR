@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_02_221004) do
+  create_table "answers", force: :cascade do |t|
+    t.integer "alternative_answer"
+    t.integer "member_id", null: false
+    t.integer "option_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_answers_on_member_id"
+    t.index ["option_id"], name: "index_answers_on_option_id"
+  end
+
+  create_table "avaliations", force: :cascade do |t|
+    t.integer "cclass_id", null: false
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cclass_id"], name: "index_avaliations_on_cclass_id"
+  end
+
   create_table "cclasses", force: :cascade do |t|
     t.string "code"
     t.string "semester"
@@ -51,6 +69,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
     t.index ["registration"], name: "index_members_on_registration", unique: true
   end
 
+  create_table "options", force: :cascade do |t|
+    t.text "description"
+    t.integer "avaliation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["avaliation_id"], name: "index_options_on_avaliation_id"
+  end
+
   create_table "subjects", force: :cascade do |t|
     t.string "code", null: false
     t.string "name", null: false
@@ -74,8 +100,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "members"
+  add_foreign_key "answers", "options"
+  add_foreign_key "avaliations", "cclasses"
   add_foreign_key "cclasses", "subjects"
   add_foreign_key "enrollments", "cclasses"
   add_foreign_key "enrollments", "members"
+  add_foreign_key "options", "avaliations"
   add_foreign_key "users", "members"
 end
