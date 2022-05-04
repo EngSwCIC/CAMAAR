@@ -13,7 +13,7 @@ const routes = [
     component: HomePage,
   },
   {
-    path: "/survey/:id",
+    path: "/survey",
     name: "Questionário",
     component: SurveyPage,
   },

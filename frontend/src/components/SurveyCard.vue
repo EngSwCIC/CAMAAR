@@ -1,6 +1,8 @@
 <script setup>
 
-
+  const login = async () =>{
+    router.push({path: `/survey/{$route.params.id}`})
+  }
   // methods
 </script>
 <template>
@@ -15,7 +17,10 @@
 
       <q-card-actions align="right">
         <q-btn flat>Editar</q-btn>
-        <q-btn flat>Acessar</q-btn>
+        <q-btn 
+        flat
+        @click="login"
+        >Acessar</q-btn>
       </q-card-actions>
   </q-card>
 </div>
