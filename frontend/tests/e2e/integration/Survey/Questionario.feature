@@ -1,5 +1,6 @@
+#language: pt
 Funcionalidade:  Questionario com listas de perguntas separados por disciplina
-Eu como aluno 
+Eu como aluno
 quero clicar em um questionário
 a fim de responder às perguntas desse questionário
 
@@ -26,4 +27,3 @@ Cenario: Um Aluno deseja acessar um questionário (triste)
   E eu não consigo visualizar nenhum questionário
   E eu não consigo acessar o questionário
   Então eu deveria ver uma pagina vazia
- 
