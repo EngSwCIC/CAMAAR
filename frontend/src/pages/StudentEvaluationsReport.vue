@@ -47,6 +47,7 @@ const getClasses = (subject) =>
   classes.value.filter((cclass) => cclass.subject_id === subject.id);
 
 const filterItems = async (filterArg) => {
+  filterArg = filterArg.toLowerCase().trim();
   await axios
     .get("http://localhost:3030/subjects/")
     .then((resp) => {
@@ -55,8 +56,9 @@ const filterItems = async (filterArg) => {
       if (filterArg != "") {
         subjects.value = subjects.value.filter(
           (value) =>
-            value.name.toLowerCase().indexOf(filterArg.toLowerCase()) !== -1 ||
-            value.code.toLowerCase().indexOf(filterArg.toLowerCase()) !== -1
+            value.name.toLowerCase().indexOf(filterArg) !== -1 ||
+            value.code.toLowerCase().indexOf(filterArg) !== -1 ||
+            value.id == filterArg
         );
       } else {
         subjects.value = resp.data;
