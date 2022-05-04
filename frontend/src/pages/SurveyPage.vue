@@ -72,7 +72,6 @@ export default {
         // Temporariamente usa id de membro = 1 para protótipo do questionário
         const res_c = await axios.get(`http://localhost:3000/members/${1}/cclasses`)
         this.cclasses = res_c.data
-        console.log(this.cclasses)
 
         this.cclasses.forEach(cclass => {
            this.survey_answers.push({
@@ -121,11 +120,18 @@ export default {
             
                     this.router.push({path: '/home'})
                 } catch(err) {
-                    this.notify({
-                        message: 'Falha ao enviar resposta.',
-                        position: 'top',
-                        color: 'negative'
-                    })
+                    if (err.response.status == 422)
+                        this.notify({
+                            message: 'Falha ao enviar resposta. Responda todas as perguntas obrigatórias.',
+                            position: 'top',
+                            color: 'negative'
+                        })
+                    else
+                        this.notify({
+                            message: 'Falha ao enviar resposta.',
+                            position: 'top',
+                            color: 'negative'
+                        })
                 }
                 
 
