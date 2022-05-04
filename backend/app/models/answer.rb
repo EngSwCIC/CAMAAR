@@ -4,5 +4,13 @@ class Answer < ApplicationRecord
   has_many :likert_answers, dependent: :destroy
   accepts_nested_attributes_for :likert_answers
 
-  validates :content, presence: true, if: -> { question_type != 'likert_scale' }
+  validate :required_questions_answered
+
+  private 
+
+  def required_questions_answered
+    if survey_question.question_type != 'likert_scale'
+      errors.add(:content, 'is missing') if not survey_question.optional and content.nil?
+    end
+  end
 end
