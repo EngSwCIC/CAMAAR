@@ -3,14 +3,12 @@ import VueChartkick from 'vue-chartkick'
 import 'chartkick/chart.js'
 import ProfessorComponent from "src/components/GraficoProfessor.vue";
 import ReportDownload from "/src/components/ReportDownload.vue";
-import FilteringQuestions from "src/components/FilteringQuestions.vue";
 import FilteringCclasses from "src/components/FilteringCclasses.vue";
-import FilteringSurveys from "src/components/FilteringSurveys.vue";
 </script>
 
 <script>
 export default {
-  components: { FilteringSurveys, FilteringCclasses, FilteringQuestions },
+  components: { FilteringCclasses },
   data() {
     return {
       isHidden: true,
@@ -41,8 +39,6 @@ export default {
     <br /><br /><br /><br />
     <center>
       <FilteringCclasses/>
-      <FilteringSurveys/>
-      <FilteringQuestions/>
       <div class="q-pa-md q-gutter-sm">
         <q-btn
           @click="toggle"
@@ -58,4 +54,3 @@ export default {
     </div>
   </div>
 </template>
-
