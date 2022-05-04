@@ -1,4 +1,4 @@
-class Api::ImportData
+class Api::ImportData < ApplicationController
 
     def initialize
     end
@@ -13,4 +13,5 @@ class Api::ImportData
         puts resultado.body
         resultado.body
     end
+    
 end
