@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_24_025437) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_05_034547) do
   create_table "answers", force: :cascade do |t|
     t.text "content"
     t.integer "survey_question_id", null: false
@@ -71,7 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_025437) do
 
   create_table "selected_options", force: :cascade do |t|
     t.string "custom_option"
-    t.integer "option_id", null: false
+    t.integer "option_id"
     t.integer "answer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
