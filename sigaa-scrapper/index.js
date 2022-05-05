@@ -22,7 +22,6 @@ async function clickEleicao(page){
 
 async function getClassesIds(page){
 	// CLASS SELECTOR
-	await page.screenshot({path: "test.png"})
 	const classesSelector = '#turmas-portal .descricao form'
 	await page.waitForSelector(classesSelector)
 	const selectors = await page.evaluate((classesSelector) => {return Array.from(document.querySelectorAll(classesSelector)).map(el=>el.id)},classesSelector)
@@ -127,6 +126,7 @@ async function getMembersInfo(page){
 	await clickParticipantes(page)
 
 	// Get participantes
+  await page.screenshot({path:"teste.png"})
 	await page.waitForSelector('.participantes')
 	const participantes = await page.evaluate(()=>{
     	const discentesDocentes = document.querySelectorAll('.participantes')
