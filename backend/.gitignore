@@ -78,3 +78,4 @@ yarn-debug.log*
 
 # Rubymine .idea
 .idea/
+coverage
