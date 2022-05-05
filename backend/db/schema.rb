@@ -17,10 +17,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_05_214935) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "code"
-    t.integer "questions_id"
+    t.integer "question_id"
     t.index ["member_id"], name: "index_answers_on_member_id"
     t.index ["option_id"], name: "index_answers_on_option_id"
-    t.index ["questions_id"], name: "index_answers_on_questions_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "cclasses", force: :cascade do |t|
@@ -116,7 +116,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_05_214935) do
 
   add_foreign_key "answers", "members"
   add_foreign_key "answers", "options"
-  add_foreign_key "answers", "questions", column: "questions_id"
+  add_foreign_key "answers", "questions"
   add_foreign_key "cclasses", "subjects"
   add_foreign_key "enrollments", "cclasses"
   add_foreign_key "enrollments", "members"
