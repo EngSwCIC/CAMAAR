@@ -1,7 +1,8 @@
 import ImportPage from '../../../src/pages/ImportPage.vue'
 import { mount } from '@vue/test-utils';
 import { installQuasarPlugin } from '@quasar/quasar-app-extension-testing-unit-jest'
-installQuasarPlugin();
+import { Notify } from 'quasar';
+installQuasarPlugin({plugins: Notify});
 
 const registeredRows = [
   { id: 1, nome: 'D', codigo: 'Dickerson', turma: 'Macdonald', semestre: '2020-1', horario: '2T' },
@@ -19,7 +20,7 @@ const registeredFields = [
 
 const $axios = {
   get: (url) => {
-    return {data: {rows: registeredRows}}
+    return {data: {classes: registeredRows}}
   }
 }
 

@@ -31,18 +31,21 @@ export default {
 
 
   async mounted() {
-    let resultado = await this.$axios.get("http://localhost:3000/turmas")
-    console.log('rows', resultado)
-    resultado = resultado.data.classes.map(turma=> {
-      return {
-        nome: turma.name,
-        codigo: turma.code,
-        turma: turma.classCode,
-        semestre: turma.semester,
-        horario: turma.time
-      }
-    })
-    this.rows = resultado
+    try {
+      let resultado = await this.$axios.get("http://localhost:3000/turmas")
+      resultado = resultado.data.classes.map(turma=> {
+        return {
+          nome: turma.name,
+          codigo: turma.code,
+          turma: turma.classCode,
+          semestre: turma.semester,
+          horario: turma.time
+        }
+      })
+      this.rows = resultado
+    } catch (e) {
+      console.log('erro', e)
+    }
   },
   methods: {
     async updateRows () {

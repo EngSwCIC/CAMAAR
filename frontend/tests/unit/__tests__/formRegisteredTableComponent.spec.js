@@ -1,7 +1,9 @@
 import GenericTable from '../../../src/components/GenericTable.vue'
 import { mount } from '@vue/test-utils';
 import { installQuasarPlugin } from '@quasar/quasar-app-extension-testing-unit-jest'
-installQuasarPlugin();
+import { Notify } from 'quasar';
+installQuasarPlugin({plugins: {Notify}});
+
 
 const fields = [
   {name:'nome', align: 'center', label: 'Nome', field: 'nome'},

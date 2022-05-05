@@ -1,7 +1,8 @@
+##
+# Esta classe cuida da efetuação das requisições para o scrapper no endpoint participantes
+#
+# É retornado os participantes resultantes da extração do SIGAA
 class Api::ImportData < ApplicationController
-
-    def initialize
-    end
 
     def self.call(params)
         new.call(params)
