@@ -21,7 +21,7 @@ export default {
   <div class="row">
     <q-card class="my-card">
       <q-card-section class="bg-purple text-white">
-        <div class="text-h6">{{ survey.name }}</div>
+        <div class="text-h5">{{ survey.name }}</div>
         <div class="text-subtitle2">Semestre {{ survey.semester }}</div>
       </q-card-section>
 

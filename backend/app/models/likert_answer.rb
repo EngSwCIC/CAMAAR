@@ -7,6 +7,6 @@ class LikertAnswer < ApplicationRecord
   private 
 
   def required_questions_answered
-    errors.add(:content, 'is missing') if not answer.survey_question.optional and content.nil?
+    errors.add(:content, 'is missing') if not answer&.survey_question&.optional and content.nil?
   end
 end

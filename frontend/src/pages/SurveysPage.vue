@@ -21,7 +21,7 @@ export default {
 <template>
   <div class="page" style="min-height: 100vh">
     <div id="q-app" style="min-height: 100vh">
-      <div class="q-pa-md">
+      <div class="q-pa-md row items-start q-gutter-md">
         <q-parallax :height="200" :speed="0.5">
           <template v-slot:media>
             <img
@@ -31,15 +31,15 @@ export default {
 
           <h1 class="text-white">Seus Questionários</h1>
         </q-parallax>
+        <div class="row justify-center reverse-wrap items-baseline">
+          <SurveyCard
+            v-for="survey in surveys"
+            :key="survey.id"
+            :survey="survey"
+            class="card .col-12 q-mx-md"
+          />
+        </div>
       </div>
-    </div>
-    <div class="fullscreen row items-center">
-      <SurveyCard
-        v-for="survey in surveys"
-        :key="survey.id"
-        :survey="survey"
-        class="col-11 col-sm-8 col-md-6 col-lg-4 col-xl-4"
-      />
     </div>
   </div>
 </template>
