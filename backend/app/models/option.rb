@@ -15,9 +15,8 @@ class Option < ApplicationRecord
   #
   # Levanta um erro na criação/atualização da model caso a condição não seja satisfeita
   #
-
   def question_is_option
-    if self.survey_question.question_type != "Caixa de Seleção"
+    ifsurvey_question.question_type != "Caixa de Seleção"
       errors.add(:survey_question, "Questão não é do tipo Caixa de Seleção")
     end
   end
