@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_23_111156) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_05_214935) do
   create_table "answers", force: :cascade do |t|
     t.integer "member_id", null: false
     t.integer "option_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "code"
+    t.integer "questions_id"
     t.index ["member_id"], name: "index_answers_on_member_id"
     t.index ["option_id"], name: "index_answers_on_option_id"
+    t.index ["questions_id"], name: "index_answers_on_questions_id"
   end
 
   create_table "cclasses", force: :cascade do |t|
@@ -114,6 +116,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_111156) do
 
   add_foreign_key "answers", "members"
   add_foreign_key "answers", "options"
+  add_foreign_key "answers", "questions", column: "questions_id"
   add_foreign_key "cclasses", "subjects"
   add_foreign_key "enrollments", "cclasses"
   add_foreign_key "enrollments", "members"
