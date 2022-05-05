@@ -16,12 +16,34 @@ RSpec.describe "/options", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Option. As you add validations to Option, be sure to
   # adjust the attributes here as well.
+
+  let(:cclass){Cclass.create(
+    code: "12334",
+    semester:"2020/1",
+    time:"2020",
+    subject_id: subject.id
+  )}
+  let(:subject){Subject.create(
+    code: "332788913/2",
+    name: "Matéria de Teste"
+  )}
+  let(:avaliation){Avaliation.create(
+    title: "Avaliação",
+    cclass_id: cclass.id,
+    )}
+
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      description: 'Opção teste',
+      avaliation_id: avaliation.id
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      description: 'Opção teste',
+      avaliation_id: nil
+    }
   }
 
   # This should return the minimal set of values that should be in the headers
