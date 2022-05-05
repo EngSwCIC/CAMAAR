@@ -188,7 +188,7 @@ RSpec.describe "SurveyAnswers", type: :request do
         post '/survey_answers/create', params: survey_answer_params
       end
 
-      it 'returns bad request' do
+      it 'returns created status' do
         expect(response).to have_http_status(:created)
       end
 
@@ -217,6 +217,25 @@ RSpec.describe "SurveyAnswers", type: :request do
         survey_answers = SurveyAnswer.find_by(enrollment_id: @enrollment.id, survey_id: @survey.id)
         answers = Answer.where(survey_answer_id: survey_answers.id)
         expect(answers.size).to eq(0)
+      end
+    end
+
+    context 'when custom option is not passed' do
+      before do
+        survey_answer_params[:answers].last[:custom_option] = nil
+        post '/survey_answers/create', params: survey_answer_params
+      end
+
+      it 'returns created response' do
+        expect(response).to have_http_status(:created)
+      end
+
+      it 'creates only 2 selected options for selection box answers' do
+        survey_answers = SurveyAnswer.find_by(enrollment_id: @enrollment.id, survey_id: @survey.id)
+        answers = Answer.where(survey_answer_id: survey_answers.id)
+        selection_box_answer = answers.filter { |a| a.survey_question.question_type == 'Caixa de Seleção' }.last
+        selected_options = SelectedOption.where(answer_id: selection_box_answer.id)
+        expect(selected_options.size).to eq(survey_answer_params[:answers].last[:selected_options].size)
       end
     end
   end
