@@ -38,11 +38,13 @@ app.post("/participantes", async (req, res) => {
         let clasS = await getMateriaInfo(page)
         let condicional = false
         req.body.classes.forEach ((elemento) => {
-            if (elemento.code === clasS.code && elemento.classCode === clasS.class.classCode) {
+            console.log(elemento.codigo, clasS.code, elemento.turma, clasS.class.classCode)
+            if (elemento.codigo === clasS.code && elemento.turma === clasS.class.classCode) {
                 condicional = true;
             }
         })
         if (condicional){
+
             let info = await getMembersInfo(page)
             info = {code: clasS.code,classCode: clasS.class.classCode,...info}
             infos.push(info)

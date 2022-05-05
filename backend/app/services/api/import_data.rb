@@ -10,7 +10,6 @@ class Api::ImportData < ApplicationController
     def call(params)
         url = 'http://localhost:3030/participantes'
         resultado = RestClient.post(url, params, :content_type => 'application/json', :accept => 'application/json')
-        puts resultado.body
         resultado.body
     end
     
