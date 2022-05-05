@@ -68,6 +68,7 @@ end
   Answer.create(
     code: Faker::Number.number(digits: 5),
     member: Member.all.sample,
-    option: Option.all.sample
+    option: Option.all.sample,
+    question_id: Question.all.sample
   )
 end
