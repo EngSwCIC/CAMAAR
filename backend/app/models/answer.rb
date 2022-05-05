@@ -9,8 +9,8 @@ class Answer < ApplicationRecord
   private 
 
   def required_questions_answered
-    if !survey_question.nil? and survey_question.question_type != 'likert_scale'
-      if !survey_question.optional and content.nil?
+    if question_type != 'likert_scale'
+      if !survey_question&.optional and content.nil?
         errors.add(:content, 'is missing') 
       end
     end
