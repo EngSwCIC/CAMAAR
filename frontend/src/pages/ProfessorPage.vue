@@ -1,11 +1,15 @@
 <script setup>
+import VueChartkick from 'vue-chartkick'
+import 'chartkick/chart.js'
 import ProfessorComponentT1 from "src/components/GraficoProfessorTipo1.vue";
 import ProfessorComponentT2 from "src/components/GraficoProfessorTipo2.vue";
 import ReportDownload from "/src/components/ReportDownload.vue";
+import FilteringCclasses from "src/components/FilteringCclasses.vue";
 </script>
 
 <script>
 export default {
+  components: { FilteringCclasses },
   data() {
     return {
       isHidden: true,
@@ -46,6 +50,7 @@ export default {
   <div>
     <br /><br /><br /><br />
     <center>
+      <FilteringCclasses/>
       <div class="q-pa-md q-gutter-sm">
         <q-btn
           @click="toggle"
@@ -64,4 +69,3 @@ export default {
     </div>
   </div>
 </template>
-
