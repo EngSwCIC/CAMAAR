@@ -49,7 +49,5 @@ export default {
             {{dados}}
             <column-chart :data="[['&#128560;', um], ['&#128577;', dois], ['&#129300;', tres], ['&#128578;', quatro], ['&#128516;', cinco]]" ytitle="Num. Alunos" ></column-chart>
         </div>
-        <br>
-        <q-btn @click="fetchData" color="secondary" label="Atualizar" />
     </center>
 </template>
