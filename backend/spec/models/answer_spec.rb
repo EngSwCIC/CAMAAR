@@ -23,10 +23,9 @@ RSpec.describe Answer, type: :model do
       expect(answer).to be_valid
     end
 
-    it 'Quando tento criar resposta para questão obrigatória sem conteúdo' do
-      teste = Answer.new(survey_question: @surveyQuestion, survey_answer: @surveyAnswers);
+    it 'Quando tento criar resposta sem uma questão' do
+      teste = Answer.new(survey_answer: @surveyAnswers, content: "5");
       expect(teste).to_not be_valid
     end
-
   end
 end
