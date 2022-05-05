@@ -16,12 +16,28 @@ RSpec.describe "/avaliations", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Avaliation. As you add validations to Avaliation, be sure to
   # adjust the attributes here as well.
+  let(:subject){Subject.create(
+    code: "332788913/2",
+    name: "Matéria de Teste"
+  )}
+  let(:cclass){Cclass.create(
+    code: "12334",
+    semester:"2020/1",
+    time:"2020",
+    subject_id: subject.id
+  )}
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      title: 'Prova1',
+      cclass_id: cclass.id
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      title: 'Prova2',
+      cclass_id: nil
+    }
   }
 
   # This should return the minimal set of values that should be in the headers
