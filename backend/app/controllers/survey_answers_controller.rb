@@ -1,4 +1,24 @@
 class SurveyAnswersController < ApplicationController
+
+  ##
+  # Método para criar as respostas de um questionário
+  #
+  # O método recebe como parâmetro um objeto, contendo:
+  # - +member_id+ (Integer): id do membro
+  # - +cclass_id+ (Integer): id da turma
+  # - +survey_id+ (Integer): id do questionário
+  # - +answers+ (Array de objetos): Lista de respostas, cada uma contendo:
+  #   - +survey_question_id+ (Integer): id da questão respondida
+  #   - +content+ (String): Conteúdo da resposta
+  #   - +selected_options+ (Array de integers): Opcional, ids das opções selecionadas se a questão for do tipo caixa de seleção
+  #   - +custom_option+ (String): Opcional, conteúdo da opção customizada "outro" para questões de caixa de seleção
+  #
+  # Método não retorna nada, apenas responde a requisção com o status http +created+.
+  #
+  # Levanta um erro caso algum parâmetro não tenha sido passado corretamente e o renderiza como uma mensagem em um json.
+  #
+  # Pode criar instâncias das models +SurveyAnswer+, +Answer+ e +SelectedOption+.
+
   def create
     enrollment = Enrollment.find_by!(member_id: params[:member_id], cclass_id: params[:cclass_id])
     survey_answers = SurveyAnswer.new(enrollment: enrollment, survey_id: params[:survey_id])
