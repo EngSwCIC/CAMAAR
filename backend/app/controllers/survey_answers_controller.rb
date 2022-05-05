@@ -4,18 +4,13 @@ class SurveyAnswersController < ApplicationController
   def create
     # @current_user = get_user_from_token
     # @member = Member.find(@current_user.member_id)
-    # Usa id = 1 para membro pra teste de protótipo
-    @member = Member.find(1)
 
-    head :unprocessable_entity and return if @member.blank?
-      
     @survey_answer = SurveyAnswer.new(survey_answer_params)
-    @survey_answer.member = @member
 
-    if @survey_answer.save!
+    if @survey_answer.save
       render json: @survey_answer, include: [:answers => {include: :likert_answers}]
     else
-      head :unprocessable_entity
+      render json: @survey_answer.errors, status: :unprocessable_entity
     end
   end
 
@@ -35,6 +30,7 @@ class SurveyAnswersController < ApplicationController
             .permit(
               :survey_id,
               :cclass_id,
+              :member_id,
               answers_attributes: [
                 :survey_question_id,
                 :content,
