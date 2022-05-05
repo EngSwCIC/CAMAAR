@@ -27,8 +27,11 @@ export default {
         </q-avatar>
       </div>
       <q-space></q-space>
+      <br />
       <q-separator></q-separator>
+      <br />
       <div class="text-h5">Usuário</div>
+      <br />
       <q-btn color="secondary" @click="redirect"
         >Vá para os seus questionários</q-btn
       >
