@@ -1,4 +1,0 @@
-class CclassController < ApplicationController
-
-end
-    
