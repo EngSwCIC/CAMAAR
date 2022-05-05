@@ -1,7 +1,9 @@
 import ImportCard from '../../../src/components/ImportCard.vue'
 import { mount } from '@vue/test-utils';
 import { installQuasarPlugin } from '@quasar/quasar-app-extension-testing-unit-jest'
-installQuasarPlugin();
+import { Notify } from 'quasar';
+installQuasarPlugin({plugins: {Notify}});
+
 
 const registeredRows = [
   { nome: 'D', codigo: 'Dickerson', turma: 'Macdonald', semestre: '2020-1', horario: '2T' },
@@ -25,7 +27,6 @@ const $axios = {
     return {data: {rows: registeredRows}}
   }
 }
-const notify = jest.fn()
 
 describe('Import Page Tests', () => {
   beforeEach(() => {

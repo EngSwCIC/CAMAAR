@@ -16,12 +16,11 @@ module.exports = {
   // cache: false,
   // verbose: true,
   // watch: true,
-  collectCoverage: false,
-  coverageDirectory: '<rootDir>/test/jest/coverage',
+  collectCoverage: true,
+  coverageDirectory: '<rootDir>/tests/coverage',
   collectCoverageFrom: [
     '<rootDir>/src/**/*.vue',
     '<rootDir>/src/**/*.js',
-    '<rootDir>/src/**/*.jsx',
   ],
   // Needed in JS codebases too because of feature flags
   coveragePathIgnorePatterns: ['/node_modules/', '.d.ts$'],

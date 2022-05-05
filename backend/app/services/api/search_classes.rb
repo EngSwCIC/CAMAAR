@@ -1,8 +1,9 @@
+##
+# Esta classe cuida da efetuação das requisições para o scrapper no endpoint turmas
+#
+# É retornado as turmas resultantes da busca das turmas no SIGAA
 class Api::SearchClasses  < ApplicationController
 
-    def initialize
-    end
-    
     def headers
         {
           'Accept': 'application/json',
