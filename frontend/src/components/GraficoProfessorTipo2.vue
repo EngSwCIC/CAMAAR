@@ -3,7 +3,8 @@ import api from 'src/services/api.js';
 
 export default {
     props: {
-        api_url: String
+        api_url: String,
+        filter_options: Object
     },
     data(){
         return {
@@ -11,33 +12,35 @@ export default {
             dois: null,
             tres: null,
             quatro: null,
-            cinco: null,                   
-        }        
-    },    
+            cinco: null,
+        }
+    },
     methods: {
         async fetchData() {
             this.dados = null
+            console.log('fetching data 2')
+            console.log(this.filter_options)
             const res = await api.get(this.api_url)
                 .then(response => {
                     this.dados = response.data
                     this.um = this.dados[0][1]
                     this.dois = this.dados[1][1]
                     this.tres = this.dados[2][1]
-            
+
                 })
                 .catch(error => {
                     console.log(error);
-                });            
-            // const res = await fetch(`https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=1&length=5&type=json`);            
+                });
+            // const res = await fetch(`https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=1&length=5&type=json`);
         }
     },
     mounted() {
         this.fetchData()
     },
-        
+
     name: "ProfessorComponent",
     components: {},
-  
+
 };
 </script>
 

@@ -3,7 +3,8 @@ import api from 'src/services/api.js';
 
 export default {
     props: {
-        api_url: String
+        api_url: String,
+        filter_options: Object
     },
     data(){
         return {
@@ -17,8 +18,11 @@ export default {
     methods: {
         async fetchData() {
             this.dados = null
+            console.log('fetching data')
+            console.log(this.filter_options)
             const res = await api.get(this.api_url)
                 .then(response => {
+                    console.log(response)
                     this.dados = response.data
                     this.um = this.dados[0][1]
                     this.dois = this.dados[1][1]

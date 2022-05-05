@@ -39,33 +39,38 @@
 <script>
 export default {
   name: "filtering-cclasses",
+  props: {
+    updateFilters: { type: Function }
+  },
   data() {
     return {
       cclassess: null,
       surveyss: null,
-      questionss: null
+      questionss: null,
+      choices: {}
     };
   },
-  setup () {
-    return {
-      chooseCclass (x) {
-        console.log(x)
-      },
-      chooseSurvey (x) {
-        console.log(x)
-      },
-      chooseQuestion (x) {
-        console.log(x)
-      }
+  methods: {
+    chooseCclass (cclass) {
+      this.choices.cclassess = cclass
+      this.updateFilters(this.choices)
+    },
+    chooseSurvey (survey) {
+      this.choices.surveyss = survey
+      this.updateFilters(this.choices)
+    },
+    chooseQuestion (question) {
+      this.choices.questionss = question
+      this.updateFilters(this.choices)
     }
   },
   async created() {
     // GET request using fetch with async/await
-    const response = await fetch("http://127.0.0.1:3000/cclasses");
+    const response = await fetch("http://0.0.0.0:3030/cclasses");
     this.cclassess = await response.json();
-    const response2 = await fetch("http://127.0.0.1:3000/surveys");
+    const response2 = await fetch("http://0.0.0.0:3030/surveys");
     this.surveyss = await response2.json();
-    const response3 = await fetch("http://127.0.0.1:3000/questions");
+    const response3 = await fetch("http://0.0.0.0:3030/questions");
     this.questionss = await response3.json();
   }
 };

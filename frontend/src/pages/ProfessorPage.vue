@@ -17,23 +17,22 @@ export default {
       graficoTipo2: false,
       api_change: true,
       api_url_child: null,
+      filters: {}
     };
   },
   methods: {
     toggle() {
       this.isHidden = !this.isHidden;
     },
+    updateFilters(filters) {
+      this.filters = filters
+      console.log('professor page')
+      console.log(this.filters)
+    },
     api() {
-      // this.api_change = !this.api_change;
       this.graficoTipo1 = !this.graficoTipo1;
       this.graficoTipo2 = !this.graficoTipo2;
-      // if (this.api_change) {
-      //   this.api_url_child =
-      //     "https://canvasjs.com/services/data/datapoints.php?length=5&type=json";
-      // } else {
-      //   this.api_url_child =
-      //     "https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=1&length=5&type=json";
-      // }
+
       if (this.graficoTipo1) {
         this.api_url_child =
           "https://canvasjs.com/services/data/datapoints.php?length=5&type=json";
@@ -50,7 +49,7 @@ export default {
   <div>
     <br /><br /><br /><br />
     <center>
-      <FilteringCclasses/>
+      <FilteringCclasses :updateFilters="updateFilters" />
       <div class="q-pa-md q-gutter-sm">
         <q-btn
           @click="toggle"
@@ -62,10 +61,10 @@ export default {
       <ReportDownload />
     </center>
     <div v-if="isHidden && graficoTipo1">
-      <ProfessorComponentT1 :api_url="api_url_child" />
+      <ProfessorComponentT1 :api_url="api_url_child" :filter_options="filters" />
     </div>
     <div v-if="isHidden && graficoTipo2">
-      <ProfessorComponentT2 :api_url="api_url_child" />
+      <ProfessorComponentT2 :api_url="api_url_child" :filter_options="filters" />
     </div>
   </div>
 </template>
