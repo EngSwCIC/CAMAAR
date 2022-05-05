@@ -5,7 +5,7 @@ class Answer < ApplicationRecord
   validate :answerIsRequired
 
   def answerIsRequired
-    if(self.survey_question.optional == false && content == nil)
+    if(survey_question.optional == false && content == nil)
       errors.add(:content, "Resposta é obrigatória")
     end
   end
