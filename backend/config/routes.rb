@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   }
   get '/template', to:'template#show'
 
+  resources :reports, only: [:index]
   resources :pdf_reports, only: [:index]
   resources :surveys, only: [:index]
   get '/surveys', to:'surveys#index'

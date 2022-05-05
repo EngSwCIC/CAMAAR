@@ -1,17 +1,17 @@
 <template>
 <div class="card text-center m-3">
-    <q-btn-dropdown color="pink" label="Escolher turma" dropdown-icon="change_history">
+    <q-btn-dropdown color="pink" :label="this.choices.cclassess + ' - Escolher turma'" dropdown-icon="change_history">
       <q-list v-for="item in cclassess" :key="item.id">
             <q-list v-for="itemx in item" :key="itemx.id">
                 <q-item clickable v-close-popup>
-                <q-item-section @click="chooseCclass(itemx['attributes']['code'])">
+                <q-item-section @click="chooseCclass(itemx['attributes']['id'])">
                     <q-item-label > {{ itemx['attributes']['id'] +" => " + itemx['attributes']['code']}}</q-item-label>
                 </q-item-section>
                 </q-item>
             </q-list>
       </q-list>
     </q-btn-dropdown>
-    <q-btn-dropdown color="pink" label="Escolher código do Questionário" dropdown-icon="change_history">
+    <q-btn-dropdown color="pink" :label="this.choices.surveyss + ' - Escolher código do Questionário'" dropdown-icon="change_history">
       <q-list v-for="item in surveyss" :key="item.id">
             <q-list v-for="itemx in item" :key="itemx.id">
                 <q-item clickable v-close-popup>
@@ -22,7 +22,7 @@
             </q-list>
       </q-list>
     </q-btn-dropdown>
-    <q-btn-dropdown color="pink" label="Escolher código do Questão" dropdown-icon="change_history">
+    <q-btn-dropdown color="pink" :label="this.choices.questionss + ' - Escolher código do Questão'" dropdown-icon="change_history">
       <q-list v-for="item in questionss" :key="item.id">
         <q-list v-for="itemx in item" :key="itemx.id">
           <q-item clickable v-close-popup>

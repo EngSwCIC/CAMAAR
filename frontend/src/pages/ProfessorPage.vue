@@ -2,7 +2,6 @@
 import VueChartkick from 'vue-chartkick'
 import 'chartkick/chart.js'
 import ProfessorComponentT1 from "src/components/GraficoProfessorTipo1.vue";
-import ProfessorComponentT2 from "src/components/GraficoProfessorTipo2.vue";
 import ReportDownload from "/src/components/ReportDownload.vue";
 import FilteringCclasses from "src/components/FilteringCclasses.vue";
 </script>
@@ -23,23 +22,14 @@ export default {
   methods: {
     toggle() {
       this.isHidden = !this.isHidden;
+      this.api()
     },
     updateFilters(filters) {
       this.filters = filters
-      console.log('professor page')
-      console.log(this.filters)
     },
     api() {
-      this.graficoTipo1 = !this.graficoTipo1;
-      this.graficoTipo2 = !this.graficoTipo2;
-
-      if (this.graficoTipo1) {
-        this.api_url_child =
-          "https://canvasjs.com/services/data/datapoints.php?length=5&type=json";
-      } else {
-        this.api_url_child =
-          "https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=1&length=3&type=json";
-      }
+      this.graficoTipo1 = true
+      this.api_url_child = `http://0.0.0.0:3030/reports?question_id=${this.filters.questionss}`
     },
   },
 };
@@ -56,15 +46,11 @@ export default {
           color="primary"
           label="Mostrar/Ocultar Gráfico"
         />
-        <q-btn @click="api" color="primary" label="Mudar API" />
       </div>
       <ReportDownload />
     </center>
     <div v-if="isHidden && graficoTipo1">
       <ProfessorComponentT1 :api_url="api_url_child" :filter_options="filters" />
-    </div>
-    <div v-if="isHidden && graficoTipo2">
-      <ProfessorComponentT2 :api_url="api_url_child" :filter_options="filters" />
     </div>
   </div>
 </template>
