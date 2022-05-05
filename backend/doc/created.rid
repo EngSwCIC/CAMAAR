@@ -1,0 +1,8 @@
+Thu, 05 May 2022 15:49:50 -0300
+app/controllers/users/registrations_controller.rb	Mon, 04 Apr 2022 08:51:33 -0300
+app/controllers/users/sessions_controller.rb	Mon, 04 Apr 2022 08:51:33 -0300
+app/controllers/template_controller.rb	Mon, 04 Apr 2022 08:51:33 -0300
+app/controllers/cclasses_controller.rb	Thu, 05 May 2022 15:45:11 -0300
+app/controllers/surveys_controller.rb	Thu, 05 May 2022 15:45:11 -0300
+app/controllers/survey_answers_controller.rb	Thu, 05 May 2022 15:49:49 -0300
+app/controllers/application_controller.rb	Mon, 04 Apr 2022 08:51:33 -0300
