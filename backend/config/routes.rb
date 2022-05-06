@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :answers
+  resources :options
+  resources :avaliations
   devise_for :user, :path => '/auth', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" },
   controllers: {
     sessions: 'users/sessions',
