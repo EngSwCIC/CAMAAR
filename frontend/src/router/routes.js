@@ -1,6 +1,7 @@
 import LoginPage from "../pages/LoginPage.vue";
 import HomePage from "../pages/HomePage.vue";
 import SurveyPage from "../pages/SurveyPage.vue";
+import SurveysPage from "../pages/SurveysPage.vue";
 const routes = [
   {
     path: "/",
@@ -11,6 +12,11 @@ const routes = [
     path: "/home",
     name: "Home",
     component: HomePage,
+  },
+  {
+    path: "/surveys",
+    name: "Questionários",
+    component: SurveysPage,
   },
   {
     path: "/surveys/:id",
