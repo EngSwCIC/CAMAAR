@@ -7,5 +7,7 @@
 </template>
 
 <style scoped>
-
+    button {
+        padding: 10px;
+    }
 </style>

@@ -14,5 +14,11 @@
 </template>
 
 <style scoped>
-
+    tr {
+        background-color: aliceblue;
+    }
+    td {
+        padding: 10px;
+        text-align: center;
+    }
 </style>

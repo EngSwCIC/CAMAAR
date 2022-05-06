@@ -19,5 +19,10 @@ import ScaleQuestionsRow from './ScaleQuestionsRow.vue'
 </template>
 
 <style scoped>
-
+    table {
+        border: 1px solid black;
+    }
+    th {
+        padding: 5px;
+    }
 </style>

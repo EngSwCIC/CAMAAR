@@ -15,5 +15,7 @@
 </template>
 
 <style scoped>
-
+    select {
+        margin-left: 5px;
+    }
 </style>

@@ -6,13 +6,26 @@ import SugestionField from "../components/SugestionField.vue"
 import ScaleTable from "../components/ScaleTable.vue"
 </script>
 <template>
-    <div>
+    <div className="container">
         <SelectClass/>
+        <CheckboxInput/>
+        <CheckboxInput/>
+        <CheckboxInput/>
         <CheckboxInput/>
         <ScaleTable/>
         <SugestionField/>
         <SendButton/>
     </div>
 </template>
+
+<style scoped>
+    .container {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-around;
+        align-content: center;
+        height: 100vh;
+    }
+</style>
 
 
