@@ -66,11 +66,11 @@ export default {
   },
   async created() {
     // GET request using fetch with async/await
-    const response = await fetch("http://0.0.0.0:3030/cclasses");
+    const response = await fetch("http://127.0.0.1:3000/cclasses");
     this.cclassess = await response.json();
-    const response2 = await fetch("http://0.0.0.0:3030/surveys");
+    const response2 = await fetch("http://127.0.0.1:3000/surveys");
     this.surveyss = await response2.json();
-    const response3 = await fetch("http://0.0.0.0:3030/questions");
+    const response3 = await fetch("http://127.0.0.1:3000/questions");
     this.questionss = await response3.json();
   }
 };

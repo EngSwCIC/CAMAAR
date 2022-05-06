@@ -16,15 +16,7 @@ const download = (surveys) => {
     })
     .then((response) => {
       const doc = new jsPDF();
-      var text = "";
-
-      for (const k of ["surveys", "answers", "questions"]) {
-        text += `\n\n${k}\n\n`
-        for (const resp of response.data[k]) {
-          text +=JSON.stringify(resp) + "\n";
-        }
-      }
-      doc.text(text, 10, 10);
+      doc.text(response.data.data, 2 , 2);
       doc.save("relatorio_professor.pdf");
     })
     .catch((error) => {
