@@ -1,16 +1,12 @@
 class PdfReportsController < ApplicationController
+  # controller for generating pdf
+
   def index
-    if params[:class_id]
-      @surveys = Survey.find(params[:class_id])
-      @answers = Answer.joins(:member).find(params[:class_id])
-      @questions = Question.find(params[:class_id])
-    else
-      @surveys = Survey.all
-      @answers = Answer.joins(:member).all
-      @questions = Question.all
-    end
+    @surveys = params[:class_id] ? Survey.find(params[:class_id]) : Survey.all
+    @answers = params[:class_id] ? Answer.joins(:member).find(params[:class_id]) : Answer.joins(:member).all
+    @questions = params[:class_id] ? Question.find(params[:class_id]) : Question.all
 
     render json: { surveys: @surveys, answers: @answers, questions: @questions }, status: :ok
 
-    end
   end
+end
