@@ -1,11 +1,13 @@
 <script setup>
-
+const props = defineProps({
+    campo: String
+})
 </script>
 
 <template>
     <div>
         <input type="checkbox"/>
-        <label>Marque ou não</label>
+        <label>{{props.campo}}</label>
     </div>
 </template>
 

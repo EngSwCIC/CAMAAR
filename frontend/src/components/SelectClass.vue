@@ -1,15 +1,13 @@
 <script setup>
-
+const props = defineProps({
+    campos: Object
+})
 </script>
-
 <template>
     <div>
-        <label>Escolha uma opção</label>
+        <label>{{props.campos.pergunta}}</label>
         <select>
-            <option>Opção 1</option>
-            <option>Opção 2</option>
-            <option>Opção 3</option>
-            <option>Opção 4</option>
+            <option v-for="opcao in props.campos.opcoes" :key="opcao">{{opcao}}</option>
         </select>
     </div>
 </template>

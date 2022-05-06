@@ -1,5 +1,8 @@
 <script setup>
 import ScaleQuestionsRow from './ScaleQuestionsRow.vue'
+const props = defineProps({
+    questions: Array
+})
 </script>
 
 <template>
@@ -12,9 +15,7 @@ import ScaleQuestionsRow from './ScaleQuestionsRow.vue'
             <th>4 - Concordo Parcialmente</th>
             <th>5 - Concordo Totalmente</th>
         </tr>
-        <ScaleQuestionsRow/>
-        <ScaleQuestionsRow/>
-        <ScaleQuestionsRow/>
+        <ScaleQuestionsRow v-for="question in props.questions" :key="question" :question="question"/>
     </table>
 </template>
 

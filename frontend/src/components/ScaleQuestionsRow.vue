@@ -1,15 +1,18 @@
 <script setup>
+const props = defineProps({
+    question: String
+})
 
 </script>
 
 <template>
     <tr>
-        <td>Pergunta 1</td>
-        <td><input type="radio" name="pergunta1" value="1"/></td>
-        <td><input type="radio" name="pergunta1" value="2"/></td>
-        <td><input type="radio" name="pergunta1" value="3"/></td>
-        <td><input type="radio" name="pergunta1" value="4"/></td>
-        <td><input type="radio" name="pergunta1" value="5"/></td>
+        <td className="question">{{props.question}}</td>
+        <td><input type="radio" :name="props.question" value="1"/></td>
+        <td><input type="radio" :name="props.question" value="2"/></td>
+        <td><input type="radio" :name="props.question" value="3"/></td>
+        <td><input type="radio" :name="props.question" value="4"/></td>
+        <td><input type="radio" :name="props.question" value="5"/></td>
     </tr>
 </template>
 
@@ -20,5 +23,8 @@
     td {
         padding: 10px;
         text-align: center;
+    }
+    td.question {
+        text-align: start;
     }
 </style>

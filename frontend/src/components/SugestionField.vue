@@ -1,10 +1,12 @@
 <script setup>
-
+const props = defineProps({
+    question: String
+})
 </script>
 
 <template>
     <div>
-        <label>Escreva algo:</label>
+        <label>{{props.question}}</label>
         <br>
         <textarea />
     </div>
