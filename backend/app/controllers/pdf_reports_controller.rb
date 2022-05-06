@@ -1,16 +1,11 @@
 class PdfReportsController < ApplicationController
   def index
-    if params[:class_id]
-      @surveys = Survey.find(params[:class_id])
-      @answers = Answer.joins(:member).find(params[:class_id])
-      @questions = Question.find(params[:class_id])
-    else
-      @surveys = Survey.all
-      @answers = Answer.joins(:member).all
-      @questions = Question.all
+    @data = "\n\n\t\tRelatório\n\n"
+    Cclass.all.each do |c|
+      s = Survey.includes(:cclass).find_by(cclass: c)
+      @data += "\tTurma\n\t\tCódigo: #{c.code}\n\tQuestionário\n\t\tCódigo: #{s.code} Nome: #{s.name}\n\n\n"
     end
 
-    render json: { surveys: @surveys, answers: @answers, questions: @questions }, status: :ok
-
+    render json: { data: @data }
     end
   end
