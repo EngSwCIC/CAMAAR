@@ -55,3 +55,9 @@ for survey_question in survey_questions do
     optional: survey_question['optional'],
     survey: survey)
 end
+
+survey_question = SurveyQuestion.where(question_type: "Caixa de Seleção").last
+
+Option.create(option: 'Provas Síncronas', survey_question: survey_question)
+Option.create(option: 'Provas Assíncronas', survey_question: survey_question)
+Option.create(option: 'Trabalhos', survey_question: survey_question)

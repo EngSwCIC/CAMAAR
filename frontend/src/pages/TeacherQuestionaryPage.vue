@@ -56,6 +56,16 @@ function getQuestions(){
                     case "Dissertativa":
                         SugestionQuestion.value = question.question
                         break;
+                    
+                    case "Caixa de Seleção":
+                        console.log(question)
+                        checkboxQuestion.value = {
+                            pergunta: question.question,
+                            checkboxQuestions: question.options.map(option => {
+                                return option.option
+                            })
+                        }
+                        break;
                 }
             })
         }
