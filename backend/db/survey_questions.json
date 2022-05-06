@@ -1,56 +1,74 @@
 [
     {
-        "question_type": "scale",
+        "question_type": "Escala",
         "question": "O plano de ensino entregue no início do semestre foi ajustado.",
         "optional": false,
         "survey_id": 1
     },
     {
-        "question_type": "scale",
+        "question_type": "Escala",
         "question": "Estou sendo efetivo na comunicação com os estudantes.",
         "optional": false,
         "survey_id": 1
     },
     {
-        "question_type": "scale",
+        "question_type": "Escala",
         "question": "Utilizo recursos didáticos síncronos.",
         "optional": false,
         "survey_id": 1
     },
     {
-        "question_type": "scale",
+        "question_type": "Escala",
         "question": "Utilizo recursos didáticos assíncronos.",
         "optional": false,
         "survey_id": 1
     },
     {
-        "question_type": "scale",
+        "question_type": "Escala",
         "question": "As estratégias didáticas adotadas nesta disciplina estão sendo efetivas para aprendizagem.",
         "optional": false,
         "survey_id": 1
     },
     {
-        "question_type": "scale",
+        "question_type": "Escala",
         "question": "A bibliografia básica da disciplina está disponível para acesso online.",
         "optional": false,
         "survey_id": 1
     },
     {
-        "question_type": "scale",
+        "question_type": "Escala",
         "question": "Os estudantes estão motivados e interessados.",
         "optional": false,
         "survey_id": 1
     },
     {
-        "question_type": "scale",
+        "question_type": "Escala",
         "question": "Os estudantes estão tendo carga de trabalho grande nesta disciplina.",
         "optional": false,
         "survey_id": 1
     },
     {
-        "question_type": "scale",
+        "question_type": "Escala",
         "question": "Os estudantes têm participado de modo efetivo.",
         "optional": false,
+        "survey_id": 1
+    },
+    {
+        "question_type": "Caixa de Seleção",
+        "question": "Qual a metodologia de avaliação que está sendo utilizada?",
+        "optional": false,
+        "survey_id": 1
+    }, 
+    {
+        "question_type": "Caixa de Seleção",
+        "question": "Qual a metodologia de aferição da frequência do estudante que está sendo utilizada?",
+        "optional": false,
+        "survey_id": 1
+    },
+    {
+        "question_type": "Dissertativa",
+        "question": "Sugestões ou comentários adicionais (difculdades, problemas, potencialidades, práticas exitosas, etc.)",
+        "optional": true,
         "survey_id": 1
     }
 ]
