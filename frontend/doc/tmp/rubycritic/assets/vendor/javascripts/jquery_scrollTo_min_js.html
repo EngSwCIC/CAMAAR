@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>jquery.scrollTo.min.js - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../";
+  var index_rel_prefix = "../../../../../";
+</script>
+
+<script src="../../../../../js/navigation.js" defer></script>
+<script src="../../../../../js/search.js" defer></script>
+<script src="../../../../../js/search_index.js" defer></script>
+<script src="../../../../../js/searcher.js" defer></script>
+<script src="../../../../../js/darkfish.js" defer></script>
+
+<link href="../../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../tmp/rubycritic/application_controller_html.html">application_controller.html</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/assets/javascripts/application_js.html">application.js</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/assets/stylesheets/application_css.html">application.css</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/assets/vendor/javascripts/bootstrap_min_js.html">bootstrap.min.js</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/assets/vendor/javascripts/highcharts_src-4_0_1_js.html">highcharts.src-4.0.1.js</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_filtertable_min_js.html">jquery.filtertable.min.js</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_min_js.html">jquery.min.js</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_scrollTo_min_js.html">jquery.scrollTo.min.js</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_js.html">jquery.tablesorter.js</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_min_js.html">jquery.tablesorter.min.js</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_timeago_js.html">jquery.timeago.js</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/assets/vendor/javascripts/prettify_js.html">prettify.js</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/assets/vendor/stylesheets/bootstrap_min_css.html">bootstrap.min.css</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/assets/vendor/stylesheets/font-awesome_min_css.html">font-awesome.min.css</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/assets/vendor/stylesheets/prettify_css.html">prettify.css</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/assets/vendor/stylesheets/prettify_custom_theme_css.html">prettify.custom_theme.css</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/code_index_html.html">code_index.html</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/overview_html.html">overview.html</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/simple_cov_index_html.html">simple_cov_index.html</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/smells_index_html.html">smells_index.html</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/users/registrations_controller_html.html">registrations_controller.html</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/users/sessions_controller_html.html">sessions_controller.html</a>
+  
+    <li><a href="../../../../../tmp/rubycritic/users_controller_html.html">users_controller.html</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page tmp/rubycritic/assets/vendor/javascripts/jquery.scrollTo.min.js">
+
+<p>/**</p>
+
+<pre>* Copyright (c) 2007-2015 Ariel Flesler - aflesler&lt;a&gt;gmail&lt;d&gt;com | http://flesler.blogspot.com
+* Licensed under MIT
+* @author Ariel Flesler
+* @version 2.1.2
+*/</pre>
+
+<p>;(function(f){“use strict”;“function”===typeof <a href=""jquery"">define&&define.amd?define(</a>,f):“undefined”!==typeof module&amp;&amp;module.exports?module.exports=f(require(“jquery”)):f(jQuery)})(function($){“use strict”;function n(a){<a href=""iframe","#document","html","body"">return!a.nodeName||-1!==$.inArray(a.nodeName.toLowerCase(),</a>)}function h(a){return $.isFunction(a)||$.isPlainObject(a)?a:{top:a,left:a}}var p=$.scrollTo=function(a,d,b){return $(window).scrollTo(a,d,b)};p.defaults={axis:“xy”,duration:0,limit:!0};$.fn.scrollTo=function(a,d,b){“object”=== typeof d&amp;&amp;(b=d,d=0);“function”===typeof b&amp;&amp;(b={onAfter:b});“max”===a&amp;&amp;(a=9E9);b=$.extend({},p.defaults,b);d=d||b.duration;var u=b.queue&amp;&amp;1&lt;b.axis.length;u&amp;&amp;(d/=2);b.offset=h(b.offset);b.over=h(b.over);return this.each(function(){function k(a){var k=$.extend({},b,{queue:!0,duration:d,complete:a&amp;&amp;function(){a.call(q,e,b)}});r.animate(f,k)}if(null!==a){var l=n(this),q=l?this.contentWindow||window:this,r=$(q),e=a,f={},t;switch(typeof e){case “number”:case “<a href="+-">string”:if(/^(</a>=?)?d+(.d+)?(px|%)?$/.test(e)){e= h(e);break}e=l?$(e):$(e,q);case “object”:if(e.length===0)return;if(e.is||e.style)t=(e=$(e)).offset()}var v=$.isFunction(b.offset)&amp;&amp;b.offset(q,e)||b.offset;$.each(b.axis.split(“”),function(a,c){var <a href="g">d=“x”===c?“Left”:“Top”,m=d.toLowerCase(),g=“scroll”+d,h=r</a>(),<a href="g">n=p.max(q,c);t?(f</a>=<a href="m">t</a>+(<a href="m">l?0:h-r.offset()</a>),<a href="g">b.margin&&(f</a>-=<a href="g">parseInt(e.css(“margin”+d),10)||0,f</a>-=<a href="g">parseInt(e.css(“border”d“Width”),10)||0),f</a>+=<a href="m">v</a>||<a href="m">0,b.over</a>&amp;&amp;(<a href="g">f</a>+=<a href=""x"===c?"width":"height"">e</a>()*<a href="m">b.over</a>)):(<a href="m">d=e</a>,<a href="g">f</a>=d.slice&amp;&amp; “%”===<a href="g">d.slice(-1)?parseFloat(d)/100*n:d);b.limit&&/^d+$/.test(f</a>)&amp;&amp;(<a href="g">f</a>=<a href="g">0>=f</a>?<a href="g">0:Math.min(f</a>,<a href="g">n));!a&&1<b.axis.length&&(h===f</a>?f={}:u&amp;&amp;(k(b.onAfterFirst),f={}))});k(b.onAfter)}})};p.max=function(a,d){var b=“x”===d?“Width”:“Height”,h=“scroll”+b;if(!n(a))return <a href="h">a</a>-$(<a href="b.toLowerCase()">a)</a>();var b=“client”+b,k=a.ownerDocument||a.document,l=k.documentElement,k=k.body;return <a href="h">Math.max(l</a>,<a href="h">k</a>)-Math.min(l[b],<a href="b">k</a>)};$.Tween.propHooks.scrollLeft=$.Tween.propHooks.scrollTop={get:function(a){return $(<a href="a.prop">a.elem)</a>()}, set:function(a){var d=this.get(a);if(a.options.interrupt&amp;&amp;a._last&amp;&amp;a._last!==d)return $(a.elem).stop();var <a href="a.prop">b=Math.round(a.now);d!==b&&($(a.elem)</a>(b),a._last=this.get(a))}};return p});</p>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
