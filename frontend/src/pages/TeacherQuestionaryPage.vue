@@ -6,6 +6,7 @@ import SugestionField from "../components/SugestionField.vue"
 import ScaleTable from "../components/ScaleTable.vue"
 import CheckboxQuestions from "src/components/CheckboxQuestions.vue";
 import {ref} from 'vue'
+import {api} from "../boot/axios"
 
 const selectQuestion = ref({
     pergunta: 'Selecione a Primeira Disciplina/Turma para analisar:',
@@ -26,15 +27,45 @@ const checkboxQuestion = ref({
 })
 
 const ScaleQuestions = ref([
-    '1. O plano de ensino entregue no início do semestre foi ajustado.',
-    '2. Estou sendo efetivo na comunicação com os estudantes.',
-    '3. Utilizo recursos didáticos síncronos.',
-    '4. Utilizo recursos didáticos assíncronos.',
-    '5. As estratégias didáticas adotadas nesta disciplina estão sendo efetivas para aprendizagem.',
-    '6. A bibliografia básica da disciplina está disponível para acesso online.'
+    // '1. O plano de ensino entregue no início do semestre foi ajustado.',
+    // '2. Estou sendo efetivo na comunicação com os estudantes.',
+    // '3. Utilizo recursos didáticos síncronos.',
+    // '4. Utilizo recursos didáticos assíncronos.',
+    // '5. As estratégias didáticas adotadas nesta disciplina estão sendo efetivas para aprendizagem.',
+    // '6. A bibliografia básica da disciplina está disponível para acesso online.'
 ])
 
-const SugestionQuestion = ref('Sugestões ou comentários adicionais (difculdades, problemas, potencialidades, práticas exitosas, etc.)')
+const SugestionQuestion = ref()
+
+function getClass(){
+    api.get("member_classes/45").then(response => {
+        selectQuestion.value.opcoes = response.data.map(turmas => {
+            return turmas.subject.name + " - " + turmas.subject.code
+        })
+    })
+}
+
+function getQuestions(){
+    api.get("/surveys/1").then(response => {
+            response.data.survey_questions.map((question) => {
+                switch(question.question_type){
+                    case "Escala":
+                        ScaleQuestions.value.push(question.question)
+                        break;
+
+                    case "Dissertativa":
+                        SugestionQuestion.value = question.question
+                        break;
+                }
+            })
+        }
+    )
+}
+
+
+getClass()
+
+getQuestions()
 
 </script>
 <template>
