@@ -106,7 +106,7 @@ export default {
                 try {
                     const res = await axios.post(
                         'http://localhost:3000/survey_answers',
-                        subject_answer, { 
+                        { ...subject_answer, member_id: 1 }, { 
                             headers: {
                                 Authorization: 'Bearer ' + localStorage.getItem('token')
                             }
