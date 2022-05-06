@@ -155,7 +155,44 @@ export default {
         }
       });
     },
-  },
+    methods: {
+        async submitAnswer() {
+            this.survey_answers.forEach(async subject_answer => {
+                try {
+                    const res = await axios.post(
+                        'http://localhost:3000/survey_answers',
+                        { ...subject_answer, member_id: 1 }, { 
+                            headers: {
+                                Authorization: 'Bearer ' + localStorage.getItem('token')
+                            }
+                        })
+
+                    this.notify({
+                        message: 'Resposta enviada com sucesso!',
+                        position: 'top',
+                        color: 'positive'
+                    })
+            
+                    this.router.push({path: '/home'})
+                } catch(err) {
+                    if (err.response.status == 422)
+                        this.notify({
+                            message: 'Falha ao enviar resposta. Responda todas as perguntas obrigatórias.',
+                            position: 'top',
+                            color: 'negative'
+                        })
+                    else
+                        this.notify({
+                            message: 'Falha ao enviar resposta.',
+                            position: 'top',
+                            color: 'negative'
+                        })
+                }
+                
+
+            })
+        }
+    }
 };
 </script>
 
