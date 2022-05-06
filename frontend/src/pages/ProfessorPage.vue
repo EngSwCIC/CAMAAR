@@ -29,7 +29,7 @@ export default {
     },
     api() {
       this.graficoTipo1 = true
-      this.api_url_child = `http://0.0.0.0:3030/reports?question_id=${this.filters.questionss}`
+      this.api_url_child = `http://127.0.0.1:3000/reports?question_id=${this.filters.questionss}`
     },
   },
 };
