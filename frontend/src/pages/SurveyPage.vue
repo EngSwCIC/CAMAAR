@@ -97,6 +97,7 @@ export default {
       this.survey_answers.push({
         survey_id: this.survey.id,
         cclass_id: cclass.id,
+        member_id: 1,
         answers_attributes: this.survey.survey_questions.map((question) => {
           if (question.question_type == "likert_scale")
             return {
