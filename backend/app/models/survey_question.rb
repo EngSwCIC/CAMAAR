@@ -27,7 +27,6 @@ class SurveyQuestion < ApplicationRecord
   # É chamada durante a execução do método +SurveyQuestion::save+.
   #
   # Adiciona um erro ao model a não ser que +possibilities.include? question_type+
-+ 
 
   def question_type_exists
     errors.add(:question_type, 'is invalid') unless self.possibilities.include? question_type
