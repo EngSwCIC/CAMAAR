@@ -4,14 +4,16 @@
   "description": "Crawler for sigaa ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "author": "Caio Peluti",
   "license": "ISC",
   "dependencies": {
+    "chromium": "^3.0.3",
     "dotenv": "^16.0.0",
-    "mariadb": "^2.5.5",
-    "puppeteer": "^13.3.2",
-    "sequelize": "^6.16.1"
+    "express": "^4.18.1",
+    "nodemon": "^2.0.15",
+    "puppeteer": "^13.3.2"
   }
 }

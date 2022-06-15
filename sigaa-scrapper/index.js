@@ -1,21 +1,31 @@
-const puppeteer = require('puppeteer')
-const createMateria = require('./helpers/createMateria')
-const createParticipante = require('./helpers/createParticipante')
-const createTurma = require('./helpers/createTurma')
-const createRelationParticipanteTurma = require('./helpers/createRelationParticipanteTurma')
+async function login(page, USER, PASSWORD){
+	console.log("Executing login")
 
-require('dotenv').config();
+	// LOGIN SELECTORS
+	const usernameSelector = 'input[name="user.login"]'
+	const passwordSelector = 'input[name="user.senha"]'
+	const buttonSelector = 'input[type="submit"]'
 
-async function login(page){
-	const PASSWORD = process.env.PASSWORD
-	const USER = process.env.USERNAME
-	await page.goto('https://sig.unb.br/sigaa/ava/index.jsf')
-	await page.$eval('#username', (el, USER) => {el.value = USER}, USER)
-	await page.$eval('#password', (el, PASSWORD) => {el.value = PASSWORD}, PASSWORD)
-	await page.click('.btn-login')
-	// await page.waitForSelector('input[name="j_id_jsp_933481798_1:j_id_jsp_933481798_3"]');
-	// await page.click('input[name="j_id_jsp_933481798_1:j_id_jsp_933481798_3"]')
-	await page.waitForSelector('#turmas-portal');
+	await page.goto('https://sig.unb.br/sigaa/verTelaLogin.do')
+	await page.waitForSelector(usernameSelector);
+	await page.waitForSelector(passwordSelector);
+	await page.waitForSelector(buttonSelector);
+	await page.$eval(usernameSelector, (el, USER) => {el.value = USER}, USER)
+	await page.$eval(passwordSelector, (el, PASSWORD) => {el.value = PASSWORD}, PASSWORD)
+	await page.click(buttonSelector)
+}
+async function clickEleicao(page){
+	const eleicaoSelector = '#j_id_jsp_933481798_1 > div > input[type=submit]'
+	await page.waitForSelector(eleicaoSelector);
+	await page.click(`${eleicaoSelector}`)
+}
+
+async function getClassesIds(page){
+	// CLASS SELECTOR
+	const classesSelector = '#turmas-portal .descricao form'
+	await page.waitForSelector(classesSelector)
+	const selectors = await page.evaluate((classesSelector) => {return Array.from(document.querySelectorAll(classesSelector)).map(el=>el.id)},classesSelector)
+    return selectors
 }
 
 function parserDicentes (data) {
@@ -44,7 +54,7 @@ function parserDicentes (data) {
 }
 
 function parserDocente (data) {
-	data = data.replaceAll('\t', '')
+	data = removeTab(data)
 	data = data.trim()
 	data = data.split('\n')
 	return {
@@ -57,94 +67,77 @@ function parserDocente (data) {
 	}
 }
 
-async function scrapMateria(selector, page){
-	const urlInicial = await page.url()
-	await page.click(`#${selector} a`)
-	await page.waitForSelector('.rich-panelbar-content')
-	await page.evaluate(()=>{
-		const nodes = Array.from(document.querySelector('.rich-panelbar-content').childNodes)
-		nodes.filter(hyperlink => hyperlink.innerText === 'Participantes')[0].click()
-	})
-	await page.waitForSelector('.participantes')
-	// get Participantes
-  await page.screenshot('print.png')
-	const resultado = await page.evaluate(()=>{
-    const participantes = document.querySelectorAll('.participantes')
-		return {dicente: participantes[1].innerText, docente: participantes[0].innerText}
-	})
-	resultado.dicente = parserDicentes(resultado.dicente)
-	resultado.docente = parserDocente(resultado.docente)
-	// get Turma info
-	const info = await page.evaluate(()=>{
-    let codigoMateria = document.querySelector('#linkCodigoTurma').innerText
-		codigoMateria = codigoMateria.trim().split(' ')[0]
-		const nomeMateria = document.querySelector('#linkNomeTurma').innerText
-		const infoTurma = document.querySelector('#linkPeriodoTurma').innerText
-		return {codigoMateria, nomeMateria, infoTurma}
-	})
-  
-	//parser infoTurma
-	let turma = info.infoTurma.replaceAll(/\(|\)/g,'')
-	turma = turma.split(' ')
-	turma = turma.filter(char => char!=='-')
-	info.infoTurma = {codigo: turma[0], semestre: turma[1], horario: turma[2]}
-	resultado.info = info
-	await page.goto(urlInicial)
-  console.log('teste', resultado)
-	return resultado
+async function goBack(page){
+	await page.goBack()
 }
 
-(async () => {
-	const browser = await puppeteer.launch({ headless: true })
-	const page = await browser.newPage()
-	await login(page)
+async function clickMateria(materiaId, page){
+	await page.click(`#${materiaId} a`)
+}
 
-	const selectors = await page.evaluate(()=> Array.from(document.querySelectorAll("#turmas-portal .descricao form")).map(el=>el.id))
-	let contador = 1
-	const max = selectors.length
-	for(selector of selectors){
-		console.log(`Realizando Scrapping: ${contador}/${max}`)
-		contador++
-		const res = await scrapMateria(selector, page)
-		const materiaCadastrada = await createMateria({
-			codigo: res.info.codigoMateria,
-			nome: res.info.nomeMateria
-		})
-		const turmaCadastrada = await createTurma({
-			codigo: res.info.infoTurma.codigo,
-			codigo_materia: materiaCadastrada.insertId,
-			semestre: res.info.infoTurma.semestre,
-			horario: res.info.infoTurma.horario
-		})
-		for(aluno of res.dicente){
-			const alunoCadastrado = await createParticipante({
-				nome:aluno.nome,
-				matricula: aluno.matricula,
-				usuario: aluno.usuario,
-				email: aluno.email,
-				formacao: aluno.formacao,
-				ocupacao: aluno.ocupacao
-			})
-			await createRelationParticipanteTurma({
-				idParticipante: alunoCadastrado.insertId,
-				idTurma: turmaCadastrada.insertId
-			})
-		}
-		const professorCadastrado = await createParticipante({
-			nome: res.docente.nome,
-			departamento: res.docente.departamento,
-			formacao: res.docente.formacao,
-			usuario: res.docente.usuario,
-			matricula: res.docente.usuario,
-			email: res.docente.email,
-			ocupacao: res.docente.ocupacao
-		})
-		await createRelationParticipanteTurma({
-			idParticipante: professorCadastrado.insertId,
-			idTurma: turmaCadastrada.insertId
-		})
+async function clickParticipantes(page){
+	const handler = await page.$x("//div[contains(text(), 'Participantes')]")
+	await handler[0].click()
+}
+
+function removeParanthesis (elem){
+	return elem.replaceAll(/\(|\)/g,'')
+}
+
+function removeTab (elem){
+	return elem.replaceAll('\t', '')
+}
+
+function removeTabs (elem, num){
+	let tabs = ""
+	for(let i = 0; i < num; i++){
+		tabs += "\t"
 	}
-	await browser.close()
-	console.log('Scrapping realizado com sucesso')
-	process.exit()
-})();
+	return elem.replaceAll(tabs, '')
+}
+
+function removeDashes (elem){
+	return elem.replaceAll(/\-/g,'')
+}
+
+async function getMateriaInfo(page){
+	// Wait for page to load
+	await page.waitForSelector('#nomeTurma')
+
+	// Get info elements
+	const info = await page.evaluate(()=> Array.from(document.querySelectorAll('#nomeTurma p')).map(elem => elem.innerText))
+
+	// Remove () and -
+	let data = info.map(elem => removeDashes(removeParanthesis(elem)))
+
+	// Parsing each field
+	data[0] = data[0].slice(0, -2)
+	const localTime = data[2].split(' ')
+	const classCode = localTime[1]
+	const semester = localTime[2]
+	const time = localTime.slice(3).join(' ').slice(1)
+
+	return {code: data[0], name: data[1], class: {classCode, semester, time}}
+}
+
+async function getMembersInfo(page){
+	// Wait for page to load
+	await page.waitForSelector('.rich-panelbar-content')
+	await clickParticipantes(page)
+
+	// Get participantes
+  await page.screenshot({path:"teste.png"})
+	await page.waitForSelector('.participantes')
+	const participantes = await page.evaluate(()=>{
+    	const discentesDocentes = document.querySelectorAll('.participantes')
+ 	 	return {dicente: discentesDocentes[1].innerText, docente: discentesDocentes[0].innerText}
+ 	})
+
+	// Parsing members
+	participantes.dicente = parserDicentes(participantes.dicente)
+ 	participantes.docente = parserDocente(participantes.docente)
+
+	return participantes
+}
+
+module.exports = {login, clickEleicao, getClassesIds, clickMateria, getMateriaInfo, goBack, getMembersInfo}

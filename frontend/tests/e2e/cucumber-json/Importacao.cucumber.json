@@ -1,0 +1,152 @@
+[
+  {
+    "keyword": "Funcionalidade",
+    "name": "Importar do SIGAA",
+    "line": 2,
+    "id": "importar-do-sigaa",
+    "tags": [],
+    "uri": "Importacao.feature",
+    "elements": [
+      {
+        "id": "importar-do-sigaa;tentar-importar-turmas-sem-selecionar",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Tentar importar Turmas sem selecionar",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que estou na rota \"/import\"",
+            "result": {
+              "status": "passed",
+              "duration": 10511000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 6,
+            "name": "que eu busquei turmas",
+            "result": {
+              "status": "passed",
+              "duration": 122000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 7,
+            "name": "clicar no botão \"importButton\"",
+            "result": {
+              "status": "passed",
+              "duration": 5573000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 8,
+            "name": "eu devo ver uma notificação de \"Selecione uma ou mais turmas para importar.\"",
+            "result": {
+              "status": "passed",
+              "duration": 31000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "importar-do-sigaa;importar-turmas-para-o-banco-de-dados",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Importar Turmas para o Banco de Dados",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 11,
+            "name": "que estou na rota \"/import\"",
+            "result": {
+              "status": "passed",
+              "duration": 1352000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 12,
+            "name": "que eu busquei turmas",
+            "result": {
+              "status": "passed",
+              "duration": 136000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 14,
+            "name": "eu digitar \"software\" no campo de pesquisa da tabela de importação",
+            "result": {
+              "status": "passed",
+              "duration": 1972000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 15,
+            "name": "selecionar a turma",
+            "result": {
+              "status": "passed",
+              "duration": 4024000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 16,
+            "name": "clicar no botão \"importButton\"",
+            "result": {
+              "status": "passed",
+              "duration": 166000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 17,
+            "name": "esperar importar turmas",
+            "result": {
+              "status": "passed",
+              "duration": 6515000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 18,
+            "name": "eu devo ver uma notificação de \"Turmas selecionadas importadas com sucesso.\"",
+            "result": {
+              "status": "passed",
+              "duration": 35000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 19,
+            "name": "eu devo ver \"SOFTWARE\" na tabela de turmas cadastradas",
+            "result": {
+              "status": "passed",
+              "duration": 64000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

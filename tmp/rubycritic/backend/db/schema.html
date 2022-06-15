@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../assets/vendor/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/vendor/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/vendor/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../overview.html"><img src="../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../simple_cov_index.html" class="project-nav-item coverage-index-nav"><i class="fa fa-umbrella"></i>Coverage</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2022-04-14 14:58:28 -0300'>2022-04-14 14:58:28 -0300</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>backend/db /</small> schema.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating b big">
+              B
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">81</span><small> lines of codes</small></div>
+              <div><span class="metric">0</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">N/A</span><small> complexity/method</small></div>
+              <div><span class="metric">6</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">65.7</span><small> complexity</small></div>
+              <div><span class="metric">0</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                0
+                smell
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
+#
+# It&#39;s strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema[7.0].define(version: 2022_04_11_022317) do
+  create_table &quot;cclasses&quot;, force: :cascade do |t|
+    t.string &quot;code&quot;
+    t.string &quot;semester&quot;
+    t.string &quot;time&quot;
+    t.integer &quot;subject_id&quot;, null: false
+    t.datetime &quot;created_at&quot;, null: false
+    t.datetime &quot;updated_at&quot;, null: false
+    t.index [&quot;subject_id&quot;], name: &quot;index_cclasses_on_subject_id&quot;
+  end
+
+  create_table &quot;enrollments&quot;, force: :cascade do |t|
+    t.integer &quot;cclass_id&quot;, null: false
+    t.integer &quot;member_id&quot;, null: false
+    t.datetime &quot;created_at&quot;, null: false
+    t.datetime &quot;updated_at&quot;, null: false
+    t.index [&quot;cclass_id&quot;], name: &quot;index_enrollments_on_cclass_id&quot;
+    t.index [&quot;member_id&quot;], name: &quot;index_enrollments_on_member_id&quot;
+  end
+
+  create_table &quot;jwt_denylist&quot;, force: :cascade do |t|
+    t.string &quot;jti&quot;, null: false
+    t.datetime &quot;exp&quot;, null: false
+    t.datetime &quot;created_at&quot;, null: false
+    t.datetime &quot;updated_at&quot;, null: false
+    t.index [&quot;jti&quot;], name: &quot;index_jwt_denylist_on_jti&quot;
+  end
+
+  create_table &quot;members&quot;, force: :cascade do |t|
+    t.string &quot;name&quot;, null: false
+    t.string &quot;registration&quot;, null: false
+    t.string &quot;username&quot;, null: false
+    t.string &quot;occupation&quot;, null: false
+    t.string &quot;degree&quot;, null: false
+    t.string &quot;course&quot;, null: false
+    t.string &quot;email&quot;, null: false
+    t.datetime &quot;created_at&quot;, null: false
+    t.datetime &quot;updated_at&quot;, null: false
+    t.index [&quot;registration&quot;], name: &quot;index_members_on_registration&quot;, unique: true
+  end
+
+  create_table &quot;subjects&quot;, force: :cascade do |t|
+    t.string &quot;code&quot;, null: false
+    t.string &quot;name&quot;, null: false
+    t.datetime &quot;created_at&quot;, null: false
+    t.datetime &quot;updated_at&quot;, null: false
+    t.index [&quot;code&quot;], name: &quot;index_subjects_on_code&quot;, unique: true
+    t.index [&quot;name&quot;], name: &quot;index_subjects_on_name&quot;, unique: true
+  end
+
+  create_table &quot;users&quot;, force: :cascade do |t|
+    t.string &quot;email&quot;, default: &quot;&quot;, null: false
+    t.string &quot;encrypted_password&quot;, default: &quot;&quot;, null: false
+    t.string &quot;reset_password_token&quot;
+    t.datetime &quot;reset_password_sent_at&quot;
+    t.datetime &quot;remember_created_at&quot;
+    t.datetime &quot;created_at&quot;, null: false
+    t.datetime &quot;updated_at&quot;, null: false
+    t.integer &quot;member_id&quot;
+    t.index [&quot;email&quot;], name: &quot;index_users_on_email&quot;, unique: true
+    t.index [&quot;member_id&quot;], name: &quot;index_users_on_member_id&quot;
+    t.index [&quot;reset_password_token&quot;], name: &quot;index_users_on_reset_password_token&quot;, unique: true
+  end
+
+  add_foreign_key &quot;cclasses&quot;, &quot;subjects&quot;
+  add_foreign_key &quot;enrollments&quot;, &quot;cclasses&quot;
+  add_foreign_key &quot;enrollments&quot;, &quot;members&quot;
+  add_foreign_key &quot;users&quot;, &quot;members&quot;
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src="../../assets/vendor/javascripts/jquery.min.js"></script>
+    <script src="../../assets/vendor/javascripts/jquery.tablesorter.min.js"></script>
+    <script src="../../assets/vendor/javascripts/jquery.scrollTo.min.js"></script>
+    <script src="../../assets/vendor/javascripts/jquery.timeago.js"></script>
+    <script src="../../assets/vendor/javascripts/highcharts.src-4.0.1.js"></script>
+    <script src="../../assets/vendor/javascripts/prettify.js"></script>
+    <script src="../../assets/vendor/javascripts/bootstrap.min.js"></script>
+    <script src="../../assets/javascripts/application.js"></script>
+    <script src="../../assets/vendor/javascripts/jquery.filtertable.min.js"></script>
+  </body>
+</html>

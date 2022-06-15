@@ -2,12 +2,11 @@ import LoginCard from '../../../src/components/LoginCard.vue'
 import { mount } from '@vue/test-utils';
 import { installQuasarPlugin } from '@quasar/quasar-app-extension-testing-unit-jest'
 import { createTestingPinia } from '@pinia/testing'
-
-
-
-installQuasarPlugin();
+import { Notify } from 'quasar';
+installQuasarPlugin({plugins: {Notify}});
 
 const mockRouterPush = jest.fn();
+
 jest.mock('vue-router', () => ({
   useRouter: () => {
     return {
@@ -17,7 +16,7 @@ jest.mock('vue-router', () => ({
   },
 }));
 
-describe('Login Component', () => {
+describe('Login Component Tests', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });
