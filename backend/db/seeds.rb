@@ -37,3 +37,8 @@ member = Member.create(name: docente['nome'], course: docente['departamento'],
   degree: docente['formacao'], occupation: docente['ocupacao'],
   email: docente['email'])
 Enrollment.create(member: member, cclass: cclass)
+
+file = File.read('./db/survey_test.json')
+surveys_data = JSON.parse(file)
+
+Survey.create(surveys_data)

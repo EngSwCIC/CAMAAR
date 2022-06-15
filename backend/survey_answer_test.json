@@ -1,0 +1,30 @@
+{
+	"survey_id": 1,
+	"cclass_id": 1,
+	"answers_attributes": [
+		{
+			"suvey_question_id": 1,
+			"quesiton_type": "discursive",
+			"content": "resposta"
+		},
+		{
+			"survey_question_id": 2,
+			"question_type": "multiple_choice",
+			"content": "Opção 1"
+		},
+		{
+			"survey_question_id": 3,
+			"question_type": "likert_scale",
+			"likert_answers_attributes": [
+				{
+					"likert_question_id": 1,
+					"content": "Concordo parcialmente"
+				},
+				{
+					"likert_question_id": 2,
+					"content": "Discordo totalmente"
+				}
+			]
+		}
+	]
+}

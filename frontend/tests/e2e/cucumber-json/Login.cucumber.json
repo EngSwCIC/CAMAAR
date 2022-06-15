@@ -22,7 +22,11 @@
             "name": "que nao estou autenticado",
             "result": {
               "status": "passed",
+<<<<<<< HEAD
               "duration": 30520000000
+=======
+              "duration": 502000000
+>>>>>>> 0e649a8c2cf653f5fb45c1d92acebc6de9b33a4b
             }
           },
           {
@@ -32,7 +36,11 @@
             "name": "eu vou para a rota \"/\"",
             "result": {
               "status": "passed",
+<<<<<<< HEAD
               "duration": 672000000
+=======
+              "duration": 1482000000
+>>>>>>> 0e649a8c2cf653f5fb45c1d92acebc6de9b33a4b
             }
           },
           {
@@ -42,7 +50,11 @@
             "name": "eu deveria ver o campo \"Email\"",
             "result": {
               "status": "passed",
+<<<<<<< HEAD
               "duration": 50000000
+=======
+              "duration": 90000000
+>>>>>>> 0e649a8c2cf653f5fb45c1d92acebc6de9b33a4b
             }
           },
           {
@@ -52,7 +64,11 @@
             "name": "eu deveria ver o campo \"Senha\"",
             "result": {
               "status": "passed",
+<<<<<<< HEAD
               "duration": 13000000
+=======
+              "duration": 39000000
+>>>>>>> 0e649a8c2cf653f5fb45c1d92acebc6de9b33a4b
             }
           },
           {
@@ -62,7 +78,11 @@
             "name": "eu deveria ver o botão \"Login\"",
             "result": {
               "status": "passed",
+<<<<<<< HEAD
               "duration": 17000000
+=======
+              "duration": 29000000
+>>>>>>> 0e649a8c2cf653f5fb45c1d92acebc6de9b33a4b
             }
           }
         ]

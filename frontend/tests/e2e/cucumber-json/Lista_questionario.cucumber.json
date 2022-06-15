@@ -1,0 +1,144 @@
+[
+  {
+    "description": "Eu como aluno\nquero selecionar o questionario\nA fim de responder perguntas sobre ele",
+    "keyword": "Funcionalidade",
+    "name": "Lista de questionarios disponiveis para serem respondidos",
+    "line": 2,
+    "id": "lista-de-questionarios-disponiveis-para-serem-respondidos",
+    "tags": [],
+    "uri": "Lista_questionario.feature",
+    "elements": [
+      {
+        "description": "esse questionário não está disponível (triste)",
+        "id": "lista-de-questionarios-disponiveis-para-serem-respondidos;um-aluno-deseja-adicionar-acessar-um-questionário-específico,-mas",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Um Aluno deseja adicionar acessar um questionário específico, mas",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que eu esteja logado como aluno no CAMAAR",
+            "result": {
+              "status": "undefined",
+              "duration": 2585000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "eu esteja na página de responder relatório",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "que exista um botão \"Adicionar Disciplina\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 14,
+            "name": "que o aluno conheça o questionário.",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 15,
+            "name": "procurar pelo questionário",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 16,
+            "name": "ele deve retornar invalido ou não mostrar nenhum resultado da pesquisa",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "description": "esse questionário está disponível(feliz)",
+        "id": "lista-de-questionarios-disponiveis-para-serem-respondidos;um-aluno-deseja-adicionar-acessar-um-questionário-específico-e",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "Um Aluno deseja adicionar acessar um questionário específico e",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que eu esteja logado como aluno no CAMAAR",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "eu esteja na página de responder relatório",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "que exista um botão \"Adicionar Disciplina\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 20,
+            "name": "que o aluno conheça o questionário",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 21,
+            "name": "procurar pelo questionário",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 22,
+            "name": "deve ser acessado o formulário correspondente em uma nova página.",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
