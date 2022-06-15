@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_24_001531) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_15_142242) do
   create_table "answers", force: :cascade do |t|
     t.text "content"
     t.integer "survey_answer_id"
@@ -84,7 +84,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_001531) do
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "role_id"
     t.index ["registration"], name: "index_members_on_registration", unique: true
+    t.index ["role_id"], name: "index_members_on_role_id"
   end
 
   create_table "multiple_choices", force: :cascade do |t|
@@ -100,6 +102,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_001531) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["multiple_choice_id"], name: "index_options_on_multiple_choice_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -139,6 +148,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_001531) do
     t.string "semester"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "role_id"
+    t.index ["role_id"], name: "index_surveys_on_role_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -164,11 +175,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_001531) do
   add_foreign_key "likert_answers", "likert_questions"
   add_foreign_key "likert_questions", "likert_scales"
   add_foreign_key "likert_scales", "survey_questions"
+  add_foreign_key "members", "roles"
   add_foreign_key "multiple_choices", "survey_questions"
   add_foreign_key "options", "multiple_choices"
   add_foreign_key "survey_answers", "cclasses"
   add_foreign_key "survey_answers", "members"
   add_foreign_key "survey_answers", "surveys"
   add_foreign_key "survey_questions", "surveys"
+  add_foreign_key "surveys", "roles"
   add_foreign_key "users", "members"
 end

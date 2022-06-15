@@ -3,6 +3,7 @@
 # respondido pelos membros do corpo dicente para cada Cclass em que estão matriculados
 
 class Survey < ApplicationRecord
+  belongs_to :role
   has_many :survey_answers
   has_many :survey_questions, dependent: :destroy
   accepts_nested_attributes_for :survey_questions
