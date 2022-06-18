@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 import LoginPage from '../pages/LoginPage.vue'
-import HomePage from  '../pages/HomePage.vue'
 import ImportPage from '../pages/ImportPage.vue'
-
-=======
-import LoginPage from "../pages/LoginPage.vue";
 import HomePage from "../pages/HomePage.vue";
 import SurveyPage from "../pages/SurveyPage.vue";
 import SurveysPage from "../pages/SurveysPage.vue";
->>>>>>> 0e649a8c2cf653f5fb45c1d92acebc6de9b33a4b
 const routes = [
   {
     path: "/",
@@ -21,13 +15,11 @@ const routes = [
     component: HomePage,
   },
   {
-<<<<<<< HEAD
     path: '/import',
     name: 'Import',
     component: ImportPage,
   },
-
-=======
+  {
     path: "/surveys",
     name: "Questionários",
     component: SurveysPage,
@@ -37,7 +29,6 @@ const routes = [
     name: "Questionário",
     component: SurveyPage,
   },
->>>>>>> 0e649a8c2cf653f5fb45c1d92acebc6de9b33a4b
   // Always leave this as last one,
   // but you can also remove it
   {
