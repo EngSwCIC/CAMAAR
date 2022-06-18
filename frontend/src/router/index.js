@@ -31,7 +31,6 @@ export default route(function (/* { store, ssrContext } */) {
   Router.beforeEach(async (to) => {
     const credentials = credentialsStore();
     const isAuthenticated = await credentials.isAuthenticated();
-    console.log(isAuthenticated);
     if (!isAuthenticated && to.name !== "Login") {
       return { name: "Login" };
     }

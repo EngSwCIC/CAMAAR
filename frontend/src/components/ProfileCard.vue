@@ -13,6 +13,12 @@ export default {
     redirect() {
       this.router.push({ path: "/surveys" });
     },
+    redirectStudentReports() {
+      this.router.push({ path: "/student-subjects"})
+    },
+    redirectImport(){
+      this.router.push({ path: "/import" })
+    }
   },
 };
 </script>
@@ -32,9 +38,15 @@ export default {
       <br />
       <div class="text-h5">Usuário</div>
       <br />
-      <q-btn color="secondary" @click="redirect"
-        >Vá para os seus questionários</q-btn
-      >
+      <q-btn color="secondary" @click="redirect">
+        Vá para os seus questionários
+      </q-btn>
+      <q-btn color="secondary" @click="redirectStudentReports">
+        Vá para os resultados das avaliações dos alunos
+      </q-btn>
+      <q-btn color="secondary" @click="redirectImport">
+        Vá para a página de importação de dados do SIGAA
+      </q-btn>
     </q-card>
   </div>
 </template>
