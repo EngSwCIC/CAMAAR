@@ -11,7 +11,11 @@ file = File.read('./db/classes.json')
 classes_data = JSON.parse(file)
 
 for data in classes_data do
-  subject = Subject.create!(code: data['code'], name: data['name'])
+  if (!Subject.exists?(code: data['code'], name: data['name']))
+    subject = Subject.create!(code: data['code'], name: data['name'])
+  else
+    subject = Subject.find_by(code: data['code'])
+  end
   class_info = data['class']
   Cclass.create!(code: class_info['classCode'], semester: class_info['semester'], time: class_info['time'], subject: subject)
 end
@@ -23,19 +27,22 @@ discentes = data['dicente']
 
 cclass = Cclass.all.first
 
+role_discente = Role.create(name: 'discente', description: 'discente')
+# adiciona todos os discentes na primeira turma
 for discente in discentes do
   member = Member.create(name: discente['nome'], course: discente['curso'],
   registration: discente['matricula'], username: discente['usuario'],
   degree: discente['formacao'], occupation: discente['ocupacao'],
-  email: discente['email'])
+  email: discente['email'], role: role_discente)
   Enrollment.create(member: member, cclass: cclass)
 end
 
+role_docente = Role.create(name: 'docente', description: 'docente')
 docente = data['docente']
 member = Member.create(name: docente['nome'], course: docente['departamento'],
   registration: docente['usuario'], username: docente['usuario'],
   degree: docente['formacao'], occupation: docente['ocupacao'],
-  email: docente['email'])
+  email: docente['email'], role: role_docente)
 Enrollment.create(member: member, cclass: cclass)
 
 file = File.read('./db/survey_test.json')

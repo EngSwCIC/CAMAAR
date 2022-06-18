@@ -4,6 +4,9 @@ import HomePage from "../pages/HomePage.vue";
 import SurveyPage from "../pages/SurveyPage.vue";
 import SurveysPage from "../pages/SurveysPage.vue";
 import CadastrarPage from  '../pages/CadastrarPage.vue'
+import StudentClass from  '../pages/StudentClass.vue'
+import StudentEvaluationsReport from '../pages/StudentEvaluationsReport.vue'
+
 const routes = [
   {
     path: "/",
@@ -35,6 +38,17 @@ const routes = [
     name: 'Cadastrar',
     component: CadastrarPage,
   },
+  {
+    path: '/student-class/:id',
+    name: 'StudentClass',
+    component: StudentClass,
+  },
+  {
+    path: '/student-subjects/',
+    name: 'List',
+    component: StudentEvaluationsReport,
+  },
+
   // Always leave this as last one,
   // but you can also remove it
   {
