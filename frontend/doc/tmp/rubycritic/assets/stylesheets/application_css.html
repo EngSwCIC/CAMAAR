@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>application.css - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../";
+  var index_rel_prefix = "../../../../";
+</script>
+
+<script src="../../../../js/navigation.js" defer></script>
+<script src="../../../../js/search.js" defer></script>
+<script src="../../../../js/search_index.js" defer></script>
+<script src="../../../../js/searcher.js" defer></script>
+<script src="../../../../js/darkfish.js" defer></script>
+
+<link href="../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../tmp/rubycritic/application_controller_html.html">application_controller.html</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/javascripts/application_js.html">application.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/stylesheets/application_css.html">application.css</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/bootstrap_min_js.html">bootstrap.min.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/highcharts_src-4_0_1_js.html">highcharts.src-4.0.1.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_filtertable_min_js.html">jquery.filtertable.min.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_min_js.html">jquery.min.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_scrollTo_min_js.html">jquery.scrollTo.min.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_js.html">jquery.tablesorter.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_min_js.html">jquery.tablesorter.min.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_timeago_js.html">jquery.timeago.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/prettify_js.html">prettify.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/bootstrap_min_css.html">bootstrap.min.css</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/font-awesome_min_css.html">font-awesome.min.css</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/prettify_css.html">prettify.css</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/prettify_custom_theme_css.html">prettify.custom_theme.css</a>
+  
+    <li><a href="../../../../tmp/rubycritic/code_index_html.html">code_index.html</a>
+  
+    <li><a href="../../../../tmp/rubycritic/overview_html.html">overview.html</a>
+  
+    <li><a href="../../../../tmp/rubycritic/simple_cov_index_html.html">simple_cov_index.html</a>
+  
+    <li><a href="../../../../tmp/rubycritic/smells_index_html.html">smells_index.html</a>
+  
+    <li><a href="../../../../tmp/rubycritic/users/registrations_controller_html.html">registrations_controller.html</a>
+  
+    <li><a href="../../../../tmp/rubycritic/users/sessions_controller_html.html">sessions_controller.html</a>
+  
+    <li><a href="../../../../tmp/rubycritic/users_controller_html.html">users_controller.html</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page tmp/rubycritic/assets/stylesheets/application.css">
+
+<p>/* Font Faces */ @font-face {</p>
+
+<pre>font-family: &#39;RobotoMedium&#39;;
+src: url(&#39;../fonts/Roboto-Medium.ttf&#39;) format(&#39;truetype&#39;);</pre>
+
+<p>} @font-face {</p>
+
+<pre>font-family: &#39;RobotoRegular&#39;;
+src: url(&#39;../fonts/Roboto-Regular.ttf&#39;) format(&#39;truetype&#39;);</pre>
+
+<p>}</p>
+
+<p>/<strong>Helpers</strong>/ .marginTop20 { margin-top:20px; } /*End of Helpers*/ /*Layout Styles*/ body { overflow-x: hidden; }</p>
+
+<p>header {</p>
+
+<pre>max-height: 85px;
+background: #fff!important;
+border:none!important;
+padding: 10px 20px;
+box-shadow: 0 1px 10px rgba(0,0,0,.15);</pre>
+
+<p>}</p>
+
+<p>/* Toggle Styles */</p>
+
+<p>wrapper {</p>
+
+<pre>padding-left: 0;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;
+margin-top: 60px;</pre>
+
+<p>}</p>
+
+<p>wrapper.toggled {</p>
+
+<pre>padding-left: 120px;</pre>
+
+<p>}</p>
+
+<p>sidebar-wrapper {</p>
+
+<pre>z-index: 1000;
+position: fixed;
+left: 120px;
+width: 0;
+height: 100%;
+margin-left: -120px;
+overflow-y: auto;
+background: #fff;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;
+font-family: &quot;RobotoMedium&quot;;
+font-weight: normal;
+font-size: 16px;</pre>
+
+<p>} page-content-wrapper {</p>
+
+<pre>font-family: &quot;RobotoRegular&quot;</pre>
+
+<p>} wrapper.toggled sidebar-wrapper {</p>
+
+<pre>width: 120px;</pre>
+
+<p>}</p>
+
+<p>page-content-wrapper {</p>
+
+<pre>width: 100%;
+position: absolute;
+background:#f3f3f3;
+/*height:100vh;*/</pre>
+
+<p>} .Summary_Wrapper_Main { min-height:inherit!important; } .Page_Title { background:#9B111D; padding: 10px 50px; } .Page_Title h3 { margin: 10px 0px;color: fff; } .Page_Title h3 small { color: fff;} .Content_Wrapper {</p>
+
+<pre>padding: 25px;
+display: inline-block;
+width: 100%;
+font-size: 17px;</pre>
+
+<p>}</p>
+
+<p>.Graph_Cards {</p>
+
+<pre>padding:20px;
+background:#fff;
+border-radius:10px;
+box-shadow: 0 1px 1px rgba(0,0,0,.15);
+margin-bottom:20px;
+/*min-height:330px;*/</pre>
+
+<p>} .Graph_Cards img {margin-top:30px;} .Graph_Cards h4 {color:#A4A4A4;} .Summary_Wrapper {display:inline-block;width:100%;} .Summary_Title {padding-left:0;} .Summary_Title h3 {padding:10px;position:relative;color:#fff;} .Summary_Title h3:after {</p>
+
+<pre>content: &quot;&quot;;
+width: 0;
+height: 0;
+border-top: 0px solid transparent;
+border-bottom: 46px solid transparent;
+border-left: 30px solid #fff;
+position: absolute;
+right: -30px;
+top: 0;</pre>
+
+<p>} .Green_DR h3 {background:#00A900;} .Green_DR h3:after{border-left-color:#00a900} .Green_DR .list-inline h4 {color:#00A900;} .Green_Light h3 {background:#7FCB00;} .Green_Light h3:after{border-left-color:#7FCB00} .Green_Light .list-inline h4 {color:#7FCB00;} .Yellow_Color h3 {background:#FFED00;} .Yellow_Color h3:after{border-left-color:#FFED00} .Yellow_Color .list-inline h4 {color:#FFED00;} .Orange_Color h3 {background:#F77700;} .Orange_Color h3:after{border-left-color:#F77700} .Orange_Color .list-inline h4 {color:#F77700;} .Red_Color h3 {background:#ED0000;} .Red_Color h3:after{border-left-color:#ED0000} .Red_Color .list-inline h4 {color:#ED0000;} .Maroon_Color h3 {background:#B31F27;} .Maroon_Color h3:after{border-left-color:#B31F27} .Maroon_Color .list-inline h4 {color:#B31F27;}</p>
+
+<p>.Summary_Content .list-inline {</p>
+
+<pre>text-align:center;
+margin-top:10px;
+padding-right:0;</pre>
+
+<p>} .Summary_Content .list-inline span {color:#A4A4A4} wrapper.toggled page-content-wrapper {</p>
+
+<pre>position: absolute;
+margin-right: -250px;</pre>
+
+<p>}</p>
+
+<p>/* Sidebar Styles */</p>
+
+<p>.sidebar-nav {</p>
+
+<pre>position: absolute;
+top: 0;
+width: 120px;
+text-align:center;
+margin: 0;
+padding: 0;
+list-style: none;</pre>
+
+<p>}</p>
+
+<p>.sidebar-nav li {</p>
+
+<pre>display:block;text-align:center;
+line-height: 40px;</pre>
+
+<p>}</p>
+
+<p>.sidebar-nav li a {</p>
+
+<pre>display: block;
+text-decoration: none;
+color: #969696;padding:10px;</pre>
+
+<p>} .sidebar-nav li a.active {</p>
+
+<pre>border-left: 5px solid #9b111d;
+color: #9b111d;</pre>
+
+<p>} .sidebar-nav li a.active {</p>
+
+<pre>border-left: 2px solid #9b111d;
+color: #9b111d;</pre>
+
+<p>} .sidebar-nav li a:hover {</p>
+
+<pre>text-decoration: none;
+color: #fff;
+background: rgba(255,255,255,0.2);</pre>
+
+<p>}</p>
+
+<p>.sidebar-nav li a:active, .sidebar-nav li a:focus {</p>
+
+<pre>text-decoration: none;</pre>
+
+<p>}</p>
+
+<p>.sidebar-nav &gt; .sidebar-brand {</p>
+
+<pre>height: 65px;
+font-size: 18px;
+line-height: 60px;</pre>
+
+<p>}</p>
+
+<p>.sidebar-nav &gt; .sidebar-brand a {</p>
+
+<pre>color: #999999;</pre>
+
+<p>}</p>
+
+<p>.sidebar-nav &gt; .sidebar-brand a:hover {</p>
+
+<pre>color: #fff;
+background: none;</pre>
+
+<p>}</p>
+
+<p>.sidebar-nav .fa {</p>
+
+<pre>font-size: 24px;</pre>
+
+<p>}</p>
+
+<p>@media(min-width:768px) {</p>
+
+<pre>#wrapper {
+  padding-left: 120px;
+}
+
+#wrapper.toggled {
+  padding-left: 0;
+}
+
+#sidebar-wrapper {
+  width: 120px;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  width: 0;
+}
+
+#page-content-wrapper {
+  padding:0px;
+  position: relative;
+}
+
+#wrapper.toggled #page-content-wrapper {
+  position: relative;
+  margin-right: 0;
+}</pre>
+
+<p>} .sidebar-nav li a:hover {color:#9B111D;} .sidebar-nav li a i,.sidebar-nav li a img {font-size:18px;display:block;margin:0 auto;} /*End of Layout Styles*/</p>
+
+<p>.fadeIn {-webkit-animation: fadein 2s; /* Safari, Chrome and Opera &gt; 12.1 */</p>
+
+<pre>-moz-animation: fadein 2s; /* Firefox &lt; 16 */
+-ms-animation: fadein 2s; /* Internet Explorer */
+-o-animation: fadein 2s; /* Opera &lt; 12.1 */
+animation: fadein 2s;}</pre>
+
+<p>.fadeIn-2 {-webkit-animation: fadein 2.5s; /* Safari, Chrome and Opera &gt; 12.1 */</p>
+
+<pre>-moz-animation: fadein 2.5s; /* Firefox &lt; 16 */
+-ms-animation: fadein 2.5s; /* Internet Explorer */
+-o-animation: fadein 2.5s; /* Opera &lt; 12.1 */
+animation: fadein 2.5s;}</pre>
+
+<p>.fadeIn-3 {-webkit-animation: fadein 3s; /* Safari, Chrome and Opera &gt; 12.1 */</p>
+
+<pre>-moz-animation: fadein 3s; /* Firefox &lt; 16 */
+-ms-animation: fadein 3s; /* Internet Explorer */
+-o-animation: fadein 3s; /* Opera &lt; 12.1 */
+animation: fadein 3s;}</pre>
+
+<p>@keyframes fadein {</p>
+
+<pre>from { opacity: 0; }
+to   { opacity: 1; }</pre>
+
+<p>}</p>
+
+<p>/* Firefox &lt; 16 */ @-moz-keyframes fadein {</p>
+
+<pre>from { opacity: 0; }
+to   { opacity: 1; }</pre>
+
+<p>} @-webkit-keyframes fadein {</p>
+
+<pre>from { opacity: 0; }
+to   { opacity: 1; }</pre>
+
+<p>}</p>
+
+<p>/* Internet Explorer */ @-ms-keyframes fadein {</p>
+
+<pre>from { opacity: 0; }
+to   { opacity: 1; }</pre>
+
+<p>}</p>
+
+<p>/* Opera &lt; 12.1 */ @-o-keyframes fadein {</p>
+
+<pre>from { opacity: 0; }
+to   { opacity: 1; }</pre>
+
+<p>} /* SMELLS */ .table &gt; tbody &gt; tr &gt; td {</p>
+
+<pre>vertical-align: middle;</pre>
+
+<p>} .table &gt; thead &gt; tr th:nth-child(2) {</p>
+
+<pre>padding-left: 20px;</pre>
+
+<p>}</p>
+
+<p>/<strong>TH</strong>/ .table th {</p>
+
+<pre>color: #4e4d4d;
+font-weight: bold;</pre>
+
+<p>} .table.code th.center {</p>
+
+<pre>text-align: center;</pre>
+
+<p>} .table.code th.left {</p>
+
+<pre>text-align: left;</pre>
+
+<p>} .table.code th {</p>
+
+<pre>text-align: right;</pre>
+
+<p>}</p>
+
+<p>/<strong>TD</strong>/ .table td {</p>
+
+<pre>color: #777575;</pre>
+
+<p>} .table.code td.center {</p>
+
+<pre>text-align: center;</pre>
+
+<p>} .table.code td.left {</p>
+
+<pre>text-align: left;</pre>
+
+<p>} .table.code td {</p>
+
+<pre>text-align: right;</pre>
+
+<p>}</p>
+
+<p>.status, .rating {</p>
+
+<pre>width: 40px;
+height: 40px;
+border-radius: 50%;
+line-height: 40px;
+font-size: 11px;
+text-align: center;
+color: #fff;
+display: inline-block;
+cursor: pointer;</pre>
+
+<p>}</p>
+
+<p>.rating.big {</p>
+
+<pre>width: 40px;
+height: 40px;
+line-height: 40px;
+font-size: 25px;</pre>
+
+<p>}</p>
+
+<p>.status.new { background: #00aa00; } .status.old { background: cccccc; }</p>
+
+<p>.rating { font-size: 25px; } .rating.a { background: #00aa00; } .rating.b { background: #80cc00; } .rating.c { background: ffed00; }</p>
+
+<p>.rating.d { background: f77700; } .rating.e { background: ed0000; } .rating.f { background: b32028; }</p>
+
+<p>.code-top-detail {</p>
+
+<pre>border-bottom: 1px solid #000;</pre>
+
+<p>}</p>
+
+<p>.right-to-left li { float: right; } .right-to-left&gt;li.active&gt;a {</p>
+
+<pre>color: #9B111D;
+background: none;
+border-bottom: 2px solid #9B111D;
+border-radius: 0;</pre>
+
+<p>} .right-to-left&gt;li.active&gt;a:hover {</p>
+
+<pre>background: none;
+color: #9B111D;</pre>
+
+<p>} .right-to-left&gt;li&gt;a {</p>
+
+<pre>color: #a4a4a4;
+padding: 10px 20px 20px;
+border-bottom: 2px solid #f3f3f3;</pre>
+
+<p>}</p>
+
+<p>.critic-num {</p>
+
+<pre>width: 1%;
+min-width: 50px;
+padding-right: 10px;
+padding-left: 10px;
+font-family: Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace;
+font-size: 12px;
+line-height: 20px;
+color: rgba(0,0,0,0.3);
+text-align: right;
+white-space: nowrap;
+vertical-align: top;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+border: solid #eee;
+border-width: 0 1px 0 0;</pre>
+
+<p>} .critic-code-inner {</p>
+
+<pre>overflow: visible;
+font-family: Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace;
+font-size: 12px;
+color: #333;
+word-wrap: normal;
+white-space: pre;</pre>
+
+<p>} .critic-code {</p>
+
+<pre>position: relative;
+padding-right: 10px;
+padding-left: 10px;
+line-height: 20px;
+vertical-align: top;</pre>
+
+<p>} .critic-num::before {</p>
+
+<pre>content: attr(data-line-number);</pre>
+
+<p>}</p>
+
+<p>.old td {</p>
+
+<pre>background-color: #f0dbdb;</pre>
+
+<p>} .old td:first-child, .red {</p>
+
+<pre>background-color: #feb9b9;</pre>
+
+<p>}</p>
+
+<p>.line-code td {</p>
+
+<pre>background-color: #efefef;</pre>
+
+<p>}</p>
+
+<p>.grey {</p>
+
+<pre>background-color: #ebebeb;</pre>
+
+<p>} .green {</p>
+
+<pre>background-color: green;</pre>
+
+<p>} .success {</p>
+
+<pre>background-color: #a3d39c;
+color: #598527;</pre>
+
+<p>} .success b {</p>
+
+<pre>color: #197b30;</pre>
+
+<p>}</p>
+
+<p>ol.errors {</p>
+
+<pre>list-style: none;
+padding-left: 0px;</pre>
+
+<p>} .errors {</p>
+
+<pre>background-position: 10px 25px;
+background-repeat: no-repeat;
+margin-bottom: 5px;
+color: #8b8b8b;
+font-size: 14px;</pre>
+
+<p>} .errors b {</p>
+
+<pre>font-size: 16px;
+font-weight: 400;</pre>
+
+<p>} .rc-position {</p>
+
+<pre>position: absolute;
+right: 15px;
+top: 15px;</pre>
+
+<p>}</p>
+
+<p>.index-table .centered-cell {</p>
+
+<pre>text-align: center;</pre>
+
+<p>}</p>
+
+<p>.circle {</p>
+
+<pre>display: block;
+border-radius: 50%;
+width: 50px;
+height: 50px;</pre>
+
+<p>}</p>
+
+<p>.circled-text {</p>
+
+<pre>text-align: center;
+color: white;
+font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif;
+font-weight: bold;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+cursor: default;
+line-height: 50px;
+font-size: 32px;</pre>
+
+<p>}</p>
+
+<p>.smells-index-table .circled-text {</p>
+
+<pre>font-size: 15px;
+float: left;</pre>
+
+<p>}</p>
+
+<p>.status-old {</p>
+
+<pre>background-color: #FFDC00;</pre>
+
+<p>}</p>
+
+<p>.status-new {</p>
+
+<pre>background-color: #FF4136;</pre>
+
+<p>}</p>
+
+<p>.committed-at {</p>
+
+<pre>float: right;
+color: #fff;
+margin-top: 11px;</pre>
+
+<p>}</p>
+
+<p>.smells {</p>
+
+<pre>position: relative;
+white-space: normal;</pre>
+
+<p>} .smells .heading { background-color: #F8AE60; } .smells .description { background-color: #FBE5BE; } .smells .fa-warning { color: f57e00; } .smells span { margin-left: 20px; } .smells a { color: white; } .smells a:hover { color: #337ab7; }</p>
+
+<p>.table-header {</p>
+
+<pre>cursor: pointer;</pre>
+
+<p>} .table-header-asc:after {</p>
+
+<pre>content: &#39;\00A0\2191&#39;;</pre>
+
+<p>} .table-header-desc:after {</p>
+
+<pre>content: &#39;\00A0\2193&#39;;</pre>
+
+<p>} .container-fluid {</p>
+
+<pre>padding-left: 0px;
+padding-right: 0px;</pre>
+
+<p>}</p>
+
+<p>span.metric {</p>
+
+<pre>font-size: 20px;</pre>
+
+<p>}</p>
+
+<p>.sortable-table th {</p>
+
+<pre>cursor: pointer;</pre>
+
+<p>}</p>
+
+<p>.obtained-score {</p>
+
+<pre>font-size: 1.5em;</pre>
+
+<p>}</p>
+
+<p>.total-score {</p>
+
+<pre>font-size: 1em;</pre>
+
+<p>}</p>
+
+<p>.logo {</p>
+
+<pre>font-size: 24px;
+color: black;
+font-weight: bold;
+display: inline-block;
+margin-left: 20px;</pre>
+
+<p>}</p>
+
+<p>.filter-table {</p>
+
+<pre>text-align: right;</pre>
+
+<p>}</p>
+
+<p>.filter-table input {</p>
+
+<pre>width: 200px;
+display: inline;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;</pre>
+
+<p>}</p>
+
+<p>.branch{</p>
+
+<pre>font-size: 15px;
+color: #9b111d;
+font-weight: bold;
+display: inline-block;
+padding: 13px;</pre>
+
+<p>}</p>
+
+<p>.green-color {</p>
+
+<pre>color: #00A900;</pre>
+
+<p>} .red-color {</p>
+
+<pre>color: #ED0000;</pre>
+
+<p>} .empty-span{</p>
+
+<pre>height: 17px;
+width: 17px;</pre>
+
+<p>}</p>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

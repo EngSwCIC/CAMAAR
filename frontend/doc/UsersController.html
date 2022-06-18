@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class UsersController - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-create">#create</a>
+    
+    <li ><a href="#method-i-register_failed">#register_failed</a>
+    
+    <li ><a href="#method-i-register_success">#register_success</a>
+    
+    <li ><a href="#method-i-respond_with">#respond_with</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-UsersController">
+  <h1 id="class-UsersController" class="class">
+    class UsersController
+  </h1>
+
+  <section class="description">
+    
+<p>Classe da controler do cadastro de usuarios</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Construtor da classe</p>
+
+<p>Recebe os dados para realizar a consulta no banco de dados. Caso exista o membro, mas nao um usuario ele cria um usuario para o membro no banco de dados</p>
+
+<p>Parametros: Dados de senha e email recebidos do front end</p>
+
+<p>Retorno: user</p>
+
+<p>Transformacao: Cria um user para um member no ba</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File users_controller.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
+    <span class="ruby-identifier">email</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:email_pessoa</span>]
+    <span class="ruby-identifier">senha</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:password</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:senha_pessoa</span>]).<span class="ruby-identifier">encrypted_password</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">Member</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-value">:email</span><span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">email</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">User</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-value">:email</span><span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">email</span>)
+          <span class="ruby-identifier">member</span> = <span class="ruby-constant">Member</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">:email</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">email</span>)
+          <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">email:</span> <span class="ruby-identifier">email</span>,<span class="ruby-value">encrypted_password:</span> <span class="ruby-identifier">senha</span>, <span class="ruby-value">created_at:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:created_at_pessoa</span>], <span class="ruby-value">updated_at:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:updated_at_pessoa</span>], <span class="ruby-value">member:</span> <span class="ruby-identifier">member</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">respond_with</span>(<span class="ruby-identifier">user</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-register_failed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">register_failed</span><span
+            class="method-args">(resource)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Metodo <a href="UsersController.html#method-i-register_failed"><code>register_failed</code></a></p>
+
+<p>Responsavel por retornar os dados de um registro mal  sucedido</p>
+
+<p>Parametros: resource, que representa o user que esta sendo tratado</p>
+
+<p>Retorno: json para o front end</p>
+
+<p>Transformacao: Nenhuma</p>
+          
+          
+
+          
+          <div class="method-source-code" id="register_failed-source">
+            <pre><span class="ruby-comment"># File users_controller.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">register_failed</span>(<span class="ruby-identifier">resource</span>)
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> {
+    <span class="ruby-value">message:</span> <span class="ruby-string">&#39;Error ao cadastrar usuario&#39;</span>,
+    <span class="ruby-value">user:</span> <span class="ruby-identifier">resource</span>
+  }, <span class="ruby-value">status:</span> <span class="ruby-value">:ok</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-register_success" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">register_success</span><span
+            class="method-args">(resource)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Metodo <a href="UsersController.html#method-i-register_success"><code>register_success</code></a></p>
+
+<p>Responsavel por retornar os dados de um registro bem  sucedido</p>
+
+<p>Parametros: resource, que representa o user que esta sendo tratado</p>
+
+<p>Retorno: json para o front end</p>
+
+<p>Transformacao: Nenhuma</p>
+          
+          
+
+          
+          <div class="method-source-code" id="register_success-source">
+            <pre><span class="ruby-comment"># File users_controller.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">register_success</span>(<span class="ruby-identifier">resource</span>)
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> {
+    <span class="ruby-value">message:</span> <span class="ruby-string">&#39;Cadastrado com sucesso&#39;</span>,
+    <span class="ruby-value">user:</span> <span class="ruby-identifier">resource</span>
+  }, <span class="ruby-value">status:</span> <span class="ruby-value">:ok</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-respond_with" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">respond_with</span><span
+            class="method-args">(resource)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Metodo <a href="UsersController.html#method-i-respond_with"><code>respond_with</code></a></p>
+
+<p>Responsavel por decidir qual qual valor de user retornar e qual mensagem deve ser apresentada ao usuario. Dependnedo do resultado ela chama o <a href="UsersController.html#method-i-register_failed"><code>register_failed</code></a> ou o <a href="UsersController.html#method-i-register_success"><code>register_success</code></a> </p>
+
+<p>Parametros: resource, que representa o user que esta sendo tratado</p>
+
+<p>Retorno: respond_to :json</p>
+
+<p>Transformacao: Nenhuma</p>
+          
+          
+
+          
+          <div class="method-source-code" id="respond_with-source">
+            <pre><span class="ruby-comment"># File users_controller.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">respond_with</span>(<span class="ruby-identifier">resource</span>)
+  <span class="ruby-identifier">register_success</span>(<span class="ruby-identifier">resource</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">resource</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">register_failed</span>(<span class="ruby-identifier">resource</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

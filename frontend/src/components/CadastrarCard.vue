@@ -1,70 +1,68 @@
 <script setup>
 import { ref, reactive } from "vue";
 import { useRouter } from 'vue-router'
-import { credentialsStore } from "@/stores/credentials";
 import {useQuasar} from 'quasar'
-
-const credentials = credentialsStore();
+import axios from "axios"
 const $q = useQuasar()
 const router = useRouter()
-const { authenticate } = credentials;
-
 // data
 const form = ref(null)
 
-const user = reactive({
+const users = reactive({
   email: null,
-  password: null,
+  senha: null,
+  created_at: Date(),
+  updated_at: Date()
 });
-
-  // methods
-const login = async () =>{
-  const isValid = await form.value.validate()
-  if(isValid){
+const PostMembers = async () =>{
+  const Control1 = await form.value.validate()
+  if (Control1) {
     try {
-      const res = await authenticate(user);
-      if(res) {
-        router.push({path: '/home'})
-      }
-    } catch (e) {
-      console.error(e);
+      let req = await axios.post("http://localhost:3000/users", {
+        email_pessoa: users.email, senha_pessoa: users.senha,
+        created_at_pessoa: users.created_at, updated_at_pessoa: users.updated_at
+      })
+      let Control2 = await req.data.user
+      req.data.message
+      if (Control2 != null) {
         $q.notify({
-        message: 'Falha ao fazer login.',
+          message: req.data.message,
+          position: 'top',
+          color: 'positive'
+        })
+        await router.push({path: '/'})
+      }
+      else{
+        $q.notify({
+          message: req.data.message,
+          position: 'top',
+          color: 'negative'
+        })
+      }
+    }
+    catch (e) {
+      $q.notify({
+        message: req.data.message,
         position: 'top',
         color: 'negative'
       })
     }
   }
 }
-
-const cadastrar = async () =>{
-  try {
-    const res = await authenticate(user);
-    if(res) {
-      console.log('res', router.name)
-      router.push({path: '/cadastrar'})
-    }
-  } catch (e) {
-    console.error(e);
-    $q.notify({
-      message: 'Falha ao ir para pagina de registro.',
-      position: 'top',
-      color: 'negative'
-    })
-  }
-}
 </script>
 <template>
   <div class="row">
     <q-card class="rounded-border q-pa-xl hsize justify-center col-12 text-center">
-      <h1 class="text-h3">Login</h1>
+      <h1 class="text-h3">Formulario de Registro</h1>
       <q-form ref="form" class="q-gutter-sm q-mt-xl row">
         <q-input
           rounded
           outlined
+          placeholder="Digite seu email"
           label="E-Mail"
           type="email"
-          v-model="user.email"
+          name="email"
+          v-model="users.email"
           class="col-12"
           lazy-rules
           :rules="[val => !!val || 'E-Mail Obrigatório']"
@@ -74,33 +72,35 @@ const cadastrar = async () =>{
           type="password"
           rounded
           outlined
+          placeholder="Digite sua senha"
           label="Senha"
-          v-model="user.password"
+          v-model="users.senha"
           class="col-12"
           :rules="[val => !!val || 'Senha Obrigatória']"
           data-test-senha="senha"
         ></q-input>
-        <q-btn
+
+		<q-btn
           rounded
           color="secondary"
           class="col-12"
           size="lg"
-          @click="login"
-          data-test-button-login="login"
-        >Entrar</q-btn>
-        <q-btn
+          @click="PostMembers"
+          data-test-button-register="registrar"
+        >Efetuar o Registro</q-btn>
+
+		<a href="/#/"><q-btn
           rounded
           color="secondary"
           class="col-12"
           size="lg"
-          @click="cadastrar"
-          data-test-button-registro="registrar"
-        >Registrar</q-btn>
+          data-test-button-voltar="voltar"
+          >Voltar</q-btn></a>
+
       </q-form>
     </q-card>
   </div>
 </template>
-
 <style scoped>
 .hsize {
   height: 500px;

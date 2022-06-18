@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>application.js - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../";
+  var index_rel_prefix = "../../../../";
+</script>
+
+<script src="../../../../js/navigation.js" defer></script>
+<script src="../../../../js/search.js" defer></script>
+<script src="../../../../js/search_index.js" defer></script>
+<script src="../../../../js/searcher.js" defer></script>
+<script src="../../../../js/darkfish.js" defer></script>
+
+<link href="../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../tmp/rubycritic/application_controller_html.html">application_controller.html</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/javascripts/application_js.html">application.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/stylesheets/application_css.html">application.css</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/bootstrap_min_js.html">bootstrap.min.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/highcharts_src-4_0_1_js.html">highcharts.src-4.0.1.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_filtertable_min_js.html">jquery.filtertable.min.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_min_js.html">jquery.min.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_scrollTo_min_js.html">jquery.scrollTo.min.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_js.html">jquery.tablesorter.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_min_js.html">jquery.tablesorter.min.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_timeago_js.html">jquery.timeago.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/prettify_js.html">prettify.js</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/bootstrap_min_css.html">bootstrap.min.css</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/font-awesome_min_css.html">font-awesome.min.css</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/prettify_css.html">prettify.css</a>
+  
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/prettify_custom_theme_css.html">prettify.custom_theme.css</a>
+  
+    <li><a href="../../../../tmp/rubycritic/code_index_html.html">code_index.html</a>
+  
+    <li><a href="../../../../tmp/rubycritic/overview_html.html">overview.html</a>
+  
+    <li><a href="../../../../tmp/rubycritic/simple_cov_index_html.html">simple_cov_index.html</a>
+  
+    <li><a href="../../../../tmp/rubycritic/smells_index_html.html">smells_index.html</a>
+  
+    <li><a href="../../../../tmp/rubycritic/users/registrations_controller_html.html">registrations_controller.html</a>
+  
+    <li><a href="../../../../tmp/rubycritic/users/sessions_controller_html.html">sessions_controller.html</a>
+  
+    <li><a href="../../../../tmp/rubycritic/users_controller_html.html">users_controller.html</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page tmp/rubycritic/assets/javascripts/application.js">
+
+<p>prettyPrint();</p>
+
+<p>// sidebar navigation $(function() {</p>
+
+<pre>var loc = window.location.href; // returns the full URL
+if(/overview/.test(loc)) {
+  $(&#39;.overview-nav&#39;).addClass(&#39;active&#39;);
+}
+else if(/code_index/.test(loc)) {
+  $(&#39;.code-index-nav&#39;).addClass(&#39;active&#39;);
+}
+else if(/smells_index/.test(loc)) {
+  $(&#39;.smells-index-nav&#39;).addClass(&#39;active&#39;);
+}
+else if(/simple_cov_index/.test(loc)) {
+  $(&#39;.coverage-index-nav&#39;).addClass(&#39;active&#39;);
+}</pre>
+
+<p>});</p>
+
+<p>var turbulenceData = turbulenceData || []; var COLOR = {</p>
+
+<pre>&#39;A&#39; : &#39;#00B50E&#39;,
+&#39;B&#39;: &#39;#53D700&#39;,
+&#39;C&#39;: &#39;#FDF400&#39;,
+&#39;D&#39;: &#39;#FF6C00&#39;,
+&#39;F&#39;: &#39;#C40009&#39;</pre>
+
+<p>}; $(“#churn-vs-complexity-graph-container”).highcharts({</p>
+
+<pre>chart: {
+  type: &quot;scatter&quot;,
+  zoomType: &quot;xy&quot;
+},
+title: {
+  text: &quot;Churn vs Complexity&quot;
+},
+xAxis: {
+  title: {
+    enabled: true,
+    text: &quot;Churn&quot;
+  },
+  floor: 0,
+  startOnTick: true,
+  endOnTick: true
+},
+yAxis: {
+  title: {
+    text: &quot;Complexity&quot;
+  },
+  floor: 0,
+  startOnTick: true,
+  endOnTick: true
+},
+plotOptions: {
+  series: {
+    turboThreshold: 0
+  },
+  scatter: {
+    marker: {
+      radius: 5,
+      states: {
+        hover: {
+          enabled: true,
+          lineColor: &quot;rgb(100,100,100)&quot;
+        }
+      }
+    },
+    tooltip: {
+      headerFormat: &quot;&lt;b&gt;{point.key}&lt;/b&gt;&lt;br&gt;&quot;,
+      pointFormat: &quot;Committed {point.x} times, with Flog score of {point.y}&quot;
+    }
+  }
+},
+series: [{
+  showInLegend: false,
+  color: &quot;steelblue&quot;,
+  data: getMappedTurbulenceData()
+}]</pre>
+
+<p>});</p>
+
+<p>function getMappedTurbulenceData(){</p>
+
+<pre class="ruby"><span class="ruby-identifier">var</span> <span class="ruby-identifier">dataWithColorInformation</span> = <span class="ruby-identifier">turbulenceData</span>.<span class="ruby-identifier">map</span>(<span class="ruby-identifier">function</span>(<span class="ruby-identifier">data</span>){
+  <span class="ruby-identifier">data</span>.<span class="ruby-identifier">color</span> = <span class="ruby-constant">COLOR</span>[<span class="ruby-identifier">data</span>.<span class="ruby-identifier">rating</span>];
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">data</span>;
+});
+<span class="ruby-keyword">return</span> <span class="ruby-identifier">dataWithColorInformation</span>;
+</pre>
+
+<p>};</p>
+
+<p>$(function() {</p>
+
+<pre>$(&quot;#gpa-chart&quot;).highcharts(
+  {
+    chart: {
+      type: &#39;pie&#39;,
+      events: {
+          load: addTitle,
+          redraw: addTitle,
+      },
+    },
+    title: {
+      text: &quot;&quot;,
+      useHTML: true
+    },
+    plotOptions: {
+      pie: {
+        shadow: false
+      }
+    },
+    tooltip: {
+      formatter: function() {
+        return &#39;&lt;b&gt;&#39;+ this.point.name +&#39;&lt;/b&gt;: &#39;+ this.y +&#39; %&#39;;
+      }
+    },
+    series: [{
+      name: &#39;Browsers&#39;,
+      data: getGpaData(),
+      size: &#39;90%&#39;,
+      innerSize: &#39;65%&#39;,
+      showInLegend:true,
+      dataLabels: {
+        enabled: false
+      }
+    }]
+  });</pre>
+
+<p>});</p>
+
+<p>function addTitle() {</p>
+
+<pre>if (this.title) {
+    this.title.destroy();
+}
+var r = this.renderer,
+    x = this.series[0].center[0] + this.plotLeft,
+    y = this.series[0].center[1] + this.plotTop;
+this.title = r.label(&#39;&lt;span class=&quot;obtained-score&quot;&gt;&#39;+score.toFixed(2)+&#39;&lt;/span&gt;&lt;span class=&quot;total-score&quot;&gt;/100&lt;/span&gt;&#39;, 0, 0, &quot;&quot;, 0, 0, true)
+    .css({
+    color: &#39;black&#39;
+}).hide().add();
+var bbox = this.title.getBBox();
+this.title.attr({
+    x: x - (bbox.width / 2),
+    y: y
+}).show();
+this.title.useHTML = true;</pre>
+
+<p>};</p>
+
+<p>function getGpaData(){</p>
+
+<pre class="ruby"><span class="ruby-identifier">var</span> <span class="ruby-identifier">ratingACount</span> = <span class="ruby-identifier">getRatingWiseCount</span>(<span class="ruby-string">&quot;A&quot;</span>);
+<span class="ruby-identifier">var</span> <span class="ruby-identifier">ratingBCount</span> = <span class="ruby-identifier">getRatingWiseCount</span>(<span class="ruby-string">&quot;B&quot;</span>);
+<span class="ruby-identifier">var</span> <span class="ruby-identifier">ratingCCount</span> = <span class="ruby-identifier">getRatingWiseCount</span>(<span class="ruby-string">&quot;C&quot;</span>);
+<span class="ruby-identifier">var</span> <span class="ruby-identifier">ratingDCount</span> = <span class="ruby-identifier">getRatingWiseCount</span>(<span class="ruby-string">&quot;D&quot;</span>);
+<span class="ruby-identifier">var</span> <span class="ruby-identifier">ratingFCount</span> = <span class="ruby-identifier">getRatingWiseCount</span>(<span class="ruby-string">&quot;F&quot;</span>);
+<span class="ruby-identifier">var</span> <span class="ruby-identifier">total</span> = <span class="ruby-identifier">ratingACount</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ratingBCount</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ratingCCount</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ratingDCount</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ratingFCount</span>;
+<span class="ruby-keyword">return</span> [
+  {<span class="ruby-value">name:</span> <span class="ruby-string">&#39;A&#39;</span>, <span class="ruby-value">y:</span> <span class="ruby-identifier">parseFloat</span>(<span class="ruby-identifier">calculatePercentage</span>(<span class="ruby-identifier">ratingACount</span>, <span class="ruby-identifier">total</span>).<span class="ruby-identifier">toFixed</span>(<span class="ruby-value">2</span>)), <span class="ruby-value">color:</span> <span class="ruby-constant">COLOR</span>[<span class="ruby-string">&#39;A&#39;</span>]},
+  {<span class="ruby-value">name:</span> <span class="ruby-string">&#39;B&#39;</span>, <span class="ruby-value">y:</span> <span class="ruby-identifier">parseFloat</span>(<span class="ruby-identifier">calculatePercentage</span>(<span class="ruby-identifier">ratingBCount</span>, <span class="ruby-identifier">total</span>).<span class="ruby-identifier">toFixed</span>(<span class="ruby-value">2</span>)), <span class="ruby-value">color:</span> <span class="ruby-constant">COLOR</span>[<span class="ruby-string">&#39;B&#39;</span>]},
+  {<span class="ruby-value">name:</span> <span class="ruby-string">&#39;C&#39;</span>, <span class="ruby-value">y:</span> <span class="ruby-identifier">parseFloat</span>(<span class="ruby-identifier">calculatePercentage</span>(<span class="ruby-identifier">ratingCCount</span>, <span class="ruby-identifier">total</span>).<span class="ruby-identifier">toFixed</span>(<span class="ruby-value">2</span>)), <span class="ruby-value">color:</span> <span class="ruby-constant">COLOR</span>[<span class="ruby-string">&#39;C&#39;</span>]},
+  {<span class="ruby-value">name:</span> <span class="ruby-string">&#39;D&#39;</span>, <span class="ruby-value">y:</span> <span class="ruby-identifier">parseFloat</span>(<span class="ruby-identifier">calculatePercentage</span>(<span class="ruby-identifier">ratingDCount</span>, <span class="ruby-identifier">total</span>).<span class="ruby-identifier">toFixed</span>(<span class="ruby-value">2</span>)), <span class="ruby-value">color:</span> <span class="ruby-constant">COLOR</span>[<span class="ruby-string">&#39;D&#39;</span>]},
+  {<span class="ruby-value">name:</span> <span class="ruby-string">&#39;F&#39;</span>, <span class="ruby-value">y:</span> <span class="ruby-identifier">parseFloat</span>(<span class="ruby-identifier">calculatePercentage</span>(<span class="ruby-identifier">ratingFCount</span>, <span class="ruby-identifier">total</span>).<span class="ruby-identifier">toFixed</span>(<span class="ruby-value">2</span>)), <span class="ruby-value">color:</span> <span class="ruby-constant">COLOR</span>[<span class="ruby-string">&#39;F&#39;</span>]},
+];
+</pre>
+
+<p>};</p>
+
+<p>function calculatePercentage(gradeCount, total){</p>
+
+<pre class="ruby"><span class="ruby-keyword">return</span> (<span class="ruby-identifier">gradeCount</span><span class="ruby-operator">/</span><span class="ruby-identifier">total</span>)<span class="ruby-operator">*</span><span class="ruby-value">100</span>;
+</pre>
+
+<p>};</p>
+
+<p>function getRatingWiseCount(rating){</p>
+
+<pre>var count = 0;
+turbulenceData.forEach(function(data, index){
+  if(data.rating === rating){
+    count++;
+  }
+});
+return count;</pre>
+
+<p>};</p>
+
+<p>function emphasizeLineFromFragment() {</p>
+
+<pre class="ruby"><span class="ruby-identifier">emphasizeLine</span>(<span class="ruby-identifier">window</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">hash</span>)
+</pre>
+
+<p>}</p>
+
+<p>$(“.js-file-code”).on(“click”, “.js-smell-location”, emphasizeLineFromHref);</p>
+
+<p>function emphasizeLineFromHref(event) {</p>
+
+<pre>if (hrefTargetIsOnCurrentPage(this) &amp;&amp; !event.ctrlKey) {
+  $(&quot;.js-file-code li&quot;).removeClass(&quot;highlight&quot;);
+  var lineId = &quot;#&quot; + this.href.split(&quot;#&quot;)[1];
+  emphasizeLine(lineId);
+  return false;
+}</pre>
+
+<p>}</p>
+
+<p>function hrefTargetIsOnCurrentPage(aTag) {</p>
+
+<pre class="ruby"><span class="ruby-keyword">return</span> (<span class="ruby-identifier">window</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">pathname</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">aTag</span>.<span class="ruby-identifier">pathname</span>);
+</pre>
+
+<p>}</p>
+
+<p>function emphasizeLine(lineReference) {</p>
+
+<pre class="ruby"><span class="ruby-identifier">scrollToTarget</span>(<span class="ruby-identifier">lineReference</span>);
+<span class="ruby-identifier">highlightLine</span>(<span class="ruby-identifier">lineReference</span>);
+</pre>
+
+<p>}</p>
+
+<p>function scrollToTarget(lineReference) {</p>
+
+<pre>window.location.hash = lineReference;
+$.scrollTo(lineReference, {
+  duration: 300,
+  easing: &quot;linear&quot;,
+  offset: {top: -87},
+  axis: &#39;y&#39;
+});</pre>
+
+<p>}</p>
+
+<p>function highlightLine(lineReference) {</p>
+
+<pre>$(lineReference).addClass(&quot;highlight&quot;);</pre>
+
+<p>}</p>
+
+<p>$(“#toggle-code”).on(“click”, showCode); $(“#toggle-smells”).on(“click”, showSmells); $(“#toggle-coverage”).on(“click”, showCoverage);</p>
+
+<p>function showCode() {</p>
+
+<pre>$(&#39;#toggle-code&#39;).parent(&#39;li&#39;).addClass(&#39;active&#39;);
+$(&#39;#toggle-smells&#39;).parent(&#39;li&#39;).removeClass(&#39;active&#39;);
+$(&#39;#toggle-coverage&#39;).parent(&#39;li&#39;).removeClass(&#39;active&#39;);
+$(&quot;.smells&quot;).hide();</pre>
+
+<p>}</p>
+
+<p>function showSmells() {</p>
+
+<pre>$(&#39;#toggle-code&#39;).parent(&#39;li&#39;).removeClass(&#39;active&#39;);
+$(&#39;#toggle-coverage&#39;).parent(&#39;li&#39;).removeClass(&#39;active&#39;);
+$(&#39;#toggle-smells&#39;).parent(&#39;li&#39;).addClass(&#39;active&#39;);
+$(&quot;.smells&quot;).show();</pre>
+
+<p>}</p>
+
+<p>function showCoverage() {</p>
+
+<pre>$(&#39;#toggle-code&#39;).parent(&#39;li&#39;).removeClass(&#39;active&#39;);
+$(&#39;#toggle-smells&#39;).parent(&#39;li&#39;).removeClass(&#39;active&#39;);
+$(&#39;#toggle-coverage&#39;).parent(&#39;li&#39;).addClass(&#39;active&#39;);
+$(&quot;.coverage&quot;).show();</pre>
+
+<p>}</p>
+
+<p>$(“#codeTable”)</p>
+
+<pre>.tablesorter({          // Sort the table
+  sortList: [[0,1]]
+});</pre>
+
+<p>$(“#js-index-table”)</p>
+
+<pre>.tablesorter({          // Sort the table
+  sortList: [[0,0]]
+});</pre>
+
+<p>$(“.js-timeago”).timeago();</p>
+
+<p>$(function(){</p>
+
+<pre>$(&#39;.table-header&#39;).click(function(){
+  $(&#39;.table-header&#39;).not(this).each(function(){
+    $(this).removeClass(&#39;active&#39;);
+    $(this).find(&#39;.sort-type&#39;).removeClass(&#39;table-header-asc&#39;);
+    $(this).find(&#39;.sort-type&#39;).removeClass(&#39;table-header-desc&#39;);
+  });
+  if($(this).hasClass(&#39;active&#39;)){
+    $(this).find(&#39;.sort-type&#39;).toggleClass(&#39;table-header-asc table-header-desc&#39;);
+  }
+  else{
+    $(this).addClass(&#39;active&#39;);
+    $(this).find(&#39;.sort-type&#39;).addClass(&#39;table-header-asc&#39;);
+  }
+});</pre>
+
+<p>});</p>
+
+<p>function assignIdsToCodeLines(){</p>
+
+<pre>$($(&#39;.linenums&#39;)[1]).children().each(function(index){
+  $(this).attr(&#39;id&#39;, &quot;L&quot; + index)
+});</pre>
+
+<p>};</p>
+
+<p>$(document).ready(function(){</p>
+
+<pre class="ruby"><span class="ruby-identifier">assignIdsToCodeLines</span>();
+<span class="ruby-identifier">emphasizeLineFromFragment</span>();
+<span class="ruby-identifier">initTableFilters</span>();
+</pre>
+
+<p>});</p>
+
+<p>var initTableFilters = function() {</p>
+
+<pre>$(&quot;#codeTable&quot;).filterTable({ignoreColumns: [2], placeholder: &#39;Filter by Name&#39;});
+$(&quot;#js-index-table&quot;).filterTable({ignoreColumns: [2, 3, 4, 5], placeholder: &#39;Filter by Smell or Location&#39;, inputSelector: &#39;form-control&#39;});</pre>
+
+<p>}</p>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

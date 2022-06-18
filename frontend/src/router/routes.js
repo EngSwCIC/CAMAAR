@@ -3,6 +3,7 @@ import ImportPage from '../pages/ImportPage.vue'
 import HomePage from "../pages/HomePage.vue";
 import SurveyPage from "../pages/SurveyPage.vue";
 import SurveysPage from "../pages/SurveysPage.vue";
+import CadastrarPage from  '../pages/CadastrarPage.vue'
 const routes = [
   {
     path: "/",
@@ -28,6 +29,11 @@ const routes = [
     path: "/surveys/:id",
     name: "Questionário",
     component: SurveyPage,
+  },
+  {
+    path: '/cadastrar',
+    name: 'Cadastrar',
+    component: CadastrarPage,
   },
   // Always leave this as last one,
   // but you can also remove it
