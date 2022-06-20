@@ -52,7 +52,6 @@ app.post("/participantes", async (req, res) => {
         }
         await goBack(page)
     }
-    console.log(infos)
     console.log("Sending members' info")
     res.send(infos)
 })
