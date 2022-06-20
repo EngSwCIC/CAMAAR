@@ -12,7 +12,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:3000/surveys/open")
+      .get("/api/surveys/open")
       .then((res) => (this.surveys = res.data))
       .finally(() => console.log(this.surveys));
   },

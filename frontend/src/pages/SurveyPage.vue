@@ -76,7 +76,7 @@ export default {
   async mounted() {
     try {
       const res_s = await axios.get(
-        "http://localhost:3000/surveys/" + this.$route.params.id
+        "/api/surveys/" + this.$route.params.id
       );
       this.survey = res_s.data;
     } catch (err) {
@@ -90,7 +90,7 @@ export default {
     }
     // Temporariamente usa id de membro = 1 para protótipo do questionário
     const res_c = await axios.get(
-      `http://localhost:3000/members/${1}/cclasses`
+      `/api/members/${1}/cclasses`
     );
     this.cclasses = res_c.data;
     this.cclasses.forEach((cclass) => {
@@ -124,7 +124,7 @@ export default {
       this.survey_answers.forEach(async (subject_answer) => {
         try {
           const res = await axios.post(
-            "http://localhost:3000/survey_answers",
+            "/api/survey_answers",
             subject_answer,
             {
               headers: {

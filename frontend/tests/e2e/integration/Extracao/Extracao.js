@@ -11,7 +11,7 @@ Before(() => {
 Before({ tags: '@mockTurmasVazias' },() => {
   intercept({
     method: 'get',
-    url: 'http://localhost:3000/import/turmas'
+    url: '/api/import/turmas'
   }, {}).as('buscaTurmas')
 })
 const classes = {
@@ -48,7 +48,7 @@ const classes = {
 Given(`que estou na rota {string}`, (pagina) => {
   intercept({
     method: 'get',
-    url: 'http://localhost:3000/turmas'
+    url: '/api/turmas'
   },
   classes
   ).as('buscaTurmas')
@@ -58,7 +58,7 @@ Given(`que estou na rota {string}`, (pagina) => {
 And(`eu clicar no botão {string}`, (id) => {
   intercept({
     method: 'get',
-    url: 'http://localhost:3000/import/turmas'
+    url: '/api/import/turmas'
   }).as('importTurmas')
   get(`#${id}`).click();
   wait('@importTurmas', {timeout: 20000})

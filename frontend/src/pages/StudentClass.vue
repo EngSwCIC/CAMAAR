@@ -28,11 +28,11 @@ let selectedClass = {};
 let selectedSubject = {};
 
 onMounted(async () => {
-  await axios.get("http://localhost:3000/cclasses/" + route.params.id)
+  await axios.get("/api/cclasses/" + route.params.id)
       .then(resp => {
         selectedClass = resp.data
         console.log(resp)
-        axios.get("http://localhost:3000/subjects/" + resp.data.subject_id)
+        axios.get("/api/subjects/" + resp.data.subject_id)
             .then(resp => {
               console.log(resp)
               selectedSubject = resp.data

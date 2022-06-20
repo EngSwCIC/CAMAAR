@@ -41,8 +41,6 @@ export default {
   },
   methods: {
     async importSelected() {
-      this.loadImport = true
-      console.log(this.selectedRows)
       if(this.selectedRows.length <= 0) {
         this.$q.notify({
           color: 'negative',
@@ -50,8 +48,9 @@ export default {
         })
         return
       }
+      this.loadImport = true
       try {
-        const resultado = await this.$axios.post("http://localhost:3000/import/turmas", {
+        const resultado = await this.$axios.post("/api/import/turmas", {
           classes: this.selectedRows
         })
         this.$refs.table.selected = []
@@ -74,7 +73,7 @@ export default {
       this.load = true
       try{
 
-        let {data: resultado} = await this.$axios.get("http://localhost:3000/import/turmas")
+        let {data: resultado} = await this.$axios.get("api/import/turmas")
         let contador = 0
         resultado = resultado.classes.map(turma=> {
           contador++

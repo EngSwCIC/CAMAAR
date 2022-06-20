@@ -23,7 +23,7 @@ const classes = ref([]);
 onMounted(async () => {
   // obter lista de disciplinas do backend
   await axios
-    .get("http://localhost:3000/subjects")
+    .get("/api/subjects")
     .then((resp) => {
       subjects.value = resp.data;
     })
@@ -33,7 +33,7 @@ onMounted(async () => {
 
   // obter lista de todas as turmas
   await axios
-    .get("http://localhost:3000/cclasses")
+    .get("/api/cclasses")
     .then((resp) => {
       classes.value = resp.data;
     })
@@ -49,7 +49,7 @@ const getClasses = (subject) =>
 const filterItems = async (filterArg) => {
   filterArg = filterArg.toLowerCase().trim();
   await axios
-    .get("http://localhost:3000/subjects/")
+    .get("/api/subjects/")
     .then((resp) => {
       subjects.value = resp.data;
       //Faz o filtro pelo nome e código da disciplina

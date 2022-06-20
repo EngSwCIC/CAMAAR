@@ -18,7 +18,7 @@ const PostMembers = async () =>{
   const Control1 = await form.value.validate()
   if (Control1) {
     try {
-      let req = await axios.post("http://localhost:3000/users", {
+      let req = await axios.post("/api/users", {
         email_pessoa: users.email, senha_pessoa: users.senha,
         created_at_pessoa: users.created_at, updated_at_pessoa: users.updated_at
       })

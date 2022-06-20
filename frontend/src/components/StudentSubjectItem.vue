@@ -44,7 +44,7 @@ const teachers = reactive([])
 onUpdated(async () => {
   const getTeacherFromClass = async (class_id) => {
     let teacher;
-    await axios.get(`http://localhost:3000/cclasses/${class_id}/members`)
+    await axios.get(`/api/cclasses/${class_id}/members`)
         .then(resp => {
           let members = resp.data
           teacher = members.find(member => member['occupation'] == 'docente')

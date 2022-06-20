@@ -11,7 +11,7 @@ Before(() => {
 Before({ tags: '@mockTurmaCadastradas' },() => {
   intercept({
     method: 'get',
-    url: 'http://localhost:3000/turmas'
+    url: '/api/turmas'
   }, {}).as('buscaTurmas')
 })
 const classes = {
@@ -48,7 +48,7 @@ const classes = {
 Given(`que estou na rota {string}`, (pagina) => {
   intercept({
     method: 'get',
-    url: 'http://localhost:3000/turmas'
+    url: '/api/turmas'
   },
   classes
   ).as('buscaTurmasCadastradas')
@@ -58,29 +58,29 @@ Given(`que estou na rota {string}`, (pagina) => {
 And(`clicar no botão {string}`, (id) => {
   intercept({
     method: 'get',
-    url: 'http://localhost:3000/turmas'
+    url: '/api/turmas'
   }).as('buscaTurmas')
   intercept({
     method: 'post',
-    url: 'http://localhost:3000/import/turmas'
+    url: '/api/import/turmas'
   }).as('importaTurmas')
   get(`#${id}`, {timeout: 20000}).click();
 });
 When(`clicar no botão {string}`, (id) => {
   intercept({
     method: 'get',
-    url: 'http://localhost:3000/turmas'
+    url: '/api/turmas'
   }).as('buscaTurmas')
   intercept({
     method: 'post',
-    url: 'http://localhost:3000/import/turmas'
+    url: '/api/import/turmas'
   }).as('importaTurmas')
   get(`#${id}`, {timeout: 20000}).click();
 });
 And(`que eu busquei turmas`, () => {
   intercept({
     method: 'get',
-    url: 'http://localhost:3000/turmas'
+    url: '/api/turmas'
   }, classes).as('buscaTurmas')
   get('#searchButton').click();
 });

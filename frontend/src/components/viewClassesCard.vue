@@ -32,7 +32,7 @@ export default {
 
   async mounted() {
     try {
-      let resultado = await this.$axios.get("http://localhost:3000/turmas")
+      let resultado = await this.$axios.get("/api/turmas")
       resultado = resultado.data.map(turma=> {
         return {
           nome: turma.name,
@@ -53,7 +53,7 @@ export default {
   methods: {
     async updateRows () {
       try{
-        let {data: resultado} = await this.$axios.get("http://localhost:3000/turmas")
+        let {data: resultado} = await this.$axios.get("/api/turmas")
         console.log(resultado)
         resultado = resultado.map(turma=> {
           return {
