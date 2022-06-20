@@ -7,7 +7,7 @@ class CreateMembers < ActiveRecord::Migration[7.0]
       t.string :occupation, null: false
       t.string :degree, null: false
       t.string :course, null: false
-      t.string :email, null: false
+      t.string :email, null: true
 
       t.timestamps
     end

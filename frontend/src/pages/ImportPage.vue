@@ -9,7 +9,6 @@
     },
     methods: {
       async atualizaCadastradas () {
-        console.log('teste')
         await this.$refs.viewRef.updateRows()
       }
     }

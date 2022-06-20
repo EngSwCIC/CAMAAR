@@ -51,10 +51,11 @@ class ScrapperController < ApplicationController
     ##
     # Cadastra os participantes importados no banco de dados
     def cadastraParticipante(discente, turma)
-      member = Member.where(name: discente['nome'], course: discente['curso'],
+      member = Member.find_or_create_by(name: discente['nome'], course: discente['curso'],
         registration: discente['matricula'], username: discente['usuario'],
         degree: discente['formacao'], occupation: discente['ocupacao'],
-        email: discente['email']).first_or_create
-      Enrollment.where(member: member, cclass: turma).first_or_create
+        email: discente['email'])
+      puts member.inspect
+      Enrollment.find_or_create_by(member: member, cclass: turma)
     end
 end

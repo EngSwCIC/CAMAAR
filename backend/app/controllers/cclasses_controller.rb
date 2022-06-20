@@ -23,7 +23,9 @@ class CclassesController < ApplicationController
         return
       end
     end
-    @cclasses = Cclass.all
+    @members = Enrollment.where('cclass_id = 4')
+    puts @members
+    @cclasses = Cclass.select('subjects.name, subjects.code as subjectCode, cclasses.*').joins(:subject)
     render json: @cclasses, status: :ok
   end
 

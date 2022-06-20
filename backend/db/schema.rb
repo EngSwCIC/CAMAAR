@@ -81,7 +81,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_15_142242) do
     t.string "occupation", null: false
     t.string "degree", null: false
     t.string "course", null: false
-    t.string "email", null: false
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role_id"

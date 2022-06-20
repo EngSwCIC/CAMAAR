@@ -33,29 +33,33 @@ export default {
   async mounted() {
     try {
       let resultado = await this.$axios.get("http://localhost:3000/turmas")
-      resultado = resultado.data.classes.map(turma=> {
+      resultado = resultado.data.map(turma=> {
         return {
           nome: turma.name,
-          codigo: turma.code,
-          turma: turma.classCode,
+          codigo: turma.subjectCode,
+          turma: turma.code,
           semestre: turma.semester,
           horario: turma.time
         }
       })
       this.rows = resultado
     } catch (e) {
-      console.log('erro', e)
+      this.$q.notify({
+        color: "negative",
+        message: "Erro ao buscar turmas cadastradas"
+      })
     }
   },
   methods: {
     async updateRows () {
       try{
         let {data: resultado} = await this.$axios.get("http://localhost:3000/turmas")
-        resultado = resultado.classes.map(turma=> {
+        console.log(resultado)
+        resultado = resultado.map(turma=> {
           return {
             nome: turma.name,
-            codigo: turma.code,
-            turma: turma.classCode,
+            codigo: turma.subjectCode,
+            turma: turma.code,
             semestre: turma.semester,
             horario: turma.time
           }
