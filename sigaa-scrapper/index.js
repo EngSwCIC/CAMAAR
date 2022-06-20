@@ -126,7 +126,6 @@ async function getMembersInfo(page){
 	await clickParticipantes(page)
 
 	// Get participantes
-  await page.screenshot({path:"teste.png"})
 	await page.waitForSelector('.participantes')
 	const participantes = await page.evaluate(()=>{
     	const discentesDocentes = document.querySelectorAll('.participantes')
