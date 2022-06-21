@@ -194,6 +194,7 @@ GEM
     minitest (5.16.0)
     msgpack (1.5.2)
     multi_json (1.15.0)
+    mysql2 (0.5.4)
     net-imap (0.2.3)
       digest
       net-protocol
@@ -367,6 +368,7 @@ DEPENDENCIES
   figaro
   json (~> 2.6.1)
   metric_fu
+  mysql2 (~> 0.5.4)
   puma (~> 5.0)
   rack-cors (~> 1.1)
   rails (~> 7.0.2, >= 7.0.2.3)
