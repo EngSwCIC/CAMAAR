@@ -55,7 +55,6 @@ class ScrapperController < ApplicationController
         registration: discente['matricula'], username: discente['usuario'],
         degree: discente['formacao'], occupation: discente['ocupacao'],
         email: discente['email'])
-      puts member.inspect
       Enrollment.find_or_create_by(member: member, cclass: turma)
     end
 end
