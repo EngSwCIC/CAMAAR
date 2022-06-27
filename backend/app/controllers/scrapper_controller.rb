@@ -51,9 +51,10 @@ class ScrapperController < ApplicationController
     ##
     # Cadastra os participantes importados no banco de dados
     def cadastraParticipante(discente, turma)
+      role = Role.find_or_create_by(name: :discente)
       member = Member.find_or_create_by(name: discente['nome'], course: discente['curso'],
         registration: discente['matricula'], username: discente['usuario'],
-        degree: discente['formacao'], occupation: discente['ocupacao'],
+        degree: discente['formacao'], role: role,
         email: discente['email'])
       Enrollment.find_or_create_by(member: member, cclass: turma)
     end

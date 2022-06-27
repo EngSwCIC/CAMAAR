@@ -32,7 +32,7 @@ role_discente = Role.create(name: 'discente', description: 'discente')
 for discente in discentes do
   member = Member.create(name: discente['nome'], course: discente['curso'],
   registration: discente['matricula'], username: discente['usuario'],
-  degree: discente['formacao'], occupation: discente['ocupacao'],
+  degree: discente['formacao'],
   email: discente['email'], role: role_discente)
   Enrollment.create(member: member, cclass: cclass)
 end
@@ -41,7 +41,7 @@ role_docente = Role.create(name: 'docente', description: 'docente')
 docente = data['docente']
 member = Member.create(name: docente['nome'], course: docente['departamento'],
   registration: docente['usuario'], username: docente['usuario'],
-  degree: docente['formacao'], occupation: docente['ocupacao'],
+  degree: docente['formacao'],
   email: docente['email'], role: role_docente)
 Enrollment.create(member: member, cclass: cclass)
 
