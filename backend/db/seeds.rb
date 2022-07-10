@@ -46,6 +46,15 @@ member = Member.create(name: docente['nome'], course: docente['departamento'],
 Enrollment.create(member: member, cclass: cclass)
 
 file = File.read('./db/survey_test.json')
-surveys_data = JSON.parse(file)
+surveys = JSON.parse(file)
 
-Survey.create(surveys_data)
+file = File.read('./db/survey_answer_test.json')
+surveys_answers = JSON.parse(file)
+
+QuestionType.create(name: "discursive")
+QuestionType.create(name: "multiple_choice")
+QuestionType.create(name: "likert_scale")
+
+Survey.create(surveys)
+
+SurveyAnswer.create(surveys_answers)

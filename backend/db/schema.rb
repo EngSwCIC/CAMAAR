@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_29_203703) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
   create_table "cclasses", force: :cascade do |t|
     t.string "code"
     t.string "semester"
@@ -38,6 +38,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_29_203703) do
     t.index ["jti"], name: "index_jwt_denylist_on_jti"
   end
 
+  create_table "likert_scale_answers", force: :cascade do |t|
+    t.integer "answer"
+    t.integer "likert_scale_question_id"
+    t.integer "question_answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["likert_scale_question_id"], name: "index_likert_scale_answers_on_likert_scale_question_id"
+    t.index ["question_answer_id"], name: "index_likert_scale_answers_on_question_answer_id"
+  end
+
+  create_table "likert_scale_questions", force: :cascade do |t|
+    t.text "question"
+    t.integer "question_number"
+    t.integer "scale_points"
+    t.integer "survey_question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_question_id"], name: "index_likert_scale_questions_on_survey_question_id"
+  end
+
   create_table "members", force: :cascade do |t|
     t.string "name", null: false
     t.string "registration", null: false
@@ -54,16 +74,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_29_203703) do
 
   create_table "question_answers", force: :cascade do |t|
     t.text "answer"
-    t.integer "enrollment_id"
+    t.integer "survey_answer_id"
     t.integer "survey_question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["enrollment_id"], name: "index_question_answers_on_enrollment_id"
+    t.index ["survey_answer_id"], name: "index_question_answers_on_survey_answer_id"
     t.index ["survey_question_id"], name: "index_question_answers_on_survey_question_id"
   end
 
   create_table "question_options", force: :cascade do |t|
-    t.string "option"
+    t.integer "option_number"
     t.text "content"
     t.integer "survey_question_id"
     t.datetime "created_at", null: false
@@ -93,9 +113,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_29_203703) do
     t.index ["name"], name: "index_subjects_on_name", unique: true
   end
 
+  create_table "survey_answers", force: :cascade do |t|
+    t.integer "survey_id", null: false
+    t.integer "member_id", null: false
+    t.integer "cclass_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cclass_id"], name: "index_survey_answers_on_cclass_id"
+    t.index ["member_id"], name: "index_survey_answers_on_member_id"
+    t.index ["survey_id"], name: "index_survey_answers_on_survey_id"
+  end
+
   create_table "survey_questions", force: :cascade do |t|
-    t.string "question_type"
     t.text "question"
+    t.integer "question_number"
     t.boolean "optional", default: false
     t.integer "survey_id"
     t.integer "question_type_id"
@@ -133,10 +164,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_29_203703) do
   add_foreign_key "cclasses", "subjects"
   add_foreign_key "enrollments", "cclasses"
   add_foreign_key "enrollments", "members"
+  add_foreign_key "likert_scale_answers", "likert_scale_questions"
+  add_foreign_key "likert_scale_answers", "question_answers"
+  add_foreign_key "likert_scale_questions", "survey_questions"
   add_foreign_key "members", "roles"
-  add_foreign_key "question_answers", "enrollments"
+  add_foreign_key "question_answers", "survey_answers"
   add_foreign_key "question_answers", "survey_questions"
   add_foreign_key "question_options", "survey_questions"
+  add_foreign_key "survey_answers", "cclasses"
+  add_foreign_key "survey_answers", "members"
+  add_foreign_key "survey_answers", "surveys"
   add_foreign_key "survey_questions", "question_types"
   add_foreign_key "survey_questions", "surveys"
   add_foreign_key "surveys", "roles"
