@@ -7,6 +7,7 @@ class Survey < ApplicationRecord
   has_many :survey_questions, dependent: :destroy
   has_many :survey_answers, dependent: :destroy
   accepts_nested_attributes_for :survey_questions
+  accepts_nested_attributes_for :role
 
   ##
   # Método que verifica se a um +Survey+ está fora da validade.
@@ -23,13 +24,18 @@ class Survey < ApplicationRecord
         :name, 
         :description, 
         :expiration_date, 
-        :semester,
-        :role_id
+        :semester
       ],
       include: [
+        :role => {
+          only: [:name, :description]
+        },
         :survey_questions => {
-          only: [:question_number, :question, :optional, :question_type_id],
+          only: [:question_number, :question, :optional],
           include:[
+            :question_type => {
+              only: [:name]
+            },
             :question_options => {
               only: [:option, :content]
             },

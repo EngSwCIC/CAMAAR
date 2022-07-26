@@ -9,12 +9,16 @@ class SurveyQuestion < ApplicationRecord
   has_many :question_options
   has_many :likert_scale_questions
   accepts_nested_attributes_for :question_options
+  accepts_nested_attributes_for :question_type
   accepts_nested_attributes_for :likert_scale_questions
 
   def as_json(options: {})
     super(
       only: [:question, :question_number, :optional, :question_type_id],
       include:[
+        :question_type => {
+          only: [:name]
+        },
         :question_options => {
           only: [:option, :content]
         },
