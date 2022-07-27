@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
-  create_table "cclasses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "cclasses", force: :cascade do |t|
     t.string "code"
     t.string "semester"
     t.string "time"
@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
     t.index ["subject_id"], name: "index_cclasses_on_subject_id"
   end
 
-  create_table "enrollments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "enrollments", force: :cascade do |t|
     t.bigint "cclass_id", null: false
     t.bigint "member_id", null: false
     t.datetime "created_at", null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
     t.index ["member_id"], name: "index_enrollments_on_member_id"
   end
 
-  create_table "jwt_denylist", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "jwt_denylist", force: :cascade do |t|
     t.string "jti", null: false
     t.datetime "exp", null: false
     t.datetime "created_at", null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
     t.index ["jti"], name: "index_jwt_denylist_on_jti"
   end
 
-  create_table "likert_scale_answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "likert_scale_answers", force: :cascade do |t|
     t.integer "answer"
     t.bigint "likert_scale_question_id"
     t.bigint "question_answer_id"
@@ -48,7 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
     t.index ["question_answer_id"], name: "index_likert_scale_answers_on_question_answer_id"
   end
 
-  create_table "likert_scale_questions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "likert_scale_questions", force: :cascade do |t|
     t.text "question"
     t.integer "question_number"
     t.integer "scale_points"
@@ -58,7 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
     t.index ["survey_question_id"], name: "index_likert_scale_questions_on_survey_question_id"
   end
 
-  create_table "members", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "members", force: :cascade do |t|
     t.string "name", null: false
     t.string "registration", null: false
     t.string "username", null: false
@@ -67,12 +67,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "role_id"
+    t.integer "role_id"
     t.index ["registration"], name: "index_members_on_registration", unique: true
     t.index ["role_id"], name: "index_members_on_role_id"
   end
 
-  create_table "question_answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "question_answers", force: :cascade do |t|
     t.text "answer"
     t.bigint "survey_answer_id"
     t.bigint "survey_question_id"
@@ -82,7 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
     t.index ["survey_question_id"], name: "index_question_answers_on_survey_question_id"
   end
 
-  create_table "question_options", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "question_options", force: :cascade do |t|
     t.integer "option_number"
     t.text "content"
     t.bigint "survey_question_id"
@@ -91,20 +91,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
     t.index ["survey_question_id"], name: "index_question_options_on_survey_question_id"
   end
 
-  create_table "question_types", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "question_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "roles", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "subjects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "subjects", force: :cascade do |t|
     t.string "code", null: false
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -113,7 +113,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
     t.index ["name"], name: "index_subjects_on_name", unique: true
   end
 
-  create_table "survey_answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "survey_answers", force: :cascade do |t|
     t.bigint "survey_id", null: false
     t.bigint "member_id", null: false
     t.bigint "cclass_id", null: false
@@ -124,7 +124,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
     t.index ["survey_id"], name: "index_survey_answers_on_survey_id"
   end
 
-  create_table "survey_questions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "survey_questions", force: :cascade do |t|
     t.text "question"
     t.integer "question_number"
     t.boolean "optional", default: false
@@ -136,18 +136,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
     t.index ["survey_id"], name: "index_survey_questions_on_survey_id"
   end
 
-  create_table "surveys", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "surveys", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "expiration_date"
     t.string "semester"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "role_id"
+    t.integer "role_id"
     t.index ["role_id"], name: "index_surveys_on_role_id"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -155,7 +155,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "member_id"
+    t.integer "member_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["member_id"], name: "index_users_on_member_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

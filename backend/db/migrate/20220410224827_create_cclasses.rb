@@ -5,7 +5,7 @@ class CreateCclasses < ActiveRecord::Migration[7.0]
       t.string :semester
       t.string :time
 
-      t.references :subject, null: false, foreign_key: true
+      t.references :subject, null: false, foreign_key: true, type: :bigint
       t.timestamps
     end
   end
