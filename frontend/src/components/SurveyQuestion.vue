@@ -1,7 +1,8 @@
 <template>
 <q-card class="card">
     <h6 :class="'question' + (question.optional ? '' : ' required')">{{ question_number + ". " + question.question }}</h6>    
-    <div v-if="question.question_type == 'likert_scale'">
+    <!-- TODO: arrumar o likert -->
+    <!-- <div v-if="question.question_type.name == 'likert_scale'">
         <div>
             <q-markup-table>
                 <thead>
@@ -26,9 +27,9 @@
                 </tbody>
             </q-markup-table>
         </div>
-    </div>
-    <div v-else-if="question.question_type == 'multiple_choice'">
-        <div v-for="option in question.multiple_choice.options" :key="option.id">
+    </div> -->
+    <div v-if="question.question_type.name == 'multiple_choice'">
+        <div v-for="option in question.question_options" :key="option.id">
             <q-radio
                 color="secondary"
                 :name="'multiple_choice_answer' + question.id"
@@ -36,7 +37,7 @@
                 :model-value="modelValue.content"
                 @update:model-value="(value) => $emit('update:modelValue', updateAnswer(value))"
             >
-                <label>{{ option.option }}</label>
+                <label>{{ option.content }}</label>
             </q-radio>
         </div>
     </div>

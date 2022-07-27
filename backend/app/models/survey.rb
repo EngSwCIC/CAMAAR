@@ -21,6 +21,7 @@ class Survey < ApplicationRecord
   def as_json(options: {})
     super(
       only: [
+        :id,
         :name, 
         :description, 
         :expiration_date, 
