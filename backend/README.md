@@ -44,7 +44,7 @@ rails db:seed
 Após isso basta iniciar a aplicação
 
 ```
-rails server -p 3030
+rails server
 ```
 O back-end ficará acessível na porta 3030. 
 
