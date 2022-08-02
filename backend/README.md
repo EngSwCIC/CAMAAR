@@ -16,18 +16,6 @@ Primeiramente devemos instalar todas as depedencias:
 ```
 bundle install
 ```
-Após fazer o bundle install é necessario gerar uma chave para o jwt:
-
-```
-rake secret
-```
-
-Com a chave gerada precisamos criar o arquivo application.yml no diretório config e adicionar a chave nele:
-
-```
-JWT_SECRET_KEY: <chave-gerada>
-```
-> Também é possível definir a JWT_SECRET_KEY como uma variavel de ambiente
 
 Execute o seguinte comando para aplicar as migrations ao banco de dados:
 
@@ -44,7 +32,7 @@ rails db:seed
 Após isso basta iniciar a aplicação
 
 ```
-rails server -p 3030
+rails server
 ```
 O back-end ficará acessível na porta 3030. 
 

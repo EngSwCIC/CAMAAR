@@ -4,11 +4,10 @@
 
 class Survey < ApplicationRecord
   belongs_to :role
-  has_many :survey_answers
   has_many :survey_questions, dependent: :destroy
+  has_many :survey_answers, dependent: :destroy
   accepts_nested_attributes_for :survey_questions
-
-  validates :name, :description, :expiration_date, :semester, presence: true
+  accepts_nested_attributes_for :role
 
   ##
   # Método que verifica se a um +Survey+ está fora da validade.
@@ -19,19 +18,35 @@ class Survey < ApplicationRecord
     self.expiration_date <= DateTime.now
   end
 
-  ##
-  # Método que sobrescreve funcionalidade padrão de +as_json+ do +ActiveRecord+
-  # a fim de incluir atributos de +SurveyQuestions+, +MultipleChoice+, +Options+,
-  # +LikertScale+ e +LikertQuestions+ aninhados
-
   def as_json(options: {})
-    super(include: [
-          :survey_questions => {
-            include: [
-              multiple_choice: {include: :options},
-              likert_scale: {include: :likert_questions}
-            ]
-          }
-        ])
+    super(
+      only: [
+        :id,
+        :name, 
+        :description, 
+        :expiration_date, 
+        :semester
+      ],
+      include: [
+        :role => {
+          only: [:name, :description]
+        },
+        :survey_questions => {
+          only: [:question_number, :question, :optional],
+          include:[
+            :question_type => {
+              only: [:name]
+            },
+            :question_options => {
+              only: [:option, :content]
+            },
+            :likert_scale_questions => {
+              only: [:question_number, :question, :scale_points]
+            }
+          ]
+        }
+      ],
+    )
   end
+
 end

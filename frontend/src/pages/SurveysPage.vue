@@ -1,5 +1,4 @@
 <script>
-import axios from "axios";
 import SurveyCard from "../components/SurveyCard.vue";
 export default {
   components: {
@@ -10,11 +9,12 @@ export default {
       surveys: null,
     };
   },
-  mounted() {
-    axios
-      .get("/api/surveys/open")
-      .then((res) => (this.surveys = res.data))
-      .finally(() => console.log(this.surveys));
+  async mounted() {
+    const res = await this.$axios.get("/api/surveys/open")
+    this.surveys = res.data
+    console.log(res)
+// .then((res) => (this.surveys = res.data))
+      // .finally(() => console.log(this.surveys));
   },
 };
 </script>
@@ -34,7 +34,7 @@ export default {
         <div class="row justify-center reverse-wrap items-baseline">
           <SurveyCard
             v-for="survey in surveys"
-            :key="survey.id"
+            :key="surveys.indexOf(survey)"
             :survey="survey"
             class="card .col-12 q-mx-md"
           />

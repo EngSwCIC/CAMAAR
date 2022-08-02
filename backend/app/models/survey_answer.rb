@@ -1,22 +1,28 @@
-##
-# Essa classe representa o model ActiveRecord que armazena respostas às perguntas de
-# Survey para cada par de Member e Cclass
-
 class SurveyAnswer < ApplicationRecord
   belongs_to :survey
   belongs_to :member
   belongs_to :cclass
-  has_many :answers, dependent: :destroy
-  accepts_nested_attributes_for :answers
-
-  ##
-  # Método que sobrescreve funcionalidade padrão de +as_json+ do +ActiveRecord+
-  # a fim de incluir atributos de +Answers+ e +LikertAnswers+ aninhados
+  has_many :question_answers
+  accepts_nested_attributes_for :question_answers
 
   def as_json(options: {})
-    super(include: [:answers => {include: :likert_answers}])
+    super(
+      only: [
+        :survey_id,
+        :cclass_id,
+        :member_id
+      ],
+      include: [
+        :question_answers => {
+          only: [:survey_question_id, :answer],
+          include: [
+            :likert_scale_answer => {
+              only: [:likert_scale_question_id, :answer]
+            }
+          ]
+        }
+      ]
+    )
   end
-
-  private
 
 end
