@@ -1,0 +1,28 @@
+#language: pt
+
+Funcionalidade: Tela do Menu do Coordenador 
+
+Cenário: Clicar em questionários como Coordenador
+Dado que estou na página do Menu Principal
+Devo clicar em "Abrir Menu Lateral"
+Quando clicar em "Questionários" 
+Deve abrir tela com lista de todos os questionários
+
+Cenário: Clicar em relatórios como Coordenador
+Dado que estou na página do Menu Principal
+Devo clicar em "Abrir Menu Lateral"
+Quando clicar em "Relatórios" 
+Deve abrir tela com página com todos os relatórios 
+
+Cenário: Clicar em criar questionário como Coordenador
+Dado que estou na página do Menu Principal
+Devo clicar em "Abrir Menu Lateral"
+Quando clicar em "Criar Questionário" 
+Deve abrir tela com página para criar relatórios
+
+Cenário: Clicar em importar do SIGAA como Coordenador
+Dado que estou na página do Menu Principal
+Devo clicar em "Abrir Menu Lateral"
+Quando clicar em "Importar do SIGAA" 
+Deve importar os usuários do SIGAA
+Então exibir que já foi importado quando acabar
