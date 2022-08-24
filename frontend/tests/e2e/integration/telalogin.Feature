@@ -23,7 +23,7 @@ Entao deve ver os campo "password", "user" e "email"
 Eu prencho dados com  usuario teste falso, minha senha e meu email  
 Quando a identificacao do usuario consegue ser feita por não conferir  email e password
 Entao dados nao conferem 
-E exibe mensagem " Dados não conferem ! Usuario Incorreto "
+Enttao exibe mensagem " Dados não conferem ! Usuario Incorreto " é exibida
 
 Cenario: Logar Pagina Inicial de Login Caminho bom
 Quando estou estou autenticado mas sou cadastrado
