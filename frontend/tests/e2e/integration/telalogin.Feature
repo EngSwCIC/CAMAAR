@@ -15,7 +15,7 @@ Entao deve ver os campo "password", "user" e "email"
 Eu prencho dados com meu usuario minha senha e meu email  
 Quando a identificacao do usuario nao consegue ser feita por não conferir user email e password
 Entao dados nao conferem 
-E exibe mensagem " Dados não conferem! Procure o administrador do sistema "
+Entao exibe mensagem " Dados não conferem! Procure o administrador do sistema "
 
 Cenario: Logar teste falso na Menu Inicial de Login dados 
 Quando estou  autenticado e sou cadastrado mas tento entrar com falso user
@@ -23,7 +23,7 @@ Entao deve ver os campo "password", "user" e "email"
 Eu prencho dados com  usuario teste falso, minha senha e meu email  
 Quando a identificacao do usuario consegue ser feita por não conferir  email e password
 Entao dados nao conferem 
-Enttao exibe mensagem " Dados não conferem ! Usuario Incorreto " é exibida
+Entao exibe mensagem " Dados não conferem ! Usuario Incorreto " é exibida
 
 Cenario: Logar Pagina Inicial de Login Caminho bom
 Quando estou estou autenticado mas sou cadastrado
