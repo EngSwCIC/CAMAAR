@@ -1,6 +1,36 @@
 #language: pt
 
-Funcionalidade: Tela do Menu do Coordenador Feature importar dados
+Funcionalidade: Tela do Menu do Coordenador 
+
+3.1.1) Cenário: Clicar em questionários como Coordenador (Maria)
+Dado que estou na página do Menu Principal
+Devo clicar em "Abrir Menu Lateral"
+Quando clicar em "Questionários" 
+Deve abrir tela com escolha "Professor" e "Coordenador"
+Quando clicar em Professor
+Então deve mostrar os questionários de professor do Coordenador
+
+3.1.2) Cenário: Clicar em questionários como Coordenador (Maria)
+Dado que estou na página do Menu Principal
+Devo clicar em "Abrir Menu Lateral"
+Quando clicar em "Questionários" 
+Deve abrir tela com escolha "Professor" e "Coordenador"
+Quando clicar em Coordenador
+Então deve mostrar os questionários de todas as turmas
+
+3.2)Cenário: Clicar em relatórios como Coordenador (Maria)
+Dado que estou na página do Menu Principal
+Devo clicar em "Abrir Menu Lateral"
+Quando clicar em "Relatórios" 
+Deve abrir tela com página com todos os relatórios 
+
+3.3) Cenário: Clicar em criar questionário como Coordenador (Maria)
+Dado que estou na página do Menu Principal
+Devo clicar em "Abrir Menu Lateral"
+Quando clicar em "Criar Questionário" 
+Deve abrir tela com página para criar relatórios
+
+3.4)Cenário: Importar dados do sig (Maria e Pericles)
 
 Como usuário Camaar Unb e Coordenador da Unb
 Então posso navegar pelo Menu do Coordenador
@@ -39,7 +69,4 @@ E clicar no botão "confirma seleção"
 E esperar importar turmas
 Então eu devo ver uma notificação de "Turmas selecionadas importadas com sucesso."
 Entao exibe mensagem " Deseja retorna a o menu principal "
-Então exibe campo retorno ao menu principal,  campo opção de log out  ou nova seleção de turmas
-Então clico em campo retorno ao menu principal,  ao campo log out do Menu Principal ou nova seleção de turmas.
-
-
+Então e
