@@ -1,0 +1,46 @@
+language: pt
+Funcionalidade: Menu Aluno Preencher Questionario de avaliaçao da disciplina ofertada
+
+
+Como usuário Camaar Unb e aluno da Unb
+Então posso navegar pelo menu Aluno
+Eu desejo preeencher o questionario enviado pelo coordenador
+
+Dado que estou na interface Caamar Unb e logado corretamente com password user e email
+Quando eu procuro prencher questionario de avaliação da disciplina ofertada
+Então deveria estar acessando questionario da disciplina tal, turma tal, participante tal, ocupação aluno 
+
+Cenario: Acesso menu Aluno e preencher questionario de avaliação Caminho ruim
+Quando estou logado no menu aluno com usuario ocupação aluno 
+Entao tenho a opcao de ir para opção preencher questionario de avaliacao 
+Quando clicar em preencher questionario agora
+Entao tenho acesso ao questionario e devo clicar em continuar pesquisa para as perguntas serem selecionadas
+Entao devo ver cada pergunta do questinario e ver o campo preencher reposta selecioanda
+Entao devo clicar e salvar resposta 
+Quando clico em salvar reposta e a reposta não é salva no banco de dados exibe mensagem "Procure o administrador do Sistema "  
+Entao devo clicar no campo reportar erro do sistema
+Entao exibe mensagem " Deseja retorna ao menu principal e ou opção de sair ?"
+Então exibe campo retorno ao menu principal e campo opção de log out 
+Então clico em campo retorno ao menu principal ou ao campo log out do Menu Questionario
+Então coordenador recebe notificação de inconsistencia no questionario
+Então suporte TI deve receber notificação de inconsistencia no questionario do participante tal, da turma tal, disciplina tal.
+
+
+Cenario: Acesso menu Aluno e preencher questionario de avaliação Caminho bom
+Quando estou logado no menu aluno com usuario ocupação aluno 
+Entao tenho a opcao de ir para opção preencher questionario de avaliacao 
+Quando clicar em preencher questionario agora
+Entao tenho acesso ao questionario e devo clicar em continuar pesquisa para as perguntas serem selecionadas
+Entao devo ver cada pergunta do questinario e ver o campo preencher reposta selecioanda
+Entao devo clicar em salvar resposta 
+Quando a resposta é salva e o questinario ainda não finalizou
+Então exibe mensagem "Questionario não Finalizada passe para próxima pergunta "
+Entao devo clicar em prosseguir  
+Quando a resposta e salva e o questinario finalizou
+Entao exibe mensagem "Questionario Finalizada salve seu questinário "
+Entao devo clicar em salvar questionario.
+Quando finalizado o processo corretamente
+Entao devo em alterar estado do questionario do participante tal, da turma tal , disciplina tal para estado respondido
+Entao exibe mensagem " Deseja retorna a o menu principal "
+Então exibe campo retorno ao menu principal e campo opção de log out 
+Então clico em campo retorno ao menu principal ou ao campo log out do Menu Questionario
