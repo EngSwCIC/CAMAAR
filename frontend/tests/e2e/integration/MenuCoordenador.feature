@@ -56,6 +56,7 @@ Entao exibe mensagem " Deseja retorna a o menu principal log out ou nova seleç�
 Então exibe campo retorno ao menu principal,  campo opção de log out  ou nova seleção de turmas
 Então clico em campo retorno ao menu principal,  ao campo log out do Menu Principal ou nova seleção de turmas
 
+
 Cenário: Importar Turmas do SIGAA como Coordenador Bom caminho
 Dado que estou na página do Menu Coordenador
 Quando clicar em "Importar Turmas do SIGAA "
@@ -69,4 +70,5 @@ E clicar no botão "confirma seleção"
 E esperar importar turmas
 Então eu devo ver uma notificação de "Turmas selecionadas importadas com sucesso."
 Entao exibe mensagem " Deseja retorna a o menu principal "
-Então e
+Então exibe campo retorno ao menu principal,  campo opção de log out  ou nova seleção de turmas
+Então clico em campo retorno ao menu principal,  ao campo log out do Menu Principal ou nova seleção de turmas.
