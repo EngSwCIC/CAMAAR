@@ -1,0 +1,18 @@
+Funcionalidade: Tela do Menu do Professor
+
+Como usuário (professor) no Cammar UnB
+
+Cenario: Apresentar dados para o usuário do tipo (professor) nao conferem Caminho ruim
+Quando estou autenticado e sou cadastrado
+Entao deve ver os campos "relatórios" e "questionários"
+Eu clico em alguma das opções
+Quando não é apresentado as opções de "relatórios" e "questionários"
+Entao usuário sem perfil de (professor)
+Entao exibe mensagem "Usuário não é professor! Procure o administrador do sistema "
+
+
+Cenario: Apresentar dados para o usuário do tipo (professor) Caminho bom
+Quando estou autenticado e sou cadastrado
+Entao deve ver os campos "relatórios" e "questionários"
+Eu clico em alguma das opções
+Entao exibe a tela com as opções de "relatórios" e "questionários"
