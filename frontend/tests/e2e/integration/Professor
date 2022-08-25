@@ -16,3 +16,35 @@ Quando estou autenticado e sou cadastrado
 Entao deve ver os campos "relatórios" e "questionários"
 Eu clico em alguma das opções
 Entao exibe a tela com as opções de "relatórios" e "questionários"
+
+Cenário: Relatorio  Exportar dados Cammaar  (Nataly E chris)
+
+Como usuário Camaar Unb e Coordenador da Unb
+Então posso navegar pelo Menu do Coordenador
+Eu desejo exportat dados do banco de dados do aplicativo Cammar
+Dado que estou na interface Caamar Unb 
+Quando eu estou na Menu Principal e acesso com password de Coordenado
+Então deveria estar acessando o aplicativo Cammar Unb coordenador
+
+Cenário: Exporta Relatorio Cammar Dados não conferem Caminho ruim (Nataly)
+Dado que estou na página do Menu Coordenador
+Quando clicar em "Relatorio Turmas do SIGAA"
+Entao exibe campo de seleção "Disciplina",  o campo "Turma" e o campo "semestre"
+Entao devo preencher campos selecionados.
+E clicar no botão "confirma seleção"
+Quando a seleção preenchida nos campos não confere 
+Entao exibe mensagem " Dados não conferem! Confira seleção "
+Entao exibe mensagem " Deseja retorna a o menu principal log out ou nova seleção "
+Então exibe campo retorno ao menu principal,  campo opção de log out  ou nova seleção de turmas
+Então clico em campo retorno ao menu principal,  ao campo log out do Menu Principal ou nova seleção de turmas
+
+Cenário: Exportar Relatorio Turmas do SIGAA como Coordenador Bom caminho (Chris)
+Dado que estou na página do Menu Coordenador
+Quando clicar em ""Relatorio Turmas do SIGAA" "
+Entao exibe campo de seleção Disciplina ,  o campo Turma e o campo semestre
+Entao devo preencher campos selecionados.
+E clicar no botão "confirma seleção"
+Então eu devo ver uma notificação de " Relatorio em progesso !"
+Entao exibe mensagem " Deseja retorna a o menu principal "
+Então exibe campo retorno ao menu principal,  campo opção de log out  ou nova seleção de turmas
+Então clico em campo retorno ao menu principal,  ao campo log out do Menu Principal ou nova seleção de turmas.
