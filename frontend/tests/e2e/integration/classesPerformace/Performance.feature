@@ -17,6 +17,12 @@ Cenario: Visualiza os resultados das pesquisas do semestre atual no CAMAAR (feli
   Dado que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR
   Então eu deveria ver a disciplina 'CIC0105' da turma 'A' com uma média associada
 
+  Cenario: Visualiza os resultados das pesquisas do semestre atual no CAMAAR
+    E Há mais de uma diciplina (feliz)
+    Dado que a  disciplina 'CIC0105' está cadastrada no CAMAAR
+    E que a  disciplina 'CIC0106' está cadastrada no CAMAAR
+    Então eu deveria ver a disciplina 'CIC0105' acima da disciplina 'CIC0106'
+
 Cenario: Ordenar de forma descrescente as médias das turmas no CAMAAR (feliz)
   Dado que a turma 'A' da disciplina 'CIC0105' está visível na tabela no CAMAAR
   E a turma 'A' tem nota '5'
