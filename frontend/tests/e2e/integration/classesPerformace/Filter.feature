@@ -11,7 +11,7 @@ Funcionalidade: Visualizar avaliações de todas as turmas do semestre atual
     E exista uma caixa de seleção "Disciplinas" de disciplinas cadastrada no CAMAAR
     E exista uma caixa de seleção de "Professores" professores cadastrados no CAMAAR
     E exista uma caixa de seleção de "Notas" com as notas inteiras possiveis
-    E exista uma caixa de selação "Op" com as opções "maior que" e "menor" que", sendo a opção "maior que" já selecionada
+    E exista uma caixa de selação "Op" com as opções "maior que" e "menor que", sendo a opção "maior que" já selecionada
     E exista um botão "Filtar"
 
   # Sad path
