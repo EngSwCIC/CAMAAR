@@ -1,7 +1,7 @@
 #language: pt
 Funcionalidade: Verificação do código de validação
   
-  Como um aluno querendo se cadastrar
+  Como um aluno pré-cadastrado
   Para que eu possa avaliar as disciplinas
   Eu quero validar meu cadastro
 
