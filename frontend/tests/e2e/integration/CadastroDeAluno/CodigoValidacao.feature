@@ -10,13 +10,14 @@ Background:
   Então eu devo ver "Insira código de validação"
 
   Cenario: Código inválido (triste)
-    Quando eu preencher o campo com o "00000"
+    Quando eu preencher o campo com o um código
     E eu apertar "Validar código"
-    Então eu devo estar na página de validação
-    E eu deveria ver "Código de validação inválido"
+    E o código não está está associado a nenhum usuário pré-cadastrado
+    Então eu deveria ver "Código inválido"
 
 
   Cenario: Código válido (feliz)
-    Quando eu preencher o campo com o "12345"
+    Quando eu preencher o campo com um código
     E eu apertar "Validar código"
-    Então eu devo estar na página inicial logada
+    E o código está asssociado a um usuário com pré-cadastrado 
+    Então eu devo ver a Pagina de Cadastro
