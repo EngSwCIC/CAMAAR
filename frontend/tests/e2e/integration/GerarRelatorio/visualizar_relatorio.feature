@@ -10,12 +10,12 @@ Contexto:
     E estou na página do aluno
     E gero um relatório
 
-Cenario: relatório vem com todas as informações
+Cenario: relatório vem com todas as informações (feliz)
     Dada que minha avaliação foi lançada
     Quando eu gerar o relatório
     Então as informaçoes da minha avaliação aparecerão.
 
-Cenario: relatório não vem com todas as informações
+Cenario: relatório não vem com todas as informações (triste)
     Dada que minha avaliação não foi lançada
     Quando eu gerar o relatório
     Então será apresentada a mensagem "Avaliação não encontrada".
