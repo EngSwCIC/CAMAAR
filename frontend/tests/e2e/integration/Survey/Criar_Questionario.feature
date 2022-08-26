@@ -50,7 +50,8 @@ Cenario: Um Coordenador deseja criar um questionário (triste)
   E eu consigo selecionar uma turma
 	E eu adiciono perguntas
 	E eu clico em finalizar criação
-	Então aparece uma modal de erro por falha na criação
+  E a operação no backend incorre em erro
+	Então eu devo ver uma modal de erro
 
 Cenario: Um Coordenador deseja criar um questionário (feliz)
   Quando eu clico na seleção de disciplina por id
