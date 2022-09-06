@@ -34,4 +34,22 @@ class CclassesController < ApplicationController
     @cclass = Cclass.find(params[:id])
     render json: @cclass, status: :ok
   end
+
+  def reports
+    @semester = params[:semester]
+    if @semester.nil?
+      @semester = '2021.2'
+    end
+
+    @likert_answers = LikertScaleAnswer
+      .joins(:question_answer)
+
+    @surveys = Survey
+      .select('surveys.*')
+      .where('surveys.semester': @semester.sub('.', '/'))
+
+
+    render json: @likert_answers
+    # render json: @surveys
+  end
 end
