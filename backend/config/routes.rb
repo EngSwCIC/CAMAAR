@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/turmas', to: 'cclasses#index'
   # classes
   get '/cclasses', to:'cclasses#index'
+  get '/cclasses/reports', to:'cclasses#reports'
   get '/cclasses/:id', to:'cclasses#show'
   get '/cclasses/:id/members', to:'members#index'
   # subjects
