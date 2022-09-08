@@ -35,4 +35,8 @@ Rails.application.routes.draw do
   get '/members', to:'members#index'
   get '/members/:id', to:'members#show'
 
+  # validate
+  get '/validate', to: 'validate#show'
+  post '/validate', to: 'validate#index'
+
 end
