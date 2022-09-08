@@ -1,8 +1,10 @@
 <script>
 import SurveyCard from "../components/SurveyCard.vue";
+import SurveyCoordCard from "src/components/SurveyCoordCard.vue";
 export default {
   components: {
     SurveyCard,
+    SurveyCoordCard,
   },
   data() {
     return {
@@ -10,11 +12,11 @@ export default {
     };
   },
   async mounted() {
-    const res = await this.$axios.get("/api/surveys/open")
-    this.surveys = res.data
-    console.log(res)
-// .then((res) => (this.surveys = res.data))
-      // .finally(() => console.log(this.surveys));
+    const res = await this.$axios.get("/api/surveys/open");
+    this.surveys = res.data;
+    console.log(res);
+    // .then((res) => (this.surveys = res.data))
+    // .finally(() => console.log(this.surveys));
   },
 };
 </script>
@@ -28,10 +30,10 @@ export default {
               src="https://braziljournal.s3.amazonaws.com/covers/45b8fd3d-76a8-2c53-a564-83a394cef7f9.jpg?v=1596499602"
             />
           </template>
-
           <h1 class="text-white">Seus Questionários</h1>
         </q-parallax>
         <div class="row justify-center reverse-wrap items-baseline">
+          <SurveyCoordCard class="col-11 col-sm-8 col-md-6 col-lg-4 col-xl-4" />
           <SurveyCard
             v-for="survey in surveys"
             :key="surveys.indexOf(survey)"
