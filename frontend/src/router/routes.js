@@ -6,12 +6,18 @@ import SurveysPage from "../pages/SurveysPage.vue";
 import CadastrarPage from  '../pages/CadastrarPage.vue'
 import StudentClass from  '../pages/StudentClass.vue'
 import StudentEvaluationsReport from '../pages/StudentEvaluationsReport.vue'
+import ValidatePage from '../pages/ValidatePage.vue'
 
 const routes = [
   {
+    path: "/validate",
+    name: "Validate",
+    component: ValidatePage
+  },
+  {
     path: "/",
     name: "Login",
-    component: LoginPage,
+    component: LoginPage
   },
   {
     path: "/home",
