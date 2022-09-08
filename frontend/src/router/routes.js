@@ -3,7 +3,7 @@ import ImportPage from "../pages/ImportPage.vue";
 import HomePage from "../pages/HomePage.vue";
 import SurveyPage from "../pages/SurveyPage.vue";
 import SurveysPage from "../pages/SurveysPage.vue";
-import SurveyCreatePage from "../pages/SurveyCreatePage.vue";
+import SurveyCreatePage from "../pages/CreateSurveyPage.vue";
 import CadastrarPage from "../pages/CadastrarPage.vue";
 import StudentClass from "../pages/StudentClass.vue";
 import StudentEvaluationsReport from "../pages/StudentEvaluationsReport.vue";
