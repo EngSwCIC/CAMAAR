@@ -4,7 +4,7 @@
 		"description": "this is a test survey",
 		"role_id": 2,
 		"expiration_date": "Thu, 21 Jun 2028 12:15:50 -0300",
-		"semester": "2021/2",
+		"semester": "2021.2",
 		"survey_questions_attributes": [
 			{
 				"question_number": 1,
@@ -115,7 +115,7 @@
 		"description": "this is a test survey",
 		"role_id": 2,
 		"expiration_date": "Thu, 21 Jun 2028 12:15:50 -0300",
-		"semester": "2021/2",
+		"semester": "2021.2",
 		"survey_questions_attributes": [
 			{
 				"question_number": 1,

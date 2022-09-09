@@ -28,17 +28,23 @@ RSpec.describe "Cclasses", type: :request do
   end
   
   describe "GET /reports" do
-    it "should throw an error cclasses reports if user is not admin" do
+    it "returns cclasses reports in 2021.2 semester" do
       get "/cclasses/reports?semester=2021.2"
       response_body = JSON.parse(response.body)
 
       expect(response).to have_http_status(:success)
       expect(response_body[0]['semester']).to eq('2021.2')
+      expect(
+        response_body[0]['survey_questions']['likert_scale_questions'].length
+      ).to be > 0
     end
 
-    it "returns cclasses reports in 2021.2 semester" do
-      pending
-      get "/cclasses/reports?semester=2021.2"
+    it "returns empty cclasses reports if there's no surveys on that semester" do
+      get "/cclasses/reports?semester=2000.1"
+      response_body = JSON.parse(response.body)
+
+      expect(response).to have_http_status(:success)
+      expect(response_body.length).to be 0
     end
   end
 end

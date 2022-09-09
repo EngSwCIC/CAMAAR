@@ -36,6 +36,9 @@ class CclassesController < ApplicationController
   end
 
   def reports
+    # TODO: melhorar as queries (provavelmente dá pra fazer a mesma coisa com menos queries)
+    # TODO: tornar essa rota privada para admins (quando tivermos essa feature)
+
     @semester = params[:semester]
     if @semester.nil?
       @semester = '2021.2'
@@ -86,7 +89,7 @@ class CclassesController < ApplicationController
 
     @surveys = Survey
       .select('surveys.*')
-      .where('surveys.semester': @semester.sub('.', '/'))
+      .where('surveys.semester': @semester)
 
     # associa as respostas de cada questão de cada survey
     @survey_with_question_answers = []
@@ -100,8 +103,6 @@ class CclassesController < ApplicationController
       })
     end
 
-    # TODO: melhorar as queries
-    # TODO: fazer os testes
     render json: @survey_with_question_answers
   end
 end
