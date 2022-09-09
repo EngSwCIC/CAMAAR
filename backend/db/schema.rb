@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_10_144002) do
   create_table "cclasses", force: :cascade do |t|
     t.string "code"
     t.string "semester"
     t.string "time"
-    t.bigint "subject_id", null: false
+    t.integer "subject_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["subject_id"], name: "index_cclasses_on_subject_id"
   end
 
   create_table "enrollments", force: :cascade do |t|
-    t.bigint "cclass_id", null: false
-    t.bigint "member_id", null: false
+    t.integer "cclass_id", null: false
+    t.integer "member_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cclass_id"], name: "index_enrollments_on_cclass_id"
@@ -40,8 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
 
   create_table "likert_scale_answers", force: :cascade do |t|
     t.integer "answer"
-    t.bigint "likert_scale_question_id"
-    t.bigint "question_answer_id"
+    t.integer "likert_scale_question_id"
+    t.integer "question_answer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["likert_scale_question_id"], name: "index_likert_scale_answers_on_likert_scale_question_id"
@@ -52,7 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
     t.text "question"
     t.integer "question_number"
     t.integer "scale_points"
-    t.bigint "survey_question_id"
+    t.integer "survey_question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["survey_question_id"], name: "index_likert_scale_questions_on_survey_question_id"
@@ -74,8 +74,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
 
   create_table "question_answers", force: :cascade do |t|
     t.text "answer"
-    t.bigint "survey_answer_id"
-    t.bigint "survey_question_id"
+    t.integer "survey_answer_id"
+    t.integer "survey_question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["survey_answer_id"], name: "index_question_answers_on_survey_answer_id"
@@ -85,7 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
   create_table "question_options", force: :cascade do |t|
     t.integer "option_number"
     t.text "content"
-    t.bigint "survey_question_id"
+    t.integer "survey_question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["survey_question_id"], name: "index_question_options_on_survey_question_id"
@@ -114,9 +114,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
   end
 
   create_table "survey_answers", force: :cascade do |t|
-    t.bigint "survey_id", null: false
-    t.bigint "member_id", null: false
-    t.bigint "cclass_id", null: false
+    t.integer "survey_id", null: false
+    t.integer "member_id", null: false
+    t.integer "cclass_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cclass_id"], name: "index_survey_answers_on_cclass_id"
@@ -128,8 +128,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
     t.text "question"
     t.integer "question_number"
     t.boolean "optional", default: false
-    t.bigint "survey_id"
-    t.bigint "question_type_id"
+    t.integer "survey_id"
+    t.integer "question_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_type_id"], name: "index_survey_questions_on_question_type_id"

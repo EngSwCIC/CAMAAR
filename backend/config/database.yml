@@ -8,12 +8,17 @@ default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  host: localhost
+  username: root
+  password: 21342134
+  port: 3306
+  database: camaar
 
 development:
-  adapter: mysql2
+  adapter: sqlite3
   encoding: utf8
   pool: 5
-  host: 54.232.50.137
+  host: localhost
   username: root
   password: 21342134
   port: 3306
