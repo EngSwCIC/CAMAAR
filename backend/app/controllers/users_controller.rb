@@ -79,4 +79,4 @@ class UsersController < ApplicationController
       end
       respond_with(user)
   end
-  end
+end
