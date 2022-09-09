@@ -35,4 +35,11 @@ Rails.application.routes.draw do
   get '/members', to:'members#index'
   get '/members/:id', to:'members#show'
 
+  #member_cclasses
+  scope '/member_cclasses/' do
+    get 'index', to: 'members_cclasses#index'
+    post 'create', to: 'members_cclasses#create'
+    delete 'destroy/:id', to: 'members_cclasses#destroy'
+  end
+
 end
