@@ -101,7 +101,7 @@ export default {
         answers_attributes: this.survey.survey_questions.map((question) => {
           if (question.question_type.name === "likert_scale"){
             return {
-              survey_question_id: question.id,
+              survey_question_id: question.question_number,
               question_type: question.question_type,
               likert_answers_attributes:
                 question.likert_scale_questions.map((l_question) => ({
@@ -111,7 +111,7 @@ export default {
             };
           }else{
             return {
-              survey_question_id: question.id,
+              survey_question_id: question.question_number,
               question_type: question.question_type,
               content: null,
             };
@@ -125,7 +125,7 @@ export default {
       this.survey_answers.forEach(async (subject_answer) => {
         try {
           const res = await axios.post(
-            "/api/survey_answers",
+            "/api/question_answers",
             subject_answer,
             {
               headers: {

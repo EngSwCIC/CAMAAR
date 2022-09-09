@@ -35,7 +35,7 @@
                 :name="'multiple_choice_answer' + question.id"
                 :val="option.option"
                 :model-value="modelValue.content"
-                @update:model-value="(value) => $emit('update:modelValue', updateAnswer(value))"
+                @update:model-value="(value) => $emit('update:modelValue', updateAnswer(value, question_number))"
             >
                 <label>{{ option.content }}</label>
             </q-radio>
@@ -49,7 +49,7 @@
             autogrow
             clearable
             :model-value="modelValue.content"
-            @update:model-value="(value) => $emit('update:modelValue', updateAnswer(value))"
+            @update:model-value="(value) => $emit('update:modelValue', updateAnswer(value, question_number))"
         />
     </div>
 </q-card>
@@ -70,10 +70,10 @@ export default {
         }
     },
     methods: {
-        updateAnswer(value) {
+        updateAnswer(value, question_number) {
             return {
                 ...this.modelValue,
-                content: value
+                content: value,
             }
         },
         updateLikertAnswer(value, index) {
