@@ -5,7 +5,7 @@ export default {
     var courses = ref(null);
     var turma = ref(null);
     var questionFormat = ref(null);
-    var questions = [];
+    var questions = ref([]);
     return {
       questionFormat,
       courses,
@@ -39,7 +39,7 @@ export default {
       ],
       onSubmit(e) {
         console.log("sera que deu certo?", questionFormat.value.label);
-        questions.push(questionFormat.value);
+        questions.value.push(questionFormat.value);
       },
     };
   },
