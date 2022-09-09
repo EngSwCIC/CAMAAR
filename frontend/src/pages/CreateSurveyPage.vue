@@ -1,11 +1,13 @@
 <script>
 import { ref } from "vue";
+
 export default {
   setup() {
     var courses = ref(null);
     var turma = ref(null);
     var questionFormat = ref(null);
     var questions = ref([]);
+
     return {
       questionFormat,
       courses,
@@ -13,6 +15,8 @@ export default {
       options: ["Eng. Software", "PAA", "APC", "OAC"],
       questions,
       text: ref(""),
+      likertRange: ref(null),
+      ratingModel: 10, // garante que o likert estará sempre full
       turmas: ["A", "B", "C"],
       questionTypes: [
         {
@@ -37,9 +41,20 @@ export default {
           value: 3,
         },
       ],
-      onSubmit(e) {
+      myEvent(e) {
         console.log("sera que deu certo?", questionFormat.value.label);
-        questions.value.push(questionFormat.value);
+
+        var question_obj = new Object();
+
+        question_obj.label = questionFormat.value.label;
+        question_obj.content = this.text;
+        question_obj.question_type = questionFormat.value.question_type;
+
+        if (question_obj.question_type == "likert_scale") {
+          question_obj.likert_range = this.likertRange;
+        }
+
+        questions.value.push(question_obj);
       },
     };
   },
@@ -74,9 +89,21 @@ export default {
               :options="turmas"
               label="Selecione a turma"
             />
-            <div v-for="item in questions" :key="item.survey_question_id">
-              {{ item.label }} ola
-            </div>
+            <q-card
+              v-for="item in questions"
+              class="rounded-border q-pa-xl hsize justify-left text-left"
+              :key="item.survey_question_id"
+            >
+              <div class="text-h6">{{ item.label }}</div>
+              <div class="text-subtitle2">{{ item.content }}</div>
+              <q-rating
+                v-if="item.question_type == 'likert_scale'"
+                v-model="ratingModel"
+                size="2em"
+                :max="item.likert_range"
+                color="primary"
+              />
+            </q-card>
 
             <h3>Inserir nova questão</h3>
             <q-select
@@ -86,11 +113,31 @@ export default {
               label="Selecione o tipo da questão"
             />
 
-            <q-input v-model="text" filled type="textarea" />
-            <q-btn color="secondary" type="submit"> Adicionar questão </q-btn>
+            <q-input
+              v-model="text"
+              filled
+              type="textarea"
+              class="form-control"
+            />
+            <div v-if="questionFormat?.question_type == 'likert_scale'">
+              <q-badge color="secondary">
+                Número de Opções da Escala: {{ likertRange }}
+              </q-badge>
+              <q-slider v-model="likertRange" :min="3" :max="10" />
+            </div>
+            <div>
+              <input type="checkbox" id="checkbox" v-model="checkbox_model" />
+              <label for="checkbox"> Opcional </label>
+            </div>
+
+            <q-btn color="secondary" @click="myEvent($event)">
+              Adicionar questão
+            </q-btn>
           </q-form>
         </div>
       </div>
     </div>
   </div>
 </template>
+<!--  v-if="questionFormat.label == 'likert_scale'"
+-->
