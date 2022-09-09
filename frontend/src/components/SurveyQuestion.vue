@@ -29,13 +29,13 @@
         </div>
     </div>
     <div v-if="question.question_type.name == 'multiple_choice'">
-        <div v-for="option in question.question_options" :key="option.id">
+        <div v-for="(option, option_index) in question.question_options" :key="option.question_number">
             <q-radio
                 color="secondary"
-                :name="'multiple_choice_answer' + question.id"
-                :val="option.option"
-                :model-value="modelValue.content"
-                @update:model-value="(value) => $emit('update:modelValue', updateAnswer(value, question_number))"
+                :name="'multiple_choice_answer' + question.question_number"
+                :val="option_index + 1"
+                :model-value="modelValue.option_number"
+                @update:model-value="(value) => $emit('update:modelValue', updateMultipleChoicesAnswer(value, option.content))"
             >
                 <label>{{ option.content }}</label>
             </q-radio>
@@ -71,13 +71,22 @@ export default {
     },
     methods: {
         updateAnswer(value, question_number) {
-            return {
+            const response = {
                 ...this.modelValue,
                 content: value,
             }
+            return response;
+        },
+        updateMultipleChoicesAnswer(option_number, content){
+            const response = {
+                ...this.modelValue,
+                content,
+                option_number
+            }
+            return response;
         },
         updateLikertAnswer(value, index) {
-            return {
+            const response = {
                 ...this.modelValue,
                 likert_answers_attributes: 
                     this.modelValue.likert_answers_attributes.map((answer, idx) => {
@@ -90,6 +99,7 @@ export default {
                             return answer
                     })
             }
+            return response;
         }
     }
 }

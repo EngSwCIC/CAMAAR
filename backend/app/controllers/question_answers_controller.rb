@@ -41,7 +41,10 @@ class QuestionAnswersController < ApplicationController
                 question_answer_id: @question_answer.id).save!
             end
           elsif answer[:question_type][:name] == "multiple_choice"
-            #TODO
+            question_option = QuestionOption.new(
+              content: answer[:content],
+              option_number: answer[:option_number],
+              survey_question_id: @survey_question.id).save!
           end
           
       end
