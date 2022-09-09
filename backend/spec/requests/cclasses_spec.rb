@@ -34,9 +34,11 @@ RSpec.describe "Cclasses", type: :request do
 
       expect(response).to have_http_status(:success)
       expect(response_body[0]['semester']).to eq('2021.2')
-      expect(
-        response_body[0]['survey_questions']['likert_scale_questions'].length
-      ).to be > 0
+
+      likert_scale_questions = response_body[0]['survey_questions']['likert_scale_questions']
+
+      expect(likert_scale_questions.length).to be > 0
+      expect(likert_scale_questions[0]['answers'].length).to be > 0
     end
 
     it "returns empty cclasses reports if there's no surveys on that semester" do
