@@ -12,7 +12,7 @@ Background:
   Cenario: Código inválido (triste)
     Quando eu preencher o campo com o um código
     E eu apertar "Validar código"
-    E o código não está está associado a nenhum usuário pré-cadastrado
+    E o código não está associado a nenhum usuário pré-cadastrado
     Então eu deveria ver "Código inválido"
 
 
