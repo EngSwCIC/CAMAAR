@@ -1,0 +1,106 @@
+required simplecov
+.F.F..*************.......====================================================
+{:value=>[]}
+{:value=>[{:id=>-1, :code=>"AAA0000", :name=>"pesquisa sem resultado", :created_at=>"0000-00-00T00:00:00.000Z", :updated_at=>"0000-00-00T00:00:00.000Z"}]}
+====================================================
+...F
+
+Pending: (Failures listed here are expected and do not affect your suite's status)
+
+  1) Cclass add some examples to (or delete) /home/atila/Desktop/CAMAAR/backend/spec/models/cclass_spec.rb
+     # Not yet implemented
+     # ./spec/models/cclass_spec.rb:4
+
+  2) Enrollment add some examples to (or delete) /home/atila/Desktop/CAMAAR/backend/spec/models/enrollment_spec.rb
+     # Not yet implemented
+     # ./spec/models/enrollment_spec.rb:4
+
+  3) LikertScaleAnswer add some examples to (or delete) /home/atila/Desktop/CAMAAR/backend/spec/models/likert_scale_answer_spec.rb
+     # Not yet implemented
+     # ./spec/models/likert_scale_answer_spec.rb:4
+
+  4) LikertScaleQuestion add some examples to (or delete) /home/atila/Desktop/CAMAAR/backend/spec/models/likert_scale_question_spec.rb
+     # Not yet implemented
+     # ./spec/models/likert_scale_question_spec.rb:4
+
+  5) Member add some examples to (or delete) /home/atila/Desktop/CAMAAR/backend/spec/models/member_spec.rb
+     # Not yet implemented
+     # ./spec/models/member_spec.rb:4
+
+  6) QuestionAnswer add some examples to (or delete) /home/atila/Desktop/CAMAAR/backend/spec/models/question_answer_spec.rb
+     # Not yet implemented
+     # ./spec/models/question_answer_spec.rb:4
+
+  7) QuestionOption add some examples to (or delete) /home/atila/Desktop/CAMAAR/backend/spec/models/question_option_spec.rb
+     # Not yet implemented
+     # ./spec/models/question_option_spec.rb:4
+
+  8) QuestionType add some examples to (or delete) /home/atila/Desktop/CAMAAR/backend/spec/models/question_type_spec.rb
+     # Not yet implemented
+     # ./spec/models/question_type_spec.rb:4
+
+  9) Role add some examples to (or delete) /home/atila/Desktop/CAMAAR/backend/spec/models/role_spec.rb
+     # Not yet implemented
+     # ./spec/models/role_spec.rb:4
+
+  10) Subject add some examples to (or delete) /home/atila/Desktop/CAMAAR/backend/spec/models/subject_spec.rb
+     # Not yet implemented
+     # ./spec/models/subject_spec.rb:4
+
+  11) SurveyAnswer add some examples to (or delete) /home/atila/Desktop/CAMAAR/backend/spec/models/survey_answer_spec.rb
+     # Not yet implemented
+     # ./spec/models/survey_answer_spec.rb:4
+
+  12) SurveyQuestion add some examples to (or delete) /home/atila/Desktop/CAMAAR/backend/spec/models/survey_question_spec.rb
+     # Not yet implemented
+     # ./spec/models/survey_question_spec.rb:4
+
+  13) Survey add some examples to (or delete) /home/atila/Desktop/CAMAAR/backend/spec/models/survey_spec.rb
+     # Not yet implemented
+     # ./spec/models/survey_spec.rb:4
+
+Failures:
+
+  1) ScrapperController method show should not return a empty response
+     Failure/Error: request = RestClient.post(url, {}, headers)
+
+     Errno::ECONNREFUSED:
+       Failed to open TCP connection to localhost:3030 (Connection refused - connect(2) for "localhost" port 3030)
+     # ./app/services/api/search_classes.rb:20:in `call'
+     # ./app/services/api/search_classes.rb:15:in `call'
+     # ./app/controllers/scrapper_controller.rb:33:in `show'
+     # ./spec/controllers/scrapper_spec.rb:53:in `block (3 levels) in <top (required)>'
+     # ------------------
+     # --- Caused by: ---
+     # Errno::ECONNREFUSED:
+     #   Connection refused - connect(2) for "localhost" port 3030
+     #   ./app/services/api/search_classes.rb:20:in `call'
+
+  2) UsersController POST #create Should render Success
+     Failure/Error:
+       member = Member.create(name: "testenome",registration: "testeregistro",
+                              username:"testeusername",occupation: "testeoccupation",
+                              degree: "testedegree",course: "testecourse",email:"acjpjvjp@gmail.com",
+                              created_at: "",updated_at: "")
+
+     ActiveModel::UnknownAttributeError:
+       unknown attribute 'occupation' for Member.
+     # ./spec/controllers/users_controller_spec.rb:7:in `block (3 levels) in <top (required)>'
+
+  3) /surveys GET /show renders a successful response
+     Failure/Error: survey = Survey.create! valid_attributes
+
+     ActiveRecord::RecordInvalid:
+       Validation failed: Role must exist
+     # ./spec/requests/surveys_spec.rb:70:in `block (3 levels) in <top (required)>'
+
+Finished in 2.44 seconds (files took 3.16 seconds to load)
+30 examples, 3 failures, 13 pending
+
+Failed examples:
+
+rspec ./spec/controllers/scrapper_spec.rb:52 # ScrapperController method show should not return a empty response
+rspec ./spec/controllers/users_controller_spec.rb:6 # UsersController POST #create Should render Success
+rspec ./spec/requests/surveys_spec.rb:69 # /surveys GET /show renders a successful response
+
+Coverage report generated for RSpec to /home/atila/Desktop/CAMAAR/backend/coverage. 149 / 289 LOC (51.56%) covered.
