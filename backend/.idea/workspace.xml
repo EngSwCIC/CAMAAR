@@ -4,6 +4,7 @@
     <list default="true" id="743023ef-0c96-4b81-8ea2-e51909ec6aad" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/cclasses_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/cclasses_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/cclasses_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/cclasses_spec.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +127,7 @@
       <option name="presentableId" value="Default" />
       <updated>1662752564654</updated>
       <workItem from="1662752566878" duration="4157000" />
-      <workItem from="1662766518785" duration="5314000" />
+      <workItem from="1662766518785" duration="5873000" />
     </task>
     <servers />
   </component>

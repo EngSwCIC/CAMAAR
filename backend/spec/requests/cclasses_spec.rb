@@ -31,9 +31,6 @@ RSpec.describe "Cclasses", type: :request do
 
     context "When class members are graded" do
       before do
-        Member.destroy_all
-        Cclass.destroy_all
-        MemberCclass.destroy_all
 
         create(:member, name: 'Joaquias', id: 1)
         create(:member, name: 'Jonas', id: 2)
@@ -57,9 +54,6 @@ RSpec.describe "Cclasses", type: :request do
 
     context "When class members are not graded" do
       before do
-        Member.destroy_all
-        Cclass.destroy_all
-        MemberCclass.destroy_all
 
         create(:member, name: 'Bruno', id: 1)
         create(:member, name: 'Bernardo', id: 2)
@@ -78,49 +72,32 @@ RSpec.describe "Cclasses", type: :request do
 
       it "Should treat nil as zero and return zero grade" do
         expect(JSON.parse(response.body)).to eq(0)
-      end
-    end
-
-    context "When request has invalid/missing cclass_id" do
-      before do
-        Member.destroy_all
-        Cclass.destroy_all
-        MemberCclass.destroy_all
-
-        create(:member, name: 'Samuel', id: 1)
-        create(:member, name: 'Samira', id: 2)
-        create(:member, name: 'Sofia', id: 3)
-        create(:member_cclass, member_id: 1, cclass_id: 1, grade: 60)
-        create(:member_cclass, member_id: 2, cclass_id: 1, grade: 40)
-        create(:member_cclass, member_id: 3, cclass_id: 1, grade: 30)
-
-        get "/cclass_grade/1"
-      end
-
-      it "Should return bad_request http status" do
-        expect(response).to have_http_status(:bad_request)
       end
     end
 
   end
 
-  describe "GET /cclass_grade/:id" do
+  describe "GET /cclass_grades" do
 
     context "When class members are graded" do
       before do
-        Member.destroy_all
-        Cclass.destroy_all
-        MemberCclass.destroy_all
 
         create(:member, name: 'Joaquias', id: 1)
         create(:member, name: 'Jonas', id: 2)
         create(:member, name: 'João', id: 3)
+        create(:member, name: 'Bruno', id: 4)
+        create(:member, name: 'Bernardo', id: 5)
+        create(:member, name: 'Bisquela', id: 6)
+        let(:cclass) {create(:cclass)}
         let(:cclass) {create(:cclass)}
         create(:member_cclass, member_id: 1, cclass_id: 1, grade: 0)
         create(:member_cclass, member_id: 2, cclass_id: 1, grade: 100)
         create(:member_cclass, member_id: 3, cclass_id: 1, grade: 50)
+        create(:member_cclass, member_id: 4, cclass_id: 2, grade: 90)
+        create(:member_cclass, member_id: 5, cclass_id: 2, grade: 100)
+        create(:member_cclass, member_id: 6, cclass_id: 2, grade: 80)
 
-        get "/cclass_grade/#{cclass.id}"
+        get "/cclass_grades"
       end
 
       it "Should return ok http status" do
@@ -128,25 +105,29 @@ RSpec.describe "Cclasses", type: :request do
       end
 
       it "Should return right calculation" do
-        expect(JSON.parse(response.body)).to eq(50)
+        expect(JSON.parse(response.body)).to eq([50,90])
       end
     end
 
     context "When class members are not graded" do
       before do
-        Member.destroy_all
-        Cclass.destroy_all
-        MemberCclass.destroy_all
 
-        create(:member, name: 'Bruno', id: 1)
-        create(:member, name: 'Bernardo', id: 2)
-        create(:member, name: 'Bisquela', id: 3)
+        create(:member, name: 'Joaquias', id: 1)
+        create(:member, name: 'Jonas', id: 2)
+        create(:member, name: 'João', id: 3)
+        create(:member, name: 'Bruno', id: 4)
+        create(:member, name: 'Bernardo', id: 5)
+        create(:member, name: 'Bisquela', id: 6)
         let(:cclass) {create(:cclass)}
-        create(:member_cclass, member_id: 1, cclass_id: 1, grade: nil)
-        create(:member_cclass, member_id: 2, cclass_id: 1, grade: nil)
-        create(:member_cclass, member_id: 3, cclass_id: 1, grade: nil)
+        let(:cclass) {create(:cclass)}
+        create(:member_cclass, member_id: 1, cclass_id: 1, grade: 50)
+        create(:member_cclass, member_id: 2, cclass_id: 1, grade: 40)
+        create(:member_cclass, member_id: 3, cclass_id: 1, grade: 30)
+        create(:member_cclass, member_id: 4, cclass_id: 2, grade: nil)
+        create(:member_cclass, member_id: 5, cclass_id: 2, grade: nil)
+        create(:member_cclass, member_id: 6, cclass_id: 2, grade: nil)
 
-        get "/cclass_grade/#{cclass.id}"
+        get "/cclass_grades"
       end
 
       it "Should return ok http status" do
@@ -154,28 +135,7 @@ RSpec.describe "Cclasses", type: :request do
       end
 
       it "Should treat nil as zero and return zero grade" do
-        expect(JSON.parse(response.body)).to eq(0)
-      end
-    end
-
-    context "When request has invalid/missing cclass_id" do
-      before do
-        Member.destroy_all
-        Cclass.destroy_all
-        MemberCclass.destroy_all
-
-        create(:member, name: 'Samuel', id: 1)
-        create(:member, name: 'Samira', id: 2)
-        create(:member, name: 'Sofia', id: 3)
-        create(:member_cclass, member_id: 1, cclass_id: 1, grade: 60)
-        create(:member_cclass, member_id: 2, cclass_id: 1, grade: 40)
-        create(:member_cclass, member_id: 3, cclass_id: 1, grade: 30)
-
-        get "/cclass_grade/1"
-      end
-
-      it "Should return bad_request http status" do
-        expect(response).to have_http_status(:bad_request)
+        expect(JSON.parse(response.body)).to eq([40,0])
       end
     end
 
