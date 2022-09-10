@@ -34,4 +34,22 @@ class CclassesController < ApplicationController
     @cclass = Cclass.find(params[:id])
     render json: @cclass, status: :ok
   end
+
+  def cclass_grade
+    cclass = Cclass.find(params[:id])
+
+    total_grade = 0
+
+    cclass.member_cclass.each do |member_cclass|
+      if member_cclass.grade
+        member_cclass.grade += total_grade
+      end
+    end
+
+    avg_grade = total_grade / (cclass.member_cclass.length)
+
+    render json: avg_grade, status: :ok
+  rescue StandardError => e
+    render json: { message: e }, status: :bad_request
+  end
 end
