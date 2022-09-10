@@ -4,6 +4,7 @@
 
 class QuestionAnswer < ApplicationRecord
   belongs_to :survey_question
+  belongs_to :survey_answer
   has_many :likert_scale_answers
   accepts_nested_attributes_for :likert_scale_answers
 end
