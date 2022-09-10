@@ -1,0 +1,53 @@
+[
+  {
+    "keyword": "Funcionalidade",
+    "name": "Menu de Coordenador",
+    "line": 2,
+    "id": "menu-de-coordenador",
+    "tags": [],
+    "uri": "MenuCoordenador.feature",
+    "elements": [
+      {
+        "id": "menu-de-coordenador;pagina-de-menu-de-coordenador",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Pagina de Menu de Coordenador",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que nao estou autenticado",
+            "result": {
+              "status": "passed",
+              "duration": 216000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 6,
+            "name": "eu vou para a rota \"/\"",
+            "result": {
+              "status": "passed",
+              "duration": 1116000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 7,
+            "name": "eu devo ver \"Coordenador\"",
+            "result": {
+              "status": "failed",
+              "duration": 4049000000,
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `h3`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/MenuCoordenador.feature:41761:6)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/MenuCoordenador.feature:11519:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/MenuCoordenador.feature:10840:35)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

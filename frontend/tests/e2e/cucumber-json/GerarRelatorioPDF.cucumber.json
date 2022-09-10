@@ -1,18 +1,18 @@
 [
   {
-    "description": "Eu como aluno\nquero clicar em um questionário\na fim de responder às perguntas desse questionário",
+    "description": "Eu como aluno\nQuero gerar um relatório PDF a partir da pesquisa realizada\nA fim de ter as informações salvas em um arquivo",
     "keyword": "Funcionalidade",
-    "name": "Questionario com listas de perguntas separados por disciplina",
+    "name": "Gerar relatório",
     "line": 2,
-    "id": "questionario-com-listas-de-perguntas-separados-por-disciplina",
+    "id": "gerar-relatório",
     "tags": [],
-    "uri": "Questionario.feature",
+    "uri": "GerarRelatorioPDF.feature",
     "elements": [
       {
-        "id": "questionario-com-listas-de-perguntas-separados-por-disciplina;um-aluno-deseja-acessar-um-questionário-(feliz)",
+        "id": "gerar-relatório;um-aluno-tenta-gerar-um-relatório-no-sistema-do-camaar,-mas-a-pesquisa-não-retorna-dados-(triste)",
         "keyword": "Scenario",
         "line": 12,
-        "name": "Um Aluno deseja acessar um questionário (feliz)",
+        "name": "Um Aluno tenta gerar um relatório no sistema do CAMAAR, mas a pesquisa não retorna dados (triste)",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -23,14 +23,14 @@
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
               "status": "undefined",
-              "duration": 24499000000
+              "duration": 10535000000
             }
           },
           {
             "arguments": [],
             "keyword": "E ",
             "line": 9,
-            "name": "eu esteja na página com todos os questionários",
+            "name": "eu esteja na página de relatório do aluno",
             "result": {
               "status": "skipped"
             }
@@ -39,7 +39,7 @@
             "arguments": [],
             "keyword": "E ",
             "line": 10,
-            "name": "que existam questionários disponiveis para clicar",
+            "name": "que exista um botão \"Gerar PDF\"",
             "result": {
               "status": "skipped"
             }
@@ -48,7 +48,7 @@
             "arguments": [],
             "keyword": "Dado ",
             "line": 13,
-            "name": "que eu estou na pagina com todos os questionários",
+            "name": "que a pesquisa não corresponde a nenhuma turma",
             "result": {
               "status": "skipped"
             }
@@ -57,7 +57,7 @@
             "arguments": [],
             "keyword": "Quando ",
             "line": 14,
-            "name": "eu tentar clicar no questionário",
+            "name": "eu clicar no botão \"Gerar PDF\"",
             "result": {
               "status": "skipped"
             }
@@ -66,25 +66,7 @@
             "arguments": [],
             "keyword": "Então ",
             "line": 15,
-            "name": "eu devo conseguir abrir o questionário",
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 16,
-            "name": "eu devo conseguir ter acesso as perguntas",
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 17,
-            "name": "eu devo conseguir responder as perguntas",
+            "name": "eu deveria ver uma mensagem na tela dizendo \"Não há dados suficientes\"",
             "result": {
               "status": "skipped"
             }
@@ -92,10 +74,10 @@
         ]
       },
       {
-        "id": "questionario-com-listas-de-perguntas-separados-por-disciplina;um-aluno-deseja-acessar-um-questionário-(triste)",
+        "id": "gerar-relatório;um-aluno-gera-um-pdf-contendo-o-relatório-de-acordo-com-sua-pesquisa-(feliz)",
         "keyword": "Scenario",
-        "line": 25,
-        "name": "Um Aluno deseja acessar um questionário (triste)",
+        "line": 17,
+        "name": "Um Aluno gera um PDF contendo o relatório de acordo com sua pesquisa (feliz)",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -112,7 +94,7 @@
             "arguments": [],
             "keyword": "E ",
             "line": 9,
-            "name": "eu esteja na página com todos os questionários",
+            "name": "eu esteja na página de relatório do aluno",
             "result": {
               "status": "skipped"
             }
@@ -121,7 +103,7 @@
             "arguments": [],
             "keyword": "E ",
             "line": 10,
-            "name": "que existam questionários disponiveis para clicar",
+            "name": "que exista um botão \"Gerar PDF\"",
             "result": {
               "status": "skipped"
             }
@@ -129,26 +111,17 @@
           {
             "arguments": [],
             "keyword": "Dado ",
-            "line": 26,
-            "name": "que eu estou na pagina com todos os questionários",
+            "line": 18,
+            "name": "que a pesquisa corresponde a uma ou mais turmas",
             "result": {
               "status": "skipped"
             }
           },
           {
             "arguments": [],
-            "keyword": "E ",
-            "line": 27,
-            "name": "eu não consigo visualizar nenhum questionário",
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 28,
-            "name": "eu não consigo acessar o questionário",
+            "keyword": "Quando ",
+            "line": 19,
+            "name": "o aluno  clicar no botão \"Gerar PDF\"",
             "result": {
               "status": "skipped"
             }
@@ -156,8 +129,8 @@
           {
             "arguments": [],
             "keyword": "Então ",
-            "line": 29,
-            "name": "eu deveria ver uma pagina vazia",
+            "line": 20,
+            "name": "deve ser gerado um arquivo .PDF com as informações das turmas correspondentes",
             "result": {
               "status": "skipped"
             }

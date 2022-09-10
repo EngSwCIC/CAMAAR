@@ -22,11 +22,7 @@
             "name": "que nao estou autenticado",
             "result": {
               "status": "passed",
-<<<<<<< HEAD
-              "duration": 30520000000
-=======
-              "duration": 502000000
->>>>>>> 0e649a8c2cf653f5fb45c1d92acebc6de9b33a4b
+              "duration": 19192000000
             }
           },
           {
@@ -36,11 +32,7 @@
             "name": "eu vou para a rota \"/\"",
             "result": {
               "status": "passed",
-<<<<<<< HEAD
-              "duration": 672000000
-=======
-              "duration": 1482000000
->>>>>>> 0e649a8c2cf653f5fb45c1d92acebc6de9b33a4b
+              "duration": 321000000
             }
           },
           {
@@ -49,12 +41,9 @@
             "line": 7,
             "name": "eu deveria ver o campo \"Email\"",
             "result": {
-              "status": "passed",
-<<<<<<< HEAD
-              "duration": 50000000
-=======
-              "duration": 90000000
->>>>>>> 0e649a8c2cf653f5fb45c1d92acebc6de9b33a4b
+              "status": "failed",
+              "duration": 4008000000,
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-test-Email]`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/support/index.js:1559:6)"
             }
           },
           {
@@ -63,12 +52,7 @@
             "line": 8,
             "name": "eu deveria ver o campo \"Senha\"",
             "result": {
-              "status": "passed",
-<<<<<<< HEAD
-              "duration": 13000000
-=======
-              "duration": 39000000
->>>>>>> 0e649a8c2cf653f5fb45c1d92acebc6de9b33a4b
+              "status": "skipped"
             }
           },
           {
@@ -77,12 +61,7 @@
             "line": 9,
             "name": "eu deveria ver o botão \"Login\"",
             "result": {
-              "status": "passed",
-<<<<<<< HEAD
-              "duration": 17000000
-=======
-              "duration": 29000000
->>>>>>> 0e649a8c2cf653f5fb45c1d92acebc6de9b33a4b
+              "status": "skipped"
             }
           }
         ]

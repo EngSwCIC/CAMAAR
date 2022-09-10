@@ -1,6 +1,8 @@
 import LoginPage from '../pages/LoginPage.vue'
 import ImportPage from '../pages/ImportPage.vue'
-import HomePage from "../pages/HomePage.vue";
+import HomePageC from "../pages/HomePageCoordenador.vue";
+import HomePageA from "../pages/HomePageAluno.vue";
+import HomePageP from "../pages/HomePageProfessor.vue";
 import SurveyPage from "../pages/SurveyPage.vue";
 import SurveysPage from "../pages/SurveysPage.vue";
 import CadastrarPage from  '../pages/CadastrarPage.vue'
@@ -8,15 +10,15 @@ import StudentClass from  '../pages/StudentClass.vue'
 import StudentEvaluationsReport from '../pages/StudentEvaluationsReport.vue'
 
 const routes = [
+  //{
+  //  path: "/",
+  //  name: "Login",
+  //  component: LoginPage,
+  //},
   {
     path: "/",
-    name: "Login",
-    component: LoginPage,
-  },
-  {
-    path: "/home",
     name: "Home",
-    component: HomePage,
+    component: HomePageC,
   },
   {
     path: '/import',

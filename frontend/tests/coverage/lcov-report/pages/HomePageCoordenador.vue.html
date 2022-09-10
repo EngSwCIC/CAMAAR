@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for layouts/MainLayout.vue</title>
+    <title>Code coverage report for pages/HomePageCoordenador.vue</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">layouts</a> MainLayout.vue</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">pages</a> HomePageCoordenador.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -173,13 +173,7 @@
 <a name='L108'></a><a href='#L108'>108</a>
 <a name='L109'></a><a href='#L109'>109</a>
 <a name='L110'></a><a href='#L110'>110</a>
-<a name='L111'></a><a href='#L111'>111</a>
-<a name='L112'></a><a href='#L112'>112</a>
-<a name='L113'></a><a href='#L113'>113</a>
-<a name='L114'></a><a href='#L114'>114</a>
-<a name='L115'></a><a href='#L115'>115</a>
-<a name='L116'></a><a href='#L116'>116</a>
-<a name='L117'></a><a href='#L117'>117</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L111'></a><a href='#L111'>111</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -230,7 +224,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -267,12 +260,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -296,120 +284,114 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;q-layout view="lHh Lpr lFf"&gt;
-    &lt;q-header elevated&gt;
-      &lt;q-toolbar&gt;
-        &lt;q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        /&gt;
-&nbsp;
-        &lt;q-toolbar-title&gt;
-          Quasar App
-        &lt;/q-toolbar-title&gt;
-&nbsp;
-        &lt;div&gt;Quasar v{{ $q.version }}&lt;/div&gt;
-      &lt;/q-toolbar&gt;
-    &lt;/q-header&gt;
-&nbsp;
-    &lt;q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
+  &lt;div class="q-pa-md bg-secondary fullscreen"&gt;
+    &lt;q-layout
+      view="hHh Lpr lff"
+      container
+      style="height: 900px"
+      class="shadow-2 rounded-borders"
     &gt;
-      &lt;q-list&gt;
-        &lt;q-item-label
-          header
-        &gt;
-          Essential Links
-        &lt;/q-item-label&gt;
+      &lt;q-header elevated class="bg-secondary"&gt;
+        &lt;q-toolbar&gt;
+          &lt;q-btn flat @click="drawer = !drawer" round dense icon="menu" /&gt;
+        &lt;/q-toolbar&gt;
+      &lt;/q-header&gt;
 &nbsp;
-        &lt;EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        /&gt;
-      &lt;/q-list&gt;
-    &lt;/q-drawer&gt;
+      &lt;q-drawer
+        v-model="drawer"
+        :width="200"
+        :breakpoint="500"
+        overlay
+        bordered
+        class="bg-menu"
+      &gt;
+        &lt;q-scroll-area class="fit"&gt;
+          &lt;q-list&gt;
+            &lt;div
+              color="black"
+              class="row justify-center"
+              style="padding-top: 20%; padding-bottom: 10%; font-size: 30px"
+            &gt;
+              MENU
+            &lt;/div&gt;
+            &lt;div
+              class="row justify-center"
+              style="padding-bottom: 10%; font-size: 20px; color: #9c27b0"
+            &gt;
+              COORDENADOR
+            &lt;/div&gt;
+            &lt;template v-for="(menuItem, index) in menuList" :key="index"&gt;
+              &lt;q-item clickable :active="menuItem.label === 'Outbox'" v-ripple&gt;
+                &lt;q-item-section style="color: white; background-color: #9c27b0"&gt;
+                  {{ menuItem.label }}
+                &lt;/q-item-section&gt;
+              &lt;/q-item&gt;
+              &lt;q-separator :key="'sep' + index" v-if="menuItem.separator" /&gt;
+            &lt;/template&gt;
+          &lt;/q-list&gt;
+        &lt;/q-scroll-area&gt;
+      &lt;/q-drawer&gt;
 &nbsp;
-    &lt;q-page-container&gt;
-      &lt;router-view /&gt;
-    &lt;/q-page-container&gt;
-  &lt;/q-layout&gt;
+      &lt;q-page-container class="bg-grey-3"&gt;
+        &lt;q-page padding&gt;
+          &lt;div
+            class="text-h3 text-weigth-bold column items-center"
+            style="color: #9c27b0"
+          &gt;
+            &lt;div&gt;Bem vindo ao CAMAAR&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;h3
+            id="coord"
+            class="text-h3 text-weigth-thin column items-center"
+            style="color: #000000; padding-top: 2%; padding-bottom: 3%"
+          &gt;
+            Coordenador
+          &lt;/h3&gt;
+          &lt;div class="row justify-center" style="padding: 2%"&gt;
+            &lt;q-btn color="secondary" @click="redirect" style="font-size: 200%"&gt;
+              Questionários (como professor)
+            &lt;/q-btn&gt;
+          &lt;/div&gt;
+          &lt;div class="row justify-center" style="padding: 2%"&gt;
+            &lt;q-btn color="secondary" @click="redirect" style="font-size: 200%"&gt;
+              Relatórios das turmas (como coordenação)
+            &lt;/q-btn&gt;
+          &lt;/div&gt;
+          &lt;div class="row justify-center" style="padding: 2%"&gt;
+            &lt;q-btn color="secondary" @click="redirect" style="font-size: 200%"&gt;
+              Importar turmas do SIGAA
+            &lt;/q-btn&gt;
+          &lt;/div&gt;
+        &lt;/q-page&gt;
+      &lt;/q-page-container&gt;
+    &lt;/q-layout&gt;
+  &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
-import { defineComponent, ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
-&nbsp;
-const linksList = <span class="cstat-no" title="statement not covered" >[</span>
+import { ref } from "vue";
+const menuList = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    label: "QUESTIONÁRIOS",
+    separator: false,
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
+    label: "RELATÓRIOS",
+    separator: false,
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    label: "IMPORTAR TURMAS",
+    separator: false,
   },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-]
-&nbsp;
-export default defineComponent({
-  name: 'MainLayout',
-&nbsp;
-  components: {
-    EssentialLink
-  },
-&nbsp;
-  setup () {
-    const leftDrawerOpen = ref(false)
-&nbsp;
+];
+export default {
+  setup() {
     return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
-})
+      drawer: ref(true),
+      menuList,
+    };
+  },
+};
 &lt;/script&gt;
 &nbsp;</pre></td></tr></table></pre>
 

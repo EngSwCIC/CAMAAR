@@ -21,8 +21,9 @@
             "line": 5,
             "name": "que estou na rota \"/import\"",
             "result": {
-              "status": "passed",
-              "duration": 10511000000
+              "status": "failed",
+              "duration": 14817000000,
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-test-Email]`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/support/index.js:1559:6)"
             }
           },
           {
@@ -31,8 +32,7 @@
             "line": 6,
             "name": "que eu busquei turmas",
             "result": {
-              "status": "passed",
-              "duration": 122000000
+              "status": "skipped"
             }
           },
           {
@@ -41,8 +41,7 @@
             "line": 7,
             "name": "clicar no botão \"importButton\"",
             "result": {
-              "status": "passed",
-              "duration": 5573000000
+              "status": "skipped"
             }
           },
           {
@@ -51,8 +50,7 @@
             "line": 8,
             "name": "eu devo ver uma notificação de \"Selecione uma ou mais turmas para importar.\"",
             "result": {
-              "status": "passed",
-              "duration": 31000000
+              "status": "skipped"
             }
           }
         ]
@@ -71,8 +69,8 @@
             "line": 11,
             "name": "que estou na rota \"/import\"",
             "result": {
-              "status": "passed",
-              "duration": 1352000000
+              "status": "failed",
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-test-Email]`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/support/index.js:1559:6)"
             }
           },
           {
@@ -81,8 +79,7 @@
             "line": 12,
             "name": "que eu busquei turmas",
             "result": {
-              "status": "passed",
-              "duration": 136000000
+              "status": "skipped"
             }
           },
           {
@@ -91,8 +88,7 @@
             "line": 14,
             "name": "eu digitar \"software\" no campo de pesquisa da tabela de importação",
             "result": {
-              "status": "passed",
-              "duration": 1972000000
+              "status": "skipped"
             }
           },
           {
@@ -101,8 +97,7 @@
             "line": 15,
             "name": "selecionar a turma",
             "result": {
-              "status": "passed",
-              "duration": 4024000000
+              "status": "skipped"
             }
           },
           {
@@ -111,8 +106,7 @@
             "line": 16,
             "name": "clicar no botão \"importButton\"",
             "result": {
-              "status": "passed",
-              "duration": 166000000
+              "status": "skipped"
             }
           },
           {
@@ -121,8 +115,7 @@
             "line": 17,
             "name": "esperar importar turmas",
             "result": {
-              "status": "passed",
-              "duration": 6515000000
+              "status": "skipped"
             }
           },
           {
@@ -131,8 +124,7 @@
             "line": 18,
             "name": "eu devo ver uma notificação de \"Turmas selecionadas importadas com sucesso.\"",
             "result": {
-              "status": "passed",
-              "duration": 35000000
+              "status": "skipped"
             }
           },
           {
@@ -141,8 +133,7 @@
             "line": 19,
             "name": "eu devo ver \"SOFTWARE\" na tabela de turmas cadastradas",
             "result": {
-              "status": "passed",
-              "duration": 64000000
+              "status": "skipped"
             }
           }
         ]
