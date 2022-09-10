@@ -1,20 +1,53 @@
 <script>
+import axios from "axios";
+import BarChart from "src/components/BarChart.vue";
+
+function average(arr) {
+  return arr.reduce((a, b) => a + b, 0) / arr.length;
+}
+
 export default {
-  components: {},
+  components: {
+    BarChart,
+  },
   data() {
     return {
-      surveys: null,
+      reports: [],
+      loaded: false,
     };
   },
   async mounted() {
-    const res = await this.$axios.get("/api/surveys/open");
-    this.surveys = res.data;
-    console.log(res);
-    // .then((res) => (this.surveys = res.data))
-    // .finally(() => console.log(this.surveys));
+    this.loaded = false;
+    await axios
+      .get("http://localhost:3030/cclasses/reports")
+      .then((response) => {
+        // formata os dados para o gráfico
+        this.reports = response.data.map((report) => {
+          return {
+            label: report.name,
+            data: report.survey_questions.likert_scale_questions.map(
+              (question) => ({
+                label: question.id,
+                data: question.answers ? average(question.answers) : 0,
+              })
+            ),
+          };
+        });
+      });
+    this.loaded = true;
   },
 };
 </script>
 <template>
-  <h1>OI</h1>
+  <div
+    v-if="loaded"
+    class="bg-white fullscreen row items-center justify-center"
+  >
+    <BarChart
+      v-for="(report, index) in reports"
+      :key="index"
+      :datasets="report"
+      class="q-mx-md"
+    />
+  </div>
 </template>
