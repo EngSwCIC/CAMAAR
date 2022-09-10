@@ -7,6 +7,7 @@ export default {
     var turma = ref(null);
     var questionFormat = ref(null);
     var questions = ref([]);
+    var multiple_choice_array = ref([]);
 
     return {
       questionFormat,
@@ -15,7 +16,11 @@ export default {
       options: ["Eng. Software", "PAA", "APC", "OAC"],
       questions,
       text: ref(""),
+      multiple_choice_text: ref(""),
+      multiple_choice_array,
       likertRange: ref(null),
+      isOptional: ref(null),
+      checkbox_model: ref(null),
       ratingModel: 10, // garante que o likert estará sempre full
       turmas: ["A", "B", "C"],
       questionTypes: [
@@ -41,20 +46,29 @@ export default {
           value: 3,
         },
       ],
-      myEvent(e) {
-        console.log("sera que deu certo?", questionFormat.value.label);
-
+      mainEvent(e) {
         var question_obj = new Object();
 
-        question_obj.label = questionFormat.value.label;
         question_obj.content = this.text;
+        question_obj.label = questionFormat.value.label;
         question_obj.question_type = questionFormat.value.question_type;
+        question_obj.isOptional = this.checkbox_model;
 
         if (question_obj.question_type == "likert_scale") {
           question_obj.likert_range = this.likertRange;
         }
 
         questions.value.push(question_obj);
+
+        this.text = "";
+      },
+      multipleChoiceEvent(e) {
+        var multi_quest_obj = new Object();
+
+        multi_quest_obj.content = this.multiple_choice_text;
+        multiple_choice_array.value.push(multi_quest_obj);
+
+        this.multiple_choice_text = "";
       },
     };
   },
@@ -96,6 +110,17 @@ export default {
             >
               <div class="text-h6">{{ item.label }}</div>
               <div class="text-subtitle2">{{ item.content }}</div>
+
+              <div v-if="item.isOptional">
+                <input
+                  type="checkbox"
+                  id="checkbox"
+                  v-model="item.isOptional"
+                  :disabled="true"
+                />
+                <label for="checkbox"> Opcional </label>
+              </div>
+
               <q-rating
                 v-if="item.question_type == 'likert_scale'"
                 v-model="ratingModel"
@@ -106,31 +131,57 @@ export default {
             </q-card>
 
             <h3>Inserir nova questão</h3>
-            <q-select
-              filled
-              v-model="questionFormat"
-              :options="questionTypes"
-              label="Selecione o tipo da questão"
-            />
+            <div>
+              <q-select
+                filled
+                v-model="questionFormat"
+                :options="questionTypes"
+                label="Selecione o tipo da questão"
+              />
+              <br />
+
+              <input type="checkbox" id="checkbox" v-model="checkbox_model" />
+              <label for="checkbox"> Opcional </label>
+            </div>
 
             <q-input
               v-model="text"
               filled
               type="textarea"
               class="form-control"
+              placeholder="Escreva o enunciado..."
             />
+            <q-card
+              v-for="item in multiple_choice_array"
+              class="rounded-border q-pa-xl hsize justify-left text-left"
+              :key="item.content"
+            >
+              <div class="text-subtitle2">{{ item.content }}</div>
+            </q-card>
+            <q-input
+              v-if="questionFormat?.question_type == 'multiple_choice'"
+              v-model="multiple_choice_text"
+              filled
+              type="textarea"
+              class="form-control"
+              placeholder="Escreva a opção..."
+            />
+
             <div v-if="questionFormat?.question_type == 'likert_scale'">
               <q-badge color="secondary">
                 Número de Opções da Escala: {{ likertRange }}
               </q-badge>
               <q-slider v-model="likertRange" :min="3" :max="10" />
             </div>
-            <div>
-              <input type="checkbox" id="checkbox" v-model="checkbox_model" />
-              <label for="checkbox"> Opcional </label>
-            </div>
 
-            <q-btn color="secondary" @click="myEvent($event)">
+            <q-btn
+              v-if="questionFormat?.question_type == 'multiple_choice'"
+              color="secondary"
+              @click="multipleChoiceEvent($event)"
+            >
+              Adicionar Opção (multipla escolha)
+            </q-btn>
+            <q-btn color="secondary" @click="mainEvent($event)">
               Adicionar questão
             </q-btn>
           </q-form>
