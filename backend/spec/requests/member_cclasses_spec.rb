@@ -8,19 +8,19 @@ RSpec.describe "MemberCclasses", type: :request do
     let(:valid_params) do {
       grade: 50,
       member_id: member.id,
-      cclass: cclass.id
+      cclass_id: cclass.id
     }
     end
     let(:invalid_params) do {
       grade: -50,
       member_id: member.id,
-      cclass: cclass.id
+      cclass_id: cclass.id
     }
     end
     context 'When using valid_params' do
       before do
         MemberCclass.destroy_all
-        post '/members_cclasses/create', params: {member_cclass: valid_params}
+        post '/member_cclasses/create', params: {member_cclass: valid_params}
       end
 
       it 'Should return http status created' do
@@ -35,7 +35,7 @@ RSpec.describe "MemberCclasses", type: :request do
     context 'When using invalid_params' do
       before do
         MemberCclass.destroy_all
-        post '/members_cclasses/create', params: {member_cclass: invalid_params}
+        post '/member_cclasses/create', params: {member_cclass: invalid_params}
       end
 
       it 'Should return http status bad_request' do
@@ -94,5 +94,4 @@ RSpec.describe "MemberCclasses", type: :request do
     end
 
   end
-
 end

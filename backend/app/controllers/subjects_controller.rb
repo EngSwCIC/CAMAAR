@@ -8,4 +8,29 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
     render json: @subject, status: :ok
   end
+
+  def admin_report 
+    subjects = Subject.all
+
+    subjects = subjects.map { |s| { name: s.code, classes: s.cclasses } }
+    subjects = subjects.map do |s|
+      {
+        name: s[:name],
+        classes: s[:classes].map do |c|
+          {
+            grade: get_class_mean(c),
+            name: c.code
+          }
+        end
+      }
+    end
+    
+    render json: subjects
+  end
+
+  private 
+  def get_class_mean(oi)
+    a = oi.member_cclasses.map { |b| b.grade }
+    return a.inject(0) { |sum, x| sum + x } / a.size unless a.size == 0
+  end
 end

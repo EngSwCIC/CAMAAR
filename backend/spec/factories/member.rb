@@ -1,7 +1,7 @@
 FactoryBot.define do
     factory :member do
         name { 'test name' }
-        registration { '200010100' }
+        registration { "#{rand(20000000..90000000)}" }
         username { 'bom dia name' }
         degree { 'Computer Science' }
         course { 'morning' }
