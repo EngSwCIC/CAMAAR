@@ -20,6 +20,24 @@ class QuestionAnswersController < ApplicationController
     @cclass = Cclass.find(params[:cclass_id])
     @survey_answer = SurveyAnswer.new(member_id: @member.id, survey_id: @survey.id, cclass_id: @cclass.id)
     
+    required_answers = params[:answers_attributes].select {|x| x[:required]}
+
+    required_answers.each do |required_answer|
+      if required_answer[:question_type][:name] == "likert_scale" 
+        required_answer[:likert_answers_attributes].each do |likert_question|
+          if likert_question[:content].nil?
+            render json: @survey_answer.errors, status: :unprocessable_entity 
+            return
+          end
+        end
+      else
+        if required_answer[:content].nil?
+          render json: @survey_answer.errors, status: :unprocessable_entity 
+          return
+        end
+      end
+    end
+    
     if @survey_answer.valid? && params[:answers_attributes].present?
       params[:answers_attributes].each do |answer|
           @question_answer = QuestionAnswer.new
