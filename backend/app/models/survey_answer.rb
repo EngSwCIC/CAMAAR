@@ -16,7 +16,7 @@ class SurveyAnswer < ApplicationRecord
         :question_answers => {
           only: [:survey_question_id, :answer],
           include: [
-            :likert_scale_answer => {
+            :likert_scale_answers => {
               only: [:likert_scale_question_id, :answer]
             }
           ]

@@ -99,32 +99,36 @@ export default {
         cclass_id: cclass.id,
         member_id: 1,
         answers_attributes: this.survey.survey_questions.map((question) => {
-          if (question.question_type == "likert_scale")
+          if (question.question_type.name === "likert_scale"){
             return {
-              survey_question_id: question.id,
+              survey_question_id: question.question_number,
+              required: !question.optional,
               question_type: question.question_type,
               likert_answers_attributes:
-                question.likert_scale.likert_questions.map((l_question) => ({
-                  likert_question_id: l_question.id,
+                question.likert_scale_questions.map((l_question) => ({
+                  likert_question_id: l_question.question_number,
                   content: null,
                 })),
             };
-          else
+          }else{
             return {
-              survey_question_id: question.id,
+              survey_question_id: question.question_number,
               question_type: question.question_type,
+              required: !question.optional,
               content: null,
             };
+          }
         }),
       });
     });
   },
   methods: {
     async submitAnswer() {
+      console.log("this.survey_answers", this.survey_answers)
       this.survey_answers.forEach(async (subject_answer) => {
         try {
           const res = await axios.post(
-            "/api/survey_answers",
+            "/api/question_answers",
             subject_answer,
             {
               headers: {

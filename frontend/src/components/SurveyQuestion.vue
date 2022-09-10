@@ -2,7 +2,7 @@
 <q-card class="card">
     <h6 :class="'question' + (question.optional ? '' : ' required')">{{ question_number + ". " + question.question }}</h6>    
     <!-- TODO: arrumar o likert -->
-    <!-- <div v-if="question.question_type.name == 'likert_scale'">
+    <div v-if="question.question_type.name == 'likert_scale'">
         <div>
             <q-markup-table>
                 <thead>
@@ -12,12 +12,12 @@
                     </th>
                 </thead>
                 <tbody>
-                    <tr v-for="(likert_question, l_index) in question.likert_scale.likert_questions" :key="likert_question.id">
+                    <tr v-for="(likert_question, l_index) in question.likert_scale_questions" :key="likert_question.question_number">
                         <div class="likert-question">{{ likert_question.question }}</div>
                         <td v-for="(option, index) in likert_options" :key="index">
                             <q-radio
                                 color="secondary"
-                                :name="'likert_question_answer' + likert_question.id"
+                                :name="'likert_question_answer' + likert_question.question_number"
                                 :val="option"
                                 :model-value="modelValue.likert_answers_attributes[l_index].content"
                                 @update:model-value="(value) => $emit('update:modelValue', updateLikertAnswer(value, l_index))"
@@ -27,21 +27,21 @@
                 </tbody>
             </q-markup-table>
         </div>
-    </div> -->
+    </div>
     <div v-if="question.question_type.name == 'multiple_choice'">
-        <div v-for="option in question.question_options" :key="option.id">
+        <div v-for="(option, option_index) in question.question_options" :key="option.question_number">
             <q-radio
                 color="secondary"
-                :name="'multiple_choice_answer' + question.id"
-                :val="option.option"
-                :model-value="modelValue.content"
-                @update:model-value="(value) => $emit('update:modelValue', updateAnswer(value))"
+                :name="'multiple_choice_answer' + question.question_number"
+                :val="option_index + 1"
+                :model-value="modelValue.option_number"
+                @update:model-value="(value) => $emit('update:modelValue', updateMultipleChoicesAnswer(value, option.content))"
             >
                 <label>{{ option.content }}</label>
             </q-radio>
         </div>
     </div>
-    <div v-else>
+    <div v-if="question.question_type.name == 'discursive'">
         <q-input
             class="textbox"
             color="secondary"
@@ -49,7 +49,7 @@
             autogrow
             clearable
             :model-value="modelValue.content"
-            @update:model-value="(value) => $emit('update:modelValue', updateAnswer(value))"
+            @update:model-value="(value) => $emit('update:modelValue', updateAnswer(value, question_number))"
         />
     </div>
 </q-card>
@@ -70,14 +70,23 @@ export default {
         }
     },
     methods: {
-        updateAnswer(value) {
-            return {
+        updateAnswer(value, question_number) {
+            const response = {
                 ...this.modelValue,
                 content: value
             }
+            return response;
+        },
+        updateMultipleChoicesAnswer(option_number, content){
+            const response = {
+                ...this.modelValue,
+                content,
+                option_number
+            }
+            return response;
         },
         updateLikertAnswer(value, index) {
-            return {
+            const response = {
                 ...this.modelValue,
                 likert_answers_attributes: 
                     this.modelValue.likert_answers_attributes.map((answer, idx) => {
@@ -90,6 +99,7 @@ export default {
                             return answer
                     })
             }
+            return response;
         }
     }
 }
