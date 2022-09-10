@@ -1,3 +1,4 @@
+
 import LoginPage from '../pages/LoginPage.vue'
 import ImportPage from '../pages/ImportPage.vue'
 import HomePage from "../pages/HomePage.vue";
@@ -7,12 +8,18 @@ import CadastrarPage from  '../pages/CadastrarPage.vue'
 import StudentClass from  '../pages/StudentClass.vue'
 import StudentEvaluationsReport from '../pages/StudentEvaluationsReport.vue'
 import ValidatePage from '../pages/ValidatePage.vue'
+import ValidateLinkPage from '../pages/ValidateLinkPage.vue'
 
 const routes = [
   {
     path: "/validate",
     name: "Validate",
     component: ValidatePage
+  },
+  {
+    path: "/validate/:id",
+    name: "ValidateLink",
+    component: ValidateLinkPage
   },
   {
     path: "/",
