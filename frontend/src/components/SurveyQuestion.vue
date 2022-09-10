@@ -73,7 +73,7 @@ export default {
         updateAnswer(value, question_number) {
             const response = {
                 ...this.modelValue,
-                content: value,
+                content: value
             }
             return response;
         },
