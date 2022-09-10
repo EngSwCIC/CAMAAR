@@ -20,15 +20,33 @@
 </template>
 
 <script>
-    import axios from 'axios'
-
     export default {
-        name: 'GradeTable',
-
-        methods: {
-            getGrades() {
-                axios.get('http://localhost:3030/admin_report')
-            } 
+        
+        data() {
+            return [
+                {
+                    name: 'subject',
+                    classes: [
+                        {
+                            name: 'T0',
+                            grade: 50
+                        },
+                        {
+                            name: 'T1',
+                            grade: 60
+                        }
+                    ]
+                },
+                {
+                    name: 'other subject',
+                    classes: [
+                        {
+                            name: 'T3',
+                            grade: nil
+                        }
+                    ]
+                }
+            ]
         }
     }
 </script>
