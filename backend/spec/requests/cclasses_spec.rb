@@ -1,4 +1,5 @@
 require 'rails_helper'
+require "spec_helper"
 
 RSpec.describe "Cclasses", type: :request do
   before(:each) do
@@ -27,4 +28,28 @@ RSpec.describe "Cclasses", type: :request do
     end
   end
 
+  describe "GET /:id/answers" do
+    it "returns answers list" do
+      get "/cclasses/1/answers"
+      response_body = JSON.parse(response.body)
+      expect(response).to have_http_status(:success)
+      expect(response_body["rows"]).not_to eq([])
+      expect(response_body["columns"]).not_to eq([])
+      expect(response_body["average_rows"]).not_to eq([])
+      expect(response_body["charts"]).not_to eq([])
+      expect(response_body["rows"][0].keys.count).to eq(response_body["average_rows"][0].keys.count)
+    end
+  end
+
+  describe "GET /:id/answers" do
+    it "returns blank answers list" do
+      get "/cclasses/2/answers"
+      response_body = JSON.parse(response.body)
+      expect(response).to have_http_status(:success)
+      expect(response_body["rows"]).to eq([])
+      expect(response_body["columns"]).to eq([])
+      expect(response_body["average_rows"]).to eq([])
+      expect(response_body["charts"]).to eq([])
+    end
+  end
 end
