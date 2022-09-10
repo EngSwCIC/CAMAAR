@@ -15,6 +15,16 @@ const routes = [
   //  name: "Login",
   //  component: LoginPage,
   //},
+  //{
+  //path: "/",
+  //name: "Home",
+  //component: HomePageA,
+  //},
+  //{
+  //path: "/",
+  //name: "Home",
+  //component: HomePageP,
+  //},
   {
     path: "/",
     name: "Home",
