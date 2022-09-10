@@ -14,11 +14,14 @@ export default {
       this.router.push({ path: "/surveys" });
     },
     redirectStudentReports() {
-      this.router.push({ path: "/student-subjects"})
+      this.router.push({ path: "/student-subjects" });
     },
-    redirectImport(){
-      this.router.push({ path: "/import" })
-    }
+    redirectImport() {
+      this.router.push({ path: "/import" });
+    },
+    redirectReports() {
+      this.router.push({ path: "/reports" });
+    },
   },
 };
 </script>
@@ -46,6 +49,9 @@ export default {
       </q-btn>
       <q-btn color="secondary" @click="redirectImport">
         Vá para a página de importação de dados do SIGAA
+      </q-btn>
+      <q-btn color="secondary" @click="redirectReports">
+        Vá para a página de relatórios
       </q-btn>
     </q-card>
   </div>

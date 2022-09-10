@@ -3,9 +3,10 @@ import ImportPage from '../pages/ImportPage.vue'
 import HomePage from "../pages/HomePage.vue";
 import SurveyPage from "../pages/SurveyPage.vue";
 import SurveysPage from "../pages/SurveysPage.vue";
-import CadastrarPage from  '../pages/CadastrarPage.vue'
-import StudentClass from  '../pages/StudentClass.vue'
+import CadastrarPage from '../pages/CadastrarPage.vue'
+import StudentClass from '../pages/StudentClass.vue'
 import StudentEvaluationsReport from '../pages/StudentEvaluationsReport.vue'
+import ReportsPage from '../pages/ReportsPage.vue'
 
 const routes = [
   {
@@ -47,6 +48,11 @@ const routes = [
     path: '/student-subjects/',
     name: 'List',
     component: StudentEvaluationsReport,
+  },
+  {
+    path: '/reports',
+    name: 'Relatórios',
+    component: ReportsPage,
   },
 
   // Always leave this as last one,
