@@ -34,46 +34,4 @@ class CclassesController < ApplicationController
     @cclass = Cclass.find(params[:id])
     render json: @cclass, status: :ok
   end
-
-  def reports
-    # TODO: melhorar as queries (provavelmente dá pra fazer a mesma coisa com menos queries)
-    # TODO: tornar essa rota privada para admins (quando tivermos essa feature)
-
-    # caso o semestre não seja passado, assume o semestre atual
-    @semester = params[:semester] || '2021.2'
-
-    @surveys = Survey
-      .select('surveys.*')
-      .where('surveys.semester': @semester)
-      .map { |survey| {
-        id: survey.id,
-        name: survey.name,
-        semester: survey.semester,
-        survey_questions: self.class.extract_survey_likert_questions(survey)
-      } }
-
-    render json: @surveys
-  end
-
-  def self.extract_survey_likert_questions(survey)
-    survey.survey_questions.where('question_type_id': 3).map { |question| {
-      question: question.question,
-      likert_scale_questions: self.extract_likert_questions(question)
-    } }
-  end
-
-  def self.extract_likert_questions(question)
-    question.likert_scale_questions.map do |likert_question| 
-      {
-        id: likert_question.id,
-        question: likert_question.question,
-        scale_points: likert_question.scale_points,
-        answers: self.extract_likert_answers(likert_question)
-      }
-    end
-  end
-
-  def self.extract_likert_answers(likert_question)
-    likert_question.likert_scale_answers.map { |answer| answer.answer }
-  end
 end
