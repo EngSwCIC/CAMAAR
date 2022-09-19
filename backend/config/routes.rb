@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'member/show'
 
   get '/surveys/reports', to:'surveys#reports'
+  get '/surveys/show/:id', to:'surveys#show'
   resources :surveys do
     get 'open', on: :collection
   end
