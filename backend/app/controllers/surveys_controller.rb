@@ -42,6 +42,12 @@ class SurveysController < ApplicationController
     render json: @survey
   end
 
+  ##
+  # Método que renderiza o relatório de um determinado semestre
+  # com suas questões tipo Likert e suas respostas
+  #
+  # Responde renderizando uma resposta com os +Surveys+ daquele semestre 
+  # no formato JSON e um status `ok (200)`
   def reports
     # TODO: tornar essa rota privada para admins (quando tivermos essa feature)
 
@@ -77,6 +83,8 @@ class SurveysController < ApplicationController
       @survey = Survey.find(params[:id])
     end
 
+    ##
+    # Método que extrai as questões do tipo +Likert+ de um +Survey+ com suas respostas
     def self.extract_survey_likert_questions_with_answers(survey)
       # question_type_id = 3 é o id do tipo de questão Likert
       survey.survey_questions.where('question_type_id': 3).map do |question| 
@@ -86,7 +94,9 @@ class SurveysController < ApplicationController
         }
       end
     end
-  
+
+    ##
+    # Método que extrai as informações das questões do tipo +Likert+ com suas respostas
     def self.extract_likert_questions_with_answers(question)
       question.likert_scale_questions.map do |likert_question| 
         {
@@ -97,7 +107,9 @@ class SurveysController < ApplicationController
         }
       end
     end
-  
+
+    ##
+    # Método que extrai as respostas de uma questão do tipo +Likert+
     def self.extract_likert_answers(likert_question)
       likert_question.likert_scale_answers.map { |answer| answer.answer }
     end
