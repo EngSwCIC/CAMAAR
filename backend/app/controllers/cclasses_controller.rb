@@ -49,18 +49,31 @@ class CclassesController < ApplicationController
         id: survey.id,
         name: survey.name,
         semester: survey.semester,
-        survey_questions: survey.survey_questions.where('question_type_id': 3)
-          .map { |question| {
-            question: question.question,
-            likert_scale_questions: question.likert_scale_questions.map { |likert_question| {
-              id: likert_question.id,
-              question: likert_question.question,
-              scale_points: likert_question.scale_points,
-              answers: likert_question.likert_scale_answers.map { |answer| answer.answer }
-            } }
-          } }
+        survey_questions: self.class.extract_survey_likert_questions(survey)
       } }
 
     render json: @surveys
+  end
+
+  def self.extract_survey_likert_questions(survey)
+    survey.survey_questions.where('question_type_id': 3).map { |question| {
+      question: question.question,
+      likert_scale_questions: self.extract_likert_questions(question)
+    } }
+  end
+
+  def self.extract_likert_questions(question)
+    question.likert_scale_questions.map do |likert_question| 
+      {
+        id: likert_question.id,
+        question: likert_question.question,
+        scale_points: likert_question.scale_points,
+        answers: self.extract_likert_answers(likert_question)
+      }
+    end
+  end
+
+  def self.extract_likert_answers(likert_question)
+    likert_question.likert_scale_answers.map { |answer| answer.answer }
   end
 end
