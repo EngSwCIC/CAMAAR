@@ -171,13 +171,13 @@ export default {
         </q-parallax>
         <div class="rounded-border q-pa-xl hsize justify-center col-6">
           <q-form class="q-gutter-md">
-            <h3>Selecione a matéria</h3>
+            <!-- <h3>Selecione a matéria</h3>
             <q-select
               filled
               v-model="courses"
               :options="options"
               label="Selecione a matéria"
-            />
+            /> -->
             <!-- <h3>Selecione a turma</h3>
             <q-select
               filled
@@ -192,6 +192,7 @@ export default {
               filled
               type="textarea"
               class="form-control"
+              data-test-Nome_do_questionário="Nome do questionário"
             />
             <h3>Descrição do Questionário</h3>
             <q-input
@@ -199,14 +200,18 @@ export default {
               filled
               type="textarea"
               class="form-control"
+              data-test-Descrição_do_Questionário="Descrição do Questionário"
             />
             <h3>Data de Expiração do Questionário</h3>
-            <q-date v-model="questExpirationDate" minimal />
+            <q-date 
+            data-test-Data_de_Expiração_do_Questionário="Data de Expiração do Questionário"
+            v-model="questExpirationDate" minimal />
             <q-select
               filled
               v-model="semester"
               :options="semesters"
               label="Selecione o semestre"
+              data-test-Selecione_o_semestre="Selecione o semestre"
             />
             <q-card
               v-for="item in questions"
@@ -236,7 +241,7 @@ export default {
                   type="checkbox"
                   id="checkbox"
                   v-model="item.isOptional"
-                  :disabled="true"
+                  :disabled="true"          
                 />
                 <label for="checkbox"> Opcional </label>
               </div>
@@ -256,10 +261,11 @@ export default {
                 v-model="questionFormat"
                 :options="questionTypes"
                 label="Selecione o tipo da questão"
+            data-test-Selecione_o_tipo_da_questão="Selecione o tipo da questão"         
               />
               <br />
 
-              <input type="checkbox" id="checkbox" v-model="checkbox_model" />
+              <input type="checkbox" id="checkbox" v-model="checkbox_model" data-test-Opcional="Opcional" />
               <label for="checkbox"> Opcional </label>
             </div>
 
@@ -269,6 +275,7 @@ export default {
               type="textarea"
               class="form-control"
               placeholder="Escreva o enunciado..."
+              data-test-Escreva_o_enunciado="Escreva o enunciado"
             />
             <q-card
               v-for="(item, index) in multiple_choice_array"
@@ -302,13 +309,19 @@ export default {
             >
               Adicionar Opção (multipla escolha)
             </q-btn>
-            <q-btn color="secondary" @click="mainEvent($event)">
+            <q-btn color="secondary" @click="mainEvent($event)"
+            data-test-button-Adicionar_questão="Adicionar questão"
+            >
               Adicionar questão
             </q-btn>
-            <q-btn color="secondary" @click="cancelQuestEvent($event)">
+            <q-btn color="secondary" @click="cancelQuestEvent($event)"
+            data-test-button-Cancelar="Cancelar"
+            >
               Cancelar
             </q-btn>
-            <q-btn color="secondary" @click="createData($event)">
+            <q-btn color="secondary" @click="createData($event)"
+            data-test-button-Finalizar_Questionário="Finalizar Questionário"
+            >
               Finalizar Questionário
             </q-btn>
           </q-form>

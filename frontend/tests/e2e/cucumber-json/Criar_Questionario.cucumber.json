@@ -1,0 +1,143 @@
+[
+  {
+    "description": "  Eu como coordenador\n  quero clicar em botão\n  a fim de criar um questionário",
+    "keyword": "Funcionalidade",
+    "name": "Criar template de Questionario com listas de perguntas",
+    "line": 2,
+    "id": "criar-template-de-questionario-com-listas-de-perguntas",
+    "tags": [],
+    "uri": "Criar_Questionario.feature",
+    "elements": [
+      {
+        "id": "criar-template-de-questionario-com-listas-de-perguntas;um-coordenador-deseja-criar-um-questionário-(feliz)",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Um Coordenador deseja criar um questionário (feliz)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que eu esteja logado como aluno no CAMAAR",
+            "result": {
+              "status": "passed",
+              "duration": 1032000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "que eu esteja na página de questionários",
+            "result": {
+              "status": "passed",
+              "duration": 44000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Entao ",
+            "line": 12,
+            "name": "eu deveria ver o campo \"Nome_do_questionário\"",
+            "result": {
+              "status": "passed",
+              "duration": 17000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 13,
+            "name": "eu deveria ver o campo \"Descrição_do_Questionário\"",
+            "result": {
+              "status": "passed",
+              "duration": 15000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 14,
+            "name": "eu deveria ver o campo \"Data_de_Expiração_do_Questionário\"",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 15,
+            "name": "eu deveria ver o campo \"Selecione_o_semestre\"",
+            "result": {
+              "status": "passed",
+              "duration": 12000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 16,
+            "name": "eu deveria ver o campo \"Selecione_o_tipo_da_questão\"",
+            "result": {
+              "status": "passed",
+              "duration": 13000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 17,
+            "name": "eu deveria ver o campo \"Opcional\"",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 18,
+            "name": "eu deveria ver o campo \"Escreva_o_enunciado\"",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 19,
+            "name": "eu deveria ver o botão \"Adicionar_questão\"",
+            "result": {
+              "status": "passed",
+              "duration": 13000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 20,
+            "name": "eu deveria ver o botão \"Cancelar\"",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 21,
+            "name": "eu deveria ver o botão \"Finalizar_questionário\"",
+            "result": {
+              "status": "passed",
+              "duration": 10000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
