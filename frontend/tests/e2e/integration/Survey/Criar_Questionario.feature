@@ -21,8 +21,12 @@ Cenario: Um Coordenador deseja criar um questionário (feliz)
   E eu deveria ver o botão "Finalizar_questionário"
 
 Cenario: Um Coordenador deseja dar nome à um questionário (feliz)
-  E eu consigo escrever "Nome do Quest" no campo "Nome_do_questionário"
-	Entao eu devo ver "Nome do Quest" no campo "Nome_do_questionário"
+  E eu consigo escrever 'Nome' no campo "Nome_do_questionário"
+  E eu consigo escrever "Descrição" no campo "Descrição_do_Questionário"
+  # E eu deveria selecionar o "Selecione_o_semestre"
+  E eu deveria selecionar o semestre
+	Entao eu devo ver 'Nome' no campo "Nome_do_questionário"
+	Entao eu devo ver "Descrição" no campo "Descrição_do_Questionário"
 
 # Cenario: Um Coordenador deseja criar um questionário (triste)
 #   Quando eu clico na seleção de disciplina por id

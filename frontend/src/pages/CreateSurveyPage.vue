@@ -207,6 +207,7 @@ export default {
             data-test-Data_de_Expiração_do_Questionário="Data de Expiração do Questionário"
             v-model="questExpirationDate" minimal />
             <q-select
+              class="Selecione_o_semestre"
               filled
               v-model="semester"
               :options="semesters"
