@@ -52,8 +52,8 @@ And("eu consigo escrever {string} no campo {string}", (text, id) => {
   the(id).type(`${text}`);
 });
 
-Then("eu devo ver {string} no campo {string}", (texto, id) => {
-  the(id).should("contain", texto);
+And("eu devo ver {string} no campo {string}", (text, id) => {
+  the(id).should("contains", `${text}`);
 });
 
 // And(/^(:?|eu )deveria selecionar [o|a] (\w+)$/, (id) => {
@@ -61,9 +61,16 @@ Then("eu devo ver {string} no campo {string}", (texto, id) => {
 
 And("eu deveria selecionar o semestre", () => {
   get(
-    `.Selecione_o_semestre > .q-item__section > .q-item__label`,
+    `.Selecione_o_semestre > .q-field__inner > .q-field__control > .q-field__control-container > .q-field__native`,
     { timeout: 20000 }
   )
     .first()
-    .click()
+    .click();
+
+  get(
+    `.q-item__section`,
+    { timeout: 20000 }
+  )
+    .first()
+    .click();
 });

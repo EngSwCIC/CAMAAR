@@ -22,11 +22,12 @@ Cenario: Um Coordenador deseja criar um questionário (feliz)
 
 Cenario: Um Coordenador deseja dar nome à um questionário (feliz)
   E eu consigo escrever 'Nome' no campo "Nome_do_questionário"
+	E eu devo ver 'Nome' no campo "Nome_do_questionário"
+
+Cenario: Um Coordenador deseja dar nome à um questionário (feliz)
   E eu consigo escrever "Descrição" no campo "Descrição_do_Questionário"
-  # E eu deveria selecionar o "Selecione_o_semestre"
+	E eu devo ver "Descrição" no campo "Descrição_do_Questionário"
   E eu deveria selecionar o semestre
-	Entao eu devo ver 'Nome' no campo "Nome_do_questionário"
-	Entao eu devo ver "Descrição" no campo "Descrição_do_Questionário"
 
 # Cenario: Um Coordenador deseja criar um questionário (triste)
 #   Quando eu clico na seleção de disciplina por id

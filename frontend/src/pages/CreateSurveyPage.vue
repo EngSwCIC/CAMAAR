@@ -192,7 +192,7 @@ export default {
               filled
               type="textarea"
               class="form-control"
-              data-test-Nome_do_questionário="Nome do questionário"
+              data-test-Nome_do_questionário="Nome_do_questionário"
             />
             <h3>Descrição do Questionário</h3>
             <q-input
