@@ -36,9 +36,9 @@ RSpec.describe "Cclasses", type: :request do
         create(:member, name: 'Jonas', id: 2)
         create(:member, name: 'João', id: 3)
         let(:cclass) {create(:cclass)}
-        create(:member_cclass, member_id: 1, cclass_id: 1, grade: 0)
-        create(:member_cclass, member_id: 2, cclass_id: 1, grade: 100)
-        create(:member_cclass, member_id: 3, cclass_id: 1, grade: 50)
+        create(member_id: 1, cclass_id: 1, grade: 0)
+        create(member_id: 2, cclass_id: 1, grade: 100)
+        create(member_id: 3, cclass_id: 1, grade: 50)
 
         get "/cclass_grade/#{cclass.id}"
       end
@@ -59,9 +59,9 @@ RSpec.describe "Cclasses", type: :request do
         create(:member, name: 'Bernardo', id: 2)
         create(:member, name: 'Bisquela', id: 3)
         let(:cclass) {create(:cclass)}
-        create(:member_cclass, member_id: 1, cclass_id: 1, grade: nil)
-        create(:member_cclass, member_id: 2, cclass_id: 1, grade: nil)
-        create(:member_cclass, member_id: 3, cclass_id: 1, grade: nil)
+        create(member_id: 1, cclass_id: 1, grade: nil)
+        create(member_id: 2, cclass_id: 1, grade: nil)
+        create(member_id: 3, cclass_id: 1, grade: nil)
 
         get "/cclass_grade/#{cclass.id}"
       end
@@ -90,12 +90,12 @@ RSpec.describe "Cclasses", type: :request do
         create(:member, name: 'Bisquela', id: 6)
         let(:cclass) {create(:cclass)}
         let(:cclass) {create(:cclass)}
-        create(:member_cclass, member_id: 1, cclass_id: 1, grade: 0)
-        create(:member_cclass, member_id: 2, cclass_id: 1, grade: 100)
-        create(:member_cclass, member_id: 3, cclass_id: 1, grade: 50)
-        create(:member_cclass, member_id: 4, cclass_id: 2, grade: 90)
-        create(:member_cclass, member_id: 5, cclass_id: 2, grade: 100)
-        create(:member_cclass, member_id: 6, cclass_id: 2, grade: 80)
+        create(member_id: 1, cclass_id: 1, grade: 0)
+        create(member_id: 2, cclass_id: 1, grade: 100)
+        create(member_id: 3, cclass_id: 1, grade: 50)
+        create(member_id: 4, cclass_id: 2, grade: 90)
+        create(member_id: 5, cclass_id: 2, grade: 100)
+        create(member_id: 6, cclass_id: 2, grade: 80)
 
         get "/cclass_grades"
       end
@@ -120,12 +120,12 @@ RSpec.describe "Cclasses", type: :request do
         create(:member, name: 'Bisquela', id: 6)
         let(:cclass) {create(:cclass)}
         let(:cclass) {create(:cclass)}
-        create(:member_cclass, member_id: 1, cclass_id: 1, grade: 50)
-        create(:member_cclass, member_id: 2, cclass_id: 1, grade: 40)
-        create(:member_cclass, member_id: 3, cclass_id: 1, grade: 30)
-        create(:member_cclass, member_id: 4, cclass_id: 2, grade: nil)
-        create(:member_cclass, member_id: 5, cclass_id: 2, grade: nil)
-        create(:member_cclass, member_id: 6, cclass_id: 2, grade: nil)
+        create(member_id: 1, cclass_id: 1, grade: 50)
+        create(member_id: 2, cclass_id: 1, grade: 40)
+        create(member_id: 3, cclass_id: 1, grade: 30)
+        create(member_id: 4, cclass_id: 2, grade: nil)
+        create(member_id: 5, cclass_id: 2, grade: nil)
+        create(member_id: 6, cclass_id: 2, grade: nil)
 
         get "/cclass_grades"
       end
