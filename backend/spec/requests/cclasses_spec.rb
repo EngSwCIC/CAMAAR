@@ -30,15 +30,15 @@ RSpec.describe "Cclasses", type: :request do
   describe "GET /cclass_grade/:id" do
 
     context "When class members are graded" do
+      let(:member_1 ) { create(:member, name: 'Joaquias') }
+      let(:member_2 ) { create(:member, name: 'Jonas') }
+      let(:member_3 ) { create(:member, name: 'João') }
+      let(:cclass) {create(:cclass)}
       before do
 
-        create(:member, name: 'Joaquias', id: 1)
-        create(:member, name: 'Jonas', id: 2)
-        create(:member, name: 'João', id: 3)
-        let(:cclass) {create(:cclass)}
-        create(:enrollment, member_id: 1, cclass_id: 1, grade: 0)
-        create(:enrollment, member_id: 2, cclass_id: 1, grade: 100)
-        create(:enrollment, member_id: 3, cclass_id: 1, grade: 50)
+        create(:enrollment, member_id: member_1.id, cclass_id: cclass.id, grade: 0)
+        create(:enrollment, member_id: member_2.id, cclass_id: cclass.id, grade: 100)
+        create(:enrollment, member_id: member_3.id, cclass_id: cclass.id, grade: 50)
 
         get "/cclass_grade/#{cclass.id}"
       end
@@ -53,15 +53,15 @@ RSpec.describe "Cclasses", type: :request do
     end
 
     context "When class members are not graded" do
+      
+      let(:member_1) { create(:member, name: 'Bruno') }
+      let(:member_2) { create(:member, name: 'Bernardo') }
+      let(:member_3) { create(:member, name: 'Bisquela') }
+      let(:cclass) {create(:cclass)}
       before do
-
-        create(:member, name: 'Bruno', id: 1)
-        create(:member, name: 'Bernardo', id: 2)
-        create(:member, name: 'Bisquela', id: 3)
-        let(:cclass) {create(:cclass)}
-        create(:enrollment, :enrollment,member_id: 1, cclass_id: 1, grade: nil)
-        create(:enrollment, :enrollment,member_id: 2, cclass_id: 1, grade: nil)
-        create(:enrollment, :enrollment,member_id: 3, cclass_id: 1, grade: nil)
+        create(:enrollment, member_id: member_1.id, cclass_id: cclass.id, grade: nil)
+        create(:enrollment, member_id: member_2.id, cclass_id: cclass.id, grade: nil)
+        create(:enrollment, member_id: member_3.id, cclass_id: cclass.id, grade: nil)
 
         get "/cclass_grade/#{cclass.id}"
       end
@@ -77,69 +77,6 @@ RSpec.describe "Cclasses", type: :request do
 
   end
 
-  describe "GET /cclass_grades" do
-
-    context "When class members are graded" do
-      before do
-
-        create(:member, name: 'Joaquias', id: 1)
-        create(:member, name: 'Jonas', id: 2)
-        create(:member, name: 'João', id: 3)
-        create(:member, name: 'Bruno', id: 4)
-        create(:member, name: 'Bernardo', id: 5)
-        create(:member, name: 'Bisquela', id: 6)
-        let(:cclass) {create(:cclass)}
-        let(:cclass) {create(:cclass)}
-        create(:enrollment, member_id: 1, cclass_id: 1, grade: 0)
-        create(:enrollment, member_id: 2, cclass_id: 1, grade: 100)
-        create(:enrollment, member_id: 3, cclass_id: 1, grade: 50)
-        create(:enrollment, member_id: 4, cclass_id: 2, grade: 90)
-        create(:enrollment, member_id: 5, cclass_id: 2, grade: 100)
-        create(:enrollment, member_id: 6, cclass_id: 2, grade: 80)
-
-        get "/cclass_grades"
-      end
-
-      it "Should return ok http status" do
-        expect(response).to have_http_status(:ok)
-      end
-
-      it "Should return right calculation" do
-        expect(JSON.parse(response.body)).to eq([50,90])
-      end
-    end
-
-    context "When class members are not graded" do
-      before do
-
-        create(:member, name: 'Joaquias', id: 1)
-        create(:member, name: 'Jonas', id: 2)
-        create(:member, name: 'João', id: 3)
-        create(:member, name: 'Bruno', id: 4)
-        create(:member, name: 'Bernardo', id: 5)
-        create(:member, name: 'Bisquela', id: 6)
-        let(:cclass) {create(:cclass)}
-        let(:cclass) {create(:cclass)}
-        create(:enrollment, member_id: 1, cclass_id: 1, grade: 50)
-        create(:enrollment, member_id: 2, cclass_id: 1, grade: 40)
-        create(:enrollment, member_id: 3, cclass_id: 1, grade: 30)
-        create(:enrollment, member_id: 4, cclass_id: 2, grade: nil)
-        create(:enrollment, member_id: 5, cclass_id: 2, grade: nil)
-        create(:enrollment, member_id: 6, cclass_id: 2, grade: nil)
-
-        get "/cclass_grades"
-      end
-
-      it "Should return ok http status" do
-        expect(response).to have_http_status(:ok)
-      end
-
-      it "Should treat nil as zero and return zero grade" do
-        expect(JSON.parse(response.body)).to eq([40,0])
-      end
-    end
-
-  end
 
 end
 

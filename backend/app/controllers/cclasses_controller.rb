@@ -40,34 +40,18 @@ class CclassesController < ApplicationController
 
     total_grade = 0
 
-    cclass.enrollment.each do |enrollment|
+    cclass.enrollments.each do |enrollment|
       if enrollment.grade
-        enrollment.grade += total_grade
+        total_grade += enrollment.grade 
       end
     end
 
-    avg_grade = total_grade / (cclass.enrollment.length)
+    avg_grade = total_grade / (cclass.enrollments.length)
 
     render json: avg_grade, status: :ok
   rescue StandardError => e
     render json: { message: e }, status: :bad_request
   end
 
-  def cclass_grades
-    cclasses = Cclass.all
 
-    total_grade = 0
-
-    cclass.enrollment.each do |enrollment|
-      if enrollment.grade
-        enrollment.grade += total_grade
-      end
-    end
-
-    avg_grade = total_grade / (cclass.enrollment.length)
-
-    render json: avg_grade, status: :ok
-  rescue StandardError => e
-    render json: { message: e }, status: :bad_request
-  end
 end

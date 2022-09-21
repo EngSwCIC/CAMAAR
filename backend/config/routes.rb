@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get '/cclasses', to:'cclasses#index'
   get '/cclasses/:id', to:'cclasses#show'
   get '/cclasses/:id/members', to:'members#index'
+  get '/cclass_grade/:id', to: 'cclasses#cclass_grade'
 
   # subjects
   get '/subjects', to:'subjects#index'
