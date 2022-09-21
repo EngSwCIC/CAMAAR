@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_10_144002) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_21_140834) do
   create_table "cclasses", force: :cascade do |t|
     t.string "code"
     t.string "semester"
@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_144002) do
     t.bigint "member_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "grade"
     t.index ["cclass_id"], name: "index_enrollments_on_cclass_id"
     t.index ["member_id"], name: "index_enrollments_on_member_id"
   end
