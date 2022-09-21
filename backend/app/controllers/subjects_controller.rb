@@ -29,9 +29,8 @@ class SubjectsController < ApplicationController
   end
 
   private
-  #alterar cclasses para enrolement depois!!!!!!
   def get_class_mean(oi)
-    a = oi.cclasses.map { |b| b.grade }
+    a = oi.enrollment.map { |b| b.grade }
     return a.inject(0) { |sum, x| sum + x } / a.size unless a.size == 0
   end
 end
