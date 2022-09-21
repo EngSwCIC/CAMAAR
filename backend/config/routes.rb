@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   get 'member/show'
+
+  get '/surveys/reports', to:'surveys#reports'
+  get '/surveys/show/:id', to:'surveys#show'
   resources :surveys do
     get 'open', on: :collection
   end
+
   resources :members, only: [:show] do 
     resources :cclasses, only: [:index]
   end
@@ -25,7 +29,6 @@ Rails.application.routes.draw do
   get '/turmas', to: 'cclasses#index'
   # classes
   get '/cclasses', to:'cclasses#index'
-  get '/cclasses/reports', to:'cclasses#reports'
   get '/cclasses/:id', to:'cclasses#show'
   get '/cclasses/:id/members', to:'members#index'
   # subjects
