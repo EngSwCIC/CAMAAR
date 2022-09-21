@@ -25,8 +25,13 @@
             </div>
             <template v-for="(menuItem, index) in menuList" :key="index">
               <q-item clickable :active="menuItem.label === 'Outbox'" v-ripple>
-                <q-item-section style="color: white; background-color: #9C27B0">
-                  {{ menuItem.label}}
+                <q-item-section style="color: white; background-color: #9C27B0" @click="$router.push('/surveys/p')">
+                  Questionários
+                </q-item-section>
+              </q-item>
+              <q-item clickable :active="menuItem.label === 'Outbox'" v-ripple>
+                <q-item-section style="color: white; background-color: #9C27B0" @click="$router.push('/student-subjects/')">
+                  Relatórios
                 </q-item-section>
               </q-item>
               <q-separator :key="'sep' + index" v-if="menuItem.separator" />
@@ -45,9 +50,7 @@
             <div>Professor</div>
           </div>
           <div class="row justify-center" style="padding: 2%">
-            <q-btn color="secondary" @click="redirect" style="font-size: 200%">
-              Questionários (como professor)
-            </q-btn>
+            <p> Selecione ao lado a sua operação.</p>
           </div>
         </q-page>
       </q-page-container>

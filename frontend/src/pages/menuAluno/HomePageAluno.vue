@@ -33,12 +33,12 @@
               class="row justify-center"
               style="padding-bottom: 10%; font-size: 20px; color: #9c27b0"
             >
-              COORDENADOR
+              ALUNO
             </div>
             <template v-for="(menuItem, index) in menuList" :key="index">
               <q-item clickable :active="menuItem.label === 'Outbox'" v-ripple>
-                <q-item-section style="color: white; background-color: #9c27b0">
-                  {{ menuItem.label }}
+                <q-item-section style="color: white; background-color: #9C27B0" @click="$router.push('/surveys/a')">
+                  Questionários
                 </q-item-section>
               </q-item>
               <q-separator :key="'sep' + index" v-if="menuItem.separator" />
@@ -55,26 +55,19 @@
           >
             <div>Bem vindo ao CAMAAR</div>
           </div>
-          <h3
-            id="coord"
+          <div
             class="text-h3 text-weigth-thin column items-center"
             style="color: #000000; padding-top: 2%; padding-bottom: 3%"
           >
-            Coordenador
-          </h3>
-          <div class="row justify-center" style="padding: 2%">
-            <q-btn color="secondary" @click="redirect" style="font-size: 200%">
-              Questionários (como professor)
-            </q-btn>
+            <div>Aluno</div>
           </div>
           <div class="row justify-center" style="padding: 2%">
-            <q-btn color="secondary" @click="redirect" style="font-size: 200%">
-              Relatórios das turmas (como coordenação)
-            </q-btn>
-          </div>
-          <div class="row justify-center" style="padding: 2%">
-            <q-btn color="secondary" @click="redirect" style="font-size: 200%">
-              Importar turmas do SIGAA
+            <q-btn
+              color="secondary"
+              @click="$router.push('/surveys/:id')"
+              style="font-size: 200%"
+            >
+              Questionários (como aluno)
             </q-btn>
           </div>
         </q-page>
@@ -88,14 +81,6 @@ import { ref } from "vue";
 const menuList = [
   {
     label: "QUESTIONÁRIOS",
-    separator: false,
-  },
-  {
-    label: "RELATÓRIOS",
-    separator: false,
-  },
-  {
-    label: "IMPORTAR TURMAS",
     separator: false,
   },
 ];

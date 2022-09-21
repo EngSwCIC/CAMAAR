@@ -1,4 +1,4 @@
-import ImportPage from "../../../src/pages/menuCoordenador/HomePageCoordenador.vue";
+import ImportPage from "../../../src/pages/menuAluno/HomePageAluno.vue";
 import { mount } from "@vue/test-utils";
 import { installQuasarPlugin } from "@quasar/quasar-app-extension-testing-unit-jest";
 import { Notify } from "quasar";
@@ -37,7 +37,7 @@ describe("Home Page Tests", () => {
       },
     });
     const header = wrapper.find("h3");
-    expect(header.text()).toContain("Coordenador");
+    expect(header.text()).toContain("Aluno");
   });
 
   it("A pagina possui o botão de questionarios", () => {
@@ -50,29 +50,5 @@ describe("Home Page Tests", () => {
     });
     const button = wrapper.find("#Button");
     expect(button.text()).toContain("Questionários");
-  });
-
-  it("A pagina possui o botão de relatórios", () => {
-    const wrapper = mount(ImportPage, {
-      global: {
-        mocks: {
-          $axios,
-        },
-      },
-    });
-    const button = wrapper.find("#Button");
-    expect(button.text()).toContain("Relatórios");
-  });
-
-  it("A pagina possui o botão de importar do sigaa", () => {
-    const wrapper = mount(ImportPage, {
-      global: {
-        mocks: {
-          $axios,
-        },
-      },
-    });
-    const button = wrapper.find("#Button");
-    expect(button.text()).toContain("Importar SIGAA");
   });
 });

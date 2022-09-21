@@ -1,4 +1,5 @@
 <template>
+
   <div class="survey-container" v-if="survey">
     <q-parallax :height="200" :speed="0.5">
       <template v-slot:media>

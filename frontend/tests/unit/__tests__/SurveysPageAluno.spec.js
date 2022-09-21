@@ -1,10 +1,10 @@
-import ImportPage from "../../../src/pages/menuCoordenador/HomePageCoordenador.vue";
+import ImportPage from "../../../src/pages/menuAluno/SurveysPageAluno.vue";
 import { mount } from "@vue/test-utils";
 import { installQuasarPlugin } from "@quasar/quasar-app-extension-testing-unit-jest";
 import { Notify } from "quasar";
 installQuasarPlugin({ plugins: Notify });
 
-describe("Home Page Tests", () => {
+describe("Survey Aluno Page Tests", () => {
   it("A página existe", () => {
     const wrapper = mount(ImportPage, {
       global: {
@@ -24,11 +24,11 @@ describe("Home Page Tests", () => {
         },
       },
     });
-    const header = wrapper.find("h3");
-    expect(header.text()).toContain("Bem Vindo ao CAMAAR");
+    const header = wrapper.find("h1");
+    expect(header.text()).toContain("Seus Questionários");
   });
 
-  it("A página possui segundo título", () => {
+  it("A pagina possui o botão de questionario 1", () => {
     const wrapper = mount(ImportPage, {
       global: {
         mocks: {
@@ -36,11 +36,23 @@ describe("Home Page Tests", () => {
         },
       },
     });
-    const header = wrapper.find("h3");
-    expect(header.text()).toContain("Coordenador");
+    const button = wrapper.find("#Button");
+    expect(button.text()).toContain("Questionário 1");
   });
 
-  it("A pagina possui o botão de questionarios", () => {
+  it("A pagina possui o botão de questionario 2", () => {
+    const wrapper = mount(ImportPage, {
+      global: {
+        mocks: {
+          $axios,
+        },
+      },
+    });
+    const button = wrapper.find("#Button");
+    expect(button.text()).toContain("Questionário 2");
+  });
+
+  it("A pagina possui o botão de questionários", () => {
     const wrapper = mount(ImportPage, {
       global: {
         mocks: {
@@ -52,7 +64,7 @@ describe("Home Page Tests", () => {
     expect(button.text()).toContain("Questionários");
   });
 
-  it("A pagina possui o botão de relatórios", () => {
+  it("A pagina possui o botão de voltar", () => {
     const wrapper = mount(ImportPage, {
       global: {
         mocks: {
@@ -61,18 +73,7 @@ describe("Home Page Tests", () => {
       },
     });
     const button = wrapper.find("#Button");
-    expect(button.text()).toContain("Relatórios");
+    expect(button.text()).toContain("Voltar");
   });
 
-  it("A pagina possui o botão de importar do sigaa", () => {
-    const wrapper = mount(ImportPage, {
-      global: {
-        mocks: {
-          $axios,
-        },
-      },
-    });
-    const button = wrapper.find("#Button");
-    expect(button.text()).toContain("Importar SIGAA");
-  });
 });

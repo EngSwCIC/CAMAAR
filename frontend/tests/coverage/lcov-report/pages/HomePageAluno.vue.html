@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -136,7 +136,29 @@
 <a name='L71'></a><a href='#L71'>71</a>
 <a name='L72'></a><a href='#L72'>72</a>
 <a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,7 +217,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -211,7 +255,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
   &lt;div class="q-pa-md bg-secondary fullscreen"&gt;
-    &lt;q-layout view="hHh Lpr lff" container style="height: 900px" class="shadow-2 rounded-borders"&gt;
+    &lt;q-layout
+      view="hHh Lpr lff"
+      container
+      style="height: 900px"
+      class="shadow-2 rounded-borders"
+    &gt;
       &lt;q-header elevated class="bg-secondary"&gt;
         &lt;q-toolbar&gt;
           &lt;q-btn flat @click="drawer = !drawer" round dense icon="menu" /&gt;
@@ -228,35 +277,51 @@
       &gt;
         &lt;q-scroll-area class="fit"&gt;
           &lt;q-list&gt;
-            &lt;div color=black class="row justify-center" style="padding-top: 20%; padding-bottom: 10%;font-size: 30px" &gt;
+            &lt;div
+              color="black"
+              class="row justify-center"
+              style="padding-top: 20%; padding-bottom: 10%; font-size: 30px"
+            &gt;
               MENU
             &lt;/div&gt;
-            &lt;div class="row justify-center" style="padding-bottom: 10%;font-size: 20px; color: #9C27B0" &gt;
+            &lt;div
+              class="row justify-center"
+              style="padding-bottom: 10%; font-size: 20px; color: #9c27b0"
+            &gt;
               ALUNO
             &lt;/div&gt;
             &lt;template v-for="(menuItem, index) in menuList" :key="index"&gt;
               &lt;q-item clickable :active="menuItem.label === 'Outbox'" v-ripple&gt;
-                &lt;q-item-section style="color: white; background-color: #9C27B0"&gt;
-                  {{ menuItem.label}}
+                &lt;q-item-section style="color: white; background-color: #9c27b0"&gt;
+                  {{ menuItem.label }}
                 &lt;/q-item-section&gt;
               &lt;/q-item&gt;
               &lt;q-separator :key="'sep' + index" v-if="menuItem.separator" /&gt;
             &lt;/template&gt;
-&nbsp;
           &lt;/q-list&gt;
         &lt;/q-scroll-area&gt;
       &lt;/q-drawer&gt;
 &nbsp;
       &lt;q-page-container class="bg-grey-3"&gt;
         &lt;q-page padding&gt;
-          &lt;div class="text-h3 text-weigth-bold column items-center" style="color: #9C27B0"&gt;
+          &lt;div
+            class="text-h3 text-weigth-bold column items-center"
+            style="color: #9c27b0"
+          &gt;
             &lt;div&gt;Bem vindo ao CAMAAR&lt;/div&gt;
           &lt;/div&gt;
-          &lt;div class="text-h3 text-weigth-thin column items-center" style="color: #000000; padding-top: 2%; padding-bottom: 3%"&gt;
+          &lt;div
+            class="text-h3 text-weigth-thin column items-center"
+            style="color: #000000; padding-top: 2%; padding-bottom: 3%"
+          &gt;
             &lt;div&gt;Aluno&lt;/div&gt;
           &lt;/div&gt;
           &lt;div class="row justify-center" style="padding: 2%"&gt;
-            &lt;q-btn color="secondary" @click="redirect" style="font-size: 200%"&gt;
+            &lt;q-btn
+              color="secondary"
+              @click="$router.push('/surveys/:id')"
+              style="font-size: 200%"
+            &gt;
               Questionários (como aluno)
             &lt;/q-btn&gt;
           &lt;/div&gt;
@@ -267,29 +332,30 @@
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
-import { ref } from 'vue'
-const menuList = <span class="cstat-no" title="statement not covered" >[</span>
-    {
-    label: 'QUESTIONÁRIOS',
-    separator: false
+import { ref } from "vue";
+const menuList = [
+  {
+    label: "QUESTIONÁRIOS",
+    separator: false,
   },
-]
+];
 export default {
-  setup () {
+  setup() {
     return {
       drawer: ref(true),
-      menuList
-    }
-  }
-}
-&lt;/script&gt;</pre></td></tr></table></pre>
+      menuList,
+    };
+  },
+};
+&lt;/script&gt;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Sep 09 2022 11:39:44 GMT-0300 (Brasilia Standard Time)
+                at Sat Sep 17 2022 11:30:39 GMT-0300 (Brasilia Standard Time)
             </div>
         <script src="../prettify.js"></script>
         <script>

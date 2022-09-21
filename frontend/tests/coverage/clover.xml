@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1662734384514" clover="3.2.0">
-  <project timestamp="1662734384514" name="All files">
-    <metrics statements="54" coveredstatements="13" conditionals="16" coveredconditionals="4" methods="18" coveredmethods="6" elements="88" coveredelements="23" complexity="0" loc="54" ncloc="54" packages="8" files="15" classes="15"/>
+<coverage generated="1663723651035" clover="3.2.0">
+  <project timestamp="1663723651035" name="All files">
+    <metrics statements="58" coveredstatements="19" conditionals="16" coveredconditionals="4" methods="18" coveredmethods="6" elements="92" coveredelements="29" complexity="0" loc="58" ncloc="58" packages="10" files="19" classes="19"/>
     <package name="boot">
       <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="axios.js" path="/home/maria/Downloads/testeES2/frontend/src/boot/axios.js">
@@ -24,7 +24,7 @@
       </file>
       <file name="GenericTable.vue" path="/home/maria/Downloads/testeES2/frontend/src/components/GenericTable.vue">
         <metrics statements="8" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="4"/>
-        <line num="57" count="2" type="stmt"/>
+        <line num="57" count="3" type="stmt"/>
         <line num="60" count="11" type="stmt"/>
         <line num="67" count="0" type="stmt"/>
         <line num="72" count="11" type="stmt"/>
@@ -63,19 +63,41 @@
         <line num="52" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="pages">
-      <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="HomePageAluno.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/HomePageAluno.vue">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="60" count="0" type="stmt"/>
-      </file>
-      <file name="HomePageCoordenador.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/HomePageCoordenador.vue">
+    <package name="pages.menuAluno">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="HomePageAluno.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/menuAluno/HomePageAluno.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="88" count="1" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
       </file>
-      <file name="HomePageProfessor.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/HomePageProfessor.vue">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="60" count="0" type="stmt"/>
+      <file name="SurveysPageAluno.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/menuAluno/SurveysPageAluno.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.menuCoordenador">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="HomePageCoordenador.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/menuCoordenador/HomePageCoordenador.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="83" count="1" type="stmt"/>
+      </file>
+      <file name="ImportPage.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/menuCoordenador/ImportPage.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+      <file name="SurveysPageCoordenador.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/menuCoordenador/SurveysPageCoordenador.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.menuProfessor">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="HomePageProfessor.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/menuProfessor/HomePageProfessor.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="63" count="1" type="stmt"/>
+      </file>
+      <file name="SurveysPageProfessor.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/menuProfessor/SurveysPageProfessor.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
       </file>
     </package>
     <package name="router">
@@ -94,8 +116,8 @@
       </file>
       <file name="routes.js" path="/home/maria/Downloads/testeES2/frontend/src/router/routes.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
       </file>
     </package>
     <package name="stores">

@@ -1,4 +1,4 @@
-import ImportPage from '../../../src/pages/ImportPage.vue'
+import ImportPage from '../../../src/pages/menuCoordenador/ImportPage.vue'
 import { mount } from '@vue/test-utils';
 import { installQuasarPlugin } from '@quasar/quasar-app-extension-testing-unit-jest'
 import { Notify } from 'quasar';
