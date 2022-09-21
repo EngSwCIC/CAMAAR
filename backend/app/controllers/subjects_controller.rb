@@ -30,7 +30,7 @@ class SubjectsController < ApplicationController
 
   private
   def get_class_mean(oi)
-    a = oi.enrollment.map { |b| b.grade }
+    a = oi.enrollments.map { |b| b.grade }
     return a.inject(0) { |sum, x| sum + x } / a.size unless a.size == 0
   end
 end
