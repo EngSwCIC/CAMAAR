@@ -30,11 +30,9 @@ class QuestionAnswersController < ApplicationController
         process_answers(answers_attributes)
       end
       
-      if @survey_answer.save
-        render json: @survey_answer
-      else
-        render json: @survey_answer.errors, status: :unprocessable_entity
-      end
+      @survey_answer.save!
+
+      render json: @survey_answer
     end
     
     def process_discursive_answer(answer, question_answer)
@@ -65,16 +63,17 @@ class QuestionAnswersController < ApplicationController
     end
     
     def missing_required_answers(required_answers)
-      missing_answers = false
+      missing_answers = []
+      question_type = ""
       required_answers.each do |required_answer|
-        missing_answers = false
-        if required_answer[:question_type][:name] == "likert_scale" 
-          missing_answers = required_answer[:likert_answers_attributes].any? {|likert_answer| likert_answer[:content].nil? }
+        question_type = required_answer[:question_type][:name]
+        if question_type == "likert_scale" 
+          missing_answers.push(question_type) if required_answer[:likert_answers_attributes].any? {|likert_answer| likert_answer[:content].nil? || likert_answer[:content].blank? }
         else
-          missing_answers = required_answer[:content].nil?
+          missing_answers.push(question_type) if required_answer[:content].nil? || required_answer[:content].blank?
         end
       end
-      return missing_answers
+      return missing_answers.size > 0
     end
 
     def process_answers(answers)

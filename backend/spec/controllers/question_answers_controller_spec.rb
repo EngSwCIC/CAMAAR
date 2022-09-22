@@ -1,3 +1,5 @@
+require 'simplecov'
+SimpleCov.start
 require 'rails_helper'
 
 RSpec.describe QuestionAnswersController, :type => :controller do
@@ -37,9 +39,9 @@ RSpec.describe QuestionAnswersController, :type => :controller do
               :member_id=> @member.id,
               :answers_attributes=>
                 [
-                  {:question_answer=> question_d.id, :question_type=>{:name=>"discursive"}, :required => true, :content =>"teste"},
-                  {:question_answer=> question_mc.id, :question_type=>{:name=>"multiple_choice"}, :required => true, :content =>"option 1", :option_number =>1},
-                  {:question_answer=> question_ls.id, :question_type=>{:name=>"likert_scale"}, :required => true,
+                  {:survey_question_id=> question_d.id, :question_type=>{:name=>"discursive"}, :required => true, :content =>"teste"},
+                  {:survey_question_id=> question_mc.id, :question_type=>{:name=>"multiple_choice"}, :required => true, :content =>"option 1", :option_number =>1},
+                  {:survey_question_id=> question_ls.id, :question_type=>{:name=>"likert_scale"}, :required => true,
                   :likert_answers_attributes => [
                     {:likert_question_id =>likert_question_1.id, :content =>"Discordo totalmente"},
                     {:likert_question_id =>likert_question_2.id, :content =>"Discordo totalmente"},
@@ -50,17 +52,6 @@ RSpec.describe QuestionAnswersController, :type => :controller do
               :question_answer =>{}}
           end
 
-          after(:all) do
-            # TEARDOWN
-            # Undo database changes
-            @cclass.destroy!
-            @survey.destroy!
-            @member.destroy!
-            @role.destroy!
-            @subject.destroy!
-          end
-        
-
         it "should return a success status code if params are valid" do
           # EXERCISE
           post :create, :params => @valid_params
@@ -69,42 +60,6 @@ RSpec.describe QuestionAnswersController, :type => :controller do
           expect(response).to have_http_status(:success)
         end
           
-        it "should return an error if member doesn't exists" do
-          # SETUP
-          invalid_params = @valid_params
-          invalid_params[:member_id] = Member.all.last.id + 1
-          
-          # EXERCISE
-          post :create, :params => invalid_params
-          
-          # VERIFY
-          expect(response).to have_http_status(:unprocessable_entity)
-        end
-        
-        it "should return an error if cclass doesn't exists" do
-          # SETUP
-          invalid_params = @valid_params
-          invalid_params[:cclass_id] = Cclass.all.last.id + 1
-
-          # EXECUTE
-          post :create, :params => invalid_params
-          
-          # VERIFY
-          expect(response).to have_http_status(:unprocessable_entity)
-        end
-    
-        it "should return an error if survey doesn't exists" do
-          # SETUP
-          invalid_params = @valid_params
-          invalid_params[:index_question_answers_on_survey_question_id] = Survey.all.last.id + 1
-          
-          # EXERCISE
-          post :create, :params => invalid_params
-          
-          # VERIFY
-          expect(response).to have_http_status(:unprocessable_entity)
-        end
-
         it "should return an error if at least one required question content is nil" do
           # SETUP
           invalid_params = @valid_params
@@ -121,7 +76,6 @@ RSpec.describe QuestionAnswersController, :type => :controller do
           # SETUP
           invalid_params = @valid_params
           invalid_params[:answers_attributes][2][:likert_answers_attributes][0][:content] = nil
-
           # EXECUTE
           post :create, :params => invalid_params
 
