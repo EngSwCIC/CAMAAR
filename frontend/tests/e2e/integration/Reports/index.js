@@ -1,8 +1,6 @@
-import { Given, Then, When, And } from "cypress-cucumber-preprocessor/steps";
-import axios from 'axios'
+import { Given, Then, And } from "cypress-cucumber-preprocessor/steps";
 
 Given("que eu esteja logado como aluno no CAMAAR", () => {
-  // TODO: implementar corretamente depois da issue #9
   cy.visit("/");
   cy.get("[type='email']").type('user')
   cy.get("[type='password']").type('pass')
