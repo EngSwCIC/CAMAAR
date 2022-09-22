@@ -1,0 +1,82 @@
+[
+  {
+    "keyword": "Funcionalidade",
+    "name": "Menu de Professor",
+    "line": 2,
+    "id": "menu-de-professor",
+    "tags": [],
+    "uri": "MenuProfessor.feature",
+    "elements": [
+      {
+        "id": "menu-de-professor;pagina-de-menu-de-coordenador",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Pagina de Menu de Coordenador",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que nao estou autenticado",
+            "result": {
+              "status": "passed",
+              "duration": 43000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 6,
+            "name": "eu vou para a rota \"/#/prof\"",
+            "result": {
+              "status": "passed",
+              "duration": 977000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 7,
+            "name": "clicar no botão \"Questionários\"",
+            "result": {
+              "status": "passed",
+              "duration": 17000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 8,
+            "name": "eu vou para a rota \"/surveys/p\"",
+            "result": {
+              "status": "passed",
+              "duration": 214000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 9,
+            "name": "clicar no botão \"Voltar\"",
+            "result": {
+              "status": "passed",
+              "duration": 12000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "eu vou para a rota \"/#/\"",
+            "result": {
+              "status": "passed",
+              "duration": 246000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

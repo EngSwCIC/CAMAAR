@@ -22,7 +22,7 @@
             "name": "que estou na rota \"/import\"",
             "result": {
               "status": "failed",
-              "duration": 14817000000,
+              "duration": 4340000000,
               "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-test-Email]`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/support/index.js:1559:6)"
             }
           },

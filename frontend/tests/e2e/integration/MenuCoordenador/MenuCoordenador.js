@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { Given, Then, And } from "cypress-cucumber-preprocessor/steps";
-const { visit, the } = cy;
+const { visit, the, intercept } = cy;
 Given(`que estou na rota {string}`, (pagina) => {
   visit(pagina);
 });
@@ -10,32 +10,11 @@ Given(`que cliquei no {string}`, (id) => {
 Given(`que nao estou autenticado`, () => {
   cy.clearLocalStorage();
 });
-And(`eu devo ver {string}`, (string) => {
-  cy.get("h3").invoke("text").should("contain", "Coordenador");
-});
-Then(/^(:?|eu )deveria ver o botão "(\w+)"$/, (a, id) => {
-  the(id, "button");
-});
-And(/^(:?|eu )deveria ver o botão "(\w+)"$/, (a, id) => {
-  the(id, "button");
-});
-Then(/^(:?|eu )deveria ver [o|a] (\w+)$/, (a, id) => {
-  the(id);
-});
-And(/^(:?|eu )deveria ver [o|a] (\w+)$/, (a, id) => {
-  the(id);
-});
-Then(/^(:?|eu )deveria ver o campo "(\w+)"$/, (a, id) => {
-  the(id);
-});
-And(/^(:?|eu )deveria ver o campo "(\w+)"$/, (a, id) => {
-  the(id);
-});
-And(/^(:?|eu )deveria ver o botão "(\w+)"$/, (a, id) => {
-  the(id, "button");
-});
-And(/^(:?|eu )nao deveria ver [o|a] (\w+)$/, (a, id) => {
-  the(id).should("not.exist");
+And(`clicar no botão {string}`, (id) => {
+  intercept({
+    method: 'get',
+    url: '/api/survey'
+  }).as('surveys');
 });
 And(`eu vou para a rota {string}`, (id) => {
   visit(id);

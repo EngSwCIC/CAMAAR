@@ -12,3 +12,13 @@ RDoc::Task.new :rdoc do |rdoc|
   rdoc.title = "App Documentation"
   rdoc.options << "--all" 
 end
+
+
+require 'rdoc/rdoc'
+
+options = RDoc::Options.new
+# see RDoc::Options
+
+rdoc = RDoc::RDoc.new
+rdoc.document options
+# see RDoc::RDoc

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1663723651035" clover="3.2.0">
-  <project timestamp="1663723651035" name="All files">
+<coverage generated="1663810188242" clover="3.2.0">
+  <project timestamp="1663810188242" name="All files">
     <metrics statements="58" coveredstatements="19" conditionals="16" coveredconditionals="4" methods="18" coveredmethods="6" elements="92" coveredelements="29" complexity="0" loc="58" ncloc="58" packages="10" files="19" classes="19"/>
     <package name="boot">
       <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="axios.js" path="/home/maria/Downloads/testeES2/frontend/src/boot/axios.js">
+      <file name="axios.js" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/boot/axios.js">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="10" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
       </file>
-      <file name="i18n.js" path="/home/maria/Downloads/testeES2/frontend/src/boot/i18n.js">
+      <file name="i18n.js" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/boot/i18n.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
@@ -18,11 +18,11 @@
     </package>
     <package name="components">
       <metrics statements="16" coveredstatements="7" conditionals="6" coveredconditionals="4" methods="8" coveredmethods="4"/>
-      <file name="FiltroRAluno.vue" path="/home/maria/Downloads/testeES2/frontend/src/components/FiltroRAluno.vue">
+      <file name="FiltroRAluno.vue" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/components/FiltroRAluno.vue">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="2" count="0" type="stmt"/>
       </file>
-      <file name="GenericTable.vue" path="/home/maria/Downloads/testeES2/frontend/src/components/GenericTable.vue">
+      <file name="GenericTable.vue" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/components/GenericTable.vue">
         <metrics statements="8" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="4"/>
         <line num="57" count="3" type="stmt"/>
         <line num="60" count="11" type="stmt"/>
@@ -33,7 +33,7 @@
         <line num="75" count="48" type="cond" truecount="4" falsecount="0"/>
         <line num="77" count="8" type="stmt"/>
       </file>
-      <file name="SurveyQuestion.vue" path="/home/maria/Downloads/testeES2/frontend/src/components/SurveyQuestion.vue">
+      <file name="SurveyQuestion.vue" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/components/SurveyQuestion.vue">
         <metrics statements="7" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="59" count="0" type="stmt"/>
         <line num="62" count="0" type="stmt"/>
@@ -46,63 +46,63 @@
     </package>
     <package name="i18n">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.js" path="/home/maria/Downloads/testeES2/frontend/src/i18n/index.js">
+      <file name="index.js" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/i18n/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="i18n.en-US">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.js" path="/home/maria/Downloads/testeES2/frontend/src/i18n/en-US/index.js">
+      <file name="index.js" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/i18n/en-US/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="layouts">
       <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="MainLayout.vue" path="/home/maria/Downloads/testeES2/frontend/src/layouts/MainLayout.vue">
+      <file name="MainLayout.vue" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/layouts/MainLayout.vue">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="52" count="0" type="stmt"/>
       </file>
     </package>
     <package name="pages.menuAluno">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="HomePageAluno.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/menuAluno/HomePageAluno.vue">
+      <file name="HomePageAluno.vue" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/pages/menuAluno/HomePageAluno.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="81" count="1" type="stmt"/>
       </file>
-      <file name="SurveysPageAluno.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/menuAluno/SurveysPageAluno.vue">
+      <file name="SurveysPageAluno.vue" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/pages/menuAluno/SurveysPageAluno.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="4" count="1" type="stmt"/>
       </file>
     </package>
     <package name="pages.menuCoordenador">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="HomePageCoordenador.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/menuCoordenador/HomePageCoordenador.vue">
+      <file name="HomePageCoordenador.vue" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/pages/menuCoordenador/HomePageCoordenador.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="83" count="1" type="stmt"/>
       </file>
-      <file name="ImportPage.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/menuCoordenador/ImportPage.vue">
+      <file name="ImportPage.vue" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/pages/menuCoordenador/ImportPage.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="4" count="1" type="stmt"/>
       </file>
-      <file name="SurveysPageCoordenador.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/menuCoordenador/SurveysPageCoordenador.vue">
+      <file name="SurveysPageCoordenador.vue" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/pages/menuCoordenador/SurveysPageCoordenador.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="4" count="1" type="stmt"/>
       </file>
     </package>
     <package name="pages.menuProfessor">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="HomePageProfessor.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/menuProfessor/HomePageProfessor.vue">
+      <file name="HomePageProfessor.vue" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/pages/menuProfessor/HomePageProfessor.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="63" count="1" type="stmt"/>
       </file>
-      <file name="SurveysPageProfessor.vue" path="/home/maria/Downloads/testeES2/frontend/src/pages/menuProfessor/SurveysPageProfessor.vue">
+      <file name="SurveysPageProfessor.vue" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/pages/menuProfessor/SurveysPageProfessor.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="4" count="1" type="stmt"/>
       </file>
     </package>
     <package name="router">
       <metrics statements="11" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="0"/>
-      <file name="index.js" path="/home/maria/Downloads/testeES2/frontend/src/router/index.js">
+      <file name="index.js" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/router/index.js">
         <metrics statements="9" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="21" count="0" type="stmt"/>
@@ -114,7 +114,7 @@
         <line num="35" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
       </file>
-      <file name="routes.js" path="/home/maria/Downloads/testeES2/frontend/src/router/routes.js">
+      <file name="routes.js" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/router/routes.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="14" count="0" type="stmt"/>
         <line num="80" count="0" type="stmt"/>
@@ -122,7 +122,7 @@
     </package>
     <package name="stores">
       <metrics statements="18" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="2"/>
-      <file name="credentials.js" path="/home/maria/Downloads/testeES2/frontend/src/stores/credentials.js">
+      <file name="credentials.js" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/stores/credentials.js">
         <metrics statements="16" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="2"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="5" type="stmt"/>
@@ -141,7 +141,7 @@
         <line num="30" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
       </file>
-      <file name="index.js" path="/home/maria/Downloads/testeES2/frontend/src/stores/index.js">
+      <file name="index.js" path="/home/maria/Downloads/camaar-rep/CAMAAR/frontend/src/stores/index.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="14" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>

@@ -72,3 +72,7 @@ gem 'webmock', '~> 3.14'
 gem "mysql2", "~> 0.5.4"
 
 gem 'simplecov', require: false, group: :test
+
+gem 'rdoc'
+
+gem 'factory_bot_rails'

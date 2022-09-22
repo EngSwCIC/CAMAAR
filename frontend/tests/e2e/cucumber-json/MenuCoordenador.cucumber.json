@@ -22,55 +22,57 @@
             "name": "que nao estou autenticado",
             "result": {
               "status": "passed",
-              "duration": 61000000
+              "duration": 34000000
             }
           },
           {
             "arguments": [],
             "keyword": "Então ",
             "line": 6,
-            "name": "eu vou para a rota \"/\"",
+            "name": "eu vou para a rota \"/#/\"",
             "result": {
               "status": "passed",
-              "duration": 1701000000
+              "duration": 242000000
             }
           },
           {
             "arguments": [],
             "keyword": "E ",
             "line": 7,
-            "name": "eu devo ver \"Coordenador\"",
+            "name": "clicar no botão \"Questionários\"",
             "result": {
-              "status": "failed",
-              "duration": 4024000000,
-              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `h3`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/MenuCoordenador.feature:41761:6)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/MenuCoordenador.feature:11519:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/MenuCoordenador.feature:10840:35)"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Então ",
-            "line": 8,
-            "name": "eu deveria ver o botão \"Questionários (como professor)\"",
-            "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 11000000
             }
           },
           {
             "arguments": [],
             "keyword": "E ",
-            "line": 9,
-            "name": "eu deveria ver o botão \"Relatórios das turmas (como coordenação)\"",
+            "line": 8,
+            "name": "eu vou para a rota \"/surveys/c\"",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 247000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 9,
+            "name": "clicar no botão \"Voltar\"",
+            "result": {
+              "status": "passed",
+              "duration": 10000000
             }
           },
           {
             "arguments": [],
             "keyword": "E ",
             "line": 10,
-            "name": "eu deveria ver o botão \"Importar turmas do SIGAA\"",
+            "name": "eu vou para a rota \"/#/\"",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 252000000
             }
           }
         ]
