@@ -1,0 +1,382 @@
+[
+  {
+    "keyword": "Funcionalidade",
+    "name": "Cadastrar Usuarios no SIGAA",
+    "line": 2,
+    "id": "cadastrar-usuarios-no-sigaa",
+    "tags": [],
+    "uri": "Registro.feature",
+    "elements": [
+      {
+        "id": "cadastrar-usuarios-no-sigaa;testando-a-pagina-de-registro",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Testando a Pagina de Registro",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que eu estou na pagina de registro",
+            "result": {
+              "status": "passed",
+              "duration": 3270000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Entao ",
+            "line": 8,
+            "name": "eu deveria ver o campo \"email\"",
+            "result": {
+              "status": "passed",
+              "duration": 83000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "eu deveria ver o campo \"senha\"",
+            "result": {
+              "status": "passed",
+              "duration": 82000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "eu deveria ver o botão \"register\"",
+            "result": {
+              "status": "passed",
+              "duration": 79000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 11,
+            "name": "eu deveria ver o botão \"voltar\"",
+            "result": {
+              "status": "passed",
+              "duration": 81000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "cadastrar-usuarios-no-sigaa;registrar-com-campos-invalidos:-senha-(sad-path)",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "Registrar com campos invalidos: senha (sad path)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que eu estou na pagina de registro",
+            "result": {
+              "status": "passed",
+              "duration": 3284000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 14,
+            "name": "eu escrever \"meuemail@mail.com\" no campo \"email\"",
+            "result": {
+              "status": "passed",
+              "duration": 950000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 15,
+            "name": "eu clicar em \"register\"",
+            "result": {
+              "status": "passed",
+              "duration": 440000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 16,
+            "name": "eu devo ver uma notificação no formulario de Senha Obrigatoria e o conteudo no campo da \"senha\" tem que ser vazio",
+            "result": {
+              "status": "passed",
+              "duration": 162000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "cadastrar-usuarios-no-sigaa;registrar-com-campos-invalidos:-email-(sad-path)",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "Registrar com campos invalidos: email (sad path)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que eu estou na pagina de registro",
+            "result": {
+              "status": "passed",
+              "duration": 3233000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 19,
+            "name": "eu escrever \"batatinha123\" no campo \"senha\"",
+            "result": {
+              "status": "passed",
+              "duration": 2270000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 20,
+            "name": "eu clicar em \"register\"",
+            "result": {
+              "status": "passed",
+              "duration": 384000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 21,
+            "name": "eu devo ver uma notificação no formulario de E-Mail Obrigatório e o conteudo no campo do \"email\" tem que ser vazio",
+            "result": {
+              "status": "passed",
+              "duration": 149000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "cadastrar-usuarios-no-sigaa;testando-registro-com-campos-válidos-não-estando-o-email-presente-no-banco-de-dados-\"members\"(sad-path)",
+        "keyword": "Scenario",
+        "line": 23,
+        "name": "Testando Registro com campos válidos não estando o email presente no banco de dados \"members\"(sad path)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que eu estou na pagina de registro",
+            "result": {
+              "status": "passed",
+              "duration": 3217000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 24,
+            "name": "eu escrever \"meuemail@mail.com\" no campo \"email\"",
+            "result": {
+              "status": "passed",
+              "duration": 816000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 25,
+            "name": "eu escrever \"batatinha123\" no campo \"senha\"",
+            "result": {
+              "status": "passed",
+              "duration": 709000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 26,
+            "name": "eu clicar em \"register\"",
+            "result": {
+              "status": "passed",
+              "duration": 693000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 27,
+            "name": "se em members nao existe nenhum membro com o email \"meuemail@mail.com\" escrito no campo email",
+            "result": {
+              "status": "passed",
+              "duration": 409000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 28,
+            "name": "eu devo ver uma notificação de \"Error ao cadastrar usuario\"",
+            "result": {
+              "status": "passed",
+              "duration": 750000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "cadastrar-usuarios-no-sigaa;testando-registro-com-campos-válidos-estando-o-email-presente-no-banco-de-dados-\"users\"(sad-path)",
+        "keyword": "Scenario",
+        "line": 30,
+        "name": "Testando Registro com campos válidos estando o email presente no banco de dados \"users\"(sad path)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que eu estou na pagina de registro",
+            "result": {
+              "status": "passed",
+              "duration": 3014000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 31,
+            "name": "eu escrever \"meuteste@mail.com\" no campo \"email\"",
+            "result": {
+              "status": "passed",
+              "duration": 901000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 32,
+            "name": "eu escrever \"batatinha123\" no campo \"senha\"",
+            "result": {
+              "status": "passed",
+              "duration": 899000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 33,
+            "name": "se em users existe algum user com o email \"meuteste@mail.com\" escrito no campo email",
+            "result": {
+              "status": "passed",
+              "duration": 124000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 34,
+            "name": "eu clicar em \"register\"",
+            "result": {
+              "status": "passed",
+              "duration": 609000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 35,
+            "name": "eu devo ver uma notificação de \"Error ao cadastrar usuario\"",
+            "result": {
+              "status": "passed",
+              "duration": 592000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "cadastrar-usuarios-no-sigaa;testando-registro-com-campos-válidos-não-estando-o-email-presente-no-banco-de-dados-\"users\"-e-estando-presente-no-banco-de-dados-\"member\"-(happy-path)",
+        "keyword": "Scenario",
+        "line": 37,
+        "name": "Testando Registro com campos válidos não estando o email presente no banco de dados \"users\" e estando presente no banco de dados \"member\" (happy path)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que eu estou na pagina de registro",
+            "result": {
+              "status": "passed",
+              "duration": 3066000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 38,
+            "name": "eu escrever \"andre.acm97@outlook.com\" no campo \"email\"",
+            "result": {
+              "status": "passed",
+              "duration": 1290000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 39,
+            "name": "eu escrever \"batatinha123\" no campo \"senha\"",
+            "result": {
+              "status": "passed",
+              "duration": 825000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 40,
+            "name": "se em members existe algum member e nenhum user com o email \"andre.acm97@outlook.com\" escrito no campo email",
+            "result": {
+              "status": "passed",
+              "duration": 207000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 41,
+            "name": "eu clicar em \"register\"",
+            "result": {
+              "status": "passed",
+              "duration": 804000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 42,
+            "name": "eu devo ver uma notificação de \"Cadastrado com sucesso\"",
+            "result": {
+              "status": "passed",
+              "duration": 814000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
