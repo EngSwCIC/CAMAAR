@@ -75,4 +75,13 @@ RSpec.describe "/surveys", type: :request do
       expect(parsed_res['id']).to eql survey.id
     end
   end
+  
+  
+  describe "POST /surveys" do
+    it "renders a successful response" do
+      survey = Survey.create(valid_attributes)
+      post survey_url(survey), as: :json
+      expect(response).to be_successful
+    end
+  end
 end
