@@ -43,8 +43,9 @@ class SurveysController < ApplicationController
   end
 
   ##
-  # Método de criar surveys
-  #
+  # Método que cria um novo survey
+  # O método não recebe nenhum parâmetro e não retorna nenhum valor
+  # Ao ser evocado ele cria um novo survey no banco de dados da aplicação
   #
   def create
     @survey = Survey.new(
@@ -75,6 +76,9 @@ class SurveysController < ApplicationController
 
     ##
     # Método para instanciar os params de Surveys
+    # O método recebe os parâmetros name, description, expiration_date, semester, role_id, survey_questions_attributes,
+    # question_options_attributes e likert_scale_questions_attributes
+    # Ele não retorna nenhum valor e nem tem algum efeito colateral
     def set_survey_params
       params.require(:survey).permit(
         :name,
