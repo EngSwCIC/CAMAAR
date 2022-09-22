@@ -44,12 +44,14 @@ class SurveysController < ApplicationController
 
   ##
   # Método que renderiza o relatório de um determinado semestre
-  # com suas questões tipo Likert e suas respostas
+  # com suas questões tipo Likert e suas respostas. O semestre pode ser recebido pelo
+  # query param semester (+params[:semester]+), o valor padrão é o semestre atual.
   #
   # Responde renderizando uma resposta com os +Surveys+ daquele semestre 
   # no formato JSON e um status `ok (200)`
   def reports
     # TODO: tornar essa rota privada para admins (quando tivermos essa feature)
+    # TODO: achar um jeito de associar o cclass com as repostas do tipo likert
 
     # caso o semestre não seja passado, assume o semestre atual
     @semester = params[:semester] || '2021.2'
