@@ -1,40 +1,41 @@
 import SubjectReportTable from "frontend/src/components/SubjectReportTable.vue"
-import {mount} from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import { installQuasarPlugin } from '@quasar/quasar-app-extension-testing-unit-jest'
 installQuasarPlugin();
 
-const subject = {
-    name: 'Engenharia de Software',
-    classes: [
-        {
-            grade: 55,
-            name: 'T0'
-        },
-        {
-            grade: 89,
-            name: 'oi'
-        },
-    ]
-}
-
 describe('SubjectReportTable', () => {
-    let wrapper
     beforeEach(() => {
-        wrapper = mount(SubjectReportTable, {
-            propsData: {
-                subject
-            }
-        })
+        
     })
 
     it('renders correct values', () => {
-        let $rows = wrapper.findAll('tbody > tr')
-
-        let column = $rows.map(row => {
-            return row.findAll('tr').at(0).text()
+        const wrapper = mount(SubjectReportTable, {
+            propsData: {
+                subject: {
+                    name: 'Engenharia de Software',
+                    classes: [
+                        {
+                            grade: 55,
+                            name: 'T0'
+                        },
+                        {
+                            grade: 89,
+                            name: 'oi'
+                        },
+                    ]
+                }
+            }
         })
+        let headerRow = wrapper.findAll('thead > tr')[0]
+        let dataRow = wrapper.findAll('tbody > tr')[0]
+        
+        let data = dataRow.findAll('td').map(item => item.text())
+        let headers = headerRow.findAll('th').map(item => item.text())
 
-        expect(column[0]).toBe('T0')
-        expect(column[1]).toBe('oi')
+
+        expect(data[0]).toBe('5,5')
+        expect(data[1]).toBe('8,9')
+        expect(headers[0]).toBe('T0arrow_upward')
+        expect(headers[1]).toBe('OIarrow_upward')
     })
 })

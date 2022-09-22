@@ -3,7 +3,7 @@
         <q-table
             :title="title"
             :rows="rows"
-            row-key="id"
+            row-key="name"
         />
     </div>
 </template>
@@ -11,23 +11,19 @@
 <script>
   export default {
     computed: {
-        title: () => {
-            return this.subject.name
-        },
-        rows: () => {
-            const arrayOfArrays = this.subject.classes.map(({ name, grade }) => ([
-                name,
-                grade.toString().slice(0, -1) + "," + grade.toString().slice(-1)
-            ]))
-            return [Object.fromEntries(arrayOfArrays)]
-        }
+      title() {
+        return this.subject ? this.subject.name : 'no name'
+      },
+      rows() {
+        if (!this.subject) return []
+        const arrayOfArrays = this.subject.classes.map(({ name, grade }) => ([
+          name,
+          grade.toString().slice(0, -1) + "," + grade.toString().slice(-1)
+        ]))
+        return [Object.fromEntries(arrayOfArrays)]
+      }
     },
 
-    props: {
-      subject: {
-        type: Object,
-        required: true,
-      },
-    }
+    props: ['subject']
   }
 </script>
