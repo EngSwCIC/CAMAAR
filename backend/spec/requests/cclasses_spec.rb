@@ -26,5 +26,4 @@ RSpec.describe "Cclasses", type: :request do
       expect(response_body[44]['name']).to eq('MARISTELA TERTO DE HOLANDA')
     end
   end
-
 end
