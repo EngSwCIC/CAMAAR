@@ -22,10 +22,22 @@ ChartJS.register(
 export default {
   name: "BarChart",
   components: { Bar },
-  props: ["datasets", "title"],
+  props: {
+    chartData: {
+      type: Object,
+      default: null,
+    },
+  },
+  watch: {
+    chartData: {
+      handler() {
+        this.chartOptions.plugins.title.text = this.chartData.title;
+      },
+      deep: true,
+    },
+  },
   data() {
     return {
-      chartData: this.datasets,
       chartOptions: {
         responsive: true,
         scales: {
@@ -48,7 +60,7 @@ export default {
           },
           title: {
             display: true,
-            text: this.title,
+            text: this.chartData.title,
           },
           tooltip: {
             callbacks: {

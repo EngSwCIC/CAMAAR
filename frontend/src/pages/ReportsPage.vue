@@ -1,4 +1,5 @@
 <script>
+import { ref } from "vue";
 import axios from "axios";
 import BarChart from "src/components/BarChart.vue";
 import { average, getRandomColor } from "../utils";
@@ -11,6 +12,8 @@ export default {
     return {
       surveys: [],
       loaded: false,
+      surveySelected: ref(null),
+      selectOptions: [],
     };
   },
   async mounted() {
@@ -42,8 +45,17 @@ export default {
           ],
         };
       });
+
+      this.selectOptions = this.surveys;
+      // this.surveySelected = this.selectOptions[0]; // valor default do select
     });
     this.loaded = true;
+  },
+  methods: {
+    onChange(value) {
+      // console.log(this.surveySelected);
+      // this.$forceUpdate();
+    },
   },
 };
 </script>
@@ -53,12 +65,22 @@ export default {
     v-if="loaded"
     class="bg-white fullscreen row items-center justify-center"
   >
+    <q-select
+      rounded
+      outlined
+      label="Selecione um questionário"
+      v-model="surveySelected"
+      :options="selectOptions"
+      option-value="id"
+      option-label="title"
+      @update:model-value="onChange"
+    />
+
     <BarChart
-      v-for="(survey, index) in surveys"
-      :key="index"
-      :datasets="survey"
-      :title="survey.title"
+      v-if="surveySelected"
+      :chart-data="surveySelected"
       class="q-mx-md"
     />
+    <p v-else>Nenhuma opção selecionada</p>
   </div>
 </template>
