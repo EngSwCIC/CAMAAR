@@ -17,6 +17,7 @@ export default {
       questionFormat,
       courses,
       turma,
+      alert: ref(false),
       name_quest: ref(null),
       desc_quest: ref(null),
       questExpirationDate: ref(null),
@@ -75,6 +76,9 @@ export default {
         },
       ],
       semesters: ["2021.1", "2021.2", "2022.1", "2022.2"],
+      async cancelQuestEvent(e) {
+        await router.push({ path: "/surveys" });
+      },
       mainEvent(e) {
         var s1 = new Object(this.surveyModel);
         // turmas: ["A", "B", "C"],
@@ -112,6 +116,11 @@ export default {
         if (question_obj.question_type == "multiple_choice") {
           question_obj.multiple_choice_obj = { ...this.multiple_choice_array };
           this.multiple_choice_array = [];
+        }
+
+        if (question_obj.content == "") {
+          this.alert = true;
+          return;
         }
 
         questions.value.push(question_obj);
@@ -164,8 +173,7 @@ export default {
         <q-parallax :height="200" :speed="0.5">
           <template v-slot:media>
             <img
-              src="https://braziljournal.s3.amazonaws.com/covers/45b8fd3d-76a8-2c53-a564-83a394cef7f9.jpg?v=1596499602"
-            />
+              src="https://braziljournal.s3.amazonaws.com/covers/45b8fd3d-76a8-2c53-a564-83a394cef7f9.jpg?v=1596499602" />
           </template>
           <h1 class="text-white">Criação dos Questionários</h1>
         </q-parallax>
@@ -187,115 +195,58 @@ export default {
             /> -->
 
             <h3>Nome do Questionário</h3>
-            <q-input
-              v-model="name_quest"
-              filled
-              type="textarea"
-              class="form-control"
-              data-test-Nome_do_questionário="Nome_do_questionário"
-            />
+            <q-input v-model="name_quest" filled type="textarea" class="form-control"
+              data-test-Nome_do_questionário="Nome_do_questionário" />
             <h3>Descrição do Questionário</h3>
-            <q-input
-              v-model="desc_quest"
-              filled
-              type="textarea"
-              class="form-control"
-              data-test-Descrição_do_Questionário="Descrição do Questionário"
-            />
+            <q-input v-model="desc_quest" filled type="textarea" class="form-control"
+              data-test-Descrição_do_Questionário="Descrição do Questionário" />
             <h3>Data de Expiração do Questionário</h3>
-            <q-date 
-            data-test-Data_de_Expiração_do_Questionário="Data de Expiração do Questionário"
-            v-model="questExpirationDate" minimal />
-            <q-select
-              class="Selecione_o_semestre"
-              filled
-              v-model="semester"
-              :options="semesters"
-              label="Selecione o semestre"
-              data-test-Selecione_o_semestre="Selecione o semestre"
-            />
-            <q-card
-              v-for="item in questions"
-              class="rounded-border q-pa-xl hsize justify-left text-left"
-              :key="item.survey_question_id"
-            >
+            <q-date data-test-Data_de_Expiração_do_Questionário="Data de Expiração do Questionário"
+              v-model="questExpirationDate" minimal />
+            <q-select class="Selecione_o_semestre" filled v-model="semester" :options="semesters"
+              label="Selecione o semestre" data-test-Selecione_o_semestre="Selecione o semestre" />
+            <q-card v-for="item in questions" class="rounded-border q-pa-xl hsize justify-left text-left"
+              :key="item.survey_question_id">
               <div class="text-h6">{{ item.label }}</div>
               <div class="text-subtitle2">{{ item.content }}</div>
               <div v-if="item.multiple_choice_obj">
-                <q-list
-                  bordered
-                  separator
-                  v-for="(choice, index) in item.multiple_choice_obj"
-                  :key="choice.id"
-                >
+                <q-list bordered separator v-for="(choice, index) in item.multiple_choice_obj" :key="choice.id">
                   <q-item clickable v-ripple>
-                    <q-item-section
-                      >Opção {{ Number(index) + 1 }} :
-                      {{ choice.content }}</q-item-section
-                    >
+                    <q-item-section>Opção {{ Number(index) + 1 }} :
+                      {{ choice.content }}</q-item-section>
                   </q-item>
                 </q-list>
               </div>
 
               <div v-if="item.isOptional">
-                <input
-                  type="checkbox"
-                  id="checkbox"
-                  v-model="item.isOptional"
-                  :disabled="true"          
-                />
+                <input type="checkbox" id="checkbox" v-model="item.isOptional" :disabled="true" />
                 <label> Opcional </label>
               </div>
 
-              <q-rating
-                v-if="item.question_type == 'likert_scale'"
-                v-model="ratingModel"
-                size="2em"
-                :max="item.likert_range"
-                color="primary"
-              />
+              <q-rating v-if="item.question_type == 'likert_scale'" v-model="ratingModel" size="2em"
+                :max="item.likert_range" color="primary" />
             </q-card>
             <h3>Inserir nova questão</h3>
             <div>
-              <q-select
-                id="select"
-                filled
-                v-model="questionFormat"
-                :options="questionTypes"
+              <q-select id="select" filled v-model="questionFormat" :options="questionTypes"
                 label="Selecione o tipo da questão"
-                data-test-Selecione_o_tipo_da_questão="Selecione o tipo da questão"         
-              />
+                data-test-Selecione_o_tipo_da_questão="Selecione o tipo da questão" />
               <br />
 
               <input type="checkbox" id="checkbox" v-model="checkbox_model" data-test-Opcional="Opcional" />
               <label for="checkbox"> Opcional </label>
             </div>
 
-            <q-input
-              v-model="text"
-              filled
-              type="textarea"
-              class="form-control"
-              placeholder="Escreva o enunciado..."
-              data-test-Escreva_o_enunciado="Escreva o enunciado"
-            />
-            <q-card
-              v-for="(item, index) in multiple_choice_array"
-              class="rounded-border q-pa-xl hsize justify-left text-left"
-              :key="item.content"
-            >
+            <q-input v-model="text" filled type="textarea" class="form-control" placeholder="Escreva o enunciado..."
+              data-test-Escreva_o_enunciado="Escreva o enunciado" />
+            <q-card v-for="(item, index) in multiple_choice_array"
+              class="rounded-border q-pa-xl hsize justify-left text-left" :key="item.content">
               <div class="text-subtitle2">
                 Opção {{ index + 1 }} : {{ item.content }}
               </div>
             </q-card>
-            <q-input
-              v-if="questionFormat?.question_type == 'multiple_choice'"
-              v-model="multiple_choice_text"
-              filled
-              type="textarea"
-              class="form-control"
-              placeholder="Escreva a opção..."
-            />
+            <q-input v-if="questionFormat?.question_type == 'multiple_choice'" v-model="multiple_choice_text" filled
+              type="textarea" class="form-control" placeholder="Escreva a opção..." />
 
             <div v-if="questionFormat?.question_type == 'likert_scale'">
               <q-badge color="secondary">
@@ -304,26 +255,33 @@ export default {
               <q-slider v-model="likertRange" :min="3" :max="10" />
             </div>
 
-            <q-btn
-              v-if="questionFormat?.question_type == 'multiple_choice'"
-              color="secondary"
-              @click="multipleChoiceEvent($event)"
-            >
+            <q-btn v-if="questionFormat?.question_type == 'multiple_choice'" color="secondary"
+              @click="multipleChoiceEvent($event)">
               Adicionar Opção (multipla escolha)
             </q-btn>
-            <q-btn color="secondary" @click="mainEvent($event)"
-            data-test-button-Adicionar_questão="Adicionar questão"
-            >
+            <q-btn color="secondary" @click="mainEvent($event)" data-test-button-Adicionar_questão="Adicionar questão">
               Adicionar questão
             </q-btn>
-            <q-btn color="secondary" @click="cancelQuestEvent($event)"
-            data-test-button-Cancelar="Cancelar"
-            >
+            <q-dialog v-model="alert">
+              <q-card>
+                <q-card-section>
+                  <div class="text-h6">Alert</div>
+                </q-card-section>
+
+                <q-card-section class="q-pt-none">
+                  Escreva um enunciado para a questão
+                </q-card-section>
+
+                <q-card-actions align="right">
+                  <q-btn flat label="OK" color="primary" v-close-popup />
+                </q-card-actions>
+              </q-card>
+            </q-dialog>
+            <q-btn color="secondary" @click="cancelQuestEvent($event)" data-test-button-Cancelar="Cancelar">
               Cancelar
             </q-btn>
             <q-btn color="secondary" @click="createData($event)"
-            data-test-button-Finalizar_Questionário="Finalizar Questionário"
-            >
+              data-test-button-Finalizar_Questionário="Finalizar Questionário">
               Finalizar Questionário
             </q-btn>
           </q-form>

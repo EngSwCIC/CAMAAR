@@ -43,19 +43,9 @@ Cenario: Um Coordenador deseja adicionar uma pergunta de escala ao questionário
   E eu devo apertar o botão "Adicionar_questão"
   E eu deveria ver uma questão com os campos de "Opcional" e "Escala" e "Enunciado"
 
-# Cenario: Um Coordenador deseja criar um questionário (triste)
-#   Quando eu clico na seleção de disciplina por id
-#   E eu consigo selecionar uma disciplina
-#   E eu consigo selecionar uma turma
-# 	E eu adiciono perguntas
-# 	E eu clico em finalizar criação
-#   E a operação no backend incorre em erro
-# 	Então eu devo ver uma modal de erro
+Cenario: Um Coordenador deseja criar um questionário (triste)
+  E eu deveria selecionar o tipo de pergunta "Discursiva"
+  Dado que eu não escrevo nos campos necessários
+  E eu devo apertar o botão "Adicionar_questão"
+	Então eu deveria ver um modal de erro
 
-# Cenario: Um Coordenador deseja criar um questionário (feliz)
-#   Quando eu clico na seleção de disciplina por id
-#   E eu seleciono uma disciplina
-#   E eu seleciono uma turma
-#   E eu adiciono perguntas
-#   E eu clico em finalizar
-#   Então eu devo ver uma modal de erro

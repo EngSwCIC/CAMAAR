@@ -97,3 +97,11 @@ And(
     contains(`${title}`);
   }
 );
+
+Given("que eu não escrevo nos campos necessários", () => {
+  expect(true).to.equal(true);
+});
+
+Then("eu deveria ver um modal de erro", () => {
+  contains("Escreva um enunciado para a questão");
+});
