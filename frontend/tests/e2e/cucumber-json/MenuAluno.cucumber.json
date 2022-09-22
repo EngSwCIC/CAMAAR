@@ -1,0 +1,82 @@
+[
+  {
+    "keyword": "Funcionalidade",
+    "name": "Menu de Aluno",
+    "line": 2,
+    "id": "menu-de-aluno",
+    "tags": [],
+    "uri": "MenuAluno.feature",
+    "elements": [
+      {
+        "id": "menu-de-aluno;pagina-de-menu-de-aluno",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Pagina de Menu de Aluno",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que nao estou autenticado",
+            "result": {
+              "status": "passed",
+              "duration": 46000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 6,
+            "name": "eu vou para a rota \"/#/aluno/\"",
+            "result": {
+              "status": "passed",
+              "duration": 967000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 7,
+            "name": "clicar no botão \"Questionários\"",
+            "result": {
+              "status": "passed",
+              "duration": 14000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 8,
+            "name": "eu vou para a rota \"/surveys/a/\"",
+            "result": {
+              "status": "passed",
+              "duration": 265000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 9,
+            "name": "clicar no botão \"Voltar\"",
+            "result": {
+              "status": "passed",
+              "duration": 17000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "eu vou para a rota \"/#/\"",
+            "result": {
+              "status": "passed",
+              "duration": 192000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
