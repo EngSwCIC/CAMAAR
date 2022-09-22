@@ -10,14 +10,8 @@ default: &default
   timeout: 5000
 
 development:
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  host: 54.232.50.137
-  username: root
-  password: 21342134
-  port: 3306
-  database: camaar
+  <<: *default
+  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
