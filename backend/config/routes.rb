@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get '/cclasses', to:'cclasses#index'
   get '/cclasses/:id', to:'cclasses#show'
   get '/cclasses/:id/members', to:'members#index'
+  get '/cclass_grade/:id', to: 'cclasses#cclass_grade'
 
   # subjects
   get '/subjects', to:'subjects#index'
@@ -37,11 +38,5 @@ Rails.application.routes.draw do
   get '/members', to:'members#index'
   get '/members/:id', to:'members#show'
 
-  #member_cclasses
-  scope '/member_cclasses/' do
-    get 'index', to: 'member_cclasses#index'
-    post 'create', to: 'member_cclasses#create'
-    delete 'destroy/:id', to: 'member_cclasses#destroy'
-  end
 
 end
