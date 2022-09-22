@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-export-in-script-setup -->
 <script setup>
 import LoginCard from "src/components/LoginCard.vue";
 </script>
