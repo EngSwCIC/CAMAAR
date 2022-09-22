@@ -20,14 +20,28 @@ Cenario: Um Coordenador deseja criar um questionário (feliz)
   E eu deveria ver o botão "Cancelar"
   E eu deveria ver o botão "Finalizar_questionário"
 
-Cenario: Um Coordenador deseja dar nome à um questionário (feliz)
+Cenario: Um Coordenador deseja adicionar as informações básicas do questionário (feliz)
   E eu consigo escrever 'Nome' no campo "Nome_do_questionário"
-	E eu devo ver 'Nome' no campo "Nome_do_questionário"
-
-Cenario: Um Coordenador deseja dar nome à um questionário (feliz)
   E eu consigo escrever "Descrição" no campo "Descrição_do_Questionário"
-	E eu devo ver "Descrição" no campo "Descrição_do_Questionário"
+  E eu consigo escolher uma data
   E eu deveria selecionar o semestre
+	E eu devo ver 'Nome' no campo "Nome_do_questionário"
+	E eu devo ver "Descrição" no campo "Descrição_do_Questionário"
+  E eu devo ver o semestre selecionado
+
+Cenario: Um Coordenador deseja adicionar uma pergunta discursiva ao questionário (feliz)
+  E eu deveria selecionar o tipo de pergunta "Discursiva" 
+  E eu deveria marcar o campo de "Opcional"
+  E eu consigo escrever 'Enunciado' no campo "Escreva_o_enunciado"
+  E eu devo apertar o botão "Adicionar_questão"
+  E eu deveria ver uma questão com os campos de "Opcional" e "Discursiva" e "Enunciado"
+
+Cenario: Um Coordenador deseja adicionar uma pergunta de escala ao questionário (feliz)
+  E eu deveria selecionar o tipo de pergunta "Escala"
+  E eu deveria marcar o campo de "Opcional"
+  E eu consigo escrever 'Enunciado' no campo "Escreva_o_enunciado"
+  E eu devo apertar o botão "Adicionar_questão"
+  E eu deveria ver uma questão com os campos de "Opcional" e "Escala" e "Enunciado"
 
 # Cenario: Um Coordenador deseja criar um questionário (triste)
 #   Quando eu clico na seleção de disciplina por id

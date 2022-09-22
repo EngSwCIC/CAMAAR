@@ -23,7 +23,7 @@
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
               "status": "passed",
-              "duration": 1008000000
+              "duration": 984000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "que eu esteja na página de questionários",
             "result": {
               "status": "passed",
-              "duration": 33000000
+              "duration": 40000000
             }
           },
           {
@@ -53,7 +53,7 @@
             "name": "eu deveria ver o campo \"Descrição_do_Questionário\"",
             "result": {
               "status": "passed",
-              "duration": 11000000
+              "duration": 12000000
             }
           },
           {
@@ -63,7 +63,7 @@
             "name": "eu deveria ver o campo \"Data_de_Expiração_do_Questionário\"",
             "result": {
               "status": "passed",
-              "duration": 13000000
+              "duration": 11000000
             }
           },
           {
@@ -73,7 +73,7 @@
             "name": "eu deveria ver o campo \"Selecione_o_semestre\"",
             "result": {
               "status": "passed",
-              "duration": 11000000
+              "duration": 12000000
             }
           },
           {
@@ -83,7 +83,7 @@
             "name": "eu deveria ver o campo \"Selecione_o_tipo_da_questão\"",
             "result": {
               "status": "passed",
-              "duration": 10000000
+              "duration": 12000000
             }
           },
           {
@@ -103,7 +103,7 @@
             "name": "eu deveria ver o campo \"Escreva_o_enunciado\"",
             "result": {
               "status": "passed",
-              "duration": 11000000
+              "duration": 12000000
             }
           },
           {
@@ -113,7 +113,7 @@
             "name": "eu deveria ver o botão \"Adicionar_questão\"",
             "result": {
               "status": "passed",
-              "duration": 14000000
+              "duration": 11000000
             }
           },
           {
@@ -133,16 +133,16 @@
             "name": "eu deveria ver o botão \"Finalizar_questionário\"",
             "result": {
               "status": "passed",
-              "duration": 10000000
+              "duration": 12000000
             }
           }
         ]
       },
       {
-        "id": "criar-template-de-questionario-com-listas-de-perguntas;um-coordenador-deseja-dar-nome-à-um-questionário-(feliz)",
+        "id": "criar-template-de-questionario-com-listas-de-perguntas;um-coordenador-deseja-adicionar-as-informações-básicas-do-questionário-(feliz)",
         "keyword": "Scenario",
-        "line": 27,
-        "name": "Um Coordenador deseja dar nome à um questionário (feliz)",
+        "line": 23,
+        "name": "Um Coordenador deseja adicionar as informações básicas do questionário (feliz)",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -153,7 +153,7 @@
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
               "status": "passed",
-              "duration": 995000000
+              "duration": 994000000
             }
           },
           {
@@ -163,17 +163,57 @@
             "name": "que eu esteja na página de questionários",
             "result": {
               "status": "passed",
-              "duration": 37000000
+              "duration": 33000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 24,
+            "name": "eu consigo escrever 'Nome' no campo \"Nome_do_questionário\"",
+            "result": {
+              "status": "passed",
+              "duration": 228000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 25,
+            "name": "eu consigo escrever \"Descrição\" no campo \"Descrição_do_Questionário\"",
+            "result": {
+              "status": "passed",
+              "duration": 276000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 26,
+            "name": "eu consigo escolher uma data",
+            "result": {
+              "status": "passed",
+              "duration": 119000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 27,
+            "name": "eu deveria selecionar o semestre",
+            "result": {
+              "status": "passed",
+              "duration": 236000000
             }
           },
           {
             "arguments": [],
             "keyword": "E ",
             "line": 28,
-            "name": "eu consigo escrever \"Descrição\" no campo \"Descrição_do_Questionário\"",
+            "name": "eu devo ver 'Nome' no campo \"Nome_do_questionário\"",
             "result": {
               "status": "passed",
-              "duration": 282000000
+              "duration": 19000000
             }
           },
           {
@@ -182,17 +222,178 @@
             "line": 29,
             "name": "eu devo ver \"Descrição\" no campo \"Descrição_do_Questionário\"",
             "result": {
-              "status": "failed",
-              "error_message": "AssertionError: Timed out retrying after 4000ms: object tested must be an array, a map, an object, a set, a string, or a weakset, but object given\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Survey/Criar_Questionario.feature:41790:11)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Survey/Criar_Questionario.feature:11519:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Survey/Criar_Questionario.feature:10840:35)"
+              "status": "passed",
+              "duration": 20000000
             }
           },
           {
             "arguments": [],
             "keyword": "E ",
             "line": 30,
-            "name": "eu deveria selecionar o semestre",
+            "name": "eu devo ver o semestre selecionado",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 18000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "criar-template-de-questionario-com-listas-de-perguntas;um-coordenador-deseja-adicionar-uma-pergunta-discursiva-ao-questionário-(feliz)",
+        "keyword": "Scenario",
+        "line": 32,
+        "name": "Um Coordenador deseja adicionar uma pergunta discursiva ao questionário (feliz)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que eu esteja logado como aluno no CAMAAR",
+            "result": {
+              "status": "passed",
+              "duration": 984000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "que eu esteja na página de questionários",
+            "result": {
+              "status": "passed",
+              "duration": 38000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 33,
+            "name": "eu deveria selecionar o tipo de pergunta \"Discursiva\"",
+            "result": {
+              "status": "passed",
+              "duration": 243000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 34,
+            "name": "eu deveria marcar o campo de \"Opcional\"",
+            "result": {
+              "status": "passed",
+              "duration": 125000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 35,
+            "name": "eu consigo escrever 'Enunciado' no campo \"Escreva_o_enunciado\"",
+            "result": {
+              "status": "passed",
+              "duration": 273000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 36,
+            "name": "eu devo apertar o botão \"Adicionar_questão\"",
+            "result": {
+              "status": "passed",
+              "duration": 115000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 37,
+            "name": "eu deveria ver uma questão com os campos de \"Opcional\" e \"Discursiva\" e \"Enunciado\"",
+            "result": {
+              "status": "passed",
+              "duration": 41000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "criar-template-de-questionario-com-listas-de-perguntas;um-coordenador-deseja-adicionar-uma-pergunta-de-escala-ao-questionário-(feliz)",
+        "keyword": "Scenario",
+        "line": 39,
+        "name": "Um Coordenador deseja adicionar uma pergunta de escala ao questionário (feliz)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que eu esteja logado como aluno no CAMAAR",
+            "result": {
+              "status": "passed",
+              "duration": 977000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "que eu esteja na página de questionários",
+            "result": {
+              "status": "passed",
+              "duration": 35000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 40,
+            "name": "eu deveria selecionar o tipo de pergunta \"Escala\"",
+            "result": {
+              "status": "passed",
+              "duration": 248000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 41,
+            "name": "eu deveria marcar o campo de \"Opcional\"",
+            "result": {
+              "status": "passed",
+              "duration": 118000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 42,
+            "name": "eu consigo escrever 'Enunciado' no campo \"Escreva_o_enunciado\"",
+            "result": {
+              "status": "passed",
+              "duration": 281000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 43,
+            "name": "eu devo apertar o botão \"Adicionar_questão\"",
+            "result": {
+              "status": "passed",
+              "duration": 116000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 44,
+            "name": "eu deveria ver uma questão com os campos de \"Opcional\" e \"Escala\" e \"Enunciado\"",
+            "result": {
+              "status": "passed",
+              "duration": 44000000
             }
           }
         ]

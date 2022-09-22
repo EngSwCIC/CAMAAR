@@ -244,7 +244,7 @@ export default {
                   v-model="item.isOptional"
                   :disabled="true"          
                 />
-                <label for="checkbox"> Opcional </label>
+                <label> Opcional </label>
               </div>
 
               <q-rating
@@ -258,11 +258,12 @@ export default {
             <h3>Inserir nova questão</h3>
             <div>
               <q-select
+                id="select"
                 filled
                 v-model="questionFormat"
                 :options="questionTypes"
                 label="Selecione o tipo da questão"
-            data-test-Selecione_o_tipo_da_questão="Selecione o tipo da questão"         
+                data-test-Selecione_o_tipo_da_questão="Selecione o tipo da questão"         
               />
               <br />
 

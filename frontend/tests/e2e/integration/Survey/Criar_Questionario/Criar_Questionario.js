@@ -6,7 +6,8 @@ import {
   And,
   Before,
 } from "cypress-cucumber-preprocessor/steps";
-const { get, visit, the, wait, intercept, clearLocalStorageCache } = cy;
+const { get, visit, the, wait, intercept, clearLocalStorageCache, contains } =
+  cy;
 
 Before(() => {
   clearLocalStorageCache();
@@ -53,11 +54,16 @@ And("eu consigo escrever {string} no campo {string}", (text, id) => {
 });
 
 And("eu devo ver {string} no campo {string}", (text, id) => {
-  the(id).should("contains", `${text}`);
+  the(id).should("have.value", `${text}`);
 });
 
-// And(/^(:?|eu )deveria selecionar [o|a] (\w+)$/, (id) => {
-// });
+And("eu devo ver o semestre selecionado", () => {
+  get(".Selecione_o_semestre").should("contain", "2021.1");
+});
+
+And("eu consigo escolher uma data", () => {
+  get(".q-date__view").click();
+});
 
 And("eu deveria selecionar o semestre", () => {
   get(
@@ -67,10 +73,27 @@ And("eu deveria selecionar o semestre", () => {
     .first()
     .click();
 
-  get(
-    `.q-item__section`,
-    { timeout: 20000 }
-  )
-    .first()
-    .click();
+  get(`.q-item__section`, { timeout: 20000 }).first().click();
 });
+
+And("eu deveria selecionar o tipo de pergunta {string}", (text) => {
+  get("#select").click();
+  contains(`${text}`).click();
+});
+
+And("eu deveria marcar o campo de {string}", (text) => {
+  contains(`${text}`).click();
+});
+
+And("eu devo apertar o botão {string}", (text) => {
+  the(`${text}`, "button").click();
+});
+
+And(
+  "eu deveria ver uma questão com os campos de {string} e {string} e {string}",
+  (optional, discursive, title) => {
+    contains(`${optional}`);
+    contains(`${discursive}`);
+    contains(`${title}`);
+  }
+);
