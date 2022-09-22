@@ -21,8 +21,9 @@
             "line": 5,
             "name": "que estou na rota \"/import\"",
             "result": {
-              "status": "passed",
-              "duration": 1973000000
+              "status": "failed",
+              "duration": 6153000000,
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-test-Email]`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/support/index.js:1559:6)"
             }
           },
           {
@@ -31,8 +32,7 @@
             "line": 6,
             "name": "eu clicar no botão \"searchButton\"",
             "result": {
-              "status": "passed",
-              "duration": 5627000000
+              "status": "skipped"
             }
           },
           {
@@ -41,8 +41,7 @@
             "line": 7,
             "name": "eu devo ver na tabela uma ou mais turmas",
             "result": {
-              "status": "passed",
-              "duration": 42000000
+              "status": "skipped"
             }
           }
         ]
@@ -66,8 +65,8 @@
             "line": 11,
             "name": "que estou na rota \"/import\"",
             "result": {
-              "status": "passed",
-              "duration": 1388000000
+              "status": "failed",
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-test-Email]`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests/e2e/support/index.js:1559:6)"
             }
           },
           {
@@ -76,8 +75,7 @@
             "line": 12,
             "name": "eu clicar no botão \"searchButton\"",
             "result": {
-              "status": "passed",
-              "duration": 139000000
+              "status": "skipped"
             }
           },
           {
@@ -86,8 +84,7 @@
             "line": 13,
             "name": "não retornar nenhuma turma na tabela",
             "result": {
-              "status": "passed",
-              "duration": 33000000
+              "status": "skipped"
             }
           },
           {
@@ -96,8 +93,7 @@
             "line": 14,
             "name": "eu devo ver uma notificação de \"Erro ao buscar turmas\"",
             "result": {
-              "status": "passed",
-              "duration": 22000000
+              "status": "skipped"
             }
           }
         ]

@@ -1,0 +1,82 @@
+[
+  {
+    "keyword": "Funcionalidade",
+    "name": "Menu de Coordenador",
+    "line": 2,
+    "id": "menu-de-coordenador",
+    "tags": [],
+    "uri": "MenuCoordenador.feature",
+    "elements": [
+      {
+        "id": "menu-de-coordenador;pagina-de-menu-de-coordenador",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Pagina de Menu de Coordenador",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que nao estou autenticado",
+            "result": {
+              "status": "passed",
+              "duration": 34000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 6,
+            "name": "eu vou para a rota \"/#/\"",
+            "result": {
+              "status": "passed",
+              "duration": 242000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 7,
+            "name": "clicar no botão \"Questionários\"",
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 8,
+            "name": "eu vou para a rota \"/surveys/c\"",
+            "result": {
+              "status": "passed",
+              "duration": 247000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 9,
+            "name": "clicar no botão \"Voltar\"",
+            "result": {
+              "status": "passed",
+              "duration": 10000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "eu vou para a rota \"/#/\"",
+            "result": {
+              "status": "passed",
+              "duration": 252000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

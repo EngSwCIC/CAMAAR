@@ -1,0 +1,324 @@
+[
+  {
+    "description": "Eu como aluno\nQuero filtrar as turmas por professor, disciplina ou semestre\nA fim de obter as avaliações de turmas mais rapidamente",
+    "keyword": "Funcionalidade",
+    "name": "Pesquisar as turmas utilizando um filtro",
+    "line": 4,
+    "id": "pesquisar-as-turmas-utilizando-um-filtro",
+    "tags": [],
+    "uri": "PesquisaPorFiltros.feature",
+    "elements": [
+      {
+        "id": "pesquisar-as-turmas-utilizando-um-filtro;um-aluno-seleciona-um-filtro-e-pesquisa-não-corresponde-a-nenhuma-turma-(triste)",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "Um aluno seleciona um filtro e pesquisa não corresponde a nenhuma turma (triste)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 10,
+            "name": "que eu esteja logado como aluno no CAMAAR",
+            "result": {
+              "status": "undefined",
+              "duration": 23546000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 11,
+            "name": "eu esteja na pagina de relatório do aluno",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 14,
+            "name": "que a disciplina 'CIC0105' não tenha nenhuma turma cadastrada",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 15,
+            "name": "que eu selecione o filtro 'Disciplina'",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 16,
+            "name": "eu escrever 'CIC0105' na barra de pesquisa",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 17,
+            "name": "eu clicar no botão \"Procurar\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 18,
+            "name": "eu deveria ver uma mensagem na tela dizendo \"Nenhuma turma encontrada\"",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pesquisar-as-turmas-utilizando-um-filtro;pesquisa-com-filtro-retorna-resultados-(feliz)",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Pesquisa com filtro retorna resultados (feliz)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 10,
+            "name": "que eu esteja logado como aluno no CAMAAR",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 11,
+            "name": "eu esteja na pagina de relatório do aluno",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 21,
+            "name": "que o(a) professor(a) 'Genaina' possui turmas cadastradas no CAMAAR",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 22,
+            "name": "que eu selecione o filtro 'Professor'",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 23,
+            "name": "eu escrever 'Genaina' na barra de pesquisa",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 24,
+            "name": "eu clicar no botão \"Procurar\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 25,
+            "name": "eu deveria ver a lista de turmas do(a) professor(a) 'Genaina'",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pesquisar-as-turmas-utilizando-um-filtro;pesquisa-por-semestre-(feliz)",
+        "keyword": "Scenario",
+        "line": 27,
+        "name": "Pesquisa por semestre (feliz)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 10,
+            "name": "que eu esteja logado como aluno no CAMAAR",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 11,
+            "name": "eu esteja na pagina de relatório do aluno",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 28,
+            "name": "que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 29,
+            "name": "que as avaliações do semestre '2021-2' foram feitas para a turma 'A' da disciplina 'CIC0105'",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 30,
+            "name": "que eu selecione o filtro 'Disciplina'",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 31,
+            "name": "eu escrever 'CIC0105' na barra de pesquisa",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 32,
+            "name": "eu selecionar o semestre '2021-2' para a turma 'A'",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 33,
+            "name": "eu deveria ver os dados referentes ao semestre selecionado",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pesquisar-as-turmas-utilizando-um-filtro;pesquisa-por-semestre-(triste)",
+        "keyword": "Scenario",
+        "line": 35,
+        "name": "Pesquisa por semestre (triste)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 10,
+            "name": "que eu esteja logado como aluno no CAMAAR",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 11,
+            "name": "eu esteja na pagina de relatório do aluno",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 36,
+            "name": "que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 37,
+            "name": "que as avaliações do semestre '2021-2' não foram feitas para a turma 'A' da disciplina 'CIC0105'",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 38,
+            "name": "que eu selecione o filtro 'Disciplina'",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 39,
+            "name": "eu escrever 'CIC0105' na barra de pesquisa",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 40,
+            "name": "eu selecionar o semestre '2021-2' para a turma 'A'",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 41,
+            "name": "eu deveria ver a mensagem 'Não há avaliações para esta turma no semestre 2021-2'",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

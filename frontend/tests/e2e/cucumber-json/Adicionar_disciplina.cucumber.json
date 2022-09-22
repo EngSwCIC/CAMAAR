@@ -23,7 +23,7 @@
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
               "status": "undefined",
-              "duration": 2161000000
+              "duration": 24007000000
             }
           },
           {
@@ -87,8 +87,7 @@
             "line": 8,
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
-              "status": "undefined",
-              "duration": 1000000
+              "status": "undefined"
             }
           },
           {
@@ -216,8 +215,7 @@
             "line": 8,
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
-              "status": "undefined",
-              "duration": 1000000
+              "status": "undefined"
             }
           },
           {
