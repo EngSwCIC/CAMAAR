@@ -25,57 +25,19 @@ class QuestionAnswersController < ApplicationController
         render json:errors, status: :unprocessable_entity
         return
       end
-
+      
       if @survey_answer.valid? && answers_attributes.present?
         process_answers(answers_attributes)
       end
       
-      if survey_answer.save
-        render json: survey_answer
+      if @survey_answer.save
+        render json: @survey_answer
       else
-        render json: survey_answer.errors, status: :unprocessable_entity
+        render json: @survey_answer.errors, status: :unprocessable_entity
       end
     end
     
-    private
-
-    def create_params
-      @member = Member.find(params[:member_id])
-      @survey = Survey.find(params[:survey_id])
-      @cclass = Cclass.find(params[:cclass_id])
-      @survey_answer = SurveyAnswer.new(member_id: @member.id, survey_id: @survey.id, cclass_id: @cclass.id)
-    end
-    
-    def missing_required_answers(required_answers)
-      required_answers.each do |required_answer|
-        if required_answer[:question_type][:name] == "likert_scale" 
-          return required_answer[:likert_answers_attributes].any? {|likert_answer| likert_answer[:content].nil? }
-        end
-        required_answer[:content].nil?
-      end
-    end
-
-    def process_answers(answers)
-      answers.each do |answer|
-        question_answer = QuestionAnswer.new
-        survey_question = SurveyQuestion.find(answer[:survey_question_id])
-
-        question_answer.survey_answer = survey_answer
-        question_answer.survey_question = survey_question
-        question_answer.name = answer[:question_type][:name]
-
-        question_answer.save!
-        
-        if question_answer.name == "discursive"
-          process_discursive_answer(question_answer)
-        elsif question_answer.name == "likert_scale"
-          process_discursive_answer(question_answer, answer[:likert_answers_attributes])
-        elsif question_answer.name == "multiple_choice"
-          process_multiple_choice_answer(answer, survey_question.id)
-        end
-    end
-
-    def process_discursive_answer(question_answer)
+    def process_discursive_answer(answer, question_answer)
       question_answer.answer = answer[:content] 
       question_answer.save!
     end
@@ -91,6 +53,48 @@ class QuestionAnswersController < ApplicationController
 
     def process_multiple_choice_answer(answer, survey_question_id)
       QuestionOption.new(content: answer[:content], option_number: answer[:option_number], survey_question_id: survey_question_id).save!
+    end
+    
+    private
+
+    def create_params
+      @member = Member.find(params[:member_id])
+      @survey = Survey.find(params[:survey_id])
+      @cclass = Cclass.find(params[:cclass_id])
+      @survey_answer = SurveyAnswer.new(member_id: @member.id, survey_id: @survey.id, cclass_id: @cclass.id)
+    end
+    
+    def missing_required_answers(required_answers)
+      missing_answers = false
+      required_answers.each do |required_answer|
+        missing_answers = false
+        if required_answer[:question_type][:name] == "likert_scale" 
+          missing_answers = required_answer[:likert_answers_attributes].any? {|likert_answer| likert_answer[:content].nil? }
+        else
+          missing_answers = required_answer[:content].nil?
+        end
+      end
+      return missing_answers
+    end
+
+    def process_answers(answers)
+      answers.each do |answer|
+        question_answer = QuestionAnswer.new
+        survey_question = SurveyQuestion.find(answer[:survey_question_id])
+
+        question_answer.survey_answer = @survey_answer
+        question_answer.survey_question = survey_question
+        question_answer_name = answer[:question_type][:name]
+
+        question_answer.save!
+        
+        if question_answer_name == "discursive"
+          process_discursive_answer(answer, question_answer)
+        elsif question_answer_name == "likert_scale"
+          process_likert_answers(question_answer, answer[:likert_answers_attributes])
+        elsif question_answer_name == "multiple_choice"
+          process_multiple_choice_answer(answer, survey_question.id)
+        end
     end
 
   end
