@@ -1,10 +1,10 @@
 <template>
-    <div v-if="hasData" >
+    <div v-if="hasData">
         <template v-for="(subject, index) in subjects" :key="index">
-            <SubjectReportTable :subject="subject"/>
+            <SubjectReportTable :subject="subject" data-test-id='gradeTable' />
         </template>
     </div>
-    <div v-else>
+    <div v-else data-test-id='noGrades'>
         <h3>não há dados aqui ainda</h3>
     </div>
 </template>
