@@ -1,11 +1,7 @@
 import { Given, Then, And, Before } from "cypress-cucumber-preprocessor/steps";
 
-Before({ tags: '@logged' }, () => {
-    // log the user in code
-})
-
 Before({ tags: '@noReportData' }, () => {
-    cy.intercept('http://localhost:3000/admin_report').as('getClassMeans')
+    cy.intercept('http://localhost:3000/admin_report', []).as('getClassMeans')
 })
 
 Given('que estou na rota "/admin/relatorio"', () => {
@@ -23,7 +19,34 @@ Then('devo ver uma mensagem de "não há dados aqui ainda"', () => {
 })
 
 Then('Então eu deveria ver "as médias das turmas", dispostas em formato de tabela', () => {
-    cy.intercept('http://localhost:3000/admin_report', ).as('getClassMeans')
+    cy.intercept('http://localhost:3000/admin_report', [
+        {
+            name: 'Engenharia de Software',
+            classes: [
+                {
+                    grade: 55,
+                    name: 'T0'
+                },
+                {
+                    grade: 89,
+                    name: 'oi'
+                },
+            ]
+        },
+        {
+            name: 'Engenharia de Software',
+            classes: [
+                {
+                    grade: 55,
+                    name: 'T0'
+                },
+                {
+                    grade: 89,
+                    name: 'oi'
+                },
+            ]
+        }
+    ]).as('getClassMeans')
     cy.wait('@getClassMeans')
     cy.get('[data-test-id=gradeTable]').should('be.enabled')
 })
