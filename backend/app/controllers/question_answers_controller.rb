@@ -34,12 +34,14 @@ class QuestionAnswersController < ApplicationController
 
       render json: @survey_answer
     end
-    
+
+    # Método usado para processar uma resposta do tipo discursiva
     def process_discursive_answer(answer, question_answer)
       question_answer.answer = answer[:content] 
       question_answer.save!
     end
-    
+
+    # Método usado para processar uma resposta do tipo likert
     def process_likert_answers(question_answer, likert_answers)
       likert_answers.each do |likert_answer|
         likert_question = LikertScaleAnswer.new(
@@ -49,19 +51,26 @@ class QuestionAnswersController < ApplicationController
       end
     end
 
+    # Método usado para processar uma resposta do tipo múltipla escolha
     def process_multiple_choice_answer(answer, survey_question_id)
       QuestionOption.new(content: answer[:content], option_number: answer[:option_number], survey_question_id: survey_question_id).save!
     end
-    
+
+
+    ##
+    # Métodos privados
     private
 
+    # Método usado para criar um novo SurveyAnswer, com base em novo membro, survey e cclass
     def create_params
       @member = Member.find(params[:member_id])
       @survey = Survey.find(params[:survey_id])
       @cclass = Cclass.find(params[:cclass_id])
       @survey_answer = SurveyAnswer.new(member_id: @member.id, survey_id: @survey.id, cclass_id: @cclass.id)
     end
-    
+
+
+    # Método usado para verificar se há alguma resposta obrigatória que não foi preenchida
     def missing_required_answers(required_answers)
       missing_answers = []
       question_type = ""
@@ -76,6 +85,8 @@ class QuestionAnswersController < ApplicationController
       return missing_answers.size > 0
     end
 
+
+    # Método usado para processar as respostas de um SurveyAnswer
     def process_answers(answers)
       answers.each do |answer|
         question_answer = QuestionAnswer.new
@@ -97,13 +108,4 @@ class QuestionAnswersController < ApplicationController
     end
 
   end
-    
-    # Funcao para decodificar o JWT
-    # def get_user_from_token
-    #   puts request.headers['Authorization']
-    #   jwt_payload = JWT.decode(request.headers['Authorization'].split(' ')[1], 
-    #     ENV['JWT_SECRET_KEY']).first
-    #   user_id = jwt_payload['sub']
-    #   user = User.find(user_id.to_s)
-    # end
   end
