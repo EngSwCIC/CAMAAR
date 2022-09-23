@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Gemfile - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./Gemfile.html">Gemfile</a>
+    <li><a href="./Gemfile_lock.html">Gemfile.lock</a>
+    <li><a href="./README_md.html">README</a>
+    <li><a href="./Rakefile.html">Rakefile</a>
+    <li><a href="./config_ru.html">config.ru</a>
+    <li><a href="./config/credentials_yml_enc.html">credentials.yml.enc</a>
+    <li><a href="./db/class_members_json.html">class_members.json</a>
+    <li><a href="./db/classes_json.html">classes.json</a>
+    <li><a href="./db/survey_answer_test_json.html">survey_answer_test.json</a>
+    <li><a href="./db/survey_test_json.html">survey_test.json</a>
+    <li><a href="./public/robots_txt.html">robots</a>
+    <li><a href="./spec/x.html">x</a>
+    <li><a href="./survey_answer_test_json.html">survey_answer_test.json</a>
+    <li><a href="./x.html">x</a>
+    <li><a href="./yarn_lock.html">yarn.lock</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page Gemfile">
+
+<p>source “<a href="https://rubygems.org">rubygems.org</a>” git_source(:github) { |repo| “<a href="https://github.com/#{repo}.git">github.com/#{repo}.git</a>” }</p>
+
+<p>ruby “2.7.5” gem “factory_girl_rails”, “~&gt; 4.0”</p>
+
+<p># Bundle edge Rails instead: gem “rails”, github: “rails/rails”, branch: “main” gem “rails”, “~&gt; 7.0.2”, “&gt;= 7.0.2.3”</p>
+
+<p># Use sqlite3 as the database for Active Record gem “sqlite3”, “~&gt; 1.4”</p>
+
+<p># Use the Puma web server [<a href="https://github.com/puma/puma">github.com/puma/puma</a>] gem “puma”, “~&gt; 5.0”</p>
+
+<p>gem “figaro”</p>
+
+<p># Build JSON APIs with ease [<a href="https://github.com/rails/jbuilder">github.com/rails/jbuilder</a>] # gem “jbuilder”</p>
+
+<p># Use Redis adapter to run Action Cable in production # gem “redis”, “~&gt; 4.0”</p>
+
+<p># Use Kredis to get higher-level data types in Redis [<a href="https://github.com/rails/kredis">github.com/rails/kredis</a>] # gem “kredis”</p>
+
+<p># Use Active Model has_secure_password [<a href="https://guides.rubyonrails.org/active_model_basics.html#securepassword">guides.rubyonrails.org/active_model_basics.html#securepassword</a>] # gem “bcrypt”, “~&gt; 3.1.7”</p>
+
+<p># Windows does not include zoneinfo files, so bundle the tzinfo-data gem gem “tzinfo-data”, platforms: %i[ mingw mswin x64_mingw jruby ]</p>
+
+<p># Reduces boot times through caching; required in config/boot.rb gem “bootsnap”, require: false</p>
+
+<p># Use Active Storage variants [<a href="https://guides.rubyonrails.org/active_storage_overview.html#transforming-images">guides.rubyonrails.org/active_storage_overview.html#transforming-images</a>] # gem “image_processing”, “~&gt; 1.2”</p>
+
+<p># Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible # gem “rack-cors”</p>
+
+<p>group :development, :test do</p>
+
+<pre class="ruby"><span class="ruby-comment"># See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem</span>
+<span class="ruby-identifier">gem</span> <span class="ruby-string">&quot;debug&quot;</span>, <span class="ruby-value">platforms:</span> <span class="ruby-node">%i[ mri mingw x64_mingw ]</span>
+</pre>
+
+<p>end</p>
+
+<p>group :development do</p>
+
+<pre class="ruby"><span class="ruby-comment"># Speed up commands on slow machines / big apps [https://github.com/rails/spring]</span>
+<span class="ruby-comment"># gem &quot;spring&quot;</span>
+</pre>
+
+<p>end</p>
+
+<p>gem “devise”, “~&gt; 4.8” gem “devise-jwt”, “~&gt; 0.9.0”</p>
+
+<p>gem “rack-cors”, “~&gt; 1.1”</p>
+
+<p>gem “rspec-rails”, “~&gt; 5.1.1” gem ‘metric_fu’ gem ‘rdoc’ gem ‘simplecov’, require: false, group: :test gem “rubycritic”, require: false</p>
+
+<p>gem “json”, “~&gt; 2.6.1”</p>
+
+<p>gem ‘rest-client’, ‘~&gt; 2.0.1’</p>
+
+<p>gem ‘webmock’, ‘~&gt; 3.14’</p>
+
+<p>gem “mysql2”, “~&gt; 0.5.4”</p>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
