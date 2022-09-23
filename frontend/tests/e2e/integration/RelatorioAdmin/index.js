@@ -5,11 +5,11 @@ Before({ tags: '@logged' }, () => {
 })
 
 Before({ tags: '@noReportData' }, () => {
-    cy.intercept('').as('getClassMeans')
+    cy.intercept('http://localhost:3000/admin_report').as('getClassMeans')
 })
 
-Given('que eu estou na rota "{route}"', route => {
-    cy.visit(route)
+Given('que estou na rota "/admin/relatorio"', () => {
+    cy.visit("/admin/relatorio")
 })
 
 Then('eu deveria ver um aviso de "não tenho acesso à página"', () => {
@@ -23,7 +23,7 @@ Then('devo ver uma mensagem de "não há dados aqui ainda"', () => {
 })
 
 Then('Então eu deveria ver "as médias das turmas", dispostas em formato de tabela', () => {
-    cy.intercept('').as('getClassMeans')
+    cy.intercept('http://localhost:3000/admin_report', ).as('getClassMeans')
     cy.wait('@getClassMeans')
     cy.get('[data-test-id=gradeTable]').should('be.enabled')
 })

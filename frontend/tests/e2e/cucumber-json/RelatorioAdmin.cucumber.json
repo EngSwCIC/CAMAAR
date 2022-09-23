@@ -1,0 +1,111 @@
+[
+  {
+    "keyword": "Funcionalidade",
+    "name": "Gerar Relatório das notas para o Admin",
+    "line": 2,
+    "id": "gerar-relatório-das-notas-para-o-admin",
+    "tags": [],
+    "uri": "RelatorioAdmin.feature",
+    "elements": [
+      {
+        "id": "gerar-relatório-das-notas-para-o-admin;um-usuário-não-admin-tenta-acessar-o-relatório",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Um usuário não admin tenta acessar o Relatório",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que estou na rota \"/admin/relatorio\"",
+            "result": {
+              "status": "undefined",
+              "duration": 102000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 6,
+            "name": "eu deveria ser redirecionado para a página de login",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "gerar-relatório-das-notas-para-o-admin;um-usuário-admin-acessa-após-o-lançamento-das-informações",
+        "keyword": "Scenario",
+        "line": 9,
+        "name": "Um usuário admin acessa após o lançamento das informações",
+        "tags": [
+          {
+            "name": "@logged",
+            "line": 8
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 10,
+            "name": "que estou na rota \"/admin/relatorio\"",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 11,
+            "name": "eu deveria ver \"as médias das turmas\", dispostas em formato de tabela",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "gerar-relatório-das-notas-para-o-admin;um-admin-acessa-antes-do-lançamento-das-notas",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "Um admin acessa antes do lançamento das notas",
+        "tags": [
+          {
+            "name": "@logged",
+            "line": 13
+          },
+          {
+            "name": "@noReportData",
+            "line": 14
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 16,
+            "name": "que estou na rota \"/admin/relatorio\"",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 17,
+            "name": "devo ver uma mensagem de \"não há dados aqui ainda\"",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
