@@ -75,9 +75,7 @@ export default {
   },
   async mounted() {
     try {
-      const res_s = await axios.get(
-        "/api/surveys/" + this.$route.params.id
-      );
+      const res_s = await axios.get("/api/surveys/" + this.$route.params.id);
       this.survey = res_s.data;
     } catch (err) {
       console.error(err);
@@ -89,9 +87,7 @@ export default {
       this.router.push({ path: "/home" });
     }
     // Temporariamente usa id de membro = 1 para protótipo do questionário
-    const res_c = await axios.get(
-      `/api/members/${1}/cclasses`
-    );
+    const res_c = await axios.get(`/api/members/${1}/cclasses`);
     this.cclasses = res_c.data;
     this.cclasses.forEach((cclass) => {
       this.survey_answers.push({
@@ -123,15 +119,11 @@ export default {
     async submitAnswer() {
       this.survey_answers.forEach(async (subject_answer) => {
         try {
-          const res = await axios.post(
-            "/api/survey_answers",
-            subject_answer,
-            {
-              headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-              },
-            }
-          );
+          const res = await axios.post("/api/survey_answers", subject_answer, {
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          });
           this.notify({
             message: "Resposta enviada com sucesso!",
             position: "top",
@@ -155,9 +147,9 @@ export default {
             });
         }
       });
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>

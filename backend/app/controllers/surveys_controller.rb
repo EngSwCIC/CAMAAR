@@ -42,6 +42,22 @@ class SurveysController < ApplicationController
     render json: @survey
   end
 
+  ##
+  # Método que cria um novo survey
+  # O método não recebe nenhum parâmetro e não retorna nenhum valor
+  # Ao ser evocado ele cria um novo survey no banco de dados da aplicação
+  #
+  def create
+    @survey = Survey.new(
+      set_survey_params
+    )
+    if @survey.save
+      render json: @survey
+    else
+      render json: @survey.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
     ##
@@ -56,5 +72,35 @@ class SurveysController < ApplicationController
 
     def set_survey
       @survey = Survey.find(params[:id])
+    end
+
+    ##
+    # Método para instanciar os params de Surveys
+    # O método recebe os parâmetros name, description, expiration_date, semester, role_id, survey_questions_attributes,
+    # question_options_attributes e likert_scale_questions_attributes
+    # Ele não retorna nenhum valor e nem tem algum efeito colateral
+    def set_survey_params
+      params.require(:survey).permit(
+        :name,
+        :description,
+        :expiration_date,
+        :semester,
+        :role_id,
+        {:survey_questions_attributes => [
+          :question_number,
+          :question,
+          :optional,
+          :question_type_id,
+          {:question_options_attributes => [
+            :option_number,
+            :content
+          ]},
+          {:likert_scale_questions_attributes => [
+            :question,
+            :question_number,
+            :scale_points
+          ]}
+        ]},
+      )
     end
 end
