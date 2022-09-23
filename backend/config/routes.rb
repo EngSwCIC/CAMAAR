@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :surveys do
     get 'open', on: :collection
   end
-  resources :members, only: [:show] do 
+  resources :members, only: [:show] do
     resources :cclasses, only: [:index]
   end
   resources :survey_answers, only: [:create]
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   }
   get '/template', to:'template#show'
   post '/import/turmas', to:'scrapper#index'
-  
+
   post '/users', to: 'users#create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -27,12 +27,15 @@ Rails.application.routes.draw do
   get '/cclasses', to:'cclasses#index'
   get '/cclasses/:id', to:'cclasses#show'
   get '/cclasses/:id/members', to:'members#index'
+
   # subjects
   get '/subjects', to:'subjects#index'
   get '/subjects/:id', to:'subjects#show'
+  get '/admin_report', to: 'subjects#admin_report'
 
   # members
   get '/members', to:'members#index'
   get '/members/:id', to:'members#show'
+
 
 end

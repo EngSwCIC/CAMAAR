@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Cclasses", type: :request do
   before(:each) do
-    load "#{Rails.root}/db/seeds.rb" 
+    load "#{Rails.root}/db/seeds.rb"
   end
 
   describe "GET /" do
@@ -28,3 +28,4 @@ RSpec.describe "Cclasses", type: :request do
   end
 
 end
+

@@ -34,4 +34,5 @@ class CclassesController < ApplicationController
     @cclass = Cclass.find(params[:id])
     render json: @cclass, status: :ok
   end
+
 end

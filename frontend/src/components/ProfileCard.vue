@@ -16,8 +16,11 @@ export default {
     redirectStudentReports() {
       this.router.push({ path: "/student-subjects"})
     },
-    redirectImport(){
+    redirectImport() {
       this.router.push({ path: "/import" })
+    },
+    redirectAdminReport() {
+      this.router.push({ path: '/admin_report' })
     }
   },
 };
@@ -46,6 +49,9 @@ export default {
       </q-btn>
       <q-btn color="secondary" @click="redirectImport">
         Vá para a página de importação de dados do SIGAA
+      </q-btn>
+      <q-btn color="secondary" @click="redirectAdminReport">
+        Vá para a página de Dados de Admin
       </q-btn>
     </q-card>
   </div>

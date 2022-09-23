@@ -1,10 +1,11 @@
+import HomePage from '../pages/HomePage.vue'
 import LoginPage from '../pages/LoginPage.vue'
+import SurveyPage from '../pages/SurveyPage.vue'
 import ImportPage from '../pages/ImportPage.vue'
-import HomePage from "../pages/HomePage.vue";
-import SurveyPage from "../pages/SurveyPage.vue";
-import SurveysPage from "../pages/SurveysPage.vue";
-import CadastrarPage from  '../pages/CadastrarPage.vue'
+import SurveysPage from '../pages/SurveysPage.vue'
+import AdminReport from '../pages/AdminReport.vue'
 import StudentClass from  '../pages/StudentClass.vue'
+import CadastrarPage from  '../pages/CadastrarPage.vue'
 import StudentEvaluationsReport from '../pages/StudentEvaluationsReport.vue'
 
 const routes = [
@@ -47,6 +48,11 @@ const routes = [
     path: '/student-subjects/',
     name: 'List',
     component: StudentEvaluationsReport,
+  },
+  {
+    path: '/admin_report/',
+    name: 'AdminReport',
+    component: AdminReport
   },
 
   // Always leave this as last one,
