@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Subjects", type: :request do
   before(:each) do
-    load "#{Rails.root}/db/seeds.rb" 
+    load "#{Rails.root}/db/seeds.rb"
   end
 
   describe "GET /" do
@@ -33,7 +33,7 @@ RSpec.describe "Subjects", type: :request do
       create(:enrollment, cclass: class_2, grade: 60)
       create(:enrollment, cclass: class_3, grade: 70)
     end
-    
+
     it "should be ok" do
       get '/admin_report'
       expect(response).to have_http_status :ok
