@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_09_182217) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_21_140834) do
   create_table "cclasses", force: :cascade do |t|
     t.string "code"
     t.string "semester"
@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_182217) do
     t.bigint "member_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "grade"
     t.index ["cclass_id"], name: "index_enrollments_on_cclass_id"
     t.index ["member_id"], name: "index_enrollments_on_member_id"
   end
@@ -56,16 +57,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_182217) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["survey_question_id"], name: "index_likert_scale_questions_on_survey_question_id"
-  end
-
-  create_table "member_cclasses", force: :cascade do |t|
-    t.integer "member_id", null: false
-    t.integer "cclass_id", null: false
-    t.integer "grade"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cclass_id"], name: "index_member_cclasses_on_cclass_id"
-    t.index ["member_id"], name: "index_member_cclasses_on_member_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -177,8 +168,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_182217) do
   add_foreign_key "likert_scale_answers", "likert_scale_questions"
   add_foreign_key "likert_scale_answers", "question_answers"
   add_foreign_key "likert_scale_questions", "survey_questions"
-  add_foreign_key "member_cclasses", "cclasses"
-  add_foreign_key "member_cclasses", "members"
   add_foreign_key "members", "roles"
   add_foreign_key "question_answers", "survey_answers"
   add_foreign_key "question_answers", "survey_questions"

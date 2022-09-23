@@ -3,5 +3,4 @@ class Cclass < ApplicationRecord
     has_many :enrollments
     has_many :members, through: :enrollments
     has_many :survey_answers
-    has_many :member_cclasses
 end

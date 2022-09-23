@@ -28,9 +28,9 @@ class SubjectsController < ApplicationController
     render json: subjects
   end
 
-  private 
+  private
   def get_class_mean(oi)
-    a = oi.member_cclasses.map { |b| b.grade }
-    return a.inject(0) { |sum, x| sum + x } / a.size unless a.size == 0
+    a = oi.enrollments.map { |b| b.grade }
+    return a.inject(0) { |sum, x| sum + x.to_i } / a.size unless a.size == 0
   end
 end
