@@ -22,9 +22,9 @@ RSpec.describe "Cclasses", type: :request do
 
   describe "GET /:id/members" do
     it "returns members list" do
-      get "/cclasses/1/members"
+      get "/members/1/cclasses"
       response_body = JSON.parse(response.body)
-      expect(response_body[44]['name']).to eq('MARISTELA TERTO DE HOLANDA')
+      expect(response_body[0]['subject']['name']).to eq('BANCOS DE DADOS')
     end
   end
 
