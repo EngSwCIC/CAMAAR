@@ -55,7 +55,7 @@ const cadastrar = async () =>{
 }
 </script>
 <template>
-  <div class="row">
+  <div class="row" data-test-id="loginPage">
     <q-card class="rounded-border q-pa-xl hsize justify-center col-12 text-center">
       <h1 class="text-h3">Login</h1>
       <q-form ref="form" class="q-gutter-sm q-mt-xl row">

@@ -1,28 +1,52 @@
-import { Given, Then, And } from "cypress-cucumber-preprocessor/steps";
-const { visit, the } = cy;
+import { Given, Then, And, Before } from "cypress-cucumber-preprocessor/steps";
 
-////////////////////////////////////////////////////////////
-Given(`que estou na rota {string}`, (pagina) => {
-    visit(pagina);
-    Then(/^(:?|eu )deveria ver o aviso de"(\w+)"$/, (id) => {
-        the(id);
-      });
-});
+Before({ tags: '@noReportData' }, () => {
+    cy.intercept('http://localhost:3000/admin_report', []).as('getClassMeans')
+})
 
-///////////////////////////////////////////////////////////
-Given(`que estou na rota {string}`, (pagina) => {
-    visit(pagina);
-    Then('eu deveria ver as {string}, dispostas em formato de tabela', (string) => { 
-        the(id) 
-    });
-    And( 'as {string} devem ser separadas por disciplinas');
-});
+Given('que estou na rota "/admin/relatorio"', () => {
+    cy.visit("/admin/relatorio")
+})
 
-///////////////////////////////////////////////////////////
-Given(`que estou na rota {string}`, (pagina) => {
-    visit(pagina);
-    Then('eu devo ver uma mensagem de {string}', (id) => {
-        the(id).should('contain',"")
-    });
-});
+Then('eu deveria ver um aviso de "não tenho acesso à página"', () => {
+    cy.wait(1000)
+    cy.get('[data-test-id=loginPage]').should('be.enabled')
+})
 
+Then('devo ver uma mensagem de "não há dados aqui ainda"', () => {
+    cy.wait('@getClassMeans')
+    cy.get('[data-test-id=noGrades]').should('be.enabled')
+})
+
+Then('Então eu deveria ver "as médias das turmas", dispostas em formato de tabela', () => {
+    cy.intercept('http://localhost:3000/admin_report', [
+        {
+            name: 'Engenharia de Software',
+            classes: [
+                {
+                    grade: 55,
+                    name: 'T0'
+                },
+                {
+                    grade: 89,
+                    name: 'oi'
+                },
+            ]
+        },
+        {
+            name: 'Engenharia de Software',
+            classes: [
+                {
+                    grade: 55,
+                    name: 'T0'
+                },
+                {
+                    grade: 89,
+                    name: 'oi'
+                },
+            ]
+        }
+    ]).as('getClassMeans')
+    cy.wait('@getClassMeans')
+    cy.get('[data-test-id=gradeTable]').should('be.enabled')
+})

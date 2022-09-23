@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1663889512437" clover="3.2.0">
-  <project timestamp="1663889512438" name="All files">
-    <metrics statements="58" coveredstatements="5" conditionals="19" coveredconditionals="1" methods="21" coveredmethods="2" elements="98" coveredelements="8" complexity="0" loc="58" ncloc="58" packages="7" files="14" classes="14"/>
+<coverage generated="1663894584352" clover="3.2.0">
+  <project timestamp="1663894584352" name="All files">
+    <metrics statements="57" coveredstatements="16" conditionals="16" coveredconditionals="4" methods="21" coveredmethods="8" elements="94" coveredelements="28" complexity="0" loc="57" ncloc="57" packages="7" files="14" classes="14"/>
     <package name="boot">
       <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="axios.js" path="/home/bomdia/unb/CAMAAR/frontend/src/boot/axios.js">
@@ -17,21 +17,21 @@
       </file>
     </package>
     <package name="components">
-      <metrics statements="23" coveredstatements="5" conditionals="9" coveredconditionals="1" methods="11" coveredmethods="2"/>
+      <metrics statements="22" coveredstatements="11" conditionals="6" coveredconditionals="4" methods="11" coveredmethods="6"/>
       <file name="FiltroRAluno.vue" path="/home/bomdia/unb/CAMAAR/frontend/src/components/FiltroRAluno.vue">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="2" count="0" type="stmt"/>
       </file>
       <file name="GenericTable.vue" path="/home/bomdia/unb/CAMAAR/frontend/src/components/GenericTable.vue">
-        <metrics statements="8" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="0"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
+        <metrics statements="8" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="4"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="60" count="11" type="stmt"/>
         <line num="67" count="0" type="stmt"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="77" count="0" type="stmt"/>
+        <line num="72" count="11" type="stmt"/>
+        <line num="73" count="8" type="stmt"/>
+        <line num="74" count="48" type="stmt"/>
+        <line num="75" count="48" type="cond" truecount="4" falsecount="0"/>
+        <line num="77" count="8" type="stmt"/>
       </file>
       <file name="GradeTable.vue" path="/home/bomdia/unb/CAMAAR/frontend/src/components/GradeTable.vue">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -39,12 +39,11 @@
         <line num="26" count="0" type="stmt"/>
       </file>
       <file name="SubjectReportTable.vue" path="/home/bomdia/unb/CAMAAR/frontend/src/components/SubjectReportTable.vue">
-        <metrics statements="5" coveredstatements="5" conditionals="3" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="18" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
       </file>
       <file name="SurveyQuestion.vue" path="/home/bomdia/unb/CAMAAR/frontend/src/components/SurveyQuestion.vue">
         <metrics statements="7" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
@@ -97,14 +96,14 @@
       </file>
     </package>
     <package name="stores">
-      <metrics statements="18" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <metrics statements="18" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="2"/>
       <file name="credentials.js" path="/home/bomdia/unb/CAMAAR/frontend/src/stores/credentials.js">
-        <metrics statements="16" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
+        <metrics statements="16" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>

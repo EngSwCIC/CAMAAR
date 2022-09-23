@@ -12,10 +12,9 @@
   export default {
     computed: {
       title() {
-        return this.subject ? this.subject.name : 'no name'
+        return this.subject?.name
       },
       rows() {
-        if (!this.subject) return []
         const arrayOfArrays = this.subject.classes.map(({ name, grade }) => ([
           name,
           grade.toString().slice(0, -1) + "," + grade.toString().slice(-1)
