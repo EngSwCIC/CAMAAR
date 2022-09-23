@@ -8,7 +8,9 @@ RSpec.describe "Members", type: :request do
   describe "GET /" do
     it "returns http success" do
       get "/members"
+      response_body = JSON.parse(response.body)
       expect(response).to have_http_status(:success)
+      expect(response_body[44]['name']).to eq('MARISTELA TERTO DE HOLANDA')
     end
   end
 
@@ -26,6 +28,4 @@ RSpec.describe "Members", type: :request do
       expect(response_body['id']).to equal(1)
     end
   end
-
-
 end

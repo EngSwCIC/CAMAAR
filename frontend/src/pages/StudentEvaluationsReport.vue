@@ -53,13 +53,18 @@ const filterItems = async (filterArg) => {
     .then((resp) => {
       subjects.value = resp.data;
       //Faz o filtro pelo nome e código da disciplina
+      //Caso nao tenha resultado retorna pesquisa sem resultado
       if (filterArg != "") {
         subjects.value = subjects.value.filter(
           (value) =>
-            value.name.toLowerCase().indexOf(filterArg) !== -1 ||
             value.code.toLowerCase().indexOf(filterArg) !== -1 ||
-            value.id == filterArg
+            value.id == filterArg ||
+            value.name.toLowerCase().indexOf(filterArg)!==-1
         );
+        if (subjects.value.length==0){
+            subjects.value = [{'id': -1, 'code': 'AAA0000', 'name': 'pesquisa sem resultado', 'created_at': '0000-00-00T00:00:00.000Z', 'updated_at': '0000-00-00T00:00:00.000Z'}]
+        }
+        console.log(subjects.value)
       } else {
         subjects.value = resp.data;
       }

@@ -25,8 +25,11 @@ Rails.application.routes.draw do
   get '/turmas', to: 'cclasses#index'
   # classes
   get '/cclasses', to:'cclasses#index'
-  get '/cclasses/:id', to:'cclasses#show'
+  get '/members/:member_id/cclasses', to:'cclasses#index'
   get '/cclasses/:id/members', to:'members#index'
+  get '/cclasses/:id', to:'cclasses#show'
+
+  get '/cclasses/:id/answers', to:'cclasses#get_answers'
   # subjects
   get '/subjects', to:'subjects#index'
   get '/subjects/:id', to:'subjects#show'
@@ -34,5 +37,4 @@ Rails.application.routes.draw do
   # members
   get '/members', to:'members#index'
   get '/members/:id', to:'members#show'
-
 end
