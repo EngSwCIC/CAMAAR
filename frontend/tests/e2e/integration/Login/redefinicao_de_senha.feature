@@ -1,6 +1,5 @@
 #language: pt
-Funcionalidade: Refifinição de senha
-
+Funcionalidade: Redefinição de senha
 	Como um aluno
 	Para que eu possa me logar
 	Eu quero ter a capacidade de redefinir a minha senha
