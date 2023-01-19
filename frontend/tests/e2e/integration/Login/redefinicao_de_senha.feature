@@ -4,7 +4,7 @@ Funcionalidade: Redefinição de senha
 	Para que eu possa me logar
 	Eu quero ter a capacidade de redefinir a minha senha
 
-Background:
+Contexto:
 	Dados que clico no link de redefinição me enviado por email
 	Então eu devo ver um campo "Nova Senha"
 	E um campo "Confirmar nova senha"
