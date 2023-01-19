@@ -27,4 +27,15 @@ describe("Survey Question Tests", () => {
 
     it.todo("Componente deve permitir a alternação entre as escolhas")
   });
+
+  describe("LinearScale Tests", () =>{
+
+    it.todo("Componente deve permitir a escala inicial (maior ou igual a 0 ou 1)");
+    
+    it.todo("Componente deve permitir a escala final (maior ou igual em uma escala de 2 a 10)");
+
+    it.todo("Componente deve ser capaz de selecionar apenas um valor dentro da escala (marcador)");
+
+  });
+
 });
