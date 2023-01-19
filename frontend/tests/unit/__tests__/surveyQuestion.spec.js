@@ -2,6 +2,8 @@ describe("Survey Question Tests", () => {
 
   it.todo("Componente deve existir");
 
+  it.todo("Componente deve permitir selecionar o tipo do campo");
+
   describe("Checkbox Tests", () => {
 
     it.todo(
@@ -18,7 +20,7 @@ describe("Survey Question Tests", () => {
   describe("RadioInput Tests", () =>{
 
     it.todo("Componente deve permitir adicionar uma escolha");
-    
+
     it.todo("Componente deve permitir a remoção de uma escolha");
 
     it.todo("Componente deve ser capaz de selecionar apenas uma escolha");
@@ -31,11 +33,18 @@ describe("Survey Question Tests", () => {
   describe("LinearScale Tests", () =>{
 
     it.todo("Componente deve permitir a escala inicial (maior ou igual a 0 ou 1)");
-    
+
     it.todo("Componente deve permitir a escala final (maior ou igual em uma escala de 2 a 10)");
 
     it.todo("Componente deve ser capaz de selecionar apenas um valor dentro da escala (marcador)");
 
   });
 
+  describe("Text Tests", () =>{
+
+    it.todo("Componente deve permitir adicionar um campo de texto (Limite de 1000 caracteres)");
+
+    it.todo("Componente deve permitir remover o campo de texto");
+
+  });
 });
