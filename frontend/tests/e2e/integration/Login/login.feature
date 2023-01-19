@@ -28,6 +28,6 @@ Cenário: Digitar email e senha corretos (feliz)
     E depois selecionar o campo "Senha"
     E digitar "senha_correta"
     Então eu devo ser autenticado
-    E eu devo ser redirecionado para a rota "/"
+    E eu devo ser redirecionado para a url anterior
 
 
