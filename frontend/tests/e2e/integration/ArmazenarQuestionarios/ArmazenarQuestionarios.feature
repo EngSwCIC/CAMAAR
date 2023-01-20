@@ -15,3 +15,8 @@ Funcionalidade: Tornar os questionários respondidos anônimos
   Cenário: Consigo responder o questionário pela primeira vez (feliz)
     E que eu já tenha completado o questionário
     Então eu consigo enviar o questionário
+
+  Cenário:  Tento responder o questionário pela segunda vez (triste)
+    E que eu já tenha respondido o questionário uma vez
+    E que eu já tenha completado o questionário
+    Então o questionário não me permite responder novamente
