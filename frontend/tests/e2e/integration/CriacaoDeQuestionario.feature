@@ -34,3 +34,14 @@ Funcionalidade: Criar novo questionário
         Então o questionário não será salvo no BD
         E será mostrado uma mensagem de erro
     Pontos: 3
+    Cenário: Excluir pergunta
+    E alguma pergunta está preenchida
+    Quando eu clicar em "excluir pergunta"
+    Então a pergunta será excluída
+Pontos: 3
+
+Cenário: Editar pergunta do questionário
+    E alguma pergunta está preenchida
+    Quando eu clicar em "editar pergunta"
+    Então a pergunta poderá ser modificada
+Pontos: 2
