@@ -6,7 +6,6 @@ Funcionalidade: Preenchimento dos Questionarios
 
   @MockQuestionarios
   Cenario: Acesso a lista de questionarios
-  # Supor q estou na tela de questionários.
     Dado que estou na tela de selecao dos questionarios
     Então deveria ver questionarios
 
@@ -34,61 +33,9 @@ Funcionalidade: Preenchimento dos Questionarios
 
   Cenario: Enviar com todos campos obrigatorios preenchidos (feliz)
     Dado que estou no questionario "teste"
-    #preencher detalhadamente
-    E preencho todos os campos obrigatorios
+    E preencho o campo "textArea2" julgamento_disciplina com "Um julgamento"
+    E preencho o campo "radioButton" com uma opcao.
     E clico em enviar
     Entao devo ver um mensagem de "Enviado"
-    #Verificar formato enviado.
-
-  # Cenario para multipla
-  # Digitei no text area, verifico se chegou o texto q digitei
-  # Limpar o banco as mudanças no banco. Provavelmente no hook.
-
-Funcionalidade: Remoção de disciplina ao questionário durante a resposta
-  Eu como aluno
-  quero retirar uma disciplina do meu questionário
-  A fim de atualizar meu cadastro
-
-  Cenario: Um Aluno deseja retirar uma disciplina ao questionário e não esta matriculado em nenhuma disciplina (triste)
-    Dado que o aluno não está matriculado em nenhuma disciplina
-    Quando clicar no botão "Retirar Disciplina"
-    Entao deve ver a mensagem "Sem turmas para retirar"
-
-    Cenario: Um Aluno deseja retirar uma disciplina ao questionário (feliz)
-    Dado que está matriculado em alguma disciplina
-    E que as matriculas foram selecionadas
-    Quando clicar no botão "Retirar Disciplina"
-    E disciplinas foram retiradas
-    Entao deve ver a mensagem "Sucesso"
-
-    Cenario: Um Aluno deseja retirar uma disciplina ao questionário sem selecionar (triste)
-      Dado que está matriculado em alguma disciplina
-      Quando clicar no botão "Retirar Disciplina"
-      Entao deve ver a mensagem "Turmas não selecionadas"
-
-Funcionalidade: Checagem de Disciplinas em meus questionários
-  Eu como aluno
-  quero checar as turmas presentes nos meus questionários
-  A fim de analisar meu cadastro
-
-    Cenario: Um Aluno deseja verificar as disciplinas em seus questionários porém não
-    está matriculado em nenhuma disciplina (triste)
-      Dado que o aluno não está matriculado em nenhuma disciplina
-      Quando ao tentar clicar no botão "Visualizar Disciplinas"
-      Entao deve aparecer um "Dropdown" vazio
-
-
-    Cenario: Um Aluno deseja verificar as disciplinas em seus questionários com disciplinas matriculadas (feliz)
-      Dado que o aluno está matriculado em apenas uma disciplina
-      Quando clicar no botão "Visualizar Disciplinas"
-      Entao deve aparecer um "Dropdown" com disciplinas matriculadas
-
-Funcionalidade: Atualização de Disciplinas em meus questionários
-  Eu como aluno
-  quero checar as turmas presentes nos meus questionários
-  A fim de atualizar meu cadastro
-
-    Cenario: Um Aluno deseja verificar as disciplinas em seus questionários (feliz)
-      Dado que o aluno está matriculado em alguma disciplina
-      Quando ao tentar clicar no botão "Visualizar Disciplinas"
-      Entao deve aparecer um "Dropdown" com disciplinas matriculadas
+    E o campo "textArea2" julgamento_disciplina deveria enviar "Um julgamento"
+    E o campo "radioButton" opcoes deveria enviar: Opcao1, Opcao2.
