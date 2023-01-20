@@ -6,6 +6,7 @@ Funcionalidade: Redefinição de senha
 
 Contexto:
 	Dados que clico no link de redefinição me enviado por email
+	Então eu devo ser redirecionado para uma página de redefinição de senha
 	Então eu devo ver um campo "Nova Senha"
 	E um campo "Confirmar nova senha"
 
