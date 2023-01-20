@@ -22,8 +22,8 @@
             "line": 8,
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
-              "status": "passed",
-              "duration": 6117000000
+              "status": "undefined",
+              "duration": 80000000
             }
           },
           {
@@ -32,8 +32,7 @@
             "line": 9,
             "name": "eu estou na página de relatório do aluno",
             "result": {
-              "status": "passed",
-              "duration": 174000000
+              "status": "skipped"
             }
           },
           {
@@ -42,8 +41,7 @@
             "line": 12,
             "name": "que nenhuma turma está cadastrada no sistema",
             "result": {
-              "status": "undefined",
-              "duration": 62000000
+              "status": "skipped"
             }
           },
           {
@@ -80,8 +78,7 @@
             "line": 8,
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
-              "status": "passed",
-              "duration": 3349000000
+              "status": "undefined"
             }
           },
           {
@@ -90,8 +87,7 @@
             "line": 9,
             "name": "eu estou na página de relatório do aluno",
             "result": {
-              "status": "passed",
-              "duration": 137000000
+              "status": "skipped"
             }
           },
           {
@@ -100,8 +96,7 @@
             "line": 18,
             "name": "que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR",
             "result": {
-              "status": "failed",
-              "error_message": "AssertionError: expected undefined to not equal undefined\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:45986:10)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:15627:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:14948:35)"
+              "status": "skipped"
             }
           },
           {
@@ -138,8 +133,7 @@
             "line": 8,
             "name": "que eu esteja logado como aluno no CAMAAR",
             "result": {
-              "status": "passed",
-              "duration": 2757000000
+              "status": "undefined"
             }
           },
           {
@@ -148,8 +142,7 @@
             "line": 9,
             "name": "eu estou na página de relatório do aluno",
             "result": {
-              "status": "passed",
-              "duration": 128000000
+              "status": "skipped"
             }
           },
           {
@@ -158,8 +151,7 @@
             "line": 24,
             "name": "que a turma 'A' da disciplina 'CIC0105' está cadastrada no CAMAAR",
             "result": {
-              "status": "failed",
-              "error_message": "AssertionError: expected undefined to not equal undefined\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:45986:10)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:15627:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=tests\\e2e\\integration\\TelaDasAvaliacoes\\TelaDasAvaliacoes.feature:14948:35)"
+              "status": "skipped"
             }
           },
           {
