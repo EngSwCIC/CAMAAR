@@ -22,11 +22,15 @@ Funcionalidade: Preenchimento dos Questionarios
     Entao devo ver uma mensagem de "Erro"
 
   Cenario: Enviar com todos campos preenchidos (feliz)
-    Dado que estou no questionario "teste"
-    E preencho todos os campos #preencher detalhadamente
-    E clico no botão "seletor"
-    #Verificar formato enviado.
+    Dado que estou no questionario Questionário 1
+    E preencho o campo textArea sugestoes com "Uma sugestão"
+    E preencho o campo textArea julgamento_disciplina com "Um julgamento"
+    E preencho o campo radioButton opcoes com: Opcao1, Opcao2.
+    E clico no botão enviar
     Entao devo ver um mensagem de "Enviado"
+    E o campo textArea sugestoes deveria enviar "Uma sugestão"
+    E o campo textArea julgamento_disciplina deveria enviar "Um julgamento"
+    E o campo radioButton opcoes deveria enviar: Opcao1, Opcao2.
 
   Cenario: Enviar com todos campos obrigatorios preenchidos (feliz)
     Dado que estou no questionario "teste"
