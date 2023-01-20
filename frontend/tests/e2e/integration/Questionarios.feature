@@ -43,3 +43,12 @@ Funcionalidade: Preenchimento dos Questionarios
   # Digitei no text area, verifico se chegou o texto q digitei
   # Limpar o banco as mudanças no banco. Provavelmente no hook.
 
+Funcionalidade: Remoção de disciplina ao questionário durante a resposta
+  Eu como aluno
+  quero retirar uma disciplina do meu questionário
+  A fim de atualizar meu cadastro
+
+  Cenario: Um Aluno deseja retirar uma disciplina ao questionário e não esta matriculado em nenhuma disciplina
+    Dado que o aluno não está matriculado em nenhuma disciplina
+    Quando ao tentar clicar no botão "Retirar Disciplina"
+    Entao ele deve ver o botão "Retirar Disciplina" desabilitado
