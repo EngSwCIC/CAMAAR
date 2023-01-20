@@ -52,3 +52,44 @@ Funcionalidade: Remoção de disciplina ao questionário durante a resposta
     Dado que o aluno não está matriculado em nenhuma disciplina
     Quando ao tentar clicar no botão "Retirar Disciplina"
     Entao ele deve ver o botão "Retirar Disciplina" desabilitado
+
+    Cenario: Um Aluno deseja retirar uma disciplina ao questionário e está matriculado em apenas uma disciplina
+    Dado que o aluno está matriculado em apenas uma disciplina
+    Quando ao tentar clicar no botão "Retirar Disciplina"
+    Entao a disciplina deve ser retirada do questionário do mesmo
+
+    Cenario: Um Aluno deseja retirar uma disciplina ao questionário e está matriculado em mais de uma disciplina
+      Dado que o aluno está matriculado em mais de uma disciplina
+      Quando ao tentar clicar no botão "Retirar Disciplina"
+      Entao as disciplinas nas quais ele está matriculado devem aparecer para que possam ser selecionadas para que apenas aquelas selecionadas sejam retiradas do questionário do mesmo
+
+Funcionalidade: Checagem de Disciplinas em meus questionários
+  Eu como aluno
+  quero checar as turmas presentes nos meus questionários
+  A fim de analisar meu cadastro
+
+    Cenario: Um Aluno deseja verificar as disciplinas em seus questionários porém não está matriculado em nenhuma disciplina
+      Dado que o aluno não está matriculado em nenhuma disciplina
+      Quando ao tentar clicar no botão "Visualizar Disciplinas"
+      Entao ele deve ver o botão "Visualizar Disciplinas" desabilitado
+
+
+    Cenario: Um Aluno deseja verificar as disciplinas em seus questionários e está matriculado em apenas uma disciplina
+      Dado que o aluno está matriculado em apenas uma disciplina
+      Quando ao tentar clicar no botão "Visualizar Disciplinas"
+      Entao deve aparecer um "Dropdown" com a disciplina na qual ele está matriculado
+
+    Cenario: Um Aluno deseja verificar as disciplinas em seus questionários e está matriculado em mais de uma disciplina
+      Dado que o aluno está matriculado em mais de uma disciplina
+      Quando ao tentar clicar no botão "Visualizar Disciplinas"
+      Entao deve aparecer um "Dropdown" com as disciplinas nas quais ele está matriculado
+
+Funcionalidade: Atualização de Disciplinas em meus questionários
+  Eu como aluno
+  quero checar as turmas presentes nos meus questionários
+  A fim de atualizar meu cadastro
+
+    Cenario: Um Aluno deseja verificar as disciplinas em seus questionários e está matriculado em apenas uma disciplina
+      Dado que o aluno está matriculado em apenas uma disciplina
+      Quando ao tentar clicar no botão "Visualizar Disciplinas"
+      Entao deve aparecer um "Dropdown" com a disciplina na qual ele está matriculado
