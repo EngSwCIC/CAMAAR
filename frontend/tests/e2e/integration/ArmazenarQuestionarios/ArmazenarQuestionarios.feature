@@ -11,3 +11,7 @@ Funcionalidade: Tornar os questionários respondidos anônimos
   Contexto:
     Dado que eu esteja logado como aluno no CAMAAR
     E eu esteja na página de responder o questionário
+
+  Cenário: Consigo responder o questionário pela primeira vez (feliz)
+    E que eu já tenha completado o questionário
+    Então eu consigo enviar o questionário
