@@ -16,12 +16,14 @@ class ScrapperController < ApplicationController
       params = request.body.read
       resultado = Api::ImportData.call(params)
       resultado = JSON.parse(resultado)
+
       resultado.each do |participantes|
         turma = JSON.parse(params)['classes'].select { |turma| turma['codigo']==participantes['code'] && turma['turma']==participantes['classCode']}[0]
         cadastraParticipantes(participantes, turma)        
       end
-      render json: {
-          message: 'Participantes importados com sucesso'
+      
+	  render json: {
+        message: 'Participantes importados com sucesso'
       }, status: :ok
   end
 
@@ -33,7 +35,7 @@ class ScrapperController < ApplicationController
     request = Api::SearchClasses.call
     
     render json: {
-        classes: JSON.parse(request)
+      classes: JSON.parse(request)
     }, status: :ok
   end
 
@@ -41,9 +43,19 @@ class ScrapperController < ApplicationController
     ##
     # Cadastra as informações das turmas importadas do sigaa no banco de dados
     def cadastraParticipantes(participantes, turma)
-      subject = Subject.where(code: turma['codigo'], name:turma['nome']).first_or_create
-      turma = Cclass.where(code: turma['turma'], semester: turma['semestre'], time: turma['horario'], subject: subject).first_or_create
-      participantes['dicente'].each do |discente|
+      subject = Subject.where(
+	    code: turma['codigo'],
+	    name:turma['nome']
+	  ).first_or_create
+      
+	  turma = Cclass.where(
+	    code: turma['turma'], 
+	    semester: turma['semestre'], 
+	    time: turma['horario'], 
+	    subject: subject
+	  ).first_or_create
+     
+	  participantes['dicente'].each do |discente|
         cadastraParticipante(discente, turma) 
       end
     end
@@ -52,10 +64,20 @@ class ScrapperController < ApplicationController
     # Cadastra os participantes importados no banco de dados
     def cadastraParticipante(discente, turma)
       role = Role.find_or_create_by(name: :discente)
-      member = Member.find_or_create_by(name: discente['nome'], course: discente['curso'],
-        registration: discente['matricula'], username: discente['usuario'],
-        degree: discente['formacao'], role: role,
-        email: discente['email'])
-      Enrollment.find_or_create_by(member: member, cclass: turma)
+      
+	  member = Member.find_or_create_by(
+	    name: discente['nome'], 
+	    course: discente['curso'],
+        registration: discente['matricula'], 
+	    username: discente['usuario'],
+        degree: discente['formacao'], 
+	    role: role,
+        email: discente['email']
+	  )
+      
+	  Enrollment.find_or_create_by(
+	    member: member, 
+	    cclass: turma
+	  )
     end
 end
