@@ -20,3 +20,4 @@ Funcionalidade: Tornar os questionários respondidos anônimos
     E que eu já tenha respondido o questionário uma vez
     E que eu já tenha completado o questionário
     Então o questionário não me permite responder novamente
+    
