@@ -4,7 +4,13 @@ Antes de implementar as funções diretamente no rails, é interessante que o co
 
 ## Executando 
 
-Primeiramente altere as infomações contidas no arquivo ``config.sh``, para que seja possível efetuar login no SIGAA.
+Primeiramente, instale as dependências corretas (lembrando que a versão do ruby utilizada é a 2.7.5)
+
+```sh
+bundle install
+```
+
+Em seguida,  altere as infomações contidas no arquivo ``config.sh``, para que seja possível efetuar login no SIGAA.
 
 ```sh
 export SIGAA_USER='usuario'
