@@ -10,11 +10,18 @@ def login(browser, usuario, senha)
   browser.button(value: 'Entrar').click
 end
 
+# TODO: Função para retornar as turmas cadastradas no SIGAA (LUCAS E EDUARDO)
+def get_classes
+end
+
+# TODO: Função para retornar os membros de cada turma cadastradas no SIGAA (TIAGO E GABRIEL)
+def get_members(class_id)
+end
+
 
 browser = Watir::Browser.new 
 browser.goto 'https://sigaa.unb.br/sigaa/verTelaLogin.do'
 
 login(browser, ENV["SIGAA_USER"], ENV["SIGAA_SENHA"])
 
-browser.screenshot.save ("blau.png")
 
