@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_10_144002) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_27_122454) do
   create_table "cclasses", force: :cascade do |t|
     t.string "code"
     t.string "semester"
@@ -114,13 +114,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_144002) do
   end
 
   create_table "survey_answers", force: :cascade do |t|
-    t.bigint "survey_id", null: false
-    t.bigint "member_id", null: false
-    t.bigint "cclass_id", null: false
+    t.integer "survey_id", null: false
+    t.integer "cclass_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cclass_id"], name: "index_survey_answers_on_cclass_id"
-    t.index ["member_id"], name: "index_survey_answers_on_member_id"
     t.index ["survey_id"], name: "index_survey_answers_on_survey_id"
   end
 
@@ -172,7 +170,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_144002) do
   add_foreign_key "question_answers", "survey_questions"
   add_foreign_key "question_options", "survey_questions"
   add_foreign_key "survey_answers", "cclasses"
-  add_foreign_key "survey_answers", "members"
   add_foreign_key "survey_answers", "surveys"
   add_foreign_key "survey_questions", "question_types"
   add_foreign_key "survey_questions", "surveys"
