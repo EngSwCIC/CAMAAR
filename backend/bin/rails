@@ -2,4 +2,3 @@
 APP_PATH = File.expand_path("../config/application", __dir__)
 require_relative "../config/boot"
 require "rails/commands"
-devise_jwt_secret_key: e7ba7f0d1b04753e919cccc4c6fb8b52b70d7ced97f2cf54d8ab1461fc3ab8ecb6171b74e3d24d30e330a440f3c384e59c618a69938ab6ee73be0b0bb667953f
