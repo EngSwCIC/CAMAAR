@@ -79,5 +79,10 @@ class ScrapperController < ApplicationController
 	    member: member, 
 	    cclass: turma
 	  )
+
+	  # TODO: generate redefinition link and attach to the member object 
+	  mail = ApplicationMailer.redefine_password(member)
+	  
+	  # mail.deliver_now
     end
 end
