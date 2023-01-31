@@ -2,16 +2,18 @@ require 'rails_helper'
 
 RSpec.describe ApplicationMailer, type: :mailer do
   describe 'instructions' do
-    let(:user) { 'user'}
-    let(:mail) { described_class.redefine_password(user).deliver_now }
-
     it 'renders the subject' do
+      user = { name: 'Ruan', email: 'xastroboyx11@gmail.com',
+               redefinition_link: 'https://redefinition_link.com' }
+      mail = described_class.redefine_password(user).deliver_now
       expect(mail.subject).to eq('Sistema CAMAAR: Definição de Senha')
     end
 
     it 'renders the receiver email' do
-      expect(mail.to).to eq(['user.email'])
+      user = { name: 'Ruan', email: 'xastroboyx11@gmail.com',
+               redefinition_link: 'https://redefinition_link.com' }
+      mail = described_class.redefine_password(user).deliver_now
+      expect(mail.to).to eq([user[:email]])
     end
-
   end
 end
