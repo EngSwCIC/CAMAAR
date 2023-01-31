@@ -3,12 +3,12 @@ class ApplicationMailer < ActionMailer::Base
   layout "mailer"
 
   def redefine_password(user)
-    @redefinition_link = 'user.redefinition_link'
-    @user_name = 'user.name'
+    @redefinition_link = user[:redefinition_link]
+    @user_name = user[:name]
     # Needs to be a valid email address
     # Replace by yours to test
-    @user_email = 'user.email'
+    @user_email = user[:email]
 
-      mail(to: @user_email, subject: "Sistema CAMAAR: Definição de Senha")
+    mail(to: @user_email, subject: "Sistema CAMAAR: Definição de Senha")
   end
 end
