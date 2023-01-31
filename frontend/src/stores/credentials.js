@@ -8,10 +8,16 @@ export const credentialsStore = defineStore("credentials", {
   actions: {
     authenticate: async (user) => {
       try {
-        // const { data } = await axios.post("/api/auth", user);
-        // localStorage.setItem("token", data.token);
-        localStorage.setItem("token", "Token temporario");
-        return true;
+        const { data, headers } = await axios.post("/api/auth/login", user, {
+          validateStatus: function(status) {
+            return status >= 200 && status < 300 || status === 401
+          }
+        });
+        if (data.authenticated) {
+          localStorage.setItem("token", headers.authorization.split(" ")[1]);
+        } 
+
+        return data
       } catch (error) {
         console.error(error);
         throw new Error("Error ao autenticar usuario", error);
