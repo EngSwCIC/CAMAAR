@@ -16,15 +16,15 @@ Funcionalidade: Preenchimento dos Questionarios
 
   Cenario: Enviar sem preencher campo obrigatório (triste)
     Dado que estou no questionario "1"
-    E nao preencho campo textArea obrigatorio
+    Quando nao preencho o textarea obrigatorio da questão 1
     E clico no botão "Enviar"
     Entao devo ver uma mensagem de "Erro"
 
   @interceptingRequest
   Cenario: Enviar com todos campos preenchidos (feliz)
     Dado que estou no questionario "1"
-    Quando preencho o textarea a questão 1 com "Uma sugestão"
-    E preencho o textarea a questão 3 com "Outra Sugestão"
+    Quando preencho o textarea da questão 1 com "Uma sugestão"
+    E preencho o textarea da questão 3 com "Outra Sugestão"
     E preencho o radio button da questão 2 com os labels: option 1, option 2, option 5
     E clico no botão Enviar
     #Entao devo ver um mensagem de Enviado.

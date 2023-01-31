@@ -24,11 +24,8 @@ And(/clico no botão "(\w+)"/, (string) => {
   the(string, 'button').click()
 })
 
-And(/nao preencho campo (\w+) obrigatorio/, (string) => {
-  if (string == "textArea"){
-    get(':nth-child(4) > .q-card')
-  }
-
+When(`nao preencho o textarea obrigatorio da questão {}`, (numero) => {
+  cy.get(`#questao-${numero} textarea`).clear()
 })
 
 Then(/devo ver uma mensagem de "(\w+)"/, (string) => {
@@ -42,7 +39,7 @@ Before({ tags: '@interceptingRequest'},() => {
 });
 
 
-When(`preencho o textarea a questão {} com {}`, (numero, string) => {
+When(`preencho o textarea da questão {} com {}`, (numero, string) => {
   cy.get(`#questao-${numero} textarea`).type(string)
 });
 
