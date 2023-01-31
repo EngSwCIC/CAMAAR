@@ -41,6 +41,7 @@
       </div>
     </div>
     <q-btn @click="submitAnswer" rounded size="lg" color="secondary"
+           data-test-button-enviar="enviar"
       >Enviar</q-btn
     >
   </div>
