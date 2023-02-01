@@ -35,4 +35,7 @@ Rails.application.routes.draw do
   get '/members', to:'members#index'
   get '/members/:id', to:'members#show'
 
+  #surveys
+  get '/surveys/:id/answers', to: 'surveys#show_answers'
+  
 end
