@@ -1,7 +1,9 @@
 <script setup>
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
+import CheckboxComponent from "src/components/CheckboxComponent.vue";
+import { v4 as uuidv4 } from "uuid";
 
-const title = reactive("Página sem título");
+const title = ref("Página sem título");
 const questions = reactive([]);
 const questionsTypes = [
   "Múltipla Escolha",
@@ -11,10 +13,24 @@ const questionsTypes = [
 ];
 
 function addQuestion() {
-  questions.push({
+  const newQuestion = {
+    id: uuidv4(),
     title: "",
-    type: "Múltipla Escolha",
-  });
+    type: "Caixa de Seleção",
+    data: {
+      checkboxes: [],
+    },
+  };
+
+  questions.push(newQuestion);
+}
+
+function addCheckbox(label, questionId) {
+  const questionIndex = questions.findIndex(
+    (question) => question.id === questionId
+  );
+
+  questions[questionIndex].data.checkboxes.push(label);
 }
 </script>
 
@@ -36,8 +52,13 @@ function addQuestion() {
     />
 
     <div class="bg-blue-1 q-ma-md q-pa-md">
+      <CheckboxComponent
+        v-if="question.type === 'Caixa de Seleção'"
+        :items="question.data.checkboxes"
+        :id="question.id"
+        :addItem="addCheckbox"
+      />
       <q-input v-if="question.type === 'Texto'" label="Text" />
-      <q-select v-if="question.type === 'Caixa de Seleção'" label="Select" />
     </div>
   </div>
 
