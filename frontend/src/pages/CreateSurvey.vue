@@ -2,6 +2,7 @@
 import { reactive, ref } from "vue";
 import CheckboxComponent from "src/components/CheckboxComponent.vue";
 import { v4 as uuidv4 } from "uuid";
+import LikertComponent from "src/components/LikertComponent.vue";
 
 const title = ref("Página sem título");
 const questions = reactive([]);
@@ -66,6 +67,14 @@ function addCheckbox(label, questionId) {
         :addItem="addCheckbox"
       />
       <q-input v-if="question.type === 'Texto'" label="Text" />
+
+      <LikertComponent
+        v-if="question.type === 'Escala Linear'"
+        :id="question.id"
+      />
+
+
+
     </div>
   </div>
 
