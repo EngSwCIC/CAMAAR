@@ -1,6 +1,7 @@
 <script setup>
 import { reactive, ref } from "vue";
 import CheckboxComponent from "src/components/CheckboxComponent.vue";
+import RadioComponent from "src/components/RadioComponent.vue";
 import { v4 as uuidv4 } from "uuid";
 
 const title = ref("Página sem título");
@@ -19,6 +20,7 @@ function addQuestion() {
     type: "Caixa de Seleção",
     data: {
       checkboxes: [],
+      radios: [],
     },
   };
 
@@ -31,6 +33,14 @@ function addCheckbox(label, questionId) {
   );
 
   questions[questionIndex].data.checkboxes.push(label);
+}
+
+function addRadio(label, questionId) {
+  const questionIndex = questions.findIndex(
+    (question) => question.id === questionId
+  );
+
+  questions[questionIndex].data.radios.push(label);
 }
 </script>
 
@@ -57,6 +67,12 @@ function addCheckbox(label, questionId) {
         :items="question.data.checkboxes"
         :id="question.id"
         :addItem="addCheckbox"
+      />
+      <RadioComponent 
+        v-if="question.type === 'Múltipla Escolha'"
+        :items="question.data.radios"
+        :id="question.id"
+        :addItem="addRadio"
       />
       <q-input v-if="question.type === 'Texto'" label="Text" />
     </div>
