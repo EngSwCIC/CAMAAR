@@ -21,7 +21,7 @@
 
         methods: {
             showPage1() {
-                document.getElementById('page1').style.display = 'grid'
+                document.getElementById('page1').style.display = 'flex'
                 document.getElementById('page2').style.display = 'none'
                 document.getElementById('page3').style.display = 'none'
           

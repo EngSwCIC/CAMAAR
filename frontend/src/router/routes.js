@@ -6,6 +6,7 @@ import SurveysPage from "../pages/SurveysPage.vue";
 import CadastrarPage from  '../pages/CadastrarPage.vue'
 import StudentClass from  '../pages/StudentClass.vue'
 import StudentEvaluationsReport from '../pages/StudentEvaluationsReport.vue'
+import LoggedPage from '../pages/LoggedPage.vue'
 
 const routes = [
   {
@@ -17,6 +18,11 @@ const routes = [
     path: "/home",
     name: "Home",
     component: HomePage,
+  },
+  {
+    path: "/logged",
+    name: "Logged",
+    component: LoggedPage,
   },
   {
     path: '/import',

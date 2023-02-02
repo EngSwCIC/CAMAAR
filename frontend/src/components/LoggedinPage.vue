@@ -53,8 +53,15 @@
 
 <style scoped>
 
+  .LoggedinPage {
+    overflow-y: scroll;
+    position: absolute;
+    height: 100vh;
+    width: 100 vw;
+  }
+
   #left-side-container {
-    height: 1024px;
+    height: 100%;
     width: 334px;
     display: flex;
     flex-direction: column;
@@ -67,7 +74,7 @@
   }
 
   #right-side-container {
-    height: 1024px;
+    height: 100%;
     width: 100%;
     position: fixed;
     background: #f5f5f5;
@@ -80,7 +87,8 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    display:none;
+    display: none;
+    justify-content: center;
   }
 
   #logout {
@@ -110,6 +118,7 @@
     align-items: center;
     padding-top: 5px;
     padding-bottom: 5px;
+    margin-top: 1rem;
   }
 
   #title {
@@ -122,6 +131,8 @@
     left: 90px;
     padding: 10px;
     top: 30px;
+    bottom: 10px;
+    height: 100px;
 
   }
 
@@ -132,6 +143,9 @@
     position: relative;
     background: #ffffff;
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5rem;
   }
 
   #title-inside {
@@ -140,7 +154,10 @@
     font-weight: 400;
     font-style: normal;
     line-height: 29px;
-    margin: 15px;
+    margin: 15px 15px 0 15px;
+    display: flex;
+    justify-content: left;
+    padding-left: 1rem;
   }
 
   #desc {
@@ -150,6 +167,9 @@
     font-style: normal;
     line-height: 20px;
     margin: 15px;
+    display: flex;
+    justify-content: left;
+    padding-left: 1rem;
   }
 
   #page1, #page2, #page3 {
