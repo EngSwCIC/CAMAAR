@@ -1,8 +1,10 @@
 <script>
 import SurveyCard from "../components/SurveyCard.vue";
+import SurveySelector from "../components/serveySelector/component.vue"
 export default {
   components: {
-    SurveyCard,
+    // SurveyCard,
+    SurveySelector,
   },
   data() {
     return {
@@ -31,14 +33,15 @@ export default {
 
           <h1 class="text-white">Seus Questionários</h1>
         </q-parallax>
-        <div class="row justify-center reverse-wrap items-baseline">
-          <SurveyCard
+        <!-- <div class="row justify-center reverse-wrap items-baseline"> -->
+          <!-- <SurveyCard
             v-for="survey in surveys"
             :key="surveys.indexOf(survey)"
             :survey="survey"
             class="card .col-12 q-mx-md"
-          />
-        </div>
+          /> -->
+          <SurveySelector title="joao" />
+        <!-- </div> -->
       </div>
     </div>
   </div>

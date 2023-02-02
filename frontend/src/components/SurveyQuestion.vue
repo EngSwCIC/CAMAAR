@@ -1,6 +1,7 @@
 <template>
 <q-card class="card">
-    <h6 :class="'question' + (question.optional ? '' : ' required')">{{ question_number + ". " + question.question }}</h6>    
+  <h1>oi</h1>
+    <!-- <h6 :class="'question' + (question.optional ? '' : ' required')">{{ question_number + ". " + question.question }}</h6>     -->
     <!-- TODO: arrumar o likert -->
     <!-- <div v-if="question.question_type.name == 'likert_scale'">
         <div>
@@ -79,7 +80,7 @@ export default {
         updateLikertAnswer(value, index) {
             return {
                 ...this.modelValue,
-                likert_answers_attributes: 
+                likert_answers_attributes:
                     this.modelValue.likert_answers_attributes.map((answer, idx) => {
                         if (index == idx)
                             return {
