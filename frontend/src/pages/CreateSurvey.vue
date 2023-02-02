@@ -24,6 +24,9 @@ function addQuestion() {
 
   questions.push(newQuestion);
 }
+function deleteQuestion(index) {
+  questions.splice(index, 1);
+}
 
 function addCheckbox(label, questionId) {
   const questionIndex = questions.findIndex(
@@ -50,6 +53,10 @@ function addCheckbox(label, questionId) {
       :options="questionsTypes"
       label="Tipo da Pergunta"
     />
+
+    <div>
+      <q-btn color="secondary" icon="delete" @click="deleteQuestion(index)" />
+    </div>
 
     <div class="bg-blue-1 q-ma-md q-pa-md">
       <CheckboxComponent
