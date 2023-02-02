@@ -1,6 +1,10 @@
 <script>
+import TextSurvey from "./textSurvey.vue";
 export default {
-  props: ["title", 'type'],
+  props: ["title"],
+  components: {
+    TextSurvey,
+  },
 
   data() {
     return {
@@ -11,7 +15,8 @@ export default {
         { value: "radio", label: "Múltipla escolha" },
         { value: "checkbox", label: "Caixa de seleção" },
         { value: "linear", label: "Escala linear" },
-      ]
+      ],
+      answerValue: "",
     }
   }
 };
@@ -25,7 +30,7 @@ export default {
         <option v-for="{ label, value } in options" :key="value" :value="value">{{ label }}</option>
       </select>
     </div>
-    <component :is="selectedType" />
+    <TextSurvey v-if="selectedType === options[0].value" :answer="answerValue" />
   </div>
 </template>
 
