@@ -46,7 +46,7 @@ describe('Register Component Tests', () => {
         plugins: [createTestingPinia()],
       },
     })
-    const button1 = wrapper1.find('[data-test-button-register]')
+    const button1 = wrapper1.find('[data-test-button-registro]')
     expect(button1.text()).toContain('Registrar')
     mockRouterPush({'path':'/cadastrar'})
     expect(mockRouterPush).toHaveBeenCalledTimes(1)

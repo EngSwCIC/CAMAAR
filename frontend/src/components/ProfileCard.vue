@@ -18,6 +18,9 @@ export default {
     },
     redirectImport(){
       this.router.push({ path: "/import" })
+    },
+    redirectCreateSurvey(){
+      this.router.push({ path: "/create-survey" })
     }
   },
 };
@@ -46,6 +49,9 @@ export default {
       </q-btn>
       <q-btn color="secondary" @click="redirectImport">
         Vá para a página de importação de dados do SIGAA
+      </q-btn>
+      <q-btn color="secondary" @click="redirectCreateSurvey">
+        Criar questionário
       </q-btn>
     </q-card>
   </div>
