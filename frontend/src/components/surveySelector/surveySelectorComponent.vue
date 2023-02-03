@@ -2,6 +2,7 @@
 import TextSurvey from "./textSurvey.vue";
 import RadioSurvey from "./radioSurvey.vue";
 import CheckboxSurvey from "./checkboxSurvey.vue";
+import LinearScaleSurvey from "./linearScaleSurvey.vue";
 
 export default {
   props: ["title"],
@@ -9,6 +10,7 @@ export default {
     TextSurvey,
     CheckboxSurvey,
     RadioSurvey,
+    LinearScaleSurvey
   },
 
   data() {
@@ -17,8 +19,8 @@ export default {
       selectedType: "text",
       options: [
         { value: "text", label: "Texto" },
-        { value: "checkbox", label: "Múltipla escolha" },
         { value: "radio", label: "Caixa de seleção" },
+        { value: "checkbox", label: "Múltipla escolha" },
         { value: "linear", label: "Escala linear" },
       ],
       answerValue: "",
@@ -38,6 +40,7 @@ export default {
     <TextSurvey v-if="selectedType === options[0].value" :answer="answerValue" />
     <CheckboxSurvey v-else-if="selectedType === options[1].value" />
     <RadioSurvey v-else-if="selectedType === options[2].value"/>
+    <LinearScaleSurvey v-else-if="selectedType === options[3].value" :answer="answerValue"/>
   </div>
 </template>
 
