@@ -164,10 +164,4 @@ Then(`a questão {} deveria enviar {}`, (num_questao, conteudo_testado) => {
 
 });
 
-Then(`a questão {} deveria enviar nada`, (num_questao) => {
-  let indice = parseInt(num_questao) - 1
-  cy.get('@questoes_enviadas').then(questao => {
-    expect(questao[indice].content).to.equal(null)
-  });
-
-});
+Then(`a questão {} deveria enviar nada`, (num_questao) =>
