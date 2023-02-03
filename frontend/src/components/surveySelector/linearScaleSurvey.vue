@@ -90,11 +90,11 @@ export default {
         ></textarea>
       </div>
     </div>
-  <div>
-    <span>{{answer1}}</span>
-    <!-- vfor ini ao end temos que ter entre ini e end opções de seleção de radio -->
-    <span>{{answer2}}</span>
-  </div>
+    <div>
+      <span>{{answer1}}</span>
+      <!-- vfor ini ao end temos que ter entre ini e end opções de seleção de radio -->
+      <span>{{answer2}}</span>
+    </div>
   </div>
 </template>
 
