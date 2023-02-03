@@ -22,6 +22,7 @@ function addQuestion() {
     data: {
       checkboxes: [],
       radios: [],
+      text: "",
     },
   };
 
@@ -76,21 +77,21 @@ function addRadio(label, questionId) {
         :id="question.id"
         :addItem="addCheckbox"
       />
-      <RadioComponent 
+      <RadioComponent
         v-if="question.type === 'Múltipla Escolha'"
         :items="question.data.radios"
         :id="question.id"
         :addItem="addRadio"
       />
-      <q-input v-if="question.type === 'Texto'" label="Text" />
-
+      <q-input
+        v-if="question.type === 'Texto'"
+        v-model="question.data.text"
+        label="Text"
+      />
       <LikertComponent
         v-if="question.type === 'Escala Linear'"
         :id="question.id"
       />
-
-
-
     </div>
   </div>
 
