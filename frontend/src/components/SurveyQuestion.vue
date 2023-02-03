@@ -29,11 +29,11 @@
         </div>
     </div> -->
     <div v-if="question.question_type.name == 'multiple_choice'">
-        <div v-for="option in question.question_options" :key="option.id">
+        <div v-for="(option, val) in question.question_options" :key="option.id">
             <q-radio
                 color="secondary"
                 :name="'multiple_choice_answer' + question.id"
-                :val="option.option"
+                :val="val"
                 :model-value="modelValue.content"
                 @update:model-value="(value) => $emit('update:modelValue', updateAnswer(value))"
             >
