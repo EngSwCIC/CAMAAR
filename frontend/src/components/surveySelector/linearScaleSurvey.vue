@@ -35,8 +35,8 @@ export default {
         { value: 9 },
         { value: 10 },
       ],
-      answer1: "teste",
-      answer2: "teste",
+      answer1: "",
+      answer2: "",
       iniValue: 0,
       endValue: 5,
     };
