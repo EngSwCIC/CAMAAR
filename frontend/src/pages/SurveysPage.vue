@@ -1,6 +1,6 @@
 <script>
 import SurveyCard from "../components/SurveyCard.vue";
-import SurveySelector from "../components/serveySelector/component.vue"
+import SurveySelector from "../components/surveySelector/surveySelectorComponent.vue"
 export default {
   components: {
     // SurveyCard,
