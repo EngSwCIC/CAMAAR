@@ -31,6 +31,12 @@ class SurveysController < ApplicationController
     index
   end
 
+  def show_answers
+    @survey = Survey.find(params[:id])
+    @question_answers = @survey.question_answers
+    render json: @question_answers
+  end
+
   ##
   # Método que renderiza um +Survey+ cujo +id+ foi passado
   # por parâmetro (+params[:id]+).
