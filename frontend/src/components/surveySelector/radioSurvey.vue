@@ -1,6 +1,4 @@
 <script>
-import M from 'minimatch';
-
 export default {
   data() {
     return {
@@ -25,13 +23,13 @@ export default {
 </script>
 
 <template>
-    <div>
-        <div v-for="input in data" :key="input.key" class="container">
-            <input name="selected_options" type="radio" :value="input.key" class="radio" />
-            <input type="text" v-model="input.value" />
-        </div>
-        <button @click="addInput"> adicionar linha </button>
+  <div>
+    <div v-for="input in data" :key="input.key" class="container">
+      <input name="selected_options" type="radio" :value="input.key" class="radio" />
+      <input type="text" v-model="input.value" />
     </div>
+    <button @click="addInput"> adicionar linha </button>
+  </div>
 </template>
 <style scoped>
   .container {

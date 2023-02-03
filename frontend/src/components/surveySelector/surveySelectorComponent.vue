@@ -1,9 +1,12 @@
 <script>
 import TextSurvey from "./textSurvey.vue";
+import RadioSurvey from "./radioSurvey.vue";
+
 export default {
   props: ["title"],
   components: {
     TextSurvey,
+    RadioSurvey,
   },
 
   data() {
@@ -12,8 +15,8 @@ export default {
       selectedType: "text",
       options: [
         { value: "text", label: "Texto" },
-        { value: "radio", label: "Múltipla escolha" },
-        { value: "checkbox", label: "Caixa de seleção" },
+        { value: "checkbox", label: "Múltipla escolha" },
+        { value: "radio", label: "Caixa de seleção" },
         { value: "linear", label: "Escala linear" },
       ],
       answerValue: "",
@@ -31,6 +34,8 @@ export default {
       </select>
     </div>
     <TextSurvey v-if="selectedType === options[0].value" :answer="answerValue" />
+    <!-- <TextSurvey v-else-if="selectedType === options[1].value" /> -->
+    <RadioSurvey v-else-if="selectedType === options[2].value"/>
   </div>
 </template>
 
