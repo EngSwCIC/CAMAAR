@@ -1,11 +1,13 @@
 <script>
 import TextSurvey from "./textSurvey.vue";
 import RadioSurvey from "./radioSurvey.vue";
+import CheckboxSurvey from "./checkboxSurvey.vue";
 
 export default {
   props: ["title"],
   components: {
     TextSurvey,
+    CheckboxSurvey,
     RadioSurvey,
   },
 
@@ -34,7 +36,7 @@ export default {
       </select>
     </div>
     <TextSurvey v-if="selectedType === options[0].value" :answer="answerValue" />
-    <!-- <TextSurvey v-else-if="selectedType === options[1].value" /> -->
+    <CheckboxSurvey v-else-if="selectedType === options[1].value" />
     <RadioSurvey v-else-if="selectedType === options[2].value"/>
   </div>
 </template>
