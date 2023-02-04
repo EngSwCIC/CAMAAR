@@ -30,10 +30,10 @@ class ScrapperController < ApplicationController
   #
   # Retorna as informações das turmas como JSON
   def show
-    request = Api::SearchClasses.call
+    turmasSigaa = Api::SearchClasses.call
     
     render json: {
-        classes: JSON.parse(request)
+        classes: turmasSigaa
     }, status: :ok
   end
 

@@ -5,55 +5,28 @@ RSpec.describe ScrapperController, :type => :controller do
 
     context 'method show' do
 
-        it 'should render all the classes' do
+      it 'should render all the classes' do
 
-            turmas = %Q{{
-                    "classes": [
-                      {
-                        "code": "CIC0097",
-                        "name": "BANCOS DE DADOS",
-                        "class": {
-                          "classCode": "TA",
-                          "semester": "2021.2",
-                          "time": "35T45"
-                        }
-                      },
-                      {
-                        "code": "CIC0105",
-                        "name": "ENGENHARIA DE SOFTWARE",
-                        "class": {
-                          "classCode": "TA",
-                          "semester": "2021.2",
-                          "time": "35M12"
-                        }
-                      },
-                      {
-                        "code": "CIC0202",
-                        "name": "PROGRAMAÇÃO CONCORRENTE",
-                        "class": {
-                          "classCode": "TA",
-                          "semester": "2021.2",
-                          "time": "35M34"
-                        }
-                      }
-                    ]
-                  }}
-
-            # Stub (hard code)
-            allow(Api::SearchClasses).to receive(:call) do
-                turmas
-            end
-            
-            get :show
-            expect(response).to have_http_status(200)
-            expect(response.body).to eq("{\"classes\":{\"classes\":[{\"code\":\"CIC0097\",\"name\":\"BANCOS DE DADOS\",\"class\":{\"classCode\":\"TA\",\"semester\":\"2021.2\",\"time\":\"35T45\"}},{\"code\":\"CIC0105\",\"name\":\"ENGENHARIA DE SOFTWARE\",\"class\":{\"classCode\":\"TA\",\"semester\":\"2021.2\",\"time\":\"35M12\"}},{\"code\":\"CIC0202\",\"name\":\"PROGRAMAÇÃO CONCORRENTE\",\"class\":{\"classCode\":\"TA\",\"semester\":\"2021.2\",\"time\":\"35M34\"}}]}}")
-        end
-
-        it 'should not return a empty response' do
           get :show
           expect(response).to have_http_status(200)
-          expect(response.body).not_to be nil
-        end
+          
+          turmasSigaa = JSON.parse(response.body)['classes']
+          expect(turmasSigaa).to be_an(Array)
+          expect(turmasSigaa.first).to have_key('name')
+          expect(turmasSigaa.first).to have_key('code')
+          expect(turmasSigaa.first).to have_key('class')
+          expect(turmasSigaa.first['class']).to have_key('classCode')
+          expect(turmasSigaa.first['class']).to have_key('semester')
+          expect(turmasSigaa.first['class']).to have_key('time')
+
+      end
+
+      it 'should not return a empty response' do
+        get :show
+        expect(response).to have_http_status(200)
+        expect(response.body).not_to be nil
+      end
+
     end
 
     context "method index" do
