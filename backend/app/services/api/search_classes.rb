@@ -1,5 +1,6 @@
 require 'watir'
 require 'webdrivers'
+require './sigaa_login.rb'
 ##
 # Esta classe cuida da efetuação das requisições para o scrapper no endpoint turmas
 #
