@@ -14,8 +14,8 @@ RSpec.describe SurveysController, type: :controller do
     end
 
     it 'should call the Model method that returns all surveys' do
-      expect(Survey).to receive(:find).with('1')
-      get :show, params: { id: '1' }
+      expect(Survey).to receive(:all)
+      get :index
     end
 
     it 'it is assigning all surveys created to the right variable' do
@@ -35,6 +35,42 @@ RSpec.describe SurveysController, type: :controller do
     end
   end
 
+  describe 'method open' do
+    before(:each) do
+      @survey1 = instance_double('Survey')
+      allow(@survey1).to receive(:is_expired?).and_return(false)
+      @survey2 = instance_double('Survey')
+      allow(@survey2).to receive(:is_expired?).and_return(true)
+
+      @surveys = [@survey1, @survey2]
+
+      allow(Survey).to receive(:all).and_return(@surveys)
+    end
+
+    it "returns a success response" do
+      get :open
+      expect(response).to be_successful
+    end
+
+    it 'should call the Model method that returns all surveys' do
+      expect(Survey).to receive(:all)
+      get :open
+    end
+
+    it 'it is assigning all surveys created to the right variable' do
+      get :open
+      expect(assigns(:surveys)).to eq([@surveys[0]])
+    end
+
+    it "is returning all surveys created in json format" do
+      get :open
+      expected_output = [@surveys[0].as_json]
+
+      output = (JSON.parse(response.body))
+
+      expect(output).to eq(expected_output)
+    end
+  end
 
   describe 'method show' do
     before(:each) do
