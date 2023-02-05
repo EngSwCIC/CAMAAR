@@ -28,9 +28,10 @@ class ScrapperController < ApplicationController
   ##
   # Importa as informações das turmas disponíveis para o scrapper
   #
-  # Retorna as informações das turmas como JSON
+ # Retorna as informações das turmas como JSON
   def show
-    turmasSigaa = Api::SearchClasses.call
+
+    turmasSigaa = SigaaManager::ClassCollector.call
     
     render json: {
         classes: turmasSigaa
