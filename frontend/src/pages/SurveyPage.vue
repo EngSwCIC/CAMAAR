@@ -100,13 +100,13 @@ export default {
         cclass_id: cclass.id,
         member_id: 1,
         answers_attributes: this.survey.survey_questions.map((question) => {
-          if (question.question_type == "likert_scale")
+          if (question.question_type.name == "likert_scale")
             return {
-              survey_question_id: question.id,
+              survey_question_id: question.question_number,
               question_type: question.question_type,
               likert_answers_attributes:
-                question.likert_scale.likert_questions.map((l_question) => ({
-                  likert_question_id: l_question.id,
+                question.likert_scale_questions.map((l_question) => ({
+                  likert_question_id: l_question.question_number,
                   content: null,
                 })),
             };

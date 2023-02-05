@@ -1,36 +1,41 @@
 <template>
 <q-card class="card" :id="`questao-${question_number}`">
     <h6 :class="'question' + (question.optional ? '' : ' required')">{{ question_number + ". " + question.question }}</h6>
-    <!-- TODO: arrumar o likert -->
-    <!-- <div v-if="question.question_type.name == 'likert_scale'">
-        <div>
-            <q-markup-table>
-                <thead>
-                    <th></th>
+    <div v-if="question.question_type.name == 'likert_scale'">
+      <div>
+              <q-markup-table>
+                  <thead>
+                    <th>Questão</th>
                     <th v-for="(option, index) in likert_options" :key="index">
-                        {{ option }}
+                       {{ option }}
                     </th>
-                </thead>
+                  </thead>
                 <tbody>
-                    <tr v-for="(likert_question, l_index) in question.likert_scale.likert_questions" :key="likert_question.id">
-                        <div class="likert-question">{{ likert_question.question }}</div>
-                        <td v-for="(option, index) in likert_options" :key="index">
-                            <q-radio
-                                color="secondary"
-                                :name="'likert_question_answer' + likert_question.id"
-                                :val="option"
-                                :model-value="modelValue.likert_answers_attributes[l_index].content"
-                                @update:model-value="(value) => $emit('update:modelValue', updateLikertAnswer(value, l_index))"
-                            />
-                        </td>
-                    </tr>
+                  <tr v-for="(likert_question,l_index) in question.likert_scale_questions" :key="likert_question.id">
+                    <div class="likert-question">{{ likert_question.question }}</div>
+                    <td v-for="(option, index) in likert_options" :key="index">
+                      <div>
+                        <q-radio
+                           color="secondary"
+                           :name="'likert_question_answer' + likert_question.question_number"
+                           :val="option"
+                           :model-value="modelValue.likert_answers_attributes[l_index].content"
+                           @update:model-value="(value) => $emit('update:modelValue', updateLikertAnswer(value, l_index))"
+                         >
+                          <label></label>
+                         </q-radio>
+                      </div>
+                    </td>
+                  </tr>
                 </tbody>
-            </q-markup-table>
-        </div>
-    </div> -->
-    <div v-if="question.question_type.name == 'multiple_choice'">
+              </q-markup-table>
+
+      </div>
+    </div>
+    <div v-else-if="question.question_type.name == 'multiple_choice'">
+        {{modelValue.content}}
         <div v-for="(option, val) in question.question_options" :key="option.id">
-            <q-radio
+          <q-radio
                 color="secondary"
                 :name="'multiple_choice_answer' + question.id"
                 :val="val"
@@ -103,6 +108,11 @@ td {
 th {
     text-align: center;
     font-size: 0.8rem;
+}
+
+.botoes_likert{
+  display: flex;
+  justify-content: space-around;
 }
 
 .question {
