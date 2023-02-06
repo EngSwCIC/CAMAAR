@@ -1,0 +1,110 @@
+[
+  {
+    "keyword": "Funcionalidade",
+    "name": "Criar média das notas dadas pelos alunos",
+    "line": 2,
+    "id": "criar-média-das-notas-dadas-pelos-alunos",
+    "tags": [],
+    "uri": "Media.feature",
+    "elements": [
+      {
+        "id": "criar-média-das-notas-dadas-pelos-alunos;ver-a-média-das-avaliações-de-uma-determinada-turma",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Ver a média das avaliações de uma determinada turma",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que estou na rota de /students-subjects (página de avaliação dos alunos)",
+            "result": {
+              "status": "undefined",
+              "duration": 265000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 6,
+            "name": "ao entrar em um questionário de uma turma",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 7,
+            "name": "ver as avaliacoes individuais de cada aluno",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 8,
+            "name": "devo conseguir observar a media das avaliações dadas pelos alunos",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "criar-média-das-notas-dadas-pelos-alunos;apenas-um-aluno-fez-a-avaliação",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Apenas um aluno fez a avaliação",
+        "tags": [
+          {
+            "name": "@mockBaixaAdesaoDeNotas",
+            "line": 10
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 12,
+            "name": "que estou na rota de /students-subjects (página de avaliação dos alunos)",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 13,
+            "name": "ao exibir as avaliações de uma turma",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 14,
+            "name": "o numero de avaliações for <= 1",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 15,
+            "name": "não preciso mostrar a média",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
