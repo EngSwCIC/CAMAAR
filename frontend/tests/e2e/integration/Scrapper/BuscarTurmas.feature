@@ -1,22 +1,14 @@
 #language: pt
-Funcionalidade: Buscar Turmas do SIGAA
+Funcionalidade: Extrair do SIGAA
 
-Cenario: Foi possível acessar as turmas no SIGAA
-Dado que estou na rota "/import"
-E eu clicar no botão "Buscar Turmas no SIGAA"
-Então eu devo ver na tabela "Importar Turmas" uma ou mais turmas
-
-@mockTurmasVazias
-Cenario: Não Existem turmas cadastradas no SIGAA 
-Dado que estou na rota "/import"
-E eu clicar no botão "Buscar Turmas no SIGAA"
-E a tabela "Importar Turmas"  estiver vazia
-Então eu devo ver uma notificação de "Erro ao buscar turmas"
-
-@mockFalhaLogin
-Cenario: Não foi possível efetuar login no SIGAA
-Dado que estou na rota "/import"
-E eu clicar no botão "Buscar Turmas no SIGAA"
-E a tabela "Importar Turmas"  estiver vazia
-Então eu devo ver uma notificação de "Erro ao buscar turmas"
-
+    Cenario: Foi possível acessar as turmas no SIGAA
+    Dado que estou na rota "/import"
+    E eu clicar no botão "Buscar Turmas no SIGAA"
+    Então eu devo ver na tabela "Importar Turmas" uma ou mais turmas
+    
+    @mockTurmasVazias
+    Cenario: Não Existem turmas cadastradas no SIGAA 
+    Dado que estou na rota "/import"
+    E eu clicar no botão "Buscar Turmas no SIGAA"
+    E a tabela "Importar Turmas" estiver vazia
+    Então eu devo ver uma notificação de "Erro ao buscar turmas"
