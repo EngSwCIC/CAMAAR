@@ -7,8 +7,8 @@ class ApplicationService
   @@usuario = ENV['SIGAA_USER']
   @@senha = ENV['SIGAA_SENHA']
 
-  def self.call(*args, &block)
-    new(*args, &block).call
+  def self.call(params = {})
+    new().call(params)
   end
 
   def self.loginSigaa

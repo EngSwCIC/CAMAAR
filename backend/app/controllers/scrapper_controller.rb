@@ -13,16 +13,18 @@ class ScrapperController < ApplicationController
   # Caso tenha sucesso em extraír e gravar no banco de dados é retornando status 200 e 
   # a mensagem: "Participantes importados com sucesso"
   def index
-      params = request.body.read
-      resultado = Api::ImportData.call(params)
-      resultado = JSON.parse(resultado)
-      resultado.each do |participantes|
-        turma = JSON.parse(params)['classes'].select { |turma| turma['codigo']==participantes['code'] && turma['turma']==participantes['classCode']}[0]
-        cadastraParticipantes(participantes, turma)        
-      end
-      render json: {
-          message: 'Participantes importados com sucesso'
-      }, status: :ok
+
+    params = request.body.read
+    puts(params.class)
+    resultado = SigaaManager::ClassExtractor.call(JSON.parse(params))
+    resultado = JSON.parse(resultado)
+    resultado.each do |participantes|
+      turma = JSON.parse(params)['classes'].select { |turma| turma['codigo']==participantes['code'] && turma['turma']==participantes['classCode']}[0]
+      cadastraParticipantes(participantes, turma)        
+    end
+    render json: {
+             message: 'Participantes importados com sucesso'
+           }, status: :ok
   end
 
   ##

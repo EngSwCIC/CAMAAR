@@ -2,7 +2,7 @@
 module SigaaManager
   class ClassCollector < ApplicationService
 
-    def call
+    def call(params)
         sigaa_browser = self.class.loginSigaa
         turmasSigaaInfo = getClassesInfo(sigaa_browser)
     end
