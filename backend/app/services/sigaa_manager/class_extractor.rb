@@ -18,7 +18,7 @@ module SigaaManager
         turma["codigo"] = browser.element(id: 'linkCodigoTurma').text.delete(" -")
         turma["nome"] = browser.element(id: 'linkNomeTurma').text
         turma["turma"],turma["semestre"], turma["horario"] = browser.element(id: 'linkPeriodoTurma').text.delete("-()").split(' ')
-        puts(turma)
+
         if params["classes"].detect{|t| t['codigo']==turma['codigo'] and
                                     t['turma'] == turma['turma'] and
                                     t['semestre'] == turma['semestre']}
@@ -48,7 +48,6 @@ module SigaaManager
 
       
       class_hash[:dicente] = discentesInfos.select{|info| not info.text.empty?}.map{|info| parseDiscente info.text}
-      puts("#{class_hash[:dicente].length} alunos")
       browser.back
 
       return class_hash

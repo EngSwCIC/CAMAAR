@@ -15,7 +15,6 @@ class ScrapperController < ApplicationController
   def index
 
     params = request.body.read
-    puts(params.class)
     resultado = SigaaManager::ClassExtractor.call(JSON.parse(params))
     resultado = JSON.parse(resultado)
     resultado.each do |participantes|
