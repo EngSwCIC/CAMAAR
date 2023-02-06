@@ -76,3 +76,4 @@ de clientes http como:
 - [devise-jwt](https://github.com/waiting-for-dev/devise-jwt)
 - [SQLite](https://www.sqlite.org/index.html)
 - [RSpec](https://rspec.info/)
+- [Watir](http://watir.com/)
