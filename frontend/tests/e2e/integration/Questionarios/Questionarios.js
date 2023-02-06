@@ -122,16 +122,13 @@ When(`nao preencho o textarea obrigatorio da questão {}`, (numero) => {
   cy.get(`#questao-${numero} textarea`).clear()
 })
 
-Then(/devo ver uma mensagem de "(\w+)"/, (string) => {
-
-})
-
-
-
 Before({ tags: '@interceptingRequest'},() => {
   cy.intercept('POST', '/api/survey_answers').as('postRequest')
 });
 
+When(`clicar no questionario "{}"`, (string) =>{
+  cy.get(`#questionario-${string} > .q-card > .q-card__actions > .q-btn`).click()
+})
 
 When(`preencho o textarea da questão {} com {}`, (numero, string) => {
   cy.get(`#questao-${numero} textarea`).type(string)
@@ -164,4 +161,18 @@ Then(`a questão {} deveria enviar {}`, (num_questao, conteudo_testado) => {
 
 });
 
-Then(`a questão {} deveria enviar nada`, (num_questao) =>
+Then(`a questão {} deveria enviar nada`, (num_questao) => {
+  let indice = parseInt(num_questao) - 1
+  cy.get('@questoes_enviadas').then(questao => {
+    expect(questao[indice].content).to.equal(null)
+  });
+
+});
+
+Then(`devo ver questionarios`, () => {
+  cy.get(".q-card").its('length').should('be.gt', 0)
+})
+
+Then(`eu devo estar na tela "{}"`, (path)=> {
+  cy.url().should('include', path)
+})
