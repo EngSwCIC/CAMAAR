@@ -19,10 +19,20 @@ module SigaaManager
         turma["nome"] = browser.element(id: 'linkNomeTurma').text
         turma["turma"],turma["semestre"], turma["horario"] = browser.element(id: 'linkPeriodoTurma').text.delete("-()").split(' ')
 
+        # Caso a turma inspecionada seja uma das turmas de interesse definidas em params
         if params["classes"].detect{|t| t['codigo']==turma['codigo'] and
                                     t['turma'] == turma['turma'] and
                                     t['semestre'] == turma['semestre']}
+
+          # Acessa a página de participantes
+          browser.link(:text =>"Participantes").click 
+
+          # Extrai informações da pagina de turma
           classes.append(extractClass(turma, browser))
+
+          # Volta para a página inicial da turma
+          browser.back
+
         end
 
         browser.back
@@ -31,13 +41,12 @@ module SigaaManager
       return classes.to_json
     end
  
-    def extractClass(turma, browser)
+    def extractClass(turma, browserMembersPage)
       class_hash = {:code => turma["codigo"],
                     :classCode => turma["turma"],
                    }
       
-      browser.link(:text =>"Participantes").click
-      participantes = browser.elements(class: "participantes", tag_name: "table")
+      participantes = browserMembersPage.elements(class: "participantes", tag_name: "table")
 
       docenteElement = participantes.first
 
@@ -48,7 +57,6 @@ module SigaaManager
 
       
       class_hash[:dicente] = discentesInfos.select{|info| not info.text.empty?}.map{|info| parseDiscente info.text}
-      browser.back
 
       return class_hash
 

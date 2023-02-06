@@ -42,8 +42,33 @@ RSpec.describe SigaaManager::ClassExtractor, type: :model do
     end
   end
 
-  describe 'call' do
-    classes = JSON.parse('{"classes":[{"id":4,"nome":"PROGRAMAÇÃO CONCORRENTE","codigo":"CIC0202","turma":"T01","semestre":"2022.2","horario":"35M34"},{"id":5,"nome":"PROGRAMACAO FUNCIONAL","codigo":"CIC0133","turma":"T01","semestre":"2022.2","horario":"24M34"}]}')
-    pending 'should return a json containing information about the parameter classes' 
+  describe 'extractClass' do
+
+    before(:each) do
+      file_url = "file://#{Dir.pwd}/spec/services/web-pages/participantes_turma.html"
+      turma = {"codigo" => 'CIC105',
+               "turma" => "T02" }
+
+      browser = Watir::Browser.new :chrome, headless: true
+      browser.goto file_url
+
+      @turma_info = @extractor.extractClass( turma, browser)
+    end
+
+    it 'should return a hash containing of the right format' do
+      
+
+      expect(@turma_info).to be_an(Hash)
+      expect(@turma_info).to have_key(:code)
+      expect(@turma_info).to have_key(:classCode)
+      expect(@turma_info).to have_key(:docente)
+      expect(@turma_info[:docente]).to be_an(Hash)
+      expect(@turma_info[:docente]).to be_an(Hash)
+      expect(@turma_info).to have_key(:dicente)
+      expect(@turma_info[:dicente]).to be_an(Array)
+      
+    end
+
+
   end
 end
