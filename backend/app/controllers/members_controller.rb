@@ -13,4 +13,9 @@ class MembersController < ApplicationController
     @member = Member.find(params[:id])
     render json: @member, status: :ok
   end
+
+  def get
+    @member = Member.where(redefinition_link: params[:redefinition_link])[0]
+    render json: @member, status: :ok
+  end
 end

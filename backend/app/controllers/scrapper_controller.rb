@@ -1,6 +1,7 @@
 ##
 # Esta classe é responsavel por fazer o intermédio entre o scrapper e o frontend,
 # bem como o cadastro das informações resultantes do scrapper
+require 'digest'
 class ScrapperController < ApplicationController
   
   ##
@@ -68,11 +69,12 @@ class ScrapperController < ApplicationController
 	  member = Member.find_or_create_by(
 	    name: discente['nome'], 
 	    course: discente['curso'],
-        registration: discente['matricula'], 
+      registration: discente['matricula'], 
 	    username: discente['usuario'],
-        degree: discente['formacao'], 
-	    role: role,
-        email: discente['email']
+      degree: discente['formacao'], 
+  	  role: role,
+      email: discente['email'],
+      redefinition_link: Digest::SHA256.hexdigest(discente['email'])
 	  )
       
 	  Enrollment.find_or_create_by(

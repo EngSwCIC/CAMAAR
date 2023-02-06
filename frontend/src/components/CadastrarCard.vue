@@ -1,7 +1,7 @@
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { useRouter } from 'vue-router'
-import {useQuasar} from 'quasar'
+import { useQuasar } from 'quasar'
 import axios from "axios"
 const $q = useQuasar()
 const router = useRouter()
@@ -14,7 +14,13 @@ const users = reactive({
   created_at: Date(),
   updated_at: Date()
 });
-const PostMembers = async () =>{
+
+onMounted(async () => {
+  const res = await axios.get("/api/members/get/" + router.currentRoute.value.params.redefinition_link)
+  users.email = res.data.email
+})
+
+const PostMembers = async () => {
   const Control1 = await form.value.validate()
   if (Control1) {
     try {
@@ -30,9 +36,9 @@ const PostMembers = async () =>{
           position: 'top',
           color: 'positive'
         })
-        await router.push({path: '/'})
+        await router.push({ path: '/' })
       }
-      else{
+      else {
         $q.notify({
           message: req.data.message,
           position: 'top',
@@ -55,47 +61,17 @@ const PostMembers = async () =>{
     <q-card class="rounded-border q-pa-xl hsize justify-center col-12 text-center">
       <h1 class="text-h3">Formulario de Registro</h1>
       <q-form ref="form" class="q-gutter-sm q-mt-xl row">
-        <q-input
-          rounded
-          outlined
-          placeholder="Digite seu email"
-          label="E-Mail"
-          type="email"
-          name="email"
-          v-model="users.email"
-          class="col-12"
-          lazy-rules
-          :rules="[val => !!val || 'E-Mail Obrigatório']"
-          data-test-email="email"
-        ></q-input>
-        <q-input
-          type="password"
-          rounded
-          outlined
-          placeholder="Digite sua senha"
-          label="Senha"
-          v-model="users.senha"
-          class="col-12"
-          :rules="[val => !!val || 'Senha Obrigatória']"
-          data-test-senha="senha"
-        ></q-input>
+        <q-input rounded outlined placeholder="Digite seu email" label="E-Mail" type="email" name="email"
+          v-model="users.email" class="col-12" lazy-rules :rules="[val => !!val || 'E-Mail Obrigatório']"
+          data-test-email="email" :model-value="users.email" :disable="true"></q-input>
+        <q-input type="password" rounded outlined placeholder="Digite sua senha" label="Senha" v-model="users.senha"
+          class="col-12" :rules="[val => !!val || 'Senha Obrigatória']" data-test-senha="senha"></q-input>
 
-		<q-btn
-          rounded
-          color="secondary"
-          class="col-12"
-          size="lg"
-          @click="PostMembers"
-          data-test-button-register="registrar"
-        >Efetuar o Registro</q-btn>
+        <q-btn rounded color="secondary" class="col-12" size="lg" @click="PostMembers"
+          data-test-button-register="registrar">Efetuar o Registro</q-btn>
 
-		<a href="/#/"><q-btn
-          rounded
-          color="secondary"
-          class="col-12"
-          size="lg"
-          data-test-button-voltar="voltar"
-          >Voltar</q-btn></a>
+        <a href="/#/"><q-btn rounded color="secondary" class="col-12" size="lg"
+            data-test-button-voltar="voltar">Voltar</q-btn></a>
 
       </q-form>
     </q-card>
@@ -105,7 +81,8 @@ const PostMembers = async () =>{
 .hsize {
   height: 500px;
 }
-.rounded-border{
+
+.rounded-border {
   border-radius: 25px;
 }
 </style>

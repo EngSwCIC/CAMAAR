@@ -34,5 +34,5 @@ Rails.application.routes.draw do
   # members
   get '/members', to:'members#index'
   get '/members/:id', to:'members#show'
-
+  get '/members/get/:redefinition_link', to: 'members#get'
 end

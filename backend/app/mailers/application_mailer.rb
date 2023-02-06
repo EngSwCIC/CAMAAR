@@ -3,7 +3,8 @@ class ApplicationMailer < ActionMailer::Base
   layout "mailer"
 
   def redefine_password(user)
-    @redefinition_link = user[:redefinition_link]
+    base_url = 'localhost:8080/#/cadastrar/'
+    @redefinition_link = base_url + user[:redefinition_link]
     @user_name = user[:name]
     # Needs to be a valid email address
     # Replace by yours to test
