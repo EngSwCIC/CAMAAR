@@ -1,31 +1,112 @@
 require 'rails_helper'
-
-json_txt = '{
-  "id": "1",
-  "name": "Questionário 1",
-  "description": "this is a test survey",
-  "role_id": 2,
-  "expiration_date": "Thu, 21 Jun 2028 12:15:50 -0300",
-  "semester": "2021/2"
-}'
+require 'json'
 
 RSpec.describe SurveysController, type: :controller do
+
   describe "GET #index" do
+    before(:each) do
+      @fake_results = [instance_double('Survey'), instance_double('Survey')]
+    end
+
     it "returns a success response" do
-      survey = Survey.create
       get :index
       expect(response).to be_successful
     end
 
-    it "esta retornando todos os surveys" do
-      survey = Survey.new(JSON.parse(json_txt))
-      allow(Survey).to receive(:all).and_return(survey)
+    it 'should call the Model method that returns all surveys' do
+      expect(Survey).to receive(:all)
+      get :index
+    end
+
+    it 'it is assigning all surveys created to the right variable' do
+      allow(Survey).to receive(:all).and_return(@fake_results)
+      get :index
+      expect(assigns(:surveys)).to eq(@fake_results)
+    end
+
+    it "is returning all surveys created in json format" do
+      allow(Survey).to receive(:all).and_return(@fake_results)
 
       get :index
-      expect(response.body).to eq("{\"id\":1,\"name\":\"Questionário 1\",\"description\":\"this is a test survey\",\"expiration_date\":\"2028-06-21T15:15:50.000Z\",\"semester\":\"2021/2\",\"survey_questions\":[]}")
+      expected_output = @fake_results.map { |element| element.as_json }
+      output = (JSON.parse(response.body))
+
+      expect(output).to eq(expected_output)
+    end
+  end
+
+  describe 'method open' do
+    before(:each) do
+      @survey1 = instance_double('Survey')
+      allow(@survey1).to receive(:is_expired?).and_return(false)
+      @survey2 = instance_double('Survey')
+      allow(@survey2).to receive(:is_expired?).and_return(true)
+
+      @surveys = [@survey1, @survey2]
+
+      allow(Survey).to receive(:all).and_return(@surveys)
+    end
+
+    it "returns a success response" do
+      get :open
+      expect(response).to be_successful
+    end
+
+    it 'should call the Model method that returns all surveys' do
+      expect(Survey).to receive(:all)
+      get :open
+    end
+
+    it 'it is assigning all surveys created to the right variable' do
+      get :open
+      expect(assigns(:surveys)).to eq([@surveys[0]])
+    end
+
+    it "is returning all surveys created in json format" do
+      get :open
+      expected_output = [@surveys[0].as_json]
+
+      output = (JSON.parse(response.body))
+
+      expect(output).to eq(expected_output)
+    end
+  end
+
+  describe 'method show' do
+    before(:each) do
+      @survey1 = instance_double('Survey')
+      allow(@survey1).to receive(:role_id).and_return(1)
+      @survey2 = instance_double('Survey')
+      allow(@survey2).to receive(:role_id).and_return(2)
+
+      @surveys = [@survey1, @survey2]
+
+      allow(Survey).to receive(:find).with('1').and_return(@surveys[0])
+    end
+
+    it 'should have status 200' do
+      expect(Survey).to receive(:find).with('1')
+      get :show, params: { id: '1' }
+      expect(response).to be_successful
+    end
+
+    it 'should call the Model method that finds by id' do
+      expect(Survey).to receive(:find).with('1')
+      get :show, params: { id: '1' }
+    end
+
+    it 'it is assigning the right survey to the right variable' do
+      get :show, params: { id: '1' }
+      expect(assigns(:survey)).to eq(@surveys[0])
+    end
+
+    it 'should render the right survey' do
+      get :show, params: { id: '1' }
+
+      expected_output = @surveys[0].as_json
+      output = (JSON.parse(response.body))
+
+      expect(output).to eq(expected_output)
     end
   end
 end
-
-
-

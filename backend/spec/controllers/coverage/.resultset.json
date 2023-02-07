@@ -1,0 +1,49 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/matheus/CAMAAR/backend/spec/controllers/users_controller_spec.rb": {
+        "lines": [
+          1,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1675437375
+  }
+}
