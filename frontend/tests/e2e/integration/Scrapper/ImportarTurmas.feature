@@ -15,6 +15,8 @@ Funcionalidade: Importar do SIGAA
     Então eu devo ver uma notificação de "Selecione uma ou mais turmas para importar"
 
     # This test is not passing yet
+    # The backend is receiving empty data and isn't showing
+    # any error messages.
     @mockTurmasVazias
     Cenario: Erro ao importar as turmas vazias do SIGAA
     Dado que estou na rota "/import"
