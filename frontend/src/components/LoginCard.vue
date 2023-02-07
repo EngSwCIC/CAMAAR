@@ -43,22 +43,6 @@ const login = async () => {
   }
 }
 
-const cadastrar = async () => {
-  try {
-    const res = await authenticate(user);
-    if (res) {
-      console.log('res', router.name)
-      router.push({ path: '/cadastrar' })
-    }
-  } catch (e) {
-    console.error(e);
-    $q.notify({
-      message: 'Falha ao ir para pagina de registro.',
-      position: 'top',
-      color: 'negative'
-    })
-  }
-}
 </script>
 <template>
   <div class="row">
@@ -71,8 +55,6 @@ const cadastrar = async () => {
           :rules="[val => !!val || 'Senha Obrigatória']" data-test-senha="senha"></q-input>
         <q-btn rounded color="secondary" class="col-12" size="lg" @click="login"
           data-test-button-login="login">Entrar</q-btn>
-        <q-btn rounded color="secondary" class="col-12" size="lg" @click="cadastrar"
-          data-test-button-registro="registrar">Registrar</q-btn>
       </q-form>
     </q-card>
   </div>

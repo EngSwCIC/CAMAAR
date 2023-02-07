@@ -34,7 +34,7 @@ const routes = [
     component: SurveyPage,
   },
   {
-    path: '/cadastrar',
+    path: '/cadastrar/:redefinition_link',
     name: 'Cadastrar',
     component: CadastrarPage,
   },
