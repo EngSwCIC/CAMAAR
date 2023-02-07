@@ -3,9 +3,8 @@ require 'factory_bot_rails'
 
 RSpec.describe Users::SessionsController, type: :controller do
   describe 'POST #create' do
+    user = User.new(email: 'email@correto', password: 'senhacorreta')
     context 'when the credentials are correct' do
-      user = FactoryBot.create(:user, email: 'email@correto', password:'senhacorreta')
-
       before do
         post :create, params: { session: { email: user.email, password: user.password } }
       end

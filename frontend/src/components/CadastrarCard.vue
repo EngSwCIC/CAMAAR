@@ -16,7 +16,7 @@ const users = reactive({
 });
 
 onMounted(async () => {
-  const res = await axios.get("/api/members/get/" + router.currentRoute.value.params.redefinition_link)
+  const res = await axios.get("/api/members/redefine_password/" + router.currentRoute.value.params.redefinition_link)
   users.email = res.data.email
 })
 
