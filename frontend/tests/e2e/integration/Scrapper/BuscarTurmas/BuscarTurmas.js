@@ -26,9 +26,9 @@ And(`eu clicar no botão {string}`, (button_text) => {
     intercept({
       method: 'get',
       url: '/api/import/turmas'
-    }).as('importTurmas');
+    }).as('buscarTurmas');
     contains(button_text).click();
-    wait('@importTurmas', {timeout: 20000});
+    wait('@buscarTurmas', {timeout: 20000});
   }
 });
 
