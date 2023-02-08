@@ -13,7 +13,8 @@ class SurveysController < ApplicationController
   # um status `ok (200)`  
 
   def index
-    render json: @surveys
+    @surveys = Survey.all
+    render json: @surveys, status: :ok
   end
 
   ##
@@ -34,7 +35,7 @@ class SurveysController < ApplicationController
   def show_answers
     @survey = Survey.find(params[:id])
     @question_answers = @survey.question_answers
-    render json: @question_answers
+    render json: @question_answers, status: :ok
   end
 
   ##
