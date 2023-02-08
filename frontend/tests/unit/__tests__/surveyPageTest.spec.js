@@ -3,7 +3,7 @@ import axios from "axios";
 import TableComponent from "../../../src/components/TableComponent";
 
 jest.mock("axios", () => ({
-  get: jest.fn().mockResolvedValue({ data: ["api/surveys/1/answers"] }),
+  get: jest.fn().mockResolvedValue({ data }),
 }));
 
 describe("Table.vue", () => {
