@@ -147,6 +147,18 @@ When(`clico no botão {}`, (button_content) => {
   })
 });
 
+When(`preencho todas as opções do likert da questão {} com "{}"`,(numero,value) => {
+  cy.get(`#questao-${numero} input[value="${value}"]`).each((radio)=>{
+    radio.click()
+  })
+});
+
+Then(`a questão {} deveria enviar o likert com as opções com "{}"`, (num_questao, conteudo_testado) => {
+  let indice = parseInt(num_questao) - 1
+  cy.get('@questoes_enviadas').then(questoes => {
+    questoes[indice].likert_answers_attributes.forEach(conteudo => expect(conteudo.content).to.equal(conteudo_testado))
+  });
+});
 
 Then(`devo ver um mensagem de {}`, (string) => {
   get('.q-notification__message').should('contain', string)

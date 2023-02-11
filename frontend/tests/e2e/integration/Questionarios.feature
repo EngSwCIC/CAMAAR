@@ -27,12 +27,12 @@ Funcionalidade: Preenchimento dos Questionarios
   Cenario: Enviar com todos campos preenchidos (feliz)
     Dado que estou no questionario "teste"
     Quando preencho o textarea da questão 1 com "Uma sugestão"
-    E preencho o textarea da questão 3 com "Outra Sugestão"
+    E preencho todas as opções do likert da questão 3 com "Discordo totalmente"
     E preencho o radio button da questão 2 com os labels: option 1, option 2, option 5
     E clico no botão Enviar
     #Entao devo ver um mensagem de Enviado.
     Entao a questão 1 deveria enviar "Uma sugestão"
-    E a questão 3 deveria enviar "Outra Sugestão"
+    E a questão 3 deveria enviar o likert com as opções com "Discordo totalmente"
     E a questão 2 deveria enviar 4
 
   @interceptingRequest
