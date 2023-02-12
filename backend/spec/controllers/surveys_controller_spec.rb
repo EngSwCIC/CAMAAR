@@ -34,6 +34,12 @@ require 'rails_helper'
       it "returns http ok 1" do
         @r = create(:role)
         @survey = create(:survey)
+        @question_type = create(:question_type)
+        @survey_question = create(:survey_question)
+        @subject = create(:subject)
+        @member = create(:member)
+        @cclass = create(:cclass)
+        @survey_answer = create(:survey_answer)
         puts @survey.id
         get "/surveys/#{@survey.id}/answers"
         data = JSON.parse(response.body)

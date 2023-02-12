@@ -382,7 +382,6 @@ DEPENDENCIES
   rest-client (~> 2.0.1)
   rspec-rails (~> 5.1.1)
   rubycritic
-  simplecov
   sqlite3 (~> 1.4)
   tzinfo-data
   webmock (~> 3.14)
