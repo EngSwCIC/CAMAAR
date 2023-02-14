@@ -70,3 +70,6 @@ gem 'webmock', '~> 3.14'
 
 
 gem "mysql2", "~> 0.5.4"
+
+gem 'factory_bot_rails'
+
