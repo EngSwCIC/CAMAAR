@@ -62,19 +62,23 @@ class ScrapperController < ApplicationController
     end
     
     ##
-    # Cadastra os participantes importados no banco de dados
+    # Cadastra os participantes importados no banco de dados.
+	#
+	# Cada participante recebe uma hash de redefinição única baseada
+	# no seu email. Ao terminar, um email é enviado ao aluno com um link para
+	# redefinição de senha.
     def cadastraParticipante(discente, turma)
       role = Role.find_or_create_by(name: :discente)
       
 	  member = Member.find_or_create_by(
 	    name: discente['nome'], 
 	    course: discente['curso'],
-      registration: discente['matricula'], 
+        registration: discente['matricula'], 
 	    username: discente['usuario'],
-      degree: discente['formacao'], 
-  	  role: role,
-      email: discente['email'],
-      redefinition_link: Digest::SHA256.hexdigest(discente['email'])
+        degree: discente['formacao'], 
+  	    role: role,
+        email: discente['email'],
+        redefinition_link: Digest::SHA256.hexdigest(discente['email'])
 	  )
       
 	  Enrollment.find_or_create_by(
@@ -82,9 +86,9 @@ class ScrapperController < ApplicationController
 	    cclass: turma
 	  )
 
-	  # TODO: generate redefinition link and attach to the member object 
-	  mail = ApplicationMailer.redefine_password(member)
+	  mail = ApplicationMailer.redefine_password_email(member)
 	  
+	  # Uncomment this line for production.
 	  # mail.deliver_now
     end
 end
