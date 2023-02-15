@@ -24,7 +24,6 @@
 
 <script>
 import axios from 'axios';
-
 export default {
   data() {
     return {
@@ -56,6 +55,7 @@ export default {
       }
       acc[curr.survey_question_id].push(curr.answer);
       this.resposta = acc
+      //segundo commit porque mandei errado na branch 2
       this.filteredResult();
       return acc;
     }, {});
