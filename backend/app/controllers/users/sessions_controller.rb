@@ -1,15 +1,15 @@
 class Users::SessionsController < Devise::SessionsController
   respond_to :json
 
-  # def create
-  #   user = User.find_by(email: params[:session][:email])
-  #   if user && user.valid_password?(params[:session][:password])
-  #     sign_in(:user, user)
-  #     respond_with user
-  #   else
-  #     render json: { message: 'Email ou senha invalidos', authenticated: false }, status: :unauthorized
-  #   end
-  # end
+  def create
+    user = User.find_by(email: params[:session][:user][:email])
+    if user && user.valid_password?(params[:session][:user][:password])
+      sign_in(:user, user)
+      respond_with user
+    else
+      render json: { message: 'Email ou senha invalidos', authenticated: false, user: user, email: params }, status: :unauthorized
+    end
+  end
 
   private
 

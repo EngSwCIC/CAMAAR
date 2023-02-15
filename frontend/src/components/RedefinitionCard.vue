@@ -69,11 +69,11 @@ const PostMembers = async () => {
           v-model="users.email" class="col-10" lazy-rules :rules="[val => !!val || 'E-Mail Obrigatório']"
           data-test-email="email" :model-value="users.email" :disable="true"></q-input>
         <q-input type="password" rounded outlined placeholder="Digite senha antiga" label="Senha" v-model="users.senha_atual"
-          class="col-10" :rules="[val => !!val || 'Senha Obrigatória']" data-test-senha="senha"></q-input>
+          class="col-10" :rules="[val => !!val || 'Senha Obrigatória']" data-test-senhaantiga="senhaantiga"></q-input>
         <q-input type="password" rounded outlined placeholder="Digite sua nova senha" label="Senha" v-model="users.senha"
-          class="col-10" :rules="[val => !!val || 'Senha Obrigatória']" data-test-senha="senha"></q-input>
+          class="col-10" :rules="[val => !!val || 'Senha Obrigatória']" data-test-senhanova="senhanova"></q-input>
         <q-input type="password" rounded outlined placeholder="Confirme a nova senha" label="Senha" v-model="users.senha_confirmacao"
-          class="col-10" :rules="[val => !!val || 'Senha Obrigatória']" data-test-senha="senha"></q-input>
+          class="col-10" :rules="[val => !!val || 'Senha Obrigatória']" data-test-senhaconfirmacao="senhaconfirmacao"></q-input>
 
         <q-btn rounded color="secondary" class="col-12" size="lg" @click="PostMembers"
           data-test-button-register="registrar">Efetuar o Registro</q-btn>
