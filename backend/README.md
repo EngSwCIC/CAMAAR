@@ -28,8 +28,13 @@ E para preencher o banco com dados iniciais extraídos do SIGAA, execute:
 ```
 rails db:seed
 ```
+Em seguida, preencha seus dados de acesso ao siga (usuário e senha) no arquivo [`sigaa_login.rb`](sigaa_login.rb)
 
-Após isso basta iniciar a aplicação
+```rb
+ENV['SIGAA_USER'] = 'Usuario'
+ENV['SIGAA_SENHA'] = 'Senha'
+```
+Por fim, basta iniciar a aplicação
 
 ```
 rails server
@@ -71,3 +76,4 @@ de clientes http como:
 - [devise-jwt](https://github.com/waiting-for-dev/devise-jwt)
 - [SQLite](https://www.sqlite.org/index.html)
 - [RSpec](https://rspec.info/)
+- [Watir](http://watir.com/)
