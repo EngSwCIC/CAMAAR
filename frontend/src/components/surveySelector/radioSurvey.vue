@@ -12,14 +12,18 @@ export default {
   },
   methods: {
     addInput() {
-      console.log(this.data)
       this.data.push({
         key: this.data.length + 1,
         value: ""
-      })
+      });
+      this.answer();
     },
     removeInput(key) {
       this.data = this.data.filter(input => input.key !== key)
+      this.answer();
+    },
+    answer: function() {
+      this.$emit('answer', this.data)
     }
   }
 };
@@ -29,7 +33,7 @@ export default {
   <div>
     <div v-for="input in data" :key="input.key" class="container">
       <input name="selected_options" type="radio" :value="input.key" class="radio" disabled />
-      <input type="text" v-model="input.value" class="input"  />
+      <input type="text" v-model="input.value" class="input" @input="answer"  />
       <q-btn
         rounded
         color="negative"

@@ -1,24 +1,22 @@
 <script>
 export default {
-  props: ["answer"],
-  mounted() {
-    this.resizeTextarea();
-    this.$refs.textarea.addEventListener("input", this.resizeTextarea);
-  },
-  beforeUnmount() {
-    this.$refs.textarea.removeEventListener("input", this.resizeTextarea);
-  },
   methods: {
-    resizeTextarea() {
-      this.$refs.textarea.style.height = "auto";
-      this.$refs.textarea.style.height =
-        this.$refs.textarea.scrollHeight + "px";
-    },
     onChangeSelectedIni(event) {
       this.iniValue = event;
+      this.answer();
     },
     onChangeSelectedEnd(event) {
       this.endValue = event;
+      this.answer();
+
+    },
+    answer: function () {
+      this.$emit("answer", {
+        iniValue: this.iniValue,
+        endValue: this.endValue,
+        iniAnswer: this.answer1,
+        endAnswer: this.answer2,
+      });
     },
   },
   data() {
@@ -71,29 +69,24 @@ export default {
     </div>
 
     <div>
-      <div class="contentContainer">
+      <div>
         <span class="selectValue">{{ iniValue }}</span>
-        <textarea
-          ref="textarea"
-          :value="answer1"
+        <input
+          v-model="answer1"
           placeholder="Marcador inicial (Opcional)"
           class="container"
-        ></textarea>
+          @input="answer"
+        />
       </div>
-      <div class="contentContainer">
+      <div>
         <span class="selectValue">{{ endValue }}</span>
-        <textarea
-          ref="textarea"
-          :value="answer2"
+        <input
+          v-model="answer2"
           placeholder="Marcador Final (Opcional)"
           class="container"
-        ></textarea>
+          @input="answer"
+        />
       </div>
-    </div>
-    <div>
-      <span>{{answer1}}</span>
-      <!-- vfor ini ao end temos que ter entre ini e end opções de seleção de radio -->
-      <span>{{answer2}}</span>
     </div>
   </div>
 </template>
@@ -102,8 +95,7 @@ export default {
 .container {
   margin-top: 20px;
   margin-left: 20px;
-  width: 10%;
-  height: 50px;
+  width: 240px;
   border: none;
   border-bottom: 1px solid #000;
   background: transparent;
@@ -114,9 +106,7 @@ export default {
 
 }
 .selection {
-  width: 3%;
   margin: 5px;
-
   border: none;
   border-bottom: 1px solid #000;
   background: transparent;
@@ -124,11 +114,6 @@ export default {
   color: #000;
   font-size: 16px;
   transition: 0.5s;
-}
-
-.contentContainer {
-  display: flex;
-  align-items: center;
 }
 
 .selectValue {

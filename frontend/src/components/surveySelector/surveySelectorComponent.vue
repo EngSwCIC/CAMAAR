@@ -5,12 +5,37 @@ import CheckboxSurvey from "./checkboxSurvey.vue";
 import LinearScaleSurvey from "./linearScaleSurvey.vue";
 
 export default {
-  props: ["title"],
   components: {
     TextSurvey,
     CheckboxSurvey,
     RadioSurvey,
     LinearScaleSurvey
+  },
+
+  emits: ["surveyAnswer"],
+
+  methods: {
+    getAnswer: function (answer) {
+      this.$emit("surveyAnswer", {
+        questionTitle: this.questionTitle,
+        selectedType: this.selectedType,
+        answer: answer,
+      })
+    },
+    typeChange: function () {
+      this.$emit("surveyAnswer", {
+        questionTitle: this.questionTitle,
+        selectedType: this.selectedType,
+        answer: "",
+      })
+    }
+  },
+  mounted() {
+    this.$emit("surveyAnswer", {
+      questionTitle: this.questionTitle,
+      selectedType: this.selectedType,
+      answer: "",
+    })
   },
 
   data() {
@@ -23,7 +48,6 @@ export default {
         { value: "checkbox", label: "Múltipla escolha" },
         { value: "linear", label: "Escala linear" },
       ],
-      answerValue: "",
     }
   }
 };
@@ -33,14 +57,14 @@ export default {
   <div class="card">
     <div class="header">
       <input type="text" v-model="questionTitle" placeholder="Pergunta sem título" class="title" />
-      <select v-model="selectedType" class="selectMenu">
+      <select v-model="selectedType" class="selectMenu" @change="typeChange">
         <option v-for="{ label, value } in options" :key="value" :value="value">{{ label }}</option>
       </select>
     </div>
-    <TextSurvey v-if="selectedType === options[0].value" :answer="answerValue" />
-    <CheckboxSurvey v-else-if="selectedType === options[1].value" />
-    <RadioSurvey v-else-if="selectedType === options[2].value"/>
-    <LinearScaleSurvey v-else-if="selectedType === options[3].value" :answer="answerValue"/>
+    <TextSurvey v-if="selectedType === options[0].value" />
+    <CheckboxSurvey v-else-if="selectedType === options[1].value" @answer="getAnswer" />
+    <RadioSurvey v-else-if="selectedType === options[2].value" @answer="getAnswer" />
+    <LinearScaleSurvey v-else-if="selectedType === options[3].value" @answer="getAnswer"/>
   </div>
 </template>
 

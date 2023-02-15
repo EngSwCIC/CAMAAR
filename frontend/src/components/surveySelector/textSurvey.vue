@@ -1,6 +1,5 @@
 <script>
 export default {
-  props: ["answer"],
   mounted() {
     this.resizeTextarea()
     this.$refs.textarea.addEventListener('input', this.resizeTextarea)
@@ -12,13 +11,13 @@ export default {
     resizeTextarea() {
       this.$refs.textarea.style.height = 'auto'
       this.$refs.textarea.style.height = this.$refs.textarea.scrollHeight + 'px'
-    }
+    },
   }
 };
 </script>
 
 <template>
-  <textarea ref="textarea"  :value="answer" placeholder="texto de resposta" class="container"></textarea>
+  <textarea ref="textarea" placeholder="texto de resposta" class="container" disabled></textarea>
 </template>
 
 <style scoped>
