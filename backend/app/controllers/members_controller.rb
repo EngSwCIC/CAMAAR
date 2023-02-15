@@ -1,5 +1,7 @@
 class MembersController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:redefine_password]
+
   def index
     @members = if params[:id].present?
                  cclass = Cclass.find(params[:id])
@@ -11,7 +13,7 @@ class MembersController < ApplicationController
   end
 
   def show
-    @member = Member.find(params[:id])
+    @member = Member.find_by_id(params[:id])
     render json: @member, status: :ok
   end
 
