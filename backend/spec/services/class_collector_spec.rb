@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe SigaaManager::ClassCollector, type: :model do
+
+  describe 'new' do
+    it 'should generate an object with a instane variable corresponding to the initial SIGAA page' do
+      extractor = SigaaManager::ClassCollector.new()
+      expect((extractor.browser.element(tag_name:'div', id:"turmas-portal", class:"simple-panel").exists?)).to be_truthy
+    end
+  end
+
   describe 'getClassesInfo' do
     it 'Should return an array of objects that contains the data of sigaa classes.' do
       #example
@@ -13,4 +21,5 @@ RSpec.describe SigaaManager::ClassCollector, type: :model do
 
     end  
   end
+
 end

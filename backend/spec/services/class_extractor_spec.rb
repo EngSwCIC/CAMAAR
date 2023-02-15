@@ -46,13 +46,15 @@ RSpec.describe SigaaManager::ClassExtractor, type: :model do
 
     before(:each) do
       file_url = "file://#{Dir.pwd}/spec/services/web-pages/participantes_turma.html"
-      turma = {"codigo" => 'CIC105',
-               "turma" => "T02" }
+      class_info = {}
+      class_info["code"]  =  'CIC105'
+      class_info["class"] = {"classCode"=> "T02" }
 
       browser = Watir::Browser.new :chrome, headless: true
       browser.goto file_url
+      @extractor.browser = browser
 
-      @turma_info = @extractor.extract_class( turma, browser)
+      @turma_info = @extractor.extract_class(class_info)
     end
 
     it 'should return a hash containing of the right format' do

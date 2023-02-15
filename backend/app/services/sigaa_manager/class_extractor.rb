@@ -2,20 +2,19 @@ module SigaaManager
   # A classe ClassExtractor é responsável por extrair as informações de uma ou mais turmas presentes no SIGAA
   class ClassExtractor < ClassCollector
     def call(params)
-      browser = self.class.loginSigaa
-      extract_classes(browser, params)
+      extract_classes(params)
 
     end
 
-    def extract_classes(browser, params)
+    def extract_classes(params)
 
       classes = []
-      class_elements = browser.elements(tag_name: "td", class: "descricao")
+      class_elements = @browser.elements(tag_name: "td", class: "descricao")
       class_elements.each do |class_element|
         # vai para página 
         class_element.form.a.click
 
-        class_info = get_class_info browser
+        class_info = get_class_info
         code = class_info["code"]
         class_code = class_info["class"]["classCode"]
         semester = class_info["class"]["semester"]
@@ -25,28 +24,28 @@ module SigaaManager
              "#{t['codigo']}_#{t['turma']}_#{t['semestre']}" == "#{code}_#{class_code}_#{semester}"}
 
           # Acessa a página de participantes
-          browser.link(:text =>"Participantes").click 
+          @browser.link(:text =>"Participantes").click 
 
           # Extrai informações da pagina de turma
-          classes.append(extract_class(class_info, browser))
+          classes.append(extract_class(class_info))
 
           # Volta para a página inicial da turma
-          browser.back
+          @browser.back
 
         end
 
-        browser.back
+        @browser.back
 
       end
       return classes.to_json
     end
  
-    def extract_class(class_info, browserMembersPage)
+    def extract_class(class_info)
       class_hash = {:code => class_info["code"],
                     :classCode => class_info["class"]["classCode"],
                    }
       
-      participantes = browserMembersPage.elements(class: "participantes", tag_name: "table")
+      participantes = @browser.elements(class: "participantes", tag_name: "table")
 
       docenteElement = participantes.first
 
