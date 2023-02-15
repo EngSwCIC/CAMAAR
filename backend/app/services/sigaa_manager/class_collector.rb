@@ -4,16 +4,14 @@ require './sigaa_login.rb'
 
 module SigaaManager
   class ClassCollector < ApplicationService
-    @@usuario = ENV['SIGAA_USER']
-    @@senha = ENV['SIGAA_SENHA']
 
     attr_reader :browser
 
     def initialize()
       @browser = Watir::Browser.new :chrome, headless: true
       @browser.goto 'https://sigaa.unb.br/sigaa/verTelaLogin.do'
-      @browser.text_field(name: 'user.login').set @@usuario
-      @browser.text_field(name: 'user.senha').set @@senha
+      @browser.text_field(name: 'user.login').set ENV['SIGAA_USER']
+      @browser.text_field(name: 'user.senha').set ENV['SIGAA_SENHA']
       @browser.button(value: 'Entrar').click
     end
 
