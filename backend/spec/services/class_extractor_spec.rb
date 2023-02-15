@@ -53,9 +53,8 @@ RSpec.describe SigaaManager::ClassExtractor, type: :model do
 
       browser = Watir::Browser.new :chrome, headless: true
       browser.goto file_url
-      @extractor.browser = browser
 
-      @turma_info = @extractor.extract_class(class_info)
+      @turma_info = @extractor.extract_class(class_info, browser)
     end
 
     it 'should return a hash containing of the right format' do
