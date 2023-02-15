@@ -2,16 +2,16 @@ require 'rails_helper'
 require 'factory_bot_rails'
 
 RSpec.describe Users::SessionsController, type: :controller do
-  include Devise::Test::IntegrationHelpers
+  include FactoryBot::Syntax::Methods
 
   describe 'POST #create' do
-    user = User.new(email: 'email@correto', password: 'senhacorreta')
     context 'when the credentials are correct' do
-      before do
-        post :create, params: { session: { email: user.email, password: user.password } }
-      end
-
       it 'responds with a JSON object indicating success' do
+        @request.env['devise.mapping'] = Devise.mappings[:user]
+        user = create(:user)
+        post 'auth/sign_in',
+             params: { email: user.email,
+                       password: user.password }
         expect(response).to have_http_status(:ok)
         expect(JSON.parse(response.body)).to eq(
           'message' => 'Autenticado com sucesso',
@@ -28,7 +28,7 @@ RSpec.describe Users::SessionsController, type: :controller do
 
     context 'when the credentials are incorrect' do
       before do
-        post :create, params: { session: { email: 'invalido', password: 'invalido' } }
+        post :create, params: { email: 'invalido', password: 'invalido' }
       end
 
       it 'responds with a JSON object indicating failure' do

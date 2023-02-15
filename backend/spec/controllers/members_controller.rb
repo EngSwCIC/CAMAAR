@@ -2,8 +2,6 @@ require 'rails_helper'
 require 'factory_bot_rails'
 
 RSpec.describe MembersController, type: :controller do
-  include FactoryBot::Syntax::Methods
-
   describe 'GET #redefine_password' do
     context 'when the redefinition_link is valid' do
       let(:members_class) { class_double(Member).as_stubbed_const }
@@ -58,8 +56,42 @@ RSpec.describe MembersController, type: :controller do
         expect(get: '/members/redefine_password/').to route_to(
           controller: 'members',
           action: 'show',
-          id: "redefine_password"
+          id: 'redefine_password'
         )
+      end
+    end
+  end
+  describe 'GET #index' do
+    context 'When I am not sign in' do
+      it 'returns unauthorized' do
+        get :index, params: {}
+        expect(response).to have_http_status(:unauthorized)
+      end
+    end
+    context 'When I am sign in' do
+      login_user
+      before do
+        get :index, params: {}
+      end
+      it 'returns status code ok' do
+        expect(response).to have_http_status(:ok)
+      end
+    end
+  end
+  describe 'GET #show' do
+    context 'When I am not sign in' do
+      it 'returns unauthorized' do
+        get :show, params: { id: 1 }
+        expect(response).to have_http_status(:unauthorized)
+      end
+    end
+    context 'When I am sign in' do
+      login_user
+      before do
+        get :show, params: { id: 69 }
+      end
+      it 'returns status code ok' do
+        expect(response).to have_http_status(:ok)
       end
     end
   end
