@@ -32,8 +32,8 @@ export default {
 <template>
   <div class="card">
     <div class="header">
-      <input type="text" v-model="questionTitle" placeholder="Pergunta sem título" />
-      <select v-model="selectedType">
+      <input type="text" v-model="questionTitle" placeholder="Pergunta sem título" class="title" />
+      <select v-model="selectedType" class="selectMenu">
         <option v-for="{ label, value } in options" :key="value" :value="value">{{ label }}</option>
       </select>
     </div>
@@ -57,5 +57,29 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
+
+.title {
+  width: 50%;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+  margin-right: 20px;
+}
+
+.selectMenu {
+  width: 30%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  background: #f2f2f2;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 </style>

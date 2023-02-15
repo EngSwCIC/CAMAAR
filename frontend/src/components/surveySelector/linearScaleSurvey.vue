@@ -71,8 +71,8 @@ export default {
     </div>
 
     <div>
-      <div>
-        <span>{{ iniValue }}</span>
+      <div class="contentContainer">
+        <span class="selectValue">{{ iniValue }}</span>
         <textarea
           ref="textarea"
           :value="answer1"
@@ -80,8 +80,8 @@ export default {
           class="container"
         ></textarea>
       </div>
-      <div>
-        <span>{{ endValue }}</span>
+      <div class="contentContainer">
+        <span class="selectValue">{{ endValue }}</span>
         <textarea
           ref="textarea"
           :value="answer2"
@@ -103,9 +103,38 @@ export default {
   margin-top: 20px;
   margin-left: 20px;
   width: 10%;
+  height: 50px;
+  border: none;
+  border-bottom: 1px solid #000;
+  background: transparent;
+  outline: none;
+  color: #000;
+  font-size: 16px;
+  transition: 0.5s;
+
 }
 .selection {
   width: 3%;
   margin: 5px;
+
+  border: none;
+  border-bottom: 1px solid #000;
+  background: transparent;
+  outline: none;
+  color: #000;
+  font-size: 16px;
+  transition: 0.5s;
 }
+
+.contentContainer {
+  display: flex;
+  align-items: center;
+}
+
+.selectValue {
+  margin: 5px;
+  font-size: 16px;
+  transition: 0.5s;
+}
+
 </style>
