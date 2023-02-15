@@ -5,7 +5,6 @@ Funcionalidade: Redefinição de senha
 	Eu quero ter a capacidade de redefinir a minha senha
 
 Contexto:
-	Dado que nao estou autenticado
 	Dado que estou na rota "/#/cadastro/1234"
 	Então eu deveria ver o campo "senhanova"
 	E eu deveria ver o campo "senhaconfirmacao"
