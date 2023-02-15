@@ -24,12 +24,12 @@ const PostMembers = async () => {
   const Control1 = await form.value.validate()
   if (Control1) {
     try {
-      let req = await axios.post("/api/path", {
+      let req = await axios.put("/api/auth", {
         "user": {
           "email": users.email, 
+          "current_password": users.senha_atual,
           "password": users.senha,
-          "password_confirmation": users.senha_confirmacao,
-          "current_password": users.senha_atual
+          "password_confirmation": users.senha_confirmacao
         }
       })
       let Control2 = await req.data.user
