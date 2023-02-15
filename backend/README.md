@@ -58,6 +58,15 @@ de clientes http como:
 - [Postman](https://insomnia.rest/)
 - [Insomina](https://insomnia.rest/download)
   
+### Variáveis de ambiente
+
+Para que o mailer funcione corretamente, é necessário a definição de 2 variáveis de ambientes contendo o email e senha de uma conta Gmail válida, para ser usada como remetente.
+
+```
+$GMAIL_USERNAME = "email@qualquer.com"
+$GMAIL_PASSWORD = "senha_do_email"
+```
+
 ### 🧪 Como executar testes com RSpec
 
   ```
