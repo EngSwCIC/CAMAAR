@@ -5,19 +5,19 @@ Funcionalidade: Redefinição de senha
 	Eu quero ter a capacidade de redefinir a minha senha
 
 Contexto:
-	Dados que clico no link de redefinição me enviado por email
-	Então eu devo ser redirecionado para uma página de redefinição de senha
-	Então eu devo ver um campo "Nova Senha"
-	E um campo "Confirmar nova senha"
+	Dado que nao estou autenticado
+	Dado que estou na rota "/#/cadastro/1234"
+	Então eu deveria ver o campo "senhanova"
+	E eu deveria ver o campo "senhaconfirmacao"
 
-Cenario: Digitar senha diferente no campo de confimação (triste)
+Cenário: Digitar senha diferente no campo de confimação (triste)
 	Quando eu selecionar o campo "Nova Senha"
 	E digitar "senha123"
 	E depois selecionar o campo "Confimar nova senha"
 	E digitar "senha_diferente"
 	Então devo ver uma mensagem "Senha de confirmação diferente da nova senha"
 		
-Cenario: Digitar senha válida (feliz)
+Cenário: Digitar senha válida (feliz)
 	Quando eu selecionar o campo "Nova Senha"
 	E digitar "senha_valida"
 	E depois selecionar o campo "Confimar nova senha"
