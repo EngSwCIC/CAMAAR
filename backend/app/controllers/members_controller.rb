@@ -17,8 +17,10 @@ class MembersController < ApplicationController
     render json: @member, status: :ok
   end
 
+  # #
+  # Procura por um membro específico baseado no seu hash de redefinição.
   def redefine_password
-    @member = Member.where(redefinition_link: params[:redefinition_link])[0]
+    @member = Member.where(redefinition_has: params[:redefinition_link])[0]
     render json: @member, status: :ok
   end
 end

@@ -61,10 +61,15 @@ class ScrapperController < ApplicationController
     participantes['dicente'].each do |discente|
       cadastraParticipante(discente, turma)
     end
+
   end
 
-  ##
-  # Cadastra os participantes importados no banco de dados
+   ##
+    # Cadastra os participantes importados no banco de dados.
+	#
+	# Cada participante recebe uma hash de redefinição única baseada
+	# no seu email. Ao terminar, um email é enviado ao aluno com um link para
+	# redefinição de senha.
   def cadastraParticipante(discente, turma)
     role = Role.find_or_create_by(name: :discente)
 
@@ -97,4 +102,3 @@ class ScrapperController < ApplicationController
     # mail.deliver_now
   end
 end
-
