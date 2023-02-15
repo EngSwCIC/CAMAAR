@@ -8,7 +8,10 @@ export const credentialsStore = defineStore("credentials", {
   actions: {
     authenticate: async (user) => {
       try {
-        const { data, headers } = await axios.post("/api/auth/login", user, {
+        const { data, headers } = await axios.post("/api/auth/sign_in", {"user": {
+          "email": user.email,
+          "password": user.password
+        }}, {
           validateStatus: function(status) {
             return status >= 200 && status < 300 || status === 401
           }

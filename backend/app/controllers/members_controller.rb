@@ -1,4 +1,5 @@
 class MembersController < ApplicationController
+  before_action :authenticate_user!
   def index
     @members = if params[:id].present?
                  cclass = Cclass.find(params[:id])

@@ -2,6 +2,8 @@ require 'rails_helper'
 require 'factory_bot_rails'
 
 RSpec.describe Users::SessionsController, type: :controller do
+  include Devise::Test::IntegrationHelpers
+
   describe 'POST #create' do
     user = User.new(email: 'email@correto', password: 'senhacorreta')
     context 'when the credentials are correct' do

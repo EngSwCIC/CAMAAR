@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users, path: '/auth',
+                     controllers: {
+                       sessions: 'users/sessions',
+                       registrations: 'users/registrations'
+                     }
+
   get 'member/show'
   resources :surveys do
     get 'open', on: :collection
@@ -7,15 +13,10 @@ Rails.application.routes.draw do
     resources :cclasses, only: [:index]
   end
   resources :survey_answers, only: [:create]
-  devise_for :user, path: '/auth', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' },
-                    controllers: {
-                      sessions: 'users/sessions',
-                      registrations: 'users/registrations'
-                    }
   get '/template', to: 'template#show'
   post '/import/turmas', to: 'scrapper#index'
 
-  post '/users', to: 'users#create'
+  # post '/users', to: 'users#create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
