@@ -1,34 +1,34 @@
 module SigaaManager
-  class ClassExtractor < ApplicationService
+  # A classe ClassExtractor é responsável por extrair as informações de uma ou mais turmas presentes no SIGAA
+  class ClassExtractor < ClassCollector
     def call(params)
       browser = self.class.loginSigaa
-      extractClasses(browser, params)
+      extract_classes(browser, params)
 
     end
 
-    def extractClasses(browser, params)
+    def extract_classes(browser, params)
 
       classes = []
-      materiaElements = browser.elements(tag_name: "td", class: "descricao")
-      materiaElements.each do |materiaElement|
+      class_elements = browser.elements(tag_name: "td", class: "descricao")
+      class_elements.each do |class_element|
+        # vai para página 
+        class_element.form.a.click
 
-        materiaElement.form.a.click
-        turma = {}
-
-        turma["codigo"] = browser.element(id: 'linkCodigoTurma').text.delete(" -")
-        turma["nome"] = browser.element(id: 'linkNomeTurma').text
-        turma["turma"],turma["semestre"], turma["horario"] = browser.element(id: 'linkPeriodoTurma').text.delete("-()").split(' ')
-
+        class_info = get_class_info browser
+        code = class_info["code"]
+        class_code = class_info["class"]["classCode"]
+        semester = class_info["class"]["semester"]
+        
         # Caso a turma inspecionada seja uma das turmas de interesse definidas em params
-        if params["classes"].detect{|t| t['codigo']==turma['codigo'] and
-                                    t['turma'] == turma['turma'] and
-                                    t['semestre'] == turma['semestre']}
+        if params["classes"].detect{|t|
+             "#{t['codigo']}_#{t['turma']}_#{t['semestre']}" == "#{code}_#{class_code}_#{semester}"}
 
           # Acessa a página de participantes
           browser.link(:text =>"Participantes").click 
 
           # Extrai informações da pagina de turma
-          classes.append(extractClass(turma, browser))
+          classes.append(extract_class(class_info, browser))
 
           # Volta para a página inicial da turma
           browser.back
@@ -41,9 +41,9 @@ module SigaaManager
       return classes.to_json
     end
  
-    def extractClass(turma, browserMembersPage)
-      class_hash = {:code => turma["codigo"],
-                    :classCode => turma["turma"],
+    def extract_class(class_info, browserMembersPage)
+      class_hash = {:code => class_info["code"],
+                    :classCode => class_info["class"]["classCode"],
                    }
       
       participantes = browserMembersPage.elements(class: "participantes", tag_name: "table")

@@ -4,25 +4,37 @@ module SigaaManager
 
     def call(params)
         sigaa_browser = self.class.loginSigaa
-        turmasSigaaInfo = getClassesInfo(sigaa_browser)
+        turmasSigaaInfo = get_classes_info(sigaa_browser)
     end
 
 
-    def getClassesInfo(browser)
-      todasTurmas = Array.new
-      materiasTableTds = browser.elements(tag_name: "td", class: "descricao")
-      materiasTableTds.each do |materia|
-        clicarTurma = materia.form.a.click
-        turma = browser.element(tag_name: "#nomeTurma")
-        turmaCod = browser.element(id: 'linkCodigoTurma').text.delete(" -")
-        turmaNome = browser.element(id: 'linkNomeTurma').text
-        turmaInfos = browser.element(id: 'linkPeriodoTurma').text.delete("-()").split(' ')
-        turmaHash = Hash.new
-        turmaHash = {"code": turmaCod, "name": turmaNome, "class": { "classCode":turmaInfos[0], "semester":turmaInfos[1], "time":turmaInfos[2] } }
-        todasTurmas.push(turmaHash)
+    def get_classes_info(browser)
+      classes_info = Array.new
+      turma_elements = browser.elements(tag_name: "td", class: "descricao")
+      turma_elements.each do |turma_element|
+        # vai para página da turma
+        turma_element.form.a.click
+
+        class_info = get_class_info browser
+        classes_info.push(class_info)
         browser.back
+
       end
-      todasTurmas
+      classes_info
+    end
+
+    def get_class_info(browser)
+
+        class_info = {}
+        more_info = {}
+
+        class_info["code"] = browser.element(id: 'linkCodigoTurma').text.delete(" -")
+        class_info["name"] = browser.element(id: 'linkNomeTurma').text
+        more_info["classCode"],more_info["semester"], more_info["time"] = browser.element(id: 'linkPeriodoTurma').text.delete("-()").split(' ')
+        class_info["class"] = more_info
+
+        class_info
+
     end
   end
 end
