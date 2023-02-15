@@ -8,9 +8,9 @@ module SigaaManager #:nodoc: don't document this
     #
     # * +params+ - +Hash+ de parametros do tipo +ActionController::Parameters+ contendo informações sobre as turmas selecionadas
     #
-    # ==== Params
+    # ===== +params+
     #
-    # O atributo +params+ deve conter as seguintes informações
+    # O atributo +params+ deve seguir o seguinte formato:
     #
     #    params = {"classes"=>[
     #                {"id"=>1,
@@ -31,13 +31,15 @@ module SigaaManager #:nodoc: don't document this
       extract_classes(params["classes"], @browser)
     end
 
-    # Retorna +Hash+ contendo informações sobre as turmas fornecidas no argumento +selected_classes+
+    # Retorna um +Array+ de objetos do tipo +Hash+ contendo informações sobre as turmas fornecidas no argumento +selected_classes+
+    # ==== Exemplo de Retorno
     #
     # ==== Attributes
     #
     # * +selected_classes+ - +Array+ de objetos do tipo +Hash+ contendo informações sobre as turmas que devem ter suas informações extraídas 
+    # * +browser+ - objeto do tipo +Watir::Browser+ representando um web-browser que está acessando a página principal  uma turma no SIGAA
     #
-    # ==== +selected_classes+
+    # ===== +selected_classes+
     #
     # O atributo +selected_classes+ deve estar em um formato semelhante ao exemplo:
     #
@@ -88,6 +90,24 @@ module SigaaManager #:nodoc: don't document this
       end
       return classes.to_json
     end
+
+    # Retorna +Hash+ contendo informações sobre as turmas fornecidas no argumento +selected_classes+
+    #
+    # ==== Attributes
+    #
+    # * +class_info+ -  Objeto do tipo +Hash+ contendo informações sobre a turmas que deve ter suas informações extraídas 
+    # * +browser+ - objeto do tipo +Watir::Browser+ representando um web-browser que está acessando a página de participantes de uma turma no SIGAA
+    #
+    # ===== +class_info+
+    #
+    # O atributo +selected_classes+ deve estar em um formato semelhante ao exemplo:
+    #
+    #    class_info = {"id"=>1,
+    #                  "nome"=>"AUTÔMATOS E COMPUTABILIDADE",
+    #                  "codigo"=>"CIC0161",
+    #                  "turma"=>"T01",
+    #                  "semestre"=>"2022.2",
+    #                  "horario"=>"245T45"}
  
     def extract_class(class_info, browser)
       class_hash = {:code => class_info["code"],
@@ -101,17 +121,25 @@ module SigaaManager #:nodoc: don't document this
       discentesElement = participantes.last
       discentesInfos = discentesElement.elements(tag_name: "td")
 
-      class_hash[:docente] = parseDocente docenteElement.text
+      class_hash[:docente] = parse_docente docenteElement.text
 
       
-      class_hash[:dicente] = discentesInfos.select{|info| not info.text.empty?}.map{|info| parseDiscente info.text}
+      class_hash[:dicente] = discentesInfos.select{|info| not info.text.empty?}.map{|info| parse_discente info.text}
 
       return class_hash
 
     end
 
+    # Retorna +Hash+ contendo informações sobre um Docente a partir de seu texto de descrição no SIGAA 
+    #
+    # ==== Attributes
+    #
+    # * +text+ -  +String+ representando o texto que descreve um Docente na página de participantes do SIGAA
+    #
+    # ==== Exemplo
+    #
 
-    def parseDocente(text)
+    def parse_docente(text)
       docente = {}
 
       nome, *lines = text.split(/\n/)
@@ -127,8 +155,16 @@ module SigaaManager #:nodoc: don't document this
       return docente
 
     end
+    # Retorna +Hash+ contendo informações sobre um Discente a partir de seu texto de descrição no SIGAA 
+    #
+    # ==== Attributes
+    #
+    # * +text+ -  +String+ representando o texto que descreve um Docente na página de participantes do SIGAA
+    #
+    # ==== Exemplo
+    #
 
-    def parseDiscente(text)
+    def parse_discente(text)
       discente = {}
       nome, *lines = text.split(/\n/)
       discente[:nome] = nome

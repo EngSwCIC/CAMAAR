@@ -5,7 +5,7 @@ RSpec.describe SigaaManager::ClassExtractor, type: :model do
   before(:each) do
     @extractor = SigaaManager::ClassExtractor.new()
   end
-  describe 'parseDocente' do
+  describe 'parse_docente' do
 
     it 'should generate a hash for a docente description' do
 
@@ -20,11 +20,11 @@ RSpec.describe SigaaManager::ClassExtractor, type: :model do
         :email=>"valves@unb.br",
         :ocupacao=>"docente",
       }
-      expect(@extractor.parseDocente(text)).to eq(expec_result)
+      expect(@extractor.parse_docente(text)).to eq(expec_result)
     end
   end
 
-  describe 'parseDiscente' do
+  describe 'parse_discente' do
     it 'should generate a hash for a discente description' do
 
       text = "Victor Henrique do Rego Vieira de Sousa\nCurso: COMPUTAÇÃO/CIC\nMatrícula: 170157491\nUsuário: 170157491\nE-mail: victorhrvs@gmail.com"
@@ -38,7 +38,7 @@ RSpec.describe SigaaManager::ClassExtractor, type: :model do
         :ocupacao=>"dicente",
         :email=>"victorhrvs@gmail.com",
       }
-      expect(@extractor.parseDiscente(text)).to eq(expec_result)
+      expect(@extractor.parse_discente(text)).to eq(expec_result)
 
     end
   end
