@@ -1,16 +1,14 @@
 class SurveyAnswer < ApplicationRecord
   belongs_to :survey
-  belongs_to :member
   belongs_to :cclass
   has_many :question_answers
   accepts_nested_attributes_for :question_answers
 
-  def as_json(options: {})
+  def as_json()
     super(
       only: [
         :survey_id,
         :cclass_id,
-        :member_id
       ],
       include: [
         :question_answers => {
@@ -24,5 +22,4 @@ class SurveyAnswer < ApplicationRecord
       ]
     )
   end
-
 end

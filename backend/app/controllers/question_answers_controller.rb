@@ -18,13 +18,22 @@
 #     # @current_user = get_user_from_token
 #     # @member = Member.find(@current_user.member_id)
 
-#     @survey_answer = SurveyAnswer.new(survey_answer_params)
-
-#     if @survey_answer.save
-#       render json: @survey_answer
+#     survey_id = survey_answer_params[:survey_answer][:survey_id]
+#     if @member.answered_surveys.exists?(survey_id)
+#       render json: {
+#         message: 'Questionário já respondido'
+#       }, status: :bad_request
 #     else
-#       render json: @survey_answer.errors, status: :unprocessable_entity
+#       @member.answered_surveys << survey_id
+#       @survey_answer = SurveyAnswer.new(survey_answer_params)
+
+#       if @survey_answer.save
+#         render json: @survey_answer
+#       else
+#         render json: @survey_answer.errors, status: :unprocessable_entity
+#       end
 #     end
+
 #   end
 
 #   private
@@ -46,7 +55,6 @@
 #             .permit(
 #               :survey_id,
 #               :cclass_id,
-#               :member_id,
 #               answers_attributes: [
 #                 :survey_question_id,
 #                 :content,

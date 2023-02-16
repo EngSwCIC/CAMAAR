@@ -52,7 +52,6 @@ const props = defineProps({
 })
 
 const columns = [
-  { name: 'student', label: 'Aluno', field: row => row.student, format: val => `${val}`, sortable: true },
   { name: 'question1', align: 'center', label: 'Questão 1', field: 'question1', sortable: true },
   { name: 'question2', align: 'center', label: 'Questão 2', field: 'question2', sortable: true },
   { name: 'question3', align: 'center', label: 'Questão 3', field: 'question3', sortable: true },
@@ -89,7 +88,6 @@ const columnsAverage = [
 
 const rows = [
   {
-    student: 'Maria',
     question1: 1,
     question2: 2,
     question3: 3,
@@ -106,7 +104,6 @@ const rows = [
     question14: 1
   },
   {
-    student: 'Duda',
     question1: 1,
     question2: 2,
     question3: 3,
@@ -123,7 +120,6 @@ const rows = [
     question14: 1
   },
   {
-    student: 'Cleude',
     question1: 1,
     question2: 2,
     question3: 3,
@@ -140,7 +136,6 @@ const rows = [
     question14: 1
   },
   {
-    student: 'Jertrudes',
     question1: 1,
     question2: 2,
     question3: 3,
@@ -157,7 +152,6 @@ const rows = [
     question14: 1
   },
   {
-    student: 'Lubas',
     question1: 1,
     question2: 2,
     question3: 3,
@@ -174,7 +168,6 @@ const rows = [
     question14: 1
   },
   {
-    student: 'Otavio',
     question1: 1,
     question2: 2,
     question3: 3,
@@ -191,7 +184,6 @@ const rows = [
     question14: 1
   },
   {
-    student: 'Paulo Otavio',
     question1: 1,
     question2: 2,
     question3: 3,
@@ -208,7 +200,6 @@ const rows = [
     question14: 1
   },
   {
-    student: 'Janaina',
     question1: 1,
     question2: 2,
     question3: 3,

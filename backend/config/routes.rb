@@ -34,5 +34,6 @@ Rails.application.routes.draw do
   # members
   get '/members', to:'members#index'
   get '/members/:id', to:'members#show'
+  post '/members/survey_answered/:survey_id', to:'members#survey_answered'
 
 end
