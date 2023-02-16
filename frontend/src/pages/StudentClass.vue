@@ -1,5 +1,6 @@
 <template>
   <h4>Media das avaliações</h4>
+  <!-- <div>Média das avaliações{{ filteredAverage[2].join() }}</div> -->
   <table class="table-bordered">
     <tr>
       <th v-for="(column, index) in columns" :key="index">{{ column }}</th>
@@ -106,21 +107,23 @@ export default {
 </script>
 <style>
 table {
-  width: 100%;
-  margin: 20px 0;
   border-collapse: collapse;
-  text-align: center;
+  width: 100%;
 }
 
 th,
 td {
-  border: 1px solid #ddd;
-  padding: 8px;
+  padding: 12px;
+  text-align: center;
 }
 
 th {
-  background-color: #ddd;
-  font-weight: bold;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+}
+
+td {
+  border: 1px solid #ddd;
 }
 
 tr:nth-child(even) {

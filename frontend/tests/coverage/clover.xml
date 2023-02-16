@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1675633399851" clover="3.2.0">
-  <project timestamp="1675633399852" name="All files">
-    <metrics statements="53" coveredstatements="14" conditionals="16" coveredconditionals="4" methods="19" coveredmethods="7" elements="88" coveredelements="25" complexity="0" loc="53" ncloc="53" packages="7" files="13" classes="13"/>
+<coverage generated="1676546039910" clover="3.2.0">
+  <project timestamp="1676546039910" name="All files">
+    <metrics statements="53" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="19" coveredmethods="0" elements="88" coveredelements="0" complexity="0" loc="53" ncloc="53" packages="7" files="13" classes="13"/>
     <package name="boot">
       <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="axios.js" path="/home/barbosa/workspace/UnB/EngSoftware/CAMAAR/frontend/src/boot/axios.js">
+      <file name="axios.js" path="/home/barbosa/CAMAAR/frontend/src/boot/axios.js">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="10" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
       </file>
-      <file name="i18n.js" path="/home/barbosa/workspace/UnB/EngSoftware/CAMAAR/frontend/src/boot/i18n.js">
+      <file name="i18n.js" path="/home/barbosa/CAMAAR/frontend/src/boot/i18n.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
       </file>
     </package>
     <package name="components">
-      <metrics statements="18" coveredstatements="9" conditionals="6" coveredconditionals="4" methods="9" coveredmethods="5"/>
-      <file name="FiltroRAluno.vue" path="/home/barbosa/workspace/UnB/EngSoftware/CAMAAR/frontend/src/components/FiltroRAluno.vue">
+      <metrics statements="18" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="9" coveredmethods="0"/>
+      <file name="FiltroRAluno.vue" path="/home/barbosa/CAMAAR/frontend/src/components/FiltroRAluno.vue">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="2" count="0" type="stmt"/>
       </file>
-      <file name="GenericTable.vue" path="/home/barbosa/workspace/UnB/EngSoftware/CAMAAR/frontend/src/components/GenericTable.vue">
-        <metrics statements="8" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="4"/>
-        <line num="57" count="2" type="stmt"/>
-        <line num="60" count="11" type="stmt"/>
+      <file name="GenericTable.vue" path="/home/barbosa/CAMAAR/frontend/src/components/GenericTable.vue">
+        <metrics statements="8" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
         <line num="67" count="0" type="stmt"/>
-        <line num="72" count="11" type="stmt"/>
-        <line num="73" count="8" type="stmt"/>
-        <line num="74" count="48" type="stmt"/>
-        <line num="75" count="48" type="cond" truecount="4" falsecount="0"/>
-        <line num="77" count="8" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="75" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="77" count="0" type="stmt"/>
       </file>
-      <file name="SurveyQuestion.vue" path="/home/barbosa/workspace/UnB/EngSoftware/CAMAAR/frontend/src/components/SurveyQuestion.vue">
+      <file name="SurveyQuestion.vue" path="/home/barbosa/CAMAAR/frontend/src/components/SurveyQuestion.vue">
         <metrics statements="7" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="59" count="0" type="stmt"/>
         <line num="62" count="0" type="stmt"/>
@@ -43,34 +43,34 @@
         <line num="85" count="0" type="stmt"/>
         <line num="90" count="0" type="stmt"/>
       </file>
-      <file name="TableComponent.vue" path="/home/barbosa/workspace/UnB/EngSoftware/CAMAAR/frontend/src/components/TableComponent.vue">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
+      <file name="TableComponent.vue" path="/home/barbosa/CAMAAR/frontend/src/components/TableComponent.vue">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
       </file>
     </package>
     <package name="i18n">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.js" path="/home/barbosa/workspace/UnB/EngSoftware/CAMAAR/frontend/src/i18n/index.js">
+      <file name="index.js" path="/home/barbosa/CAMAAR/frontend/src/i18n/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="i18n.en-US">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.js" path="/home/barbosa/workspace/UnB/EngSoftware/CAMAAR/frontend/src/i18n/en-US/index.js">
+      <file name="index.js" path="/home/barbosa/CAMAAR/frontend/src/i18n/en-US/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="layouts">
       <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="MainLayout.vue" path="/home/barbosa/workspace/UnB/EngSoftware/CAMAAR/frontend/src/layouts/MainLayout.vue">
+      <file name="MainLayout.vue" path="/home/barbosa/CAMAAR/frontend/src/layouts/MainLayout.vue">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="52" count="0" type="stmt"/>
       </file>
     </package>
     <package name="router">
       <metrics statements="11" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="0"/>
-      <file name="index.js" path="/home/barbosa/workspace/UnB/EngSoftware/CAMAAR/frontend/src/router/index.js">
+      <file name="index.js" path="/home/barbosa/CAMAAR/frontend/src/router/index.js">
         <metrics statements="9" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="21" count="0" type="stmt"/>
@@ -82,21 +82,21 @@
         <line num="35" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
       </file>
-      <file name="routes.js" path="/home/barbosa/workspace/UnB/EngSoftware/CAMAAR/frontend/src/router/routes.js">
+      <file name="routes.js" path="/home/barbosa/CAMAAR/frontend/src/router/routes.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="10" count="0" type="stmt"/>
         <line num="56" count="0" type="stmt"/>
       </file>
     </package>
     <package name="stores">
-      <metrics statements="18" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="2"/>
-      <file name="credentials.js" path="/home/barbosa/workspace/UnB/EngSoftware/CAMAAR/frontend/src/stores/credentials.js">
-        <metrics statements="16" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="5" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
+      <metrics statements="18" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <file name="credentials.js" path="/home/barbosa/CAMAAR/frontend/src/stores/credentials.js">
+        <metrics statements="16" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
@@ -109,7 +109,7 @@
         <line num="30" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
       </file>
-      <file name="index.js" path="/home/barbosa/workspace/UnB/EngSoftware/CAMAAR/frontend/src/stores/index.js">
+      <file name="index.js" path="/home/barbosa/CAMAAR/frontend/src/stores/index.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="14" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
