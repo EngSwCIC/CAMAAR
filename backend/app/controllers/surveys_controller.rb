@@ -38,7 +38,7 @@ class SurveysController < ApplicationController
   # Responde renderizando uma resposta com o Survey no formato JSON e
   # um status `ok (200)`  
 
-  def show(status = nil)
+  def show()
     render json: @survey
   end
 

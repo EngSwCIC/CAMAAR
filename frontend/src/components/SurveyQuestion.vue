@@ -33,7 +33,6 @@
       </div>
     </div>
     <div v-else-if="question.question_type.name == 'multiple_choice'">
-        {{modelValue.content}}
         <div v-for="(option, val) in question.question_options" :key="option.id">
           <q-radio
                 color="secondary"
