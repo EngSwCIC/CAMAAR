@@ -8,16 +8,35 @@ export default {
   },
   data() {
     return {
-      surveys: null,
+      surveys: [],
+      // surveys: null,
     };
   },
-  async mounted() {
-    const res = await this.$axios.get("/api/surveys/open")
-    this.surveys = res.data
-    console.log(res)
-// .then((res) => (this.surveys = res.data))
-      // .finally(() => console.log(this.surveys));
+  methods: {
+    surveyAnswer(survey, id) {
+      console.log(survey, id)
+      const index = this.surveys.findIndex(s => s.id === id);
+      if (index > -1) {
+        console.log('entrou aqui --->')
+        this.surveys[index] = survey;
+      }
+    },
+    add() {
+      this.surveys.push({
+        id: this.surveys.length + 1,
+      })
+    },
+    save() {
+      console.log('----->', this.surveys)
+    }
   },
+//   async mounted() {
+//     const res = await this.$axios.get("/api/surveys/open")
+//     this.surveys = res.data
+//     console.log(res)
+// // .then((res) => (this.surveys = res.data))
+//       // .finally(() => console.log(this.surveys));
+//   },
 };
 </script>
 <template>
@@ -40,7 +59,9 @@ export default {
             :survey="survey"
             class="card .col-12 q-mx-md"
           /> -->
-          <SurveySelector title="joao" />
+          <SurveySelector v-for="survey in surveys" :key="survey.id" @survey-answer="(e) => surveyAnswer(e, survey.id)" />
+          <button @click="add">adicionar</button>
+          <button @click="save">salvar</button>
         <!-- </div> -->
       </div>
     </div>

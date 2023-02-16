@@ -56,7 +56,7 @@ export default {
 <template>
   <div class="card">
     <div class="header">
-      <input type="text" v-model="questionTitle" placeholder="Pergunta sem título" class="title" />
+      <input type="text" v-model="questionTitle" placeholder="Pergunta sem título" class="title" @input="typeChange" />
       <select v-model="selectedType" class="selectMenu" @change="typeChange">
         <option v-for="{ label, value } in options" :key="value" :value="value">{{ label }}</option>
       </select>
