@@ -19,9 +19,10 @@ Cenário: Digitar senha antiga inválida (triste)
 		
 Cenário: Digitar senha válida (feliz)
 	Quando eu selecionar o campo senhaantiga e digitar "1234"
-	E selecionar o campo senhanova e digitar "1234"
-	E selecionar o campo senhaconfirmacao e digitar "1234"
+	E selecionar o campo senhanova e digitar "12345"
+	E selecionar o campo senhaconfirmacao e digitar "12345"
 	E eu clicar no botão "registrar"
 	Então devo ver uma mensagem "Cadastrado com sucesso"
+	Então devo restaurar a senha do usuario
 
 

@@ -1,11 +1,27 @@
 /* eslint-disable no-undef */
-import { Given, Then, And, Before } from "cypress-cucumber-preprocessor/steps";
+import {
+  Given,
+  Then,
+  And,
+  Before,
+  After,
+} from "cypress-cucumber-preprocessor/steps";
+import axios from "axios";
 const { visit, the, wait, location, intercept, clearLocalStorageCache } = cy;
 
 Before(() => {
   clearLocalStorageCache();
 });
-
+after(async () => {
+  let req = await axios.put("/api/auth", {
+    user: {
+      email: "peluticaio@gmail.com",
+      current_password: "12345",
+      password: "1234",
+      password_confirmation: "1234",
+    },
+  });
+});
 Given(`que estou na rota {string}`, (pagina) => {
   visit(pagina);
 });
@@ -34,6 +50,16 @@ Then(/^(:?|eu )deveria ver [o|a] (\w+)$/, (a, id) => {
 Then("eu deveria ver uma mensagem {string}", (msg) => {
   cy.get(".q-field__messages:visible").should("contain", msg);
 });
+Then("devo restaurar a senha do usuario", async () => {
+  let req = await axios.put("/api/auth", {
+    user: {
+      email: "peluticaio@gmail.com",
+      current_password: "12345",
+      password: "1234",
+      password_confirmation: "1234",
+    },
+  });
+});
 When("eu selecionar o campo senhaantiga e digitar {string}", (valor) => {
   cy.get(`[data-test-senhaantiga="senhaantiga"]`).type(valor);
 });
@@ -53,10 +79,7 @@ And("selecionar o campo senhaconfirmacao e digitar {string}", (valor) => {
   cy.get(`[data-test-senhaconfirmacao="senhaconfirmacao"]`).type(valor);
 });
 Then("devo ver uma mensagem {string}", (msg) => {
-  cy.get(".q-notification__message").should(
-    "contain",
-    msg
-  );
+  cy.get(".q-notification__message").should("contain", msg);
 });
 Then(/^eu devo ser redirecionado para a rota "([^"]*)"$/, (expectedPath) => {
   cy.url().should("include", expectedPath);
