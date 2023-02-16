@@ -28,7 +28,8 @@ module SigaaManager #:nodoc: don't document this
     
 
     def call(params)
-      extract_classes(params["classes"], @browser)
+      browser = login_sigga
+      extract_classes(params["classes"], browser)
     end
 
     # Retorna um +Array+ de objetos do tipo +Hash+ contendo informações sobre as turmas fornecidas no argumento +selected_classes+
@@ -77,7 +78,7 @@ module SigaaManager #:nodoc: don't document this
           browser.link(:text =>"Participantes").click 
 
           # Extrai informações da pagina de turma
-          classes.append(extract_class(class_info))
+          classes.append(extract_class(class_info, browser))
 
           # Volta para a página inicial da turma
           browser.back

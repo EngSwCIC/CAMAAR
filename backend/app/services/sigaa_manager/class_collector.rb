@@ -6,21 +6,20 @@ require './sigaa_login.rb'
 module SigaaManager
   class ClassCollector < ApplicationService
 
-    # Objeto do tipo +Watir::Browser+ representando o web-browser responsável por acessar o SIGAA
-    attr_reader :browser
-
-    # Inicializa uma instância da classe ao mesmo tempo que inicializa o web-browser associado, fazendo login no SIGAA
-    def initialize()
-      @browser = Watir::Browser.new :chrome, headless: true
-      @browser.goto 'https://sigaa.unb.br/sigaa/verTelaLogin.do'
-      @browser.text_field(name: 'user.login').set ENV['SIGAA_USER']
-      @browser.text_field(name: 'user.senha').set ENV['SIGAA_SENHA']
-      @browser.button(value: 'Entrar').click
+    # Retorna uma instância da classe +Watir::Browser+ em que o browser já se encontra na página inicial do aluno do SIGAA
+    def login_sigga()
+      browser = Watir::Browser.new :chrome, headless: true
+      browser.goto 'https://sigaa.unb.br/sigaa/verTelaLogin.do'
+      browser.text_field(name: 'user.login').set ENV['SIGAA_USER']
+      browser.text_field(name: 'user.senha').set ENV['SIGAA_SENHA']
+      browser.button(value: 'Entrar').click
+      browser
     end
 
 
     def call(params)
-        turmasSigaaInfo = get_classes_info @browser
+        browser = login_sigga
+        turmasSigaaInfo = get_classes_info browser
     end
 
 
