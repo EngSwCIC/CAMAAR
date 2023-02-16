@@ -4,7 +4,6 @@ import {
   Then,
   And,
   Before,
-  After,
 } from "cypress-cucumber-preprocessor/steps";
 import axios from "axios";
 const { visit, the, wait, location, intercept, clearLocalStorageCache } = cy;
@@ -16,9 +15,9 @@ after(async () => {
   let req = await axios.put("/api/auth", {
     user: {
       email: "peluticaio@gmail.com",
-      current_password: "12345",
-      password: "1234",
-      password_confirmation: "1234",
+      current_password: "1234",
+      password: "123",
+      password_confirmation: "123",
     },
   });
 });
