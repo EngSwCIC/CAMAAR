@@ -27,7 +27,7 @@ const login = async () => {
         router.push({ path: '/home' })
       } else {
         $q.notify({
-          message: res.message,
+          message: res,
           position: 'top',
           color: 'negative'
         })
