@@ -32,7 +32,6 @@ module SigaaManager #:nodoc: don't document this
     end
 
     # Retorna um +Array+ de objetos do tipo +Hash+ contendo informações sobre as turmas fornecidas no argumento +selected_classes+
-    # ==== Exemplo de Retorno
     #
     # ==== Attributes
     #
@@ -108,7 +107,49 @@ module SigaaManager #:nodoc: don't document this
     #                  "turma"=>"T01",
     #                  "semestre"=>"2022.2",
     #                  "horario"=>"245T45"}
- 
+    #
+    # ==== Exemplo 
+    #
+    #    class_info = {"id"=>2,
+    #                  "nome"=>"ENGENHARIA DE SOFTWARE",
+    #                  "codigo"=>"CIC0105",
+    #                  "turma"=>"T02",
+    #                  "semestre"=>"2022.2",
+    #                  "horario"=>"35M12"}
+    #    puts ClassExtractor.new.extract_class(class_info, browser)
+    #    # {code: "CIC0105",
+    #    #  classCode: "T02",
+    #    #   dicente: 
+    #    #     [{
+    #    #        nome: "Ana Clara Jordao Perna",
+    #    #        curso: "CIÊNCIA DA COMPUTAÇÃO/CIC",
+    #    #        matricula: "190084006",
+    #    #        usuario: "190084006",
+    #    #        formacao: "graduando",
+    #    #        ocupacao: "dicente",
+    #    #        email: "acjpjvjp@gmail.com"
+    #    #      },
+    #    #      {
+    #    #        nome: "Ana Paula Oliveira da Nobrega Costa",
+    #    #        curso: "ENGENHARIA DE COMPUTAÇÃO/CIC",
+    #    #        matricula: "190142120",
+    #    #        usuario: "190142120",
+    #    #        formacao: "graduando",
+    #    #        ocupacao: "dicente",
+    #    #        email: "anapaulaoncosta@gmail.com"
+    #    #      }],
+    #      
+    #    #   docente: {
+    #    #     nome: "GENAINA NUNES RODRIGUES",
+    #    #     departamento: "DEPTO CIÊNCIAS DA COMPUTAÇÃO",
+    #    #     formacao: "DOUTORADO",
+    #    #     usuario: "78334926120",
+    #    #     email: "genaina@unb.br",
+    #    #     ocupacao: "docente"
+    #    #   }
+    #    # }
+
+
     def extract_class(class_info, browser)
       class_hash = {:code => class_info["code"],
                     :classCode => class_info["class"]["classCode"],
@@ -130,14 +171,31 @@ module SigaaManager #:nodoc: don't document this
 
     end
 
-    # Retorna +Hash+ contendo informações sobre um Docente a partir de seu texto de descrição no SIGAA 
+    # Retorna +Hash+ contendo informações sobre um docente a partir de seu texto de descrição no SIGAA 
     #
     # ==== Attributes
     #
-    # * +text+ -  +String+ representando o texto que descreve um Docente na página de participantes do SIGAA
+    # * +text+ -  +String+ representando o texto que descreve um docente na página de participantes do SIGAA
     #
     # ==== Exemplo
     #
+    #    text = "VANDER RAMOS ALVES\n"\
+    #           "Departamento: DEPTO CIÊNCIAS DA COMPUTAÇÃO\n"\
+    #           "Formação: DOUTORADO\n"\
+    #           "Usuário: 19720169893\n"\
+    #           "E-Mail: valves@unb.br"
+    #
+    #    puts ClassExtractor.new.parse_docente(text)
+    #    # {:nome=>"VANDER RAMOS ALVES",
+    #    #  :departamento=>"DEPTO CIÊNCIAS DA COMPUTAÇÃO",
+    #    #  :formacao=>"DOUTORADO",
+    #    #  :usuario=>"19720169893",
+    #    #  :email=>"valves@unb.br",
+    #    #  :ocupacao=>"docente",
+    #    # }
+
+
+
 
     def parse_docente(text)
       docente = {}
@@ -155,14 +213,29 @@ module SigaaManager #:nodoc: don't document this
       return docente
 
     end
-    # Retorna +Hash+ contendo informações sobre um Discente a partir de seu texto de descrição no SIGAA 
+    # Retorna +Hash+ contendo informações sobre um discente a partir de seu texto de descrição no SIGAA 
     #
     # ==== Attributes
     #
-    # * +text+ -  +String+ representando o texto que descreve um Docente na página de participantes do SIGAA
+    # * +text+ -  +String+ representando o texto que descreve um discente na página de participantes do SIGAA
+    #
     #
     # ==== Exemplo
     #
+    #    text = "Victor Henrique do Rego Vieira de Sousa\n"\
+    #           "Curso: COMPUTAÇÃO/CIC\n"\
+    #           "Matrícula: 170157491\n"\
+    #           "Usuário: 170157491\n"\
+    #           "E-mail: victorhrvs@gmail.com"
+    #    
+    #    puts ClassExtractor.new.parse_discente(text)
+    #    # {:nome=>"Victor Henrique do Rego Vieira de Sousa",
+    #    #  :curso=>"COMPUTAÇÃO/CIC",
+    #    #  :matricula=>"170157491",
+    #    #  :usuario=>"170157491",
+    #    #  :formacao=>"graduando",
+    #    #  :ocupacao=>"dicente",
+    #    #  :email=>"victorhrvs@gmail.com"}
 
     def parse_discente(text)
       discente = {}

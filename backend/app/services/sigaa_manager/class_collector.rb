@@ -2,11 +2,14 @@ require 'watir'
 require 'webdrivers'
 require './sigaa_login.rb'
 
+# Módulo responsável por realizar operações referentes ao SIGAA
 module SigaaManager
   class ClassCollector < ApplicationService
 
+    # Objeto do tipo +Watir::Browser+ representando o web-browser responsável por acessar o SIGAA
     attr_reader :browser
 
+    # Inicializa uma instância da classe ao mesmo tempo que inicializa o web-browser associado, fazendo login no SIGAA
     def initialize()
       @browser = Watir::Browser.new :chrome, headless: true
       @browser.goto 'https://sigaa.unb.br/sigaa/verTelaLogin.do'
