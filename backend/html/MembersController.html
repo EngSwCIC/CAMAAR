@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class CclassesController - App Documentation</title>
+<title>class MembersController - App Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -73,6 +73,7 @@
 
   <ul class="link-list" role="directory">
     <li ><a href="#method-i-index">#index</a>
+    <li ><a href="#method-i-redefine_password">#redefine_password</a>
     <li ><a href="#method-i-show">#show</a>
   </ul>
 </div>
@@ -80,15 +81,13 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-CclassesController">
-  <h1 id="class-CclassesController" class="class">
-    class CclassesController
+<main role="main" aria-labelledby="class-MembersController">
+  <h1 id="class-MembersController" class="class">
+    class MembersController
   </h1>
 
   <section class="description">
     
-<p>Classe Controller que define as ações capazes de serem feitas para manipular um <a href="Cclass.html"><code>Cclass</code></a> por meio da aplicação</p>
-
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">
@@ -110,28 +109,40 @@
         </div>
 
         <div class="method-description">
-          <p>Método que renderiza as <code>CClasses</code> de um membro cujo <code>id</code> foi passado por parâmetro (<code>params</code>).</p>
-
-<p>Caso o membro identificado por <code>params[:member_id]</code> não seje encontrado, uma resposta com status +not_found (404)+ é renderizada. Caso o membro seja encontrado, renderiza uma resposta contendo as <code>CClasses</code> e <code>Subjects</code> desse membro, juntamente com o status +ok (200)+.</p>
+          
 
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/cclasses_controller.rb, line 14</span>
+            <pre><span class="ruby-comment"># File app/controllers/members_controller.rb, line 5</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:member_id</span>].<span class="ruby-identifier">nil?</span>
-    <span class="ruby-ivar">@member</span> = <span class="ruby-constant">Member</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:member_id</span>])
-    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@member</span>.<span class="ruby-identifier">blank?</span>
-      <span class="ruby-ivar">@cclasses</span> = []
-      <span class="ruby-keyword">for</span> <span class="ruby-identifier">enrollment</span> <span class="ruby-keyword">in</span> <span class="ruby-ivar">@member</span>.<span class="ruby-identifier">enrollments</span> <span class="ruby-keyword">do</span>
-        <span class="ruby-ivar">@cclasses</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">enrollment</span>.<span class="ruby-identifier">cclass</span>)
-      <span class="ruby-keyword">end</span>
-      <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@cclasses</span>, <span class="ruby-value">include:</span> <span class="ruby-value">:subject</span>
-      <span class="ruby-keyword">return</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-ivar">@members</span> = <span class="ruby-constant">Enrollment</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;cclass_id = 4&#39;</span>)
-  <span class="ruby-identifier">puts</span> <span class="ruby-ivar">@members</span>
-  <span class="ruby-ivar">@cclasses</span> = <span class="ruby-constant">Cclass</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;subjects.name, subjects.code as subjectCode, cclasses.*&#39;</span>).<span class="ruby-identifier">joins</span>(<span class="ruby-value">:subject</span>)
-  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@cclasses</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:ok</span>
+  <span class="ruby-ivar">@members</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>].<span class="ruby-identifier">present?</span>
+               <span class="ruby-identifier">cclass</span> = <span class="ruby-constant">Cclass</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+               <span class="ruby-identifier">cclass</span>.<span class="ruby-identifier">members</span>
+             <span class="ruby-keyword">else</span>
+               <span class="ruby-constant">Member</span>.<span class="ruby-identifier">all</span>
+             <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@members</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:ok</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-redefine_password" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">redefine_password</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p># Procura por um membro específico baseado no seu hash de redefinição.</p>
+
+          <div class="method-source-code" id="redefine_password-source">
+            <pre><span class="ruby-comment"># File app/controllers/members_controller.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">redefine_password</span>
+  <span class="ruby-ivar">@member</span> = <span class="ruby-constant">Member</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">redefinition_link:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:redefinition_link</span>])[<span class="ruby-value">0</span>]
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@member</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:ok</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -150,10 +161,10 @@
           
 
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/cclasses_controller.rb, line 33</span>
+            <pre><span class="ruby-comment"># File app/controllers/members_controller.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
-  <span class="ruby-ivar">@cclass</span> = <span class="ruby-constant">Cclass</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@cclass</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:ok</span>
+  <span class="ruby-ivar">@member</span> = <span class="ruby-constant">Member</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@member</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:ok</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>

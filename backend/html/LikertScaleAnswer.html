@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class SurveyAnswer - App Documentation</title>
+<title>class LikertScaleAnswer - App Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -67,21 +67,12 @@
     
     
     
-<!-- Method Quickref -->
-<div id="method-list-section" class="nav-section">
-  <h3>Methods</h3>
-
-  <ul class="link-list" role="directory">
-    <li class="calls-super" ><a href="#method-i-as_json">#as_json</a>
-  </ul>
-</div>
-
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-SurveyAnswer">
-  <h1 id="class-SurveyAnswer" class="class">
-    class SurveyAnswer
+<main role="main" aria-labelledby="class-LikertScaleAnswer">
+  <h1 id="class-LikertScaleAnswer" class="class">
+    class LikertScaleAnswer
   </h1>
 
   <section class="description">
@@ -93,54 +84,6 @@
 
 
 
-
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Instance Methods</h3>
-       </header>
-
-      <div id="method-i-as_json" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">as_json</span><span
-            class="method-args">(options: {})</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          
-            <div class="method-calls-super">
-              Calls superclass method
-              
-            </div>
-
-          <div class="method-source-code" id="as_json-source">
-            <pre><span class="ruby-comment"># File app/models/survey_answer.rb, line 8</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">as_json</span>(<span class="ruby-value">options:</span> {})
-  <span class="ruby-keyword">super</span>(
-    <span class="ruby-value">only:</span> [
-      <span class="ruby-value">:survey_id</span>,
-      <span class="ruby-value">:cclass_id</span>,
-      <span class="ruby-value">:member_id</span>
-    ],
-    <span class="ruby-value">include:</span> [
-      <span class="ruby-value">:question_answers</span> <span class="ruby-operator">=&gt;</span> {
-        <span class="ruby-value">only:</span> [<span class="ruby-value">:survey_question_id</span>, <span class="ruby-value">:answer</span>],
-        <span class="ruby-value">include:</span> [
-          <span class="ruby-value">:likert_scale_answer</span> <span class="ruby-operator">=&gt;</span> {
-            <span class="ruby-value">only:</span> [<span class="ruby-value">:likert_scale_question_id</span>, <span class="ruby-value">:answer</span>]
-          }
-        ]
-      }
-    ]
-  )
-<span class="ruby-keyword">end</span></pre>
-          </div>
-        </div>
-
-
-      </div>
-
-    </section>
 
   </section>
 </main>
