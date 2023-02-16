@@ -67,6 +67,18 @@ $GMAIL_USERNAME = "email@qualquer.com"
 $GMAIL_PASSWORD = "senha_do_email"
 ```
 
+É necessário adicionar o segredo para o devise-jwt funcionar. Entre nas variáveis de segredo com o comando:
+```
+EDITOR=nano rails credentials:edit
+```
+E depois adicione os seguintes campos:
+```
+device:
+  jwt_secret_key: <secret>
+```
+
+É necessário adicionar a variável de 
+
 ### 🧪 Como executar testes com RSpec
 
   ```
