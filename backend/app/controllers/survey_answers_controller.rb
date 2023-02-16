@@ -3,7 +3,7 @@
 # por meio da aplicação
 
 class SurveyAnswersController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   ##
   # Método usado para criação de um novo +SurveyAnswer+ usando valores
@@ -27,16 +27,14 @@ class SurveyAnswersController < ApplicationController
     end
   end
 
-  private
-
   # Funcao para decodificar o JWT
-  def get_user_from_token
-    puts request.headers['Authorization']
-    jwt_payload = JWT.decode(request.headers['Authorization'].split(' ')[1],
-      ENV['JWT_SECRET_KEY']).first
-    user_id = jwt_payload['sub']
-    user = User.find(user_id.to_s)
-  end
+  # def get_user_from_token
+  #   puts request.headers['Authorization']
+  #   jwt_payload = JWT.decode(request.headers['Authorization'].split(' ')[1],
+  #     ENV['JWT_SECRET_KEY']).first
+  #   user_id = jwt_payload['sub']
+  #   user = User.find(user_id.to_s)
+  # end
 
   ##
   # Método que filtra parametros desejados para criação de +SurveyAnswer+
