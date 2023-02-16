@@ -1,4 +1,3 @@
-
 <template>
   <h4>Media das avaliações</h4>
   <table class="table-bordered">
@@ -23,7 +22,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
   data() {
     return {
@@ -34,33 +33,33 @@ export default {
     };
   },
   created() {
-    this.getAnswers()
+    this.getAnswers();
   },
   methods: {
     async getAnswers() {
       try {
         const id = this.$route.params.id;
         const response = await axios.get(`api/surveys/1/answers`);
-        this.questionAnswers = response.data
-        this.organizeAnswers(response.data)
+        this.questionAnswers = response.data;
+        this.organizeAnswers(response.data);
       } catch (error) {
         console.error(error);
       }
     },
 
     organizeAnswers(answers) {
-    return answers.reduce((acc, curr) => {
-      if (!acc[curr.survey_question_id]) {
-        acc[curr.survey_question_id] = [];
-      }
-      acc[curr.survey_question_id].push(curr.answer);
-      this.resposta = acc
-      //segundo commit porque mandei errado na branch 2
-      this.filteredResult();
-      return acc;
-    }, {});
-  },
-  filteredResult() {
+      return answers.reduce((acc, curr) => {
+        if (!acc[curr.survey_question_id]) {
+          acc[curr.survey_question_id] = [];
+        }
+        acc[curr.survey_question_id].push(curr.answer);
+        this.resposta = acc;
+        //segundo commit porque mandei errado na branch 2
+        this.filteredResult();
+        return acc;
+      }, {});
+    },
+    filteredResult() {
       let filteredResult = {};
 
       for (const key in this.resposta) {
@@ -76,7 +75,7 @@ export default {
             let maxFrequency = 0;
             let mode = [];
 
-            values.forEach(value => {
+            values.forEach((value) => {
               if (frequency[value]) {
                 frequency[value]++;
               } else {
@@ -95,17 +94,15 @@ export default {
           }
         }
       }
-      console.log(filteredResult)
-      this.filteredAverage = filteredResult
+      this.filteredAverage = filteredResult;
       return filteredResult;
     },
-    
-    isNumeric(value) {
-    return !isNaN(parseFloat(value)) && isFinite(value);
-  }
-  }
-};
 
+    isNumeric(value) {
+      return !isNaN(parseFloat(value)) && isFinite(value);
+    },
+  },
+};
 </script>
 <style>
 table {
@@ -115,7 +112,8 @@ table {
   text-align: center;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #ddd;
   padding: 8px;
 }
@@ -129,4 +127,3 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 </style>
-
