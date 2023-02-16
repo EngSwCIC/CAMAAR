@@ -151,4 +151,146 @@ RSpec.describe SigaaManager::ClassExtractor, type: :model do
     end
 
   end
+
+  describe 'extract_classes' do
+
+    before(:each) do
+      file_url = "file://#{Dir.pwd}/spec/services/web-pages/pagina_inicial.html"
+      class_info = [
+        {"id"=>2,
+         "nome"=>"ENGENHARIA DE SOFTWARE",
+         "codigo"=>"CIC0105",
+         "turma"=>"T02",
+         "semestre"=>"2022.2",
+         "horario"=>"35M12"
+        }
+      ]
+
+      browser = Watir::Browser.new :chrome, headless: true
+      browser.goto file_url
+
+      @turma_info = @extractor.extract_classes(class_info, browser)
+      @turma_info = JSON.parse(@turma_info,:symbolize_names => true)[0]
+    end
+
+    it 'should return a JSON containing of the right format' do
+      
+      expect(@turma_info).to have_key(:code)
+      expect(@turma_info).to have_key(:classCode)
+
+      expect(@turma_info).to have_key(:docente)
+      expect(@turma_info[:docente]).to have_key(:nome)
+      expect(@turma_info[:docente]).to have_key(:departamento)
+      expect(@turma_info[:docente]).to have_key(:formacao)
+      expect(@turma_info[:docente]).to have_key(:usuario)
+      expect(@turma_info[:docente]).to have_key(:email)
+      expect(@turma_info[:docente]).to have_key(:ocupacao)
+
+      expect(@turma_info).to have_key(:dicente)
+      expect(@turma_info[:dicente]).to be_an(Array)
+      expect(@turma_info[:dicente]).to all(have_key :nome)
+      expect(@turma_info[:dicente]).to all(have_key :curso)
+      expect(@turma_info[:dicente]).to all(have_key :matricula)
+      expect(@turma_info[:dicente]).to all(have_key :usuario)
+      expect(@turma_info[:dicente]).to all(have_key :formacao)
+      expect(@turma_info[:dicente]).to all(have_key :ocupacao)
+      expect(@turma_info[:dicente]).to all(have_key :email)
+      
+    end
+
+    it 'should import the right number of students' do
+
+      expect(@turma_info).to have_key(:dicente)
+      expect(@turma_info[:dicente]).to be_an(Array)
+      expect(@turma_info[:dicente].length).to eq(34)
+
+    end
+
+    it 'should import the right information about the class' do
+
+      expect(@turma_info).to have_key(:code)
+      expect(@turma_info[:code]).to eq('CIC0105')
+      expect(@turma_info).to have_key(:classCode)
+      expect(@turma_info[:classCode]).to eq('T02')
+
+    end
+
+    it 'should import the right information about the teacher' do
+
+      expect(@turma_info).to have_key(:docente)
+
+      expect(@turma_info[:docente]).to have_key(:nome)
+      expect(@turma_info[:docente][:nome]).to eq("GENAINA NUNES RODRIGUES")
+
+      expect(@turma_info[:docente]).to have_key(:departamento)
+      expect(@turma_info[:docente][:departamento]).to eq("DEPTO CIÊNCIAS DA COMPUTAÇÃO")
+
+      expect(@turma_info[:docente]).to have_key(:formacao)
+      expect(@turma_info[:docente][:formacao]).to eq("DOUTORADO")
+
+      expect(@turma_info[:docente]).to have_key(:usuario)
+      expect(@turma_info[:docente][:usuario]).to eq("78334926120")
+
+      expect(@turma_info[:docente]).to have_key(:email)
+      expect(@turma_info[:docente][:email]).to eq("genaina@unb.br")
+
+      expect(@turma_info[:docente]).to have_key(:ocupacao)
+      expect(@turma_info[:docente][:ocupacao]).to eq('docente')
+
+    end
+
+    it 'should import the right information about the students' do
+
+      expect(@turma_info).to have_key(:dicente)
+      expect(@turma_info[:dicente]).to be_an(Array)
+      expect(@turma_info[:dicente]).to all(have_key :nome)
+      expect(@turma_info[:dicente]).to all(have_key :curso)
+      expect(@turma_info[:dicente]).to all(have_key :matricula)
+      expect(@turma_info[:dicente]).to all(have_key :usuario)
+      expect(@turma_info[:dicente]).to all(have_key :formacao)
+      expect(@turma_info[:dicente]).to all(have_key :ocupacao)
+      expect(@turma_info[:dicente]).to all(have_key :email)
+
+      yaml_path = "#{Dir.pwd}/spec/services/yaml_files/students.yaml"
+
+      expec_students =  YAML.load_file(yaml_path)
+
+      expect(@turma_info[:dicente]).to eq(expec_students)
+
+    end
+
+  end
+
+
+  describe 'call' do
+    before(:each) do
+      params = {
+        "classes"=>[
+          {
+            "id"=>1,
+            "nome"=>"AUTÔMATOS E COMPUTABILIDADE",
+            "codigo"=>"CIC0161",
+            "turma"=>"T01",
+            "semestre"=>"2022.2",
+            "horario"=>"245T45"
+          },
+          {
+            "id"=>2,
+            "nome"=>"ENGENHARIA DE SOFTWARE",
+            "codigo"=>"CIC0105",
+            "turma"=>"T02",
+            "semestre"=>"2022.2",
+            "horario"=>"35M12"
+          }
+        ]
+      }
+    @turma_info = @extractor.call(params)
+    end
+
+
+    it 'should return a non-emtpy file' do
+      expect(@turma_info).to be_present
+    end
+
+  end
 end
