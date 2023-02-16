@@ -72,8 +72,7 @@
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    <li ><a href="#method-i-possibilities">#possibilities</a>
-    <li ><a href="#method-i-question_type_exists">#question_type_exists</a>
+    <li class="calls-super" ><a href="#method-i-as_json">#as_json</a>
   </ul>
 </div>
 
@@ -102,48 +101,37 @@
          <h3>Public Instance Methods</h3>
        </header>
 
-      <div id="method-i-possibilities" class="method-detail ">
+      <div id="method-i-as_json" class="method-detail ">
         <div class="method-heading">
-          <span class="method-name">possibilities</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Método que retorna os possíveis valores de <code>question_type</code></p>
-
-          <div class="method-source-code" id="possibilities-source">
-            <pre><span class="ruby-comment"># File app/models/survey_question.rb, line 18</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">possibilities</span>
-  [<span class="ruby-string">&#39;likert_scale&#39;</span>, <span class="ruby-string">&#39;multiple_choice&#39;</span>, <span class="ruby-string">&#39;discursive&#39;</span>]
-<span class="ruby-keyword">end</span></pre>
-          </div>
-        </div>
-
-
-      </div>
-
-    </section>
-
-     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Private Instance Methods</h3>
-       </header>
-
-      <div id="method-i-question_type_exists" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">question_type_exists</span><span
-            class="method-args">()</span>
+          <span class="method-name">as_json</span><span
+            class="method-args">(options: {})</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
 
         <div class="method-description">
           
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
 
-          <div class="method-source-code" id="question_type_exists-source">
-            <pre><span class="ruby-comment"># File app/models/survey_question.rb, line 32</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">question_type_exists</span>
-  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:question_type</span>, <span class="ruby-string">&#39;is invalid&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">possibilities</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">question_type</span>
+          <div class="method-source-code" id="as_json-source">
+            <pre><span class="ruby-comment"># File app/models/survey_question.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">as_json</span>(<span class="ruby-value">options:</span> {})
+  <span class="ruby-keyword">super</span>(
+    <span class="ruby-value">only:</span> [<span class="ruby-value">:question</span>, <span class="ruby-value">:question_number</span>, <span class="ruby-value">:optional</span>, <span class="ruby-value">:question_type_id</span>],
+    <span class="ruby-value">include:</span>[
+      <span class="ruby-value">:question_type</span> <span class="ruby-operator">=&gt;</span> {
+        <span class="ruby-value">only:</span> [<span class="ruby-value">:name</span>]
+      },
+      <span class="ruby-value">:question_options</span> <span class="ruby-operator">=&gt;</span> {
+        <span class="ruby-value">only:</span> [<span class="ruby-value">:option</span>, <span class="ruby-value">:content</span>]
+      },
+      <span class="ruby-value">:likert_scale_questions</span> <span class="ruby-operator">=&gt;</span> {
+        <span class="ruby-value">only:</span> [<span class="ruby-value">:question_number</span>, <span class="ruby-value">:question</span>, <span class="ruby-value">:scale_points</span>]
+      }
+    ]
+  )
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>

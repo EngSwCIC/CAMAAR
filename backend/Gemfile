@@ -70,3 +70,6 @@ gem 'webmock', '~> 3.14'
 
 
 gem "mysql2", "~> 0.5.4"
+
+gem 'watir', '7.1.0'
+gem 'webdrivers', '5.2.0'

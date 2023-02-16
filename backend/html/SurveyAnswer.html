@@ -73,7 +73,6 @@
 
   <ul class="link-list" role="directory">
     <li class="calls-super" ><a href="#method-i-as_json">#as_json</a>
-    <li ><a href="#method-i-is_grad_student">#is_grad_student</a>
   </ul>
 </div>
 
@@ -87,8 +86,6 @@
 
   <section class="description">
     
-<p>Essa classe representa o model ActiveRecord que armazena respostas às perguntas de <a href="Survey.html"><code>Survey</code></a> para cada par de <a href="Member.html"><code>Member</code></a> e <a href="Cclass.html"><code>Cclass</code></a></p>
-
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">
@@ -110,48 +107,32 @@
         </div>
 
         <div class="method-description">
-          <p>Método que sobrescreve funcionalidade padrão de <code>as_json</code> do <code>ActiveRecord</code> a fim de incluir atributos de <code>Answers</code> e <code>LikertAnswers</code> aninhados</p>
+          
             <div class="method-calls-super">
               Calls superclass method
               
             </div>
 
           <div class="method-source-code" id="as_json-source">
-            <pre><span class="ruby-comment"># File app/models/survey_answer.rb, line 18</span>
+            <pre><span class="ruby-comment"># File app/models/survey_answer.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">as_json</span>(<span class="ruby-value">options:</span> {})
-  <span class="ruby-keyword">super</span>(<span class="ruby-value">include:</span> [<span class="ruby-value">:answers</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">include:</span> <span class="ruby-value">:likert_answers</span>}])
-<span class="ruby-keyword">end</span></pre>
-          </div>
-        </div>
-
-
-      </div>
-
-    </section>
-
-     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Private Instance Methods</h3>
-       </header>
-
-      <div id="method-i-is_grad_student" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">is_grad_student</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Valida se <code>occupation</code> do membro que está respondendo o <a href="Survey.html"><code>Survey</code></a> é do tipo _“dicente”_</p>
-
-<p>É chamada durante a execução do método <code>SurveyAnswer:save</code>.</p>
-
-<p>Adiciona um erro ao model caso +member.occupation != ‘dicente’+</p>
-
-          <div class="method-source-code" id="is_grad_student-source">
-            <pre><span class="ruby-comment"># File app/models/survey_answer.rb, line 31</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">is_grad_student</span>
-  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:member</span>, <span class="ruby-string">&#39;membro deve ser dicente&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">member</span>&amp;.<span class="ruby-identifier">occupation</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;dicente&#39;</span>
+  <span class="ruby-keyword">super</span>(
+    <span class="ruby-value">only:</span> [
+      <span class="ruby-value">:survey_id</span>,
+      <span class="ruby-value">:cclass_id</span>,
+      <span class="ruby-value">:member_id</span>
+    ],
+    <span class="ruby-value">include:</span> [
+      <span class="ruby-value">:question_answers</span> <span class="ruby-operator">=&gt;</span> {
+        <span class="ruby-value">only:</span> [<span class="ruby-value">:survey_question_id</span>, <span class="ruby-value">:answer</span>],
+        <span class="ruby-value">include:</span> [
+          <span class="ruby-value">:likert_scale_answer</span> <span class="ruby-operator">=&gt;</span> {
+            <span class="ruby-value">only:</span> [<span class="ruby-value">:likert_scale_question_id</span>, <span class="ruby-value">:answer</span>]
+          }
+        ]
+      }
+    ]
+  )
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>

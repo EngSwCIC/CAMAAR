@@ -1,0 +1,57 @@
+.hide-dialog {display: none;}
+
+#dialog-info-problema {
+	border-radius: 10px;
+	box-shadow: 2px 2px 5px #888888;
+}
+
+.modal-dialog-problema{
+	width:900px;
+}
+
+.modal-body-problema {
+	height: 760px;
+}
+
+#dialog-info-problema .ydlg-dlg-body {
+	 background: #FFF;
+	 border: none;
+	 padding: 0;
+}
+
+#dialog-info-problema .ydlg-hd-left {
+	 background: #FFF;
+	 color: #8D949D;
+}
+
+#dialog-info-problema .ydlg-hd-right {
+	 background: #FFF;
+	 color: #8D949D;
+}
+
+#dialog-info-problema .ydlg-hd-right .ydlg-hd {
+	 background: #FFF;
+	 color: #8D949D;
+}
+
+#dialog-info-problema #iframe-info-problema {
+  border: none
+}		
+
+#dialog-info-problema .ydlg-dlg-body .ydlg-bd {
+	height: 720px; width: 908px;
+}
+
+#dialog-info-problema .ydlg-close {
+	background-image:none; 
+	background-color: #FFF;
+}		
+
+#dialog-info-problema .ydlg-close .icon {
+	font-size: 15px;
+	color: #8D949D;
+}		
+
+#dialog-info-problema .ydlg-close .icon:hover {
+	color: #757B87;
+}
