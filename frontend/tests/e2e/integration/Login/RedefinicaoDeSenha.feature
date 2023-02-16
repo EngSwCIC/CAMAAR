@@ -18,9 +18,9 @@ Cenário: Digitar senha antiga inválida (triste)
 	Então devo ver uma mensagem "Invalid Email or password."
 		
 Cenário: Digitar senha válida (feliz)
-	Quando eu selecionar o campo senhaantiga e digitar "162524"
-	E selecionar o campo senhanova e digitar "162524"
-	E selecionar o campo senhaconfirmacao e digitar "162524"
+	Quando eu selecionar o campo senhaantiga e digitar "1234"
+	E selecionar o campo senhanova e digitar "1234"
+	E selecionar o campo senhaconfirmacao e digitar "1234"
 	E eu clicar no botão "registrar"
 	Então devo ver uma mensagem "Cadastrado com sucesso"
 

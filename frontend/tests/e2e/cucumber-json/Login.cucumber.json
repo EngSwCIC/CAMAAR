@@ -23,7 +23,7 @@
             "name": "que estou na rota \"/\"",
             "result": {
               "status": "passed",
-              "duration": 5290000000
+              "duration": 3251000000
             }
           },
           {
@@ -33,177 +33,7 @@
             "name": "eu deveria ver o campo \"Email\"",
             "result": {
               "status": "passed",
-              "duration": 264000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 9,
-            "name": "eu deveria ver o campo \"Senha\"",
-            "result": {
-              "status": "passed",
-              "duration": 98000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 10,
-            "name": "eu deveria ver o botão \"Login\"",
-            "result": {
-              "status": "passed",
-              "duration": 66000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Dado ",
-            "line": 13,
-            "name": "que o campo email não foi preenchido",
-            "result": {
-              "status": "passed",
-              "duration": 164000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 14,
-            "name": "eu clicar no botão \"Login\"",
-            "result": {
-              "status": "passed",
-              "duration": 467000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Então ",
-            "line": 15,
-            "name": "eu deveria ver uma mensagem \"E-Mail Obrigatório\"",
-            "result": {
-              "status": "passed",
-              "duration": 221000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "login-no-site;tentar-fazer-login-sem-digitar-senha-(triste)",
-        "keyword": "Scenario",
-        "line": 17,
-        "name": "Tentar fazer login sem digitar senha (triste)",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Dado ",
-            "line": 7,
-            "name": "que estou na rota \"/\"",
-            "result": {
-              "status": "passed",
-              "duration": 1710000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Então ",
-            "line": 8,
-            "name": "eu deveria ver o campo \"Email\"",
-            "result": {
-              "status": "passed",
-              "duration": 150000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 9,
-            "name": "eu deveria ver o campo \"Senha\"",
-            "result": {
-              "status": "passed",
-              "duration": 60000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 10,
-            "name": "eu deveria ver o botão \"Login\"",
-            "result": {
-              "status": "passed",
-              "duration": 54000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Quando ",
-            "line": 18,
-            "name": "eu selecionar o campo email e digitar \"email_qualquer\"",
-            "result": {
-              "status": "passed",
-              "duration": 618000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Dado ",
-            "line": 19,
-            "name": "que o campo senha não foi preenchido",
-            "result": {
-              "status": "passed",
-              "duration": 183000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 20,
-            "name": "eu clicar no botão \"Login\"",
-            "result": {
-              "status": "passed",
-              "duration": 274000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Então ",
-            "line": 21,
-            "name": "eu deveria ver uma mensagem \"Senha Obrigatória\"",
-            "result": {
-              "status": "passed",
-              "duration": 99000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "login-no-site;digitar-email-incorreto-(triste)",
-        "keyword": "Scenario",
-        "line": 23,
-        "name": "Digitar email incorreto (triste)",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Dado ",
-            "line": 7,
-            "name": "que estou na rota \"/\"",
-            "result": {
-              "status": "passed",
-              "duration": 1537000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Então ",
-            "line": 8,
-            "name": "eu deveria ver o campo \"Email\"",
-            "result": {
-              "status": "passed",
-              "duration": 167000000
+              "duration": 152000000
             }
           },
           {
@@ -223,7 +53,177 @@
             "name": "eu deveria ver o botão \"Login\"",
             "result": {
               "status": "passed",
-              "duration": 52000000
+              "duration": 32000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 13,
+            "name": "que o campo email não foi preenchido",
+            "result": {
+              "status": "passed",
+              "duration": 94000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 14,
+            "name": "eu clicar no botão \"Login\"",
+            "result": {
+              "status": "passed",
+              "duration": 236000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 15,
+            "name": "eu deveria ver uma mensagem \"E-Mail Obrigatório\"",
+            "result": {
+              "status": "passed",
+              "duration": 68000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-no-site;tentar-fazer-login-sem-digitar-senha-(triste)",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "Tentar fazer login sem digitar senha (triste)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 7,
+            "name": "que estou na rota \"/\"",
+            "result": {
+              "status": "passed",
+              "duration": 791000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 8,
+            "name": "eu deveria ver o campo \"Email\"",
+            "result": {
+              "status": "passed",
+              "duration": 74000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "eu deveria ver o campo \"Senha\"",
+            "result": {
+              "status": "passed",
+              "duration": 27000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "eu deveria ver o botão \"Login\"",
+            "result": {
+              "status": "passed",
+              "duration": 20000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 18,
+            "name": "eu selecionar o campo email e digitar \"email_qualquer\"",
+            "result": {
+              "status": "passed",
+              "duration": 456000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 19,
+            "name": "que o campo senha não foi preenchido",
+            "result": {
+              "status": "passed",
+              "duration": 74000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 20,
+            "name": "eu clicar no botão \"Login\"",
+            "result": {
+              "status": "passed",
+              "duration": 141000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 21,
+            "name": "eu deveria ver uma mensagem \"Senha Obrigatória\"",
+            "result": {
+              "status": "passed",
+              "duration": 44000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-no-site;digitar-email-incorreto-(triste)",
+        "keyword": "Scenario",
+        "line": 23,
+        "name": "Digitar email incorreto (triste)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 7,
+            "name": "que estou na rota \"/\"",
+            "result": {
+              "status": "passed",
+              "duration": 596000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 8,
+            "name": "eu deveria ver o campo \"Email\"",
+            "result": {
+              "status": "passed",
+              "duration": 57000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "eu deveria ver o campo \"Senha\"",
+            "result": {
+              "status": "passed",
+              "duration": 36000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "eu deveria ver o botão \"Login\"",
+            "result": {
+              "status": "passed",
+              "duration": 25000000
             }
           },
           {
@@ -233,7 +233,7 @@
             "name": "eu selecionar o campo email e digitar \"email_incorreto\"",
             "result": {
               "status": "passed",
-              "duration": 639000000
+              "duration": 434000000
             }
           },
           {
@@ -243,7 +243,7 @@
             "name": "selecionar o campo senha e digitar \"senha_qualquer\"",
             "result": {
               "status": "passed",
-              "duration": 590000000
+              "duration": 418000000
             }
           },
           {
@@ -253,7 +253,7 @@
             "name": "eu clicar no botão \"Login\"",
             "result": {
               "status": "passed",
-              "duration": 305000000
+              "duration": 152000000
             }
           },
           {
@@ -263,7 +263,7 @@
             "name": "devo ver uma mensagem \"Invalid Email or password.\"",
             "result": {
               "status": "passed",
-              "duration": 204000000
+              "duration": 35000000
             }
           }
         ]
@@ -283,7 +283,7 @@
             "name": "que estou na rota \"/\"",
             "result": {
               "status": "passed",
-              "duration": 1432000000
+              "duration": 789000000
             }
           },
           {
@@ -293,7 +293,7 @@
             "name": "eu deveria ver o campo \"Email\"",
             "result": {
               "status": "passed",
-              "duration": 155000000
+              "duration": 60000000
             }
           },
           {
@@ -303,7 +303,7 @@
             "name": "eu deveria ver o campo \"Senha\"",
             "result": {
               "status": "passed",
-              "duration": 68000000
+              "duration": 31000000
             }
           },
           {
@@ -313,17 +313,17 @@
             "name": "eu deveria ver o botão \"Login\"",
             "result": {
               "status": "passed",
-              "duration": 52000000
+              "duration": 27000000
             }
           },
           {
             "arguments": [],
             "keyword": "Quando ",
             "line": 30,
-            "name": "eu selecionar o campo email e digitar \"kleberrjr7@gmail.com\"",
+            "name": "eu selecionar o campo email e digitar \"peluticaio@gmail.com\"",
             "result": {
               "status": "passed",
-              "duration": 662000000
+              "duration": 581000000
             }
           },
           {
@@ -333,7 +333,7 @@
             "name": "selecionar o campo senha e digitar \"aaaaaaaaaaaa\"",
             "result": {
               "status": "passed",
-              "duration": 585000000
+              "duration": 444000000
             }
           },
           {
@@ -343,7 +343,7 @@
             "name": "eu clicar no botão \"Login\"",
             "result": {
               "status": "passed",
-              "duration": 279000000
+              "duration": 177000000
             }
           },
           {
@@ -353,7 +353,7 @@
             "name": "devo ver uma mensagem \"Invalid Email or password.\"",
             "result": {
               "status": "passed",
-              "duration": 494000000
+              "duration": 357000000
             }
           }
         ]
@@ -373,7 +373,7 @@
             "name": "que estou na rota \"/\"",
             "result": {
               "status": "passed",
-              "duration": 1453000000
+              "duration": 848000000
             }
           },
           {
@@ -383,7 +383,7 @@
             "name": "eu deveria ver o campo \"Email\"",
             "result": {
               "status": "passed",
-              "duration": 160000000
+              "duration": 57000000
             }
           },
           {
@@ -393,7 +393,7 @@
             "name": "eu deveria ver o campo \"Senha\"",
             "result": {
               "status": "passed",
-              "duration": 62000000
+              "duration": 28000000
             }
           },
           {
@@ -403,27 +403,27 @@
             "name": "eu deveria ver o botão \"Login\"",
             "result": {
               "status": "passed",
-              "duration": 50000000
+              "duration": 24000000
             }
           },
           {
             "arguments": [],
             "keyword": "Quando ",
             "line": 36,
-            "name": "eu selecionar o campo email e digitar \"kleberrjr7@gmail.com\"",
+            "name": "eu selecionar o campo email e digitar \"peluticaio@gmail.com\"",
             "result": {
               "status": "passed",
-              "duration": 676000000
+              "duration": 589000000
             }
           },
           {
             "arguments": [],
             "keyword": "E ",
             "line": 37,
-            "name": "selecionar o campo senha e digitar \"162524\"",
+            "name": "selecionar o campo senha e digitar \"1234\"",
             "result": {
               "status": "passed",
-              "duration": 429000000
+              "duration": 367000000
             }
           },
           {
@@ -433,7 +433,7 @@
             "name": "eu clicar no botão \"Login\"",
             "result": {
               "status": "passed",
-              "duration": 377000000
+              "duration": 211000000
             }
           },
           {
@@ -443,7 +443,7 @@
             "name": "eu devo ser redirecionado para a rota \"/home\"",
             "result": {
               "status": "passed",
-              "duration": 501000000
+              "duration": 359000000
             }
           }
         ]

@@ -27,14 +27,14 @@ Cenário: Digitar email incorreto (triste)
     Então devo ver uma mensagem "Invalid Email or password."
 
 Cenário: Digitar senha incorreta (triste)
-    Quando eu selecionar o campo email e digitar "kleberrjr7@gmail.com"
+    Quando eu selecionar o campo email e digitar "peluticaio@gmail.com"
     E selecionar o campo senha e digitar "aaaaaaaaaaaa"
     E eu clicar no botão "Login"
     Então devo ver uma mensagem "Invalid Email or password."
 
 Cenário: Digitar email e senha corretos (feliz)
-    Quando eu selecionar o campo email e digitar "kleberrjr7@gmail.com"
-    E selecionar o campo senha e digitar "162524"
+    Quando eu selecionar o campo email e digitar "peluticaio@gmail.com"
+    E selecionar o campo senha e digitar "1234"
     E eu clicar no botão "Login"
     Então eu devo ser redirecionado para a rota "/home"
 

@@ -322,6 +322,7 @@ GEM
       simplecov (>= 0.17.0)
       tty-which (~> 0.4.0)
       virtus (~> 1.0)
+    saikuro (1.2.1)
     sexp_processor (4.16.1)
     simplecov (0.21.2)
       docile (~> 1.1)
@@ -382,6 +383,7 @@ DEPENDENCIES
   rest-client (~> 2.0.1)
   rspec-rails (~> 5.1.1)
   rubycritic
+  saikuro
   simplecov
   sqlite3 (~> 1.4)
   tzinfo-data

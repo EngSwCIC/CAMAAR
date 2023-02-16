@@ -23,7 +23,7 @@
             "name": "que estou na pagina de redefinicao de senha",
             "result": {
               "status": "passed",
-              "duration": 1432000000
+              "duration": 3546000000
             }
           },
           {
@@ -33,107 +33,7 @@
             "name": "eu deveria ver o campo \"senhanova\"",
             "result": {
               "status": "passed",
-              "duration": 274000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 10,
-            "name": "eu deveria ver o campo \"senhaconfirmacao\"",
-            "result": {
-              "status": "passed",
-              "duration": 80000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 11,
-            "name": "eu deveria ver o campo \"senhaantiga\"",
-            "result": {
-              "status": "passed",
-              "duration": 54000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Quando ",
-            "line": 14,
-            "name": "eu selecionar o campo senhaantiga e digitar \"12345678\"",
-            "result": {
-              "status": "passed",
-              "duration": 459000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 15,
-            "name": "selecionar o campo senhanova e digitar \"162524\"",
-            "result": {
-              "status": "passed",
-              "duration": 317000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 16,
-            "name": "selecionar o campo senhaconfirmacao e digitar \"162524\"",
-            "result": {
-              "status": "passed",
-              "duration": 312000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "E ",
-            "line": 17,
-            "name": "eu clicar no botão \"registrar\"",
-            "result": {
-              "status": "passed",
-              "duration": 200000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Então ",
-            "line": 18,
-            "name": "devo ver uma mensagem \"Invalid Email or password.\"",
-            "result": {
-              "status": "passed",
-              "duration": 452000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "redefinição-de-senha;digitar-senha-válida-(feliz)",
-        "keyword": "Scenario",
-        "line": 20,
-        "name": "Digitar senha válida (feliz)",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Dado ",
-            "line": 8,
-            "name": "que estou na pagina de redefinicao de senha",
-            "result": {
-              "status": "passed",
-              "duration": 1269000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Então ",
-            "line": 9,
-            "name": "eu deveria ver o campo \"senhanova\"",
-            "result": {
-              "status": "passed",
-              "duration": 176000000
+              "duration": 244000000
             }
           },
           {
@@ -153,37 +53,137 @@
             "name": "eu deveria ver o campo \"senhaantiga\"",
             "result": {
               "status": "passed",
-              "duration": 37000000
+              "duration": 43000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 14,
+            "name": "eu selecionar o campo senhaantiga e digitar \"12345678\"",
+            "result": {
+              "status": "passed",
+              "duration": 564000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 15,
+            "name": "selecionar o campo senhanova e digitar \"162524\"",
+            "result": {
+              "status": "passed",
+              "duration": 410000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 16,
+            "name": "selecionar o campo senhaconfirmacao e digitar \"162524\"",
+            "result": {
+              "status": "passed",
+              "duration": 337000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 17,
+            "name": "eu clicar no botão \"registrar\"",
+            "result": {
+              "status": "passed",
+              "duration": 286000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 18,
+            "name": "devo ver uma mensagem \"Invalid Email or password.\"",
+            "result": {
+              "status": "passed",
+              "duration": 454000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "redefinição-de-senha;digitar-senha-válida-(feliz)",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Digitar senha válida (feliz)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que estou na pagina de redefinicao de senha",
+            "result": {
+              "status": "passed",
+              "duration": 750000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 9,
+            "name": "eu deveria ver o campo \"senhanova\"",
+            "result": {
+              "status": "passed",
+              "duration": 937000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "eu deveria ver o campo \"senhaconfirmacao\"",
+            "result": {
+              "status": "passed",
+              "duration": 35000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 11,
+            "name": "eu deveria ver o campo \"senhaantiga\"",
+            "result": {
+              "status": "passed",
+              "duration": 31000000
             }
           },
           {
             "arguments": [],
             "keyword": "Quando ",
             "line": 21,
-            "name": "eu selecionar o campo senhaantiga e digitar \"162524\"",
+            "name": "eu selecionar o campo senhaantiga e digitar \"1234\"",
             "result": {
               "status": "passed",
-              "duration": 398000000
+              "duration": 340000000
             }
           },
           {
             "arguments": [],
             "keyword": "E ",
             "line": 22,
-            "name": "selecionar o campo senhanova e digitar \"162524\"",
+            "name": "selecionar o campo senhanova e digitar \"1234\"",
             "result": {
               "status": "passed",
-              "duration": 321000000
+              "duration": 304000000
             }
           },
           {
             "arguments": [],
             "keyword": "E ",
             "line": 23,
-            "name": "selecionar o campo senhaconfirmacao e digitar \"162524\"",
+            "name": "selecionar o campo senhaconfirmacao e digitar \"1234\"",
             "result": {
               "status": "passed",
-              "duration": 347000000
+              "duration": 301000000
             }
           },
           {
@@ -193,7 +193,7 @@
             "name": "eu clicar no botão \"registrar\"",
             "result": {
               "status": "passed",
-              "duration": 231000000
+              "duration": 245000000
             }
           },
           {
@@ -203,7 +203,7 @@
             "name": "devo ver uma mensagem \"Cadastrado com sucesso\"",
             "result": {
               "status": "passed",
-              "duration": 1182000000
+              "duration": 1758000000
             }
           }
         ]

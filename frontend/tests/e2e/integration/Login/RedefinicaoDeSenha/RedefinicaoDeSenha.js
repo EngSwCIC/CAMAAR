@@ -10,7 +10,7 @@ Given(`que estou na rota {string}`, (pagina) => {
   visit(pagina);
 });
 Given(`que estou na pagina de redefinicao de senha`, () => {
-  visit("http://localhost:8080/#/cadastrar/abcd");
+  visit("http://localhost:8080/#/cadastrar/abcde");
 });
 Given(`que cliquei no {string}`, (id) => {
   the(id).click();
