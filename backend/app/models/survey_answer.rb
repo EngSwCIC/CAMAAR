@@ -22,5 +22,4 @@ class SurveyAnswer < ApplicationRecord
       ]
     )
   end
-
 end
