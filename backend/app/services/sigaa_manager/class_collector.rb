@@ -41,7 +41,7 @@ module SigaaManager#:nodoc: don't document this
     # ==== Exemplo 
     #
     #    puts ClassCollector.new.get_classes_info(browser)
-    #    #    classes = [
+    #    #      [
     #    #        {"code"=>"CIC0161","name"=>"AUTÔMATOS E COMPUTABILIDADE","class"=>{"classCode"=>"T01","semester"=>"2022.2","time"=>"245T45"}},
     #    #        {"code"=>"CIC0105","name"=>"ENGENHARIA DE SOFTWARE","class"=>{"classCode"=>"T02","semester"=>"2022.2","time"=>"35M12"}},
     #    #        {"code"=>"CIC0142","name"=>"INFORMATICA E SOCIEDADE","class"=>{"classCode"=>"T02","semester"=>"2022.2","time"=>"6M34"}},
