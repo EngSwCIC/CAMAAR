@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676505168301" clover="3.2.0">
-  <project timestamp="1676505168301" name="All files">
-    <metrics statements="78" coveredstatements="5" conditionals="16" coveredconditionals="0" methods="31" coveredmethods="2" elements="125" coveredelements="7" complexity="0" loc="78" ncloc="78" packages="8" files="16" classes="16"/>
+<coverage generated="1676506408721" clover="3.2.0">
+  <project timestamp="1676506408721" name="All files">
+    <metrics statements="78" coveredstatements="24" conditionals="16" coveredconditionals="4" methods="31" coveredmethods="12" elements="125" coveredelements="40" complexity="0" loc="78" ncloc="78" packages="8" files="16" classes="16"/>
     <package name="boot">
       <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="axios.js" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/boot/axios.js">
+      <file name="axios.js" path="C:\Users\ThiagoRStk\Desktop\UnB\Engsoftware\Sprint-3\CAMAAR\frontend\src\boot\axios.js">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="10" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
       </file>
-      <file name="i18n.js" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/boot/i18n.js">
+      <file name="i18n.js" path="C:\Users\ThiagoRStk\Desktop\UnB\Engsoftware\Sprint-3\CAMAAR\frontend\src\boot\i18n.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
       </file>
     </package>
     <package name="components">
-      <metrics statements="16" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="8" coveredmethods="0"/>
-      <file name="FiltroRAluno.vue" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/components/FiltroRAluno.vue">
+      <metrics statements="16" coveredstatements="7" conditionals="6" coveredconditionals="4" methods="8" coveredmethods="4"/>
+      <file name="FiltroRAluno.vue" path="C:/Users/ThiagoRStk/Desktop/UnB/Engsoftware/Sprint-3/CAMAAR/frontend/src/components/FiltroRAluno.vue">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="2" count="0" type="stmt"/>
       </file>
-      <file name="GenericTable.vue" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/components/GenericTable.vue">
-        <metrics statements="8" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="0"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
+      <file name="GenericTable.vue" path="C:\Users\ThiagoRStk\Desktop\UnB\Engsoftware\Sprint-3\CAMAAR\frontend\src\components\GenericTable.vue">
+        <metrics statements="8" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="4"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="60" count="11" type="stmt"/>
         <line num="67" count="0" type="stmt"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="77" count="0" type="stmt"/>
+        <line num="72" count="11" type="stmt"/>
+        <line num="73" count="8" type="stmt"/>
+        <line num="74" count="48" type="stmt"/>
+        <line num="75" count="48" type="cond" truecount="4" falsecount="0"/>
+        <line num="77" count="8" type="stmt"/>
       </file>
-      <file name="SurveyQuestion.vue" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/components/SurveyQuestion.vue">
+      <file name="SurveyQuestion.vue" path="C:\Users\ThiagoRStk\Desktop\UnB\Engsoftware\Sprint-3\CAMAAR\frontend\src\components\SurveyQuestion.vue">
         <metrics statements="7" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="60" count="0" type="stmt"/>
         <line num="63" count="0" type="stmt"/>
@@ -45,8 +45,8 @@
       </file>
     </package>
     <package name="components.surveySelector">
-      <metrics statements="27" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="2"/>
-      <file name="checkboxSurvey.vue" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/components/surveySelector/checkboxSurvey.vue">
+      <metrics statements="27" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="6"/>
+      <file name="checkboxSurvey.vue" path="C:\Users\ThiagoRStk\Desktop\UnB\Engsoftware\Sprint-3\CAMAAR\frontend\src\components\surveySelector\checkboxSurvey.vue">
         <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="2" count="0" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
@@ -56,7 +56,7 @@
         <line num="23" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
       </file>
-      <file name="linearScaleSurvey.vue" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/components/surveySelector/linearScaleSurvey.vue">
+      <file name="linearScaleSurvey.vue" path="C:\Users\ThiagoRStk\Desktop\UnB\Engsoftware\Sprint-3\CAMAAR\frontend\src\components\surveySelector\linearScaleSurvey.vue">
         <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="2" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
@@ -66,17 +66,17 @@
         <line num="14" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
       </file>
-      <file name="radioSurvey.vue" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/components/surveySelector/radioSurvey.vue">
-        <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
+      <file name="radioSurvey.vue" path="C:\Users\ThiagoRStk\Desktop\UnB\Engsoftware\Sprint-3\CAMAAR\frontend\src\components\surveySelector\radioSurvey.vue">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
       </file>
-      <file name="textSurvey.vue" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/components/surveySelector/textSurvey.vue">
+      <file name="textSurvey.vue" path="C:\Users\ThiagoRStk\Desktop\UnB\Engsoftware\Sprint-3\CAMAAR\frontend\src\components\surveySelector\textSurvey.vue">
         <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
@@ -88,26 +88,26 @@
     </package>
     <package name="i18n">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.js" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/i18n/index.js">
+      <file name="index.js" path="C:\Users\ThiagoRStk\Desktop\UnB\Engsoftware\Sprint-3\CAMAAR\frontend\src\i18n\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="i18n.en-US">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.js" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/i18n/en-US/index.js">
+      <file name="index.js" path="C:\Users\ThiagoRStk\Desktop\UnB\Engsoftware\Sprint-3\CAMAAR\frontend\src\i18n\en-US\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="layouts">
       <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="MainLayout.vue" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/layouts/MainLayout.vue">
+      <file name="MainLayout.vue" path="C:\Users\ThiagoRStk\Desktop\UnB\Engsoftware\Sprint-3\CAMAAR\frontend\src\layouts\MainLayout.vue">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="52" count="0" type="stmt"/>
       </file>
     </package>
     <package name="router">
       <metrics statements="11" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="0"/>
-      <file name="index.js" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/router/index.js">
+      <file name="index.js" path="C:\Users\ThiagoRStk\Desktop\UnB\Engsoftware\Sprint-3\CAMAAR\frontend\src\router\index.js">
         <metrics statements="9" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="21" count="0" type="stmt"/>
@@ -119,21 +119,21 @@
         <line num="35" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
       </file>
-      <file name="routes.js" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/router/routes.js">
+      <file name="routes.js" path="C:\Users\ThiagoRStk\Desktop\UnB\Engsoftware\Sprint-3\CAMAAR\frontend\src\router\routes.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="10" count="0" type="stmt"/>
         <line num="56" count="0" type="stmt"/>
       </file>
     </package>
     <package name="stores">
-      <metrics statements="18" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
-      <file name="credentials.js" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/stores/credentials.js">
-        <metrics statements="16" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
+      <metrics statements="18" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="2"/>
+      <file name="credentials.js" path="C:\Users\ThiagoRStk\Desktop\UnB\Engsoftware\Sprint-3\CAMAAR\frontend\src\stores\credentials.js">
+        <metrics statements="16" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
@@ -146,7 +146,7 @@
         <line num="30" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
       </file>
-      <file name="index.js" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/stores/index.js">
+      <file name="index.js" path="C:\Users\ThiagoRStk\Desktop\UnB\Engsoftware\Sprint-3\CAMAAR\frontend\src\stores\index.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="14" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
