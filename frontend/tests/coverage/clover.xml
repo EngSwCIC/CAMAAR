@@ -1,97 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1651716689895" clover="3.2.0">
-  <project timestamp="1651716689895" name="All files">
-    <metrics statements="44" coveredstatements="12" conditionals="14" coveredconditionals="4" methods="15" coveredmethods="6" elements="73" coveredelements="22" complexity="0" loc="44" ncloc="44" packages="7" files="10" classes="10"/>
+<coverage generated="1676510258758" clover="3.2.0">
+  <project timestamp="1676510258758" name="All files">
+    <metrics statements="54" coveredstatements="11" conditionals="21" coveredconditionals="4" methods="19" coveredmethods="6" elements="94" coveredelements="21" complexity="0" loc="54" ncloc="54" packages="7" files="12" classes="12"/>
     <package name="boot">
       <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="axios.js" path="/home/caio/estudo/CAMAAR/frontend/src/boot/axios.js">
+      <file name="axios.js" path="/home/kleberjr/Software Engineering/CAMAAR/frontend/src/boot/axios.js">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="10" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
       </file>
-      <file name="i18n.js" path="/home/caio/estudo/CAMAAR/frontend/src/boot/i18n.js">
+      <file name="i18n.js" path="/home/kleberjr/Software Engineering/CAMAAR/frontend/src/boot/i18n.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
       </file>
     </package>
     <package name="components">
-      <metrics statements="8" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="4"/>
-      <file name="GenericTable.vue" path="/home/caio/estudo/CAMAAR/frontend/src/components/GenericTable.vue">
+      <metrics statements="16" coveredstatements="7" conditionals="6" coveredconditionals="4" methods="8" coveredmethods="4"/>
+      <file name="FiltroRAluno.vue" path="/home/kleberjr/Software Engineering/CAMAAR/frontend/src/components/FiltroRAluno.vue">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+      </file>
+      <file name="GenericTable.vue" path="/home/kleberjr/Software Engineering/CAMAAR/frontend/src/components/GenericTable.vue">
         <metrics statements="8" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="4"/>
-        <line num="57" count="3" type="stmt"/>
-        <line num="60" count="19" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="60" count="11" type="stmt"/>
         <line num="67" count="0" type="stmt"/>
-        <line num="72" count="23" type="stmt"/>
-        <line num="73" count="24" type="stmt"/>
-        <line num="74" count="128" type="stmt"/>
-        <line num="75" count="128" type="cond" truecount="4" falsecount="0"/>
-        <line num="77" count="24" type="stmt"/>
+        <line num="72" count="11" type="stmt"/>
+        <line num="73" count="8" type="stmt"/>
+        <line num="74" count="48" type="stmt"/>
+        <line num="75" count="48" type="cond" truecount="4" falsecount="0"/>
+        <line num="77" count="8" type="stmt"/>
+      </file>
+      <file name="SurveyQuestion.vue" path="/home/kleberjr/Software Engineering/CAMAAR/frontend/src/components/SurveyQuestion.vue">
+        <metrics statements="7" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="84" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
       </file>
     </package>
     <package name="i18n">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.js" path="/home/caio/estudo/CAMAAR/frontend/src/i18n/index.js">
+      <file name="index.js" path="/home/kleberjr/Software Engineering/CAMAAR/frontend/src/i18n/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="i18n.en-US">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.js" path="/home/caio/estudo/CAMAAR/frontend/src/i18n/en-US/index.js">
+      <file name="index.js" path="/home/kleberjr/Software Engineering/CAMAAR/frontend/src/i18n/en-US/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="layouts">
       <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="MainLayout.vue" path="/home/caio/estudo/CAMAAR/frontend/src/layouts/MainLayout.vue">
+      <file name="MainLayout.vue" path="/home/kleberjr/Software Engineering/CAMAAR/frontend/src/layouts/MainLayout.vue">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="52" count="0" type="stmt"/>
       </file>
     </package>
     <package name="router">
-      <metrics statements="12" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="0"/>
-      <file name="index.js" path="/home/caio/estudo/CAMAAR/frontend/src/router/index.js">
-        <metrics statements="10" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <metrics statements="11" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <file name="index.js" path="/home/kleberjr/Software Engineering/CAMAAR/frontend/src/router/index.js">
+        <metrics statements="9" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="21" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
+        <line num="34" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
       </file>
-      <file name="routes.js" path="/home/caio/estudo/CAMAAR/frontend/src/router/routes.js">
+      <file name="routes.js" path="/home/kleberjr/Software Engineering/CAMAAR/frontend/src/router/routes.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
       </file>
     </package>
     <package name="stores">
-      <metrics statements="18" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="2"/>
-      <file name="credentials.js" path="/home/caio/estudo/CAMAAR/frontend/src/stores/credentials.js">
-        <metrics statements="16" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <metrics statements="21" coveredstatements="4" conditionals="7" coveredconditionals="0" methods="5" coveredmethods="2"/>
+      <file name="credentials.js" path="/home/kleberjr/Software Engineering/CAMAAR/frontend/src/stores/credentials.js">
+        <metrics statements="19" coveredstatements="4" conditionals="7" coveredconditionals="0" methods="4" coveredmethods="2"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="4" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="16" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="20" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
+        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
       </file>
-      <file name="index.js" path="/home/caio/estudo/CAMAAR/frontend/src/stores/index.js">
+      <file name="index.js" path="/home/kleberjr/Software Engineering/CAMAAR/frontend/src/stores/index.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="14" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
