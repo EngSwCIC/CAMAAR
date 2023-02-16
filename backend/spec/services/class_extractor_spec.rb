@@ -142,7 +142,7 @@ RSpec.describe SigaaManager::ClassExtractor, type: :model do
       expect(@turma_info[:dicente]).to all(have_key :ocupacao)
       expect(@turma_info[:dicente]).to all(have_key :email)
 
-      yaml_path = "#{Dir.pwd}/spec/services/yaml_files/students_t1.yaml"
+      yaml_path = "#{Dir.pwd}/spec/services/yaml_files/students.yaml"
 
       expec_students =  YAML.load_file(yaml_path)
 
