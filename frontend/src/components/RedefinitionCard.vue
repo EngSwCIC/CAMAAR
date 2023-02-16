@@ -2,11 +2,15 @@
 import { ref, reactive, onMounted } from "vue";
 import { useRouter } from 'vue-router'
 import { useQuasar } from 'quasar'
+import { credentialsStore } from "@/stores/credentials";
 import axios from "axios"
 const $q = useQuasar()
 const router = useRouter()
+const credentials = credentialsStore();
 // data
 const form = ref(null)
+
+const { authenticate } = credentials;
 
 const users = reactive({
   email: null,
@@ -23,6 +27,7 @@ onMounted(async () => {
 const PostMembers = async () => {
   const Control1 = await form.value.validate()
   if (Control1) {
+    let req = await authenticate({"email": users.email, "password": users.senha_atual})
     try {
       let req = await axios.put("/api/auth", {
         "user": {
@@ -40,7 +45,7 @@ const PostMembers = async () => {
           position: 'top',
           color: 'positive'
         })
-        await router.push({ path: '/' })
+        await router.push({ path: '/home' })
       }
       else {
         $q.notify({
@@ -52,7 +57,7 @@ const PostMembers = async () => {
     }
     catch (e) {
       $q.notify({
-        message: req.data.message,
+        message: req,
         position: 'top',
         color: 'negative'
       })

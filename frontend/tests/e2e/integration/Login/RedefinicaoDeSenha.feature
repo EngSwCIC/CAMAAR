@@ -5,20 +5,23 @@ Funcionalidade: Redefinição de senha
 	Eu quero ter a capacidade de redefinir a minha senha
 
 Contexto:
-	Dado que estou na rota "/#/cadastro/1234"
+	Dado que estou na pagina de redefinicao de senha
 	Então eu deveria ver o campo "senhanova"
 	E eu deveria ver o campo "senhaconfirmacao"
+	E eu deveria ver o campo "senhaantiga"
 
-Cenário: Digitar senha diferente no campo de confimação (triste)
-	Quando eu selecionar o campo "Nova Senha"
-	E digitar "senha123"
-	E depois selecionar o campo "Confimar nova senha"
-	E digitar "senha_diferente"
-	Então devo ver uma mensagem "Senha de confirmação diferente da nova senha"
+Cenário: Digitar senha antiga inválida (triste)
+	Quando eu selecionar o campo senhaantiga e digitar "1234567"
+	E selecionar o campo senhanova e digitar "12345678"
+	E selecionar o campo senhaconfirmacao e digitar "12345678"
+	E eu clicar no botão "registrar"
+	Então devo ver uma mensagem "Invalid Email or password."
 		
 Cenário: Digitar senha válida (feliz)
-	Quando eu selecionar o campo "Nova Senha"
-	E digitar "senha_valida"
-	E depois selecionar o campo "Confimar nova senha"
-	E digitar "senha_valida"
-	Então devo ver uma mensagem "Senha redefinida com sucesso"
+	Quando eu selecionar o campo senhaantiga e digitar "123456789"
+	E selecionar o campo senhanova e digitar "123456789"
+	E selecionar o campo senhaconfirmacao e digitar "123456789"
+	E eu clicar no botão "registrar"
+	Então devo ver uma mensagem "Cadastrado com sucesso"
+
+
