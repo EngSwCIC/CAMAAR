@@ -3,7 +3,7 @@
 # por meio da aplicação
 
 class SurveyAnswersController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   ##
   # Método usado para criação de um novo +SurveyAnswer+ usando valores
@@ -15,8 +15,8 @@ class SurveyAnswersController < ApplicationController
   # em caso de erro durante a criação
 
   def create
-    # @current_user = get_user_from_token
-    # @member = Member.find(@current_user.member_id)
+    #@current_user = get_user_from_token
+    #@member = Member.find(@current_user.member_id)
 
     @survey_answer = SurveyAnswer.new(survey_answer_params)
 

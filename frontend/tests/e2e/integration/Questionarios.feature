@@ -16,22 +16,22 @@ Funcionalidade: Preenchimento dos Questionarios
     Entao eu devo estar na tela "/#/surveys/teste"
 
   @MockQuestionarios
-  Cenario: Enviar sem preencher campo obrigatório (triste)
+  Cenario: Enviar sem preencher todos campos obrigatório (triste)
     Dado que estou no questionario "teste"
-    Quando nao preencho o textarea obrigatorio da questão 1
+    Quando preencho o radio button da questão 2 com os labels: option 4
     E clico no botão "Enviar"
-#    Entao devo ver uma mensagem de "Erro"
+    Entao nao deve enviar com sucesso
 
   @interceptingRequest
   @MockQuestionarios
   Cenario: Enviar com todos campos preenchidos (feliz)
-    Dado que estou no questionario "teste"
+    Dado que estou no questionario "1"
     Quando preencho o textarea da questão 1 com "Uma sugestão"
     E preencho todas as opções do likert da questão 3 com "Discordo totalmente"
     E preencho o radio button da questão 2 com os labels: option 1, option 2, option 5
     E clico no botão Enviar
-    #Entao devo ver um mensagem de Enviado.
-    Entao a questão 1 deveria enviar "Uma sugestão"
+    Entao deve enviar com sucesso
+    E a questão 1 deveria enviar "Uma sugestão"
     E a questão 3 deveria enviar o likert com as opções com "Discordo totalmente"
     E a questão 2 deveria enviar 4
 
@@ -39,9 +39,9 @@ Funcionalidade: Preenchimento dos Questionarios
   @MockQuestionarios
   Cenario: Enviar com todos campos obrigatorios preenchidos (feliz)
     Dado que estou no questionario "1"
-    Quando preencho o textarea da questão 1 com "Um julgamento"
+    Quando preencho todas as opções do likert da questão 3 com "Concordo totalmente"
     E preencho o radio button da questão 2 com os labels: option 1
     E clico no botão Enviar
-    #Entao devo ver um mensagem de "Enviado"
-    E a questão 1 deveria enviar "Um julgamento"
+    Entao deve enviar com sucesso
     E a questão 2 deveria enviar 0
+    E a questão 3 deveria enviar o likert com as opções com "Concordo totalmente"
