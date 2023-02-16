@@ -98,7 +98,7 @@ class ScrapperController < ApplicationController
     )
 
     # TODO: generate redefinition link and attach to the member object
-    mail = ApplicationMailer.redefine_password(member)
+    mail = ApplicationMailer.redefine_password(member, random_password)
     # mail.deliver_now
   end
 end

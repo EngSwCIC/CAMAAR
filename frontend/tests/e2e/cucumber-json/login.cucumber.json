@@ -6,7 +6,7 @@
     "line": 2,
     "id": "login-no-site",
     "tags": [],
-    "uri": "Login.feature",
+    "uri": "login.feature",
     "elements": [
       {
         "id": "login-no-site;tentar-fazer-login-sem-digitar-email-(triste)",
@@ -22,8 +22,8 @@
             "line": 7,
             "name": "que estou na rota \"/\"",
             "result": {
-              "status": "passed",
-              "duration": 5290000000
+              "status": "undefined",
+              "duration": 349000000
             }
           },
           {
@@ -32,8 +32,7 @@
             "line": 8,
             "name": "eu deveria ver o campo \"Email\"",
             "result": {
-              "status": "passed",
-              "duration": 264000000
+              "status": "skipped"
             }
           },
           {
@@ -42,8 +41,7 @@
             "line": 9,
             "name": "eu deveria ver o campo \"Senha\"",
             "result": {
-              "status": "passed",
-              "duration": 98000000
+              "status": "skipped"
             }
           },
           {
@@ -52,8 +50,7 @@
             "line": 10,
             "name": "eu deveria ver o botão \"Login\"",
             "result": {
-              "status": "passed",
-              "duration": 66000000
+              "status": "skipped"
             }
           },
           {
@@ -62,8 +59,7 @@
             "line": 13,
             "name": "que o campo email não foi preenchido",
             "result": {
-              "status": "passed",
-              "duration": 164000000
+              "status": "skipped"
             }
           },
           {
@@ -72,8 +68,7 @@
             "line": 14,
             "name": "eu clicar no botão \"Login\"",
             "result": {
-              "status": "passed",
-              "duration": 467000000
+              "status": "skipped"
             }
           },
           {
@@ -82,8 +77,7 @@
             "line": 15,
             "name": "eu deveria ver uma mensagem \"E-Mail Obrigatório\"",
             "result": {
-              "status": "passed",
-              "duration": 221000000
+              "status": "skipped"
             }
           }
         ]
@@ -102,8 +96,7 @@
             "line": 7,
             "name": "que estou na rota \"/\"",
             "result": {
-              "status": "passed",
-              "duration": 1710000000
+              "status": "undefined"
             }
           },
           {
@@ -112,8 +105,7 @@
             "line": 8,
             "name": "eu deveria ver o campo \"Email\"",
             "result": {
-              "status": "passed",
-              "duration": 150000000
+              "status": "skipped"
             }
           },
           {
@@ -122,8 +114,7 @@
             "line": 9,
             "name": "eu deveria ver o campo \"Senha\"",
             "result": {
-              "status": "passed",
-              "duration": 60000000
+              "status": "skipped"
             }
           },
           {
@@ -132,8 +123,7 @@
             "line": 10,
             "name": "eu deveria ver o botão \"Login\"",
             "result": {
-              "status": "passed",
-              "duration": 54000000
+              "status": "skipped"
             }
           },
           {
@@ -142,8 +132,7 @@
             "line": 18,
             "name": "eu selecionar o campo email e digitar \"email_qualquer\"",
             "result": {
-              "status": "passed",
-              "duration": 618000000
+              "status": "skipped"
             }
           },
           {
@@ -152,8 +141,7 @@
             "line": 19,
             "name": "que o campo senha não foi preenchido",
             "result": {
-              "status": "passed",
-              "duration": 183000000
+              "status": "skipped"
             }
           },
           {
@@ -162,8 +150,7 @@
             "line": 20,
             "name": "eu clicar no botão \"Login\"",
             "result": {
-              "status": "passed",
-              "duration": 274000000
+              "status": "skipped"
             }
           },
           {
@@ -172,8 +159,7 @@
             "line": 21,
             "name": "eu deveria ver uma mensagem \"Senha Obrigatória\"",
             "result": {
-              "status": "passed",
-              "duration": 99000000
+              "status": "skipped"
             }
           }
         ]
@@ -192,8 +178,7 @@
             "line": 7,
             "name": "que estou na rota \"/\"",
             "result": {
-              "status": "passed",
-              "duration": 1537000000
+              "status": "undefined"
             }
           },
           {
@@ -202,8 +187,7 @@
             "line": 8,
             "name": "eu deveria ver o campo \"Email\"",
             "result": {
-              "status": "passed",
-              "duration": 167000000
+              "status": "skipped"
             }
           },
           {
@@ -212,8 +196,7 @@
             "line": 9,
             "name": "eu deveria ver o campo \"Senha\"",
             "result": {
-              "status": "passed",
-              "duration": 59000000
+              "status": "skipped"
             }
           },
           {
@@ -222,8 +205,7 @@
             "line": 10,
             "name": "eu deveria ver o botão \"Login\"",
             "result": {
-              "status": "passed",
-              "duration": 52000000
+              "status": "skipped"
             }
           },
           {
@@ -232,8 +214,7 @@
             "line": 24,
             "name": "eu selecionar o campo email e digitar \"email_incorreto\"",
             "result": {
-              "status": "passed",
-              "duration": 639000000
+              "status": "skipped"
             }
           },
           {
@@ -242,8 +223,7 @@
             "line": 25,
             "name": "selecionar o campo senha e digitar \"senha_qualquer\"",
             "result": {
-              "status": "passed",
-              "duration": 590000000
+              "status": "skipped"
             }
           },
           {
@@ -252,8 +232,7 @@
             "line": 26,
             "name": "eu clicar no botão \"Login\"",
             "result": {
-              "status": "passed",
-              "duration": 305000000
+              "status": "skipped"
             }
           },
           {
@@ -262,8 +241,7 @@
             "line": 27,
             "name": "devo ver uma mensagem \"Invalid Email or password.\"",
             "result": {
-              "status": "passed",
-              "duration": 204000000
+              "status": "skipped"
             }
           }
         ]
@@ -282,8 +260,7 @@
             "line": 7,
             "name": "que estou na rota \"/\"",
             "result": {
-              "status": "passed",
-              "duration": 1432000000
+              "status": "undefined"
             }
           },
           {
@@ -292,8 +269,7 @@
             "line": 8,
             "name": "eu deveria ver o campo \"Email\"",
             "result": {
-              "status": "passed",
-              "duration": 155000000
+              "status": "skipped"
             }
           },
           {
@@ -302,8 +278,7 @@
             "line": 9,
             "name": "eu deveria ver o campo \"Senha\"",
             "result": {
-              "status": "passed",
-              "duration": 68000000
+              "status": "skipped"
             }
           },
           {
@@ -312,8 +287,7 @@
             "line": 10,
             "name": "eu deveria ver o botão \"Login\"",
             "result": {
-              "status": "passed",
-              "duration": 52000000
+              "status": "skipped"
             }
           },
           {
@@ -322,8 +296,7 @@
             "line": 30,
             "name": "eu selecionar o campo email e digitar \"kleberrjr7@gmail.com\"",
             "result": {
-              "status": "passed",
-              "duration": 662000000
+              "status": "skipped"
             }
           },
           {
@@ -332,8 +305,7 @@
             "line": 31,
             "name": "selecionar o campo senha e digitar \"aaaaaaaaaaaa\"",
             "result": {
-              "status": "passed",
-              "duration": 585000000
+              "status": "skipped"
             }
           },
           {
@@ -342,8 +314,7 @@
             "line": 32,
             "name": "eu clicar no botão \"Login\"",
             "result": {
-              "status": "passed",
-              "duration": 279000000
+              "status": "skipped"
             }
           },
           {
@@ -352,8 +323,7 @@
             "line": 33,
             "name": "devo ver uma mensagem \"Invalid Email or password.\"",
             "result": {
-              "status": "passed",
-              "duration": 494000000
+              "status": "skipped"
             }
           }
         ]
@@ -372,8 +342,7 @@
             "line": 7,
             "name": "que estou na rota \"/\"",
             "result": {
-              "status": "passed",
-              "duration": 1453000000
+              "status": "undefined"
             }
           },
           {
@@ -382,8 +351,7 @@
             "line": 8,
             "name": "eu deveria ver o campo \"Email\"",
             "result": {
-              "status": "passed",
-              "duration": 160000000
+              "status": "skipped"
             }
           },
           {
@@ -392,8 +360,7 @@
             "line": 9,
             "name": "eu deveria ver o campo \"Senha\"",
             "result": {
-              "status": "passed",
-              "duration": 62000000
+              "status": "skipped"
             }
           },
           {
@@ -402,8 +369,7 @@
             "line": 10,
             "name": "eu deveria ver o botão \"Login\"",
             "result": {
-              "status": "passed",
-              "duration": 50000000
+              "status": "skipped"
             }
           },
           {
@@ -412,8 +378,7 @@
             "line": 36,
             "name": "eu selecionar o campo email e digitar \"kleberrjr7@gmail.com\"",
             "result": {
-              "status": "passed",
-              "duration": 676000000
+              "status": "skipped"
             }
           },
           {
@@ -422,8 +387,7 @@
             "line": 37,
             "name": "selecionar o campo senha e digitar \"162524\"",
             "result": {
-              "status": "passed",
-              "duration": 429000000
+              "status": "skipped"
             }
           },
           {
@@ -432,8 +396,7 @@
             "line": 38,
             "name": "eu clicar no botão \"Login\"",
             "result": {
-              "status": "passed",
-              "duration": 377000000
+              "status": "skipped"
             }
           },
           {
@@ -442,8 +405,7 @@
             "line": 39,
             "name": "eu devo ser redirecionado para a rota \"/home\"",
             "result": {
-              "status": "passed",
-              "duration": 501000000
+              "status": "skipped"
             }
           }
         ]

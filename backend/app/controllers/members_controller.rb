@@ -19,6 +19,8 @@ class MembersController < ApplicationController
 
   # #
   # Procura por um membro específico baseado no seu hash de redefinição.
+  #
+  # Recebe um hash de redefinição, procura um membro que possui esse hash e o retorna.
   def redefine_password
     @member = Member.where(redefinition_link: params[:redefinition_link])[0]
     render json: @member, status: :ok

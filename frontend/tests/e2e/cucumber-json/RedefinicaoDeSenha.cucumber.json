@@ -1,0 +1,213 @@
+[
+  {
+    "description": "\tComo um aluno\n\tPara que eu possa me logar\n\tEu quero ter a capacidade de redefinir a minha senha",
+    "keyword": "Funcionalidade",
+    "name": "Redefinição de senha",
+    "line": 2,
+    "id": "redefinição-de-senha",
+    "tags": [],
+    "uri": "RedefinicaoDeSenha.feature",
+    "elements": [
+      {
+        "id": "redefinição-de-senha;digitar-senha-antiga-inválida-(triste)",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "Digitar senha antiga inválida (triste)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que estou na pagina de redefinicao de senha",
+            "result": {
+              "status": "passed",
+              "duration": 1432000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 9,
+            "name": "eu deveria ver o campo \"senhanova\"",
+            "result": {
+              "status": "passed",
+              "duration": 274000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "eu deveria ver o campo \"senhaconfirmacao\"",
+            "result": {
+              "status": "passed",
+              "duration": 80000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 11,
+            "name": "eu deveria ver o campo \"senhaantiga\"",
+            "result": {
+              "status": "passed",
+              "duration": 54000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 14,
+            "name": "eu selecionar o campo senhaantiga e digitar \"12345678\"",
+            "result": {
+              "status": "passed",
+              "duration": 459000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 15,
+            "name": "selecionar o campo senhanova e digitar \"162524\"",
+            "result": {
+              "status": "passed",
+              "duration": 317000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 16,
+            "name": "selecionar o campo senhaconfirmacao e digitar \"162524\"",
+            "result": {
+              "status": "passed",
+              "duration": 312000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 17,
+            "name": "eu clicar no botão \"registrar\"",
+            "result": {
+              "status": "passed",
+              "duration": 200000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 18,
+            "name": "devo ver uma mensagem \"Invalid Email or password.\"",
+            "result": {
+              "status": "passed",
+              "duration": 452000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "redefinição-de-senha;digitar-senha-válida-(feliz)",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Digitar senha válida (feliz)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que estou na pagina de redefinicao de senha",
+            "result": {
+              "status": "passed",
+              "duration": 1269000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 9,
+            "name": "eu deveria ver o campo \"senhanova\"",
+            "result": {
+              "status": "passed",
+              "duration": 176000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "eu deveria ver o campo \"senhaconfirmacao\"",
+            "result": {
+              "status": "passed",
+              "duration": 53000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 11,
+            "name": "eu deveria ver o campo \"senhaantiga\"",
+            "result": {
+              "status": "passed",
+              "duration": 37000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 21,
+            "name": "eu selecionar o campo senhaantiga e digitar \"162524\"",
+            "result": {
+              "status": "passed",
+              "duration": 398000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 22,
+            "name": "selecionar o campo senhanova e digitar \"162524\"",
+            "result": {
+              "status": "passed",
+              "duration": 321000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 23,
+            "name": "selecionar o campo senhaconfirmacao e digitar \"162524\"",
+            "result": {
+              "status": "passed",
+              "duration": 347000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 24,
+            "name": "eu clicar no botão \"registrar\"",
+            "result": {
+              "status": "passed",
+              "duration": 231000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 25,
+            "name": "devo ver uma mensagem \"Cadastrado com sucesso\"",
+            "result": {
+              "status": "passed",
+              "duration": 1182000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -11,16 +11,16 @@ Contexto:
 	E eu deveria ver o campo "senhaantiga"
 
 Cenário: Digitar senha antiga inválida (triste)
-	Quando eu selecionar o campo senhaantiga e digitar "1234567"
-	E selecionar o campo senhanova e digitar "12345678"
-	E selecionar o campo senhaconfirmacao e digitar "12345678"
+	Quando eu selecionar o campo senhaantiga e digitar "12345678"
+	E selecionar o campo senhanova e digitar "162524"
+	E selecionar o campo senhaconfirmacao e digitar "162524"
 	E eu clicar no botão "registrar"
 	Então devo ver uma mensagem "Invalid Email or password."
 		
 Cenário: Digitar senha válida (feliz)
-	Quando eu selecionar o campo senhaantiga e digitar "123456789"
-	E selecionar o campo senhanova e digitar "123456789"
-	E selecionar o campo senhaconfirmacao e digitar "123456789"
+	Quando eu selecionar o campo senhaantiga e digitar "162524"
+	E selecionar o campo senhanova e digitar "162524"
+	E selecionar o campo senhaconfirmacao e digitar "162524"
 	E eu clicar no botão "registrar"
 	Então devo ver uma mensagem "Cadastrado com sucesso"
 

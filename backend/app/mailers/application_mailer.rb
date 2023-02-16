@@ -11,11 +11,12 @@ class ApplicationMailer < ActionMailer::Base
 
   # #
   # Gera um email de redefinição de senha de acordo com as informações do aluno.
-  def redefine_password_email(member)
-    base_url = 'localhost:8080/#/cadastrar/'
+  def redefine_password_email(member, password)
+    base_url = 'http://localhost:8080/#/cadastrar/'
     @redefinition_link = base_url + member[:redefinition_link]
     @user_name = member[:name]
     @user_email = member[:email]
+	@password = password
 
     mail(to: @user_email, subject: "Sistema CAMAAR: Definição de Senha")
   end
