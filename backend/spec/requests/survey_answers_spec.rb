@@ -1,3 +1,7 @@
+# require 'simplecov'
+# SimpleCov.start
+
+# # Previous content of test helper now starts here
 # require 'rails_helper'
 
 # RSpec.describe "/survey_answers", type: :request do
@@ -9,19 +13,17 @@
 #       name: 'teste',
 #       registration: Random.rand(1000000).to_s,
 #       username: 'teste',
-#       occupation: 'dicente',
 #       degree: 'graduando',
 #       course: 'teste',
 #       email: 'email@email.com',
 #     )
 #     @survey = Survey.create(name: 'teste', description: 'teste', expiration_date: Time.new, semester: '2021/2')
-#     @discursive = SurveyQuestion.create(question: 'teste', question_type: 'discursive', optional: false, survey: @survey)
+#     @discursive = SurveyQuestion.create(question: 'teste', question_type: QuestionType.create(name: "discursive"), optional: false, survey: @survey)
 #   }
 
 #   let(:valid_attributes) {{
 #     survey_id: @survey.id,
 #     cclass_id: @cclass.id,
-#     member_id: @member.id,
 #     answers_attributes: [{
 #       content: 'resposta',
 #       survey_question_id: @discursive.id,
@@ -32,7 +34,6 @@
 #   let(:invalid_attributes) {{
 #     survey_id: @survey.id,
 #     cclass_id: @cclass.id,
-#     member_id: @member.id,
 #     answers_attributes: [{
 #       content: nil,
 #       survey_question_id: @discursive.id,
