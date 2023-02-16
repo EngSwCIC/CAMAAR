@@ -4,7 +4,7 @@ class SurveyAnswer < ApplicationRecord
   has_many :question_answers
   accepts_nested_attributes_for :question_answers
 
-  def as_json(options: {})
+  def as_json()
     super(
       only: [
         :survey_id,
@@ -22,5 +22,4 @@ class SurveyAnswer < ApplicationRecord
       ]
     )
   end
-
 end
