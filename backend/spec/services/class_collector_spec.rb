@@ -5,7 +5,7 @@ RSpec.describe SigaaManager::ClassCollector, type: :model do
   describe 'new' do
     it 'should generate an object with a instane variable corresponding to the initial SIGAA page' do
       extractor = SigaaManager::ClassCollector.new()
-      expect((extractor.browser.element(tag_name:'div', id:"turmas-portal", class:"simple-panel").exists?)).to be_truthy
+      expect((extractor.login_sigga.element(tag_name:'div', id:"turmas-portal", class:"simple-panel").exists?)).to be_truthy
     end
   end
 
