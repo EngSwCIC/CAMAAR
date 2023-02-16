@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_27_122454) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_02_194705) do
+  create_table "answered_surveys", id: false, force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.integer "survey_id", null: false
+  end
+
   create_table "cclasses", force: :cascade do |t|
     t.string "code"
     t.string "semester"
