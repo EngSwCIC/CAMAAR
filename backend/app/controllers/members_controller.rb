@@ -28,7 +28,7 @@ class MembersController < ApplicationController
     survey_id = params[:survey_id]
     @survey = Survey.find(survey_id)
     
-    @current_user = get_user_from_token
+    @current_user = MembersController.get_user_from_token
     @member = Member.find(@current_user.member_id)
     if @member.answered_surveys.exists?(survey_id)
       render json: {
@@ -43,7 +43,7 @@ class MembersController < ApplicationController
   end
 
   # Funcao para decodificar o JWT
-  def get_user_from_token
+  def self.get_user_from_token
     puts request.headers['Authorization']
     jwt_payload = JWT.decode(request.headers['Authorization'].split(' ')[1], 
       ENV['JWT_SECRET_KEY']).first
