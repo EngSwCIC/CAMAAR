@@ -11,7 +11,7 @@ describe('checkBoxSurvey', () => {
   })
 
   it('testando metodo addInput', async () => {
-    const wrapper = mount(checkBoxSurvey)
+    const wrapper = shallowMount(checkBoxSurvey)
     const addButton = wrapper.find('button')
     await addButton.trigger('click')
     const inputs = wrapper.findAll('input')
@@ -20,7 +20,7 @@ describe('checkBoxSurvey', () => {
   })
 
   it('testando metodo removeInput', async () => {
-    const wrapper = mount(checkBoxSurvey, {
+    const wrapper = shallowMount(checkBoxSurvey, {
       data() {
         return {
           data: [
@@ -39,7 +39,7 @@ describe('checkBoxSurvey', () => {
   })
 
   it('testando metodo answer', () => {
-    const wrapper = mount(checkBoxSurvey)
+    const wrapper = shallowMount(checkBoxSurvey)
     const spy = jest.spyOn(wrapper.vm, '$emit')
     wrapper.vm.answer()
     expect(spy).toHaveBeenCalledWith('answer', [{ key: 1, value: '' }])
