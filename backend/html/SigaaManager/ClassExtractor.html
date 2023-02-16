@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class SigaaManager::ClassExtractor - App Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link"><a href="ClassCollector.html">SigaaManager::ClassCollector</a>
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-call">#call</a>
+    <li ><a href="#method-i-extract_class">#extract_class</a>
+    <li ><a href="#method-i-extract_classes">#extract_classes</a>
+    <li ><a href="#method-i-parse_discente">#parse_discente</a>
+    <li ><a href="#method-i-parse_docente">#parse_docente</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-SigaaManager::ClassExtractor">
+  <h1 id="class-SigaaManager::ClassExtractor" class="class">
+    class SigaaManager::ClassExtractor
+  </h1>
+
+  <section class="description">
+    
+<p>A classe <a href="ClassExtractor.html"><code>ClassExtractor</code></a> é responsável por extrair as informações de uma ou mais turmas presentes no SIGAA, sendo essas informações código da disciplina, código da turma e participantes</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-call" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">call</span><span
+            class="method-args">(params)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Método utilzado para executar o serviço de extrair informações das turmas presentes no SIGAA</p>
+
+<h4 id="method-i-call-label-Attributes">Attributes<span><a href="#method-i-call-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>params</code> - <code>Hash</code> de parametros do tipo <code>ActionController::Parameters</code> contendo informações sobre as turmas selecionadas</p>
+</li></ul>
+
+<h5 id="method-i-call-label-params"><code>params</code><span><a href="#method-i-call-label-params">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>O atributo <code>params</code> deve seguir o seguinte formato:</p>
+
+<pre class="ruby"><span class="ruby-identifier">params</span> = {<span class="ruby-string">&quot;classes&quot;</span><span class="ruby-operator">=&gt;</span>[
+            {<span class="ruby-string">&quot;id&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-value">1</span>,
+             <span class="ruby-string">&quot;nome&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;AUTÔMATOS E COMPUTABILIDADE&quot;</span>,
+             <span class="ruby-string">&quot;codigo&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;CIC0161&quot;</span>,
+             <span class="ruby-string">&quot;turma&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;T01&quot;</span>,
+             <span class="ruby-string">&quot;semestre&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;2022.2&quot;</span>,
+             <span class="ruby-string">&quot;horario&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;245T45&quot;</span>},
+            {<span class="ruby-string">&quot;id&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-value">2</span>,
+             <span class="ruby-string">&quot;nome&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;ENGENHARIA DE SOFTWARE&quot;</span>,
+             <span class="ruby-string">&quot;codigo&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;CIC0105&quot;</span>,
+             <span class="ruby-string">&quot;turma&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;T02&quot;</span>,
+             <span class="ruby-string">&quot;semestre&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;2022.2&quot;</span>,
+             <span class="ruby-string">&quot;horario&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;35M12&quot;</span>}],}
+</pre>
+
+          <div class="method-source-code" id="call-source">
+            <pre><span class="ruby-comment"># File app/services/sigaa_manager/class_extractor.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">browser</span> = <span class="ruby-identifier">login_sigga</span>
+  <span class="ruby-identifier">extract_classes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;classes&quot;</span>], <span class="ruby-identifier">browser</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-extract_class" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">extract_class</span><span
+            class="method-args">(class_info, browser)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Retorna <code>Hash</code> contendo informações sobre as turmas fornecidas no argumento <code>selected_classes</code></p>
+
+<h4 id="method-i-extract_class-label-Attributes">Attributes<span><a href="#method-i-extract_class-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>class_info</code> -  Objeto do tipo <code>Hash</code> contendo informações sobre a turmas que deve ter suas informações extraídas </p>
+</li><li>
+<p><code>browser</code> - objeto do tipo <code>Watir::Browser</code> representando um web-browser que está acessando a página de participantes de uma turma no SIGAA</p>
+</li></ul>
+
+<h5 id="method-i-extract_class-label-class_info"><code>class_info</code><span><a href="#method-i-extract_class-label-class_info">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>O atributo <code>selected_classes</code> deve estar em um formato semelhante ao exemplo:</p>
+
+<pre class="ruby"><span class="ruby-identifier">class_info</span> = {<span class="ruby-string">&quot;id&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-value">1</span>,
+              <span class="ruby-string">&quot;nome&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;AUTÔMATOS E COMPUTABILIDADE&quot;</span>,
+              <span class="ruby-string">&quot;codigo&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;CIC0161&quot;</span>,
+              <span class="ruby-string">&quot;turma&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;T01&quot;</span>,
+              <span class="ruby-string">&quot;semestre&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;2022.2&quot;</span>,
+              <span class="ruby-string">&quot;horario&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;245T45&quot;</span>}
+</pre>
+
+<h4 id="method-i-extract_class-label-Exemplo+">Exemplo <span><a href="#method-i-extract_class-label-Exemplo+">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">class_info</span> = {<span class="ruby-string">&quot;id&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-value">2</span>,
+              <span class="ruby-string">&quot;nome&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;ENGENHARIA DE SOFTWARE&quot;</span>,
+              <span class="ruby-string">&quot;codigo&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;CIC0105&quot;</span>,
+              <span class="ruby-string">&quot;turma&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;T02&quot;</span>,
+              <span class="ruby-string">&quot;semestre&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;2022.2&quot;</span>,
+              <span class="ruby-string">&quot;horario&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;35M12&quot;</span>}
+<span class="ruby-identifier">puts</span> <span class="ruby-constant">ClassExtractor</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">extract_class</span>(<span class="ruby-identifier">class_info</span>, <span class="ruby-identifier">browser</span>)
+<span class="ruby-comment"># {code: &quot;CIC0105&quot;,</span>
+<span class="ruby-comment">#  classCode: &quot;T02&quot;,</span>
+<span class="ruby-comment">#   dicente:</span>
+<span class="ruby-comment">#     [{</span>
+<span class="ruby-comment">#        nome: &quot;Ana Clara Jordao Perna&quot;,</span>
+<span class="ruby-comment">#        curso: &quot;CIÊNCIA DA COMPUTAÇÃO/CIC&quot;,</span>
+<span class="ruby-comment">#        matricula: &quot;190084006&quot;,</span>
+<span class="ruby-comment">#        usuario: &quot;190084006&quot;,</span>
+<span class="ruby-comment">#        formacao: &quot;graduando&quot;,</span>
+<span class="ruby-comment">#        ocupacao: &quot;dicente&quot;,</span>
+<span class="ruby-comment">#        email: &quot;acjpjvjp@gmail.com&quot;</span>
+<span class="ruby-comment">#      },</span>
+<span class="ruby-comment">#      {</span>
+<span class="ruby-comment">#        nome: &quot;Ana Paula Oliveira da Nobrega Costa&quot;,</span>
+<span class="ruby-comment">#        curso: &quot;ENGENHARIA DE COMPUTAÇÃO/CIC&quot;,</span>
+<span class="ruby-comment">#        matricula: &quot;190142120&quot;,</span>
+<span class="ruby-comment">#        usuario: &quot;190142120&quot;,</span>
+<span class="ruby-comment">#        formacao: &quot;graduando&quot;,</span>
+<span class="ruby-comment">#        ocupacao: &quot;dicente&quot;,</span>
+<span class="ruby-comment">#        email: &quot;anapaulaoncosta@gmail.com&quot;</span>
+<span class="ruby-comment">#      }],</span>
+
+<span class="ruby-comment">#   docente: {</span>
+<span class="ruby-comment">#     nome: &quot;GENAINA NUNES RODRIGUES&quot;,</span>
+<span class="ruby-comment">#     departamento: &quot;DEPTO CIÊNCIAS DA COMPUTAÇÃO&quot;,</span>
+<span class="ruby-comment">#     formacao: &quot;DOUTORADO&quot;,</span>
+<span class="ruby-comment">#     usuario: &quot;78334926120&quot;,</span>
+<span class="ruby-comment">#     email: &quot;genaina@unb.br&quot;,</span>
+<span class="ruby-comment">#     ocupacao: &quot;docente&quot;</span>
+<span class="ruby-comment">#   }</span>
+<span class="ruby-comment"># }</span>
+</pre>
+
+          <div class="method-source-code" id="extract_class-source">
+            <pre><span class="ruby-comment"># File app/services/sigaa_manager/class_extractor.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extract_class</span>(<span class="ruby-identifier">class_info</span>, <span class="ruby-identifier">browser</span>)
+  <span class="ruby-identifier">class_hash</span> = {<span class="ruby-value">:code</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">class_info</span>[<span class="ruby-string">&quot;code&quot;</span>],
+                <span class="ruby-value">:classCode</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">class_info</span>[<span class="ruby-string">&quot;class&quot;</span>][<span class="ruby-string">&quot;classCode&quot;</span>],
+               }
+  
+  <span class="ruby-identifier">participantes</span> = <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">elements</span>(<span class="ruby-value">class:</span> <span class="ruby-string">&quot;participantes&quot;</span>, <span class="ruby-value">tag_name:</span> <span class="ruby-string">&quot;table&quot;</span>)
+
+  <span class="ruby-identifier">docenteElement</span> = <span class="ruby-identifier">participantes</span>.<span class="ruby-identifier">first</span>
+
+  <span class="ruby-identifier">discentesElement</span> = <span class="ruby-identifier">participantes</span>.<span class="ruby-identifier">last</span>
+  <span class="ruby-identifier">discentesInfos</span> = <span class="ruby-identifier">discentesElement</span>.<span class="ruby-identifier">elements</span>(<span class="ruby-value">tag_name:</span> <span class="ruby-string">&quot;td&quot;</span>)
+
+  <span class="ruby-identifier">class_hash</span>[<span class="ruby-value">:docente</span>] = <span class="ruby-identifier">parse_docente</span> <span class="ruby-identifier">docenteElement</span>.<span class="ruby-identifier">text</span>
+
+  
+  <span class="ruby-identifier">class_hash</span>[<span class="ruby-value">:dicente</span>] = <span class="ruby-identifier">discentesInfos</span>.<span class="ruby-identifier">select</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">info</span><span class="ruby-operator">|</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">info</span>.<span class="ruby-identifier">text</span>.<span class="ruby-identifier">empty?</span>}.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">info</span><span class="ruby-operator">|</span> <span class="ruby-identifier">parse_discente</span> <span class="ruby-identifier">info</span>.<span class="ruby-identifier">text</span>}
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">class_hash</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-extract_classes" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">extract_classes</span><span
+            class="method-args">(selected_classes, browser)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Retorna um <code>Array</code> de objetos do tipo <code>Hash</code> contendo informações sobre as turmas fornecidas no argumento <code>selected_classes</code></p>
+
+<h4 id="method-i-extract_classes-label-Attributes">Attributes<span><a href="#method-i-extract_classes-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>selected_classes</code> - <code>Array</code> de objetos do tipo <code>Hash</code> contendo informações sobre as turmas que devem ter suas informações extraídas </p>
+</li><li>
+<p><code>browser</code> - objeto do tipo <code>Watir::Browser</code> representando um web-browser que está acessando a página principal  uma turma no SIGAA</p>
+</li></ul>
+
+<h5 id="method-i-extract_classes-label-selected_classes"><code>selected_classes</code><span><a href="#method-i-extract_classes-label-selected_classes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>O atributo <code>selected_classes</code> deve estar em um formato semelhante ao exemplo:</p>
+
+<pre class="ruby"><span class="ruby-identifier">selected_classes</span> = [
+            {<span class="ruby-string">&quot;id&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-value">1</span>,
+             <span class="ruby-string">&quot;nome&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;AUTÔMATOS E COMPUTABILIDADE&quot;</span>,
+             <span class="ruby-string">&quot;codigo&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;CIC0161&quot;</span>,
+             <span class="ruby-string">&quot;turma&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;T01&quot;</span>,
+             <span class="ruby-string">&quot;semestre&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;2022.2&quot;</span>,
+             <span class="ruby-string">&quot;horario&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;245T45&quot;</span>},
+            {<span class="ruby-string">&quot;id&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-value">2</span>,
+             <span class="ruby-string">&quot;nome&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;ENGENHARIA DE SOFTWARE&quot;</span>,
+             <span class="ruby-string">&quot;codigo&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;CIC0105&quot;</span>,
+             <span class="ruby-string">&quot;turma&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;T02&quot;</span>,
+             <span class="ruby-string">&quot;semestre&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;2022.2&quot;</span>,
+             <span class="ruby-string">&quot;horario&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;35M12&quot;</span>}]
+</pre>
+
+          <div class="method-source-code" id="extract_classes-source">
+            <pre><span class="ruby-comment"># File app/services/sigaa_manager/class_extractor.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extract_classes</span>(<span class="ruby-identifier">selected_classes</span>, <span class="ruby-identifier">browser</span>)
+
+  <span class="ruby-identifier">classes</span> = []
+  <span class="ruby-identifier">class_elements</span> = <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">elements</span>(<span class="ruby-value">tag_name:</span> <span class="ruby-string">&quot;td&quot;</span>, <span class="ruby-value">class:</span> <span class="ruby-string">&quot;descricao&quot;</span>)
+  <span class="ruby-identifier">class_elements</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">class_element</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># vai para página</span>
+    <span class="ruby-identifier">class_element</span>.<span class="ruby-identifier">form</span>.<span class="ruby-identifier">a</span>.<span class="ruby-identifier">click</span>
+
+    <span class="ruby-identifier">class_info</span> = <span class="ruby-identifier">get_class_info</span> <span class="ruby-identifier">browser</span>
+    <span class="ruby-identifier">code</span> = <span class="ruby-identifier">class_info</span>[<span class="ruby-string">&quot;code&quot;</span>]
+    <span class="ruby-identifier">class_code</span> = <span class="ruby-identifier">class_info</span>[<span class="ruby-string">&quot;class&quot;</span>][<span class="ruby-string">&quot;classCode&quot;</span>]
+    <span class="ruby-identifier">semester</span> = <span class="ruby-identifier">class_info</span>[<span class="ruby-string">&quot;class&quot;</span>][<span class="ruby-string">&quot;semester&quot;</span>]
+    
+    <span class="ruby-comment"># Caso a turma inspecionada seja uma das turmas de interesse definidas em params</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">selected_classes</span>.<span class="ruby-identifier">detect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+         <span class="ruby-node">&quot;#{t[&#39;codigo&#39;]}_#{t[&#39;turma&#39;]}_#{t[&#39;semestre&#39;]}&quot;</span> <span class="ruby-operator">==</span> <span class="ruby-node">&quot;#{code}_#{class_code}_#{semester}&quot;</span>}
+
+      <span class="ruby-comment"># Acessa a página de participantes</span>
+      <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value">:text</span> <span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;Participantes&quot;</span>).<span class="ruby-identifier">click</span> 
+
+      <span class="ruby-comment"># Extrai informações da pagina de turma</span>
+      <span class="ruby-identifier">classes</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">extract_class</span>(<span class="ruby-identifier">class_info</span>, <span class="ruby-identifier">browser</span>))
+
+      <span class="ruby-comment"># Volta para a página inicial da turma</span>
+      <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">back</span>
+
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">browser</span>.<span class="ruby-identifier">back</span>
+
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">classes</span>.<span class="ruby-identifier">to_json</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-parse_discente" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">parse_discente</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Retorna <code>Hash</code> contendo informações sobre um discente a partir de seu texto de descrição no SIGAA </p>
+
+<h4 id="method-i-parse_discente-label-Attributes">Attributes<span><a href="#method-i-parse_discente-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>text</code> -  <code>String</code> representando o texto que descreve um discente na página de participantes do SIGAA</p>
+</li></ul>
+
+<h4 id="method-i-parse_discente-label-Exemplo">Exemplo<span><a href="#method-i-parse_discente-label-Exemplo">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">text</span> = <span class="ruby-string">&quot;Victor Henrique do Rego Vieira de Sousa\n&quot;</span>\
+       <span class="ruby-string">&quot;Curso: COMPUTAÇÃO/CIC\n&quot;</span>\
+       <span class="ruby-string">&quot;Matrícula: 170157491\n&quot;</span>\
+       <span class="ruby-string">&quot;Usuário: 170157491\n&quot;</span>\
+       <span class="ruby-string">&quot;E-mail: victorhrvs@gmail.com&quot;</span>
+
+<span class="ruby-identifier">puts</span> <span class="ruby-constant">ClassExtractor</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">parse_discente</span>(<span class="ruby-identifier">text</span>)
+<span class="ruby-comment"># {:nome=&gt;&quot;Victor Henrique do Rego Vieira de Sousa&quot;,</span>
+<span class="ruby-comment">#  :curso=&gt;&quot;COMPUTAÇÃO/CIC&quot;,</span>
+<span class="ruby-comment">#  :matricula=&gt;&quot;170157491&quot;,</span>
+<span class="ruby-comment">#  :usuario=&gt;&quot;170157491&quot;,</span>
+<span class="ruby-comment">#  :formacao=&gt;&quot;graduando&quot;,</span>
+<span class="ruby-comment">#  :ocupacao=&gt;&quot;dicente&quot;,</span>
+<span class="ruby-comment">#  :email=&gt;&quot;victorhrvs@gmail.com&quot;}</span>
+</pre>
+
+          <div class="method-source-code" id="parse_discente-source">
+            <pre><span class="ruby-comment"># File app/services/sigaa_manager/class_extractor.rb, line 241</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse_discente</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">discente</span> = {}
+  <span class="ruby-identifier">nome</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">lines</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\n/</span>)
+  <span class="ruby-identifier">discente</span>[<span class="ruby-value">:nome</span>] = <span class="ruby-identifier">nome</span>
+  <span class="ruby-identifier">discente</span>[<span class="ruby-value">:ocupacao</span>] = <span class="ruby-string">&#39;dicente&#39;</span>
+  <span class="ruby-identifier">discente</span>[<span class="ruby-value">:formacao</span>] = <span class="ruby-string">&#39;graduando&#39;</span>
+
+  <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span> = <span class="ruby-identifier">line</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;:&#39;</span>, <span class="ruby-value">2</span>)
+    <span class="ruby-identifier">discente</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/-/</span>, <span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">parameterize</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">strip</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">discente</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-parse_docente" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">parse_docente</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Retorna <code>Hash</code> contendo informações sobre um docente a partir de seu texto de descrição no SIGAA </p>
+
+<h4 id="method-i-parse_docente-label-Attributes">Attributes<span><a href="#method-i-parse_docente-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>text</code> -  <code>String</code> representando o texto que descreve um docente na página de participantes do SIGAA</p>
+</li></ul>
+
+<h4 id="method-i-parse_docente-label-Exemplo">Exemplo<span><a href="#method-i-parse_docente-label-Exemplo">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">text</span> = <span class="ruby-string">&quot;VANDER RAMOS ALVES\n&quot;</span>\
+       <span class="ruby-string">&quot;Departamento: DEPTO CIÊNCIAS DA COMPUTAÇÃO\n&quot;</span>\
+       <span class="ruby-string">&quot;Formação: DOUTORADO\n&quot;</span>\
+       <span class="ruby-string">&quot;Usuário: 19720169893\n&quot;</span>\
+       <span class="ruby-string">&quot;E-Mail: valves@unb.br&quot;</span>
+
+<span class="ruby-identifier">puts</span> <span class="ruby-constant">ClassExtractor</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">parse_docente</span>(<span class="ruby-identifier">text</span>)
+<span class="ruby-comment"># {:nome=&gt;&quot;VANDER RAMOS ALVES&quot;,</span>
+<span class="ruby-comment">#  :departamento=&gt;&quot;DEPTO CIÊNCIAS DA COMPUTAÇÃO&quot;,</span>
+<span class="ruby-comment">#  :formacao=&gt;&quot;DOUTORADO&quot;,</span>
+<span class="ruby-comment">#  :usuario=&gt;&quot;19720169893&quot;,</span>
+<span class="ruby-comment">#  :email=&gt;&quot;valves@unb.br&quot;,</span>
+<span class="ruby-comment">#  :ocupacao=&gt;&quot;docente&quot;,</span>
+<span class="ruby-comment"># }</span>
+</pre>
+
+          <div class="method-source-code" id="parse_docente-source">
+            <pre><span class="ruby-comment"># File app/services/sigaa_manager/class_extractor.rb, line 201</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse_docente</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">docente</span> = {}
+
+  <span class="ruby-identifier">nome</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">lines</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\n/</span>)
+
+  <span class="ruby-identifier">docente</span>[<span class="ruby-value">:nome</span>] = <span class="ruby-identifier">nome</span>
+  <span class="ruby-identifier">docente</span>[<span class="ruby-value">:ocupacao</span>] = <span class="ruby-string">&#39;docente&#39;</span>
+
+  <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span> = <span class="ruby-identifier">line</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;:&#39;</span>, <span class="ruby-value">2</span>)
+    <span class="ruby-identifier">docente</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/-/</span>, <span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">parameterize</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">strip</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">docente</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

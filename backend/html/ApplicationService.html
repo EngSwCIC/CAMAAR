@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class SurveyQuestion - App Documentation</title>
+<title>class ApplicationService - App Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -61,7 +61,7 @@
 <div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  <p class="link"><a href="ApplicationRecord.html">ApplicationRecord</a>
+  <p class="link">Object
 </div>
 
     
@@ -72,21 +72,21 @@
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    <li class="calls-super" ><a href="#method-i-as_json">#as_json</a>
+    <li ><a href="#method-c-call">::call</a>
   </ul>
 </div>
 
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-SurveyQuestion">
-  <h1 id="class-SurveyQuestion" class="class">
-    class SurveyQuestion
+<main role="main" aria-labelledby="class-ApplicationService">
+  <h1 id="class-ApplicationService" class="class">
+    class ApplicationService
   </h1>
 
   <section class="description">
     
-<p>Essa classe representa o model ActiveRecord que armazena pergunta do <a href="Survey.html"><code>Survey</code></a>  que será utilizada para avaliar cada <a href="Cclass.html"><code>Cclass</code></a></p>
+<p>A classe <a href="ApplicationService.html"><code>ApplicationService</code></a> é responsável por abstrair o comportamento de executar um funcionalidade por meio da função <code>call</code></p>
 
   </section>
 
@@ -96,42 +96,30 @@
 
 
 
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
        <header>
-         <h3>Public Instance Methods</h3>
+         <h3>Public Class Methods</h3>
        </header>
 
-      <div id="method-i-as_json" class="method-detail ">
+      <div id="method-c-call" class="method-detail ">
         <div class="method-heading">
-          <span class="method-name">as_json</span><span
-            class="method-args">(options: {})</span>
+          <span class="method-name">call</span><span
+            class="method-args">(params = {})</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
 
         <div class="method-description">
-          
-            <div class="method-calls-super">
-              Calls superclass method
-              
-            </div>
+          <p>Método utilzado para executar uma determinada funcionalidade</p>
 
-          <div class="method-source-code" id="as_json-source">
-            <pre><span class="ruby-comment"># File app/models/survey_question.rb, line 15</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">as_json</span>(<span class="ruby-value">options:</span> {})
-  <span class="ruby-keyword">super</span>(
-    <span class="ruby-value">only:</span> [<span class="ruby-value">:question</span>, <span class="ruby-value">:question_number</span>, <span class="ruby-value">:optional</span>, <span class="ruby-value">:question_type_id</span>],
-    <span class="ruby-value">include:</span>[
-      <span class="ruby-value">:question_type</span> <span class="ruby-operator">=&gt;</span> {
-        <span class="ruby-value">only:</span> [<span class="ruby-value">:name</span>]
-      },
-      <span class="ruby-value">:question_options</span> <span class="ruby-operator">=&gt;</span> {
-        <span class="ruby-value">only:</span> [<span class="ruby-value">:option</span>, <span class="ruby-value">:content</span>]
-      },
-      <span class="ruby-value">:likert_scale_questions</span> <span class="ruby-operator">=&gt;</span> {
-        <span class="ruby-value">only:</span> [<span class="ruby-value">:question_number</span>, <span class="ruby-value">:question</span>, <span class="ruby-value">:scale_points</span>]
-      }
-    ]
-  )
+<h4 id="method-c-call-label-Attributes">Attributes<span><a href="#method-c-call-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>params</code> - <code>Hash</code> de parametros necessários para executar a funcionalidade desejada</p>
+</li></ul>
+
+          <div class="method-source-code" id="call-source">
+            <pre><span class="ruby-comment"># File app/services/application_service.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">call</span>(<span class="ruby-identifier">params</span> = {})
+  <span class="ruby-identifier">new</span>().<span class="ruby-identifier">call</span>(<span class="ruby-identifier">params</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>

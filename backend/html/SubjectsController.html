@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class SurveyQuestion - App Documentation</title>
+<title>class SubjectsController - App Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -61,7 +61,7 @@
 <div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  <p class="link"><a href="ApplicationRecord.html">ApplicationRecord</a>
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
 </div>
 
     
@@ -72,22 +72,21 @@
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    <li class="calls-super" ><a href="#method-i-as_json">#as_json</a>
+    <li ><a href="#method-i-index">#index</a>
+    <li ><a href="#method-i-show">#show</a>
   </ul>
 </div>
 
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-SurveyQuestion">
-  <h1 id="class-SurveyQuestion" class="class">
-    class SurveyQuestion
+<main role="main" aria-labelledby="class-SubjectsController">
+  <h1 id="class-SubjectsController" class="class">
+    class SubjectsController
   </h1>
 
   <section class="description">
     
-<p>Essa classe representa o model ActiveRecord que armazena pergunta do <a href="Survey.html"><code>Survey</code></a>  que será utilizada para avaliar cada <a href="Cclass.html"><code>Cclass</code></a></p>
-
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">
@@ -101,37 +100,43 @@
          <h3>Public Instance Methods</h3>
        </header>
 
-      <div id="method-i-as_json" class="method-detail ">
+      <div id="method-i-index" class="method-detail ">
         <div class="method-heading">
-          <span class="method-name">as_json</span><span
-            class="method-args">(options: {})</span>
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
 
         <div class="method-description">
           
-            <div class="method-calls-super">
-              Calls superclass method
-              
-            </div>
 
-          <div class="method-source-code" id="as_json-source">
-            <pre><span class="ruby-comment"># File app/models/survey_question.rb, line 15</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">as_json</span>(<span class="ruby-value">options:</span> {})
-  <span class="ruby-keyword">super</span>(
-    <span class="ruby-value">only:</span> [<span class="ruby-value">:question</span>, <span class="ruby-value">:question_number</span>, <span class="ruby-value">:optional</span>, <span class="ruby-value">:question_type_id</span>],
-    <span class="ruby-value">include:</span>[
-      <span class="ruby-value">:question_type</span> <span class="ruby-operator">=&gt;</span> {
-        <span class="ruby-value">only:</span> [<span class="ruby-value">:name</span>]
-      },
-      <span class="ruby-value">:question_options</span> <span class="ruby-operator">=&gt;</span> {
-        <span class="ruby-value">only:</span> [<span class="ruby-value">:option</span>, <span class="ruby-value">:content</span>]
-      },
-      <span class="ruby-value">:likert_scale_questions</span> <span class="ruby-operator">=&gt;</span> {
-        <span class="ruby-value">only:</span> [<span class="ruby-value">:question_number</span>, <span class="ruby-value">:question</span>, <span class="ruby-value">:scale_points</span>]
-      }
-    ]
-  )
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
+  <span class="ruby-ivar">@subjects</span> = <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">all</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@subjects</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:ok</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-show" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
+  <span class="ruby-ivar">@subject</span> = <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@subject</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:ok</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
