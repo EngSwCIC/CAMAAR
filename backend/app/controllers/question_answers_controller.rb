@@ -55,7 +55,6 @@
 #             .permit(
 #               :survey_id,
 #               :cclass_id,
-#               :member_id,
 #               answers_attributes: [
 #                 :survey_question_id,
 #                 :content,

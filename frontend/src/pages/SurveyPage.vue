@@ -121,6 +121,7 @@ export default {
   },
   methods: {
     async submitAnswer() {
+      /*
       this.survey_answers.forEach(async (subject_answer) => {
         try {
           const res = await axios.post(
@@ -155,6 +156,26 @@ export default {
             });
         }
       });
+      */
+
+      try {
+        await axios.post("/api/members/survey_answered/" + this.survey.id)
+        this.notify({
+          message: "Resposta enviada com sucesso!",
+          position: "top",
+          color: "positive",
+        });
+        
+        this.router.push({ path: "/home" });
+      } catch (err) {
+        if (err.response.status == 400) {
+          this.notify({
+            message: "Esse questionário já foi respondido!",
+            position: "top",
+            color: "negative"
+          })
+        }
+      }
     }
   }
 }

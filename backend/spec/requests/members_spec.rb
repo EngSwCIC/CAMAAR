@@ -27,5 +27,23 @@ RSpec.describe "Members", type: :request do
     end
   end
 
+  describe "POST /survey_answered/:survey_id" do
+    it "returns http success" do
+      user = double('User', :member_id => '1')
+      allow(MembersController).to receive(:get_user_from_token).and_return(user)
+
+      post "/members/survey_answered/1"
+      expect(response).to have_http_status(:success)
+    end
+
+    it "returns http bad request" do
+      user = double('User', :member_id => '1')
+      allow(MembersController).to receive(:get_user_from_token).and_return(user)
+
+      post "/members/survey_answered/1"
+      post "/members/survey_answered/1"
+      expect(response).to have_http_status(:bad_request)
+    end
+  end
 
 end
