@@ -4,16 +4,14 @@ Funcionalidade: Preenchimento dos Questionarios
   quero preencher os campos
   a fim de responder às perguntas do questionário
 
-  @MockQuestionarios
   Cenario: Acesso a lista de questionarios (feliz)
     Dado que estou na tela de selecao dos questionarios
     Então devo ver questionarios
 
-  @MockQuestionarios
   Cenario: Acesso a um questionário (feliz)
     Dado que estou na tela de selecao dos questionarios
-    Quando clicar no questionario "teste"
-    Entao eu devo estar na tela "/#/surveys/teste"
+    Quando clicar no questionario "1"
+    Entao eu devo estar na tela "/#/surveys/1"
 
   @MockQuestionarios
   Cenario: Enviar sem preencher todos campos obrigatório (triste)

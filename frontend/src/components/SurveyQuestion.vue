@@ -33,24 +33,30 @@
       </div>
     </div>
     <div v-else-if="question.question_type.name == 'multiple_choice'">
-        <div v-for="(option, val) in question.question_options" :key="option.id">
-          <q-radio
-                color="secondary"
-                :name="'multiple_choice_answer' + question.id"
-                :val="val"
-                :model-value="modelValue.content"
-                @update:model-value="(value) => $emit('update:modelValue', updateAnswer(value))"
-            >
-                <label>{{ option.content }}</label>
-            </q-radio>
-        </div>
+
+      <QuestaoMultipleChoice
+        :modelValue="modelValue"
+        :question="question"
+        @update:modelValue = "(value)=>$emit('update:modelValue',value)"
+      />
+<!--        <div v-for="(option, val) in question.question_options" :key="option.id">-->
+<!--          <q-radio-->
+<!--                color="secondary"-->
+<!--                :name="'multiple_choice_answer' + question.id"-->
+<!--                :val="val"-->
+<!--                :model-value="modelValue.content"-->
+<!--                @update:model-value="(value) => $emit('update:modelValue', updateAnswer(value))"-->
+<!--            >-->
+<!--                <label>{{ option.content }}</label>-->
+<!--            </q-radio>-->
+<!--        </div>-->
     </div>
     <div v-else>
         <QuestaoTextbox
         :modelValue ="modelValue"
         @update:modelValue = "(value)=>$emit('update:modelValue',value)"
         />
-        
+
       <!--  <q-input
             class="textbox"
             color="secondary"
@@ -66,9 +72,10 @@
 
 <script>
 import QuestaoTextbox from "./QuestaoTextbox.vue"
+import QuestaoMultipleChoice from "./QuestaoMultipleChoice.vue"
 
 export default {
-    components:{QuestaoTextbox},
+    components:{QuestaoTextbox, QuestaoMultipleChoice},
     props: ['question', 'question_number', 'modelValue'],
     data() {
         return{
