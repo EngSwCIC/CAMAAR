@@ -10,7 +10,7 @@ Before(() => {
   the('Login', 'button').click();
 });
 
-Given(`que estou na rota {string}`, (page) => {
+Given("que eu estou na rota {string}", (page) => {
   cy.visit(`/#${page}`);
 });
 
