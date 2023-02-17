@@ -56,7 +56,7 @@ Funcionalidade: Adicionar e remover componentes de questionário
     E eu clicar no botão "Adicionar linha"
     E eu clicar no botão "Adicionar linha"
     E eu clicar no botão "Adicionar linha"
-    E eu clicar no botão "x" da segunda linha
+    E eu clicar no botão "x"
     Então eu devo ver três linhas
 
   Cenário: Adicionar um componente de múltipla escolha
@@ -95,8 +95,10 @@ Funcionalidade: Adicionar e remover componentes de questionário
     E eu clicar no botão "Texto"
     E eu clicar no botão "Múltipla escolha"
     E eu clicar no botão "Adicionar linha"
-    E eu clicar no botão "x" da segunda linha
-    Então eu devo ver uma linha
+    E eu clicar no botão "Adicionar linha"
+    E eu clicar no botão "Adicionar linha"
+    E eu clicar no botão "x"
+    Então eu devo ver três linhas
 
   Cenário: Adicionar um componente de escala linear
     Dado que eu estou na rota "/surveys"
@@ -112,7 +114,7 @@ Funcionalidade: Adicionar e remover componentes de questionário
     E eu clicar no botão "Escala linear"
     E eu clicar no botão "0"
     E eu clicar no botão "1"
-    Então o valor iniciar deve ser 1
+    Então o valor inicial deve ser 1
 
   Cenário: Mudar o valor final
     Dado que eu estou na rota "/surveys"
@@ -121,7 +123,7 @@ Funcionalidade: Adicionar e remover componentes de questionário
     E eu clicar no botão "Escala linear"
     E eu clicar no botão "5"
     E eu clicar no botão "10"
-    Então o valor iniciar deve ser 10
+    Então o valor final deve ser 10
 
   Cenário: Colocar um marcador inicial
     Dado que eu estou na rota "/surveys"
