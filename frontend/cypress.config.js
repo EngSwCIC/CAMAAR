@@ -12,8 +12,8 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       return require("./tests/e2e/plugins/index.js")(on, config);
     },
-    baseUrl: "http://localhost:8080/#/create-survey",
-    specPattern: "tests/e2e/integration/CriacaoDeQuestionario/**/*.cy.js",
+    baseUrl: "http://localhost:8080/",
+    specPattern: "tests/e2e/integration/**/*.js",
     supportFile: "tests/e2e/support/index.js",
   },
 });
