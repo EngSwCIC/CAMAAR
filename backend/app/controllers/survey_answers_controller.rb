@@ -17,10 +17,9 @@ class SurveyAnswersController < ApplicationController
   def create
     # @current_user = get_user_from_token
     # @member = Member.find(@current_user.member_id)
-
     @survey_answer = SurveyAnswer.new(survey_answer_params)
 
-    if @survey_answer.save
+    if @survey_answer.save && has_required_fields?
       render json: @survey_answer
     else
       render json: @survey_answer.errors, status: :unprocessable_entity
@@ -39,6 +38,13 @@ class SurveyAnswersController < ApplicationController
   ##
   # Método que filtra parametros desejados para criação de +SurveyAnswer+
 
+  def has_required_fields?
+    likert_answers = params[:answers_attributes][2][:likert_answers_attributes]
+    likert_answers_ok = likert_answers.all? { |answer| answer&.[](:content).present? }
+    content_ok = params[:answers_attributes][1][:content].present?
+
+    likert_answers_ok && content_ok
+  end
   def survey_answer_params
     params.require(:survey_answer)
             .permit(
