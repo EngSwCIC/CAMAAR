@@ -1,6 +1,6 @@
 <template>
 
-    <div class='menu-logged'>
+    <div class='card-logged'>
         <h1 class="title"> {{ title }}</h1>
         <p  class="description"> {{ description }}</p> 
     </div>
@@ -42,8 +42,8 @@
         font-size: 24px;
         font-weight: 400;
         font-style: normal;
-        line-height: 29px;
-        margin: 15px;
+        line-height: 22px;
+        margin: 12px;
     }
 
     .card-logged .description {
