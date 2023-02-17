@@ -1,3 +1,9 @@
+// Código que cria componente linearScaleSurvey (tipo de pergunta escala linear) que permite 
+// que o usuário escolha as opções de inicio e fim da escala (métodos onChangeSelectedIni e 
+// onChangeSelectedEnd), retendo em um vetor os respectivos dados e emitindo o evento answer  
+// com os dados sempre que um valor é escolhido. Além disso, é possível aramzenar respostas 
+// optativas (answer1 e answer2).
+
 <script>
 export default {
   methods: {

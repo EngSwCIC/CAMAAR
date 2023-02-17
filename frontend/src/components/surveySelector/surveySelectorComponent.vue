@@ -1,3 +1,10 @@
+// Código que cria componente pai (surveySelectorComponent) referente à criação de questionários.  
+// Tal componente é reponsável por renderizar as componentes relacionadas ao tipo de pergunta 
+// desejada e selecionada pelo usuario (TextSurvey, RadioSurvey, CheckboxSurvey ou LinearScaleSurvey). 
+// O método typeChange emite um evento para informar ao componente pai as informações referente ao tipo 
+// da pergunta e o seu respectivo titulo sempre que estes são atualizados. Já o método getAnswer, 
+// pega as respostas das outras componentes.
+
 <script>
 import TextSurvey from "./textSurvey.vue";
 import RadioSurvey from "./radioSurvey.vue";

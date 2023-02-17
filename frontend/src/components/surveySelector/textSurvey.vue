@@ -1,3 +1,8 @@
+// Código que cria componente textSurvey (tipo de pergunta com texto livre para resposta) 
+// que cria automáticamente o campo de texto da resposta. Com o método implementado resizeTextarea,
+// o campo de texto é redimensionado automáticamente a medida que o usuário insira seu texto.
+
+
 <script>
 export default {
   mounted() {

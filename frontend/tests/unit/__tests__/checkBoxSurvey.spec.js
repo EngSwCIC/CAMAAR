@@ -1,6 +1,12 @@
 import { shallowMount } from "@vue/test-utils";
 import checkBoxSurvey from "src/components/surveySelector/checkBoxSurvey.vue";
 
+// Os testes que seguem verificam se:
+// Se a componente renderiza corretamente o campo de entrada inicial com um valor vazio.
+// Se o método addInput adiciona com sucesso um novo campo de entrada ao clicar no botão "adicionar".
+// Se o método removeInput remove com sucesso um campo de entrada existente ao clicar no botão "remover".
+
+
 describe("checkBoxSurvey", () => {
   it("teste valor vazio", () => {
     const wrapper = shallowMount(checkBoxSurvey);
@@ -38,8 +44,3 @@ describe("checkBoxSurvey", () => {
   });
 });
 
-// Esses testes verificam se:
-
-// Se a componente renderiza corretamente o campo de entrada inicial com um valor vazio.
-// Se o método addInput adiciona com sucesso um novo campo de entrada ao clicar no botão "adicionar".
-// Se o método removeInput remove com sucesso um campo de entrada existente ao clicar no botão "remover".

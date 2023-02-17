@@ -1,6 +1,14 @@
 import { shallowMount } from '@vue/test-utils';
 import radioSurvey from 'src/components/surveySelector/radioSurvey';
 
+
+// Os testes que seguem verificam se:
+// Se a componente renderiza corretamente o campo de entrada inicial com um valor vazio.
+// Se o método addInput adiciona com sucesso um novo campo de entrada ao clicar no botão "adicionar".
+// Se o método removeInput remove com sucesso um campo de entrada existente ao clicar no botão "remover".
+// Se o método answer emite com sucesso os dados entrada existente.
+
+
 describe('radioSurvey', () => {
   it('Data deve ser inicializado como objeto vazio', () => {
     const wrapper = shallowMount(radioSurvey);

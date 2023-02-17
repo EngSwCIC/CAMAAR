@@ -1,3 +1,8 @@
+// Código que cria componente checkBoxSurvey (tipo de pergunta caixa de seleção) que permite 
+// que o usuário adicione (método addInput) e remova (método removeInput) objetos (escolhas 
+// da pergunta) retendo em um vetor os respectivos dados e emite o evento answer com os dados 
+// sempre que um objeto é adicionado ou removido.
+
 <script>
 export default {
   data() {
