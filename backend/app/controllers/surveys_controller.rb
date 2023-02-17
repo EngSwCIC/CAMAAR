@@ -40,7 +40,11 @@ class SurveysController < ApplicationController
   # um status `ok (200)`
 
   def show(_status = nil)
-    render json: @survey
+    if @survey
+      render json: @survey
+    else
+      render json: { error: 'Survey not found' }, status: :not_found
+    end
   end
 
   def create
