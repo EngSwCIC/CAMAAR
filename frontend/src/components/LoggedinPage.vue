@@ -1,13 +1,11 @@
 <template>
   <div class="LoggedinPage">
-    <div id="left-side-container">
-      <ButtonLoggedPage></ButtonLoggedPage>
-      <a href=""><p id="logout">Sair</p></a>
-    </div>
+    <MenuLogged></MenuLogged>
     <div id="right-side-container">
       <div id="page1">
         <h1 id="title" >Questionários</h1>
         <div id="question-container">
+          
             <div id="ques">
               <h1 id="title-inside">Engenharia de Software</h1>
               <p id="desc">Turma A</p>
@@ -16,10 +14,7 @@
               <h1 id="title-inside">Engenharia de Software</h1>
               <p id="desc">Turma A</p>
             </div>
-            <div id="ques">
-              <h1 id="title-inside">Engenharia de Software</h1>
-              <p id="desc">Turma A</p>
-            </div>
+
         </div>
       </div> 
 
@@ -39,14 +34,13 @@
 </template>
 
 <script>
-
-    import ButtonLoggedPage from './ButtonLoggedPage.vue';
+    import MenuLogged from './MenuLogged.vue';
 
     export default {
       name: 'LoggedinPage',
       
       components: {
-        ButtonLoggedPage
+        MenuLogged,
       }
     }
 </script>
