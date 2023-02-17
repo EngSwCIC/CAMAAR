@@ -11,6 +11,14 @@ class ApplicationMailer < ActionMailer::Base
 
   # #
   # Gera um email de redefinição de senha de acordo com as informações do aluno.
+  #
+  # Recebe um objeto member que deve possuir essencialmente 5 informações:
+  #
+  # - name, representando o nome do usuário.
+  # - email, representando o email do usuário.
+  # - password, representando a senha cadastrada para o usuário.
+  #
+  # É retornado um objeto de email, que pode ser enviado com o método deliver_now
   def redefine_password_email(member, password)
     base_url = 'http://localhost:8080/#/cadastrar/'
     @redefinition_link = base_url + member[:redefinition_link]
