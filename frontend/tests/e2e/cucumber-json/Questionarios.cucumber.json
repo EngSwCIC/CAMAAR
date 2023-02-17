@@ -1,0 +1,305 @@
+[
+  {
+    "description": "  Eu como aluno\n  quero preencher os campos\n  a fim de responder às perguntas do questionário",
+    "keyword": "Funcionalidade",
+    "name": "Preenchimento dos Questionarios",
+    "line": 2,
+    "id": "preenchimento-dos-questionarios",
+    "tags": [],
+    "uri": "Questionarios.feature",
+    "elements": [
+      {
+        "id": "preenchimento-dos-questionarios;acesso-a-lista-de-questionarios",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Acesso a lista de questionarios",
+        "tags": [
+          {
+            "name": "@MockQuestionarios",
+            "line": 7
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 9,
+            "name": "que estou na tela de selecao dos questionarios",
+            "result": {
+              "status": "failed",
+              "duration": 2796000000,
+              "error_message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:8080/\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: connect ECONNREFUSED 127.0.0.1:8080\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:163608:82\n    at visitFailedByErr (http://localhost:8080/__cypress/runner/cypress_runner.js:162912:12)\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:163607:11\nFrom previous event:\n    at go (http://localhost:8080/__cypress/runner/cypress_runner.js:163569:17)\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:163639:20\nFrom previous event:\n    at visit (http://localhost:8080/__cypress/runner/cypress_runner.js:163637:38)\n    at Context.visit (http://localhost:8080/__cypress/runner/cypress_runner.js:163646:14)\nFrom Your Spec Code:\n    at eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Questionarios.feature:44006:3)\n    at eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Questionarios.feature:13560:44)\n\nFrom Node.js Internals:\n  Error: connect ECONNREFUSED 127.0.0.1:8080\n      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1161:16)\n  "
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 10,
+            "name": "deveria ver questionarios",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "preenchimento-dos-questionarios;acesso-a-um-questionário-(feliz)",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Acesso a um questionário (feliz)",
+        "tags": [
+          {
+            "name": "@MockQuestionarios",
+            "line": 11
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 13,
+            "name": "que estou na tela de selecao dos questionarios",
+            "result": {
+              "status": "failed",
+              "error_message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:8080/\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: connect ECONNREFUSED 127.0.0.1:8080\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:163608:82\n    at visitFailedByErr (http://localhost:8080/__cypress/runner/cypress_runner.js:162912:12)\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:163607:11\nFrom previous event:\n    at go (http://localhost:8080/__cypress/runner/cypress_runner.js:163569:17)\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:163639:20\nFrom previous event:\n    at visit (http://localhost:8080/__cypress/runner/cypress_runner.js:163637:38)\n    at Context.visit (http://localhost:8080/__cypress/runner/cypress_runner.js:163646:14)\nFrom Your Spec Code:\n    at eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Questionarios.feature:44006:3)\n    at eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Questionarios.feature:13560:44)\n\nFrom Node.js Internals:\n  Error: connect ECONNREFUSED 127.0.0.1:8080\n      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1161:16)\n  "
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 14,
+            "name": "clicar no questionario \"1\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Entao ",
+            "line": 15,
+            "name": "eu deveria estar na tela do questionario \"1\"",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "preenchimento-dos-questionarios;enviar-sem-preencher-campo-obrigatório-(triste)",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "Enviar sem preencher campo obrigatório (triste)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 19,
+            "name": "que estou no questionario \"teste\"",
+            "result": {
+              "status": "failed",
+              "error_message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:8080/\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: connect ECONNREFUSED 127.0.0.1:8080\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:163608:82\n    at visitFailedByErr (http://localhost:8080/__cypress/runner/cypress_runner.js:162912:12)\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:163607:11\nFrom previous event:\n    at go (http://localhost:8080/__cypress/runner/cypress_runner.js:163569:17)\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:163639:20\nFrom previous event:\n    at visit (http://localhost:8080/__cypress/runner/cypress_runner.js:163637:38)\n    at Context.visit (http://localhost:8080/__cypress/runner/cypress_runner.js:163646:14)\nFrom Your Spec Code:\n    at eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Questionarios.feature:44006:3)\n    at eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Questionarios.feature:13560:44)\n\nFrom Node.js Internals:\n  Error: connect ECONNREFUSED 127.0.0.1:8080\n      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1161:16)\n  "
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 20,
+            "name": "nao preencho campo \"textArea1\" obrigatorio",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 21,
+            "name": "clico no botão \"seletor\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Entao ",
+            "line": 22,
+            "name": "devo ver uma mensagem de \"Erro\"",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "preenchimento-dos-questionarios;enviar-com-todos-campos-preenchidos-(feliz)",
+        "keyword": "Scenario",
+        "line": 24,
+        "name": "Enviar com todos campos preenchidos (feliz)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 25,
+            "name": "que estou no questionario Questionário 1",
+            "result": {
+              "status": "failed",
+              "duration": 1000000,
+              "error_message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:8080/\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: connect ECONNREFUSED 127.0.0.1:8080\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:163608:82\n    at visitFailedByErr (http://localhost:8080/__cypress/runner/cypress_runner.js:162912:12)\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:163607:11\nFrom previous event:\n    at go (http://localhost:8080/__cypress/runner/cypress_runner.js:163569:17)\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:163639:20\nFrom previous event:\n    at visit (http://localhost:8080/__cypress/runner/cypress_runner.js:163637:38)\n    at Context.visit (http://localhost:8080/__cypress/runner/cypress_runner.js:163646:14)\nFrom Your Spec Code:\n    at eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Questionarios.feature:44006:3)\n    at eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Questionarios.feature:13560:44)\n\nFrom Node.js Internals:\n  Error: connect ECONNREFUSED 127.0.0.1:8080\n      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1161:16)\n  "
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 26,
+            "name": "preencho o campo \"textArea\" sugestoes com \"Uma sugestão\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 27,
+            "name": "preencho o campo \"textArea2\" julgamento_disciplina com \"Um julgamento\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 28,
+            "name": "preencho o campo \"radioButton\" com uma opcao.",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 29,
+            "name": "clico no botão enviar",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Entao ",
+            "line": 30,
+            "name": "devo ver um mensagem de \"Enviado\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 31,
+            "name": "o campo \"textArea\" sugestoes deveria enviar \"Uma sugestão\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 32,
+            "name": "o campo \"textArea2\" julgamento_disciplina deveria enviar \"Um julgamento\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 33,
+            "name": "o campo \"radioButton\" opcoes deveria enviar: Opcao1, Opcao2.",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "preenchimento-dos-questionarios;enviar-com-todos-campos-obrigatorios-preenchidos-(feliz)",
+        "keyword": "Scenario",
+        "line": 35,
+        "name": "Enviar com todos campos obrigatorios preenchidos (feliz)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 36,
+            "name": "que estou no questionario \"teste\"",
+            "result": {
+              "status": "failed",
+              "error_message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:8080/\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: connect ECONNREFUSED 127.0.0.1:8080\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:163608:82\n    at visitFailedByErr (http://localhost:8080/__cypress/runner/cypress_runner.js:162912:12)\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:163607:11\nFrom previous event:\n    at go (http://localhost:8080/__cypress/runner/cypress_runner.js:163569:17)\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:163639:20\nFrom previous event:\n    at visit (http://localhost:8080/__cypress/runner/cypress_runner.js:163637:38)\n    at Context.visit (http://localhost:8080/__cypress/runner/cypress_runner.js:163646:14)\nFrom Your Spec Code:\n    at eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Questionarios.feature:44006:3)\n    at eval (http://localhost:8080/__cypress/tests?p=tests/e2e/integration/Questionarios.feature:13560:44)\n\nFrom Node.js Internals:\n  Error: connect ECONNREFUSED 127.0.0.1:8080\n      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1161:16)\n  "
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 37,
+            "name": "preencho o campo \"textArea2\" julgamento_disciplina com \"Um julgamento\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 38,
+            "name": "preencho o campo \"radioButton\" com uma opcao.",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 39,
+            "name": "clico em enviar",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Entao ",
+            "line": 40,
+            "name": "devo ver um mensagem de \"Enviado\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 41,
+            "name": "o campo \"textArea2\" julgamento_disciplina deveria enviar \"Um julgamento\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 42,
+            "name": "o campo \"radioButton\" opcoes deveria enviar: Opcao1, Opcao2.",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

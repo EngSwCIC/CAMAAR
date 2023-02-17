@@ -46,7 +46,12 @@
         </div>
     </div>
     <div v-else>
-        <q-input
+        <QuestaoTextbox
+        :modelValue ="modelValue"
+        @update:modelValue = "(value)=>$emit('update:modelValue',value)"
+        />
+        
+      <!--  <q-input
             class="textbox"
             color="secondary"
             outlined
@@ -54,13 +59,16 @@
             clearable
             :model-value="modelValue.content"
             @update:model-value="(value) => $emit('update:modelValue', updateAnswer(value))"
-        />
+        /> -->
     </div>
 </q-card>
 </template>
 
 <script>
+import QuestaoTextbox from "./QuestaoTextbox.vue"
+
 export default {
+    components:{QuestaoTextbox},
     props: ['question', 'question_number', 'modelValue'],
     data() {
         return{
