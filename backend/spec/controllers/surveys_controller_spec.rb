@@ -1,53 +1,50 @@
 require 'rails_helper'
 
-RSpec.describe SurveysController, type: :request do
-  before(:all) do
-    Role.create(name: 'teste', description: 'teste') # This will have id 1
-  end
-
+RSpec.describe SurveysController, type: :controller do
   describe('#create') do
-    describe 'when given valid input' do
-      let(:input)  do
-        {
-          "name": 'Questionário',
-          "description": 'Descrição teste',
-          "expiration_date": '',
-          "semester": '2022/2',
-          "role_id": 1
-        }
-      end
+    describe('when params are valid') do
+      surver_params = {
+        "name": 'Questionário',
+        "description": 'Descrição teste',
+        "expiration_date": '',
+        "semester": '2022/2',
+        "role_id": 1
+      }
 
-      before(:each) do
-        headers = { 'ACCEPT' => 'application/json' }
-        post '/create_survey', params: { survey: input }, headers: headers
-      end
+      it 'creates a new survey and return success' do
+        survey = Survey.new(surver_params)
 
-      it 'creates survey and returns success' do
-        expect(response.content_type).to eq('application/json; charset=utf-8')
+        allow(Survey).to receive(:new).and_return(survey)
+
+        post :create, params: { survey: surver_params }
+
         expect(response).to have_http_status(:ok)
-        expect(response.body).to include('2022/2')
-        expect(response.body).to include('Questionário')
-        expect(response.body).to include('Descrição teste')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+        expect(JSON.parse(response.body)).to eq(survey.as_json)
       end
     end
 
-    describe 'when given invalid input' do
-      let(:input)  do
-        {
-          survey: {
-            name: "teste"
-          }
+    describe('when params are invalid') do
+      surver_params = {
+        "name": 'Questionário',
+        "description": 'Descrição teste',
+        "expiration_date": '',
+        "semester": '2022/2',
+        "role_id": 1,
+        "invalid_key": 'invalid_value'
       }
-      end
 
-      before(:each) do
-        headers = { 'ACCEPT' => 'application/json' }
-        post '/create_survey', params: { survey: input }, headers: headers
-      end
+      it 'does not create a new survey and return error' do
+        errors = { errors: 'Unable to create survey' }
+        survey_double = double('Survey', save: false, errors: errors)
 
-      it 'doesnt creates the survey and returns an error' do
-        expect(response.content_type).to eq('application/json; charset=utf-8')
+        allow(Survey).to receive(:new).and_return(survey_double)
+
+        post :create, params: { survey: surver_params }
+
         expect(response).to have_http_status(:unprocessable_entity)
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+        expect(JSON.parse(response.body)).to eq(errors.as_json)
       end
     end
   end
