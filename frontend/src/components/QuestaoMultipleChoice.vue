@@ -1,34 +1,3 @@
-<!--<template>-->
-
-<!--</template>-->
-
-<!--<script>-->
-<!--export default {-->
-<!--  name: "QuestaoMultipleChoice"-->
-<!--}-->
-<!--</script>-->
-
-<!--<style scoped>-->
-
-<!--</style>-->
-
-<!------------------------------------------------------------>
-
-<!--<template>-->
-
-<!--  <div>-->
-<!--    <q-input-->
-<!--      class="textbox"-->
-<!--      color="secondary"-->
-<!--      outlined-->
-<!--      autogrow-->
-<!--      clearable-->
-<!--      :model-value="modelValue.content"-->
-<!--      @update:model-value="(value) => $emit('update:modelValue', updateAnswer(value))"-->
-<!--    />-->
-<!--  </div>-->
-<!--</template>-->
-
 <template>
   <div>
     <div v-for="(option, val) in question.question_options" :key="option.id">
