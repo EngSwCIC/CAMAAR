@@ -9,7 +9,7 @@ Funcionalidade: Adicionar e remover componentes de questionário
   Cenário: Adicionar um título na pergunta
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
-    E eu digitar no campo de texto "Título legal"
+    E eu preencher o campo de Pergunta sem título com "Título legal"
     Então o título da pergunta deve ser "Título legal"
 
   Cenário: Campo de resposta desabilitado
@@ -22,29 +22,29 @@ Funcionalidade: Adicionar e remover componentes de questionário
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
     E eu clicar no botão "Texto"
-    E eu escolher "Caixa de seleção"
+    E eu clicar no botão "Caixa de seleção"
     Então eu devo ver o componente de caixa de seleção
 
   Cenário: Campo de resposta desabilitado
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
     E eu clicar no botão "Texto"
-    E eu escolher "Caixa de seleção"
-    Então eu devo ver o botão checkbox desabilitado
+    E eu clicar no botão "Caixa de seleção"
+    Então eu devo ver o campo checkbox desabilitado
 
   Cenário: Colocar um texto na resposta
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
     E eu clicar no botão "Texto"
-    E eu escolher "Caixa de seleção"
-    E eu preencher o campo de resposta com "Abacate"
+    E eu clicar no botão "Caixa de seleção"
+    E eu preencher o campo de texto com "Abacate"
     Então o campo de resposta deve ser "Abacate"
 
   Cenário: Adicionar linha da caixa de seleção
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
     E eu clicar no botão "Texto"
-    E eu escolher "Caixa de seleção"
+    E eu clicar no botão "Caixa de seleção"
     E eu clicar no botão "Adicionar linha"
     Então eu devo ver duas linhas
 
@@ -52,30 +52,32 @@ Funcionalidade: Adicionar e remover componentes de questionário
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
     E eu clicar no botão "Texto"
-    E eu escolher "Caixa de seleção"
+    E eu clicar no botão "Caixa de seleção"
+    E eu clicar no botão "Adicionar linha"
+    E eu clicar no botão "Adicionar linha"
     E eu clicar no botão "Adicionar linha"
     E eu clicar no botão "x" da segunda linha
-    Então eu devo ver uma linha
+    Então eu devo ver três linhas
 
   Cenário: Adicionar um componente de múltipla escolha
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
     E eu clicar no botão "Texto"
-    E eu escolher "Múltipla escolha"
+    E eu clicar no botão "Múltipla escolha"
     Então eu devo ver o componente de múltipla escolha
 
   Cenário: Campo de resposta desabilitado
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
     E eu clicar no botão "Texto"
-    E eu escolher "Múltipla escolha"
-    Então eu devo ver o botão radio desabilitado
+    E eu clicar no botão "Múltipla escolha"
+    Então eu devo ver o campo radio desabilitado
 
   Cenário: Colocar um texto na resposta
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
     E eu clicar no botão "Texto"
-    E eu escolher "Múltipla escolha"
+    E eu clicar no botão "Múltipla escolha"
     E eu preencher o campo de resposta com "Abacate"
     Então o campo de resposta deve ser "Abacate"
 
@@ -83,7 +85,7 @@ Funcionalidade: Adicionar e remover componentes de questionário
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
     E eu clicar no botão "Texto"
-    E eu escolher "Múltipla escolha"
+    E eu clicar no botão "Múltipla escolha"
     E eu clicar no botão "Adicionar linha"
     Então eu devo ver duas linhas
 
@@ -91,7 +93,7 @@ Funcionalidade: Adicionar e remover componentes de questionário
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
     E eu clicar no botão "Texto"
-    E eu escolher "Múltipla escolha"
+    E eu clicar no botão "Múltipla escolha"
     E eu clicar no botão "Adicionar linha"
     E eu clicar no botão "x" da segunda linha
     Então eu devo ver uma linha
@@ -100,32 +102,32 @@ Funcionalidade: Adicionar e remover componentes de questionário
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
     E eu clicar no botão "Texto"
-    E eu escolher "Escala linear"
+    E eu clicar no botão "Escala linear"
     Então eu devo ver o componente de escala linear
 
   Cenário: Mudar o valor inicial
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
     E eu clicar no botão "Texto"
-    E eu escolher "Escala linear"
+    E eu clicar no botão "Escala linear"
     E eu clicar no botão "0"
-    E eu escolher "1"
+    E eu clicar no botão "1"
     Então o valor iniciar deve ser 1
 
   Cenário: Mudar o valor final
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
     E eu clicar no botão "Texto"
-    E eu escolher "Escala linear"
+    E eu clicar no botão "Escala linear"
     E eu clicar no botão "5"
-    E eu escolher "10"
+    E eu clicar no botão "10"
     Então o valor iniciar deve ser 10
 
   Cenário: Colocar um marcador inicial
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
     E eu clicar no botão "Texto"
-    E eu escolher "Escala linear"
+    E eu clicar no botão "Escala linear"
     E eu preencher o campo "Marcador Inicial" com "Ruim"
     Então o marcador inicial deve ser "Ruim"
 
@@ -133,7 +135,7 @@ Funcionalidade: Adicionar e remover componentes de questionário
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
     E eu clicar no botão "Texto"
-    E eu escolher "Escala linear"
+    E eu clicar no botão "Escala linear"
     E eu preencher o campo "Marcador Final" com "Maneiro"
     Então o marcador inicial deve ser "Maneiro"
 
