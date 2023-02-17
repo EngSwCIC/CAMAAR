@@ -32,6 +32,7 @@ class SurveysController < ApplicationController
     index
   end
 
+  #Metodo responsavel por buscar as respostas do questionario
   def show_answers
     @survey = Survey.find(params[:id])
     @question_answers = @survey.question_answers

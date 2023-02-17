@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get '/members/:id', to:'members#show'
 
   #surveys
+  #rota para a requisição das respostas do questionario
   get '/surveys/:id/answers', to: 'surveys#show_answers'
   
 end

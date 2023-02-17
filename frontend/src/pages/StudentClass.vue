@@ -37,6 +37,7 @@ export default {
     this.getAnswers();
   },
   methods: {
+    //função responsavel pela requisição das respostas de questionario ao back
     async getAnswers() {
       try {
         const id = this.$route.params.id;
@@ -47,7 +48,7 @@ export default {
         console.error(error);
       }
     },
-
+    //função responsavel por filtrar a resposta da requisição feita anteriormente
     organizeAnswers(answers) {
       return answers.reduce((acc, curr) => {
         if (!acc[curr.survey_question_id]) {
@@ -60,6 +61,7 @@ export default {
         return acc;
       }, {});
     },
+    //função responsavel por filtrar e relizar a media/moda das respostas
     filteredResult() {
       let filteredResult = {};
 
@@ -98,7 +100,7 @@ export default {
       this.filteredAverage = filteredResult;
       return filteredResult;
     },
-
+    // função utilizada para diferenciar as respostas numericas das resposta de texto
     isNumeric(value) {
       return !isNaN(parseFloat(value)) && isFinite(value);
     },
