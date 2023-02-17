@@ -1,6 +1,6 @@
 <template>
 
-    <button class='btn-logged' type='button'> {{ btn_name }} </button>
+    <button class='btn-logged' type='button'> {{ item.name }} </button>
 
 </template>
 
@@ -9,11 +9,7 @@
 
     export default {
         name: 'ButtonLoggedPage',
-        data() {
-            return {
-                btn_name: 'BTN_VALUE',
-            }
-        },
+        props: ['item']
     }
 
 </script>

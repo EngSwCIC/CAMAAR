@@ -1,11 +1,7 @@
 <template>
-
-   <div class="menu-logged">
-        <ButtonLoggedPage></ButtonLoggedPage>
-        <ButtonLoggedPage></ButtonLoggedPage>
-        <ButtonLoggedPage></ButtonLoggedPage>
+   <div class="menu-logged" >
+        <ButtonLoggedPage v-for="(item, index) in allowed_buttons" :item="item" :index="index" :key="item.id" />
    </div>
-
 </template>
 
 <script>
@@ -13,14 +9,19 @@
     import ButtonLoggedPage from './ButtonLoggedPage.vue';
 
     export default {
-        name: 'CardLoggedPage',
+
+        name: 'MenuLogged',
+
         data() {
             return {
-                title: 'TITLE_VALUE',
-                description: 'DESCRIPTION_VALUE'
+                allowed_buttons: [ 
+                    { name: 'Questionários'},
+                    { name: 'Relatórios'},
+                    { name: 'Importar do SIGAA'}
+                ]
             }
         },
-
+       
         components: {
             ButtonLoggedPage,
         }
