@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676514377357" clover="3.2.0">
-  <project timestamp="1676514377358" name="All files">
-    <metrics statements="78" coveredstatements="34" conditionals="16" coveredconditionals="4" methods="31" coveredmethods="17" elements="125" coveredelements="55" complexity="0" loc="78" ncloc="78" packages="8" files="16" classes="16"/>
+<coverage generated="1676594811897" clover="3.2.0">
+  <project timestamp="1676594811897" name="All files">
+    <metrics statements="78" coveredstatements="39" conditionals="16" coveredconditionals="4" methods="31" coveredmethods="19" elements="125" coveredelements="62" complexity="0" loc="78" ncloc="78" packages="8" files="16" classes="16"/>
     <package name="boot">
       <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="axios.js" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/boot/axios.js">
@@ -45,20 +45,20 @@
       </file>
     </package>
     <package name="components.surveySelector">
-      <metrics statements="27" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="11"/>
+      <metrics statements="27" coveredstatements="27" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="13"/>
       <file name="checkboxSurvey.vue" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/components/surveySelector/checkboxSurvey.vue">
-        <metrics statements="7" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
       </file>
       <file name="linearScaleSurvey.vue" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/components/surveySelector/linearScaleSurvey.vue">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="2" count="1" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
@@ -68,7 +68,7 @@
       </file>
       <file name="radioSurvey.vue" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/components/surveySelector/radioSurvey.vue">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-        <line num="2" count="1" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
         <line num="4" count="4" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
@@ -77,13 +77,13 @@
         <line num="26" count="3" type="stmt"/>
       </file>
       <file name="textSurvey.vue" path="/Users/lucasveloz/UnB/ES/CAMAAR/frontend/src/components/surveySelector/textSurvey.vue">
-        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
       </file>
     </package>
     <package name="i18n">

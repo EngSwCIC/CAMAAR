@@ -62,8 +62,8 @@ export default {
       </select>
     </div>
     <TextSurvey v-if="selectedType === options[0].value" />
-    <CheckboxSurvey v-else-if="selectedType === options[1].value" @answer="getAnswer" />
-    <RadioSurvey v-else-if="selectedType === options[2].value" @answer="getAnswer" />
+    <RadioSurvey v-else-if="selectedType === options[1].value" @answer="getAnswer" />
+    <CheckboxSurvey v-else-if="selectedType === options[2].value" @answer="getAnswer" />
     <LinearScaleSurvey v-else-if="selectedType === options[3].value" @answer="getAnswer"/>
   </div>
 </template>

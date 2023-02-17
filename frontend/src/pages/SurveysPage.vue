@@ -14,10 +14,8 @@ export default {
   },
   methods: {
     surveyAnswer(survey, id) {
-      console.log(survey, id)
       const index = this.surveys.findIndex(s => s.id === id);
       if (index > -1) {
-        console.log('entrou aqui --->')
         this.surveys[index] = survey;
       }
     },
