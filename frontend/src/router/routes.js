@@ -6,6 +6,7 @@ import SurveysPage from "../pages/SurveysPage.vue";
 import CadastrarPage from  '../pages/CadastrarPage.vue'
 import StudentClass from  '../pages/StudentClass.vue'
 import StudentEvaluationsReport from '../pages/StudentEvaluationsReport.vue'
+import CreateSurvey from '../pages/CreateSurvey.vue'
 
 const routes = [
   {
@@ -48,6 +49,12 @@ const routes = [
     name: 'List',
     component: StudentEvaluationsReport,
   },
+  {
+    path: '/create-survey/',
+    name: 'Create Survey',
+    component: CreateSurvey,
+  },
+
 
   // Always leave this as last one,
   // but you can also remove it

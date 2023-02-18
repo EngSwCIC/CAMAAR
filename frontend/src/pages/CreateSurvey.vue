@@ -1,0 +1,116 @@
+<script setup>
+import { reactive, ref } from "vue";
+import CheckboxComponent from "src/components/CheckboxComponent.vue";
+import RadioComponent from "src/components/RadioComponent.vue";
+import { v4 as uuidv4 } from "uuid";
+import LikertComponent from "src/components/LikertComponent.vue";
+
+const title = ref("Página sem título");
+const questions = reactive([]);
+const questionsTypes = [
+  "Múltipla Escolha",
+  "Caixa de Seleção",
+  "Texto",
+  "Escala Linear",
+];
+
+function addQuestion() {
+  const newQuestion = {
+    id: uuidv4(),
+    title: `Pergunta ${questions.length + 1}`,
+    type: "Caixa de Seleção",
+    data: {
+      checkboxes: [],
+      radios: [],
+      text: "",
+    },
+  };
+
+  questions.push(newQuestion);
+}
+function deleteQuestion(index) {
+  questions.splice(index, 1);
+}
+
+function addCheckbox(label, questionId) {
+  const questionIndex = questions.findIndex(
+    (question) => question.id === questionId
+  );
+
+  questions[questionIndex].data.checkboxes.push(label);
+}
+
+function addRadio(label, questionId) {
+  const questionIndex = questions.findIndex(
+    (question) => question.id === questionId
+  );
+
+  questions[questionIndex].data.radios.push(label);
+}
+</script>
+
+<template>
+  <header>
+    <q-input v-model="title" type="text" name="title" />
+  </header>
+
+  <div
+    v-for="(question, index) in questions"
+    :key="index"
+    class="q-ma-md q-pa-sm bg-purple-1"
+  >
+    <q-input
+      type="text"
+      v-model="question.title"
+      label="Titulo da Pergunta"
+      name="question-title"
+    />
+    <q-select
+      v-model="question.type"
+      :options="questionsTypes"
+      label="Tipo da Pergunta"
+      name="question-type"
+    />
+
+    <div>
+      <q-btn
+        color="secondary"
+        icon="delete"
+        @click="deleteQuestion(index)"
+        name="delete-question"
+      />
+    </div>
+
+    <div class="bg-blue-1 q-ma-md q-pa-md">
+      <CheckboxComponent
+        v-if="question.type === 'Caixa de Seleção'"
+        :items="question.data.checkboxes"
+        :id="question.id"
+        :addItem="addCheckbox"
+      />
+      <RadioComponent
+        v-if="question.type === 'Múltipla Escolha'"
+        :items="question.data.radios"
+        :id="question.id"
+        :addItem="addRadio"
+      />
+      <q-input
+        v-if="question.type === 'Texto'"
+        v-model="question.data.text"
+        label="Text"
+      />
+      <LikertComponent
+        v-if="question.type === 'Escala Linear'"
+        :id="question.id"
+        name="likert"
+      />
+    </div>
+  </div>
+
+  <div>
+    <q-btn color="secondary" @click="addQuestion" name="add-question"
+      >Adicionar Pergunta</q-btn
+    >
+    <q-btn color="secondary" name="save-question">Salvar</q-btn>
+  </div>
+</template>
