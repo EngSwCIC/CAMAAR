@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>development.log - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="../Gemfile.html">Gemfile</a>
+    <li><a href="../Gemfile_lock.html">Gemfile.lock</a>
+    <li><a href="../README_md.html">README</a>
+    <li><a href="../Rakefile.html">Rakefile</a>
+    <li><a href="../config_ru.html">config.ru</a>
+    <li><a href="../config/credentials_yml_enc.html">credentials.yml.enc</a>
+    <li><a href="../coverage/assets/0_12_3/application_css.html">application.css</a>
+    <li><a href="../coverage/assets/0_12_3/application_js.html">application.js</a>
+    <li><a href="../coverage/index_html.html">index.html</a>
+    <li><a href="../db/class_members_json.html">class_members.json</a>
+    <li><a href="../db/classes_json.html">classes.json</a>
+    <li><a href="../db/survey_answer_test_json.html">survey_answer_test.json</a>
+    <li><a href="../db/survey_test_json.html">survey_test.json</a>
+    <li><a href="../log/development_log.html">development.log</a>
+    <li><a href="../log/test_log.html">test.log</a>
+    <li><a href="../public/robots_txt.html">robots</a>
+    <li><a href="../survey_answer_test_json.html">survey_answer_test.json</a>
+    <li><a href="../tmp/development_secret_txt.html">development_secret</a>
+    <li><a href="../tmp/restart_txt.html">restart</a>
+    <li><a href="../tmp/rubycritic/app/controllers/surveys_controller_html.html">surveys_controller.html</a>
+    <li><a href="../tmp/rubycritic/assets/javascripts/application_js.html">application.js</a>
+    <li><a href="../tmp/rubycritic/assets/stylesheets/application_css.html">application.css</a>
+    <li><a href="../tmp/rubycritic/assets/vendor/javascripts/bootstrap_min_js.html">bootstrap.min.js</a>
+    <li><a href="../tmp/rubycritic/assets/vendor/javascripts/highcharts_src-4_0_1_js.html">highcharts.src-4.0.1.js</a>
+    <li><a href="../tmp/rubycritic/assets/vendor/javascripts/jquery_filtertable_min_js.html">jquery.filtertable.min.js</a>
+    <li><a href="../tmp/rubycritic/assets/vendor/javascripts/jquery_min_js.html">jquery.min.js</a>
+    <li><a href="../tmp/rubycritic/assets/vendor/javascripts/jquery_scrollTo_min_js.html">jquery.scrollTo.min.js</a>
+    <li><a href="../tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_js.html">jquery.tablesorter.js</a>
+    <li><a href="../tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_min_js.html">jquery.tablesorter.min.js</a>
+    <li><a href="../tmp/rubycritic/assets/vendor/javascripts/jquery_timeago_js.html">jquery.timeago.js</a>
+    <li><a href="../tmp/rubycritic/assets/vendor/javascripts/prettify_js.html">prettify.js</a>
+    <li><a href="../tmp/rubycritic/assets/vendor/stylesheets/bootstrap_min_css.html">bootstrap.min.css</a>
+    <li><a href="../tmp/rubycritic/assets/vendor/stylesheets/font-awesome_min_css.html">font-awesome.min.css</a>
+    <li><a href="../tmp/rubycritic/assets/vendor/stylesheets/prettify_css.html">prettify.css</a>
+    <li><a href="../tmp/rubycritic/assets/vendor/stylesheets/prettify_custom_theme_css.html">prettify.custom_theme.css</a>
+    <li><a href="../tmp/rubycritic/code_index_html.html">code_index.html</a>
+    <li><a href="../tmp/rubycritic/overview_html.html">overview.html</a>
+    <li><a href="../tmp/rubycritic/simple_cov_index_html.html">simple_cov_index.html</a>
+    <li><a href="../tmp/rubycritic/smells_index_html.html">smells_index.html</a>
+    <li><a href="../yarn_lock.html">yarn.lock</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page log/development.log">
+
+<pre>[1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+[1m[35m (15.0ms)[0m  [1m[35mCREATE TABLE &quot;schema_migrations&quot; (&quot;version&quot; varchar NOT NULL PRIMARY KEY)[0m
+[1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE &quot;ar_internal_metadata&quot; (&quot;key&quot; varchar NOT NULL PRIMARY KEY, &quot;value&quot; varchar, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL)[0m
+[1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m</pre>
+
+<p>Migrating to <a href="../DeviseCreateUsers.html"><code>DeviseCreateUsers</code></a> (20220323215116)</p>
+
+<pre>[1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE &quot;users&quot; (&quot;id&quot; integer PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;email&quot; varchar DEFAULT &#39;&#39; NOT NULL, &quot;encrypted_password&quot; varchar DEFAULT &#39;&#39; NOT NULL, &quot;reset_password_token&quot; varchar, &quot;reset_password_sent_at&quot; datetime(6), &quot;remember_created_at&quot; datetime(6), &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX &quot;index_users_on_email&quot; ON &quot;users&quot; (&quot;email&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX &quot;index_users_on_reset_password_token&quot; ON &quot;users&quot; (&quot;reset_password_token&quot;)[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220323215116&quot;]]
+[1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateJwtDenylist.html"><code>CreateJwtDenylist</code></a> (20220323215131)</p>
+
+<pre>[1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE &quot;jwt_denylist&quot; (&quot;id&quot; integer PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;jti&quot; varchar NOT NULL, &quot;exp&quot; datetime(6) NOT NULL, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_jwt_denylist_on_jti&quot; ON &quot;jwt_denylist&quot; (&quot;jti&quot;)[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220323215131&quot;]]
+[1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateSubjects.html"><code>CreateSubjects</code></a> (20220410195542)</p>
+
+<pre>[1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE &quot;subjects&quot; (&quot;id&quot; integer PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;code&quot; varchar NOT NULL, &quot;name&quot; varchar NOT NULL, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX &quot;index_subjects_on_code&quot; ON &quot;subjects&quot; (&quot;code&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX &quot;index_subjects_on_name&quot; ON &quot;subjects&quot; (&quot;name&quot;)[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220410195542&quot;]]
+[1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateCclasses.html"><code>CreateCclasses</code></a> (20220410224827)</p>
+
+<pre>[1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE &quot;cclasses&quot; (&quot;id&quot; integer PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;code&quot; varchar, &quot;semester&quot; varchar, &quot;time&quot; varchar, &quot;subject_id&quot; bigint NOT NULL, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL, CONSTRAINT &quot;fk_rails_c3b5141fb1&quot;</pre>
+
+<p>FOREIGN KEY (“subject_id”)</p>
+
+<pre>REFERENCES &quot;subjects&quot; (&quot;id&quot;)</pre>
+
+<p>)[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_cclasses_on_subject_id&quot; ON &quot;cclasses&quot; (&quot;subject_id&quot;)[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220410224827&quot;]]
+[1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateMembers.html"><code>CreateMembers</code></a> (20220410232452)</p>
+
+<pre>[1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE &quot;members&quot; (&quot;id&quot; integer PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar NOT NULL, &quot;registration&quot; varchar NOT NULL, &quot;username&quot; varchar NOT NULL, &quot;degree&quot; varchar NOT NULL, &quot;course&quot; varchar NOT NULL, &quot;email&quot; varchar, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX &quot;index_members_on_registration&quot; ON &quot;members&quot; (&quot;registration&quot;)[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220410232452&quot;]]
+[1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateEnrollments.html"><code>CreateEnrollments</code></a> (20220410235739)</p>
+
+<pre>[1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE &quot;enrollments&quot; (&quot;id&quot; integer PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;cclass_id&quot; bigint NOT NULL, &quot;member_id&quot; bigint NOT NULL, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL, CONSTRAINT &quot;fk_rails_9e19ce69ba&quot;</pre>
+
+<p>FOREIGN KEY (“cclass_id”)</p>
+
+<pre>REFERENCES &quot;cclasses&quot; (&quot;id&quot;)</pre>
+
+<p>, CONSTRAINT “fk_rails_1e92348025” FOREIGN KEY (“member_id”)</p>
+
+<pre>REFERENCES &quot;members&quot; (&quot;id&quot;)</pre>
+
+<p>)[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_enrollments_on_cclass_id&quot; ON &quot;enrollments&quot; (&quot;cclass_id&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_enrollments_on_member_id&quot; ON &quot;enrollments&quot; (&quot;member_id&quot;)[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220410235739&quot;]]
+[1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../AddMemberRefToUsers.html"><code>AddMemberRefToUsers</code></a> (20220411022317)</p>
+
+<pre>[1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.3ms)[0m  [1m[35mALTER TABLE &quot;users&quot; ADD &quot;member_id&quot; bigint[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_users_on_member_id&quot; ON &quot;users&quot; (&quot;member_id&quot;)[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE &quot;ausers&quot; (&quot;id&quot; integer NOT NULL PRIMARY KEY, &quot;email&quot; varchar DEFAULT &#39;&#39; NOT NULL, &quot;encrypted_password&quot; varchar DEFAULT &#39;&#39; NOT NULL, &quot;reset_password_token&quot; varchar DEFAULT NULL, &quot;reset_password_sent_at&quot; datetime(6) DEFAULT NULL, &quot;remember_created_at&quot; datetime(6) DEFAULT NULL, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL, &quot;member_id&quot; integer DEFAULT NULL)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;tindex_ausers_on_member_id&quot; ON &quot;ausers&quot; (&quot;member_id&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX &quot;tindex_ausers_on_reset_password_token&quot; ON &quot;ausers&quot; (&quot;reset_password_token&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX &quot;tindex_ausers_on_email&quot; ON &quot;ausers&quot; (&quot;email&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[32mINSERT INTO &quot;ausers&quot; (&quot;id&quot;,&quot;email&quot;,&quot;encrypted_password&quot;,&quot;reset_password_token&quot;,&quot;reset_password_sent_at&quot;,&quot;remember_created_at&quot;,&quot;created_at&quot;,&quot;updated_at&quot;,&quot;member_id&quot;)
+                   SELECT &quot;id&quot;,&quot;email&quot;,&quot;encrypted_password&quot;,&quot;reset_password_token&quot;,&quot;reset_password_sent_at&quot;,&quot;remember_created_at&quot;,&quot;created_at&quot;,&quot;updated_at&quot;,&quot;member_id&quot; FROM &quot;users&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mDROP TABLE &quot;users&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE &quot;users&quot; (&quot;id&quot; integer NOT NULL PRIMARY KEY, &quot;email&quot; varchar DEFAULT &#39;&#39; NOT NULL, &quot;encrypted_password&quot; varchar DEFAULT &#39;&#39; NOT NULL, &quot;reset_password_token&quot; varchar DEFAULT NULL, &quot;reset_password_sent_at&quot; datetime(6) DEFAULT NULL, &quot;remember_created_at&quot; datetime(6) DEFAULT NULL, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL, &quot;member_id&quot; integer DEFAULT NULL, CONSTRAINT &quot;fk_rails_172a24c10d&quot;</pre>
+
+<p>FOREIGN KEY (“member_id”)</p>
+
+<pre>REFERENCES &quot;members&quot; (&quot;id&quot;)</pre>
+
+<p>)[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX &quot;index_users_on_email&quot; ON &quot;users&quot; (&quot;email&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX &quot;index_users_on_reset_password_token&quot; ON &quot;users&quot; (&quot;reset_password_token&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_users_on_member_id&quot; ON &quot;users&quot; (&quot;member_id&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[32mINSERT INTO &quot;users&quot; (&quot;id&quot;,&quot;email&quot;,&quot;encrypted_password&quot;,&quot;reset_password_token&quot;,&quot;reset_password_sent_at&quot;,&quot;remember_created_at&quot;,&quot;created_at&quot;,&quot;updated_at&quot;,&quot;member_id&quot;)
+                   SELECT &quot;id&quot;,&quot;email&quot;,&quot;encrypted_password&quot;,&quot;reset_password_token&quot;,&quot;reset_password_sent_at&quot;,&quot;remember_created_at&quot;,&quot;created_at&quot;,&quot;updated_at&quot;,&quot;member_id&quot; FROM &quot;ausers&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mDROP TABLE &quot;ausers&quot;[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220411022317&quot;]]
+[1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateSurveys.html"><code>CreateSurveys</code></a> (20220419232602)</p>
+
+<pre>[1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE &quot;surveys&quot; (&quot;id&quot; integer PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar, &quot;description&quot; text, &quot;expiration_date&quot; datetime(6), &quot;semester&quot; varchar, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL)[0m
+[1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220419232602&quot;]]
+[1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateQuestionTypes.html"><code>CreateQuestionTypes</code></a> (20220419232814)</p>
+
+<pre>[1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE &quot;question_types&quot; (&quot;id&quot; integer PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL)[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220419232814&quot;]]
+[1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateSurveyQuestions.html"><code>CreateSurveyQuestions</code></a> (20220419232815)</p>
+
+<pre>[1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE &quot;survey_questions&quot; (&quot;id&quot; integer PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;question&quot; text, &quot;question_number&quot; integer, &quot;optional&quot; boolean DEFAULT 0, &quot;survey_id&quot; bigint, &quot;question_type_id&quot; bigint, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL, CONSTRAINT &quot;fk_rails_d0558bfd89&quot;</pre>
+
+<p>FOREIGN KEY (“survey_id”)</p>
+
+<pre>REFERENCES &quot;surveys&quot; (&quot;id&quot;)</pre>
+
+<p>, CONSTRAINT “fk_rails_df5a3fdccc” FOREIGN KEY (“question_type_id”)</p>
+
+<pre>REFERENCES &quot;question_types&quot; (&quot;id&quot;)</pre>
+
+<p>)[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_survey_questions_on_survey_id&quot; ON &quot;survey_questions&quot; (&quot;survey_id&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_survey_questions_on_question_type_id&quot; ON &quot;survey_questions&quot; (&quot;question_type_id&quot;)[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220419232815&quot;]]
+[1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateSurveyAnswers.html"><code>CreateSurveyAnswers</code></a> (20220419232816)</p>
+
+<pre>[1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE &quot;survey_answers&quot; (&quot;id&quot; integer PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;survey_id&quot; bigint NOT NULL, &quot;member_id&quot; bigint NOT NULL, &quot;cclass_id&quot; bigint NOT NULL, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL, CONSTRAINT &quot;fk_rails_3869acb601&quot;</pre>
+
+<p>FOREIGN KEY (“survey_id”)</p>
+
+<pre>REFERENCES &quot;surveys&quot; (&quot;id&quot;)</pre>
+
+<p>, CONSTRAINT “fk_rails_48cc484704” FOREIGN KEY (“member_id”)</p>
+
+<pre>REFERENCES &quot;members&quot; (&quot;id&quot;)</pre>
+
+<p>, CONSTRAINT “fk_rails_b856e9f8b7” FOREIGN KEY (“cclass_id”)</p>
+
+<pre>REFERENCES &quot;cclasses&quot; (&quot;id&quot;)</pre>
+
+<p>)[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_survey_answers_on_survey_id&quot; ON &quot;survey_answers&quot; (&quot;survey_id&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_survey_answers_on_member_id&quot; ON &quot;survey_answers&quot; (&quot;member_id&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_survey_answers_on_cclass_id&quot; ON &quot;survey_answers&quot; (&quot;cclass_id&quot;)[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220419232816&quot;]]
+[1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateQuestionOptions.html"><code>CreateQuestionOptions</code></a> (20220419233026)</p>
+
+<pre>[1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE &quot;question_options&quot; (&quot;id&quot; integer PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;option_number&quot; integer, &quot;content&quot; text, &quot;survey_question_id&quot; bigint, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL, CONSTRAINT &quot;fk_rails_7f2d28fe1a&quot;</pre>
+
+<p>FOREIGN KEY (“survey_question_id”)</p>
+
+<pre>REFERENCES &quot;survey_questions&quot; (&quot;id&quot;)</pre>
+
+<p>)[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_question_options_on_survey_question_id&quot; ON &quot;question_options&quot; (&quot;survey_question_id&quot;)[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220419233026&quot;]]
+[1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateQuestionAnswers.html"><code>CreateQuestionAnswers</code></a> (20220419233135)</p>
+
+<pre>[1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE &quot;question_answers&quot; (&quot;id&quot; integer PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;answer&quot; text, &quot;survey_answer_id&quot; bigint, &quot;survey_question_id&quot; bigint, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL, CONSTRAINT &quot;fk_rails_b2830903db&quot;</pre>
+
+<p>FOREIGN KEY (“survey_answer_id”)</p>
+
+<pre>REFERENCES &quot;survey_answers&quot; (&quot;id&quot;)</pre>
+
+<p>, CONSTRAINT “fk_rails_6fe6ed5151” FOREIGN KEY (“survey_question_id”)</p>
+
+<pre>REFERENCES &quot;survey_questions&quot; (&quot;id&quot;)</pre>
+
+<p>)[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_question_answers_on_survey_answer_id&quot; ON &quot;question_answers&quot; (&quot;survey_answer_id&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_question_answers_on_survey_question_id&quot; ON &quot;question_answers&quot; (&quot;survey_question_id&quot;)[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220419233135&quot;]]
+[1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateRoles.html"><code>CreateRoles</code></a> (20220615141718)</p>
+
+<pre>[1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE &quot;roles&quot; (&quot;id&quot; integer PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;name&quot; varchar, &quot;description&quot; text, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL)[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220615141718&quot;]]
+[1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../AddRoleRefToSurveys.html"><code>AddRoleRefToSurveys</code></a> (20220615142129)</p>
+
+<pre>[1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.5ms)[0m  [1m[35mALTER TABLE &quot;surveys&quot; ADD &quot;role_id&quot; bigint[0m
+[1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX &quot;index_surveys_on_role_id&quot; ON &quot;surveys&quot; (&quot;role_id&quot;)[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE &quot;asurveys&quot; (&quot;id&quot; integer NOT NULL PRIMARY KEY, &quot;name&quot; varchar DEFAULT NULL, &quot;description&quot; text DEFAULT NULL, &quot;expiration_date&quot; datetime(6) DEFAULT NULL, &quot;semester&quot; varchar DEFAULT NULL, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL, &quot;role_id&quot; integer DEFAULT NULL)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;tindex_asurveys_on_role_id&quot; ON &quot;asurveys&quot; (&quot;role_id&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[32mINSERT INTO &quot;asurveys&quot; (&quot;id&quot;,&quot;name&quot;,&quot;description&quot;,&quot;expiration_date&quot;,&quot;semester&quot;,&quot;created_at&quot;,&quot;updated_at&quot;,&quot;role_id&quot;)
+                   SELECT &quot;id&quot;,&quot;name&quot;,&quot;description&quot;,&quot;expiration_date&quot;,&quot;semester&quot;,&quot;created_at&quot;,&quot;updated_at&quot;,&quot;role_id&quot; FROM &quot;surveys&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mDROP TABLE &quot;surveys&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE &quot;surveys&quot; (&quot;id&quot; integer NOT NULL PRIMARY KEY, &quot;name&quot; varchar DEFAULT NULL, &quot;description&quot; text DEFAULT NULL, &quot;expiration_date&quot; datetime(6) DEFAULT NULL, &quot;semester&quot; varchar DEFAULT NULL, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL, &quot;role_id&quot; integer DEFAULT NULL, CONSTRAINT &quot;fk_rails_89f607bc8f&quot;</pre>
+
+<p>FOREIGN KEY (“role_id”)</p>
+
+<pre>REFERENCES &quot;roles&quot; (&quot;id&quot;)</pre>
+
+<p>)[0m</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX &quot;index_surveys_on_role_id&quot; ON &quot;surveys&quot; (&quot;role_id&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[32mINSERT INTO &quot;surveys&quot; (&quot;id&quot;,&quot;name&quot;,&quot;description&quot;,&quot;expiration_date&quot;,&quot;semester&quot;,&quot;created_at&quot;,&quot;updated_at&quot;,&quot;role_id&quot;)
+                   SELECT &quot;id&quot;,&quot;name&quot;,&quot;description&quot;,&quot;expiration_date&quot;,&quot;semester&quot;,&quot;created_at&quot;,&quot;updated_at&quot;,&quot;role_id&quot; FROM &quot;asurveys&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mDROP TABLE &quot;asurveys&quot;[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220615142129&quot;]]
+[1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../AddRoleRefToMembers.html"><code>AddRoleRefToMembers</code></a> (20220615142242)</p>
+
+<pre>[1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.7ms)[0m  [1m[35mALTER TABLE &quot;members&quot; ADD &quot;role_id&quot; bigint[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_members_on_role_id&quot; ON &quot;members&quot; (&quot;role_id&quot;)[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+[1m[35m (0.6ms)[0m  [1m[35mCREATE TEMPORARY TABLE &quot;amembers&quot; (&quot;id&quot; integer NOT NULL PRIMARY KEY, &quot;name&quot; varchar NOT NULL, &quot;registration&quot; varchar NOT NULL, &quot;username&quot; varchar NOT NULL, &quot;degree&quot; varchar NOT NULL, &quot;course&quot; varchar NOT NULL, &quot;email&quot; varchar DEFAULT NULL, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL, &quot;role_id&quot; integer DEFAULT NULL)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;tindex_amembers_on_role_id&quot; ON &quot;amembers&quot; (&quot;role_id&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX &quot;tindex_amembers_on_registration&quot; ON &quot;amembers&quot; (&quot;registration&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[32mINSERT INTO &quot;amembers&quot; (&quot;id&quot;,&quot;name&quot;,&quot;registration&quot;,&quot;username&quot;,&quot;degree&quot;,&quot;course&quot;,&quot;email&quot;,&quot;created_at&quot;,&quot;updated_at&quot;,&quot;role_id&quot;)
+                   SELECT &quot;id&quot;,&quot;name&quot;,&quot;registration&quot;,&quot;username&quot;,&quot;degree&quot;,&quot;course&quot;,&quot;email&quot;,&quot;created_at&quot;,&quot;updated_at&quot;,&quot;role_id&quot; FROM &quot;members&quot;[0m
+[1m[35m (0.3ms)[0m  [1m[35mDROP TABLE &quot;members&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE &quot;members&quot; (&quot;id&quot; integer NOT NULL PRIMARY KEY, &quot;name&quot; varchar NOT NULL, &quot;registration&quot; varchar NOT NULL, &quot;username&quot; varchar NOT NULL, &quot;degree&quot; varchar NOT NULL, &quot;course&quot; varchar NOT NULL, &quot;email&quot; varchar DEFAULT NULL, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL, &quot;role_id&quot; integer DEFAULT NULL, CONSTRAINT &quot;fk_rails_ba7343b1aa&quot;</pre>
+
+<p>FOREIGN KEY (“role_id”)</p>
+
+<pre>REFERENCES &quot;roles&quot; (&quot;id&quot;)</pre>
+
+<p>)[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX &quot;index_members_on_registration&quot; ON &quot;members&quot; (&quot;registration&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_members_on_role_id&quot; ON &quot;members&quot; (&quot;role_id&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[32mINSERT INTO &quot;members&quot; (&quot;id&quot;,&quot;name&quot;,&quot;registration&quot;,&quot;username&quot;,&quot;degree&quot;,&quot;course&quot;,&quot;email&quot;,&quot;created_at&quot;,&quot;updated_at&quot;,&quot;role_id&quot;)
+                   SELECT &quot;id&quot;,&quot;name&quot;,&quot;registration&quot;,&quot;username&quot;,&quot;degree&quot;,&quot;course&quot;,&quot;email&quot;,&quot;created_at&quot;,&quot;updated_at&quot;,&quot;role_id&quot; FROM &quot;amembers&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[35mDROP TABLE &quot;amembers&quot;[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+[1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220615142242&quot;]]
+[1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateLikertScaleQuestions.html"><code>CreateLikertScaleQuestions</code></a> (20220710143538)</p>
+
+<pre>[1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE &quot;likert_scale_questions&quot; (&quot;id&quot; integer PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;question&quot; text, &quot;question_number&quot; integer, &quot;scale_points&quot; integer, &quot;survey_question_id&quot; bigint, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL, CONSTRAINT &quot;fk_rails_8e07bb7acd&quot;</pre>
+
+<p>FOREIGN KEY (“survey_question_id”)</p>
+
+<pre>REFERENCES &quot;survey_questions&quot; (&quot;id&quot;)</pre>
+
+<p>)[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_likert_scale_questions_on_survey_question_id&quot; ON &quot;likert_scale_questions&quot; (&quot;survey_question_id&quot;)[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220710143538&quot;]]
+[1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateLikertScaleAnswers.html"><code>CreateLikertScaleAnswers</code></a> (20220710144002)</p>
+
+<pre>[1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE &quot;likert_scale_answers&quot; (&quot;id&quot; integer PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;answer&quot; integer, &quot;likert_scale_question_id&quot; bigint, &quot;question_answer_id&quot; bigint, &quot;created_at&quot; datetime(6) NOT NULL, &quot;updated_at&quot; datetime(6) NOT NULL, CONSTRAINT &quot;fk_rails_186c40fa84&quot;</pre>
+
+<p>FOREIGN KEY (“likert_scale_question_id”)</p>
+
+<pre>REFERENCES &quot;likert_scale_questions&quot; (&quot;id&quot;)</pre>
+
+<p>, CONSTRAINT “fk_rails_701d140bb5” FOREIGN KEY (“question_answer_id”)</p>
+
+<pre>REFERENCES &quot;question_answers&quot; (&quot;id&quot;)</pre>
+
+<p>)[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_likert_scale_answers_on_likert_scale_question_id&quot; ON &quot;likert_scale_answers&quot; (&quot;likert_scale_question_id&quot;)[0m
+[1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX &quot;index_likert_scale_answers_on_question_answer_id&quot; ON &quot;likert_scale_answers&quot; (&quot;question_answer_id&quot;)[0m
+[1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20220710144002&quot;]]
+[1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+[1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT &quot;ar_internal_metadata&quot;.* FROM &quot;ar_internal_metadata&quot; WHERE &quot;ar_internal_metadata&quot;.&quot;key&quot; = ? LIMIT ?[0m  [[&quot;key&quot;, &quot;environment&quot;], [&quot;LIMIT&quot;, 1]]
+[1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+[1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;ar_internal_metadata&quot; (&quot;key&quot;, &quot;value&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;key&quot;, &quot;environment&quot;], [&quot;value&quot;, &quot;development&quot;], [&quot;created_at&quot;, &quot;2023-01-18 00:32:41.701956&quot;], [&quot;updated_at&quot;, &quot;2023-01-18 00:32:41.701956&quot;]]
+[1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+[1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+[1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2023-02-03 15:55:05 -0300</p>
+
+<pre>[1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+[1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m</pre>
+
+<p>Processing by Rails::WelcomeController#index as HTML</p>
+
+<pre>Rendering /home/dapedu/.asdf/installs/ruby/2.7.5/lib/ruby/gems/2.7.0/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb
+Rendered /home/dapedu/.asdf/installs/ruby/2.7.5/lib/ruby/gems/2.7.0/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.3ms | Allocations: 675)</pre>
+
+<p>Completed 200 OK in 19ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 6378)</p>
+
+<p>Started GET “/” for 127.0.0.1 at 2023-02-03 15:55:42 -0300 Processing by Rails::WelcomeController#index as HTML</p>
+
+<pre>Rendering /home/dapedu/.asdf/installs/ruby/2.7.5/lib/ruby/gems/2.7.0/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb
+Rendered /home/dapedu/.asdf/installs/ruby/2.7.5/lib/ruby/gems/2.7.0/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 365)</pre>
+
+<p>Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 1091)</p>
+
+<p>Started GET “/create_survey” for 127.0.0.1 at 2023-02-03 15:55:53 -0300</p>
+
+<p>ActionController::RoutingError (No route matches [GET] “/create_survey”):</p>
+
+<p>Started GET “/create_survey” for 127.0.0.1 at 2023-02-03 15:57:26 -0300</p>
+
+<p>ActionController::RoutingError (No route matches [GET] “/create_survey”):</p>
+
+<p>Started POST “/create_survey” for 127.0.0.1 at 2023-02-03 15:57:36 -0300</p>
+
+<p>ActionController::RoutingError (uninitialized constant SurveyController Did you mean?  <a href="../SurveysController.html"><code>SurveysController</code></a>):</p>
+
+<p>Started POST “/create_survey” for 127.0.0.1 at 2023-02-03 15:58:07 -0300</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m</pre>
+
+<p>Processing by <a href="../SurveysController.html#method-i-create"><code>SurveysController#create</code></a> as HTML</p>
+
+<pre>Parameters: {&quot;_json&quot;=&gt;nil, &quot;survey&quot;=&gt;{}}</pre>
+
+<p>Completed 400 Bad Request in 1ms (ActiveRecord: 0.8ms | Allocations: 217)</p>
+
+<p>ActionController::ParameterMissing (param is missing or the value is empty: survey):</p>
+
+<p>app/controllers/surveys_controller.rb:73:in ‘survey_params’ app/controllers/surveys_controller.rb:47:in ‘create’ Started POST “/create_survey” for 127.0.0.1 at 2023-02-03 16:01:59 -0300 Processing by <a href="../SurveysController.html#method-i-create"><code>SurveysController#create</code></a> as HTML</p>
+
+<pre>Parameters: {&quot;name&quot;=&gt;&quot;Pedro&quot;, &quot;description&quot;=&gt;&quot;Descrição teste&quot;, &quot;expiration_date&quot;=&gt;&quot;&quot;, &quot;semester&quot;=&gt;&quot;2022/2&quot;, &quot;role&quot;=&gt;&quot;docente&quot;, &quot;survey&quot;=&gt;{&quot;name&quot;=&gt;&quot;Pedro&quot;, &quot;description&quot;=&gt;&quot;Descrição teste&quot;, &quot;expiration_date&quot;=&gt;&quot;&quot;, &quot;semester&quot;=&gt;&quot;2022/2&quot;}}</pre>
+
+<p>Completed 422 Unprocessable Entity in 30ms (Views: 4.1ms | ActiveRecord: 0.7ms | Allocations: 13290)</p>
+
+<pre>[1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+[1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[1m[36mRole Create (0.5ms)[0m  [1m[32mINSERT INTO &quot;roles&quot; (&quot;name&quot;, &quot;description&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)[0m  [[&quot;name&quot;, &quot;aluno&quot;], [&quot;description&quot;, &quot;pessoa que estuda&quot;], [&quot;created_at&quot;, &quot;2023-02-03 19:03:38.601206&quot;], [&quot;updated_at&quot;, &quot;2023-02-03 19:03:38.601206&quot;]]
+[1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m</pre>
+
+<p>Started POST “/create_survey” for 127.0.0.1 at 2023-02-03 16:05:19 -0300 Processing by <a href="../SurveysController.html#method-i-create"><code>SurveysController#create</code></a> as HTML</p>
+
+<pre>Parameters: {&quot;name&quot;=&gt;&quot;Questionário&quot;, &quot;description&quot;=&gt;&quot;Descrição teste&quot;, &quot;expiration_date&quot;=&gt;&quot;&quot;, &quot;semester&quot;=&gt;&quot;2022/2&quot;, &quot;role&quot;=&gt;&quot;aluno&quot;, &quot;survey&quot;=&gt;{&quot;name&quot;=&gt;&quot;Questionário&quot;, &quot;description&quot;=&gt;&quot;Descrição teste&quot;, &quot;expiration_date&quot;=&gt;&quot;&quot;, &quot;semester&quot;=&gt;&quot;2022/2&quot;}}</pre>
+
+<p>Completed 422 Unprocessable Entity in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 686)</p>
+
+<p>Started POST “/create_survey” for 127.0.0.1 at 2023-02-03 16:05:37 -0300 Processing by <a href="../SurveysController.html#method-i-create"><code>SurveysController#create</code></a> as HTML</p>
+
+<pre>Parameters: {&quot;name&quot;=&gt;&quot;Questionário&quot;, &quot;description&quot;=&gt;&quot;Descrição teste&quot;, &quot;expiration_date&quot;=&gt;&quot;&quot;, &quot;semester&quot;=&gt;&quot;2022/2&quot;, &quot;role&quot;=&gt;1, &quot;survey&quot;=&gt;{&quot;name&quot;=&gt;&quot;Questionário&quot;, &quot;description&quot;=&gt;&quot;Descrição teste&quot;, &quot;expiration_date&quot;=&gt;&quot;&quot;, &quot;semester&quot;=&gt;&quot;2022/2&quot;}}</pre>
+
+<p>Completed 422 Unprocessable Entity in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 682)</p>
+
+<p>Started POST “/create_survey” for 127.0.0.1 at 2023-02-03 16:05:43 -0300 Processing by <a href="../SurveysController.html#method-i-create"><code>SurveysController#create</code></a> as HTML</p>
+
+<pre>Parameters: {&quot;name&quot;=&gt;&quot;Questionário&quot;, &quot;description&quot;=&gt;&quot;Descrição teste&quot;, &quot;expiration_date&quot;=&gt;&quot;&quot;, &quot;semester&quot;=&gt;&quot;2022/2&quot;, &quot;role_id&quot;=&gt;1, &quot;survey&quot;=&gt;{&quot;name&quot;=&gt;&quot;Questionário&quot;, &quot;description&quot;=&gt;&quot;Descrição teste&quot;, &quot;expiration_date&quot;=&gt;&quot;&quot;, &quot;semester&quot;=&gt;&quot;2022/2&quot;, &quot;role_id&quot;=&gt;1}}
+[1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+↳ app/controllers/surveys_controller.rb:49:in `create&#39;
+[1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT &quot;roles&quot;.* FROM &quot;roles&quot; WHERE &quot;roles&quot;.&quot;id&quot; = ? LIMIT ?[0m  [[&quot;id&quot;, 1], [&quot;LIMIT&quot;, 1]]
+↳ app/controllers/surveys_controller.rb:49:in `create&#39;
+[1m[36mSurvey Create (0.8ms)[0m  [1m[32mINSERT INTO &quot;surveys&quot; (&quot;name&quot;, &quot;description&quot;, &quot;expiration_date&quot;, &quot;semester&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;role_id&quot;) VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [[&quot;name&quot;, &quot;Questionário&quot;], [&quot;description&quot;, &quot;Descrição teste&quot;], [&quot;expiration_date&quot;, nil], [&quot;semester&quot;, &quot;2022/2&quot;], [&quot;created_at&quot;, &quot;2023-02-03 19:05:43.033787&quot;], [&quot;updated_at&quot;, &quot;2023-02-03 19:05:43.033787&quot;], [&quot;role_id&quot;, 1]]
+↳ app/controllers/surveys_controller.rb:49:in `create&#39;
+[1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+↳ app/controllers/surveys_controller.rb:49:in `create&#39;
+[1m[36mSurveyQuestion Load (0.2ms)[0m  [1m[34mSELECT &quot;survey_questions&quot;.* FROM &quot;survey_questions&quot; WHERE &quot;survey_questions&quot;.&quot;survey_id&quot; = ?[0m  [[&quot;survey_id&quot;, 1]]
+↳ app/models/survey.rb:22:in `as_json&#39;</pre>
+
+<p>Completed 200 OK in 40ms (Views: 15.1ms | ActiveRecord: 3.9ms | Allocations: 18415)</p>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
