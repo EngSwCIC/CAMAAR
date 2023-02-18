@@ -1,5 +1,7 @@
 <template>
    <div class="menu-logged" >
+        <!--Usa v-for para utilizar o componente passando cada JSON presente no array 
+            allowed_buttons como prop-->
         <ButtonLoggedPage v-for="(item, index) in allowed_buttons" :item="item" :index="index" :key="item.id" />
    </div>
 </template>
@@ -14,6 +16,7 @@
 
         data() {
             return {
+                //Array de JSONs que contém os nomes que são utilizados nos botões do menu lateral
                 allowed_buttons: [ 
                     { name: 'Questionários'},
                     { name: 'Relatórios'},
@@ -32,7 +35,7 @@
 <style scoped >
 
     .menu-logged {
-        height: 1024px;
+        height: 100vh;
         width: 334px;
         display: flex;
         flex-direction: column;

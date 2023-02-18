@@ -22,7 +22,7 @@
 <style scoped>
 
   #left-side-container {
-    height: 1024px;
+    height: 100%;
     width: 334px;
     display: flex;
     flex-direction: column;
@@ -35,7 +35,7 @@
   }
 
   #right-side-container {
-    height: 1024px;
+    height: 100%;
     width: 100%;
     position: fixed;
     background: #f5f5f5;

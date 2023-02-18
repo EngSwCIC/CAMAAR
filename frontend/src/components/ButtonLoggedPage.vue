@@ -1,5 +1,5 @@
 <template>
-
+    <!--Utiliza o parâmetro name da prop que o componente recebe como texto da tag button-->
     <button class='btn-logged' type='button'> {{ item.name }} </button>
 
 </template>
@@ -9,7 +9,7 @@
 
     export default {
         name: 'ButtonLoggedPage',
-        props: ['item']
+        props: ['item'] // Recebe uma prop chamada item que é utilizada como texto na tag button acima
     }
 
 </script>
