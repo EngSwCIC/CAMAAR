@@ -21,8 +21,7 @@ class SurveyAnswersController < ApplicationController
 
     @survey_answer = SurveyAnswer.new(survey_answer_params)
 
-    #if @survey_answer.save && has_required_fields?
-    if @survey_answer.save
+    if has_required_fields? &&  @survey_answer.save
       render json: @survey_answer
     else
       render json: @survey_answer.errors, status: :unprocessable_entity
