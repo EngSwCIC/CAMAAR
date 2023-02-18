@@ -92,7 +92,6 @@ Before({ tags: '@MockQuestionarios'},() => {
   cy.intercept('GET', '/api/surveys/open', surveys.survey_list).as('getRequest')
   cy.intercept('GET', '/api/surveys/teste', surveys.survey_list[0]).as('survey list')
   cy.intercept('GET', '/api/members/1/cclasses', survey).as('cclasses');
-  cy.intercept('POST', '/api/survey_answers').as('postRequest')
 
 })
 
@@ -103,10 +102,11 @@ Before(() => {
   the('Senha').type('testa')
   the('Login', 'button').click()
   visit('/#/surveys')
+  cy.intercept('POST', '/api/survey_answers').as('postRequest')
 })
 
 Given(`que estou na tela de selecao dos questionarios`, () => {
-  visit('/#/surveys')
+    visit('/#/surveys')
   }
 )
 

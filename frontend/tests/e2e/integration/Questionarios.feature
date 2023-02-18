@@ -13,15 +13,13 @@ Funcionalidade: Preenchimento dos Questionarios
     Quando clicar no questionario "1"
     Entao eu devo estar na tela "/#/surveys/1"
 
-  @MockQuestionarios
   Cenario: Enviar sem preencher todos campos obrigatório (triste)
-    Dado que estou no questionario "teste"
+    Dado que estou no questionario "1"
     Quando preencho o radio button da questão 2 com os labels: option 4
     E clico no botão "Enviar"
     Entao nao deve enviar com sucesso
 
   @interceptingRequest
-  @MockQuestionarios
   Cenario: Enviar com todos campos preenchidos (feliz)
     Dado que estou no questionario "1"
     Quando preencho o textarea da questão 1 com "Uma sugestão"
@@ -34,7 +32,6 @@ Funcionalidade: Preenchimento dos Questionarios
     E a questão 2 deveria enviar 4
 
   @interceptingRequest
-  @MockQuestionarios
   Cenario: Enviar com todos campos obrigatorios preenchidos (feliz)
     Dado que estou no questionario "1"
     Quando preencho todas as opções do likert da questão 3 com "Concordo totalmente"
