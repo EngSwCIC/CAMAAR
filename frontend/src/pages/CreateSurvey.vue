@@ -17,7 +17,7 @@ const questionsTypes = [
 function addQuestion() {
   const newQuestion = {
     id: uuidv4(),
-    title: "",
+    title: `Pergunta ${questions.length + 1}`,
     type: "Caixa de Seleção",
     data: {
       checkboxes: [],
@@ -51,7 +51,7 @@ function addRadio(label, questionId) {
 
 <template>
   <header>
-    <q-input v-model="title" type="text" />
+    <q-input v-model="title" type="text" name="title" />
   </header>
 
   <div
@@ -59,15 +59,26 @@ function addRadio(label, questionId) {
     :key="index"
     class="q-ma-md q-pa-sm bg-purple-1"
   >
-    <q-input type="text" v-model="question.title" label="Titulo da Pergunta" />
+    <q-input
+      type="text"
+      v-model="question.title"
+      label="Titulo da Pergunta"
+      name="question-title"
+    />
     <q-select
       v-model="question.type"
       :options="questionsTypes"
       label="Tipo da Pergunta"
+      name="question-type"
     />
 
     <div>
-      <q-btn color="secondary" icon="delete" @click="deleteQuestion(index)" />
+      <q-btn
+        color="secondary"
+        icon="delete"
+        @click="deleteQuestion(index)"
+        name="delete-question"
+      />
     </div>
 
     <div class="bg-blue-1 q-ma-md q-pa-md">
@@ -91,12 +102,15 @@ function addRadio(label, questionId) {
       <LikertComponent
         v-if="question.type === 'Escala Linear'"
         :id="question.id"
+        name="likert"
       />
     </div>
   </div>
 
   <div>
-    <q-btn color="secondary" @click="addQuestion">Adicionar Pergunta</q-btn>
-    <q-btn color="secondary">Salvar</q-btn>
+    <q-btn color="secondary" @click="addQuestion" name="add-question"
+      >Adicionar Pergunta</q-btn
+    >
+    <q-btn color="secondary" name="save-question">Salvar</q-btn>
   </div>
 </template>
