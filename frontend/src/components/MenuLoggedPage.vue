@@ -3,6 +3,7 @@
         <!--Usa v-for para utilizar o componente passando cada JSON presente no array 
             allowed_buttons como prop-->
         <ButtonLoggedPage v-for="(item, index) in allowed_buttons" :item="item" :index="index" :key="item.name" />
+        <button class="btn-exit">Sair</button>
    </div>
 </template>
 
@@ -45,6 +46,22 @@
         align-items: center;
         padding-top: 50px;
         background: #d9d9d9;
+    }
+
+    .menu-logged .btn-exit {
+        position: absolute;
+        background: none;
+        border: none;
+        width: 44px;
+        height: 29px;
+        left: 150px;
+        top: 680px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 29px;
+        color: #000000;
     }
 
 </style>
