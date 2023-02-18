@@ -18,7 +18,7 @@
 
         methods: {
             change: (itemName) => {
-                
+                // Lógica para mudar display da tela quando botões do menu lateral são clicados
                 switch (itemName) {
                     case 'Questionários':
                         document.getElementById('p1').style.display = 'block';

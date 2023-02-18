@@ -3,13 +3,14 @@
         <!--Usa v-for para utilizar o componente passando cada JSON presente no array 
             allowed_buttons como prop-->
         <ButtonLoggedPage v-for="(item, index) in allowed_buttons" :item="item" :index="index" :key="item.name" />
-        <button class="btn-exit">Sair</button>
+        <button class="btn-exit"> <router-link class="link" to="/">Sair</router-link></button>
    </div>
 </template>
 
 <script>
 
     import ButtonLoggedPage from './ButtonLoggedPage.vue';
+    import { RouterLink } from 'vue-router' //Importando para usar a tag router-link
 
     export default {
 
@@ -62,6 +63,12 @@
         font-size: 24px;
         line-height: 29px;
         color: #000000;
+    }
+
+    .link {
+        text-decoration: none;
+        cursor: pointer;
+        color:#000000;
     }
 
 </style>
