@@ -2,7 +2,7 @@
    <div class="menu-logged" >
         <!--Usa v-for para utilizar o componente passando cada JSON presente no array 
             allowed_buttons como prop-->
-        <ButtonLoggedPage v-for="(item, index) in allowed_buttons" :item="item" :index="index" :key="item.id" />
+        <ButtonLoggedPage v-for="(item, index) in allowed_buttons" :item="item" :index="index" :key="item.name" />
    </div>
 </template>
 

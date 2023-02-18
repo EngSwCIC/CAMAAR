@@ -1,6 +1,6 @@
 <template>
     <!--Utiliza o parâmetro name da prop que o componente recebe como texto da tag button-->
-    <button class='btn-logged' type='button'> {{ item.name }} </button>
+    <button @click="change(item.name)" class='btn-logged' type='button'> {{ item.name }} </button>
 
 </template>
 
@@ -9,7 +9,41 @@
 
     export default {
         name: 'ButtonLoggedPage',
-        props: ['item'] // Recebe uma prop chamada item que é utilizada como texto na tag button acima
+        props: ['item'],  // Recebe uma prop chamada item que é utilizada como texto na tag button acima
+        data() {
+            return {
+                ixtem: this.item,
+            }
+        },
+
+        methods: {
+            change: (itemName) => {
+                
+                switch (itemName) {
+                    case 'Questionários':
+                        document.getElementById('p1').style.display = 'block';
+                        document.getElementById('p2').style.display = 'none';
+                        document.getElementById('p3').style.display = 'none';
+                        break;
+
+                    case 'Relatórios':
+                        document.getElementById('p1').style.display = 'none';
+                        document.getElementById('p2').style.display = 'block';
+                        document.getElementById('p3').style.display = 'none';
+                        break;
+
+                    case 'Importar do SIGAA':
+                        document.getElementById('p1').style.display = 'none';
+                        document.getElementById('p2').style.display = 'none';
+                        document.getElementById('p3').style.display = 'block';
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        }
+       
     }
 
 </script>

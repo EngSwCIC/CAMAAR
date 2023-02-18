@@ -1,6 +1,6 @@
 <template>
 
-    <div class='display-logged'>
+    <div class='display-logged' id="p1" style="display: none;">
         <!--Título da página-->
         <h1 class="title">Questionários</h1>
         <div class="cards-container">
@@ -11,6 +11,22 @@
                 v-for="survey in surveys" 
                 :survey="survey" 
                 :key="survey.id" />
+        </div>
+    </div>
+
+    <div class='display-logged' id="p2" style="display: none;">
+        <!--Título da página-->
+        <h1 class="title">Relatórios</h1>
+        <div class="cards-container">
+           
+        </div>
+    </div>
+
+    <div class='display-logged' id="p3" style="display: none;">
+        <!--Título da página-->
+        <h1 class="title">Importar do SIGAA</h1>
+        <div class="cards-container">
+           
         </div>
     </div>
 
