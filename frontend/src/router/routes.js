@@ -1,6 +1,6 @@
 import LoginPage from '../pages/LoginPage.vue'
 import ImportPage from '../pages/ImportPage.vue'
-import HomePage from "../pages/HomePage.vue";
+import LoggedPage from '../pages/LoggedPage.vue'
 import SurveyPage from "../pages/SurveyPage.vue";
 import SurveysPage from "../pages/SurveysPage.vue";
 import CadastrarPage from  '../pages/CadastrarPage.vue'
@@ -16,7 +16,7 @@ const routes = [
   {
     path: "/home",
     name: "Home",
-    component: HomePage,
+    component: LoggedPage,
   },
   {
     path: '/import',

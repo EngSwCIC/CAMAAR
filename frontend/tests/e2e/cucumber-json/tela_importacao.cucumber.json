@@ -1,0 +1,59 @@
+[
+  {
+    "keyword": "Funcionalidade",
+    "name": "Acessar página onde é possível importar dados do SIGAA",
+    "line": 2,
+    "id": "acessar-página-onde-é-possível-importar-dados-do-sigaa",
+    "tags": [],
+    "uri": "tela_importacao.feature",
+    "elements": [
+      {
+        "id": "acessar-página-onde-é-possível-importar-dados-do-sigaa;página-inicial-após-login",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Página inicial após Login",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 5,
+            "name": "que estou autenticado como coordenador",
+            "result": {
+              "status": "undefined",
+              "duration": 129000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 6,
+            "name": "clicar no botão \"Importar do SIGAA\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 7,
+            "name": "eu devo acessar a rota \"/import\" visualizar página com os relatórios",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 8,
+            "name": "devo visualizar página onde é possível importar informações do SIGAA",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
