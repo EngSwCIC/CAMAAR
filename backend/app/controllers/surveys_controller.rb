@@ -14,7 +14,7 @@ class SurveysController < ApplicationController
 
   def index
     @surveys = Survey.all
-    render json: @surveys, status: :ok
+    render json: @surveys
   end
 
   ##

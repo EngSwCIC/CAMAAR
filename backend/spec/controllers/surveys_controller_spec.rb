@@ -23,7 +23,10 @@ require 'rails_helper'
 
   RSpec.describe SurveysController, type: :request do
 
+    # testa o método show_answers que retorna as respostas de um determinado questionário
     describe "GET #show_answers" do
+
+      # testa se um questionário é retornado
       it "returns http ok" do
         @r = create(:role)
         @survey = create(:survey)
@@ -36,6 +39,7 @@ require 'rails_helper'
         expect(response).to have_http_status(:ok)
       end
       
+      # testa se um questionário vazio é retornado
       it "returns an empty object" do
         @r = create(:role)
         @survey = create(:survey)
@@ -49,6 +53,7 @@ require 'rails_helper'
         expect(data.length()).to equal(0)
       end
 
+      # testa se um questionário é retornado com todas as chaves
       it "returns a complete survey" do
         @r = create(:role)
         @survey = create(:survey)
@@ -73,6 +78,51 @@ require 'rails_helper'
           end
         end
         expect(missing_key).to equal(false)
+      end
+    end
+
+    # testa o metodo show que retorna um determinado questionário
+    describe "GET #show" do
+      it "returns http ok" do
+          @r = create(:role)
+          @survey = create(:survey)
+          @question_type = create(:question_type)
+          @survey_question = create(:survey_question)
+          @member = create(:member)
+          @cclass = create(:cclass)
+          @survey_answer = create(:survey_answer)
+          get "/surveys/#{@survey.id}"
+          expect(response).to have_http_status(:ok)
+        end
+    end
+
+    # testa o metodo que retorna todos os questionários do banco de dados
+    describe "GET #index" do
+      it "returns http ok" do
+        @r = create(:role)
+        @survey = create(:survey)
+        @question_type = create(:question_type)
+        @survey_question = create(:survey_question)
+        @member = create(:member)
+        @cclass = create(:cclass)
+        @survey_answer = create(:survey_answer)
+        get "/surveys"
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    # testa o método que retorna todos os questionários não expirados
+    describe "GET #open" do
+      it "returns http ok" do
+        @r = create(:role)
+        @survey = create(:survey)
+        @question_type = create(:question_type)
+        @survey_question = create(:survey_question)
+        @member = create(:member)
+        @cclass = create(:cclass)
+        @survey_answer = create(:survey_answer)
+        get "/surveys/open"
+        expect(response).to have_http_status(:ok)
       end
     end
   end
