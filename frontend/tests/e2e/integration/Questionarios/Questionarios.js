@@ -90,8 +90,8 @@ const survey = [
 Before({ tags: '@MockQuestionarios'},() => {
   // @interceptingRequest
   cy.intercept('GET', '/api/surveys/open', surveys.survey_list).as('getRequest')
-  cy.intercept('GET', '/api/surveys/teste', surveys.survey_list[0])
-  cy.intercept('GET', '/api/members/1/cclasses', survey).as('teste');
+  cy.intercept('GET', '/api/surveys/teste', surveys.survey_list[0]).as('survey list')
+  cy.intercept('GET', '/api/members/1/cclasses', survey).as('cclasses');
   cy.intercept('POST', '/api/survey_answers').as('postRequest')
 
 })
@@ -187,4 +187,18 @@ Then(`devo ver questionarios`, () => {
 
 Then(`eu devo estar na tela "{}"`, (path)=> {
   cy.url().should('include', path)
+})
+
+Then(`nao deve enviar com sucesso`, ()=>{
+  cy.wait('@postRequest').then(interception => {
+    expect(interception.response.statusCode).to.gte(400)
+  })
+
+})
+
+Then(`deve enviar com sucesso`, ()=>{
+  cy.wait('@postRequest').then(interception => {
+    expect(interception.response.statusCode).to.eq(200)
+  })
+
 })
