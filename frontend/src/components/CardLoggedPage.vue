@@ -1,6 +1,7 @@
 <template>
 
     <div class='card-logged'>
+        <!--Rota que redireciona página para questionário-->
         <router-link class="router" v-bind:to="'/surveys/' + survey.id">
             <!--Tag h1 utiliza o parâmetro "name" do JSON "survey"-->
             <h1 class="title"> {{ survey.name }}</h1> 
@@ -13,8 +14,7 @@
 
 <script>
     import { RouterLink } from 'vue-router' //Importando para usar a tag router-link
-    import { useRouter } from "vue-router";
-
+    
     export default {
         name: 'CardLoggedPage',
         components: {RouterLink},

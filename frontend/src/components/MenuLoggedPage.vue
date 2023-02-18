@@ -3,6 +3,7 @@
         <!--Usa v-for para utilizar o componente passando cada JSON presente no array 
             allowed_buttons como prop-->
         <ButtonLoggedPage v-for="(item, index) in allowed_buttons" :item="item" :index="index" :key="item.name" />
+        <!--Botão de Sair que, ao clicado, redireciona a página inicial-->
         <button class="btn-exit"> <router-link class="link" to="/">Sair</router-link></button>
    </div>
 </template>

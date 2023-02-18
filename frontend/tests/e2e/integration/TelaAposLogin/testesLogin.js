@@ -41,6 +41,3 @@ describe('Validate tests', () => {
   })  
 
 })
-
-//Testes da tela de login. Deve-se adicionar mais testes para quando logar e checar se está mesmo pegando os relatórios de maneira correta, mas não consegui 
-//fazer com que o back-end rodasse no meu computador mesmo depois de horas pesquisando, por isso, não consigo rodar o projeto de maneira completa.
