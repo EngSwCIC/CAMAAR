@@ -47,6 +47,13 @@ class SurveysController < ApplicationController
     end
   end
 
+  ##
+  # Criar um questionário
+  #
+  # Deve ser passado no body os parametros para a criação
+  #
+  # Renderiza uma resposta com o Survey no formato JSON
+  # Renderiza um erro com o status `error (404)` se não conseguir criar
   def create
     @survey = Survey.new(survey_params)
 
