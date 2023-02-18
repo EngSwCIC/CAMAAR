@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-  <div class="row">
+  <div class="row" :id="`questionario-${survey.id}`">
     <q-card class="my-card">
       <q-card-section class="bg-purple text-white">
         <div class="text-h5">{{ survey.name }}</div>
