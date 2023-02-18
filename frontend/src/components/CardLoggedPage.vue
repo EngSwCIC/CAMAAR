@@ -1,7 +1,7 @@
 <template>
 
     <div class='card-logged'>
-        <router-link to="surveys">
+        <router-link class="router" to="surveys">
             <!--Tag h1 utiliza o parâmetro "name" do JSON "survey"-->
             <h1 class="title"> {{ survey.name }}</h1> 
             <!--Tag p utiliza o parâmetro "description" do JSON "survey"-->
@@ -24,7 +24,12 @@
 </script>
 
 <style scoped >
-
+    .router {
+        text-decoration: none;
+        color: black;
+        font-family: Inter;
+        font-style: normal;
+    }
     .card-logged {
         width: 500px;
         height: 125px;
@@ -36,6 +41,11 @@
         padding-top: 5px;
         padding-bottom: 5px;
         padding-left: 20px;
+    }
+
+    .card-logged:hover {
+        background: linear-gradient(0deg, #7AC7FF, #7AC7FF), linear-gradient(0deg, #FFFFFF, #FFFFFF), #FFFFFF;
+        cursor: pointer;
     }
 
     .card-logged .title {
