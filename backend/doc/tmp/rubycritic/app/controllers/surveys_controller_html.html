@@ -80,13 +80,16 @@
       <li><a href="../../../../db/survey_answer_test_json.html">survey_answer_test.json</a>
       <li><a href="../../../../db/survey_test_json.html">survey_test.json</a>
     </ul></details>
-    <li><a href="../../../../log/development_log.html">development.log</a>
+    <li><details><summary>log</summary>
+    <ul class="link-list">
+      <li><a href="../../../../log/development_log.html">development.log</a>
+      <li><a href="../../../../log/test_log.html">test.log</a>
+    </ul></details>
     <li><a href="../../../../public/robots_txt.html">robots</a>
     <li><a href="../../../../survey_answer_test_json.html">survey_answer_test.json</a>
     <li><details open><summary>tmp</summary>
     <ul class="link-list">
       <li><a href="../../../../tmp/development_secret_txt.html">development_secret</a>
-      <li><a href="../../../../tmp/pids/server_pid.html">server.pid</a>
       <li><a href="../../../../tmp/restart_txt.html">restart</a>
       <li><a href="../../../../tmp/rubycritic/app/channels/application_cable/channel_html.html">channel.html</a>
       <li><a href="../../../../tmp/rubycritic/app/channels/application_cable/connection_html.html">connection.html</a>
@@ -253,7 +256,7 @@
         &lt;/div&gt;
         &lt;div class=&quot;code-statistics col-md-11&quot;&gt;
           &lt;div class=&quot;col-md-3&quot;&gt;
-            &lt;div&gt;&lt;span class=&quot;metric&quot;&gt;67&lt;/span&gt;&lt;small&gt; lines of codes&lt;/small&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;span class=&quot;metric&quot;&gt;68&lt;/span&gt;&lt;small&gt; lines of codes&lt;/small&gt;&lt;/div&gt;
             &lt;div&gt;&lt;span class=&quot;metric&quot;&gt;6&lt;/span&gt;&lt;small&gt; methods&lt;/small&gt;&lt;/div&gt;
           &lt;/div&gt;
           &lt;div class=&quot;col-md-3&quot;&gt;
@@ -299,7 +302,7 @@ before_action :set_surveys, only: %i[ index open ]
 
 def index
   @surveys = Survey.all
-  render json: @surveys, status: :ok
+  render json: @surveys
 end
 
 ##
@@ -317,6 +320,7 @@ def open
   index
 end
 
+#Metodo responsavel por buscar as respostas do questionario
 def show_answers
   @survey = Survey.find(params[:id])
   @question_answers = @survey.question_answers

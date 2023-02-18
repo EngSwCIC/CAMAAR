@@ -122,7 +122,7 @@
             <pre><span class="ruby-comment"># File app/controllers/surveys_controller.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@surveys</span> = <span class="ruby-constant">Survey</span>.<span class="ruby-identifier">all</span>
-  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@surveys</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:ok</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@surveys</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -174,7 +174,7 @@
 <p>Responde renderizando uma resposta com o <a href="Survey.html"><code>Survey</code></a> no formato JSON e um status ‘ok (200)`</p>
 
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/surveys_controller.rb, line 48</span>
+            <pre><span class="ruby-comment"># File app/controllers/surveys_controller.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>(<span class="ruby-identifier">status</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@survey</span>
 <span class="ruby-keyword">end</span></pre>
@@ -194,10 +194,10 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Metodo responsavel por buscar as respostas do questionario</p>
 
           <div class="method-source-code" id="show_answers-source">
-            <pre><span class="ruby-comment"># File app/controllers/surveys_controller.rb, line 35</span>
+            <pre><span class="ruby-comment"># File app/controllers/surveys_controller.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show_answers</span>
   <span class="ruby-ivar">@survey</span> = <span class="ruby-constant">Survey</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@question_answers</span> = <span class="ruby-ivar">@survey</span>.<span class="ruby-identifier">question_answers</span>
