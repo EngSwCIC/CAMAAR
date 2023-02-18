@@ -4,12 +4,12 @@ Funcionalidade: Adicionar e remover componentes de questionário
 Cenário: Adicionar um componente de texto
   Dado que eu estou na rota "/surveys"
   E eu clicar no botão "adicionar"
-  Então eu devo ver o componente de texto
+  Então eu devo ver o componente de "texto"
 
   Cenário: Adicionar um título na pergunta
     Dado que eu estou na rota "/surveys"
     E eu clicar no botão "adicionar"
-    E eu preencher o campo de Pergunta sem título com "Título legal"
+    E eu preencher o campo de "title" com "Título legal"
     Então o título da pergunta deve ser "Título legal"
 
   Cenário: Campo de resposta desabilitado

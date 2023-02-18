@@ -19,7 +19,7 @@ And(`eu clicar no botão {string}`, (button_text) => {
 });
 
 And("eu preencher o campo de {string} com {string}", (field_name,name_value) => {
-  cy.get(field_name).type(name_value);
+  cy.get(`input.${field_name}`).type(name_value);
 });
 
 And("eu preencher o campo {string} com {string}", (field_name,name_value) => {
@@ -28,7 +28,7 @@ And("eu preencher o campo {string} com {string}", (field_name,name_value) => {
 
 Then("eu devo ver o componente de {string}", (component_name)=> {
   if (component_name == "texto") {
-    cy.get("textarea").should("exist");
+    cy.get("textarea.container").should("exist");
   } else if (component_name == "caixa de seleção") {
     cy.get("checkbox").should("exist");
   } else if (component_name == "múltipla escolha") {
