@@ -35,4 +35,11 @@ Rails.application.routes.draw do
   get '/members', to:'members#index'
   get '/members/:id', to:'members#show'
 
+  #surveys
+  #rota para a requisição das respostas do questionario
+  get '/surveys/:id/answers', to: 'surveys#show_answers'
+  get '/survey/:id', to: 'survey#show'
+  get '/surveys', to: 'survey#index'
+  get '/surveys/open', to: 'survey#open'
+  
 end

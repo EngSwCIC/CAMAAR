@@ -8,7 +8,7 @@ var filterArg = "";
       <q-input
         rounded
         outlined
-        label="pesquisa"
+        label="Digite o nome ou código da disciplina"
         type="pesquisa"
         v-model="filterArg"
       ></q-input>
@@ -19,7 +19,7 @@ var filterArg = "";
         size="lg"
         @click="$emit('filterEvent', filterArg, filterArg = '')"
         data-test-button-filtro="filtro"
-        >Filtro</q-btn
+        >Pesquisar</q-btn
       >
     </q-form>
   </div>
@@ -40,7 +40,7 @@ var filterArg = "";
 }
 
 .q-btn {
-  width: 100px;
+  width: 150px;
   margin: 0;
 }
 </style>
