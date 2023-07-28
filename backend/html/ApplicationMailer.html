@@ -67,6 +67,15 @@
     
     
     
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-redefine_password_email">#redefine_password_email</a>
+  </ul>
+</div>
+
   </div>
 </nav>
 
@@ -77,6 +86,12 @@
 
   <section class="description">
     
+<p>Esta classe é responsavel por gerar e disparar emails.</p>
+
+<p>Para funcionar é necessário uma conta de email válida, servindo de remetente e outro email válido (sem senha) servindo de destinatário. </p>
+
+<p>As credenciais da conta do remetente estão definidas em variáveis de ambiente.</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">
@@ -84,6 +99,39 @@
 
 
 
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-redefine_password_email" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">redefine_password_email</span><span
+            class="method-args">(member)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p># Gera um email de redefinição de senha de acordo com as informações do aluno.</p>
+
+          <div class="method-source-code" id="redefine_password_email-source">
+            <pre><span class="ruby-comment"># File app/mailers/application_mailer.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">redefine_password_email</span>(<span class="ruby-identifier">member</span>)
+  <span class="ruby-identifier">base_url</span> = <span class="ruby-string">&#39;localhost:8080/#/cadastrar/&#39;</span>
+  <span class="ruby-ivar">@redefinition_link</span> = <span class="ruby-identifier">base_url</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">member</span>[<span class="ruby-value">:redefinition_link</span>]
+  <span class="ruby-ivar">@user_name</span> = <span class="ruby-identifier">member</span>[<span class="ruby-value">:name</span>]
+  <span class="ruby-ivar">@user_email</span> = <span class="ruby-identifier">member</span>[<span class="ruby-value">:email</span>]
+
+  <span class="ruby-identifier">mail</span>(<span class="ruby-value">to:</span> <span class="ruby-ivar">@user_email</span>, <span class="ruby-value">subject:</span> <span class="ruby-string">&quot;Sistema CAMAAR: Definição de Senha&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
 
   </section>
 </main>

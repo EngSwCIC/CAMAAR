@@ -113,7 +113,7 @@
           
 
           <div class="method-source-code" id="log_out_failure-source">
-            <pre><span class="ruby-comment"># File app/controllers/users/sessions_controller.rb, line 22</span>
+            <pre><span class="ruby-comment"># File app/controllers/users/sessions_controller.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">log_out_failure</span>
   <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> {
     <span class="ruby-value">message:</span> <span class="ruby-string">&#39;Falha ao encerrar sessao&#39;</span>
@@ -136,12 +136,11 @@
           
 
           <div class="method-source-code" id="log_out_success-source">
-            <pre><span class="ruby-comment"># File app/controllers/users/sessions_controller.rb, line 16</span>
+            <pre><span class="ruby-comment"># File app/controllers/users/sessions_controller.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">log_out_success</span>
   <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> {
-    <span class="ruby-value">message:</span> <span class="ruby-string">&#39;Sessao encerrada com sucesso&#39;</span>,
+    <span class="ruby-value">message:</span> <span class="ruby-string">&#39;Sessao encerrada com sucesso&#39;</span>
   }, <span class="ruby-value">status:</span> <span class="ruby-value">:ok</span>
-
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -160,7 +159,7 @@
           
 
           <div class="method-source-code" id="respond_to_on_destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/users/sessions_controller.rb, line 11</span>
+            <pre><span class="ruby-comment"># File app/controllers/users/sessions_controller.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">respond_to_on_destroy</span>
   <span class="ruby-identifier">log_out_success</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>
 
@@ -183,11 +182,12 @@
           
 
           <div class="method-source-code" id="respond_with-source">
-            <pre><span class="ruby-comment"># File app/controllers/users/sessions_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/users/sessions_controller.rb, line 5</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">respond_with</span>(<span class="ruby-identifier">_resource</span>, <span class="ruby-identifier">_opts</span> = {})
   <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> {
     <span class="ruby-value">message:</span> <span class="ruby-string">&#39;Autenticado com sucesso&#39;</span>,
     <span class="ruby-value">user:</span> <span class="ruby-identifier">current_user</span>,
+    <span class="ruby-value">authenticated:</span> <span class="ruby-keyword">true</span>
   }, <span class="ruby-value">status:</span> <span class="ruby-value">:ok</span>
 <span class="ruby-keyword">end</span></pre>
           </div>

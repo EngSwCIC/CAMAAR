@@ -112,9 +112,9 @@
           
 
           <div class="method-source-code" id="register_failed-source">
-            <pre><span class="ruby-comment"># File app/controllers/users/registrations_controller.rb, line 15</span>
+            <pre><span class="ruby-comment"># File app/controllers/users/registrations_controller.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">register_failed</span>
-  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> {<span class="ruby-value">message:</span> <span class="ruby-string">&#39;Error ao cadastrar usuario&#39;</span>}, <span class="ruby-value">status:</span> <span class="ruby-value">:unauthorized</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> { <span class="ruby-value">message:</span> <span class="ruby-string">&#39;Error ao cadastrar usuario&#39;</span> }, <span class="ruby-value">status:</span> <span class="ruby-value">:unauthorized</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -133,7 +133,7 @@
           
 
           <div class="method-source-code" id="register_success-source">
-            <pre><span class="ruby-comment"># File app/controllers/users/registrations_controller.rb, line 9</span>
+            <pre><span class="ruby-comment"># File app/controllers/users/registrations_controller.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">register_success</span>
   <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> {
     <span class="ruby-value">message:</span> <span class="ruby-string">&#39;Cadastrado com sucesso&#39;</span>,
@@ -157,7 +157,7 @@
           
 
           <div class="method-source-code" id="respond_with-source">
-            <pre><span class="ruby-comment"># File app/controllers/users/registrations_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/users/registrations_controller.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">respond_with</span>(<span class="ruby-identifier">resource</span>, <span class="ruby-identifier">_opts</span> = {})
   <span class="ruby-identifier">register_success</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">resource</span>.<span class="ruby-identifier">persisted?</span>
 

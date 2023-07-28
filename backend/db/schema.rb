@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_15_001547) do
   create_table "cclasses", force: :cascade do |t|
     t.string "code"
     t.string "semester"
@@ -68,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151249) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role_id"
+    t.string "redefinition_link"
     t.index ["registration"], name: "index_members_on_registration", unique: true
     t.index ["role_id"], name: "index_members_on_role_id"
   end

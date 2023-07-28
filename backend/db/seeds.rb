@@ -34,6 +34,11 @@ for discente in discentes do
   registration: discente['matricula'], username: discente['usuario'],
   degree: discente['formacao'],
   email: discente['email'], role: role_discente)
+
+  senha_de_teste = '123'
+  User.create(email: discente['email'], password: senha_de_teste, 
+    password_confirmation: senha_de_teste, member_id: member.id)
+
   Enrollment.create(member: member, cclass: cclass)
 end
 
@@ -43,6 +48,11 @@ member = Member.create(name: docente['nome'], course: docente['departamento'],
   registration: docente['usuario'], username: docente['usuario'],
   degree: docente['formacao'],
   email: docente['email'], role: role_docente)
+
+senha_de_teste = '123'
+User.create(email: docente['email'], password: senha_de_teste, 
+    password_confirmation: senha_de_teste, member_id: member.id)
+
 Enrollment.create(member: member, cclass: cclass)
 
 file = File.read('./db/survey_test.json')

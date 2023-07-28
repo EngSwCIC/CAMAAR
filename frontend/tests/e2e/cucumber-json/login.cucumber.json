@@ -1,0 +1,415 @@
+[
+  {
+    "description": "    Como um aluno\n    Eu quero poder me logar",
+    "keyword": "Funcionalidade",
+    "name": "Login no site",
+    "line": 2,
+    "id": "login-no-site",
+    "tags": [],
+    "uri": "login.feature",
+    "elements": [
+      {
+        "id": "login-no-site;tentar-fazer-login-sem-digitar-email-(triste)",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Tentar fazer login sem digitar email (triste)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 7,
+            "name": "que estou na rota \"/\"",
+            "result": {
+              "status": "undefined",
+              "duration": 349000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 8,
+            "name": "eu deveria ver o campo \"Email\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "eu deveria ver o campo \"Senha\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "eu deveria ver o botão \"Login\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 13,
+            "name": "que o campo email não foi preenchido",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 14,
+            "name": "eu clicar no botão \"Login\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 15,
+            "name": "eu deveria ver uma mensagem \"E-Mail Obrigatório\"",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-no-site;tentar-fazer-login-sem-digitar-senha-(triste)",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "Tentar fazer login sem digitar senha (triste)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 7,
+            "name": "que estou na rota \"/\"",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 8,
+            "name": "eu deveria ver o campo \"Email\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "eu deveria ver o campo \"Senha\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "eu deveria ver o botão \"Login\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 18,
+            "name": "eu selecionar o campo email e digitar \"email_qualquer\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 19,
+            "name": "que o campo senha não foi preenchido",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 20,
+            "name": "eu clicar no botão \"Login\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 21,
+            "name": "eu deveria ver uma mensagem \"Senha Obrigatória\"",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-no-site;digitar-email-incorreto-(triste)",
+        "keyword": "Scenario",
+        "line": 23,
+        "name": "Digitar email incorreto (triste)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 7,
+            "name": "que estou na rota \"/\"",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 8,
+            "name": "eu deveria ver o campo \"Email\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "eu deveria ver o campo \"Senha\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "eu deveria ver o botão \"Login\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 24,
+            "name": "eu selecionar o campo email e digitar \"email_incorreto\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 25,
+            "name": "selecionar o campo senha e digitar \"senha_qualquer\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 26,
+            "name": "eu clicar no botão \"Login\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 27,
+            "name": "devo ver uma mensagem \"Invalid Email or password.\"",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-no-site;digitar-senha-incorreta-(triste)",
+        "keyword": "Scenario",
+        "line": 29,
+        "name": "Digitar senha incorreta (triste)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 7,
+            "name": "que estou na rota \"/\"",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 8,
+            "name": "eu deveria ver o campo \"Email\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "eu deveria ver o campo \"Senha\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "eu deveria ver o botão \"Login\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 30,
+            "name": "eu selecionar o campo email e digitar \"kleberrjr7@gmail.com\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 31,
+            "name": "selecionar o campo senha e digitar \"aaaaaaaaaaaa\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 32,
+            "name": "eu clicar no botão \"Login\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 33,
+            "name": "devo ver uma mensagem \"Invalid Email or password.\"",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-no-site;digitar-email-e-senha-corretos-(feliz)",
+        "keyword": "Scenario",
+        "line": 35,
+        "name": "Digitar email e senha corretos (feliz)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 7,
+            "name": "que estou na rota \"/\"",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 8,
+            "name": "eu deveria ver o campo \"Email\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 9,
+            "name": "eu deveria ver o campo \"Senha\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "eu deveria ver o botão \"Login\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 36,
+            "name": "eu selecionar o campo email e digitar \"kleberrjr7@gmail.com\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 37,
+            "name": "selecionar o campo senha e digitar \"162524\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 38,
+            "name": "eu clicar no botão \"Login\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 39,
+            "name": "eu devo ser redirecionado para a rota \"/home\"",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

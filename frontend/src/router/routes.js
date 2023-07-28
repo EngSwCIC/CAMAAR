@@ -3,7 +3,7 @@ import ImportPage from '../pages/ImportPage.vue'
 import HomePage from "../pages/HomePage.vue";
 import SurveyPage from "../pages/SurveyPage.vue";
 import SurveysPage from "../pages/SurveysPage.vue";
-import CadastrarPage from  '../pages/CadastrarPage.vue'
+import RedefinitionPage from  '../pages/RedefinitionPage.vue'
 import StudentClass from  '../pages/StudentClass.vue'
 import StudentEvaluationsReport from '../pages/StudentEvaluationsReport.vue'
 
@@ -34,9 +34,9 @@ const routes = [
     component: SurveyPage,
   },
   {
-    path: '/cadastrar',
+    path: '/cadastrar/:redefinition_link',
     name: 'Cadastrar',
-    component: CadastrarPage,
+    component: RedefinitionPage,
   },
   {
     path: '/student-class/:id',

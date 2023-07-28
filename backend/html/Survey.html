@@ -110,23 +110,43 @@
         </div>
 
         <div class="method-description">
-          <p>Método que sobrescreve funcionalidade padrão de <code>as_json</code> do <code>ActiveRecord</code> a fim de incluir atributos de <code>SurveyQuestions</code>, <code>MultipleChoice</code>, <code>Options</code>, <code>LikertScale</code> e <code>LikertQuestions</code> aninhados</p>
+          
             <div class="method-calls-super">
               Calls superclass method
               
             </div>
 
           <div class="method-source-code" id="as_json-source">
-            <pre><span class="ruby-comment"># File app/models/survey.rb, line 26</span>
+            <pre><span class="ruby-comment"># File app/models/survey.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">as_json</span>(<span class="ruby-value">options:</span> {})
-  <span class="ruby-keyword">super</span>(<span class="ruby-value">include:</span> [
-        <span class="ruby-value">:survey_questions</span> <span class="ruby-operator">=&gt;</span> {
-          <span class="ruby-value">include:</span> [
-            <span class="ruby-value">multiple_choice:</span> {<span class="ruby-value">include:</span> <span class="ruby-value">:options</span>},
-            <span class="ruby-value">likert_scale:</span> {<span class="ruby-value">include:</span> <span class="ruby-value">:likert_questions</span>}
-          ]
-        }
-      ])
+  <span class="ruby-keyword">super</span>(
+    <span class="ruby-value">only:</span> [
+      <span class="ruby-value">:id</span>,
+      <span class="ruby-value">:name</span>, 
+      <span class="ruby-value">:description</span>, 
+      <span class="ruby-value">:expiration_date</span>, 
+      <span class="ruby-value">:semester</span>
+    ],
+    <span class="ruby-value">include:</span> [
+      <span class="ruby-value">:role</span> <span class="ruby-operator">=&gt;</span> {
+        <span class="ruby-value">only:</span> [<span class="ruby-value">:name</span>, <span class="ruby-value">:description</span>]
+      },
+      <span class="ruby-value">:survey_questions</span> <span class="ruby-operator">=&gt;</span> {
+        <span class="ruby-value">only:</span> [<span class="ruby-value">:question_number</span>, <span class="ruby-value">:question</span>, <span class="ruby-value">:optional</span>],
+        <span class="ruby-value">include:</span>[
+          <span class="ruby-value">:question_type</span> <span class="ruby-operator">=&gt;</span> {
+            <span class="ruby-value">only:</span> [<span class="ruby-value">:name</span>]
+          },
+          <span class="ruby-value">:question_options</span> <span class="ruby-operator">=&gt;</span> {
+            <span class="ruby-value">only:</span> [<span class="ruby-value">:option</span>, <span class="ruby-value">:content</span>]
+          },
+          <span class="ruby-value">:likert_scale_questions</span> <span class="ruby-operator">=&gt;</span> {
+            <span class="ruby-value">only:</span> [<span class="ruby-value">:question_number</span>, <span class="ruby-value">:question</span>, <span class="ruby-value">:scale_points</span>]
+          }
+        ]
+      }
+    ],
+  )
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
