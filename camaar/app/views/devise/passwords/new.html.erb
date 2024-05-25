@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag "forgot-password.css" %>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo",width: 300, height: 150) %>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+  <%= form.error_notification %>
+  <%= form.text_field :email, id: "email", class: "email", placeholder: "Email", required: true, autofocus: true, autocomplete: "off" %>
+  <%= form.submit "Send me reset password instructions", class: "submit-reset" %>
+  </div>
+  <div class="watermark">
+    Caamar
+  </div>
+<% end %>
+  </div>
+</div>
+
+
