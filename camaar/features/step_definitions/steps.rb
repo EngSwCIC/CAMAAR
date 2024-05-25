@@ -35,11 +35,11 @@ When (/^(?:|I )follow "([^"]*)"$/) do |link|
   click_link(link)
 end
 
-When (/^(?:|I )fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
+And (/^(?:|I )fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
   fill_in(field, :with => value)
 end
 
-When (/^(?:|I )fill in "([^"]*)" for "([^"]*)"$/) do |value, field|
+And (/^(?:|I )fill in "([^"]*)" for "([^"]*)"$/) do |value, field|
   fill_in(field, :with => value)
 end
 
@@ -52,12 +52,6 @@ end
 Given "the following student exists:" do |table|
   table.hashes.each do |student|
     Student.create!(student)
-  end
-end
-
-Given "the following user exists:" do |table|
-  table.hashes.each do |student|
-    User.create!(student)
   end
 end
 
