@@ -11,4 +11,4 @@ Feature: Sign up as a Student
             | Ana Clara Jordao Perna | COMPUTER SCIENCE/CIC | 190084006    | undergraduate | student    |
 
     Scenario Outline: User has clicked on the registration link
-        Given 
+        Given I

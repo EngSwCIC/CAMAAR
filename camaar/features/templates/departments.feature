@@ -1,3 +1,4 @@
-Eu como Administrador
-Quero gerenciar somente as turmas do departamento o qual eu pertenço
-A fim de avaliar o desempenho das turmas no semestre atual
+Feature: Manage classes from department
+As a Coordinator
+I want to manage only the classes of the department to which I belong
+So that I can evaluate the performance of the classes in the current semester

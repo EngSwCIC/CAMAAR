@@ -1,3 +1,4 @@
-Eu como Usuário
-Quero redefinir uma senha para o meu usuário a partir do e-mail recebido após a solicitação da troca de senha
-A fim de recuperar o meu acesso ao sistema
+Feature: Password reset
+As an User
+I want to reset my password using the email received after the password change request
+So that I can regain access to the system

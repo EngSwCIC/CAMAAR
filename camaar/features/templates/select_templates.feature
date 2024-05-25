@@ -1,3 +1,4 @@
-Eu como Administrador
-Quero escolher criar um formulário para os docentes ou os dicentes de uma turma
-A fim de avaliar o desempenho de uma matéria
+Feature: Choose template type
+As a Coordinator
+I want to choose to create a form for the teachers or students of a class
+So that I can evaluate the performance of a subject
