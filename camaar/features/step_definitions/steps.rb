@@ -231,3 +231,13 @@ end
 Then (/^show me the page$/) do
   save_and_open_page
 end
+
+And (/^I confirm the popup$/) do
+  # testar
+  # page.driver.browser.switch_to.alert.accept
+end
+
+And (/^I dismiss the popup$/) do
+  # testar
+  # page.driver.browser.switch_to.alert.dismiss
+end
