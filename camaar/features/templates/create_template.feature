@@ -11,12 +11,12 @@ Feature: Create a template form
 
     Scenario: Coordinator succesfully creates a form template
         When I press the button "add_template"
-        Then I should be on the page "Create a New Template"
+        Then I should be on the page "Crie um Novo Template"
 
-        And I fill in "template_name" with "Template Teste"
+        And I fill in "template_name" with "Template 1"
         And I create a multiple choice question "Classifique seu rendimento" with the options "Bom", "Médio", "Ruim"
         And I create a text question "Dê uma sugestão"
 
         When I press the button "create_template"
         Then I should be on the page "Templates"
-        And I should see "Template Teste"
+        And I should see "Template 1"

@@ -13,10 +13,6 @@ Feature: Delete a form template
 
     Scenario: Deleting a template
         When I press the button "delete_template"
-        Then I should see a confirmation dialog
+        Then I should see a confirmation popup
         And I confirm the popup
         Then I should not see "Template Teste"
-
-        When I press the button "save_template"
-        Then I should be on the page "Templates"
-        And I should see "Template Teste Novo"

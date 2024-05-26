@@ -12,5 +12,10 @@ Feature: Edit a form template
 
     Scenario: Edit a Template
         When I press the button "edit_template"
-        Then I should be on the route "templates/edit/0"
-        And I fill in "template_name" with "Template Teste Novo"
+        Then I should be on the page "Template 1"
+        And I fill in "template_name" with "Template 1.1"
+        When I press the button "save_template"
+        Then I should see a confirmation popup
+        When I confirm the popup
+        Then I should be on the page "Templates"
+        And I should see "Template 1.1"

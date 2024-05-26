@@ -232,12 +232,40 @@ Then (/^show me the page$/) do
   save_and_open_page
 end
 
-And (/^I confirm the popup$/) do
+Given("I am an authenticated Coordinator") do
+  pending
+end
+
+Then("I create a multiple choice question {string} with the options {string}, {string}, {string}") do |string, string2, string3, string4|
+  pending
+end
+
+Then("I create a text question {string}") do |string|
+  pending
+end
+
+Given("that a template exists") do
+  pending
+end
+
+Then("I should see the class {string}") do |string|
+  pending
+end
+
+Then("I should be on the route {string}") do |string|
+  pending
+end
+
+Then("I should see a confirmation popup") do
+  pending
+end
+
+When (/^I confirm the popup$/) do
   # testar
   # page.driver.browser.switch_to.alert.accept
 end
 
-And (/^I dismiss the popup$/) do
+When (/^I dismiss the popup$/) do
   # testar
   # page.driver.browser.switch_to.alert.dismiss
 end
