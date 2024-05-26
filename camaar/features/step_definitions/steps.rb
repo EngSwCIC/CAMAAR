@@ -19,6 +19,7 @@ When (/^(.*) within (.*[^:]):$/) do |step, parent, table_or_string|
   with_scope(parent) { When "#{step}:", table_or_string }
 end
 
+# Navigation
 Given (/^(?:|I )am on the page "(.+)"$/) do |page_name|
   visit path_to(page_name)
 end
@@ -27,14 +28,36 @@ When (/^(?:|I )go to "(.+)$"/) do |page_name|
   visit path_to(page_name)
 end
 
-When (/^(?:|I )press the button "([^"]*)"$/) do |button|
-  click_fi(button)
-end
-
 When (/^(?:|I )follow "([^"]*)"$/) do |link|
   click_link(link)
 end
 
+Then (/^(?:|I )should be on the page "(.+)"$/) do |page_name|
+  current_path = URI.parse(current_url).path
+  if current_path.respond_to? :should
+    current_path.should == path_to(page_name)
+  else
+    assert_equal path_to(page_name), current_path
+  end
+end
+
+Then (/^show me the page$/) do
+  save_and_open_page
+end
+
+# Buttons and clicks
+When (/^(?:|I )press the button "([^"]*)"$/) do |button|
+  click_fi(button)
+end
+When (/^I confirm the popup$/) do
+  page.driver.browser.switch_to.alert.accept
+end
+
+When (/^I dismiss the popup$/) do
+  page.driver.browser.switch_to.alert.dismiss
+end
+
+# Forms and templates
 And (/^(?:|I )fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
   fill_in(field, :with => value)
 end
@@ -43,24 +66,11 @@ And (/^(?:|I )fill in "([^"]*)" for "([^"]*)"$/) do |value, field|
   fill_in(field, :with => value)
 end
 
-Given "the following coordinator exists:" do |table|
-  table.hashes.each do |coordinator|
-    Coordinator.create!(coordinator)
-  end
-end
-
-Given "the following student exists:" do |table|
-  table.hashes.each do |student|
-    Student.create!(student)
-  end
-end
-
 When (/^(?:|I )fill in the following:$/) do |fields|
   fields.rows_hash.each do |name, value|
     When %{I fill in "#{name}" with "#{value}"}
   end
 end
-
 When (/^(?:|I )select "([^"]*)" from "([^"]*)"$/) do |value, field|
   select(value, :from => field)
 end
@@ -81,6 +91,36 @@ When (/^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/) do |path, field|
   attach_file(field, File.expand_path(path))
 end
 
+Then("I create a multiple choice question {string} with the options {string}, {string}, {string}") do |string, string2, string3, string4|
+  pending
+end
+
+Then("I create a text question {string}") do |string|
+  pending
+end
+
+# Database and examples
+Given "the following coordinator exists:" do |table|
+  table.hashes.each do |coordinator|
+    Coordinator.create!(coordinator)
+  end
+end
+
+Given "the following student exists:" do |table|
+  table.hashes.each do |student|
+    Student.create!(student)
+  end
+end
+
+Given("I am an authenticated Coordinator") do
+  pending
+end
+
+Given("that a template exists") do
+  pending
+end
+
+# Visualization
 Then (/^(?:|I )should see "([^"]*)"$/) do |text|
   if page.respond_to? :should
     page.should have_content(text)
@@ -117,6 +157,15 @@ Then (/^(?:|I )should not see \/([^\/]*)\/$/) do |regexp|
   end
 end
 
+Then("I should see a confirmation popup") do
+  pending
+end
+
+Then("I should see the class {string}") do |string|
+  pending
+end
+
+# Field verification
 Then (/^the "([^"]*)" field(?: within (.*))? should contain "([^"]*)"$/) do |field, parent, value|
   with_scope(parent) do
     field = find_field(field)
@@ -206,15 +255,6 @@ Then (/^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/) do |lab
   end
 end
 
-Then (/^(?:|I )should be on the page "(.+)"$/) do |page_name|
-  current_path = URI.parse(current_url).path
-  if current_path.respond_to? :should
-    current_path.should == path_to(page_name)
-  else
-    assert_equal path_to(page_name), current_path
-  end
-end
-
 Then (/^(?:|I )should have the following query string:$/) do |expected_pairs|
   query = URI.parse(current_url).query
   actual_params = query ? CGI.parse(query) : {}
@@ -226,46 +266,4 @@ Then (/^(?:|I )should have the following query string:$/) do |expected_pairs|
   else
     assert_equal expected_params, actual_params
   end
-end
-
-Then (/^show me the page$/) do
-  save_and_open_page
-end
-
-Given("I am an authenticated Coordinator") do
-  pending
-end
-
-Then("I create a multiple choice question {string} with the options {string}, {string}, {string}") do |string, string2, string3, string4|
-  pending
-end
-
-Then("I create a text question {string}") do |string|
-  pending
-end
-
-Given("that a template exists") do
-  pending
-end
-
-Then("I should see the class {string}") do |string|
-  pending
-end
-
-Then("I should be on the route {string}") do |string|
-  pending
-end
-
-Then("I should see a confirmation popup") do
-  pending
-end
-
-When (/^I confirm the popup$/) do
-  # testar
-  # page.driver.browser.switch_to.alert.accept
-end
-
-When (/^I dismiss the popup$/) do
-  # testar
-  # page.driver.browser.switch_to.alert.dismiss
 end
