@@ -6,7 +6,7 @@ Feature: Manage classes from department
     Background: I am an Coordinator
         Given I am an authenticated Coordinator
         When I follow "Turmas"
-        Then I should be on the page "Turmas"
+        Then I should be on the page "Turmas do Departamento"
 
     Scenario: Coordinator acess department classes page
         And I should see "DEPTO CIÊNCIAS DA COMPUTAÇÃO - CIC"
