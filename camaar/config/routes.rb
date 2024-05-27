@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'layouts/page'
   get 'layouts/form_student'
   get 'layouts/importdata'
+  # get 'layouts/define_password'
   # devise_for :users
   #resources :users
 
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
     :sign_up => 'register',
     :sign_out => 'logout',
     :password => 'recover-password',
+    :define => 'define-password',
     :confirmation => 'verification'
   }
 
