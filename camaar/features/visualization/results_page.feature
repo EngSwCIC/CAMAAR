@@ -5,10 +5,10 @@ Feature: Forms results page
     So that I can generate a report from the responses
 
     Scenario: Coordinator tries to ciew submited forms
-        Given I am an authenticated Coordinator
+        Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         And I am on the Camaar home page
         When I follow "Adicionar Formulário"
-        Then I should be on the page forms
+        Then I should be on the page "Formulários"
         When I check '5' in 'Avalie CIC0197'
         And I check '5' in 'Avalie CIC099'
         And I check 'Marcus Vinicius Lamar' in 'Selecione seus melhores professores'

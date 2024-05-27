@@ -9,7 +9,5 @@ Scenario: Student tries to submit a form
 
 Background:test form exists 
     Given I am an authenticated Student
-    Given I am on the page "user/forms"
-
-  
+    Given I am on the page "Formulários"
 

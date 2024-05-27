@@ -4,18 +4,22 @@ Feature: Edit a form template
     So that I can organize existing templates effectively
 
     Background: I am an Coordinator
-        Given I am an authenticated Coordinator
+        Given that there are classes from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         When I follow "Templates"
         Then I should be on the page "Templates"
-        Given that a template exists
-        Then I should see "Template Teste"
-
-    Scenario: Edit a Template
-        When I press the button "edit_template"
+        Given that I created the template "Template 1"
+        Then I should see "Template 1"
+        When I press the button "Editar Template"
         Then I should be on the page "Template 1"
-        And I fill in "template_name" with "Template 1.1"
-        When I press the button "save_template"
-        Then I should see a confirmation popup
-        When I confirm the popup
+
+    Scenario: Succesfully update a template
+        And I fill in "Nome do Template" with "Template 1.1"
+        When I press the button "Salvar Template"
+        And I confirm a popup
         Then I should be on the page "Templates"
         And I should see "Template 1.1"
+
+    Scenario: Leaves a text field empty
+        And I fill in "Nome do Template" with ""
+        When I press the button "Salvar Template"
+        Then the "Nome do Template" field should have the error "Campo não pode estar vazio"

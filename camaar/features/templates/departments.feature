@@ -4,13 +4,18 @@ Feature: Manage classes from department
     So that I can evaluate the performance of the classes in the current semester
 
     Background: I am an Coordinator
-        Given I am an authenticated Coordinator
+        Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         When I follow "Turmas"
-        Then I should be on the page "Turmas do Departamento"
+        Then I should be on the page "Meu Departamento"
+        Then I should see "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
 
-    Scenario: Coordinator acess department classes page
-        And I should see "DEPTO CIÊNCIAS DA COMPUTAÇÃO - CIC"
-        And I should see the class "CIC0097"
-        And I should see the class "CIC0105"
-        And I should see the class "CIC0105"
+    Scenario: Coordinator acess department page
+        Given that there are classes from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+        Then I should only see classes starting with "CIC"
+
+    Scenario: Coordinator has not imported classes data
+        Then I should see "Não foram encontradas turmas para o departamento"
+        Then I should see "Importar Turmas"
+
+
 

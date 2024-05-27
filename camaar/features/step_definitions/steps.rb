@@ -49,12 +49,17 @@ end
 When (/^(?:|I )press the button "([^"]*)"$/) do |button|
   click_fi(button)
 end
-When (/^I confirm the popup$/) do
-  page.driver.browser.switch_to.alert.accept
+
+And (/^(?:|I )confirm a popup$/) do
+  accept_confirm do
+    click_fi("OK")
+  end
 end
 
-When (/^I dismiss the popup$/) do
-  page.driver.browser.switch_to.alert.dismiss
+And (/^(?:|I )dismiss a popup$/) do
+  dismiss_confirm do
+    click_fi("Cancel")
+  end
 end
 
 # Forms and templates
@@ -91,12 +96,36 @@ When (/^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/) do |path, field|
   attach_file(field, File.expand_path(path))
 end
 
-Then("I create a multiple choice question {string} with the options {string}, {string}, {string}") do |string, string2, string3, string4|
-  pending
+Then (/^(?:|I )create question (\d+) as a multiple choice question "([^"]*)" with the options (.*)$/) do |number, caption, options|
+  options = options.split('" "').map { |opt| opt.gsub('"', "") }
+  template = {
+    questions: {
+      number => {
+        caption: caption,
+        options: {},
+      },
+    },
+  }
+
+  options.each_with_index do |option, index|
+    template[:questions][number][:options][index + 1] = { text: option, selected: false }
+  end
+
+  template
 end
 
-Then("I create a text question {string}") do |string|
-  pending
+Then (/^(?:|I )create question (\d+) as a text question "([^"]*)"/) do |number, caption|
+  options = options.split('" "').map { |opt| opt.gsub('"', "") }
+  template = {
+    questions: {
+      number => {
+        caption: caption,
+        response: "",
+      },
+    },
+  }
+
+  template
 end
 
 # Database and examples
@@ -112,15 +141,40 @@ Given "the following student exists:" do |table|
   end
 end
 
-Given("I am an authenticated Coordinator") do
+# Given (/^I am not authenticated$/) do
+#   visit("/users/sign_out")
+# end
+
+Given (/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|
+  name = "João Pedro"
+  email = "test@gmail.com"
+  password = "123456"
+  department_id = 508 #fazer vir de uma consulta a partir do nome do dpto
+
+  Coordinator.new(
+    :name => name,
+    :department => department_id, #assume que os departamentos estão sempre na db
+    :email => email,
+    :password => password,
+  ).save!
+
+  visit("/users/sign_in")
+  fill_in("email", :with => email)
+  fill_in("password", :with => password)
+  fill_in("password_confirmation", :with => password)
+  click_fi("login")
+end
+
+Given(/that I created the template "([^"]*)"$/) do |name|
   pending
 end
 
-Given("that a template exists") do
+Given (/that there are classes from the "([^"]*)"$/) do |dpt_name|
   pending
 end
 
 # Visualization
+
 Then (/^(?:|I )should see "([^"]*)"$/) do |text|
   if page.respond_to? :should
     page.should have_content(text)
@@ -157,12 +211,8 @@ Then (/^(?:|I )should not see \/([^\/]*)\/$/) do |regexp|
   end
 end
 
-Then("I should see a confirmation popup") do
-  pending
-end
-
-Then("I should see the class {string}") do |string|
-  pending
+And ("I should only see classes starting with {string}") do |string|
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 # Field verification

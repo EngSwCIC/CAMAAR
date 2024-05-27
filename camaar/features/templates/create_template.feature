@@ -5,18 +5,27 @@ Feature: Create a template form
 
 
     Background: I am an Coordinator
-        Given I am an authenticated Coordinator
+        Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         When I follow "Templates"
         Then I should be on the page "Templates"
 
     Scenario: Coordinator succesfully creates a form template
-        When I press the button "add_template"
+        When I press the button "Adicionar Template"
         Then I should be on the page "Crie um Novo Template"
 
         And I fill in "template_name" with "Template 1"
-        And I create a multiple choice question "Classifique seu rendimento" with the options "Bom", "Médio", "Ruim"
-        And I create a text question "Dê uma sugestão"
+        And I create question 1 as a multiple choice question "Classifique seu rendimento" with the options "Bom" "Médio" "Ruim" "Péssimo"
+        And I create question 2 as a text question "Dê uma sugestão"
 
-        When I press the button "create_template"
+        When I press the button "Salvar Template"
         Then I should be on the page "Templates"
         And I should see "Template 1"
+
+    Scenario: Coordinator fails to create a form template due to missing information
+        When I press the button "Adicionar Template"
+        Then I should be on the page "Crie um Novo Template"
+
+        And I fill in "template_name" with "Template 1"
+
+        When I press the button "Salvar Template"
+        Then I should see "O template precisa conter pelo menos uma pergunta"
