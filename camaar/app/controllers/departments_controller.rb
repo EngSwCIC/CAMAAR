@@ -1,4 +1,4 @@
 class DepartmentsController < ApplicationController
-  def show
+  def index
   end
 end
