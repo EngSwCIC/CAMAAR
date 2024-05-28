@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_28_162152) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_28_181022) do
   create_table "coordinators", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_coordinators_on_email", unique: true
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
+    t.string "initials"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["initials"], name: "index_departments_on_initials", unique: true
   end
 
   create_table "forms", force: :cascade do |t|
@@ -54,6 +62,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_28_162152) do
     t.string "schedule"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "department_id", null: false
+    t.integer "teacher_id", null: false
+    t.index ["department_id"], name: "index_subject_classes_on_department_id"
+    t.index ["semester", "subject", "code"], name: "index_subject_classes_on_semester_and_subject_and_code", unique: true
+    t.index ["teacher_id"], name: "index_subject_classes_on_teacher_id"
   end
 
   create_table "teacher_answers", force: :cascade do |t|
@@ -81,4 +94,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_28_162152) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "subject_classes", "departments"
+  add_foreign_key "subject_classes", "teachers"
 end

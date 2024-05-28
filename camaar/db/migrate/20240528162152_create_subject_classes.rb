@@ -8,6 +8,6 @@ class CreateSubjectClasses < ActiveRecord::Migration[7.1]
       t.string :schedule
       t.timestamps
     end
-
+    add_index :subject_classes, [:semester, :subject, :code], unique: true
   end
 end

@@ -1,4 +1,3 @@
-<h1>Classes#index</h1>
-<p>Find me in app/views/classes/index.html.erb</p>
-
-<p> </p>
+<% @classes.each do |dpto_class| %>
+  <p><%= dpto_class.subject %></p>
+<% end %>
