@@ -13,7 +13,13 @@ body {
     text-decoration: none;
     font-weight: 400;
   }
-  
+
+  h1{
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+  }
+
   h2 {
     text-align: center;
     display:flex;
@@ -91,7 +97,7 @@ body {
     }
   
   input[type=button], input[type=submit], input[type=reset]  {
-    background-color: #56baed;
+    background-color: #133e79;
     border: none;
     color: white;
     padding: 15px 40px;
