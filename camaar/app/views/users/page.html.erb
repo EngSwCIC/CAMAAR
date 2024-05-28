@@ -121,9 +121,10 @@
                                                 </div>
                                             </div>
                                            
-                                            <div class="account-dropdown__footer">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                            <div class="account-dropdown__footer">                            
+                                                <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+                                                <i class ="zmdi zmdi-power"></i> Logout
+                                                <%end%> 
                                             </div>
                                         </div>
                                     </div>
