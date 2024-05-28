@@ -4,4 +4,8 @@ class LayoutsController < ApplicationController
     @user = User.all
   end
 
+  def page
+    redirect_to 'user/page'
+  end
+
 end

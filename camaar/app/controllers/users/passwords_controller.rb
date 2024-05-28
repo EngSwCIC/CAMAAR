@@ -11,6 +11,12 @@ class Users::PasswordsController < Devise::PasswordsController
     super
   end
 
+  def define
+
+  end
+
+
+
   # GET /resource/password/edit?reset_password_token=abcdef
   def edit
     super

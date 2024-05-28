@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :templates
+  devise_for :forms
+  devise_for :departments
+  devise_for :coordinators
   get 'home/index'
-  get 'layouts/page'
-  get 'layouts/form_student'
-  get 'layouts/importdata'
+  get 'layouts/user/page'
+  get 'layouts/user/form_student'
+  get 'layouts/admin/page'
+  get 'layouts/admin/form_student'
+  get 'layouts/admin/importdata'
   # get 'layouts/define_password'
   # devise_for :users
   #resources :users
