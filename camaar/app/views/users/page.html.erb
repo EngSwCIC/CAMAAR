@@ -50,11 +50,21 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        
-                        <li>
-                            <a href="forms">
-                                <i class="far fa-check-square"></i>Formulários</a>
+                         <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-check-square"></i>Forms</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                <%= link_to "Pendentes", new_user_session_path%>
+                                </li>
+                                <li>
+                                    <%= link_to "Respondidos", new_user_registration_path%>
+                                </li>
+                            </ul>
                         </li>
+                    </li>
+                    </li>
+                    
                        
                      
                        
@@ -75,10 +85,20 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                        
-                        <li>
-                            <a href="forms">
-                                <i class="far fa-check-square"></i>Formulários</a>
+                       <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-check-square"></i>Forms</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                <%= link_to "Pendentes", new_user_session_path%>
+                                </li>
+                                <li>
+                                    <%= link_to "Respondidos", new_user_registration_path%>
+                                </li>
+                            </ul>
                         </li>
+                    </li>
+                    </li>
                     </ul>
                 </nav>
             </div>
@@ -144,7 +164,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">Respostas dos Formulários</h2>
+                                    <h2 class="title-1">Formulários Pendentes</h2>
 
 
                                     <%# <button class="au-btn au-btn-icon au-btn--blue"> %>

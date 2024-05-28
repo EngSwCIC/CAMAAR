@@ -15,14 +15,14 @@ Feature: Reset Password
         Given I am an registered user 
         And I am on the login page 
         When I press the button "Esqueci minha senha"
-        Then I should be on register page
-        And I should see 'Redefina sua Senha'
+        Then I should be on reset-password page
+        And I should see "Redefina sua senha"
         When I fill in 'Email' with <email>
         And I press "Confirmar"
         Then I should receive an email 
-        And I should see "Registration Link"
-        When I click "Registration Link"
-        Then I should be on define-password page 
+        And I should see "Reset-password Link"
+        When I click "Reset-password Link"
+        Then I should be on reset-password page 
         And I should see 'Olá <name> !'
         And I should see 'Defina sua senha'
         When I fill in 'Senha' with <password>
@@ -30,7 +30,9 @@ Feature: Reset Password
         And I press 'Confirmar'
         Then I should be on the page "login"
         And I should see "Bem vindo ao CAMAAR"
-        When I fill in "Email" with 
+        When I fill in "Email" with <email>
+        And I fill in "Senha" with <password"
+        And I press "Confirmar"
         Then I should be on the page "forms"
         And I should see "<name>"
         And I should see 'Formularios'
