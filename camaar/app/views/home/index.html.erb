@@ -9,19 +9,10 @@
     <form>
       <div class="submit-container mt-3">
       
-       <%= form_with url: 'login', method: :post do %>
-      <%= submit_tag "Usuário", class: "submit-login", value:"Usuário" ,type: :submit%>
-      <% end %>
-      <%= form_with url: 'users/register', method: :get do %>
-      <%= submit_tag "Coordenador", class: "submit-register",value:"Admin",type: :submit %>
-      <% end %>
+      <%= link_to 'Usuário', 'users/login', class: 'submit-userslogin', role: 'button' %>
+      <%= link_to 'Admin', 'admin/login', class: 'submit-adminlogin', role: 'button'%>
+     
       </div>
     </form>
-<%# 
-    <div id="formFooter">
-      <a class="underlineHover" href="users/recover-password/new/">Esqueceu a senha?</a>
-    </div> %>
-
   </div>
 </div>
-
