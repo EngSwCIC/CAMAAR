@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   devise_for :departments
   devise_for :coordinators
   get 'home/index'
-  get 'layouts/user/page'
-  get 'layouts/user/form_student'
-  get 'layouts/admin/page'
-  get 'layouts/admin/form_student'
-  get 'layouts/admin/importdata'
+  get 'users/page'
+  get 'users/form_student'
+  get 'admin/page'
+  get 'admin/form_student'
+  get 'admin/importdata'
   # get 'layouts/define_password'
   # devise_for :users
   #resources :users
