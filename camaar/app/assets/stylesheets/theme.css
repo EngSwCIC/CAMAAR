@@ -108,7 +108,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
+h1{
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+}
+/* h1, */
 h2,
 h3,
 h4,
