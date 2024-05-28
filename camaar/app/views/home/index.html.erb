@@ -3,29 +3,24 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo",width: 300, height: 150) %>
-   
+   <br>
+    <h1> Bem vindo ao <h1>
+    <h1> CAMAAR</H1>
     <form>
-      <input type="text" id="email" class="email" name="email" placeholder="Email">
-        <div class="input-password">
-          <input type="password" id="password" class="input-field" autocomplete="off" placeholder="Senha">
-                <%# <i class="bx bx-lock-alt icon" id="show-password"></i> %>
-                <%# <%= link_to 'Deslogar', destroy_user_session_path, data: {turbo_method: :delete}%> 
-          </div>
       <div class="submit-container mt-3">
-
+      
        <%= form_with url: 'login', method: :post do %>
-      <%= submit_tag "Log In", class: "submit-login", value:"Log In" ,type: :submit%>
+      <%= submit_tag "Usuário", class: "submit-login", value:"Usuário" ,type: :submit%>
       <% end %>
       <%= form_with url: 'users/register', method: :get do %>
-      <%= submit_tag "Register", class: "submit-register",value:"Register",type: :submit %>
+      <%= submit_tag "Coordenador", class: "submit-register",value:"Admin",type: :submit %>
       <% end %>
       </div>
-      <div class="watermark">Caamar</div>
     </form>
-
+<%# 
     <div id="formFooter">
       <a class="underlineHover" href="users/recover-password/new/">Esqueceu a senha?</a>
-    </div>
+    </div> %>
 
   </div>
 </div>
