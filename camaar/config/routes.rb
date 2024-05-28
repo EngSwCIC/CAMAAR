@@ -4,8 +4,18 @@ Rails.application.routes.draw do
   devise_for :departments
   devise_for :coordinators
   get 'home/index'
-  get 'users/page'
-  get 'users/form_student'
+  # get 'users/page'
+  # get 'users/form_student'
+  match '/users/page',   to: 'users#page',   via: 'get'
+  match '/users/forms',   to: 'users#form_student',   via: 'get'
+  # match '/users/page',   to: 'users#page',   via: 'get'
+  # match '/users/page',   to: 'users#page',   via: 'get'
+
+  match '/admin/page',   to: 'admin#page',   via: 'get'
+  match '/admin/forms',   to: 'admin#form_student',   via: 'get'
+  match '/admin/dashboards',   to: 'admin#dashboards',   via: 'get'
+  match '/admin/import',   to: 'admin#importdata',   via: 'get'
+
   get 'admin/page'
   get 'admin/form_student'
   get 'admin/importdata'
