@@ -9,12 +9,12 @@ Feature: Login
         Given the following user exists:
 
     Scenario Outline: User logs in with valid credentials
-        Given I am on the page "login"
+        Given I am on the page "Login"
         When I fill in the following:
             | email    | <email>    |
             | password | <password> |
-        And I press the button "login"
-        Then I should be on the page "forms"
+        And I press the button "Entrar"
+        Then I should be on the page "Formulários"
         And I should see "<name>"
 
         Examples:
