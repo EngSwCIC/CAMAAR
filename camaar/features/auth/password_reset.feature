@@ -11,10 +11,10 @@ Feature: Reset Password
 
         And the following user is registered 
 
-    Scenario Outline: User has clicked on the registration link
-        Given I am an unregistered user 
-        And I am on the root page 
-        When I press the button "Registrar"
+    Scenario Outline: User has clicked on the reset password link
+        Given I am an registered user 
+        And I am on the login page 
+        When I press the button "Esqueci minha senha"
         Then I should be on register page
         And I should see 'Redefina sua Senha'
         When I fill in 'Email' with <email>
@@ -25,9 +25,12 @@ Feature: Reset Password
         Then I should be on define-password page 
         And I should see 'Olá <name> !'
         And I should see 'Defina sua senha'
-        When I fill in 'Senha' with <senha>
-        And I fill in 'Confirme sua Senha' with <senha>
+        When I fill in 'Senha' with <password>
+        And I fill in 'Confirme sua Senha' with <password>
         And I press 'Confirmar'
+        Then I should be on the page "login"
+        And I should see "Bem vindo ao CAMAAR"
+        When I fill in "Email" with 
         Then I should be on the page "forms"
         And I should see "<name>"
         And I should see 'Formularios'

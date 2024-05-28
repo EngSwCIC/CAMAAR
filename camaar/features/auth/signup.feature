@@ -29,6 +29,11 @@ Feature: Sign up as a Student
         When I fill in 'Senha' with <senha>
         And I fill in 'Confirme sua Senha' with <senha>
         And I press 'Confirmar'
+        Then I should be on the page "login"
+        And I should see "Bem vindo ao CAMAAR"
+        When I fill in "Email" with <email>
+        And I fill in "Senha" with <password"
+        And I press "Confirmar"
         Then I should be on the page "forms"
         And I should see "<name>"
         And I should see 'Formularios'
