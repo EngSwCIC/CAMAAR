@@ -16,7 +16,7 @@ Feature: Reset Password
 
         Then I should received an password reset email at ""
         And I follow "Reset-password Link"
-        Then I should be on the "Redefina sua senha" page
+        Then I should be on the "Redefina sua Senha" page
         When I fill in the following:
             | password    | confirmation |
             | newpassword | newpassword  |

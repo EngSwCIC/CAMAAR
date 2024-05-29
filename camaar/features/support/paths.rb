@@ -12,12 +12,24 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
+    when "Formulários"
+      "/forms"
+    when /Formulário (\d+)/
+      "/forms/#{$1}"
     when "Templates"
-      "/admin/templates"
-    when "Crie um Novo Template"
-      "/admin/templates/new"
-    when "/Template (\d+)/"
-      "/admin/templates/#{$1}/edit"
+      "/templates"
+    when "Redefina sua Senha"
+      "/admins/..."
+    when "Login de Usuário"
+      "/users/login"
+    when "Login de Admin"
+      "/admins/login"
+    when "Novo Template"
+      "/templates/create"
+    when /Template (\d+)/
+      "/templates/#{$1}/edit"
+    when /Turmas do (\w+)/
+      "/classes/#{$1}"
     else
       begin
         page_name =~ /^the (.*) page$/
