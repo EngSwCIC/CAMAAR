@@ -9,14 +9,16 @@ Feature: Management System by Department
         Given I'm an admin
 
     Scenario: List all classes 
-        When I'm on the management page
+        When I'm on the management page  #Teoricamente isso já tá no background
         Then I should see all classes from my department
-
+    
+    # Que tal "When I fill in "Turma" Textfield?
     Scenario: Search a class from my department 
         When I fill in "Turma" with "turma do meu departamento"
         And I click the search button
         Then I should see all classes of "turma do meu departamento" at the current semester 
 
+    # Talvez seja bom separar o inexistent em outro teste?
     Scenario: Search a class from another department or inexistet
         When I fill in "Turma" with "turma de outro departamento"
         And I click the search button
