@@ -17,3 +17,11 @@ end
 Given(/^(?:|I) have an existing template named "(.+)"$/) do |template_name|
    pending
 end
+
+Given(/^the step I am in is "(.+)"$/) do |management_step|
+   pending
+end
+
+Then(/^I should see the class selection table$/) do
+   pending
+end
