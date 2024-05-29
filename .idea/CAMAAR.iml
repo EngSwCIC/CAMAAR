@@ -28,103 +28,217 @@
     </content>
     <orderEntry type="jdk" jdkName="ruby-2.7.8-p225" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="actioncable (v7.1.3.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionmailbox (v7.1.3.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionmailer (v7.1.3.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionpack (v7.1.3.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actiontext (v7.1.3.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionview (v7.1.3.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activejob (v7.1.3.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activemodel (v7.1.3.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activerecord (v7.1.3.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activestorage (v7.1.3.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activesupport (v7.1.3.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.6, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="base64 (v0.2.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bigdecimal (v3.1.8, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bindex (v0.8.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.18.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.1.4, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="capybara (v3.39.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.3.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="connection_pool (v2.4.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cucumber (v5.3.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cucumber-core (v8.0.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cucumber-create-meta (v2.0.4, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cucumber-cucumber-expressions (v10.3.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cucumber-gherkin (v15.0.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cucumber-html-formatter (v9.0.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cucumber-messages (v13.2.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cucumber-rails (v2.6.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cucumber-tag-expressions (v2.0.4, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cucumber-wire (v4.0.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="database_cleaner (v2.0.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="database_cleaner-active_record (v2.1.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="database_cleaner-core (v2.0.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="date (v3.3.4, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="debug (v1.9.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.5.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="drb (v2.2.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="erubi (v1.12.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ffi (v1.16.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="globalid (v1.2.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="i18n (v1.14.5, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="importmap-rails (v2.0.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="io-console (v0.7.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="irb (v1.13.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.12.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="loofah (v2.22.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mail (v2.8.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="marcel (v1.0.4, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="matrix (v0.4.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="middleware (v0.1.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mime-types (v3.5.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mime-types-data (v3.2024.0507, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.1.5, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="minitest (v5.23.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="msgpack (v1.7.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_test (v0.1.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mutex_m (v0.2.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="net-imap (v0.4.11, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="net-pop (v0.1.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="net-protocol (v0.2.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="net-smtp (v0.5.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.7.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.15.6, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="protobuf-cucumber (v3.10.8, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="psych (v5.1.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="public_suffix (v5.0.5, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="puma (v6.4.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="racc (v1.8.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v3.0.11, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-session (v2.0.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-test (v2.1.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rackup (v2.1.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails (v7.1.3.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.2.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.6.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="railties (v7.1.3.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rake (v13.2.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdoc (v6.7.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v2.9.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="reline (v0.5.8, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rexml (v3.2.8, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubyzip (v2.3.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v4.9.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sprockets (v4.2.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.4.2, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v1.6.9, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="stimulus-rails (v1.3.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="stringio (v3.1.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="strscan (v3.1.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sys-uname (v1.2.3, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="thor (v1.3.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.6, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="timeout (v0.4.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="turbo-rails (v2.0.5, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tzinfo (v2.0.6, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tzinfo-data (v1.2024.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="web-console (v4.2.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="webdrivers (v5.3.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="webrick (v1.8.1, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="websocket (v1.2.10, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.7.6, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.5, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="xpath (v3.2.0, ruby-2.7.8-p225) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="zeitwerk (v2.6.15, ruby-2.7.8-p225) [gem]" level="application" />
+  </component>
+  <component name="RModuleSettingsStorage">
+    <LOAD_PATH number="0" />
+    <I18N_FOLDERS number="1" string0="$MODULE_DIR$/config/locales" />
   </component>
   <component name="RailsPaths" isManagedAutomatically="true">
     <entry key="app">
-      <value>file://$MODULE_DIR$/app</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\app</value>
     </entry>
     <entry key="app/assets">
-      <value>file://$MODULE_DIR$/app/assets</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\app/assets</value>
     </entry>
     <entry key="app/channels">
-      <value>file://$MODULE_DIR$/app/channels</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\app/channels</value>
     </entry>
     <entry key="app/controllers">
-      <value>file://$MODULE_DIR$/app/controllers</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\app/controllers</value>
     </entry>
     <entry key="app/helpers">
-      <value>file://$MODULE_DIR$/app/helpers</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\app/helpers</value>
     </entry>
     <entry key="app/mailers">
-      <value>file://$MODULE_DIR$/app/mailers</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\app/mailers</value>
     </entry>
     <entry key="app/models">
-      <value>file://$MODULE_DIR$/app/models</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\app/models</value>
     </entry>
     <entry key="app/views">
-      <value>file://$MODULE_DIR$/app/views</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\app/views</value>
     </entry>
     <entry key="config">
-      <value>file://$MODULE_DIR$/config</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\config</value>
     </entry>
     <entry key="config/cable">
-      <value>file://$MODULE_DIR$/config/cable.yml</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\config/cable.yml</value>
     </entry>
     <entry key="config/database">
-      <value>file://$MODULE_DIR$/config/database.yml</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\config/database.yml</value>
     </entry>
     <entry key="config/environment">
-      <value>file://$MODULE_DIR$/config/environment.rb</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\config/environment.rb</value>
     </entry>
     <entry key="config/environments">
-      <value>file://$MODULE_DIR$/config/environments</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\config/environments</value>
     </entry>
     <entry key="config/initializers">
-      <value>file://$MODULE_DIR$/config/initializers</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\config/initializers</value>
     </entry>
     <entry key="config/locales">
-      <value>file://$MODULE_DIR$/config/locales</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\config/locales</value>
     </entry>
     <entry key="config/routes">
-      <value>file://$MODULE_DIR$/config/routes</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\config/routes</value>
     </entry>
     <entry key="config/routes.rb">
-      <value>file://$MODULE_DIR$/config/routes.rb</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\config/routes.rb</value>
     </entry>
     <entry key="config/secrets">
-      <value>file://$MODULE_DIR$/config</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\config</value>
     </entry>
     <entry key="db">
-      <value>file://$MODULE_DIR$/db</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\db</value>
     </entry>
     <entry key="db/migrate">
-      <value>file://$MODULE_DIR$/db/migrate</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\db/migrate</value>
     </entry>
     <entry key="db/seeds.rb">
-      <value>file://$MODULE_DIR$/db/seeds.rb</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\db/seeds.rb</value>
     </entry>
     <entry key="lib">
-      <value>file://$MODULE_DIR$/lib</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\lib</value>
     </entry>
     <entry key="lib/assets">
-      <value>file://$MODULE_DIR$/lib/assets</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\lib/assets</value>
     </entry>
     <entry key="lib/tasks">
-      <value>file://$MODULE_DIR$/lib/tasks</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\lib/tasks</value>
     </entry>
     <entry key="lib/templates">
-      <value>file://$MODULE_DIR$/lib/templates</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\lib/templates</value>
     </entry>
     <entry key="log">
-      <value>file://$MODULE_DIR$/log/development.log</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\log/development.log</value>
     </entry>
     <entry key="public">
-      <value>file://$MODULE_DIR$/public</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\public</value>
     </entry>
     <entry key="public/javascripts">
-      <value>file://$MODULE_DIR$/public/javascripts</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\public/javascripts</value>
     </entry>
     <entry key="public/stylesheets">
-      <value>file://$MODULE_DIR$/public/stylesheets</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\public/stylesheets</value>
+    </entry>
+    <entry key="test/mailers/previews">
+      <value>file://$MODULE_DIR$/test/mailers/previews</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\test/mailers/previews</value>
     </entry>
     <entry key="tmp">
-      <value>file://$MODULE_DIR$/tmp</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\tmp</value>
     </entry>
     <entry key="vendor">
-      <value>file://$MODULE_DIR$/vendor</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\vendor</value>
     </entry>
     <entry key="vendor/assets">
-      <value>file://$MODULE_DIR$/vendor/assets</value>
+      <value>file://$MODULE_DIR$/../CAMAAR\vendor/assets</value>
     </entry>
   </component>
 </module>
