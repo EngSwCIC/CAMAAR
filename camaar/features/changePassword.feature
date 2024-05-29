@@ -1,7 +1,26 @@
+# Eu como Usuário
+# Quero redefinir uma senha para o meu usuário a partir do e-mail recebido 
+# após a solicitação da troca de senha
+# A fim de recuperar o meu acesso ao sistema
+
 Feature: Change password
 
+    Scenario: Try to change password at Login page
+        Given I'm a registered user
+        And I'm on the Login page
+        When I click on the forgot password button
+        And I fill in the recovery email textfield with my email
+        Then I should receive an email with a link to the change password page
+
+    Scenario: Try to change password of an unregistered user
+        Given I'm a user
+        And I'm on the Login page
+        When I click on the forgot password button
+        And I fill in the recovery email textfield with an unregistered email
+        Then I should be prompted with "Email não registrado."
+
     Background:
-        Start from the edit profile page
+        Start from the change password page
         Given I'm a registered user
 
     Scenario: Fields filled correctly
