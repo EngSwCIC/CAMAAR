@@ -5,7 +5,7 @@
 Feature: Management System by Department
 
     Background:
-        Start from the management page
+        Start from the class management page
         Given I'm an admin
 
     Scenario: List all classes 
