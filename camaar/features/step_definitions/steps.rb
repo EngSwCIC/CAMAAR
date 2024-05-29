@@ -32,7 +32,7 @@ When (/^(?:|I )follow "([^"]*)"$/) do |link|
   click_link(link)
 end
 
-Then (/^(?:|I )should be on the "(.+)" page$/) do |page_name|
+Then (/^(?:|I )should be on the "([^"]*)" page$/) do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
     current_path.should == path_to(page_name)
@@ -46,7 +46,7 @@ Then (/^show me the page$/) do
 end
 
 # Buttons and clicks
-When (/^(?:|I )press (?: |the button )"([^"]*)"$/) do |button|
+When (/^(?:|I )press (?:|the button )"([^"]*)"$/) do |button|
   click_fi(button)
 end
 
@@ -76,6 +76,7 @@ When (/^(?:|I )fill in the following:$/) do |fields|
     When %{I fill in "#{name}" with "#{value}"}
   end
 end
+
 When (/^(?:|I )select "([^"]*)" from "([^"]*)"$/) do |value, field|
   select(value, :from => field)
 end
@@ -96,73 +97,31 @@ When (/^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/) do |path, field|
   attach_file(field, File.expand_path(path))
 end
 
-Then (/^(?:|I )create question (\d+) as a multiple choice question "([^"]*)" with the options (.*)$/) do |number, caption, options|
-  options = options.split('" "').map { |opt| opt.gsub('"', "") }
-  template = {
-    questions: {
-      number => {
-        caption: caption,
-        options: {},
-      },
-    },
-  }
-
-  options.each_with_index do |option, index|
-    template[:questions][number][:options][index + 1] = { text: option, selected: false }
-  end
-
-  template
-end
-
-Then (/^(?:|I )create question (\d+) as a text question "([^"]*)"/) do |number, caption|
-  options = options.split('" "').map { |opt| opt.gsub('"', "") }
-  template = {
-    questions: {
-      number => {
-        caption: caption,
-        response: "",
-      },
-    },
-  }
-
-  template
+Then(/^(?:|I )create question (\d+) as a (multiple choice|text) question:$/) do |number, type|
+  pending
 end
 
 # Database and examples
-Given "the following coordinator exists:" do |table|
-  table.hashes.each do |coordinator|
-    Coordinator.create!(coordinator)
-  end
-end
-
-Given "the following student exists:" do |table|
-  table.hashes.each do |student|
-    Student.create!(student)
-  end
-end
-
-# Given (/^I am not authenticated$/) do
-#   visit("/users/sign_out")
-# end
 
 Given (/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|
-  name = "João Pedro"
-  email = "test@gmail.com"
-  password = "123456"
-  department_id = 508 #fazer vir de uma consulta a partir do nome do dpto
+  pending
+  # name = "João Pedro"
+  # email = "test@gmail.com"
+  # password = "123456"
+  # department_id = 508 #fazer vir de uma consulta a partir do nome do dpto
 
-  Coordinator.new(
-    :name => name,
-    :department => department_id, #assume que os departamentos estão sempre na db
-    :email => email,
-    :password => password,
-  ).save!
+  # Coordinator.new(
+  #   :name => name,
+  #   :department => department_id, #assume que os departamentos estão sempre na db
+  #   :email => email,
+  #   :password => password,
+  # ).save!
 
-  visit("/users/sign_in")
-  fill_in("email", :with => email)
-  fill_in("password", :with => password)
-  fill_in("password_confirmation", :with => password)
-  click_fi("login")
+  # visit("/users/sign_in")
+  # fill_in("email", :with => email)
+  # fill_in("password", :with => password)
+  # fill_in("password_confirmation", :with => password)
+  # click_fi("login")
 end
 
 Given(/that I created the template "([^"]*)"$/) do |name|
@@ -171,6 +130,18 @@ end
 
 Given (/that there are classes from the "([^"]*)"$/) do |dpt_name|
   pending
+end
+
+Given(/that I am an unauthenticated ([^"]*)$/) do |role| #if user or admin
+  pending
+end
+
+Given(/that I am an unregistered ([^"]*)$/) do |role|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+And (/I received an ([^"]*) email at "([^"]*)"$/) do |email_type| #reset or registration
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 # Visualization
