@@ -16,6 +16,9 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
+    when /^the forms page$/
+      pending
+      
     when /^the sign in page$/
       pending
 
