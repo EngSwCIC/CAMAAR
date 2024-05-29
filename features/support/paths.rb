@@ -19,6 +19,10 @@ module NavigationHelpers
     when /^the forms page$/
       pending
 
+    when /^the form (.+) page$/ do |form_id|
+      pending
+    end
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
