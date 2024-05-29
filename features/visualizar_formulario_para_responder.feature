@@ -17,9 +17,8 @@ Scenario: Not see forms that I have already answered (Happy path)
    Then I should not see "Matéria teste"
 
 Scenario: User is not registered (Sad path)
-   Given I am not registered
-   And I am not an admin
    And I am on the forms page
+   Given I am not registered
    Then I should see "Você não está cadastrado no sistema."
    And I should be on the login page
 

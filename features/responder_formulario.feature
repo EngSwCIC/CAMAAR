@@ -27,8 +27,7 @@ Scenario: User leaves a question blank (Sad path)
    And I should be on the form "1" page
 
 Scenario: User tries to access a form without being registered (Sad path)
-   Given I am not registered
-   And I am not an admin
    And I am on the forms page
+   Given I am not registered
    Then I should see "Você não está cadastrado no sistema."
    And I should be on the login page
