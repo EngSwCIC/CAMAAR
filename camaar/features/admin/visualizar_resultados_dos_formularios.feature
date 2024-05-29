@@ -7,14 +7,16 @@ Funcionalidade: Visualização de Resultados dos Formulários
 
     # Happy Path
     Cenário: Visualizar Resultados de Formulário Existente 
-        Dado que estou na pagina do admin
-        Quando eu clicar em um formulário
-        Então o sistema deve exibir a tela de resultados do formulário
+        Dado que estou na pagina de gerenciamento
+        Quando eu clicar em "Resultados"
+        Então o sistema deve exibir a tela de resultados dos formulários
         E a tela deve apresentar os resultados das respostas
         E eu devo poder gerar um relatório a partir dos resultados
     # Sad Path
     Cenário: Erro ao Visualizar Resultados 
-        Dado que estou na tela de listagem de formulários
-        Quando eu clicar em um formulário inexistente
-        Então o sistema deve exibir uma mensagem de erro informando que o formulário não existe
-        E eu não devo ter acesso à tela de resultados do formulário
+        Dado que estou na pagina de gerenciamento
+        Quando eu clicar em "Resultados"
+        Então o sistema deve exibir a tela de resultados dos formulários
+        Quando clicar no cartão
+        E nao gerar um relatorio
+        Então deve aparecer uma mensagem de erro
