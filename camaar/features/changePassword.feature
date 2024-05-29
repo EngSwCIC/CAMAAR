@@ -8,24 +8,9 @@
 # só pode ser acessada pelo link do email
 
 Feature: Change password
-
-    Scenario: Try to change password at Login page
-        Given I'm a registered user
-        And I'm on the Login page
-        When I click on the forgot password button
-        And I fill in the recovery email textfield with my email
-        Then I should receive an email with a link to the change password page
-
-    Scenario: Try to change password of an unregistered user
-        Given I'm a user
-        And I'm on the Login page
-        When I click on the forgot password button
-        And I fill in the recovery email textfield with an unregistered email
-        Then I should be prompted with "Email não registrado."
-
     Background:
         Start from the change password page
-        Given I'm a registered user
+        Given I received the page's link by email
 
     Scenario: Fields filled correctly
         When I fill in the new password textfield with my new password
