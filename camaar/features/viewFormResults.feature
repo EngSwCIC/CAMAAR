@@ -9,10 +9,14 @@ Feature: View Form results
         And I'm on the Management page
 
 
-    Scenario: View form results     
+    Scenario: View form results 
         When I click on the results Button
         And I click on the Form
         Then I should see the Form results 
-        And I should see the generate report Button
-
-    Scenario: 
+        
+    Scenario: No one answered the form
+        When I click on the results Button
+        And I click on the Form
+        And There is no answers to the form
+        Then I should be prompted with "Não há respostas para esse formulário."
+    
