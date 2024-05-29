@@ -29,9 +29,6 @@
     <%= stylesheet_link_tag "perfect-scrollbar/perfect-scrollbar.css",  media: "all" %>
     <%= stylesheet_link_tag "theme.css",  media: "all" %>
 
-    <!-- Main CSS-->
-    <%# <link href="theme.css" rel="stylesheet" media="all"> %>
-
 </head>
 <body class="animsition">
     <div class="page-wrapper">
@@ -40,7 +37,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
+                        <a class="logo" >
                                 <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo",width: 300, height: 150) %>
                         </a>
                         
@@ -76,11 +73,12 @@
 
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
+        <div class="logo">
                 <a href="#">
                     <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo") %>
                 </a>
             </div>
+           
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
@@ -165,11 +163,6 @@
                             <div class="col-md-12">
                                 <div class="overview-wrap">
                                     <h2 class="title-1">Formulários Pendentes</h2>
-
-
-                                    <%# <button class="au-btn au-btn-icon au-btn--blue"> %>
-                                    
-                                        <%# <i class="zmdi zmdi-plus"></i>Adicionar Formulário</button> %>
                                 </div>
                             </div>
                         </div>
@@ -262,14 +255,9 @@
    
     <!-- Vendor JS       -->
     <%= javascript_include_tag 'slick/slick.min.js' %>
-
-    <%# <script src="slick/slick.min.js" %>
-    <%# </script> %>
     <%= javascript_include_tag 'slick/slick.min.js' %>
-
     <%= javascript_include_tag 'wow/wow.min.js' %>
 
-    <%# <script src="wow/wow.min.js"></script> %>
     <%= javascript_include_tag 'animsition/animsition.min.js' %>
     <%= javascript_include_tag 'bootstrap-progressbar/bootstrap-progressbar.min.js' %>
     <%= javascript_include_tag 'counter-up/jquery.waypoints.min.js' %>
@@ -281,10 +269,6 @@
  
     <!-- Main JS-->
     <%= javascript_include_tag 'main.js' %>
-
-    <%# <script src="js/main.js"></script> %>
-
 </body>
 
 </html>
-<!-- end document-->

@@ -2,7 +2,7 @@
 /* BASIC */
 
   body {
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
     height: 100vh;
     /* / background-color: #5fbae9; */ */
   }
@@ -107,8 +107,8 @@
 
   .submit-userslogin, .submit-adminlogin {
     background-color: #133e79;
-    width: 150;
-    height:30;
+    width: 120;
+    height:20;
     border: none;
     color: white;
     padding: 15px 40px;

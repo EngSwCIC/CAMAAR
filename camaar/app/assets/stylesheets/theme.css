@@ -99,7 +99,7 @@ p {
 
 /* ----- Typography ----- */
 body {
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.625;
@@ -1593,9 +1593,8 @@ section {
 }
 
 .menu-sidebar .logo {
-    background: #f5f5f5;
+    background: #fff;
     height: 75px;
-    /* width: ; */
     padding: 0 35px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -1610,7 +1609,7 @@ section {
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
-    border-right: 1px solid #e5e5e5;
+    border-right: 1px solid #f5f5f5;
     position: relative;
     z-index: 3;
 }
@@ -2153,7 +2152,7 @@ section {
     -moz-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    background: #365cad;
+    background: #f5f5f5;
     padding: 0 35px;
 }
 
