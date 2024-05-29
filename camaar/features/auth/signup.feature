@@ -6,9 +6,20 @@ Feature: Sign up as a Student
 
 
     Background: student has been added to the database
-        Given the following student exist:
-            | name                   | course               | registration | education     | occupation |
-            | Ana Clara Jordao Perna | COMPUTER SCIENCE/CIC | 190084006    | undergraduate | student    |
+        Given I am the unregistered Student "Jane Doe"
+        And I received an registration email
+        And I follow the "Link de cadastro"
 
-    Scenario Outline: User has clicked on the registration link
-        Given I
+    Scenario: User has clicked on the registration link 
+        Then I should be on the "Cadastro de Usuário" page
+        When I fill the following:
+            | email              | password | confirmation|
+            | student2@gmail.com | 123456   | 123456      |
+        When I press "Confirmar"
+        Then I should be on the "Login de Usuário"
+                When I fill the following:
+            | email              | password |
+            | student2@gmail.com | 123456   | 
+        When I press "Confirmar"
+        Then I should be on the "Formulários" page
+        And I should see "Jane Doe"
