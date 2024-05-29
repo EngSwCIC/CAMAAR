@@ -1,18 +1,19 @@
-<h2>Forgot your password?</h2>
+<%= stylesheet_link_tag "forgot-password.css" %>
+<!------ Include the above in your HEAD tag ---------->
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo",width: 300, height: 150) %>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+  <%= form.error_notification %>
+  <%= form.text_field :email, id: "email", class: "email", placeholder: "Email", required: true, autofocus: true, autocomplete: "off" %>
+  <%= form.submit "Send me reset password instructions", class: "submit-reset" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
+  <div class="watermark">
+    Caamar
   </div>
 <% end %>
+  </div>
+</div>
 
-<%= render "admins/shared/links" %>
+

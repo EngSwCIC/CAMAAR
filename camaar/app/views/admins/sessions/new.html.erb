@@ -12,9 +12,10 @@
 
   <%= form.text_field :email, id: "email", class: "email", placeholder: "Email", required: true, autofocus: true, autocomplete: "off" %>
   <%= form.text_field :password, id: "password", class: "password", placeholder: "Senha", required: true, autofocus: true, autocomplete: "off" %>
-  <div id="formFooter">
-      <a class="underlineHover" href="#">Esqueceu a senha?</a>
-    </div>
+   <div id="formFooter">
+      <%= link_to "Esqueceu a senha?", new_admin_password_path %>
+    </div> 
+
   <%= form.submit "Confirmar", class: "submit-login" %>
   </div>
   
