@@ -7,7 +7,9 @@
     <br>
     <h1> Bem vindo ao <h1>
     <h1> CAMAAR</H1>
+<%# <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+
   <%= form.text_field :email, id: "email", class: "email", placeholder: "Email", required: true, autofocus: true, autocomplete: "off" %>
   <%= form.text_field :password, id: "password", class: "password", placeholder: "Senha", required: true, autofocus: true, autocomplete: "off" %>
   <div id="formFooter">
@@ -15,9 +17,7 @@
     </div>
   <%= form.submit "Confirmar", class: "submit-login" %>
   </div>
-  <div class="watermark">
-    Caamar
-  </div>
+  
 <% end %>
 
   </div>

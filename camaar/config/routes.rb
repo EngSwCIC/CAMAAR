@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :templates
-  devise_for :forms
-  devise_for :departments
-  devise_for :coordinators
+  # devise_for :admins
   get 'home/index'
   # get 'users/page'
   # get 'users/form_student'
@@ -10,21 +7,32 @@ Rails.application.routes.draw do
   match '/users/forms',   to: 'users#form_student',   via: 'get'
   # match '/users/page',   to: 'users#page',   via: 'get'
   # match '/users/page',   to: 'users#page',   via: 'get'
+  # match '/admins/login', to: 'admins#login', via: 'get'
+  match '/admins/page',   to: 'admins#page',   via: 'get'
+  match '/admins/forms',   to: 'admins#form_student',   via: 'get'
+  match '/admins/dashboards',   to: 'admins#dashboards',   via: 'get'
+  match '/admins/import',   to: 'admins#importdata',   via: 'get'
 
-  match '/admin/page',   to: 'admin#page',   via: 'get'
-  match '/admin/forms',   to: 'admin#form_student',   via: 'get'
-  match '/admin/dashboards',   to: 'admin#dashboards',   via: 'get'
-  match '/admin/import',   to: 'admin#importdata',   via: 'get'
-
-  get 'admin/page'
-  get 'admin/form_student'
-  get 'admin/importdata'
+  # get 'admins/page'
+  # get 'admins/form_student'
+  # get 'admins/importdata'
   # get 'layouts/define_password'
   # devise_for :users
-  #resources :users
+
 
   devise_for :users, controllers: { registrations: 'users/registrations' },
   :path => 'users',
+  :path_names => {
+    :sign_in => 'login',
+    :sign_up => 'register',
+    :sign_out => 'logout',
+    :password => 'recover-password',
+    :define => 'define-password',
+    :confirmation => 'verification'
+  }
+
+  devise_for :admins,
+  :path => 'admins',
   :path_names => {
     :sign_in => 'login',
     :sign_up => 'register',
