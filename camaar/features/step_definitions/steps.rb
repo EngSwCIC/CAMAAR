@@ -46,7 +46,7 @@ Then (/^show me the page$/) do
 end
 
 # Buttons and clicks
-When (/^(?:|I )press the button "([^"]*)"$/) do |button|
+When (/^(?:|I )press (?: |the button )"([^"]*)"$/) do |button|
   click_fi(button)
 end
 
