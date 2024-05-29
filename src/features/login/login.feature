@@ -6,16 +6,28 @@ Feature: User can login with password and e-mail
 
 Background:
 
-    Given I am on the login page
+    Given "Admin" with login "admin@admin.com" and password "admin" exists
+    And "User" with login "user@user.com" and password "pass" exists
+    And I am logged out
+    And I am on the login page
 
-Scenario: User trying to login
+Scenario: User admin trying to login
     
     When I fill in "E-mail" with "admin@localhost.com"
     And I fill in "Senha" with "admin"
     And I press "Entrar"
-    Then I should see "Bem vindo, admin"
+    Then I should see "Bem vindo, Admin"
+    And the Admin home page
 
-Scenario: User trying to login with a wrong password
+Scenario: User trying to login
+
+    When I fill in "E-mail" with "user@user.com"
+    And I fill in "Senha" with "pass"
+    And I press "Entrar"
+    Then I should see "Bem vindo, User"
+    And the User home page
+
+Scenario: Admin trying to login with a wrong password
 
     When I fill in "E-mail" with "admin@localhost.com"
     And i fill in "Senha" with "ADMIN"
@@ -31,5 +43,13 @@ Scenario: User trying to login with an invalid e-mail
 Scenario: User fill "Senha" space with blank
 
     When I fill in "Senha" with ""
+    And I fill in "E-mail" with "user@user.com"
     And I press "Entrar"
     Then I should see "Insira a senha"
+
+Scenario: User trying to login with a wrong password
+
+    When I fill in "E-mail" with "user@user.com"
+    And I fill in "Senha" with "invalid"
+    And I press "Entrar"
+    Then I should see "E-mail e/ou senha não corresponde a nenhum usuário cadastrado."
