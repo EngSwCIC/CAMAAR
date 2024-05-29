@@ -3,8 +3,6 @@
 # após a solicitação da troca de senha
 # A fim de recuperar o meu acesso ao sistema
 
-
-
 # Nesse cenário o email já foi mandado então eu acredito que só tem que colocar a nova senha e confirmar ela
 # Possivelmente a gente teria que colocar um "Given I'm on the Change Password page" imaginando que essa página 
 # só pode ser acessada pelo link do email
@@ -30,51 +28,36 @@ Feature: Change password
         Given I'm a registered user
 
     Scenario: Fields filled correctly
-        # Aqui você quer mudar sua senha, pode ser que não lembre mais a antiga...
-        When I fill in the current password textfield with my current password
-        And I fill in the new password textfield with my new password
+        When I fill in the new password textfield with my new password
         And I fill in the confirm password textfield with my new password
         And click on the change password button
         Then I should change my old password with my new one
         And I should be on Login page
 
-    Scenario: Empty current password field
-        When I fill in the new password textfield with my new password
-        And I fill in the confirm password textfield with my new password
-        And click on the change password button
-        Then I should be prompted with "Preencha o campo com sua senha atual."
-
     Scenario: Empty new password field
-        When I fill in the current password textfield with my current password
-        And I fill in the confirm password textfield with my new password
+        When I fill in the confirm password textfield with my new password
         And click on the change password button
         Then I should be prompted with "Preencha o campo com sua senha nova."
 
     Scenario: Empty confirm password filed
-        When I fill in the current password textfield with my current password
-        And I fill in the new password textfield with my new password
+        When I fill in the new password textfield with my new password
         And click on the change password button
         Then I should be prompted with "Confirme sua senha."
 
+    Scenario: Both fields are empty 
+        When I click on the change password button
+        Then I should be prompted with "Preencha os campos necessários."
+
     Scenario: New password equal to old password
-        When I fill in the current password textfield with my current password
-        And I fill in the new password textfield with my new password
-        And they're the same # interessante essa da senha não poder ser igual a anterior, eu manteria
+        When I fill in the new password textfield with my new password
+        And it's the same as my current password # interessante essa da senha não poder ser igual a anterior, eu manteria
         And I fill in the confirm password textfield with my new password
         And click on the change password button
         Then I should be prompted with "Sua senha nova não pode ser igual a sua senha atual."
 
-    Scenario: Wrong current password
-        When I fill in the current password textfield with the wrong current password
-        And I fill in the new password textfield with my new password
-        And I fill in the confirm password textfield with my new password
-        And click on the change password button
-        Then I should be prompted with "Senha inválida."
-
     Scenario: Confirmation doesn't match new password
-        When I fill in the current password textfield with my current password
-        And I fill in the new password textfield with my new password
-        And I fill in the confirm password textfield with my new password # "with another password" eu acho
+        When I fill in the new password textfield with my new password
+        And I fill in the confirm password textfield with another password
         And click on the change password button
         Then I should be prompted with "Sua senha nova não coincide com a confirmação."
         
