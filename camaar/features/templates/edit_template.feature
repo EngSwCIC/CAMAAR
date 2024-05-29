@@ -5,18 +5,19 @@ Feature: Edit a form template
 
     Background: I am an Coordinator
         Given that there are classes from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+        Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         When I follow "Templates"
-        Then I should be on the page "Templates"
+        Then I should be on the "Templates" page
         Given that I created the template "Template 1"
         Then I should see "Template 1"
         When I press the button "Editar Template"
-        Then I should be on the page "Template 1"
+        Then I should be on the "Template 1" page
 
     Scenario: Succesfully update a template
         And I fill in "Nome do Template" with "Template 1.1"
         When I press the button "Salvar Template"
         And I confirm a popup
-        Then I should be on the page "Templates"
+        Then I should be on the "Templates" page
         And I should see "Template 1.1"
 
     Scenario: Leaves a text field empty

@@ -20,7 +20,7 @@ When (/^(.*) within (.*[^:]):$/) do |step, parent, table_or_string|
 end
 
 # Navigation
-Given (/^(?:|I )am on the page "(.+)"$/) do |page_name|
+Given (/^(?:|I )am on the "(.+)" page$/) do |page_name|
   visit path_to(page_name)
 end
 
@@ -32,7 +32,7 @@ When (/^(?:|I )follow "([^"]*)"$/) do |link|
   click_link(link)
 end
 
-Then (/^(?:|I )should be on the page "(.+)"$/) do |page_name|
+Then (/^(?:|I )should be on the "(.+)" page$/) do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
     current_path.should == path_to(page_name)

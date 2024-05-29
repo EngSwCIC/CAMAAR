@@ -5,18 +5,18 @@ Feature:
     So that I can respond to forms or manage the system
 
     Background: User has been added to the database
-        Given I am on the page "Login"
-        Then I should see "Bem vindo ao CAMAAR"
-        
+
+        Given that there are users in system
+        Given the following user exists:
+
     Scenario Outline: User logs in with valid credentials
-        Given I am an unauthenticated User
-        When I follow "Usuário"
-        Then I should see "Olá, usuário!"
+        Given I am on the "Login" page
         When I fill in the following:
-            | email   | password   |
-            | <email> | <password> |
-        And I press the button "Login"
-        Then I should be on the page "Formulários"
+            | email    | <email>    |
+            | password | <password> |
+        And I press the button "Entrar"
+        Then I should be on the "Formulários" page
+
         And I should see "<name>"
 
         Examples:
