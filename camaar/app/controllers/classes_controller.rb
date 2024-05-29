@@ -1,6 +1,0 @@
-class ClassesController < ApplicationController
-  def index
-    @department = Department.find_by(initials: params[:department_initials])
-    @classes = SubjectClass.where(@department)
-  end
-end
