@@ -14,9 +14,3 @@ Scenario: Coordenador successfully updates the database with SIGAA data
   Given SIGAA is available and functioning normally
   When I click on 'atualizar turmas'
   Then I should see "Turmas atualizadas"
-
-  
-
-
-
-    
