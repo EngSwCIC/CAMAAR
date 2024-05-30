@@ -26,4 +26,4 @@ Wallace Wu
 Está descrito nos commits.
 
 **Qual a política de branching utilizada pelo grupo?** 
-branching por feature
+Branching da main por feature
