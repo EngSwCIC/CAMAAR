@@ -20,5 +20,5 @@ Funcionalidade: Visualizar resultados dos formulários
         Dado que eu estou logado no sitema com um usuário do tipo aluno
         E que estou na página de fluxo de gerenciamento do sistema
         Quando eu clicar no botão "Visualizar resultados"
-        Então o sistema não abrir a janela sobreposta
+        Então o sistema não irá abrir a janela sobreposta
         E também mostrará uma mensagem de falha de autorização ao usuário
