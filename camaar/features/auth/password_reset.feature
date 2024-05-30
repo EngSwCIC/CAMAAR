@@ -6,7 +6,7 @@ Feature: Reset Password
 
     Background: User forgot its password and is on login page
         Given that I am an registered User
-        And I am on the "Login de Usuário" page
+        And I am on the "Users Login" page
         When I follow "Esqueci minha senha"
 
     Scenario: User has clicked on the reset password link
@@ -22,7 +22,7 @@ Feature: Reset Password
             | newpassword | newpassword  |
         When I press the button "Confirmar"
 
-        Then I should be on the "Login de Usuário" page
+        Then I should be on the "Users Login" page
         When I fill in the following:
             | email             | password    |
             | student@gmail.com | newpassword |

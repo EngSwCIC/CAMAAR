@@ -26,8 +26,8 @@ Feature:
 
     Scenario Outline: Admin logs in with valid credentials
         Given that I am an registered Admin
-        When I follow "Coordenador"
-        Then I should see "Olá, coordenador!"
+        And I am on the "Admins Login" page
+        Then I should see "Olá, administrador!"
         When I fill in the following:
             | email   | password   |
             | <email> | <password> |
@@ -37,8 +37,8 @@ Feature:
 
     Scenario Outline: Admin can't log in with invalid credentials
         Given that I am an unregistered Admin
-        When I follow "Coordenador"
-        Then I should see "Olá, coordenador!"
+        And I am on the "Admins Login" page
+        Then I should see "Olá, administrador!"
         When I fill in the following:
             | email   | password   |
             | user@gmail.com | abc123 |
