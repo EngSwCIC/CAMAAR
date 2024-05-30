@@ -15,7 +15,7 @@ Feature: Login System
     Then I should be on the Avaliacoes page
 
   Scenario: No information (sad path)
-    When I log in with "" as an e-mail and "" as a password
+    When I press "Entrar"
     Then I should be on the login page
     And I should see "Login inválido"
     
