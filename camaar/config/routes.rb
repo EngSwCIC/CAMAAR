@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   # devise_for :admins
   get 'home/index'
-  post '/users/register'
-  post '/users/recover-password/new'
+
   # get 'users/page'
   # get 'users/form_student'
   match '/users/page', to: 'users#page', via: 'get'
