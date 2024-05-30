@@ -1,4 +1,4 @@
-Feature: View forms
+Feature: View Forms
 
     As a Student
     I want to view the unanswered forms for the classes I am enrolled in
@@ -30,7 +30,7 @@ Feature: View forms
         Given I am enrolled in any class
         And I have already answered at least one form
         Then all the answered forms should be marked as answered
-        And I should see the forms of all classes I am enrolled in
+        And I should see the forms of all classes I am enrolled in.
 
     Example: 
         Given I am enrolled in the classes:
@@ -45,8 +45,12 @@ Feature: View forms
         | <class_teacher>                   | | <class_teacher>                 |
     
 
+    Scenario: Not Enrolled Student Does Not View Any Forms
+        Given I am not enrolled in any class
+        Then I should not see any forms on the "forms" page.
+
     Scenario: Student views forms questions
-        Given I am assigned to a class "<id_class>"
+        Given I am enrolled in a class "<id_class>"
         When I click on the associated form with ID "<id_form>"
         Then I should be on the page for form "<id_form>"
         And I should see all the questions to be answered.
@@ -56,7 +60,7 @@ Feature: View forms
         Then I should no longer see any forms
         And should be redirected to the login page.
 
-    Scenario: Student Searches for a Form By Class Code
+    Scenario: Student Searches For A Form By Class Code
         Given I enter a class code into the search bar
         And I click on the "Pesquisar" button
         Then I should see a list of forms that match the input.
