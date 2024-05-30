@@ -14,4 +14,9 @@ class UsersMailer < ApplicationMailer
     @user = user
     mail(to: email, subject: 'New user signup')
   end
+
+  def user_forgot_email(user)
+    @user = user
+    mail(to: email, subject: 'Reset email')
+  end
 end

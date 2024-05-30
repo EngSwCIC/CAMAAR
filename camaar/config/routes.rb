@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # devise_for :admins
   get 'home/index'
+  post '/users/register'
+  post '/users/recover-password/new'
   # get 'users/page'
   # get 'users/form_student'
   match '/users/page', to: 'users#page', via: 'get'
@@ -19,27 +21,39 @@ Rails.application.routes.draw do
   # get 'layouts/define_password'
   # devise_for :users
 
-  devise_for :users, controllers: { registrations: 'users/registrations' },
-                     path: 'users',
-                     path_names: {
-                       sign_in: 'login',
-                       sign_up: 'register',
-                       sign_out: 'logout',
-                       password: 'recover-password',
-                       define: 'define-password',
-                       confirmation: 'verification'
-                     }
+  devise_for :users,
+             controllers: {
+               registrations: 'users/registrations',
+               sessions: 'users/sessions',
+               passwords: 'users/passwords',
+               confirmations: 'users/confirmations'
+             },
+             path: 'users',
+             path_names: {
+               sign_in: 'login',
+               sign_up: 'register',
+               sign_out: 'logout',
+               password: 'recover-password',
+               define: 'define-password',
+               confirmation: 'verification'
+             }
 
-  devise_for :admins, controllers: { registrations: 'admins/registrations' },
-                      path: 'admins',
-                      path_names: {
-                        sign_in: 'login',
-                        sign_up: 'register',
-                        sign_out: 'logout',
-                        password: 'recover-password',
-                        define: 'define-password',
-                        confirmation: 'verification'
-                      }
+  devise_for :admins,
+             controllers: {
+               registrations: 'admins/registrations',
+               sessions: 'admins/sessions',
+               passwords: 'admins/passwords',
+               confirmations: 'admins/confirmations'
+             },
+             path: 'admins',
+             path_names: {
+               sign_in: 'login',
+               sign_up: 'register',
+               sign_out: 'logout',
+               password: 'recover-password',
+               define: 'define-password',
+               confirmation: 'verification'
+             }
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

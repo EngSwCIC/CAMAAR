@@ -3,14 +3,17 @@
 class Users::PasswordsController < Devise::PasswordsController
   # GET /resource/password/new
   def new
-    super do |resource|
-      UserForgotService.call(resource)
-    end
+    #   super do |resource|
+    #     UserForgotService.call(resource)
+    #   end
+    super
   end
 
   # POST /resource/password
   def create
-    super
+    super do |resource|
+      UserForgotService.call(resource)
+    end
   end
 
   def define; end
