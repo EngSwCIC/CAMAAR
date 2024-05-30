@@ -130,7 +130,7 @@ h1 {
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 h3 {
@@ -2039,7 +2039,7 @@ section {
 }
 
 .email__item .content span {
-    font-size: 12px;
+    font-size: 10px;
     color: #999;
 }
 
@@ -3227,7 +3227,7 @@ section {
 }
 
 .overview-box .text span {
-    font-size: 18px;
+    font-size: 15px;
     color: rgba(255, 255, 255, 0.6);
 }
 
@@ -3242,7 +3242,7 @@ section {
     }
 
     .overview-box .text span {
-        font-size: 14px;
+        font-size: 15px;
     }
 }
 
