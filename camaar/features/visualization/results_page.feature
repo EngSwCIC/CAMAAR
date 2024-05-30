@@ -4,9 +4,11 @@ Feature: Forms results page
     I want to view the created forms
     So that I can generate a report from the responses
 
-    Scenario: Coordinator tries to ciew submited forms
+    Background: 
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
-        And I am on the Camaar home page
+
+    Scenario: Coordinator tries to ciew submited forms
+        Given I am on the Camaar home page
         When I follow "Adicionar Formulário"
         Then I should be on the "Formulários" page
         When I check '5' in 'Avalie CIC0197'
@@ -17,8 +19,7 @@ Feature: Forms results page
         And I should see 'newest form'
 
     Scenario: Generate a report from the responses
-        Given I am logged in
-        And I am on the Camaar home page
+        Given I am on the Camaar home page
         When I click 'Charts'
         Then I should bee on Charts page
         When I click 'Generate Report'
