@@ -8,43 +8,58 @@ Feature: Choose template type
         When I follow "Envio"
         Then I should be on the "Envio" page
 
-    Example:
-        There are 3 created templates
-
-        | <template_name_1> |
-        | <template_name_2> |
-        | <template_name_3> |
-
     Scenario: There are created templates for teachers
         Given I am on the "Envio" page
         When I click on the combobox associated with the "Template professores" field
         Then I should see the following options in the combobox:
-            | <template_name_1> |
-            | <template_name_2> |
-            | <template_name_3> |
-        When I select one of the options in the combobox
+            | <template_name_1> | <template_name_2> |
+        When I select <template_name_1> of the options in the combobox
         Then I should see the "Template professores" field filled with the selected option
+
+        Examples:
+        | <template_name_1> | <template_name_2> |
+        | "Template professores"| Template alunos |
 
     Scenario: There are created templates for students
         Given I am on the "Envio" page
         When I click on the combobox associated with the "Template alunos" field
         Then I should see the following options in the combobox:
-            | <template_name_1> |
-            | <template_name_2> |
-            | <template_name_3> |
-        When I select one of the options in the combobox
+            | <template_name_1> | <template_name_2> |
+        When I select <template_name_2> of the options in the combobox
         Then I should see the "Template alunos" field filled with the selected option
+
+        Examples:
+        | <template_name_1> | <template_name_2> |
+        | "Template professores"| Template alunos |
 
     Scenario: There are no created templates (teachers)
         Given I am on the "Envio" page
         When I click on the combobox associated with the "Template professores" field
         Then I should see the following options in the combobox:
+            | <template_name_1> | <template_name_2> |
+        When I select <template_name_1> of the options in the combobox
+        Then I should see the "Template professores" field filled with the selected option
+        When I see the following options in the combobox:
             | Nenhum template criado |
-        And I cannot select any option in the combobox
+        Then I cannot select any option in the combobox
+
+        Examples:
+        | <template_name_1> | <template_name_2> |
+        | "Template professores"| Template alunos |
 
     Scenario: There are no created templates (students)
         Given I am on the "Envio" page
         When I click on the combobox associated with the "Template alunos" field
         Then I should see the following options in the combobox:
+            | <template_name_1> | <template_name_2> |
+        When I select <template_name_2> of the options in the combobox
+        Then I should see the "Template alunos" field filled with the selected option
+        When I see the following options in the combobox:
             | Nenhum template criado |
-        And I cannot select any option in the combobox
+        Then I cannot select any option in the combobox
+
+        Examples:
+        | <template_name_1> | <template_name_2> |
+        | "Template professores"| Template alunos |
+    
+    
