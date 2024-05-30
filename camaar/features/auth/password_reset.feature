@@ -5,7 +5,7 @@ Feature: Reset Password
     So that I can recover access to the system
 
     Background: User forgot its password and is on login page
-        Given that I am an unauthenticated User
+        Given that I am an registered User
         And I am on the "Login de Usuário" page
         When I follow "Esqueci minha senha"
 
@@ -34,3 +34,9 @@ Feature: Reset Password
             | email             | password | confirmation | name     |
             | student@gmail.com | 123456   | 123456       | John Doe |
             | student@gmail.com | 123456   | 123456       | John Doe |
+
+    Scenario: User informed the wrong email
+        Then I should see "Informe seu email"
+        When I fill in "Email" with "a@gmail.com"
+        And I press the button "Confirmar"
+        Then I should see "Usuário não está Registrado"
