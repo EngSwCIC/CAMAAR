@@ -70,5 +70,6 @@ group :test do
 end
 
 gem 'devise'
-gem 'mailcatcher'
+gem 'letter_opener_web'
+# gem 'mailcatcher'
 gem 'simple_form'

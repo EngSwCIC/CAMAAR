@@ -3,7 +3,9 @@
 class Users::PasswordsController < Devise::PasswordsController
   # GET /resource/password/new
   def new
-    super
+    super do |resource|
+      UserForgotService.call(resource)
+    end
   end
 
   # POST /resource/password
@@ -11,11 +13,7 @@ class Users::PasswordsController < Devise::PasswordsController
     super
   end
 
-  def define
-
-  end
-
-
+  def define; end
 
   # GET /resource/password/edit?reset_password_token=abcdef
   def edit

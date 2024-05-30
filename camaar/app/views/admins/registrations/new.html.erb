@@ -33,7 +33,7 @@
     <br>
     <h1> Olá, administrador! <h1>
     <h1> Defina sua senha</h1>
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
   <%= form.error_notification %>
   <%= form.text_field :password, type: "password", id: "password", class: "password", placeholder: "Senha", required: true, autofocus: true, autocomplete: "off" %>
   <%= form.text_field :password, type: "password", id: "password", class: "password", placeholder: "Confirme sua Senha", required: true, autofocus: true, autocomplete: "off" %>

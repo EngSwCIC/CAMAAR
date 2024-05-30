@@ -8,6 +8,13 @@ class UsersMailer < ApplicationMailer
   def welcome
     @greeting = "Hi"
 
-    mail to: "user@unb.com.br"
+    mail to: "to@example.org"
   end
+
+  def new_user_email(user)
+    @user = user
+    mail(to: email, subject: 'New user signup')
+  end
+
+  
 end
