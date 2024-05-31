@@ -1,4 +1,4 @@
-# Como Participante de uma turma
+# Eu como Participante de uma turma
 # Quero responder o questionário sobre a turma em que estou matriculado
 # A fim de submeter minha avaliação da turma
 
