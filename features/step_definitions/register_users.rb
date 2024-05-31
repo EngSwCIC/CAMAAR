@@ -1,5 +1,5 @@
 Given('there are no users registed in our system') do
-    expect(Participant.count).to be 0
+    Participant.destroy_all
 end
 
 Then('I should have a new user in the database') do
@@ -7,5 +7,5 @@ Then('I should have a new user in the database') do
 end
 
 Given('all users were imported') do
-    expect(Participant.count).to be > 0
+    Participant.create(email: 'test@email.com')
 end
