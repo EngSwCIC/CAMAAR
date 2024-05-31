@@ -29,6 +29,6 @@ Feature: Forms Results Page
 
     Scenario: Coordinator only sees the created forms
         Given that I expect to see forms
-        And I am on "Formulários Page"
+        And I am on "Results Page"
         But there are no forms created
         Then I should not see any forms
