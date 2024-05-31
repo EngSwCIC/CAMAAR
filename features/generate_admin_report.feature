@@ -8,6 +8,7 @@ Feature: Generate Admin Report
 
   Scenario: Click on class report to download result (happy path)
     Given I have sent a form to "Turma"
+    And I have answered a form from "Turma"
     When I press "Turma"
     Then I should see "Relatório baixado com sucesso."
 
