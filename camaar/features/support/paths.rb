@@ -26,6 +26,8 @@ module NavigationHelpers
       '/templates'
     when 'Redefina sua Senha'
       '/admins/...'
+    when 'Resultados'
+      '/admins/resultados'
     when 'Login de Usuário'
       '/users/login'
     when 'Login de Admin'

@@ -47,7 +47,7 @@ Feature: View Forms
     Scenario: Student Logs Out
         Given I am on "User Camaar" page
         And I click on "Sair"
-        And should be redirected to the "Root" page.
+        Then I should be redirected to the "Root" page.
 
     Scenario: Student Searches For A Form By Class Code
         Given I enter <TP1> class code into the search bar
@@ -56,3 +56,13 @@ Feature: View Forms
         Examples: 
             | TP1                |
             | CIC0197            |
+
+    Scenario: Student tries to answer forms
+        Given I am on the "Formulários" page
+        And I follow "Avaliação Institucional"
+        When I check '5' in 'Avalie CIC0197'
+        And I check '5' in 'Avalie CIC0099'
+        And I check 'Marcus Vinicius Lamar' in 'Selecione seus melhores professores'
+        And I fill in 'Alguma reclamação adicional?' with 'None'
+        Then I should be on the "User Camaar" 
+        And I should see 'Avaliação Institucional' as answered.
