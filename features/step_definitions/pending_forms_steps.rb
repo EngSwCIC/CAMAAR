@@ -1,7 +1,7 @@
-Then('I should see form {string}') do |form|
-    expect(page).to have_content(form)
+Then('I should see form {string}') do |class|
+    expect(page).to have_content(class)
 end
 
-Then('I should see "Nenhum formulario disponível para a turma {string}"') do |class|
-    expect(page).to have_content("Nenhum formulario disponível para a turma #{class}")
+Then('I should see no form {string}') do |class|
+    expect(page).not_to have_content({class})
 end
