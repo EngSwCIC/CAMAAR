@@ -1,8 +1,10 @@
-# Como um administrador
-# Quero deletar um template
-# A fim de removê-lo da lista de templates
+# Eu como Administrador
+# Quero editar e/ou deletar um template que eu criei sem afetar os formulários já criados
+# A fim de organizar os templates existentes
 
 Feature: Delete Template
+
+    Background: Start in the Templates page
 
     Scenario: Successful Deletion
         Given I am in the Templates page

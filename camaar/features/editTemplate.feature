@@ -1,6 +1,6 @@
-# Como um administrador
-# Quero edit um template
-# A fim de corrigir erros ou adicionar novas perguntas
+# Eu como Administrador
+# Quero editar e/ou deletar um template que eu criei sem afetar os formulários já criados
+# A fim de organizar os templates existentes
 
 Feature: Edit Template
 
