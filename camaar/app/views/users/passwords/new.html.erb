@@ -6,7 +6,7 @@
     <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo",width: 300, height: 150) %>
     <br>
     <h1> Insira seu email para redefinição<h1>
-<%= simple_form_for(resource, as: resource_name, url: new_user_password_path(resource)) do |form| %>
+<%= simple_form_for(resource, as: resource_name, url: new_user_password_path) do |form| %>
 
   <%= form.text_field :email, id: "email", class: "email", placeholder: "Email", required: true, autofocus: true, autocomplete: "off" %>
   <div id="formFooter"></div> 

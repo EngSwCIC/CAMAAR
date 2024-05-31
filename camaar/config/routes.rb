@@ -1,28 +1,16 @@
 Rails.application.routes.draw do
-  # devise_for :admins
   get 'home/index'
-
-  # get 'users/page'
-  # get 'users/form_student'
   match '/users/page', to: 'users#page', via: 'get'
   match '/users/forms',   to: 'users#form_student', via: 'get'
-  # match '/users/page',   to: 'users#page',   via: 'get'
-  # match '/users/page',   to: 'users#page',   via: 'get'
-  # match '/admins/login', to: 'admins#login', via: 'get'
   match '/admins/page',   to: 'admins#page', via: 'get'
   match '/admins/forms', to: 'admins#form_student', via: 'get'
   match '/admins/dashboards', to: 'admins#dashboards', via: 'get'
   match '/admins/import', to: 'admins#importdata', via: 'get'
 
-  # get 'admins/page'
-  # get 'admins/form_student'
-  # get 'admins/importdata'
-  # get 'layouts/define_password'
-  # devise_for :users
   devise_scope :user do
     get '/users/logout' => 'users/sessions#destroy'
     post '/users/register' => 'users/registrations#create'
-    post '/users/recover-password/new' => 'users/passwords#new'
+    post '/users/recover-password/new' => 'users/passwords#create'
   end
 
   devise_scope :admin do
