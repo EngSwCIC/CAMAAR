@@ -132,7 +132,7 @@ Given (/that there are classes from the "([^"]*)"$/) do |dpt_name|
   pending
 end
 
-Given(/that I am an unauthenticated ([^"]*)$/) do |role| #if user or admin
+Given(/that I am a registered ([^"]*)$/) do |role| #if user or admin
   pending
 end
 
@@ -140,12 +140,11 @@ Given(/that I am an unregistered ([^"]*)$/) do |role|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-And (/I received an ([^"]*) email at "([^"]*)"$/) do |email_type| #reset or registration
+Then (/I receive a ([^"]*) email at "([^"]*)"$/) do |email_type| #reset or registration
   pending # Write code here that turns the phrase above into concrete actions
 end
 
 # Visualization
-
 Then (/^(?:|I )should see "([^"]*)"$/) do |text|
   if page.respond_to? :should
     page.should have_content(text)

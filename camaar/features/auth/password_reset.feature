@@ -5,8 +5,8 @@ Feature: Reset Password
     So that I can recover access to the system
 
     Background: User forgot its password and is on login page
-        Given that I am an unauthenticated User
-        And I am on the "Login de Usuário" page
+        Given that I am a registered User
+        And I am on the "Users Login" page
         When I follow "Esqueci minha senha"
 
     Scenario: User has clicked on the reset password link
@@ -14,7 +14,7 @@ Feature: Reset Password
         When I fill in "Email" with "student@gmail.com"
         And I press the button "Confirmar"
 
-        Then I should received an password reset email at ""
+        Then I receive a password reset email at ""
         And I follow "Reset-password Link"
         Then I should be on the "Redefina sua Senha" page
         When I fill in the following:
@@ -22,7 +22,7 @@ Feature: Reset Password
             | newpassword | newpassword  |
         When I press the button "Confirmar"
 
-        Then I should be on the "Login de Usuário" page
+        Then I should be on the "Users Login" page
         When I fill in the following:
             | email             | password    |
             | student@gmail.com | newpassword |
@@ -30,7 +30,8 @@ Feature: Reset Password
         Then I should be on the "Formulários" page
         And I should see "John Doe"
 
-        Examples:
-            | email             | password | confirmation | name     |
-            | student@gmail.com | 123456   | 123456       | John Doe |
-            | student@gmail.com | 123456   | 123456       | John Doe |
+    Scenario: User informed the wrong email
+        Then I should see "Informe seu email"
+        When I fill in "Email" with "a@gmail.com"
+        And I press the button "Confirmar"
+        Then I should see "Usuário não está Registrado"
