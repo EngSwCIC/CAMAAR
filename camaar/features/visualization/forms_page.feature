@@ -11,56 +11,48 @@ Feature: View Forms
         Then I should be on the "forms" page.
 
     Scenario: Student Views Forms (No Forms Answered)
-        Given I am enrolled in any class
-        And I havent answered any forms
-        Then all the forms should be marked as pending
-        And I should see the forms of all classes I am enrolled in
+        Given I am enrolled in <CIC0097> class
+        And I havent answered <CIC0097> forms
+        Then the  <CIC0097> forms should be marked as pending
+        And I should see the pending forms of all classes I am enrolled in
     
-    Example: 
-        Given I am enrolled in the classes:
-        . BANCOS DE DADOS
-        . ENGENHARIA DE SOFTWARE
+        Examples: 
+            | CIC0097                | CIC0105     |
+            |  CIC0097 - 2021.2 - TA | CIC0105 - 2021.2 - TA |
 
-        Then I should see the following forms:
-        | Template <template_id> (pending) | | Template <template_id> (pending)| 
-        | CIC0097 - 2021.2 - TA            | | CIC0105 - 2021.2 - TA           |
-        | <class_teacher>                  | | <class_teacher>                 |
-    
     Scenario: Student Views Forms (At Least One Form Answered)
         Given I am enrolled in any class
-        And I have already answered at least one form
-        Then all the answered forms should be marked as answered
-        And I should see the forms of all classes I am enrolled in.
+        And I have already answered <CIC0105> form
+        Then the <CIC0105> forms should be marked as answered
+        And I should see just the pending forms of all classes I am enrolled in.
 
-    Example: 
-        Given I am enrolled in the classes:
-        . BANCOS DE DADOS
-        . ENGENHARIA DE SOFTWARE
-
-        And I have already answered the BANCO DE DADOS form
-
-        Then I should see the following forms:
-        | Template <template_id> (answered) | | Template <template_id> (pending)| 
-        | CIC0097 - 2021.2 - TA             | | CIC0105 - 2021.2 - TA           |
-        | <class_teacher>                   | | <class_teacher>                 |
-    
+        Examples: 
+            | CIC0097                | CIC0105     |
+            |  CIC0097 - 2021.2 - TA | CIC0105 - 2021.2 - TA |
 
     Scenario: Not Enrolled Student Does Not View Any Forms
         Given I am not enrolled in any class
         Then I should not see any forms on the "forms" page.
 
     Scenario: Student views forms questions
-        Given I am enrolled in a class "<id_class>"
-        When I click on the associated form with ID "<id_form>"
-        Then I should be on the page for form "<id_form>"
+        Given I am enrolled in a class "<TP1>"
+        When I click on the associated form with ID "<TP1>"
+        Then I should be on the page for form "<TP1>"
         And I should see all the questions to be answered.
 
+        Examples: 
+            | TP1                |
+            | CIC0197            |
+
     Scenario: Student Logs Out
-        Given I log out by clicking on the "Sair" button
-        Then I should no longer see any forms
-        And should be redirected to the login page.
+        Given I am on "User Camaar" page
+        And I click on "Sair"
+        And should be redirected to the "Root" page.
 
     Scenario: Student Searches For A Form By Class Code
-        Given I enter a class code into the search bar
+        Given I enter <TP1> class code into the search bar
         And I click on the "Pesquisar" button
         Then I should see a list of forms that match the input.
+        Examples: 
+            | TP1                |
+            | CIC0197            |
