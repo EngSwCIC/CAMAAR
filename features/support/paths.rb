@@ -19,6 +19,9 @@ module NavigationHelpers
       when /^the Avaliacoes\s?page$/
         '/avaliacoes'
 
+    when /^the Importar dados\s?page$/
+      '/importar-dados-sigaa'
+
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
       #
