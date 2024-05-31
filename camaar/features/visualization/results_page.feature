@@ -26,4 +26,9 @@ Feature: Forms Results Page
         Then I should see the following results:
             | name         | answers      |
             | Formulário 1 | Respostas: 1 |
-            
+
+    Scenario: Coordinator only sees the created forms
+        Given that I expect to see forms
+        And I am on "Formulários Page"
+        But there are no forms created
+        Then I should not see any forms
