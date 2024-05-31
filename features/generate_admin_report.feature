@@ -5,10 +5,10 @@ Feature: Generate Admin Report
 
   Background: Starting on the class results page
     Given I am on the Resultados page
+    And I have sent a form to "Turma"
+    And I have answered a form from "Turma"
 
   Scenario: Click on class report to download result (happy path)
-    Given I have sent a form to "Turma"
-    And I have answered a form from "Turma"
     When I press "Turma"
     Then I should see "Relatório baixado com sucesso."
 
