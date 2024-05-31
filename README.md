@@ -1,7 +1,15 @@
 # Grupo - Camaar - G1
-- Participantes: Willyan Marques, Marcos Paulo, Arthur Delpino, Caio Yuri, João Pedro Gomes
-- Scrum Master: Willyan Marques
-- Serão desenvolvidas as 16 issues, com base no nossa estilização presente em [Figma - Willyan Marques](https://www.figma.com/design/kIW8LmzqajgAQVigrLX21y/Camaar-G01?node-id=0-1&t=H1Mo40dyNMOK5nv3-0) e no nosso modelo entidade-relacionamento.
+## Participantes: 
+- Willyan Marques - 221020940
+- Marcos Paulo - 221020889
+- Arthur Delpino - 221002094
+- Caio Yuri - 221002011
+- João Pedro Gomes - 221006351
+
+## Scrum Master: Willyan Marques
+## Serão desenvolvidas as 16 issues, com base no nossa estilização presente em [Figma - Willyan Marques](https://www.figma.com/design/kIW8LmzqajgAQVigrLX21y/Camaar-G01?node-id=0-1&t=H1Mo40dyNMOK5nv3-0) e no nosso modelo entidade-relacionamento.
+
+## Divisão das Features:
 - Features de Autenticação (Auth): João Pedro Gomes
 - Features de Exportação e Importação (Io): Marcos Paulo
 - Features de Formulários: Willyan Marques e Arthur Delpino
@@ -79,18 +87,3 @@
 13. Aplicar filtros na visualização de formulários enviados
 14. Baixar as respostas de um formulário em um arquivo CSV
 15. Visulizar gráficos das respostas de um formulário enviado
-
-
-# Dependencias
-Ruby 3.3.1
-Rails
-
-# Figma
-Nosso figma:
-https://www.figma.com/design/kIW8LmzqajgAQVigrLX21y/Camaar-G01?node-id=0-1&t=Izu5kH65Zx4ykhpG-0
-
-Monitor:
-https://www.figma.com/design/5GVzfaJSBbcXmGvuvAi7WF/Camaar-2024.1?node-id=0-1
-
-# Schema
-x
