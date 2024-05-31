@@ -1,7 +1,15 @@
 # Grupo - Camaar - G1
-- Participantes: Willyan Marques, Marcos Paulo, Arthur Delpino, Caio Yuri, João Pedro Gomes
-- Scrum Master: Willyan Marques
-- Serão desenvolvidas as 16 issues, com base no nossa estilização presente em [Figma - Willyan Marques](https://www.figma.com/design/kIW8LmzqajgAQVigrLX21y/Camaar-G01?node-id=0-1&t=H1Mo40dyNMOK5nv3-0) e no nosso modelo entidade-relacionamento.
+## Participantes: 
+-Willyan Marques 
+-Marcos Paulo
+-Arthur Delpino
+-Caio Yuri
+-João Pedro Gomes - 221006351
+
+## Scrum Master: Willyan Marques
+## Serão desenvolvidas as 16 issues, com base no nossa estilização presente em [Figma - Willyan Marques](https://www.figma.com/design/kIW8LmzqajgAQVigrLX21y/Camaar-G01?node-id=0-1&t=H1Mo40dyNMOK5nv3-0) e no nosso modelo entidade-relacionamento.
+
+## Divisão das Features:
 - Features de Autenticação (Auth): João Pedro Gomes
 - Features de Exportação e Importação (Io): Marcos Paulo
 - Features de Formulários: Willyan Marques e Arthur Delpino
