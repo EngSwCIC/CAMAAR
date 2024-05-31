@@ -4,8 +4,7 @@ Feature: Generate Admin Report
     So that I can evaluate class performance
 
   Scenario: Click on class report to download result (happy path)
-    Given I have sent a form to "Turma"
-    And I have answered a form from "Turma"
+    Given there is at least one form answered for "Turma"
     And I am on the Gerenciamento page
     When I press "Resultados"
     Then I should be on the Resultados page
@@ -14,7 +13,7 @@ Feature: Generate Admin Report
     Then I should see "Relatório baixado com sucesso."
 
   Scenario: No results (sad path)
-    Given I have sent a form to "Turma"
+    Given there is no form answered for "Turma"
     And I am on the Gerenciamento page
     When I press "Resultados"
     Then I should be on the Resultados page
