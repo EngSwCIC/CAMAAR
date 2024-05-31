@@ -11,7 +11,7 @@ Feature: Delete a form template
         Given that I created the following templates:
             | Template 1 | teacher |
         Then I should see "Template 1"
-        When I press the button "Deletar Template"
+        When I press "Deletar Template"
         And I confirm a popup
 
     Scenario: Deleting a template

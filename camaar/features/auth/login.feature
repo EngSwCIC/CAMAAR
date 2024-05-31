@@ -9,7 +9,7 @@ Feature:
         When I fill in the following:
             | email          | password |
             | user@gmail.com | 123456   |
-        And I press the button "Entrar"
+        And I press "Entrar"
         Then I should be on the "Formulários" page
         And I should see "John Doe"
 
@@ -20,7 +20,7 @@ Feature:
         When I fill in the following:
             | email          | password |
             | user@gmail.com | 123456   |
-        And I press the button "Entrar"
+        And I press "Entrar"
         Then I should see "Credenciais Inválidas"
 
 
@@ -31,7 +31,7 @@ Feature:
         When I fill in the following:
             | email           | password |
             | admin@gmail.com | 123456   |
-        And I press the button "Login"
+        And I press "Login"
         Then I should be on the "Templates" page
         And I should see "Jhon Doe"
 
@@ -42,5 +42,5 @@ Feature:
         When I fill in the following:
             | email          | password |
             | user@gmail.com | abc123   |
-        And I press the button "Login"
+        And I press "Login"
         Then I should see "Credenciais Inválidas"

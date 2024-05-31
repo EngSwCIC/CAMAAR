@@ -6,7 +6,7 @@ Feature: Export form results
 
     Background: Form has already been answered
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
-        Given that I create a form to the following classes:
+        Given that a form has been assigned to the following classes:
             | name         | role    | subject | semester | classCode |
             | Formulário 1 | teacher | CIC0097 | 2021.2   | TA        |
             | Formulário 2 | student | CIC0105 | 2021.2   | TA        |
@@ -15,9 +15,9 @@ Feature: Export form results
 
 
     Scenario: Export the responses of a answered form
-        When I press the button "Exportar Respostas"
+        When I press "Exportar Respostas"
         Then I should download be able to export a "csv" file with all the answers
 
     Scenario: Generate a report from the responses of a answered form
-        When I prees the button "Converter para gráfico"
+        When I press "Converter para gráfico"
         Then I should be able to see the answered form as a chart

@@ -28,14 +28,14 @@ Feature: Create a form for students of a class
 
     Scenario: Dispatch form for students of a class
         When I check "2021.2_CIC0097_TA"
-        When I press the button "Enviar"
+        When I press "Enviar"
         Then I should be on the "Resultados" page
         And I should see the following templates:
             | template   | class                 | teacher   | role    | status  |
             | Template 2 | 2021.2 - CIC0097 - TA | Maristela | student | pending |
 
     Scenario: Coordinator forgets to select a class
-        When I press the button "Enviar"
+        When I press "Enviar"
         Then I should see "Selecione uma turma"
 
 # Scenario: There are no classes in the current semester

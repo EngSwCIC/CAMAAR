@@ -11,17 +11,17 @@ Feature: Edit a form template
         Given that I created the following templates:
             | Template 1 | teacher |
         Then I should see "Template 1"
-        When I press the button "Editar Template"
+        When I press "Editar Template"
         Then I should be on the "Template 1" page
 
     Scenario: Succesfully update a template
         And I fill in "Nome do Template" with "Template 1.1"
-        When I press the button "Salvar Template"
+        When I press "Salvar Template"
         And I confirm a popup
         Then I should be on the "Templates" page
         And I should see "Template 1.1"
 
     Scenario: Leaves a text field empty
         And I fill in "Nome do Template" with ""
-        When I press the button "Salvar Template"
+        When I press "Salvar Template"
         Then the "Nome do Template" field should have the error "Campo não pode estar vazio"

@@ -10,7 +10,7 @@ Feature: Create a template form
         Then I should be on the "Templates" page
 
     Scenario: Coordinator succesfully creates template
-        When I press the button "Adicionar Template"
+        When I press "Adicionar Template"
         Then I should be on the "Novo Template" page
 
         And I fill in "Nome do template" with "Template 1"
@@ -21,15 +21,15 @@ Feature: Create a template form
             | caption         |
             | Dê uma sugestão |
 
-        When I press the button "Salvar Template"
+        When I press "Salvar Template"
         Then I should be on the "Templates" page
         And I should see "Template 1"
 
     Scenario: Template has missing information
-        When I press the button "Adicionar Template"
+        When I press "Adicionar Template"
         Then I should be on the "Novo Template" page
 
         And I fill in "Nome do template" with "Template 1"
 
-        When I press the button "Salvar Template"
+        When I press "Salvar Template"
         Then I should see "O template precisa conter pelo menos uma pergunta"

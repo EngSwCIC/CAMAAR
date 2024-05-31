@@ -13,12 +13,12 @@ Feature: Sign up as a common user
         When I fill in the following:
             | email              | password | confirmation |
             | student2@gmail.com | 123456   | 123456       |
-        When I press the button "Confirmar"
+        When I press "Confirmar"
         Then I should be on the "Users Login" page
         When I fill in the following:
             | email              | password |
             | student2@gmail.com | 123456   |
-        When I press the button "Confirmar"
+        When I press "Confirmar"
         Then I should be on the "Formulários" page
         And I should see "Jane Doe"
 
@@ -27,7 +27,7 @@ Feature: Sign up as a common user
         When I fill in the following:
             | email              | password | confirmation |
             | student2@gmail.com | 123456   | abc123       |
-        When I press the button "Confirmar"
+        When I press "Confirmar"
         Then I should see "As senhas não conferem"
 
 

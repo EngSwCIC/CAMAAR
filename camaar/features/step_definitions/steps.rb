@@ -24,7 +24,7 @@ Given (/^(?:|I )am on the "(.+)" page$/) do |page_name|
   visit path_to(page_name)
 end
 
-When (/^(?:|I )go to "(.+)$"/) do |page_name|
+When (/^(?:|I )go to the "(.+)" page$/) do |page_name|
   visit path_to(page_name)
 end
 
@@ -46,7 +46,7 @@ Then (/^show me the page$/) do
 end
 
 # Buttons and clicks
-When (/^(?:|I )press (?:|the button )"([^"]*)"$/) do |button|
+When (/^(?:|I )press "([^"]*)"$/) do |button|
   click_fi(button)
 end
 
@@ -143,7 +143,7 @@ And (/I received a ([^"]*) email at "([^"]*)"$/) do |email_type| #reset or regis
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Given("that I imported classes for the {string}") do |string|
+Given(/that I imported ([^"]*) for the "([^"]*)"$/) do |datatype, dpt_name|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
@@ -167,6 +167,15 @@ Given(/that I have answered the following forms:$/) do |table|
 end
 
 Given(/that the "([^"]*)" form has been answered/) do |form_name|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("that the student {string} has left the class {string}") do |string, string2|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("that the class {string} was updated with:") do |string, table|
+  # table is a Cucumber::MultilineArgument::DataTable
   pending # Write code here that turns the phrase above into concrete actions
 end
 
@@ -225,7 +234,8 @@ Then(/I should see the following forms as ([^"]*):$/) do |status, table|
   # table is a Cucumber::MultilineArgument::DataTable
   pending # Write code here that turns the phrase above into concrete actions
 end
-Then("I should see the following classes:") do |table|
+
+And("I should see the following classes:") do |table|
   # table is a Cucumber::MultilineArgument::DataTable
   pending # Write code here that turns the phrase above into concrete actions
 end
@@ -341,4 +351,17 @@ Then (/^(?:|I )should have the following query string:$/) do |expected_pairs|
   else
     assert_equal expected_params, actual_params
   end
+end
+
+# Import and export
+Then("I should download be able to export a {string} file with all the answers") do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I should be able to see the answered form as a chart") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/I import a "([^"]*)" file with the ([^"]*) data$/) do |filetype, datatype|
+  pending # Write code here that turns the phrase above into concrete actions
 end

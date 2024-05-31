@@ -7,8 +7,8 @@ Feature: View forms as a Student or Teacher
     Background: A form was assigned to some classes
         Given I am an authenticated User
         Given that a form has been assigned to the following classes:
-            | Formulário 1 | CIC0097 | 2021.2 | TA |
-            | Formulário 2 | CIC0105 | 2021.2 | TA |
+            | Formulário 1 | teacher | CIC0097 | 2021.2 | TA |
+            | Formulário 2 | student | CIC0105 | 2021.2 | TA |
         Given that I am an User associated with the following classes:
             | CIC0097 | 2021.2 | TA |
             | CIC0105 | 2021.2 | TA |

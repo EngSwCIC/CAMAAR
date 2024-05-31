@@ -5,41 +5,43 @@ Feature: Update database data
     So that I can correct the system's database
 
     Background: Data has already been imported before
-        Given I am an authenticated Coordinator from ""
-        Given that the classes data have been imported
-        Given that the members data have been imported
+        Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+        Given that I imported classes for the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+        Given that I imported members for the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
 
-        Given that on SIGAA the student "William Xavier dos Santos" left the class "2021.2-CIC0097-TA"
-        Given that on SIGAA the class "2021.2-CIC0097-TA" was updated with:
-            | name | subject | classCode | semester | time |
-            |      |         |           |          |      |
+        Given that the student "William Xavier dos Santos" has left the class "2021.2-CIC0097-TA"
+        Given that the class "2021.2 - CIC0097 - TA" was updated with:
+            | name            | schedule |
+            | BANCOS DE DADOS | 24T45    |
         And I am on the "Importar dados" page
 
     Scenario: Coordinator attempts to update class data
         And I choose "Turmas"
-        When I click "Upload"
-        And I choose a json file with the updated classes data
-        When I click "Importar"
-        Then I should be see "Dados das turmas importados com sucesso"
+        When I press "Upload"
+        And I import a "json" file with the updated classes data
+        When I press "Importar"
+        Then I should see "Dados das turmas importados com sucesso"
         When I go to the "Turmas" page
-        Then I shoud see the following classes:
-            #TODO copiar da outra feature de view
-            |  |
-    Scenario: Coordinator attempts to update members data
+        Then I should see "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+        And I should see the following classes:
+            | name                    | semester | subject | classCode | schedule |
+            | BANCOS DE DADOS         | 2021.2   | CIC0097 | TA        | 24T45    |
+            | ENGENHARIA DE SOFTWARE  | 2021.2   | CIC0105 | TA        | 35M12    |
+            | PROGRAMAÇÃO CONCORRENTE | 2021.2   | CIC0202 | TA        | 35M34    |
+
+    Scenario: Coordinator attempts to update class members data
         And I choose "Membros"
-        And I click "Upload"
-        And I choose a json file with the members data
-        When I click "Importar"
-        Given the following class exists:
-            #TODO
-            | name    | subject | classCode | semester | time |
-            | CIC0097 |         |           |          |      |
-        Then I should be see "Dados dos alunos importados com sucesso"
+        And I press "Upload"
+        And I import a "json" file with the members data
+        When I press "Importar"
+        Then I should see "Dados dos alunos importados com sucesso"
         When I go to the "Turmas" page
-        Then I shoud see the following classes:
-            #TODO
-            | name | subject | classCode | semester | time |
-            |      |         |           |          |      |
+        Then I should see "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+        And I should see the following classes:
+            | name                    | semester | subject | classCode | schedule |
+            | BANCOS DE DADOS         | 2021.2   | CIC0097 | TA        | 35T45    |
+            | ENGENHARIA DE SOFTWARE  | 2021.2   | CIC0105 | TA        | 35M12    |
+            | PROGRAMAÇÃO CONCORRENTE | 2021.2   | CIC0202 | TA        | 35M34    |
         When I follow "2021.2_CIC0197_TA"
         Then I should be on the "2021.2/CIC0197/TA" page
         And I should see "MARISTELA TERTO DE HOLANDA"
