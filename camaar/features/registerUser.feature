@@ -4,27 +4,32 @@
 
 Feature: Register User
 
-    Background: Start on the Login page
-        Given I press the Register button
-        Then I should see the Password Change page
+    Background: Start on the Gerenciamento page
+        Given I am an administrator
 
-    Scenario: Successful Register
-        When I fill the Password textfield with my desired password
-        And I fill the Confirm Password textfield with my desired password
-        And I press the Confirm button
-        Then I should be prompted with "Usuário Cadastrado com Sucesso!"
-        And I should see the Login Page
-    
-    Scenario: Password field is empty
-        When I fill the Confirm Password textfield with my desired password
-        And I press the Confirm button
-        Then I should be prompted with "Senhas não são iguais."
+    Scenario: Successful Import
+        When I press the Importar Dados button
+        Then I should see the Turmas page
+        And I should see a file selection page
+        When I select a JSON file with the desired class
+        Then I should see the class code in the Turmas page
+        When I press the Enviar button
+        Then I should see the Gerenciamento page
 
-    Scenario: Confirm Password field is empty
-        When I fill the Password textfield with my desired password
-        And I press the Confirm button
-        Then I should be prompted with "Senhas não são iguais."
+    Scenario: JSON file is empty/corrupted
+        When I press the Importar Dados button
+        Then I should see the Turmas page
+        And I should see a file selection page
+        When I select an empty/corrupted JSON file
+        Then I should be prompted with "Arquivo Inválido."
+        And I should see the Gerenciamento page
 
-    Scenario: Both fields are empty
-        When I press the Confirm button
-        Then I should be prompted with "Preencha os campos vazios."
+    Scenario: Invalid emails in JSON file
+        When I press the Importar Dados button
+        Then I should see the Turmas page
+        And I should see a file selection page
+        When I select a JSON file with one or more invalid emails
+        Then I should be prompted with "Emails inválidos no arquivo"
+        And I should see the Gerenciamento page   
+
+        
