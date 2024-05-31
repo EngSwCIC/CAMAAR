@@ -1,6 +1,6 @@
-# Como usuário do sistema
-# Quero preencher os campos de um formulário disponível 
-# A fim de enviá-lo para o sistema
+# Como Participante de uma turma
+# Quero responder o questionário sobre a turma em que estou matriculado
+# A fim de submeter minha avaliação da turma
 
 Feature: Answer Form
 
