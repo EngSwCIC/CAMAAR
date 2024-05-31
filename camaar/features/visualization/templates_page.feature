@@ -2,7 +2,7 @@ Feature: View Templates
 
     As a Coordinator
     I want to view the created templates
-    So that I can edit and/or delete a template that I created.
+    So that I can edit and/or delete a template that I created
 
     Background:
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
@@ -18,8 +18,14 @@ Feature: View Templates
             | name       | role    |
             | Template 1 | teacher |
             | Template 2 | student |
+
         Then I should see the button "Deletar" on "Template 1"
         Then I should see the button "Editar" on "Template 1"
+
+        Then I should see the button "Deletar" on "Template 2"
+        Then I should see the button "Editar" on "Template 2"
+
+
 
 
 #template_edit.feature

@@ -30,9 +30,9 @@ Feature: View forms as a Student or Teacher
             | CIC0097 | 2021.2 | TA |
 
 
-# Scenario: User not associated with any class
-#     Given I am not enrolled in any class
-#     Then I should not see any forms on the "Formulários" page.
+    Scenario: User not associated with any class
+        Given I am not enrolled in any class
+        Then I should not see any forms on the "Formulários" page
 
 #submit_form.feature
 # Scenario: Student views forms questions
