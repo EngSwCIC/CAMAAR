@@ -1,10 +1,10 @@
 # CAMAAR
 
 ## Integrantes do Grupo
+- **CARLOS EDUARDO DE SOUSA ARNAUD** - Matrícula: 221006324
+- **Gabriel Roberto de Queiroz** - Matrícula: 221020870
 - **Gustavo Vieira de Araújo** - Matrícula: 211068440
 - **Luis Antonio Benjamim Flexa** - Matrícula: 221006389
-- **Gabriel Roberto de Queiroz** - Matrícula: 221020870
-- **Marcos Paulo de Oliveira** - Matrícula: 221020889
 - **Thiago Fernandes Carvalho de Souza** - Matrícula: 221030885
 
 ## Nome do Projeto
