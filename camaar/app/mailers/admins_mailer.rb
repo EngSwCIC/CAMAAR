@@ -1,13 +1,17 @@
 class AdminsMailer < ApplicationMailer
+  def new_user_email(admin)
+    @admin = admin
+    mail(to: email, subject: 'New user signup')
+  end
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.admins_mailer.welcome.subject
-  #
+  def user_forgot_email(admin)
+    @admin = admin
+    mail(to: email, subject: 'Reset email')
+  end
+
   def welcome
-    @greeting = "Hi"
+    @greeting = 'Hi'
 
-    mail to: "to@example.org"
+    mail to: 'to@example.org'
   end
 end

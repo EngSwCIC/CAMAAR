@@ -11,7 +11,9 @@ class Admins::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
+    super do |resource|
+      AdminRegistrationService.call(resource)
+    end
   end
 
   # GET /resource/edit
@@ -37,9 +39,10 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   def cancel
     super
   end
-#
+
   protected
-#
+
+  #
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])

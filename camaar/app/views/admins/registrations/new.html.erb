@@ -1,29 +1,3 @@
-<%# <h2>Registrar</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%# <%= f.error_notification %> 
-
-  <%# <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%# <%= f.input :password, %>
-                <%# required: true, %>
-                <%# hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), %>
-                <%# input_html: { autocomplete: "new-password" } %> 
-    <%# <%= f.input :password_confirmation, %>
-                <%# required: true, %>
-                <%# input_html: { autocomplete: "new-password" } %>
-  <%# </div> %> 
-
-  <%# <div class="form-actions"> %>
-    <%# <%= f.button :submit, "Sign up" %> 
-  <%# </div> %>
-<%# <% end %> 
-
-<%# <%= render "devise/shared/links" %>
-
 <%= stylesheet_link_tag "login.css" %>
 <!------ Include the above in your HEAD tag ---------->
 
@@ -33,8 +7,9 @@
     <br>
     <h1> Olá, administrador! <h1>
     <h1> Defina sua senha</h1>
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
+<%= simple_form_for(resource, as: resource_name, url: new_admin_registration_path) do |form| %>
   <%= form.error_notification %>
+      <%= form.text_field :email, id: "email", class: "email", placeholder: "Email", required: true, autofocus: true, autocomplete: "off" %>
   <%= form.text_field :password, type: "password", id: "password", class: "password", placeholder: "Senha", required: true, autofocus: true, autocomplete: "off" %>
   <%= form.text_field :password, type: "password", id: "password", class: "password", placeholder: "Confirme sua Senha", required: true, autofocus: true, autocomplete: "off" %>
 <div class="form-actions">

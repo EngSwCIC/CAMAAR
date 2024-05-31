@@ -22,6 +22,13 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/logout' => 'users/sessions#destroy'
     post '/users/register' => 'users/registrations#create'
+    post '/users/recover-password/new' => 'users/passwords#new'
+  end
+
+  devise_scope :admin do
+    get '/admins/logout' => 'admins/sessions#destroy'
+    post '/admins/register' => 'admins/registrations#create'
+    post '/admins/recover-password/new' => 'admins/passwords#new'
   end
 
   devise_for :users,
