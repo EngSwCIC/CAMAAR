@@ -1,0 +1,15 @@
+Como adm, na tela de criação de avaliações, eu quero definir as possíveis perguntas e respostas do questionário e salvá-lo para poder enviar aos alunos mais tarde
+
+#Feliz:
+Caso 1:
+O adm cria o questionário como quer e o salva para usar depois.
+
+#Triste:
+Caso 2:
+O adm acessa a tela de criação e tenta salvar um questionário não preenchido, recebendo uma mensagem de erro.
+
+Caso 3:
+O adm acessa a tela de criação e tenta perguntas sem nenhuma resposta, recebendo uma mensagem de erro
+
+
+responsável: Alisson

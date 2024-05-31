@@ -1,0 +1,14 @@
+Como adm, eu quero que a importação de dados, edição de templates, envio dos formulários e visualização de resultados sejam disponibilizados nessa ordem para garantir o cumprimento do procedimento correto
+
+#Feliz:
+
+Caso 1:
+O adm consegue acessar cada uma das funcionalidades na ordem correta.
+
+#Triste:
+
+Caso 2:
+O adm tenta acessar uma funcionalidade ainda indisponível e é solicitado que ele cumpra os passos anteriores antes
+
+
+responsável: Lucas

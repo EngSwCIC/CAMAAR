@@ -1,0 +1,14 @@
+como adm, quero clicar no botão de resultados para baixar um documento contendo as respostas dos formulários
+
+#Feliz:
+
+Caso 1:
+O professor clica no botão e baixa os dados resultantes da pesquisa
+
+#Triste:
+
+Caso 2:
+O professor clica no botão para baixar os dados mas nenhuma pesquisa foi respondida, então ele é notificado
+
+
+responsável: João Marcos

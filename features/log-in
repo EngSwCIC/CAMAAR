@@ -1,0 +1,17 @@
+Como usuário, eu quero escrever minhas informações de login e clicar em confirmar para entrar na minha conta.
+
+#Feliz:
+
+Caso 1:
+O usuário preenche os campos, os dados são encontrados no bd e a conexão é feita.
+
+#Triste:
+
+Caso 2:
+O usuário não preenche os campos e tenta confirmar, então é avisado para preencher tudo.
+
+Caso 3:
+O usuário insere um email/senha incorretos e então recebe uma mensagem de “credenciais inválidas”.
+
+
+Responsável: João Pedro

@@ -1,0 +1,14 @@
+Como usuário, eu quero preencher minhas credenciais e confirmar para realizar meu cadastro, definindo assim a minha senha.
+
+#Feliz:
+
+Caso 1:
+O usuário preenche todos os campos adequadamente e o cadastro é realizado
+
+#Triste:
+
+Caso 2:
+O usuário não preenche todos os campos e tenta confirmar o cadastro, recebendo um aviso.
+
+
+Responsável: João Pedro

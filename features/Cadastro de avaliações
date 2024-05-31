@@ -1,0 +1,14 @@
+Como adm, eu quero clicar no botão de cadastro de avaliações, para ter acesso à tela de criação
+
+#Feliz:
+
+Caso 1:
+O usuário seleciona a opção de cadastrar avaliações e a tela de cadastro é mostrada.
+
+#Triste:
+
+Caso 2:
+O usuário clica em cadastrar avaliações e não há nenhuma resposta
+
+
+responsável: João Marcos
