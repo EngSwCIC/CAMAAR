@@ -25,6 +25,9 @@ module NavigationHelpers
     when /^the Resultados\s?page$/
       '/gerenciamento/resultados'
 
+    when /^the Templates\s?page$/
+      '/gerenciamento/templates'
+
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
       #
