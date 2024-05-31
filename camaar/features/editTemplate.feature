@@ -4,8 +4,7 @@
 
 Feature: Edit Template
 
-    Background:
-        Start in the Templates page
+    Background: Start in the Templates page
 
     Scenario: Successful edit
         When I click on the Edit button on one of the templates
