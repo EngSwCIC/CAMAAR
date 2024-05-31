@@ -38,4 +38,13 @@ Feature: Submit form answers
         Then I should no forms as pending
         And I should not be able to submit a form
 
+     Scenario: Student views forms questions
+        Given I am enrolled in a class "<TP1>"
+        When I click on the associated form with ID "<TP1>"
+        Then I should be on the page for form "<TP1>"
+        And I should see all the questions to be answered.
+
+        Examples:
+            | TP1     |
+            | CIC0197 |
 
