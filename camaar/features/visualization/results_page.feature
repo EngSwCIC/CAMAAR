@@ -26,9 +26,4 @@ Feature: Forms Results Page
         Then I should see the following results:
             | name         | answers      |
             | Formulário 1 | Respostas: 1 |
-
-# auth feature
-# Scenario: Coordinator Logs Out
-#     Given I am on "Admin Camaar" page
-#     And I click on "Sair"
-#     Then I  should be redirected to the "Root" page.
+            
