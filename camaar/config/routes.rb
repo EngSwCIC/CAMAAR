@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   # get 'admins/importdata'
   # get 'layouts/define_password'
   # devise_for :users
+  devise_scope :user do
+    get '/users/logout' => 'users/sessions#destroy'
+    post '/users/register' => 'users/registrations#create'
+  end
 
   devise_for :users,
              controllers: {
