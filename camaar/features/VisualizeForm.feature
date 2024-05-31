@@ -21,6 +21,7 @@ Feature: visualize forms
         And a teacher closed the form before it's expiration date
         Then I should not see it on the homepage
 
+#Estamos considerando que a homepage é apenas para formulários pendentes nesse cenário
     Scenario: answered forms
         Given I am a registered user
         And I am registered on a class with active forms
