@@ -41,3 +41,11 @@ Feature: Registers students data on the system
         Then I should be on the "2021.2/CIC0197/TA" page
         And I should see "MARISTELA TERTO DE HOLANDA"
         And I should see "William Xavier dos Santos"
+
+    Scenario: Coordinator mismatches the file
+        And I choose "Turmas"
+        When I press "Upload"
+        And I import a "txt" file
+        When I press "Importar"
+        Then I should see "Formato Inválido"
+        

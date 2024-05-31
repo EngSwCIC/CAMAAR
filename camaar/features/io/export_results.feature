@@ -21,3 +21,10 @@ Feature: Export form results
     Scenario: Generate a report from the responses of a answered form
         When I press "Converter para gráfico"
         Then I should be able to see the answered form as a chart
+
+    Scenarios: Export the responses of a deleted form
+        Given I am at "Formulários page"
+        And I delete "<Formulário 1>"
+        Then I should not see "<Formulário 1>"
+        When I visit "Resultados" page
+        Then I should not be able to export the responses from "<Formulário 1>"

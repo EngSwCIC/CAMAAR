@@ -38,6 +38,6 @@ Feature: Create a form for students of a class
         When I press "Enviar"
         Then I should see "Selecione uma turma"
 
-# Scenario: There are no classes in the current semester
-#     Given I am on the "Envio" page
-#     Then I should see "Não há turmas disponíveis para envio"
+    Scenario: There are no classes in the current semester
+         Given I am on the "Envio" page
+         Then I should see "Não há turmas disponíveis para envio"
