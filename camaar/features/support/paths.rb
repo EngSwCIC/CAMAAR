@@ -14,6 +14,8 @@ module NavigationHelpers
     case page_name
     when 'User Camaar'
       '/users/page'
+    when 'Admin Camaar'
+      '/admins/page'
     when 'Root'
       '/'
     when 'Admin Camaar'

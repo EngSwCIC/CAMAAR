@@ -26,6 +26,6 @@ Feature: Forms Results Page
         Then I should be able to see the answered form as a chart.
 
     Scenario: Coordinator Logs Out
-        Given I am on "User Camaar" page
+        Given I am on "Admin Camaar" page
         And I click on "Sair"
         Then I  should be redirected to the "Root" page.
