@@ -1,39 +1,38 @@
-Feature: View Forms as a Student
+Feature: View forms as a Student or Teacher
 
-    As a Student
-    I want to view the unanswered forms for the classes I am enrolled in
-    So that I can choose which one to respond to.
+    As a Student or Teacher
+    I want to view the unanswered forms for the classes I am associated with
+    So that I can choose which one to respond to
 
-    Background:
-        Given I am an authenticated Student
+    Background: A form was assigned to some classes
+        Given I am an authenticated User
         Given that a form has been assigned to the following classes:
+            | Formulário 1 | CIC0097 | 2021.2 | TA |
+            | Formulário 2 | CIC0105 | 2021.2 | TA |
+        Given that I am an User associated with the following classes:
             | CIC0097 | 2021.2 | TA |
             | CIC0105 | 2021.2 | TA |
         When I follow "Formulários"
-        Then I should be on the "Formulários" page.
+        Then I should be on the "Formulários" page
 
-    Scenario: Student Views Forms (No Forms Answered)
-        Given I am enrolled in the following classes:
-            | CIC0097 | 2021.2 | TA |
-        And I have not answered any form
-        Then I should see the following:
-            | CIC0097 | 2021.2 | TA | pending |
-
-
-    Scenario: Student Views Forms (At Least One Form Answered)
-        Given I am enrolled in the following classes:
+    Scenario: Student views pending forms
+        Given that I have not answered any form
+        Then I should see the following forms as pending:
             | CIC0097 | 2021.2 | TA |
             | CIC0105 | 2021.2 | TA |
-        And I have answered the form assigned to:
+
+    Scenario: Student views answered forms
+        Given that I have answered the following forms:
             | CIC0097 | 2021.2 | TA |
-        Then I should see the following:
-            | CIC0097 | 2021.2 | TA | submitted |
-            | CIC0097 | 2021.2 | TA | pending   |
+        Then I should see the following forms as pending:
+            | CIC0097 | 2021.2 | TA |
+        Then I should see the following forms as answered:
+            | CIC0097 | 2021.2 | TA |
 
 
-    Scenario: Not Enrolled Student Does Not View Any Forms
-        Given I am not enrolled in any class
-        Then I should not see any forms on the "Formulários" page.
+# Scenario: User not associated with any class
+#     Given I am not enrolled in any class
+#     Then I should not see any forms on the "Formulários" page.
 
 #submit_form.feature
 # Scenario: Student views forms questions

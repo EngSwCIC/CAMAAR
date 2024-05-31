@@ -6,19 +6,21 @@ Feature: View Templates
 
     Background:
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
-        Given that I created the template "Template 1"
-        And I am on the "Templates" page.
+        Given that I created the following templates:
+            | name       | role    |
+            | Template 1 | teacher |
+            | Template 2 | student |
 
-    Scenario: Coordinator Views Created Templates
-        Then I should see the following
-            | name       | subject | semester | classCode | teacher   |
-            | Template 1 | CIC0097 | 2021.2   | TA        | Maristela |
-        And I should see "Deletar template" button from "Template 1"
-        And I should see "Editar template" button from "Template 1"
-        When I click "Delatar template"
-        Then I should see a confirmation popup
-        When I click "Editar template"
-        Then I should be on the "Template 1" page
+        And I am on the "Templates" page
+
+    Scenario: Coordinator views created templates
+        Then I should see the following templates:
+            | name       | role    |
+            | Template 1 | teacher |
+            | Template 2 | student |
+        Then I should see the button "Deletar" on "Template 1"
+        Then I should see the button "Editar" on "Template 1"
+
 
 #template_edit.feature
 # Scenario: Coordinator Views A Templates Editing Page

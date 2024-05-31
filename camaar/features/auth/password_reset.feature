@@ -14,7 +14,7 @@ Feature: Reset Password
         When I fill in "Email" with "student@gmail.com"
         And I press the button "Confirmar"
 
-        Then I receive a password reset email at ""
+        And I received a password reset email at ""
         And I follow "Reset-password Link"
         Then I should be on the "Redefina sua Senha" page
         When I fill in the following:

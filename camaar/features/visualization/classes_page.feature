@@ -8,11 +8,11 @@ Feature: View department classes
     Background:
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         Given that I imported classes for the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
-        And I am on the "Turmas" page.
+        Given I am on the "Turmas" page
 
     Scenario:
         Then I should see "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
-        Then I should see the following:
+        Then I should see the following classes:
             | name                    | subject | classCode | semester | schedule |
             | BANCOS DE DADOS         | CIC0097 | TA        | 2021.2   | 35T45    |
             | ENGENHARIA DE SOFTWARE  | CIC0105 | TA        | 2021.2   | 35M12    |

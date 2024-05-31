@@ -1,11 +1,11 @@
-Feature: Sign up as a Student
-    As an User
+Feature: Sign up as a common user
+    As an Student or Teacher
     I want to set a password for my account from the registration request email
     So that I can access the system
 
-    Background: student has been added to the database
+    Background: User has been added to the database
         Given that I am an unregistered User
-        Then I receive a registration email at "student2@gmail.com"
+        And I received a registration email at "student2@gmail.com"
         And I follow "Link de cadastro"
 
     Scenario: User has clicked on the registration link

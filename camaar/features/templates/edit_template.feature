@@ -4,11 +4,12 @@ Feature: Edit a form template
     So that I can organize existing templates effectively
 
     Background: I am an Coordinator
-        Given that there are classes from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+        Given that I imported classes for the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         When I follow "Templates"
         Then I should be on the "Templates" page
-        Given that I created the template "Template 1"
+        Given that I created the following templates:
+            | Template 1 | teacher |
         Then I should see "Template 1"
         When I press the button "Editar Template"
         Then I should be on the "Template 1" page

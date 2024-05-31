@@ -8,7 +8,8 @@ Feature: Delete a form template
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         When I follow "Templates"
         Then I should be on the "Templates" page
-        Given that I created the template "Template 1"
+        Given that I created the following templates:
+            | Template 1 | teacher |
         Then I should see "Template 1"
         When I press the button "Deletar Template"
         And I confirm a popup

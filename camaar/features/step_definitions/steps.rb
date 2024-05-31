@@ -102,6 +102,9 @@ Then(/^(?:|I )create question (\d+) as a (multiple choice|text) question:$/) do 
 end
 
 # Database and examples
+Given("I am an authenticated User") do
+  pending
+end
 
 Given (/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|
   pending
@@ -124,11 +127,7 @@ Given (/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|
   # click_fi("login")
 end
 
-Given(/that I created the template "([^"]*)"$/) do |name|
-  pending
-end
-
-Given (/that there are classes from the "([^"]*)"$/) do |dpt_name|
+Given(/that I created the following templates:$/) do |table|
   pending
 end
 
@@ -140,7 +139,34 @@ Given(/that I am an unregistered ([^"]*)$/) do |role|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then (/I receive a ([^"]*) email at "([^"]*)"$/) do |email_type| #reset or registration
+And (/I received a ([^"]*) email at "([^"]*)"$/) do |email_type| #reset or registration
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("that I imported classes for the {string}") do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("that a form has been assigned to the following classes:") do |table|
+  # table is a Cucumber::MultilineArgument::DataTable
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("that I am an User associated with the following classes:") do |table|
+  # table is a Cucumber::MultilineArgument::DataTable
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("that I have not answered any form") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/that I have answered the following forms:$/) do |table|
+  # table is a Cucumber::MultilineArgument::DataTable
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/that the "([^"]*)" form has been answered/) do |form_name|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
@@ -150,6 +176,12 @@ Then (/^(?:|I )should see "([^"]*)"$/) do |text|
     page.should have_content(text)
   else
     assert page.has_content?(text)
+  end
+end
+
+Then (/^(?:|I )should see the following:$/) do |fields|
+  fields.rows_hash.each do |text|
+    Then %{I should see "#{name}"}
   end
 end
 
@@ -182,6 +214,29 @@ Then (/^(?:|I )should not see \/([^\/]*)\/$/) do |regexp|
 end
 
 And ("I should only see classes starting with {string}") do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/I should see the button "([^"]*)" on "([^"]*)"$/) do |button, element|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/I should see the following forms as ([^"]*):$/) do |status, table|
+  # table is a Cucumber::MultilineArgument::DataTable
+  pending # Write code here that turns the phrase above into concrete actions
+end
+Then("I should see the following classes:") do |table|
+  # table is a Cucumber::MultilineArgument::DataTable
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I should see the following templates:") do |table|
+  # table is a Cucumber::MultilineArgument::DataTable
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I should see the following results:") do |table|
+  # table is a Cucumber::MultilineArgument::DataTable
   pending # Write code here that turns the phrase above into concrete actions
 end
 

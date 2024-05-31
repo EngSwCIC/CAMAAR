@@ -6,8 +6,8 @@ Feature: Update database data
 
     Background: Data has already been imported before
         Given I am an authenticated Coordinator from ""
-        Given that I already imported the classes data
-        Given that I already imported the members data
+        Given that the classes data have been imported
+        Given that the members data have been imported
 
         Given that on SIGAA the student "William Xavier dos Santos" left the class "2021.2-CIC0097-TA"
         Given that on SIGAA the class "2021.2-CIC0097-TA" was updated with:
