@@ -4,10 +4,10 @@ end
 
 # depois ver como eh a criacao de template pra colocar aqui
 Given /^I have sent a form to "(.*)"$/ do |turma|
-  Given %{I have created a template "Teste"}
-  And %{I am on the Gerenciamento page}
-  When %{I press "Enviar Formularios"}
-  And %{I select "Teste" from "Template"}
-  And %{I check "#{turma}"}
-  And %{I press "Enviar"}
+  steps %{Given I have created a template "Teste"}
+  steps %{And I am on the Gerenciamento page}
+  steps %{When I press "Enviar Formularios"}
+  steps %{And I select "Teste" from "Template"}
+  steps %{And I check "#{turma}"}
+  steps %{And I press "Enviar"}
 end
