@@ -7,10 +7,10 @@ Feature: View pending forms
         Given I am logged in as a Student
         And I am on the Avaliacoes page
         And a form has been sent to the class "Turma1"
-        Then I should see form "Teste1"
+        Then I should see form "Turma1"
 
     Scenario: No form has been sent to the class (sad path)
         Given I am logged in as a Student
         And I am on the Avaliacoes page
         And no form has been sent to the class "Turma1"
-        Then I should see "Nenhum formulario disponível para a turma "Turma1""
+        Then I should see no form "Turma1"
