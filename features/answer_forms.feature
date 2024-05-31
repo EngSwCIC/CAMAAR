@@ -4,7 +4,7 @@ Feature: Respond to Questionnaire
   So that I can submit my evaluation of the class
 
   Background: Starting on the questionnaire page
-    Given I am on the Form page
+    Given I am on the Avaliacoes page
 
   Scenario: Successfully submitting the questionnaire (happy path)
     When I fill in "O que você achou da turma?" with "Ótima turma"

@@ -4,7 +4,7 @@ Feature: Import Data from SIGAA
   So that I can populate the system's database
 
   Background: Starting on the data import page
-    Given I am on the data import page
+    Given I am on the Gerenciamento page
 
   Scenario: Successful import (happy path)
     When I press "Importar dados"
