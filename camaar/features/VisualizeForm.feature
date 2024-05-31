@@ -27,4 +27,12 @@ Feature: visualize forms
         And I am registered on a class with active forms
         And I answered a form
         Then I should not see it on the homepage
+
+#Para o caso em que a homepage também deve exibir formulários já respondidos
+    Scenario: answered forms
+        Given I am a registered user
+        And I am registered on a class with active forms
+        And I answered a form
+        Then I should still see it on the homepage
+
         
