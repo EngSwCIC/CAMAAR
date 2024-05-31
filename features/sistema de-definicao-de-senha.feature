@@ -20,12 +20,12 @@ Funcionalidade: Sistema de definição de senha
     # Sad Paths
 
     Cenário: Falha ao pre-logar
-        Dado que eu não estou pre-logado no sitema com um usuário
+        Dado que eu não estou pre-logado no sistema com um usuário
         Quando eu for para a página de definição de senha
         Então o sistema irá me redirecionar para a página de login
 
     Cenário: Erro de regra de senha
-        Dado que eu estou pre-logado no sitema com um usuário
+        Dado que eu estou pre-logado no sistema com um usuário
         E que estou na página  de definição de senha
         Dado que eu informo uma senha inválida e a reverifico
         Quando eu clicar no botão "definir senha"
@@ -34,7 +34,7 @@ Funcionalidade: Sistema de definição de senha
         E também mostrará uma mensagem de falha ao usuário
 
     Cenário: A senha  não foi definida
-        Dado que eu estou pre-logado no sitema com um usuário
+        Dado que eu estou pre-logado no sistema com um usuário
         E que estou na página  de definição de senha
         Dado que informo  uma senha válida e a reverifico
         Quando eu clicar no botão "definir senha"
