@@ -1,5 +1,5 @@
 Feature: Submit form answers
-    As an User
+    As an Student or Teacher
     I want to answer the form about the class I am associated with
     So that I can submit my class evaluation
 

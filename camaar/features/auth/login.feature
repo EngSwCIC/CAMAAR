@@ -3,7 +3,7 @@ Feature:
     I want to access the system using an email or registration number and a previously set password
     So that I can respond to forms or manage the system
 
-    Scenario: Student/Teacher logs in with valid credentials
+    Scenario: User logs in with valid credentials
         Given that I am a registered User
         And I am on the "Users Login" page
         When I fill in the following:
@@ -14,7 +14,7 @@ Feature:
         And I should see "John Doe"
 
 
-    Scenario: Student/Teacher can't log in with invalid credentials
+    Scenario: User can't log in with invalid credentials
         Given that I am an unregistered User
         And I am on the "Users Login" page
         When I fill in the following:

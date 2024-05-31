@@ -1,6 +1,6 @@
 Feature: Reset Password
 
-    As an User
+    As an Student or Teacher
     I want to redefine a password for my account from the reset password request email
     So that I can recover access to the system
 
