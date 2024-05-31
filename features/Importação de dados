@@ -1,0 +1,14 @@
+como admin, ao clicar no botão de importação, o bd é atualizado com os dados corretos do arquivo Json e sou notificado
+
+#Feliz:
+
+Caso 1:
+O adm clica no botão de importação, então todos os dados são atualizados e ele recebe mensagem de sucesso.
+
+#Triste:
+
+Caso 2:
+O adm clica no botão de importação mas os dados não sao encontrados, então ele é notificado
+
+
+Responsável: João Pedro

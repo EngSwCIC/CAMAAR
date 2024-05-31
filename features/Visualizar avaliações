@@ -1,0 +1,17 @@
+Como aluno, eu quero ver as avaliações enviadas pelos professores, responder e enviar elas para concluir minhas avaliações 
+
+#Feliz:
+
+Caso 1:
+O usuário responde todas as perguntas da avaliação e confirma suas respostas, então recebe mensagem de sucesso
+
+#Triste:
+
+Caso 2:
+O usuário tenta confirmar o formulário com perguntas ainda não respondidas então recebe mensagem de erro
+
+Caso 3:
+O usuário sai do formulário sem confirmar as respostas, então é notificado.
+
+
+responsável: Lucas

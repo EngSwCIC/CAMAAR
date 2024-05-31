@@ -1,0 +1,17 @@
+como adm, na tela de envio, eu quero selecionar o template e as turmas a quem enviar o formulário para que os alunos recebam a pesquisa
+
+#Feliz:
+
+Caso 1:
+O adm seleciona o template e turma, então o formulário é enviado para os alunos.
+
+#Triste:
+
+Caso 2:
+O adm não seleciona a turma ou o formulário que deseja enviar, então ele é notificado
+
+Caso 3:
+O adm seleciona uma turma vazia para enviar o formulário, então é notificado
+
+
+responsável: Alisson
