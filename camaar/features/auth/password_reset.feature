@@ -5,7 +5,7 @@ Feature: Reset Password
     So that I can recover access to the system
 
     Background: User forgot its password and is on login page
-        Given that I am an registered User
+        Given that I am a registered User
         And I am on the "Users Login" page
         When I follow "Esqueci minha senha"
 
@@ -14,7 +14,7 @@ Feature: Reset Password
         When I fill in "Email" with "student@gmail.com"
         And I press the button "Confirmar"
 
-        Then I should received an password reset email at ""
+        And I received an password reset email at ""
         And I follow "Reset-password Link"
         Then I should be on the "Redefina sua Senha" page
         When I fill in the following:
