@@ -14,8 +14,10 @@ Feature: Manage classes from department
         Then I should only see classes starting with "CIC"
 
     Scenario: Coordinator has not imported classes data
+        Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+        When I follow "Turmas"
         Then I should see "Não foram encontradas turmas para o departamento"
-        Then I should see "Importar Turmas"
+
 
 
 

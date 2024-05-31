@@ -5,6 +5,7 @@ Feature: Registers students data on the system
     So that they can create accounts on the CAMAAR system
 
     Background: No data has been imported before
+<<<<<<< HEAD
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         And I am on the "Importar dados" page
         When I press "Tipos de dados"
@@ -41,3 +42,25 @@ Feature: Registers students data on the system
         Then I should be on the "2021.2/CIC0197/TA" page
         And I should see "MARISTELA TERTO DE HOLANDA"
         And I should see "William Xavier dos Santos"
+=======
+
+    Scenario: Coordinator attempts to import class data
+        Given I am an authenticated Coordinator
+        And I am on the "Importar dados" page
+        When I click on "Tipos de dados"
+        And I choose "Turmas"
+        And I click "Upload"
+        And I choose a json file
+        And I click "Importar"
+        Then I should be able to import the new class data
+
+    Scenario: Coordinator attempts to import members data
+        Given I am an authenticated Coordinator
+        And I am on the "Importar dados" page
+        When I click on "Tipos de dados"
+        And I choose "Membros"
+        And I click "Upload"
+        And I choose a json file
+        And I click "Importar"
+        Then I should be able to import the new members data
+>>>>>>> 4d70a3f (update)

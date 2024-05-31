@@ -34,10 +34,28 @@ Feature: Create a form for students of a class
             | template   | class                 | teacher   | role    | status  |
             | Template 2 | 2021.2 - CIC0097 - TA | Maristela | student | pending |
 
+<<<<<<< HEAD
     Scenario: Coordinator forgets to select a class
         When I press "Enviar"
         Then I should see "Selecione uma turma"
+=======
+    Scenario: Coordinator have not created any student template
+        Then I should see "Selecione template para os alunos"
+        When I click on the combobox "Template alunos"
+        Then I should see the options:
+            | name      |
+            | selecione |
 
-# Scenario: There are no classes in the current semester
-#     Given I am on the "Envio" page
-#     Then I should see "Não há turmas disponíveis para envio"
+        Then I should see "Selecione as turmas"
+        And I should see the following:
+            | name            | subject | semester | classCode | schedule |
+            | BANCOS DE DADOS | CIC0097 | 2021.2   | TA        | 35T45    |
+        When I check the "CIC0097_2021.2_TA"  checkbox
+        When I press the button "Enviar"
+
+        Then I should see the error mesage "Selecione um template para os alunos"
+>>>>>>> 4d70a3f (update)
+
+    Scenario: There are no classes in the current semester
+        Given I am on the "Envio" page
+        Then I should see "Não há turmas disponíveis para envio"

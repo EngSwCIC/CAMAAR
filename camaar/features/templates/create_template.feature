@@ -15,10 +15,10 @@ Feature: Create a template form
 
         And I fill in "Nome do template" with "Template 1"
         And I create question 1 as a multiple choice question:
-            | Caption                    | Option 1 | Option 2 | Option 3 | Option 4 |  |
-            | Classifique seu rendimento | Bom      | Médio    | Ruim     | Péssimo  |  |
+            | Caption                    | Option 1 | Option 2 | Option 3 | Option 4 |  
+            | Classifique seu rendimento | Bom      | Médio    | Ruim     | Péssimo  |
         And I create question 2 as a text question:
-            | caption         |
+            | Caption         |
             | Dê uma sugestão |
 
         When I press "Salvar Template"
