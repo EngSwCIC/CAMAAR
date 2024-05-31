@@ -5,23 +5,39 @@ Feature: Registers students data on the system
     So that they can create accounts on the CAMAAR system
 
     Background: No data has been imported before
-
-    Scenario: Coordinator attempts to import class data
-        Given I am an authenticated Coordinator
+        Given I am an authenticated Coordinator from the ""
         And I am on the "Importar dados" page
         When I click on "Tipos de dados"
+
+
+    Scenario: Coordinator imports classes data
         And I choose "Turmas"
-        And I click "Upload"
-        And I choose a json file
-        And I click "Importar"
-        Then I should be able to import the new class data
-
-    Scenario: Coordinator attempts to import members data
-        Given I am an authenticated Coordinator
-        And I am on the "Importar dados" page
-        When I click on "Tipos de dados"
+        When I click "Upload"
+        And I choose a json file with the classes data
+        When I click "Importar"
+        Then I should be see "Dados das turmas importados com sucesso"
+        When I go to the "Turmas" page
+        Then I shoud see the following classes:
+            #TODO
+            | name | subject | classCode | semester | time |
+            |      |         |           |          |      |
+            
+    Scenario: Coordinator imports members data
         And I choose "Membros"
         And I click "Upload"
-        And I choose a json file
-        And I click "Importar"
-        Then I should be able to import the new members data
+        And I choose a json file with the members data
+        When I click "Importar"
+        Given the following class exists:
+            #TODO
+            | name    | subject | classCode | semester | time |
+            | CIC0097 |         |           |          |      |
+        Then I should be see "Dados dos alunos importados com sucesso"
+        When I go to the "Turmas" page
+        Then I shoud see the following classes:
+            #TODO
+            | name | subject | classCode | semester | time |
+            |      |         |           |          |      |
+        When I follow "2021.2_CIC0197_TA"
+        Then I should be on the "2021.2/CIC0197/TA" page
+        And I should see "MARISTELA TERTO DE HOLANDA"
+        And I should see "William Xavier dos Santos"

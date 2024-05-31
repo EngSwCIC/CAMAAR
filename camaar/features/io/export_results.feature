@@ -5,7 +5,7 @@ Feature: Export form results
     So that I can evaluate the performance of the classes
 
     Background: Form has already been answered
-    Given I am an authenticated Coordinator
-    And I am on the "Resultados" page
-    When I click on the download button from a form
-    Then I am able to export form's data
+        Given I am an authenticated Coordinator from ""
+        And I am on the "Resultados" page
+        When I click on the download button from a form
+        Then I am able to export form's data
