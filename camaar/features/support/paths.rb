@@ -12,6 +12,7 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
+
     when 'Formulários'
       '/forms'
     when /Formulário (\d+)/
@@ -20,9 +21,11 @@ module NavigationHelpers
       '/templates'
     when 'Redefina sua Senha'
       '/admins/...'
+
     when 'Users Login'
       '/users/login'
     when 'Admins Login'
+
       '/admins/login'
     when 'Novo Template'
       '/templates/create'
