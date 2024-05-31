@@ -5,7 +5,7 @@ Feature: Sign up as a Student
 
     Background: student has been added to the database
         Given that I am an unregistered User
-        And I received an registration email at "student2@gmail.com"
+        Then I receive a registration email at "student2@gmail.com"
         And I follow "Link de cadastro"
 
     Scenario: User has clicked on the registration link
@@ -21,7 +21,7 @@ Feature: Sign up as a Student
         When I press the button "Confirmar"
         Then I should be on the "Formulários" page
         And I should see "Jane Doe"
-    
+
     Scenario: User has mismatched the password
         Then I should be on the "Cadastro de Usuário" page
         When I fill in the following:
@@ -29,5 +29,5 @@ Feature: Sign up as a Student
             | student2@gmail.com | 123456   | abc123       |
         When I press the button "Confirmar"
         Then I should see "As senhas não conferem"
-        
+
 

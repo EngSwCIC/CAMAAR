@@ -140,7 +140,7 @@ Given(/that I am an unregistered ([^"]*)$/) do |role|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-And (/I received an ([^"]*) email at "([^"]*)"$/) do |email_type| #reset or registration
+Then (/I receive a ([^"]*) email at "([^"]*)"$/) do |email_type| #reset or registration
   pending # Write code here that turns the phrase above into concrete actions
 end
 
