@@ -3,10 +3,8 @@ Feature: Register users to the system
     I want to register SIGAA class participants when importing new user data into the system
     So that they can access the CAMAAR system
 
-  Background: Starting on the admin actions page
-    Given I am on the Gerenciamento page
-
   Scenario: Register user (happy path)
+    Given I am on the Gerenciamento page
     When I press "Importar dados"
     Then I should be on the Gerenciamento page
     And I should see "Dados importados com successo."
