@@ -5,13 +5,12 @@ Feature: Register users to the system
 
   Scenario: Register users (happy path)
     Given I am on the Gerenciamento page
-    And there are users not yet imported
+    And there are no users registed in our system
     When I press "Importar dados"
     Then I should be on the Gerenciamento page
     And I should see "Dados importados com successo."
-    Then I go to the signup page
-    When I sign up with "123456"
-    Then I should see "Usuário cadastrado com sucesso."
+    Then I should have a new user in the database
+    And I should see "Usuário cadastrado com sucesso."
 
   Scenario: No updates (sad path)
     Given I am on the Gerenciamento page
