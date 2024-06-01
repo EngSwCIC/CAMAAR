@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   match '/admins/forms', to: 'admins#form_student', via: 'get'
   match '/admins/dashboards', to: 'admins#dashboards', via: 'get'
   match '/admins/import', to: 'admins#importdata', via: 'get'
+  match '/admins/envio', to: 'admins#envio', via: 'get'
 
   devise_scope :user do
     get '/users/logout' => 'users/sessions#destroy'

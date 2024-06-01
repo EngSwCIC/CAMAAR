@@ -27,9 +27,11 @@
     <%= stylesheet_link_tag "slick/slick.css",  media: "all" %>
     <%= stylesheet_link_tag "select2/select2.min.css",  media: "all" %>
     <%= stylesheet_link_tag "perfect-scrollbar/perfect-scrollbar.css",  media: "all" %>
-    <%= stylesheet_link_tag "theme.css",  media: "all" %>
 
     <!-- Main CSS-->
+    <%# <link href="theme.css" rel="stylesheet" media="all"> %>
+    <%= stylesheet_link_tag "theme.css",  media: "all" %>
+
 
 </head>
 <body class="animsition">
@@ -53,7 +55,24 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="index.html">Dashboard 1</a>
+                                </li>
+                                <li>
+                                    <a href="index2.html">Dashboard 2</a>
+                                </li>
+                                <li>
+                                    <a href="index3.html">Dashboard 3</a>
+                                </li>
+                                <li>
+                                    <a href="index4.html">Dashboard 4</a>
+                                </li>
+                            </ul>
+                        </li>
                         <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Gráficos</a>
@@ -61,15 +80,34 @@
                 
                         <li>
                             <a href="form_student">
-                                <i class="far fa-file-text"></i>Templates</a>
-                        </li>
-
-                        <li>
-                            <a href="envio.html">
-                                <i class="far fa-file-text"></i>Envio</a>
+                                <i class="far fa-check-square"></i>Forms</a>
                         </li>
                        
-                        
+                     
+                        <li class="has-sub">
+                            <a class="js-arrow" href="home/index">
+                                <i class="fas fa-copy"></i>Pages</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="login">Login</a>
+                                </li>
+                                <li>
+                                    <a href="register">Register</a>
+                                </li>
+                                <li>
+                                    <a href="forget-pass.html">Forget Password</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-desktop"></i>UI Elements</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="import.html.html">Importar Dados</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -89,13 +127,13 @@
                     <li>
                             <a href="import.html">
                                 <i class="fas fa-database"></i>Importar Dados</a>
-                    </li>
+                        </li>
 
 
-                    <li>
-                        <a href="Turmas">
-                            <i class="fas fa-users"></i>Turmas</a>
-                    </li>
+                        <li>
+                            <a href="Turmas">
+                                <i class="fas fa-group"></i>Turmas</a>
+                        </li>
                         
                     <li class="has-sub">
                             <a class="js-arrow" href="#">
@@ -109,9 +147,9 @@
                                 </li>
                             </ul>
                         </li>
-            
+                    </li>
                     <li>
-                            <a href="envio">
+                            <a href="share_template">
                                 <i class="fas fa-share"></i>Envio</a>
                         </li>
                     </li>
@@ -121,7 +159,7 @@
                     <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Resultados</a>
-                    </li>
+                        </li>
 
                     </ul>
                 </nav>
@@ -161,14 +199,13 @@
                                                     <h5 class="name">
                                                         <a href="#">Coordenador</a>
                                                     </h5>
-                                                    <span class="email"><%= @email %></span>
+                                                    <span class="email">coordenador@gmail.com</span>
                                                 </div>
                                             </div>
                                            
-                                            <div class="account-dropdown__footer">                            
-                                                <%= link_to destroy_admin_session_path, data: {turbo_method: :delete} do %>
-                                                <i class ="zmdi zmdi-power"></i> Sair
-                                                <%end%> 
+                                            <div class="account-dropdown__footer">
+                                                <a href="#">
+                                                    <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
                                     </div>
@@ -185,106 +222,81 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="overview-wrap">
-                                    <h2 class="title-1">Formulários Criados</h2>
-                                <%# <%= button_to "Adicionar Formulário", "form_student", method: :get ,class:"au-btn au-btn-icon au-btn--blue"%> 
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row m-t-25">
-                            <div class="col-sm-6 col-lg-3">
-                             <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon-container">
-                                             <i class="fas fa-plus" style="color: #fff;"></i>
-                                            </div>
-                                        </div>
+                       <div class="row justify-content-center align-items-center">
+                            <div class="col-lg-7">
+                                <div class="card">
+                                    <div class="card-header text-center">
+                                        <strong >Opções para Envio</strong> 
                                     </div>
-                            </div>
+                                    <div class="card-body card-block">
+                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                           
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Professores</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <select name="select" id="select" class="form-control">
+                                                        <option value="0">Template</option>
+                                                        <option value="1">Template 1</option>
+                                                        <option value="2">Template 2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
 
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="text">
-                                            <h1>Template 1</h1>
-                                                <h2>CIC0097 - 2024.1 - TA </h2>
-                                                <span>Pendente</span>
+                                             <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Alunos</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <select name="select" id="select" class="form-control">
+                                                        <option value="0">Template</option>
+                                                        <option value="1">Template 1</option>
+                                                        <option value="2">Template 2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                          
+                                           <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Turmas</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <select name="select" id="select" class="form-control">
+                                                        <option value="0">Turma</option>
+                                                        <option value="1">Turma 1</option>
+                                                        <option value="2">Turma 2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                          
+
+                                          
+                                            <!-- <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="file-multiple-input" class=" form-control-label">Multiple File input</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="file" id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control-file">
+                                                </div> -->
+                                            </div>
+                                            <div class="card-footer justify-content-center align-items-center text-center">
+                                                <button type="reset" class="btn btn-danger btn-sm">
+                                                    <i class="fa fa-ban"></i> Cancelar
+                                                </button>
+                                                  <button type="submit" class="btn btn-success btn-sm">
+                                                    <i class="fa fa-dot-circle-o"></i> Enviar
+                                                </button>
                                             </div>
                                             
-                                            <div class="icons-container">
-                                             <i class="fas fa-edit"></i>
-                                             <i class="fas fa-download"></i>
-                                            </div>
-                                        
-                                         
-                                        </div>
+                                        </form>
                                     </div>
+                            
+                                </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="text">
-                                                <h1>Template 2</h1>
-                                                <h2>CIC0105 - 2024.1 - TA </h2>
-                                                <span>Pendente</span>
-                                            </div>
-
-                                            <div class="icons-container">
-                                             <i class="fas fa-edit"></i>
-                                             <i class="fas fa-download"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="text">
-                                                <h1>Template 3</h1>
-                                                <h2>CIC0198 - 2024.1 - TA </h2>
-                                                <span>Pendente</span>
-                                            </div>
-
-                                            <div class="icons-container">
-                                             <i class="fas fa-edit"></i>
-                                             <i class="fas fa-download"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="text">
-                                                 <h1>Template 4</h1>
-                                                <h2>CIC0099 - 2024.1 - TA </h2>
-                                                <span>Pendente</span>
-                                            </div>
-
-                                            <div class="icons-container">
-                                             <i class="fas fa-edit"></i>
-                                             <i class="fas fa-download"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                  
-                           
                         </div>
-                      
-            
+               
                     </div>
                 </div>
             </div>
