@@ -7,8 +7,8 @@ Feature: Set password
     Given I am on the Definir Senha page
 
   Scenario: The set password is valid (happy path)
-    Given that I filled in my password correctly
-    When I click "Alterar senha"
+    When I fill in "Senha" with "12345"
+    And I fill in "Confirme a Senha" with "12345"
     Then I should see "Senha registrada com sucesso"
     Then I can use the features of a registered user
 
