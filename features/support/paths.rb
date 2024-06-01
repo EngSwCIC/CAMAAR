@@ -28,8 +28,8 @@ module NavigationHelpers
     when /^the Templates\s?page$/
       '/gerenciamento/templates'
 
-    when /^the Importar dados\s?page$/
-      '/importar-dados-sigaa'
+    when /^the Definir Senha\s?page$/
+      '/senha'
 
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
