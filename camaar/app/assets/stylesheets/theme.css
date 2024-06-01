@@ -3239,6 +3239,34 @@ section {
     color: rgba(255, 255, 255, 0.6);
 }
 
+
+
+.icons-container {
+    text-align: left;
+
+}
+
+
+.icons-container i {
+    font-size: 15px; /* Adjust size as needed */
+    color: #fff; /* Change to desired color */
+   
+}
+
+.icon-container {
+    margin-bottom: 25px; /* Adjust as needed */
+    text-align: center;
+
+}
+
+.icon-container i {
+    font-size: 24px; /* Adjust size as needed */
+    color: #fff; /* Change to desired color */
+    margin-bottom: 45px;
+    margin-top: 10px;
+    text-align: center;
+}
+
 @media (min-width: 992px) and (max-width: 1199px) {
     .overview-box .text {
         display: inline-block;
