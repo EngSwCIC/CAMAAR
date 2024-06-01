@@ -16,5 +16,5 @@ Feature: create a class evaluation form
         Then I should see "Formulário enviado com sucesso"
 
     Scenario: Not selecting a template or class (sad path)
-        When I press "Enviar Formulário"
+        When I press "Enviar"
         Then I should see "Erro: campos não preenchidos"
