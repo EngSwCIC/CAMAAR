@@ -3221,7 +3221,15 @@ section {
 .overview-box .text h2 {
     font-weight: 300;
     color: #fff;
-    font-size: 36px;
+    font-size: 16px;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.overview-box .text h1 {
+    font-weight: 300;
+    color: #fff;
+    font-size: 26px;
     line-height: 1;
     margin-bottom: 5px;
 }
