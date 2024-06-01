@@ -17,4 +17,3 @@ Feature: Set password
     When I press "Alterar senha"
     Then I should be on the Definir senha page
     And I should see "A senha registrada é inválida"
-
