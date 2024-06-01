@@ -53,24 +53,7 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
-                            </ul>
-                        </li>
+                        
                         <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Gráficos</a>
@@ -78,25 +61,14 @@
                 
                         <li>
                             <a href="form_student">
-                                <i class="far fa-check-square"></i>Forms</a>
+                                <i class="far fa-file-text"></i>Templates</a>
+                        </li>
+
+                        <li>
+                            <a href="share_template">
+                                <i class="far fa-file-text"></i>Envio</a>
                         </li>
                        
-                     
-                        <li class="has-sub">
-                            <a class="js-arrow" href="home/index">
-                                <i class="fas fa-copy"></i>Pages</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="login">Login</a>
-                                </li>
-                                <li>
-                                    <a href="register">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password</a>
-                                </li>
-                            </ul>
-                        </li>
                         
                     </ul>
                 </div>
@@ -114,31 +86,20 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
-                            </ul>
+                    <li>
+                            <a href="import.html">
+                                <i class="fas fa-database"></i>Importar Dados</a>
                         </li>
+
+
                         <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts</a>
+                            <a href="Turmas">
+                                <i class="fas fa-group"></i>Turmas</a>
                         </li>
+                        
                     <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-check-square"></i>Forms</a>
+                                <i class="fas fa-file-text"></i>Templates</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                 <%= link_to "Pendentes", new_user_session_path%>
@@ -149,37 +110,19 @@
                             </ul>
                         </li>
                     </li>
+                    <li>
+                            <a href="share_template">
+                                <i class="fas fa-share"></i>Envio</a>
+                        </li>
                     </li>
 
                       
                     
-                        <li class="has-sub">
-                          <%# <%= link_to " Login & Registrar", root_path , class: "fas fa-copy"%> 
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Login &amp; Registrar</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                <%= link_to "Login", new_user_session_path%>
-                                    <%# <a href="login">Login</a> %>
-                                </li>
-                                <li>
-                                    <%= link_to "Registrar", new_user_registration_path%>
-                                    <%# <a href="register">Registrar</a> %>
-                                </li>
-                                <li>
-                                    <%= link_to "Esqueci minha senha", new_user_password_path%>                                </li>
-                            </ul>
+                    <li>
+                            <a href="chart.html">
+                                <i class="fas fa-chart-bar"></i>Resultados</a>
                         </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-desktop"></i>Configurações</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="import.html">Importar dados</a>
-                                </li>
-                                
-                            </ul>
-                        </li>
+
                     </ul>
                 </nav>
             </div>
@@ -218,13 +161,13 @@
                                                     <h5 class="name">
                                                         <a href="#">Coordenador</a>
                                                     </h5>
-                                                    <span class="email">coordenador@gmail.com</span>
+                                                    <span class="email"><%= @email %></span>
                                                 </div>
                                             </div>
                                            
                                             <div class="account-dropdown__footer">                            
                                                 <%= link_to destroy_admin_session_path, data: {turbo_method: :delete} do %>
-                                                <i class ="zmdi zmdi-power"></i> Logout
+                                                <i class ="zmdi zmdi-power"></i> Sair
                                                 <%end%> 
                                             </div>
                                         </div>
