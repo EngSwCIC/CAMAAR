@@ -3218,6 +3218,10 @@ section {
     display: inline-block;
 }
 
+.overview-box .icon-container {
+    font-weight: 300;
+}
+
 .overview-box .text h2 {
     font-weight: 300;
     color: #fff;
@@ -3254,21 +3258,29 @@ section {
 }
 
 .icon-container {
-    margin-bottom: 25px; /* Adjust as needed */
+    margin-bottom: 10px; /* Adjust as needed */
+    display: center;
+    justify-content: center;
     text-align: center;
-
+    align-items: center;
+    height: 50px; /* Set a fixed height for the container */
 }
 
 .icon-container i {
     font-size: 24px; /* Adjust size as needed */
     color: #fff; /* Change to desired color */
-    margin-bottom: 45px;
-    margin-top: 10px;
+    display: center;
     text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .overview-box .text {
+        display: inline-block;
+    }
+
+    .overview-box .icon-container {
         display: inline-block;
     }
 
