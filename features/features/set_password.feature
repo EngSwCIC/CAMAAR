@@ -9,11 +9,12 @@ Feature: Set password
   Scenario: The set password is valid (happy path)
     When I fill in "Senha" with "12345"
     And I fill in "Confirme a Senha" with "12345"
+    When I press "Alterar senha"
     Then I should see "Senha registrada com sucesso"
-    Then I can use the features of a registered user
+    Then I should be on the Avaliacoes page
 
   Scenario: The set password is invalid (sad path)
-    When I click "Alterar senha"
+    When I press "Alterar senha"
     Then I should be on the Definir senha page
     And I should see "A senha registrada é inválida"
 
