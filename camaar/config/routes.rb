@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   match '/users/forms',   to: 'users#form_student', via: 'get'
   match '/admins/page',   to: 'admins#page', via: 'get'
   match '/admins/forms', to: 'admins#form_student', via: 'get'
-  match '/admins/dashboards', to: 'admins#dashboards', via: 'get'
+  match '/admins/resultados', to: 'admins#resultados', via: 'get'
   match '/admins/import', to: 'admins#importdata', via: 'get'
   match '/admins/envio', to: 'admins#envio', via: 'get'
 
