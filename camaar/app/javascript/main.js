@@ -297,7 +297,7 @@
                 color: '#f2f2f2'
               },
               ticks: {
-                fontFamily: "Poppins",
+                fontFamily: "Inter",
                 fontSize: 12
               }
             }],
@@ -307,7 +307,7 @@
                 maxTicksLimit: 5,
                 stepSize: 50,
                 max: 150,
-                fontFamily: "Poppins",
+                fontFamily: "Inter",
                 fontSize: 12
               },
               gridLines: {
@@ -360,8 +360,8 @@
             }
           ],
           labels: [
-            'Products',
-            'Services'
+            'Aprovados',
+            'Reprovados'
           ]
         },
         options: {
@@ -376,7 +376,7 @@
             display: false
           },
           tooltips: {
-            titleFontFamily: "Poppins",
+            titleFontFamily: "Inter",
             xPadding: 15,
             yPadding: 10,
             caretPadding: 0,
@@ -649,8 +649,8 @@
             }
           ],
           labels: [
-            'Products',
-            'Services'
+            'Aprovados',
+            'Reprovados'
           ]
         },
         options: {
