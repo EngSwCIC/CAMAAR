@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_01_160343) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_02_011659) do
   create_table "coordinators", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -79,16 +79,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_01_160343) do
     t.string "schedule"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["semester", "subject", "code"], name: "index_subject_classes_on_semester_and_subject_and_code", unique: true
-  end
-
-  create_table "subject_classes_relations", force: :cascade do |t|
     t.integer "department_id", null: false
-    t.integer "teacher_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["department_id"], name: "index_subject_classes_relations_on_department_id"
-    t.index ["teacher_id"], name: "index_subject_classes_relations_on_teacher_id"
+    t.integer "teacher_id"
+    t.index ["department_id"], name: "index_subject_classes_on_department_id"
+    t.index ["semester", "subject", "code"], name: "index_subject_classes_on_semester_and_subject_and_code", unique: true
+    t.index ["teacher_id"], name: "index_subject_classes_on_teacher_id"
   end
 
   create_table "teacher_answers", force: :cascade do |t|
@@ -109,6 +104,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_01_160343) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "department_id", null: false
+    t.index ["department_id"], name: "index_teachers_on_department_id"
     t.index ["email"], name: "index_teachers_on_email", unique: true
     t.index ["registration"], name: "index_teachers_on_registration", unique: true
   end
@@ -128,9 +125,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_01_160343) do
   add_foreign_key "forms", "templates"
   add_foreign_key "student_answers", "forms"
   add_foreign_key "student_answers", "students"
-  add_foreign_key "subject_classes_relations", "departments"
-  add_foreign_key "subject_classes_relations", "teachers"
+  add_foreign_key "subject_classes", "departments"
+  add_foreign_key "subject_classes", "teachers"
   add_foreign_key "teacher_answers", "forms"
   add_foreign_key "teacher_answers", "teachers"
+  add_foreign_key "teachers", "departments"
   add_foreign_key "templates", "coordinators"
 end

@@ -11,5 +11,6 @@ class CreateTeachers < ActiveRecord::Migration[7.1]
     end
     add_index :teachers, :email, unique: true
     add_index :teachers, :registration, unique: true
+
   end
 end
