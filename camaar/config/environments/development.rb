@@ -1,12 +1,17 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
+  # Configure 'rails notes' to inspect Cucumber files
+  config.annotations.register_directories('features')
+  config.annotations.register_extensions('feature') { |tag| /#\s*(#{tag}):?\s*(.*)$/ }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.enable_reloading = true
+  Rails.application.config.assets.paths << Rails.root.join('vendor')
 
   # Do not eager load code on boot.
   config.eager_load = false
