@@ -1,0 +1,26 @@
+<%= stylesheet_link_tag "login.css" %>
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo",width: 300, height: 150) %>
+    <br>
+    <h1> Bem vindo ao <h1>
+    <h1> CAMAAR</H1>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+  <%= form.error_notification %>
+  <%= form.text_field :email, id: "email", class: "email", placeholder: "Email", required: true, autofocus: true, autocomplete: "off" %>
+  <%= form.text_field :password,  type: "password",id: "password", class: "password", placeholder: "Senha", required: true, autofocus: true, autocomplete: "off" %>
+   
+  <div id="formFooter">
+      <%= link_to "Esqueceu a senha?", new_user_password_path%>
+    </div> 
+
+    <%= form.submit "Confirmar", class:"submit-login" %>
+  </div>
+  
+<% end %>
+
+  </div>
+</div>
+
+
