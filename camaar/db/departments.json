@@ -1,0 +1,327 @@
+[
+    {
+        "id": 158,
+        "initials": "DEX",
+        "name": "DECANATO EXTENSÃO"
+    },
+    {
+        "id": 170,
+        "initials": "DPG",
+        "name": "DECANATO DE PÓS-GRADUAÇÃO / DPG"
+    },
+    {
+        "id": 314,
+        "initials": "CET",
+        "name": "CENTRO DE EXCELÊNCIA EM TURISMO"
+    },
+    {
+        "id": 327,
+        "initials": "ADM",
+        "name": "DEPTO ADMINISTRAÇÃO"
+    },
+    {
+        "id": 333,
+        "initials": "CCA",
+        "name": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS"
+    },
+    {
+        "id": 343,
+        "initials": "FAC",
+        "name": "FACULDADE DE COMUNICAÇÃO"
+    },
+    {
+        "id": 345,
+        "initials": "COM",
+        "name": "DEPARTAMENTO DE COMUNICAÇÃO ORGANIZACIONAL/COM"
+    },
+    {
+        "id": 351,
+        "initials": "DAP",
+        "name": "DEPARTAMENTO DE AUDIOVISUAIS E PUBLICIDADE/DAP"
+    },
+    {
+        "id": 352,
+        "initials": "JOR",
+        "name": "DEPARTAMENTO DE JORNALISMO/JOR"
+    },
+    {
+        "id": 360,
+        "initials": "PRO",
+        "name": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN"
+    },
+    {
+        "id": 361,
+        "initials": "TEC",
+        "name": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO"
+    },
+    {
+        "id": 362,
+        "initials": "TAU",
+        "name": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM"
+    },
+    {
+        "id": 363,
+        "initials": "FAV",
+        "name": "FACULDADE DE AGRONOMIA E MEDICINA VETERINÁRIA"
+    },
+    {
+        "id": 370,
+        "initials": "FDD",
+        "name": "FACULDADE DE DIREITO"
+    },
+    {
+        "id": 381,
+        "initials": "FED",
+        "name": "FACULDADE DE EDUCAÇÃO"
+    },
+    {
+        "id": 393,
+        "initials": "FEF",
+        "name": "FACULDADE DE EDUCAÇÃO FÍSICA"
+    },
+    {
+        "id": 402,
+        "initials": "CEL",
+        "name": "FACULDADE DE MEDICINA"
+    },
+    {
+        "id": 420,
+        "initials": "DSC",
+        "name": "DEPTO SAUDE COLETIVA"
+    },
+    {
+        "id": 422,
+        "initials": "ENF",
+        "name": "DEPTO ENFERMAGEM"
+    },
+    {
+        "id": 424,
+        "initials": "NUT",
+        "name": "DEPTO NUTRICAO"
+    },
+    {
+        "id": 427,
+        "initials": "ODT",
+        "name": "DEPTO ODONTOLOGIA"
+    },
+    {
+        "id": 429,
+        "initials": "FTD",
+        "name": "FACULDADE DE TECNOLOGIA"
+    },
+    {
+        "id": 433,
+        "initials": "EFL",
+        "name": "DEPTO ENGENHARIA FLORESTAL"
+    },
+    {
+        "id": 437,
+        "initials": "ENC",
+        "name": "DEPTO ENGENHARIA CIVIL E AMBIENTAL"
+    },
+    {
+        "id": 443,
+        "initials": "ENE",
+        "name": "DEPTO ENGENHARIA ELETRICA"
+    },
+    {
+        "id": 449,
+        "initials": "ENM",
+        "name": "DEPARTAMENTO DE ENGENHARIA MECANICA"
+    },
+    {
+        "id": 455,
+        "initials": "BOT",
+        "name": "INSTITUTO DE CIÊNCIAS BIOLÓGICAS"
+    },
+    {
+        "id": 479,
+        "initials": "ELA",
+        "name": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO"
+    },
+    {
+        "id": 481,
+        "initials": "DAN",
+        "name": "DEPTO ANTROPOLOGIA"
+    },
+    {
+        "id": 483,
+        "initials": "SOL",
+        "name": "DEPARTAMENTO DE SOCIOLOGIA"
+    },
+    {
+        "id": 485,
+        "initials": "IDA",
+        "name": "INSTITUTO DE ARTES"
+    },
+    {
+        "id": 492,
+        "initials": "CEN",
+        "name": "DEPTO ARTES CÊNICAS"
+    },
+    {
+        "id": 495,
+        "initials": "MUS",
+        "name": "DEPTO MÚSICA"
+    },
+    {
+        "id": 498,
+        "initials": "VIS",
+        "name": "DEPTO ARTES VISUAIS"
+    },
+    {
+        "id": 508,
+        "initials": "CIC",
+        "name": "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+    },
+    {
+        "id": 514,
+        "initials": "EST",
+        "name": "DEPTO ESTATÍSTICA"
+    },
+    {
+        "id": 518,
+        "initials": "MAT",
+        "name": "DEPARTAMENTO DE MATEMÁTICA"
+    },
+    {
+        "id": 524,
+        "initials": "IFD",
+        "name": "INSTITUTO DE FÍSICA"
+    },
+    {
+        "id": 533,
+        "initials": "IGD",
+        "name": "INSTITUTO DE GEOCIÊNCIAS"
+    },
+    {
+        "id": 544,
+        "initials": "ICH",
+        "name": "INSTITUTO DE CIÊNCIAS HUMANAS"
+    },
+    {
+        "id": 548,
+        "initials": "ECO",
+        "name": "DEPTO ECONOMIA"
+    },
+    {
+        "id": 552,
+        "initials": "FIL",
+        "name": "DEPTO FILOSOFIA"
+    },
+    {
+        "id": 555,
+        "initials": "GEA",
+        "name": "DEPTO GEOGRAFIA"
+    },
+    {
+        "id": 559,
+        "initials": "HIS",
+        "name": "DEPTO HISTÓRIA"
+    },
+    {
+        "id": 563,
+        "initials": "SER",
+        "name": "DEPTO SERVIÇO SOCIAL"
+    },
+    {
+        "id": 567,
+        "initials": "ILD",
+        "name": "INSTITUTO DE LETRAS"
+    },
+    {
+        "id": 574,
+        "initials": "LET",
+        "name": "DEPTO LÍNGUAS ESTRANGEIRAS E TRADUÇÃO"
+    },
+    {
+        "id": 578,
+        "initials": "LIP",
+        "name": "DEPTO LINGUISTICA, PORT. LING. CLASSICAS"
+    },
+    {
+        "id": 580,
+        "initials": "TEL",
+        "name": "DEPTO TEORIA LITERÁRIA E LITERATURA"
+    },
+    {
+        "id": 583,
+        "initials": "IPD",
+        "name": "INSTITUTO DE PSICOLOGIA"
+    },
+    {
+        "id": 610,
+        "initials": "IQD",
+        "name": "INSTITUTO DE QUÍMICA"
+    },
+    {
+        "id": 640,
+        "initials": "CDS",
+        "name": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL"
+    },
+    {
+        "id": 650,
+        "initials": "CEM",
+        "name": "CENTRO ESTUDOS AVANÇADOS MULTIDISCIPLIN"
+    },
+    {
+        "id": 660,
+        "initials": "DIN",
+        "name": "DEPARTAMENTO DE DESIGN"
+    },
+    {
+        "id": 666,
+        "initials": "FUP",
+        "name": "FACULDADE DE PLANALTINA"
+    },
+    {
+        "id": 668,
+        "initials": "POL",
+        "name": "INSTITUTO DE CIÊNCIA POLÍTICA"
+    },
+    {
+        "id": 669,
+        "initials": "IRI",
+        "name": "INSTITUTO DE RELAÇÕES INTERNACIONAIS"
+    },
+    {
+        "id": 672,
+        "initials": "FCE",
+        "name": "FACULDADE DE CEILÂNDIA"
+    },
+    {
+        "id": 673,
+        "initials": "FGA",
+        "name": "FACULDADE DO GAMA"
+    },
+    {
+        "id": 674,
+        "initials": "FCI",
+        "name": "FACULDADE DE CIÊNCIA DA INFORMAÇÃO"
+    },
+    {
+        "id": 677,
+        "initials": "CER",
+        "name": "CENTRO UNB CERRADO"
+    },
+    {
+        "id": 678,
+        "initials": "FAR",
+        "name": "DEPARTAMENTO DE FARMACIA"
+    },
+    {
+        "id": 760,
+        "initials": "EPR",
+        "name": "DEPTO ENGENHARIA DE PRODUCAO"
+    },
+    {
+        "id": 791,
+        "initials": "GPP",
+        "name": "DEPARTAMENTO DE GESTAO DE POLITICAS PUBL"
+    },
+    {
+        "id": 1448,
+        "initials": "CBH",
+        "name": "CENTRO INTERNACIONAL DE BIOÉTICA E HUMANIDADES"
+    }
+]
