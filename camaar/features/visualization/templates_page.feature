@@ -25,23 +25,7 @@ Feature: View Templates
         Then I should see the button "Deletar" on "Template 2"
         Then I should see the button "Editar" on "Template 2"
 
-
-
-
-#template_edit.feature
-# Scenario: Coordinator Views A Templates Editing Page
-#     And I click the "Edit Template" button for "Template 1"
-#     Then I should be on the "Template 1" editing page
-#     And I should be able to view the editing possibilities.
-
-#template_delete.feature
-# Scenario: Coordinator Views Created Templates After Deleting A Template
-#     And I click on the "Delete Template" button for "Template 1"
-#     Then I should be able to view the created templates
-#     But the "Template 1" template should not be there.
-
-#auth feature
-# Scenario: Coordinator Logs Out
-#     Given I am on "Admin Camaar" page
-#     And I click on "Sair"
-#     Then I  should be redirected to the "Root" page.
+    Scenario: Coordinator tries to edit uncreated templates
+        Given that I want to edit "Template 3"
+        But there is no "Template 3" on "Templates" page
+        Then I should not be able to edit it

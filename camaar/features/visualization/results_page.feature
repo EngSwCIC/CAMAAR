@@ -27,8 +27,8 @@ Feature: Forms Results Page
             | name         | answers      |
             | Formulário 1 | Respostas: 1 |
 
-# auth feature
-# Scenario: Coordinator Logs Out
-#     Given I am on "Admin Camaar" page
-#     And I click on "Sair"
-#     Then I  should be redirected to the "Root" page.
+    Scenario: Coordinator only sees the created forms
+        Given that I expect to see forms
+        And I am on "Results Page"
+        But there are no forms created
+        Then I should not see any forms

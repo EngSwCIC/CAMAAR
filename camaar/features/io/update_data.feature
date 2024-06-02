@@ -54,21 +54,10 @@ Feature: Update database data
         Then I should be on the "2021.2/CIC0197/TA" page
         And I should see "MARISTELA TERTO DE HOLANDA"
         And I should not see "William Xavier dos Santos"
-=======
-        And I click "Upload"
-        And I choose a json file
-        And I click "Importar"
-        And I click on "Sobrescrever dados existentes"
-        Then I should be able to update the old data
 
-    Scenario: Coordinator attempts to update members data
-        Given Im an authenticated Coordinator
-        And I am on the "Importar dados" page
-        When I click on "Tipos de dados"
-        And I choose "Membros"
-        And I click "Upload"
-        And I choose a json file
-        And I click "Importar"
-        And I click on "Sobrescrever dados existentes"
-        Then I should be able to replace the old data about members
->>>>>>> 4d70a3f (update)
+    Scenario: Coordinator mismatches the file
+        And I choose "Turmas"
+        When I press "Upload"
+        And I import a "txt" file
+        When I press "Importar"
+        Then I should see "Formato Inválido"
