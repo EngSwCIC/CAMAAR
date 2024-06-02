@@ -5,7 +5,6 @@ Feature: Update database data
     So that I can correct the system's database
 
     Background: Data has already been imported before
-<<<<<<< HEAD
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         Given that I imported classes for the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         Given that I imported members for the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
@@ -15,8 +14,6 @@ Feature: Update database data
             | name            | schedule |
             | BANCOS DE DADOS | 24T45    |
         And I am on the "Importar dados" page
-=======
->>>>>>> 4d70a3f (update)
 
     Scenario: Coordinator attempts to update class data
 
@@ -24,7 +21,6 @@ Feature: Update database data
         And I am on the "Importar dados" page
         When I click on "Tipos de dados"
         And I choose "Turmas"
-<<<<<<< HEAD
         When I press "Upload"
         And I import a "json" file with the updated classes data
         When I press "Importar"
