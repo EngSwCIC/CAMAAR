@@ -30,32 +30,9 @@ Feature: Create a form for students of a class
         When I check "2021.2_CIC0097_TA"
         When I press "Enviar"
         Then I should be on the "Resultados" page
-<<<<<<< HEAD
         And I should see the following templates:
             | template   | class                 | teacher   | role    | status  |
             | Template 2 | 2021.2 - CIC0097 - TA | Maristela | teacher | pending |
-=======
-        And I should see the forms:
-            | template   | class                 | role    | status  |
-            | Template 1 | CIC0097 - 2021.2 - TA | teacher | pending |
-
-
-    Scenario: Coordinator have not created any teacher template
-        Then I should see "Selecione template para os professores"
-        When I click on the combobox "Template professores"
-        Then I should see the options:
-            | name      |
-            | selecione |
-
-        Then I should see "Selecione as turmas"
-        And I should see the following:
-            | name            | subject | semester | classCode | schedule |
-            | BANCOS DE DADOS | CIC0097 | 2021.2   | TA        | 35T45    |
-        When I check the "CIC0097_2021.2_TA"  checkbox
-        When I press the button "Enviar"
-
-        Then I should see the error mesage "Selecione um template para os professores"
->>>>>>> 4d70a3f (update)
 
     Scenario: Coordinator forgets to select a class
         When I press "Enviar"

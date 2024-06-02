@@ -34,7 +34,6 @@ Feature: Create a form for students of a class
             | template   | class                 | teacher   | role    | status  |
             | Template 2 | 2021.2 - CIC0097 - TA | Maristela | student | pending |
 
-<<<<<<< HEAD
     Scenario: Coordinator forgets to select a class
         When I press "Enviar"
         Then I should see "Selecione uma turma"
