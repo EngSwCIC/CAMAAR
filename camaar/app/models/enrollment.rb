@@ -1,4 +1,4 @@
 class Enrollment < ApplicationRecord
-  belongs_to :student
-  belongs_to :subject_class
+  belongs_to :student, optional: true
+  belongs_to :subject_class, optional: true
 end

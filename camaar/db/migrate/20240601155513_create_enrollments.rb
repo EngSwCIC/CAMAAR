@@ -1,8 +1,8 @@
 class CreateEnrollments < ActiveRecord::Migration[7.1]
   def change
     create_table :enrollments do |t|
-      t.integer :student_id
-      t.integer :subject_class_id
+      t.belongs_to :student
+      t.belongs_to :subject_class
       t.timestamps
     end
   end

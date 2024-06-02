@@ -63,6 +63,5 @@ classes_members.each do |data|
       student_id: student.id,
       subject_classes_id: subject_class.id,
     })
-
   end
 end
