@@ -11,6 +11,21 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_06_02_011659) do
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.index ["confirmation_token"], name: "index_admins_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
   create_table "coordinators", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -30,12 +45,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_02_011659) do
   end
 
   create_table "enrollments", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "subject_class_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "student_id", null: false
-    t.integer "subject_classes_id", null: false
     t.index ["student_id"], name: "index_enrollments_on_student_id"
-    t.index ["subject_classes_id"], name: "index_enrollments_on_subject_classes_id"
+    t.index ["subject_class_id"], name: "index_enrollments_on_subject_class_id"
   end
 
   create_table "forms", force: :cascade do |t|
@@ -104,7 +119,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_02_011659) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "department_id", null: false
+    t.integer "department_id"
     t.index ["department_id"], name: "index_teachers_on_department_id"
     t.index ["email"], name: "index_teachers_on_email", unique: true
     t.index ["registration"], name: "index_teachers_on_registration", unique: true
@@ -117,34 +132,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_02_011659) do
     t.datetime "updated_at", null: false
     t.integer "coordinator_id", null: false
     t.index ["coordinator_id"], name: "index_templates_on_coordinator_id"
-  end
-
-  add_foreign_key "coordinators", "departments"
-  add_foreign_key "enrollments", "students"
-  add_foreign_key "enrollments", "subject_classes", column: "subject_classes_id"
-  add_foreign_key "forms", "templates"
-  add_foreign_key "student_answers", "forms"
-  add_foreign_key "student_answers", "students"
-  add_foreign_key "subject_classes", "departments"
-  add_foreign_key "subject_classes", "teachers"
-  add_foreign_key "teacher_answers", "forms"
-  add_foreign_key "teacher_answers", "teachers"
-  add_foreign_key "teachers", "departments"
-  add_foreign_key "templates", "coordinators"
-ActiveRecord::Schema[7.1].define(version: 2024_05_29_111804) do
-  create_table "admins", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
-    t.index ["confirmation_token"], name: "index_admins_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -170,4 +157,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_29_111804) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "coordinators", "departments"
+  add_foreign_key "forms", "templates"
+  add_foreign_key "student_answers", "forms"
+  add_foreign_key "student_answers", "students"
+  add_foreign_key "subject_classes", "departments"
+  add_foreign_key "subject_classes", "teachers"
+  add_foreign_key "teacher_answers", "forms"
+  add_foreign_key "teacher_answers", "teachers"
+  add_foreign_key "teachers", "departments"
+  add_foreign_key "templates", "coordinators"
 end
