@@ -6,9 +6,10 @@
     <br>
     <h1> Olá, usuário! <h1>
     <h1> Defina sua senha</h1>
-<%= simple_form_for(resource, as: resource_name, url: users_recover_password_path) do |form| %>
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |form| %>
   <%= form.error_notification %>
-
+  <%= form.input :reset_password_token, as: :hidden %>
+  <%= form.full_error :reset_password_token %>
   <%= form.text_field :password, type: "password", id: "password", class: "password", placeholder: "Senha", required: true, autofocus: true, autocomplete: "off" %>
   <%= form.text_field :password, type: "password", id: "password", class: "password", placeholder: "Confirme sua Senha", required: true, autofocus: true, autocomplete: "off" %>
 <div class="form-actions">

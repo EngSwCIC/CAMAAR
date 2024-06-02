@@ -11,9 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super do |resource|
-      UserRegistrationService.call(resource)
-    end
+    super
   end
 
   # GET /resource/edit
