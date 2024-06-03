@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_02_011659) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_03_132204) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -32,6 +32,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_02_011659) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "department_id", null: false
+    t.integer "admin_id"
+    t.index ["admin_id"], name: "index_coordinators_on_admin_id"
     t.index ["department_id"], name: "index_coordinators_on_department_id"
     t.index ["email"], name: "index_coordinators_on_email", unique: true
   end
@@ -59,7 +61,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_02_011659) do
     t.boolean "open", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "template_id", null: false
+    t.integer "template_id"
+    t.integer "coordinator_id", null: false
+    t.integer "subject_class_id", null: false
+    t.index ["coordinator_id"], name: "index_forms_on_coordinator_id"
+    t.index ["subject_class_id"], name: "index_forms_on_subject_class_id"
     t.index ["template_id"], name: "index_forms_on_template_id"
   end
 
@@ -82,8 +88,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_02_011659) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["registration"], name: "index_students_on_registration", unique: true
+    t.index ["user_id"], name: "index_students_on_user_id"
   end
 
   create_table "subject_classes", force: :cascade do |t|
@@ -120,9 +128,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_02_011659) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "department_id"
+    t.integer "user_id"
     t.index ["department_id"], name: "index_teachers_on_department_id"
     t.index ["email"], name: "index_teachers_on_email", unique: true
     t.index ["registration"], name: "index_teachers_on_registration", unique: true
+    t.index ["user_id"], name: "index_teachers_on_user_id"
   end
 
   create_table "templates", force: :cascade do |t|
@@ -157,14 +167,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_02_011659) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "coordinators", "admins"
   add_foreign_key "coordinators", "departments"
+  add_foreign_key "forms", "coordinators"
+  add_foreign_key "forms", "subject_classes"
   add_foreign_key "forms", "templates"
   add_foreign_key "student_answers", "forms"
   add_foreign_key "student_answers", "students"
+  add_foreign_key "students", "users"
   add_foreign_key "subject_classes", "departments"
   add_foreign_key "subject_classes", "teachers"
   add_foreign_key "teacher_answers", "forms"
   add_foreign_key "teacher_answers", "teachers"
   add_foreign_key "teachers", "departments"
+  add_foreign_key "teachers", "users"
   add_foreign_key "templates", "coordinators"
 end
