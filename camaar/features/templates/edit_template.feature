@@ -11,13 +11,9 @@ Feature: Edit a form template
         Given that I created the following templates:
             | Template 1 | teacher |
         Then I should see "Template 1"
-<<<<<<< HEAD
-        When I press "Editar Template"
-        Then I should be on the "Template 1" page
-=======
+
         When I press the button "Editar Template"
         Then I should be able to edit "Template 1"
->>>>>>> 4d70a3f (update)
 
     Scenario: Succesfully update a template
         And I fill in "Nome do Template" with "Template 1.1"

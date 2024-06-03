@@ -67,11 +67,11 @@ group :test do
   gem "cucumber-rails", require: false
   gem "database_cleaner"
   gem "selenium-webdriver"
-  gem "rspect-rails"
+  gem "rspec-rails"
 end
 
 gem "devise"
 gem "letter_opener_web"
-gem "rspec-rails"
 # gem 'mailcatcher'
 gem "simple_form"
+gem "simplecov"
