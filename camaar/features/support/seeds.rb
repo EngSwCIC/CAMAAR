@@ -1,5 +1,8 @@
 require "json"
-require_relative "../config/environment/development"
+require "database_cleaner"
+require_relative "../../config/environments/test"
+
+DatabaseCleaner.clean_with(:truncation)
 
 departments = JSON.parse(File.read("./db/departments.json"))
 classes = JSON.parse(File.read("./db/classes.json"))
@@ -8,6 +11,7 @@ classes_members = JSON.parse(File.read("./db/class_members.json"))
 # parse departments
 departments.each do |dpt|
   admin_email = "admin." + dpt["initials"].downcase + "@gmail.com"
+  # puts admin_email
   admin = Admin.create!({
     email: admin_email,
     password: "admin123",
