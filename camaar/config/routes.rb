@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   devise_scope :admin do
     get '/admins/logout' => 'admins/sessions#destroy'
     post '/admins/register' => 'admins/registrations#create'
-    post '/admins/recover-password/new' => 'admins/passwords#new'
+    post '/admins/recover-password/new' => 'admins/passwords#create'
   end
 
   devise_for :users,
