@@ -68,8 +68,8 @@ group :test do
   gem 'database_cleaner'
   gem 'selenium-webdriver'
 end
-
 gem 'devise'
 gem 'letter_opener_web'
+gem 'rspec-rails'
 # gem 'mailcatcher'
 gem 'simple_form'
