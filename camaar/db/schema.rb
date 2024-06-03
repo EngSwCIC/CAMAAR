@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_132204) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "department_id", null: false
-    t.integer "admin_id", null: false
+    t.integer "admin_id"
     t.index ["admin_id"], name: "index_coordinators_on_admin_id"
     t.index ["department_id"], name: "index_coordinators_on_department_id"
     t.index ["email"], name: "index_coordinators_on_email", unique: true
@@ -88,7 +88,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_132204) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["registration"], name: "index_students_on_registration", unique: true
     t.index ["user_id"], name: "index_students_on_user_id"
@@ -128,7 +128,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_132204) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "department_id"
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.index ["department_id"], name: "index_teachers_on_department_id"
     t.index ["email"], name: "index_teachers_on_email", unique: true
     t.index ["registration"], name: "index_teachers_on_registration", unique: true
