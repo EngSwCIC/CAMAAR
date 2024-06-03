@@ -133,10 +133,10 @@ O projeto CAMAAR envolve o desenvolvimento de uma aplicação web voltada para a
 - **Funcionalidade 5: Edição e deleção de templates** - Gabriel Roberto de Queiroz
 - **Funcionalidade 6: Gerar relatório do administrador** - Gustavo Vieira de Araújo
 - **Funcionalidade 7: Importar dados do SIGAA** - Luis Antonio Benjamim Flexa
-- **Funcionalidade 8: Sistema de redefinição de Senha** - Marcos Paulo de Oliveira
+- **Funcionalidade 8: Sistema de redefinição de Senha** - Carlos Eduardo de Sousa Arnaud
 - **Funcionalidade 9: Responder formulário** - Gabriel Roberto de Queiroz
 - **Funcionalidade 10: Sistema de definição de Senha** - Thiago Fernandes Carvalho de Souza
-- **Funcionalidade 11: Sistema de gerenciamento por departamento** - Marcos Paulo de Oliveira
+- **Funcionalidade 11: Sistema de gerenciamento por departamento** - Carlos Eduardo de Sousa Arnaud
 - **Funcionalidade 12: Sistema de Login** - Luis Antonio Benjamim Flexa
 - **Funcionalidade 13: Visualização de formulários para responder** - Gabriel Roberto de Queiroz
 - **Funcionalidade 14: Visualização de resultados dos formulários** - Thiago Fernandes Carvalho de Souza
