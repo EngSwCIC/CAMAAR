@@ -36,12 +36,14 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   config.before :all do
-    if !ENV["ASSET_PRECOMPILE_DONE"]
-      prep_passed = system "rails test:prepare"
-      ENV["ASSET_PRECOMPILE_DONE"] = "true"
-      abort "\nYour assets didn't compile. Exiting WITHOUT running any tests. Review the output above to resolve any errors." if !prep_passed
+    unless ENV['ASSET_PRECOMPILE_DONE']
+      prep_passed = system 'rails test:prepare'
+      ENV['ASSET_PRECOMPILE_DONE'] = 'true'
+      unless prep_passed
+        abort "\nYour assets didn't compile. Exiting WITHOUT running any tests. Review the output above to resolve any errors."
+      end
     end
- end
+  end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
@@ -69,7 +71,11 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://rspec.info/features/6-0/rspec-rails
   config.infer_spec_type_from_file_location!
-
+  if defined? LetterOpener
+    class LetterOpener::DeliveryMethod
+      def deliver!(_mail) = true
+    end
+  end
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:

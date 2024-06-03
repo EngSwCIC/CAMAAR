@@ -11,9 +11,9 @@
   <%= form.input :reset_password_token, as: :hidden %>
   <%= form.full_error :reset_password_token %>
   <%= form.text_field :password, type: "password", id: "password", class: "password", placeholder: "Senha", required: true, autofocus: true, autocomplete: "off" %>
-  <%= form.text_field :password, type: "password", id: "password", class: "password", placeholder: "Confirme sua Senha", required: true, autofocus: true, autocomplete: "off" %>
+  <%= form.text_field :password, type: "password", id: "password2", class: "password", placeholder: "Confirme sua Senha", required: true, autofocus: true, autocomplete: "off" %>
 <div class="form-actions">
-    <%= form.button :submit, "Confirmar", class:"submit-register" %>
+    <%= form.submit "Confirmar", class:"submit-login" %>
   </div>  
   </div>
 <% end %>

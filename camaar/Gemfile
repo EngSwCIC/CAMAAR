@@ -73,6 +73,7 @@ end
 gem 'devise'
 gem 'letter_opener_web'
 # gem 'mailcatcher'
+gem 'capybara-email'
 gem 'simple_bdd'
 gem 'simplecov'
 gem 'simple_form'

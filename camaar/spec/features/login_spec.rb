@@ -16,7 +16,6 @@ RSpec.feature 'Logins', type: :feature do
       fill_in 'password', with: user.password
       click_button 'Confirmar'
       expect(page).to have_content 'Formulários Pendentes'
-      save_and_open_page
     end
   end
 end
