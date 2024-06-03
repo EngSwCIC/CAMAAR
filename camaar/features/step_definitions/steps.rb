@@ -48,18 +48,18 @@ end
 
 # Buttons and clicks
 When (/^(?:|I )press "([^"]*)"$/) do |button|
-  click_fi(button)
+  click_button(button)
 end
 
 And (/^(?:|I )confirm a popup$/) do
   accept_confirm do
-    click_fi("OK")
+    click_button("OK")
   end
 end
 
 And (/^(?:|I )dismiss a popup$/) do
   dismiss_confirm do
-    click_fi("Cancel")
+    click_button("Cancel")
   end
 end
 
@@ -108,24 +108,14 @@ Given("I am an authenticated User") do
 end
 
 Given (/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|
-  pending
-  # name = "João Pedro"
-  # email = "test@gmail.com"
-  # password = "123456"
-  # department_id = 508 #fazer vir de uma consulta a partir do nome do dpto
+  department = Department.find_by({ name: dpt_name })
+  coordinator = Coordinator.find_by({ department_id: department.id })
 
-  # Coordinator.new(
-  #   :name => name,
-  #   :department => department_id, #assume que os departamentos estão sempre na db
-  #   :email => email,
-  #   :password => password,
-  # ).save!
-
-  # visit("/users/sign_in")
-  # fill_in("email", :with => email)
-  # fill_in("password", :with => password)
-  # fill_in("password_confirmation", :with => password)
-  # click_fi("login")
+  visit("/admins/login")
+  fill_in("email", :with => coordinator.email)
+  fill_in("password", :with => "admin123")
+  fill_in("password_confirmation", :with => "admin123")
+  click_button("login")
 end
 
 Given(/that I created the following templates:$/) do |table|
