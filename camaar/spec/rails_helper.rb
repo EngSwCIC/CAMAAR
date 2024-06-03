@@ -3,8 +3,13 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
+# require 'capybara/rspec'
+# require 'capybara/rails'
+# require 'capybara/webkit/matchers'
+# require 'support/helpers'
+# require 'capybara/email/rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -30,6 +35,13 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
+  config.before :all do
+    if !ENV["ASSET_PRECOMPILE_DONE"]
+      prep_passed = system "rails test:prepare"
+      ENV["ASSET_PRECOMPILE_DONE"] = "true"
+      abort "\nYour assets didn't compile. Exiting WITHOUT running any tests. Review the output above to resolve any errors." if !prep_passed
+    end
+ end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
