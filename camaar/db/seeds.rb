@@ -36,6 +36,7 @@ classes_members.each do |data|
       occupation: data["docente"]["ocupacao"],
       email: data["docente"]["email"],
       department_id: Department.find_by(name: data["docente"]["departamento"]).id,
+      user_id: 0,
     }
   )
 
@@ -49,6 +50,7 @@ classes_members.each do |data|
     teacher_id: teacher.id,
   })
 
+  n = 1
   data["discente"].each do |student_data|
     student = Student.find_or_create_by({
       name: student_data["nome"],
@@ -57,11 +59,14 @@ classes_members.each do |data|
       formation: student_data["formacao"],
       occupation: student_data["ocupacao"],
       email: student_data["email"],
+      user_id: n,
     })
 
     Enrollment.find_or_create_by({
       student_id: student.id,
-      subject_classes_id: subject_class.id,
+      subject_class_id: subject_class.id,
     })
+
+    n += 1
   end
 end
