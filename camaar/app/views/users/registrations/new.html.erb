@@ -9,8 +9,7 @@
     <h1> Defina sua senha</h1>
 <%= simple_form_for(resource, as: resource_name, url: new_user_registration_path) do |form| %>
   <%= form.error_notification %>
-    <%= form.text_field :email, id: "email", class: "email", placeholder: "Email", required: true, autofocus: true, autocomplete: "off" %>
-
+  <%= form.input :email, value:resource.email, as: :hidden %>
   <%= form.text_field :password, type: "password", id: "password", class: "password", placeholder: "Senha", required: true, autofocus: true, autocomplete: "off" %>
   <%= form.text_field :password, type: "password", id: "password", class: "password", placeholder: "Confirme sua Senha", required: true, autofocus: true, autocomplete: "off" %>
 <div class="form-actions">

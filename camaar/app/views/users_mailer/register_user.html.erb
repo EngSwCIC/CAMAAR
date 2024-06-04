@@ -7,5 +7,5 @@
 <p>Bem vinde, <%= @email %>! Siga o link abaixo para se registrar no Camaar</p>
 
 <p>
-  <%=link_to "Registrar", '/users/register', target: '_blank'%>
+  <%=link_to "Registrar", new_user_registration_path(user_email: @email), target: '_blank'%>
 </p>
