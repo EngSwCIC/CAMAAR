@@ -7,12 +7,7 @@ feature 'Register User' do
   end
 
   scenario 'admin registering user' do
-    # admin = Admin.create!({
-    #   email: 'test@gmail.com',
-    #   password: 'abc123',
-    #   password_confirmation: 'abc123',
-    #   confirmed_at: Time.now.utc
-    # })
+    #admin = create(:admin)
 
     email = 'test@gmail.com'
     password = 'abc123'
@@ -25,6 +20,12 @@ feature 'Register User' do
     fill_in 'password2', with: password
     click_button 'Confirmar'
     open_email(email).click_link 'Confirmar'
-    expect(page).to have_content 'Formulários Pendentes'
+    expect(page).to have_content 'Bem vindo ao'
+    expect(page).to have_content 'CAMAAR'
+    fill_in 'email', with: email
+    fill_in 'password', with: password
+    click_button 'Confirmar'
+    expect(page).to have_content 'Usuário'
+    expect(page).to have_content 'Formulário de Avaliação'
   end
 end

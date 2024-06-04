@@ -7,12 +7,7 @@ feature 'Reset Password' do
   end
 
   scenario 'user forgot_password' do
-    user = User.create!({
-                          email: 'test@gmail.com',
-                          password: 'abc123',
-                          password_confirmation: 'abc123',
-                          confirmed_at: Time.now.utc
-                        })
+    user = create(:user)
 
     visit '/users/recover-password/new'
     fill_in 'email', with: user.email
@@ -35,12 +30,7 @@ feature 'Reset Password' do
   end
 
   scenario 'admin forgot_password' do
-    admin = Admin.create!({
-      email: 'test@gmail.com',
-      password: 'abc123',
-      password_confirmation: 'abc123',
-      confirmed_at: Time.now.utc
-    })
+    admin = create(:admin)
 
     visit '/admins/recover-password/new'
     fill_in 'email', with: admin.email

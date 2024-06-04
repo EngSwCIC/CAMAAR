@@ -1,5 +1,6 @@
 require 'simplecov'
 require 'capybara/email/rspec'
+require 'support/factory_bot'
 
 SimpleCov.start 'rails'
 

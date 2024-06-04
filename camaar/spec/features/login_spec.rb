@@ -4,12 +4,7 @@ RSpec.feature 'Logins', type: :feature do
   describe 'user login' do
     it 'should login user with username and password' do
       visit '/users/login'
-      user = User.create!({
-                            email: 'test@gmail.com',
-                            password: 'abc123',
-                            password_confirmation: 'abc123',
-                            confirmed_at: Time.now.utc
-                          })
+      user = create(:user)
       expect(page).to have_content 'Bem vindo ao'
       expect(page).to have_content 'CAMAAR'
       fill_in 'email', with: user.email
@@ -22,12 +17,7 @@ RSpec.feature 'Logins', type: :feature do
   describe 'admin login' do
     it 'should login admin with username and password' do
       visit '/admins/login'
-      admin = Admin.create!({
-                            email: 'test@gmail.com',
-                            password: 'abc123',
-                            password_confirmation: 'abc123',
-                            confirmed_at: Time.now.utc
-                          })
+      admin = create(:admin)
       expect(page).to have_content 'Bem vindo ao'
       expect(page).to have_content 'CAMAAR'
       fill_in 'email', with: admin.email
