@@ -28,7 +28,9 @@ class ApplicationController < ActionController::Base
     allowed_paths.include?(request.path) ||
       valid_reset_password_path? ||
       valid_registration_path? ||
-      valid_confirmation_path?
+      valid_confirmation_path? ||
+      user_signed_in? ||
+      admin_signed_in?
   end
 
   def after_sign_in_path_for(_resource)
