@@ -2,16 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   skip_before_action :verify_authenticity_token
   before_action :authenticate_user!, unless: :allowed_path?
-
-  def after_sign_in_path_for(_resource)
-    if admin_signed_in?
-      admins_page_path
-    elsif user_signed_in?
-      users_page_path
-    else
-      root_path
-    end
-  end
+  # before_action :redirect_signed_in, only: [:index]
 
   protected
 
@@ -39,6 +30,26 @@ class ApplicationController < ActionController::Base
       valid_registration_path? ||
       valid_confirmation_path?
   end
+
+  def after_sign_in_path_for(_resource)
+    if admin_signed_in?
+      admins_page_path
+    elsif user_signed_in?
+      users_page_path
+    else
+      root_path
+    end
+  end
+
+  # def redirect_signed_in
+  #   if admin_signed_in?
+  #     redirect_to admins_page_path
+  #   elsif user_signed_in?
+  #     redirect_to users_page_path
+  #   else
+  #     root_path
+  #   end
+  # end
 
   def valid_reset_password_path?
     request.path == edit_user_password_path && params[:reset_password_token].present?
