@@ -66,6 +66,6 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     return if user_signed_in? || admin_signed_in?
 
-    render json: { error: 'Acesso Proibido' }, status: :forbidden
+    redirect_to errors_forbidden_path
   end
 end
