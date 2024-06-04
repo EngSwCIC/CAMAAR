@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_user!, unless: :allowed_path?
+  # before_action :authenticate_user!, unless: :allowed_path?
   # before_action :redirect_signed_in, only: [:index]
 
   protected

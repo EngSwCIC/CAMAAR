@@ -6,7 +6,7 @@ feature 'Reset Password' do
     clear_emails
   end
 
-  scenario 'forgot_password' do
+  scenario 'user forgot_password' do
     user = User.create!({
                           email: 'test@gmail.com',
                           password: 'abc123',
@@ -32,6 +32,34 @@ feature 'Reset Password' do
     click_button 'Confirmar'
 
     expect(page).to have_content 'Formulários Pendentes'
+  end
+
+  scenario 'admin forgot_password' do
+    admin = Admin.create!({
+      email: 'test@gmail.com',
+      password: 'abc123',
+      password_confirmation: 'abc123',
+      confirmed_at: Time.now.utc
+    })
+
+    visit '/admins/recover-password/new'
+    fill_in 'email', with: admin.email
+    click_button 'Confirmar'
+
+    open_email(admin.email).click_link 'Change my password'
+
+    expect(page).to have_content 'Defina sua senha'
+    fill_in 'password', with: '1234567'
+    fill_in 'password2', with: '1234567'
+    click_button 'Confirmar'
+
+    expect(page).to have_content 'Bem vindo ao'
+    expect(page).to have_content 'CAMAAR'
+    fill_in 'email', with: admin.email
+    fill_in 'password', with: '1234567'
+    click_button 'Confirmar'
+
+    expect(page).to have_content 'Coordenador'
   end
 end
 
