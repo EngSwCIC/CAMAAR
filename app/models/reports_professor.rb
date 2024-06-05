@@ -1,0 +1,2 @@
+class ReportsProfessor < ApplicationRecord
+end

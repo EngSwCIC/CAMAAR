@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  código: 1
+  semestre: 1
+  nome: MyString
+  departamento: 1
+  professor_id: 1
+  aluno_id: 1
+  forms_materia: 1
+
+two:
+  código: 1
+  semestre: 1
+  nome: MyString
+  departamento: 1
+  professor_id: 1
+  aluno_id: 1
+  forms_materia: 1

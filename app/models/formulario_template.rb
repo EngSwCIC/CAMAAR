@@ -1,0 +1,2 @@
+class FormularioTemplate < ApplicationRecord
+end
