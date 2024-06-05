@@ -28,7 +28,7 @@ module NavigationHelpers
 
       '/admins/login'
     when 'Novo Template'
-      '/templates/create'
+      '/templates/new'
     when /Template (\d+)/
       "/templates/#{::Regexp.last_match(1)}/edit"
     when /Turmas do (\w+)/

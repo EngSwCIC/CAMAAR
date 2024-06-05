@@ -1,290 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
-
     <!-- Title Page-->
     <title>Camaar</title>
-
     <!-- Fontfaces CSS-->
-    <%= stylesheet_link_tag "font-face.css",  media: "all" %>
-    <%= stylesheet_link_tag "font-awesome-4.7/css/font-awesome.min.css",  media: "all" %>
-    <%= stylesheet_link_tag "font-awesome-5/css/fontawesome-all.min.css",  media: "all" %>
-    <%= stylesheet_link_tag "mdi-font/css/material-design-iconic-font.min.css",  media: "all" %>
-
+    <%= stylesheet_link_tag "font-face.css", media: "all" %>
+    <%= stylesheet_link_tag "font-awesome-4.7/css/font-awesome.min.css", media: "all" %>
+    <%= stylesheet_link_tag "font-awesome-5/css/fontawesome-all.min.css", media: "all" %>
+    <%= stylesheet_link_tag "mdi-font/css/material-design-iconic-font.min.css", media: "all" %>
     <!-- Bootstrap CSS-->
-    <%= stylesheet_link_tag "bootstrap-4.1/bootstrap.min.css",  media: "all" %>
+    <%= stylesheet_link_tag "bootstrap-4.1/bootstrap.min.css", media: "all" %>
     <!-- Vendor CSS-->
-    <%= stylesheet_link_tag "animsition/animsition.min.css",  media: "all" %>
-    <%= stylesheet_link_tag "bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css",  media: "all" %>
-    <%= stylesheet_link_tag "css-hamburgers/hamburgers.min.css",  media: "all" %>
-    <%= stylesheet_link_tag "slick/slick.css",  media: "all" %>
-    <%= stylesheet_link_tag "select2/select2.min.css",  media: "all" %>
-    <%= stylesheet_link_tag "perfect-scrollbar/perfect-scrollbar.css",  media: "all" %>
-    <%= stylesheet_link_tag "theme.css",  media: "all" %>
-
+    <%= stylesheet_link_tag "animsition/animsition.min.css", media: "all" %>
+    <%= stylesheet_link_tag "bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css", media: "all" %>
+    <%= stylesheet_link_tag "css-hamburgers/hamburgers.min.css", media: "all" %>
+    <%= stylesheet_link_tag "slick/slick.css", media: "all" %>
+    <%= stylesheet_link_tag "select2/select2.min.css", media: "all" %>
+    <%= stylesheet_link_tag "perfect-scrollbar/perfect-scrollbar.css", media: "all" %>
+    <%= stylesheet_link_tag "theme.css", media: "all" %>
     <!-- Main CSS-->
-
-</head>
-<body class="animsition">
+  </head>
+  <body class="animsition">
     <div class="page-wrapper">
-
-
-        <!-- MENU SIDEBAR-->
-        <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                    <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo") %>
-            </div>
-            <div class="menu-sidebar__content js-scrollbar1">
-                <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
-                    <li>
-                            <a href="import.html">
-                                <i class="fas fa-database"></i>Importar Dados</a>
-                    </li>
-
-
-                    <li>
-                        <a href="turmas.html">
-                            <i class="fas fa-users"></i>Turmas</a>
-                    </li>
-                        
-                    <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-file-text"></i>Templates</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                <%= link_to "Pendentes", admins_forms_path%>
-                                </li>
-                                <li>
-                                    <%= link_to "Respondidos", admins_forms_path%>
-                                </li>
-                            </ul>
-                        </li>
-            
-                    <li>
-                            <a href="envio.html">
-                                <i class="fas fa-share"></i>Envio</a>
-                        </li>
-                    </li>
-
-                      
-                    
-                    <li>
-                            <a href="resultados.html">
-                                <i class="fas fa-chart-bar"></i>Resultados</a>
-                    </li>
-
-                    </ul>
-                </nav>
-            </div>
-        </aside>
-        <!-- END MENU SIDEBAR-->
-
-        <!-- PAGE CONTAINER-->
-        <div class="page-container">
-            <!-- HEADER DESKTOP-->
-            <header class="header-desktop">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap">
-                            <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Pesquise por formulários &amp; templates..." />
-                                <button class="au-btn--submit" type="submit">
-                                    <i class="zmdi zmdi-search"></i>
-                                </button>
-                            </form>
-                            <div class="header-button">
-                                <div class="noti-wrap">
-                                   
-                                    </div>
-                                    
-                                    
-                                <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
-                                      
-                                        <div class="content">
-                                            <a class="js-acc-btn" href="#"> Coordenador</a>
-                                        </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                           
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">Coordenador</a>
-                                                    </h5>
-                                                    <span class="email"><%= @email %></span>
-                                                </div>
-                                            </div>
-                                           
-                                            <div class="account-dropdown__footer">                            
-                                                <%= link_to destroy_admin_session_path, data: {turbo_method: :delete} do %>
-                                                <i class ="zmdi zmdi-power"></i> Sair
-                                                <%end%> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <!-- HEADER DESKTOP-->
-
-            <!-- 
-                IN CONTENT-->
-            <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="overview-wrap">
-                                    <h2 class="title-1">Formulários Criados</h2>
-                                <%# <%= button_to "Adicionar Formulário", "form_student", method: :get ,class:"au-btn au-btn-icon au-btn--blue"%> 
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row m-t-25">
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon-container">
-                                                <i class="fas fa-plus"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="text">
-                                            <h1>Template 1</h1>
-                                                <h2>CIC0097 - 2024.1 - TA </h2>
-                                                <span>Pendente</span>
-                                            </div>
-                                            
-                                            <div class="icons-container">
-                                             <i class="fas fa-edit"></i>
-                                             <i class="fas fa-download"></i>
-                                            </div>
-                                        
-                                         
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="text">
-                                                <h1>Template 2</h1>
-                                                <h2>CIC0105 - 2024.1 - TA </h2>
-                                                <span>Pendente</span>
-                                            </div>
-
-                                            <div class="icons-container">
-                                             <i class="fas fa-edit"></i>
-                                             <i class="fas fa-download"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="text">
-                                                <h1>Template 3</h1>
-                                                <h2>CIC0198 - 2024.1 - TA </h2>
-                                                <span>Pendente</span>
-                                            </div>
-
-                                            <div class="icons-container">
-                                             <i class="fas fa-edit"></i>
-                                             <i class="fas fa-download"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="text">
-                                                 <h1>Template 4</h1>
-                                                <h2>CIC0099 - 2024.1 - TA </h2>
-                                                <span>Pendente</span>
-                                            </div>
-
-                                            <div class="icons-container">
-                                             <i class="fas fa-edit"></i>
-                                             <i class="fas fa-download"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                  
-                           
-                        </div>
-                      
-            
-                    </div>
-                </div>
-            </div>
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
+      <!-- MENU SIDEBAR-->
+      <aside class="menu-sidebar d-none d-lg-block">
+        <div class="logo">
+          <%= image_tag("logo-unb.png", alt: "Avaliacao", class: "logo") %>
         </div>
-
+        <div class="menu-sidebar__content js-scrollbar1">
+          <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+              <li>
+                <a href="import.html">
+                  <i class="fas fa-database"></i>Importar Dados</a>
+              </li>
+              <li>
+                <a href="turmas.html">
+                  <i class="fas fa-users"></i>Turmas</a>
+              </li>
+              <li class="has-sub">
+                <a class="js-arrow" href="#">
+                  <i class="fas fa-file-text"></i>Templates</a>
+                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                  <li>
+                    <%= link_to "Pendentes", admins_forms_path %>
+                  </li>
+                  <li>
+                    <%= link_to "Respondidos", admins_forms_path %>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="envio.html">
+                  <i class="fas fa-share"></i>Envio</a>
+              </li>
+              <li>
+                <a href="resultados.html">
+                  <i class="fas fa-chart-bar"></i>Resultados</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+      <!-- END MENU SIDEBAR-->
+      <!-- PAGE CONTAINER-->
+      <div class="page-container">
+        <!-- HEADER DESKTOP-->
+        <header class="header-desktop">
+          <div class="section__content section__content--p30">
+            <div class="container-fluid">
+              <div class="header-wrap">
+                <form class="form-header" action="" method="POST">
+                  <input class="au-input au-input--xl" type="text" name="search" placeholder="Pesquise por formulários &amp; templates..." />
+                  <button class="au-btn--submit" type="submit">
+                    <i class="zmdi zmdi-search"></i>
+                  </button>
+                </form>
+                <div class="header-button">
+                  <div class="noti-wrap">
+                  </div>
+                  <div class="account-wrap">
+                    <div class="account-item clearfix js-item-menu">
+                      <div class="content">
+                        <a class="js-acc-btn" href="#"> Coordenador</a>
+                      </div>
+                      <div class="account-dropdown js-dropdown">
+                        <div class="info clearfix">
+                          <div class="content">
+                            <h5 class="name">
+                              <a href="#">Coordenador</a>
+                            </h5>
+                            <span class="email"><%= @email %></span>
+                          </div>
+                        </div>
+                        <div class="account-dropdown__footer">
+                          <%= link_to destroy_admin_session_path, data: { turbo_method: :delete } do %>
+                            <i class ="zmdi zmdi-power"></i> Sair
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- HEADER DESKTOP-->
+        <!-- IN CONTENT-->
+        <div class="main-content">
+          <div class="section__content section__content--p30">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="overview-wrap">
+                    <h2 class="title-1">Formulários Criados</h2>
+                    <% # <%= button_to "Adicionar Formulário", "form_student", method: :get ,class:"au-btn au-btn-icon au-btn--blue" %>
+                  </div>
+                </div>
+              </div>
+              <div class="row m-t-25">
+                <div class="col-sm-6 col-lg-3">
+                  <div class="overview-item overview-item--c2">
+                    <div class="overview__inner">
+                      <div class="overview-box clearfix">
+                        <div class="icon-container">
+                          <i class="fas fa-plus"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="overview-item overview-item--c2">
+                    <div class="overview__inner">
+                      <div class="overview-box clearfix">
+                        <div class="text">
+                          <h1>Template 1</h1>
+                          <h2>CIC0097 - 2024.1 - TA </h2>
+                          <span>Pendente</span>
+                        </div>
+                        <div class="icons-container">
+                          <i class="fas fa-edit"></i>
+                          <i class="fas fa-download"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <div class="overview-item overview-item--c2">
+                    <div class="overview__inner">
+                      <div class="overview-box clearfix">
+                        <div class="text">
+                          <h1>Template 2</h1>
+                          <h2>CIC0105 - 2024.1 - TA </h2>
+                          <span>Pendente</span>
+                        </div>
+                        <div class="icons-container">
+                          <i class="fas fa-edit"></i>
+                          <i class="fas fa-download"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <div class="overview-item overview-item--c2">
+                    <div class="overview__inner">
+                      <div class="overview-box clearfix">
+                        <div class="text">
+                          <h1>Template 3</h1>
+                          <h2>CIC0198 - 2024.1 - TA </h2>
+                          <span>Pendente</span>
+                        </div>
+                        <div class="icons-container">
+                          <i class="fas fa-edit"></i>
+                          <i class="fas fa-download"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <div class="overview-item overview-item--c2">
+                    <div class="overview__inner">
+                      <div class="overview-box clearfix">
+                        <div class="text">
+                          <h1>Template 4</h1>
+                          <h2>CIC0099 - 2024.1 - TA </h2>
+                          <span>Pendente</span>
+                        </div>
+                        <div class="icons-container">
+                          <i class="fas fa-edit"></i>
+                          <i class="fas fa-download"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END MAIN CONTENT-->
+        <!-- END PAGE CONTAINER-->
+      </div>
     </div>
-
     <!-- Jquery JS-->
-    <%= javascript_include_tag 'jquery-3.2.1.min.js' %>
-    <%# <script src="jquery-3.2.1.min.js"></script> %>
+    <%= javascript_include_tag "jquery-3.2.1.min.js" %>
+    <% # <script src="jquery-3.2.1.min.js"></script> %>
     <!-- Bootstrap JS-->
-    <%= javascript_include_tag 'bootstrap-4.1/popper.min.js' %>
-    <%= javascript_include_tag 'bootstrap-4.1/bootstrap.min.js' %>
-
-   
+    <%= javascript_include_tag "bootstrap-4.1/popper.min.js" %>
+    <%= javascript_include_tag "bootstrap-4.1/bootstrap.min.js" %>
     <!-- Vendor JS       -->
-    <%= javascript_include_tag 'slick/slick.min.js' %>
-
-    <%# <script src="slick/slick.min.js" %>
-    <%# </script> %>
-    <%= javascript_include_tag 'slick/slick.min.js' %>
-
-    <%= javascript_include_tag 'wow/wow.min.js' %>
-
-    <%# <script src="wow/wow.min.js"></script> %>
-    <%= javascript_include_tag 'animsition/animsition.min.js' %>
-    <%= javascript_include_tag 'bootstrap-progressbar/bootstrap-progressbar.min.js' %>
-    <%= javascript_include_tag 'counter-up/jquery.waypoints.min.js' %>
-    <%= javascript_include_tag 'counter-up/jquery.counterup.min.js' %>
-    <%= javascript_include_tag 'circle-progress/circle-progress.min.js' %>
-    <%= javascript_include_tag 'perfect-scrollbar/perfect-scrollbar.js' %>
-    <%= javascript_include_tag 'chartjs/Chart.bundle.min.js' %>
-    <%= javascript_include_tag 'select2/select2.min.js' %>
- 
+    <%= javascript_include_tag "slick/slick.min.js" %>
+    <% # <script src="slick/slick.min.js" %>
+    <% # </script> %>
+    <%= javascript_include_tag "slick/slick.min.js" %>
+    <%= javascript_include_tag "wow/wow.min.js" %>
+    <% # <script src="wow/wow.min.js"></script> %>
+    <%= javascript_include_tag "animsition/animsition.min.js" %>
+    <%= javascript_include_tag "bootstrap-progressbar/bootstrap-progressbar.min.js" %>
+    <%= javascript_include_tag "counter-up/jquery.waypoints.min.js" %>
+    <%= javascript_include_tag "counter-up/jquery.counterup.min.js" %>
+    <%= javascript_include_tag "circle-progress/circle-progress.min.js" %>
+    <%= javascript_include_tag "perfect-scrollbar/perfect-scrollbar.js" %>
+    <%= javascript_include_tag "chartjs/Chart.bundle.min.js" %>
+    <%= javascript_include_tag "select2/select2.min.js" %>
     <!-- Main JS-->
-    <%= javascript_include_tag 'main.js' %>
-
-    <%# <script src="js/main.js"></script> %>
-
-</body>
-
+    <%= javascript_include_tag "main.js" %>
+    <% # <script src="js/main.js"></script> %>
+  </body>
 </html>
 <!-- end document-->
