@@ -8,6 +8,7 @@ one:
   formacao: MyString
   ocupacao: MyString
   email: MyString
+  senha: MyString
 
 two:
   nome: MyString
@@ -17,3 +18,4 @@ two:
   formacao: MyString
   ocupacao: MyString
   email: MyString
+  senha: MyString

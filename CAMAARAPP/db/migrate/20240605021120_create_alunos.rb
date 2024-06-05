@@ -8,6 +8,7 @@ class CreateAlunos < ActiveRecord::Migration[7.1]
       t.string :formacao
       t.string :ocupacao
       t.string :email
+      t.string :senha
 
       t.timestamps
     end
