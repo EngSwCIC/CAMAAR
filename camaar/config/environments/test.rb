@@ -67,7 +67,11 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
-
+  config.assets.css_compressor = nil
+  config.assets.compile = true
+  config.action_mailer.default_url_options = { host: 'localhost',port:3000 }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {:address => '127.0.0.1', :port => 1025}
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
 end

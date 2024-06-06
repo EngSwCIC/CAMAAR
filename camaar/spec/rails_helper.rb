@@ -3,8 +3,15 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
+require 'support/factory_bot'
+
+# require 'capybara/rspec'
+# require 'capybara/rails'
+# require 'capybara/webkit/matchers'
+# require 'support/helpers'
+# require 'capybara/email/rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -30,6 +37,15 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
+  config.before :all do
+    unless ENV['ASSET_PRECOMPILE_DONE']
+      prep_passed = system 'rails test:prepare'
+      ENV['ASSET_PRECOMPILE_DONE'] = 'true'
+      unless prep_passed
+        abort "\nYour assets didn't compile. Exiting WITHOUT running any tests. Review the output above to resolve any errors."
+      end
+    end
+  end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
@@ -57,7 +73,11 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://rspec.info/features/6-0/rspec-rails
   config.infer_spec_type_from_file_location!
-
+  if defined? LetterOpener
+    class LetterOpener::DeliveryMethod
+      def deliver!(_mail) = true
+    end
+  end
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:

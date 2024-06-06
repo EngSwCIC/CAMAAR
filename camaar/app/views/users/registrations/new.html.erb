@@ -5,14 +5,13 @@
   <div id="formContent">
     <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo",width: 300, height: 150) %>
     <br>
-    <h1> Olá, usuário! <h1>
+    <h1> Olá, Usuário! </h1>
     <h1> Defina sua senha</h1>
 <%= simple_form_for(resource, as: resource_name, url: new_user_registration_path) do |form| %>
   <%= form.error_notification %>
-    <%= form.text_field :email, id: "email", class: "email", placeholder: "Email", required: true, autofocus: true, autocomplete: "off" %>
-
+  <%= form.input :email, value:resource.email, as: :hidden %>
   <%= form.text_field :password, type: "password", id: "password", class: "password", placeholder: "Senha", required: true, autofocus: true, autocomplete: "off" %>
-  <%= form.text_field :password, type: "password", id: "password", class: "password", placeholder: "Confirme sua Senha", required: true, autofocus: true, autocomplete: "off" %>
+  <%= form.text_field :password, type: "password", id: "password2", class: "password", placeholder: "Confirme sua Senha", required: true, autofocus: true, autocomplete: "off" %>
 <div class="form-actions">
     <%= form.button :submit, "Confirmar", class:"submit-register" %>
   </div>  

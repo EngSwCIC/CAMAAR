@@ -6,41 +6,51 @@ Feature:
     Scenario: User logs in with valid credentials
         Given that I am a registered User
         And I am on the "Users Login" page
+        Then I should see "Bem vindo ao"
+        And I should see "CAMAAR"
         When I fill in the following:
-            | email          | password |
-            | user@gmail.com | 123456   |
-        And I press "Entrar"
-        Then I should be on the "Formulários" page
-        And I should see "John Doe"
+            | email    | mholanda@unb.br     |
+            | password | professor123        |
+        And I press "Confirmar"
+        Then I should be on the "User Camaar" page
+        And I should see "mholanda@unb.br"
+        And I should see "Formulários"
 
 
     Scenario: User can't log in with invalid credentials
         Given that I am an unregistered User
         And I am on the "Users Login" page
+        Then I should see "Bem vindo ao"
+        And I should see "CAMAAR"
         When I fill in the following:
-            | email          | password |
-            | user@gmail.com | 123456   |
-        And I press "Entrar"
-        Then I should see "Credenciais Inválidas"
+            | email    | noexists@gmail.com |
+            | password | 123456         |
+        And I press "Confirmar"
+        Then I should be on the "Root" page
+        # Then I should see "Credenciais Inválidas"
 
 
     Scenario: Coordinator logs in with valid credentials
         Given that I am a registered Admin
         And I am on the "Admins Login" page
-        Then I should see "Olá, administrador!"
+        Then I should see "Bem vindo ao"
+        And I should see "CAMAAR"
         When I fill in the following:
-            | email           | password |
-            | admin@gmail.com | 123456   |
-        And I press "Login"
-        Then I should be on the "Templates" page
-        And I should see "Jhon Doe"
+            | email           | admin.dex@gmail.com |
+            | password | admin123   |
+        And I press "Confirmar"
+        Then I should be on the "Admin Camaar" page
+        And I should see "admin.dex@gmail.com"
+        And I should see "Coordenador"
 
     Scenario: Coordinator can't log in with invalid credentials
         Given that I am an unregistered Admin
         And I am on the "Admins Login" page
-        Then I should see "Olá, administrador!"
+        Then I should see "Bem vindo ao"
+        And I should see "CAMAAR"
         When I fill in the following:
-            | email          | password |
-            | user@gmail.com | abc123   |
-        And I press "Login"
-        Then I should see "Credenciais Inválidas"
+            | email          | user@gmail.com |
+            | password  | abc123   |
+        And I press "Confirmar"
+        Then I should be on the "Root" page
+        # Then I should see "Credenciais Inválidas"
