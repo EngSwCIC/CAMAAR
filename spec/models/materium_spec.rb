@@ -1,4 +1,3 @@
-# spec/models/materia_spec.rb
 require 'rails_helper'
 
 RSpec.describe Materium, type: :model do
@@ -7,7 +6,10 @@ RSpec.describe Materium, type: :model do
   end
 
   describe 'associations' do
-    # Adicione seus testes de associações aqui
+    it { should belong_to(:professors) }
+    it { should have_many(:professors) }
+    it { should belong_to(:departamento) }
+    it { should have_many(:alunos) }    
   end
 
   describe 'methods' do

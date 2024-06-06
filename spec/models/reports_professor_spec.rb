@@ -1,4 +1,3 @@
-# spec/models/reports_professor_spec.rb
 require 'rails_helper'
 
 RSpec.describe ReportsProfessor, type: :model do

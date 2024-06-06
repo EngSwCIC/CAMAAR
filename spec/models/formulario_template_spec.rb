@@ -1,4 +1,3 @@
-# spec/models/formulario_template_spec.rb
 require 'rails_helper'
 
 RSpec.describe FormularioTemplate, type: :model do

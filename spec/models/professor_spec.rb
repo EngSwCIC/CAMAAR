@@ -1,20 +1,35 @@
-# spec/models/professor_spec.rb
 require 'rails_helper'
 
 RSpec.describe Professor, type: :model do
   describe 'validations' do
-    # Adicione seus testes de validação aqui
+
+    it 'is valid with valid attributes' do
+      professor = build(:professor)
+      expect(professor).to be_valid
+    end
+
+    it 'is not valid without a nome' do
+      professor = build(:professor, nome: nil)
+      expect(professor).not_to be_valid
+    end
+
+
   end
 
   describe 'associations' do
-    # Adicione seus testes de associações aqui
-  end
+    it { should belong_to(:departamento) }
+    it { should have_many(:materias) }
 
-  describe 'Devise modules' do
-    # Adicione seus testes para os módulos Devise aqui
   end
 
   describe 'methods' do
-    # Adicione seus testes de métodos personalizados aqui
+    it 'sets is_admin to true' do
+      professor = create(:professor)
+      professor.set_admin
+      expect(professor.is_admin).to eq(true)
+    end
+
+
   end
 end
+

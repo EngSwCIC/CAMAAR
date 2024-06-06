@@ -1,4 +1,3 @@
-# spec/models/departamento_spec.rb
 require 'rails_helper'
 
 RSpec.describe Departamento, type: :model do
@@ -8,9 +7,11 @@ RSpec.describe Departamento, type: :model do
         expect(departamento).to be_valid
       end
   end
+  
 
   describe 'associations' do
-    # Adicione seus testes de associações aqui
+    it { should have_many(:materias) }
+    it { should have_many(:professor) }
   end
 
   describe 'methods' do

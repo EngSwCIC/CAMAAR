@@ -1,4 +1,3 @@
-# spec/models/reports_aluno_spec.rb
 require 'rails_helper'
 
 RSpec.describe ReportsAluno, type: :model do
