@@ -12,14 +12,16 @@ class AdminsController < ApplicationController
   end
 
   def import
-    json = params[:admin_import][:file]
+    json = params[:admin_import][:file].tempfile.path
     members = JSON.parse(File.read(json))
-    members["dicente"].each do |student|
-      UsersMailer.register_user(student["email"]).deliver_now
-    end
-    Users.Mailer.register_user(members["docente"]["email"]).deliver_now
-  end   
-
+    members.each do |member|
+      if member["ocupacao"] == "dicente"
+          UsersMailer.register_user(member["email"]).deliver_now
+      elsif member["ocupacao"] == "docente"
+          UsersMailer.register_user(member["email"]).deliver_now
+      end
+    end   
+  end
  # def envio
   #  UsersMailer.deliver
   #end
