@@ -21,7 +21,7 @@ Feature: Create a template form
             | question        |
             | Dê uma sugestão |
 
-        When I press "Salvar Template"
+        When I press "Salvar"
         Then I expect to be on the "Templates" page
         And I expect to see "Template 1"
 
@@ -31,5 +31,5 @@ Feature: Create a template form
 
         And I fill in "Nome template" with "Template 1"
 
-        When I press "Salvar Template"
+        When I press "Salvar"
         Then I expect to see "O template precisa conter pelo menos uma pergunta"

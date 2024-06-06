@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   match "/dispatch", to: "admins#envio", via: "get"
 
   resources :templates
-
+  get "/add_question", to: "templates#add_question"
+  
   devise_scope :user do
     get "/users/logout" => "users/sessions#destroy"
     post "/users/register" => "users/registrations#create"

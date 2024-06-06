@@ -137,6 +137,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_132204) do
 
   create_table "templates", force: :cascade do |t|
     t.string "name"
+    t.boolean "draft"
     t.json "questions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
