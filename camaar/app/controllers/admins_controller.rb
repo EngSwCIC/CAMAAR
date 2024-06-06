@@ -20,7 +20,7 @@ class AdminsController < ApplicationController
     members = JSON.parse(File.read(json))
     members.each do |member|
       UsersMailer.register_user(member["docente"]["email"]).deliver
-      member["dicente"].each do |student|
+      member["discente"].each do |student|
         UsersMailer.register_user(student["email"]).deliver
       end
     end
