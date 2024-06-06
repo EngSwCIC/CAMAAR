@@ -40,7 +40,6 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                     <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo") %>
-
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
@@ -52,7 +51,7 @@
 
 
                     <li>
-                        <a href="Turmas">
+                        <a href="turmas.html">
                             <i class="fas fa-users"></i>Turmas</a>
                     </li>
                         
@@ -61,16 +60,16 @@
                                 <i class="fas fa-file-text"></i>Templates</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                <%= link_to "Pendentes", new_user_session_path%>
+                                <%= link_to "Pendentes", admins_forms_path%>
                                 </li>
                                 <li>
-                                    <%= link_to "Respondidos", new_user_registration_path%>
+                                    <%= link_to "Respondidos", admins_forms_path%>
                                 </li>
                             </ul>
                         </li>
             
                     <li>
-                            <a href="share_template">
+                            <a href="envio.html">
                                 <i class="fas fa-share"></i>Envio</a>
                         </li>
                     </li>
@@ -78,7 +77,7 @@
                       
                     
                     <li>
-                            <a href="chart.html">
+                            <a href="resultados.html">
                                 <i class="fas fa-chart-bar"></i>Resultados</a>
                     </li>
 

@@ -37,8 +37,8 @@
     <div class="page-wrapper">
         
 
-        <!-- MENU SIDEBAR-->
-       <aside class="menu-sidebar d-none d-lg-block">
+       <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                     <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo") %>
             </div>
@@ -48,29 +48,29 @@
                     <li>
                             <a href="import.html">
                                 <i class="fas fa-database"></i>Importar Dados</a>
-                        </li>
+                    </li>
 
 
-                        <li>
-                            <a href="Turmas">
-                                <i class="fas fa-group"></i>Turmas</a>
-                        </li>
+                    <li>
+                        <a href="turmas.html">
+                            <i class="fas fa-users"></i>Turmas</a>
+                    </li>
                         
                     <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-file-text"></i>Templates</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                <%= link_to "Pendentes", new_user_session_path%>
+                                <%= link_to "Pendentes", admins_forms_path%>
                                 </li>
                                 <li>
-                                    <%= link_to "Respondidos", new_user_registration_path%>
+                                    <%= link_to "Respondidos", admins_forms_path%>
                                 </li>
                             </ul>
                         </li>
-                    </li>
+            
                     <li>
-                            <a href="share_template">
+                            <a href="envio.html">
                                 <i class="fas fa-share"></i>Envio</a>
                         </li>
                     </li>
@@ -78,9 +78,9 @@
                       
                     
                     <li>
-                            <a href="chart.html">
+                            <a href="resultados.html">
                                 <i class="fas fa-chart-bar"></i>Resultados</a>
-                        </li>
+                    </li>
 
                     </ul>
                 </nav>
