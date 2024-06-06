@@ -4,6 +4,7 @@ require 'gruff'
 RSpec.feature 'Export Graph', type: :feature do
   describe 'exporting answers as graph' do
     it 'should export a graph containing answers % by students' do
+
       # visit '/users/login'
       # user = create(:user)
       # expect(page).to have_content 'Bem vindo ao'
@@ -12,18 +13,9 @@ RSpec.feature 'Export Graph', type: :feature do
       # fill_in 'password', with: user.password
       # click_button 'Confirmar'
       # expect(page).to have_content 'Formulários Pendentes'
+
       graph = Gruff::Pie.new
       graph.title = "Respostas do Formulário"
-
-      FactoryBot.define do
-        factory :coordinator do
-          sequence(:name) { |n| "Coordinator #{n}" }
-          admin {}
-        end
-        factory :subject_class do
-          sequence(:name) { |n| "Subject Class #{n}" }
-        end
-      end
 
       FactoryBot.define do
         factory :department do
