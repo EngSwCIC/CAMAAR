@@ -159,6 +159,11 @@ GEM
     ffi (1.17.0-x86_64-linux-gnu)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    gruff (0.25.0)
+      bigdecimal (>= 3.0)
+      histogram
+      rmagick (>= 5.5)
+    histogram (0.2.4.1)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
@@ -219,7 +224,9 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.5-x86_64-linux)
       racc (~> 1.4)
+    observer (0.1.2)
     orm_adapter (0.5.0)
+    pkg-config (1.5.6)
     psych (5.1.2)
       stringio
     public_suffix (5.0.5)
@@ -274,6 +281,9 @@ GEM
       railties (>= 5.2)
     rexml (3.2.8)
       strscan (>= 3.0.9)
+    rmagick (6.0.1)
+      observer (~> 0.1)
+      pkg-config (~> 1.4)
     rspec-core (3.13.0)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.0)
@@ -367,6 +377,7 @@ DEPENDENCIES
   debug
   devise
   factory_bot (~> 6.4)
+  gruff
   importmap-rails
   jbuilder
   letter_opener

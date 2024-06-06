@@ -82,3 +82,4 @@ gem 'simplecov'
 gem 'simple_form'
 
 gem "factory_bot", "~> 6.4"
+gem 'gruff'
