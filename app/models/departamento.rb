@@ -1,2 +1,4 @@
 class Departamento < ApplicationRecord
-end
+    validates :nome, presence: true
+  end
+  

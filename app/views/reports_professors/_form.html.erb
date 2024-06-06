@@ -1,0 +1,22 @@
+<%= form_with(model: reports_professor) do |form| %>
+  <% if reports_professor.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(reports_professor.errors.count, "error") %> prohibited this reports_professor from being saved:</h2>
+
+      <ul>
+        <% reports_professor.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :formulario_id, style: "display: block" %>
+    <%= form.number_field :formulario_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

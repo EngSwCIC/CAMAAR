@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Reports alunos</h1>
+
+<div id="reports_alunos">
+  <% @reports_alunos.each do |reports_aluno| %>
+    <%= render reports_aluno %>
+    <p>
+      <%= link_to "Show this reports aluno", reports_aluno %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New reports aluno", new_reports_aluno_path %>

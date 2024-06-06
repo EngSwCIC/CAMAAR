@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :reports_professors
+  resources :reports_alunos
+  resources :formulario_templates
+  resources :formularios
+  resources :departamentos
+  resources :materia
   devise_for :professors
   devise_for :alunos
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

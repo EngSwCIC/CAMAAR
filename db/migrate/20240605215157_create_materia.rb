@@ -1,7 +1,7 @@
 class CreateMateria < ActiveRecord::Migration[7.1]
   def change
     create_table :materia do |t|
-      t.integer :código
+      t.integer :codigo
       t.integer :semestre
       t.string :nome
       t.integer :departamento
