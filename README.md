@@ -57,10 +57,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 Licença MIT
 
-Copyright (c) 2024 [Seu Nome ou Nome da Organização]
+Copyright (c) 2024 [CAMAAR GRUPO-3]
 
 A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cópia
-deste software e dos arquivos de documentação associados (o "Software"), para lidar
+deste software e dos arquivos de documentação associados (o "CAMAAR GRUPO-3"), para lidar
 no Software sem restrição, incluindo, sem limitação, os direitos
 de usar, copiar, modificar, mesclar, publicar, distribuir, sublicenciar e/ou vender
 cópias do Software, e permitir às pessoas a quem o Software é
