@@ -37,8 +37,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_06_161228) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nome"
-    t.integer "formularios_id", null: false
-    t.index ["formularios_id"], name: "index_formulario_templates_on_formularios_id"
   end
 
   create_table "formularios", force: :cascade do |t|
@@ -98,7 +96,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_06_161228) do
   end
 
   add_foreign_key "alunos", "materia", column: "materia_id"
-  add_foreign_key "formulario_templates", "formularios", column: "formularios_id"
   add_foreign_key "formularios", "formulario_templates", column: "formulario_templates_id"
   add_foreign_key "materia", "alunos", column: "alunos_id"
   add_foreign_key "materia", "departamentos"
