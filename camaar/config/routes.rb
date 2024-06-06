@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   match '/admins/import', to: 'admins#importdata', via: 'get'
   match '/admins/envio', to: 'admins#envio', via: 'get'
 
+  post '/admins/import', to: 'admins#import'
+
   devise_scope :user do
     get '/users/logout' => 'users/sessions#destroy'
     post '/users/register' => 'users/registrations#create'
