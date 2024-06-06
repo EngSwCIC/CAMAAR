@@ -6,6 +6,10 @@
 
 require "cucumber/rails"
 require "simplecov"
+
+require 'capybara/email'
+World(Capybara::Email::DSL)
+
 SimpleCov.start "rails"
 require File.dirname(__FILE__) + "/seeds"
 # By default, any exception happening in your Rails application will bubble up

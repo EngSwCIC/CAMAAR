@@ -13,7 +13,7 @@ feature 'Reset Password' do
     fill_in 'email', with: user.email
     click_button 'Confirmar'
 
-    open_email(user.email).click_link 'Change my password'
+    open_email(user.email).click_link 'Mudar minha Senha'
 
     expect(page).to have_content 'Defina sua senha'
     fill_in 'password', with: '1234567'
@@ -36,7 +36,7 @@ feature 'Reset Password' do
     fill_in 'email', with: admin.email
     click_button 'Confirmar'
 
-    open_email(admin.email).click_link 'Change my password'
+    open_email(admin.email).click_link 'Mudar minha Senha'
 
     expect(page).to have_content 'Defina sua senha'
     fill_in 'password', with: '1234567'

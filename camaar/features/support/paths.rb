@@ -15,15 +15,20 @@ module NavigationHelpers
     when 'Root'
       '/'
     when 'Formulários'
-      '/forms'
+      '/admins/forms'
     when /Formulário (\d+)/
       "/forms/#{::Regexp.last_match(1)}"
     when 'Templates'
       '/templates'
     when 'Redefina sua Senha'
       '/admins/...'
+    when 'Redefinir Senha Usuario'
+      '/users/recover-password/edit'
+
     when 'User Camaar'
       '/users/page'
+    when 'Cadastro de Usuário'
+      '/users/register'
     when 'Admin Camaar'
       '/admins/page'
     when 'Users Login'

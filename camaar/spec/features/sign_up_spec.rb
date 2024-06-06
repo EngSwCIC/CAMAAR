@@ -14,7 +14,7 @@ feature 'Register User' do
 
     UsersMailer.register_user(email).deliver_now
     open_email(email).click_link 'Registrar'
-    expect(page).to have_content 'Olá, usuário!'
+    expect(page).to have_content 'Olá, Usuário!'
     expect(page).to have_content 'Defina sua senha'
     fill_in 'password', with: password
     fill_in 'password2', with: password

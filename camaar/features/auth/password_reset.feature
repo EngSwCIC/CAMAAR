@@ -16,7 +16,7 @@ Feature: Reset Password
         When I fill in "Email" with "mholanda@unb.br"
         And I press "Confirmar"
         And I received a Reset password instructions email at "mholanda@unb.br"
-        And I follow "Mudar minha senha" at "mholanda@unb.br"
+        And I follow "Mudar minha Senha" at "mholanda@unb.br"
         Then I should be on the "Redefinir Senha Usuario" page
         When I fill in the following:
             | password    | professor123 |
