@@ -7,8 +7,5 @@ Given('I am a registered User') do
                })
 end
 
-And('I am on the {string} page') do |page|
-  visit path_to(page)
-end
 
 # When('I fill in the following')

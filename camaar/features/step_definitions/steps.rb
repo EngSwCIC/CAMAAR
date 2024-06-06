@@ -72,11 +72,19 @@ And(/^(?:|I )fill in "([^"]*)" for "([^"]*)"$/) do |value, field|
   fill_in(field, with: value)
 end
 
-When(/^(?:|I )fill in the following:$/) do |fields|
-  fields.rows_hash.each do |name, value|
-    When %(I fill in "#{name}" with "#{value}")
+# When(/^(?:|I )fill in the following:$/) do |fields|
+#   fields.rows_hash.each do |name, value|
+#     When %(I fill in "#{name}" with "#{value}")
+#   end
+# end
+When(/^I fill in the following:/) do |fields|
+  fields.rows_hash.each do |name,value|
+    # puts "Filling in #{name} with #{value}" # Debugging output
+
+    fill_in(name,with:value)
   end
 end
+
 
 When(/^(?:|I )select "([^"]*)" from "([^"]*)"$/) do |value, field|
   select(value, from: field)
@@ -115,19 +123,31 @@ Given(/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|
   fill_in('email', with: coordinator.email)
   fill_in('password', with: 'admin123')
   fill_in('password_confirmation', with: 'admin123')
-  click_button('login')
+  click_button('Confirmar')
 end
 
 Given(/that I created the following templates:$/) do |_table|
   pending
 end
 
-Given(/that I am a registered ([^"]*)$/) do |_role| # if user or admin
-  pending
+Given(/that I am a registered User/) do  # if user or admin
+  user = User.find_by({email:"mholanda@unb.br"})
+  # visit('/users/login')
+  # fill_in('email', with: user.email)
+  # fill_in('password', with: 'aluno123')
+  # click_button('Confirmar')
+end
+
+Given(/that I am a registered Admin/) do  # if user or admin
+  admin = Admin.find_by({email:"admin.dex@gmail.com"})
+  # visit('/admins/login')
+  # fill_in('email', with: admin.email)
+  # fill_in('password', with: 'admin123')
+  # click_button('Confirmar')
 end
 
 Given(/that I am an unregistered ([^"]*)$/) do |_role|
-  pending # Write code here that turns the phrase above into concrete actions
+  User.find_by({email:"noexists@gmail.com"}) == 0
 end
 
 And(/I received a ([^"]*) email at "([^"]*)"$/) do |_email_type| # reset or registration
