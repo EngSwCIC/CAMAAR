@@ -33,6 +33,15 @@ When(/^(?:|I )follow "([^"]*)"$/) do |link|
   click_link(link)
 end
 
+When(/^(?:|I )follow "([^"]*)" at "([^"]*)"$/) do |link,email|
+  open_email(email).click_link link
+end
+
+When(/I click on registration link at "([^"]*)"$/) do |email|
+  UsersMailer.register_user(email).deliver_now
+  open_email(email).click_link 'Registrar'
+end
+
 Then(/^(?:|I )should be on the "([^"]*)" page$/) do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
@@ -150,8 +159,19 @@ Given(/that I am an unregistered ([^"]*)$/) do |_role|
   User.find_by({email:"noexists@gmail.com"}) == 0
 end
 
-And(/I received a ([^"]*) email at "([^"]*)"$/) do |_email_type| # reset or registration
-  pending # Write code here that turns the phrase above into concrete actions
+And(/there are no emails/) do
+  clear_emails
+end
+
+Given(/I have no emails at "([^"]*)"$/) do |email|
+  open_email(email)
+  expect(all_emails).to be_empty
+end
+
+
+And(/I received a ([^"]*) email at "([^"]*)"$/) do |_email_type, email| # reset or registration
+  open_email(email)
+  current_email == _email_type
 end
 
 Given(/that I imported ([^"]*) for the "([^"]*)"$/) do |_datatype, _dpt_name|

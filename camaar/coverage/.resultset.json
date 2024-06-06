@@ -1265,6 +1265,8 @@
       "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/users_controller.rb": {
         "lines": [
           1,
+          null,
+          null,
           1,
           0,
           0,
@@ -1273,6 +1275,14 @@
           1,
           0,
           0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
           null,
           null
         ]
@@ -2093,6 +2103,6 @@
         }
       }
     },
-    "timestamp": 1717538314
+    "timestamp": 1717678760
   }
 }

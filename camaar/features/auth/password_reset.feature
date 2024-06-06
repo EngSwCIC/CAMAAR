@@ -1,43 +1,39 @@
 Feature: Reset Password
 
-    As an User
-    I want to redefine a password for my account from the reset password request email 
-    In order to to recover my access to the system
+    As an Student or Teacher
+    I want to redefine a password for my account from the reset password request email
+    So that I can recover access to the system
 
-    Background: student has been added to the database
-        Given the following student exist:
-            | name                   | email            |  course               | registration | education     | occupation |
-            | Ana Clara Jordao Perna |acjpjvjp@gmail.com| COMPUTER SCIENCE/CIC | 190084006    | undergraduate | student    |
+    Background: User forgot its password and is on login page
+        Given that I am a registered User
+        And there are no emails
+        And I am on the "Users Login" page
+        When I follow "Esqueceu a senha?"
 
-        And the following user is registered 
-
-    Scenario Outline: User has clicked on the reset password link
-        Given I am an registered user 
-        And I am on the login page 
-        When I press the button "Esqueci minha senha"
-        Then I should be on reset-password page
-        And I should see "Redefina sua senha"
-        When I fill in 'Email' with <email>
+    Scenario: User has clicked on the reset password link
+        Given I have no emails at "mholanda@unb.br"
+        Then I should see "Insira seu email para redefinição"
+        When I fill in "Email" with "mholanda@unb.br"
         And I press "Confirmar"
-        Then I should receive an email 
-        And I should see "Reset-password Link"
-        When I click "Reset-password Link"
-        Then I should be on reset-password page 
-        And I should see 'Olá <name> !'
-        And I should see 'Defina sua senha'
-        When I fill in 'Senha' with <password>
-        And I fill in 'Confirme sua Senha' with <password>
-        And I press 'Confirmar'
-        Then I should be on the page "login"
-        And I should see "Bem vindo ao CAMAAR"
-        When I fill in "Email" with <email>
-        And I fill in "Senha" with <password"
-        And I press "Confirmar"
-        Then I should be on the page "forms"
-        And I should see "<name>"
-        And I should see 'Formularios'
-    
-    Examples:
-        | email              | password | name                   |
-        | acjpjvjp@gmail.com | 123456   | Ana Clara Jordao Perna |
+        And I received a Reset password instructions email at "mholanda@unb.br"
+        And I follow "Mudar minha senha" at "mholanda@unb.br"
+        Then I should be on the "Redefinir Senha Usuario" page
+        When I fill in the following:
+            | password    | professor123 |
+            | password2 | professor123  |
+        When I press "Confirmar"
 
+        Then I should be on the "Users Login" page
+        When I fill in the following:
+            | email             | mholanda@unb.br    |
+            | password | professor123 |
+        When I press "Confirmar"
+        Then I should be on the "User Camaar" page
+        And I should see "mholanda@unb.br"
+        And I should see "Usuário"
+
+    Scenario: User informed the wrong email
+        Then I should see "Insira seu email para redefinição"
+        When I fill in "Email" with "notregistered@gmail.com"
+        And I press "Confirmar"
+        # Then I should see "Usuário não está Registrado"
