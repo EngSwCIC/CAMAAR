@@ -1,28 +1,25 @@
-<%= form_with method: :get  do |q| %>
-  <div>
-    <%= q.label :nome_template, "Nome do template:" %>
-    <%= q.text_field :nome_template, id: "nome_template", value: @nome_template %>
-  </div>
-  <%= q.label :opcoes, "Tipo de questão:" %>
-  <%= q.select :opcoes, options_for_select([['Selecione'], ['Múltipla escolha', 'multiple_choice'], ['Texto', 'text']]), {}, id: "opcoes" %>
-  <div id="choices_field" style="display: none;">
-    <%= q.label :escolhas, "Número de opções:" %>
-    <%= q.number_field :escolhas, in: 1..5, step: 1, value: 1, id: "escolhas" %>
-  </div>
-  <%= q.button "Adicionar questão", id: "adicionar_questao" %>
-<% end %>
 <%= form_with method: :get, model: @template do |f| %>
-  <div>
+  <%= f.label :opcoes, "Tipo de questão:" %>
+  <%= f.select :opcoes, options_for_select([['Selecione',''], ['Múltipla escolha', 'multiple_choice'], ['Texto', 'text']]), {}, id: "opcoes" %>
+  <div id="choices_field" style="display: none;">
+    <%= f.label :escolhas, "Número de opções:" %>
+    <%= f.select :escolhas, options_for_select('1'..'5') %>
   </div>
-  <div>
-    <% @questions.each do |question| %>
-      <%= render "edit_question", question: question %>
-    <% end %>
-  </div>
-  <div>
-    <%= f.button "Cancelar", name: "commit", value: "cancel",  id: 'cancel_button' %>
-    <%= f.submit "Salvar", id: "save", type: "button" %>
-  </div>
+  <%= f.button "Adicionar questão", id: "adicionar_questao" %>
+</></>
+<div>
+  <%= f.label :template_name, "Nome do template:" %>
+  <%= f.text_field :template_name, id: "template_name", value: @template_name %>
+</div>
+<div>
+  <% @questions.each do |question| %>
+    <%= render "edit_question", question: question %>
+  <% end %>
+</div>
+<div>
+  <%= f.button "Descartar", name: "commit", value: "cancel",  id: 'cancel' %>
+  <%= f.button "Salvar" , name: "commit",value:"save",id: "save" %>
+</div>
 <% end %>
 <script>
   document.addEventListener('DOMContentLoaded', () => {

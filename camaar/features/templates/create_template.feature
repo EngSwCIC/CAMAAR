@@ -13,13 +13,26 @@ Feature: Create a template form
         When I press "Adicionar Template"
         Then I expect to be on the "Novo Template" page
 
-        And I fill in "Nome template" with "Template 1"
-        And I create question 1 as a multiple choice question:
-            | question                   | 1     | 2   | 3     | 4    | 5       |
-            | Classifique seu rendimento | Ótimo | Bom | Médio | Ruim | Péssimo |
-        And I create question 2 as a text question:
-            | question        |
-            | Dê uma sugestão |
+        And I fill in "Template name" with "Template 1"
+
+        When I select "Múltipla escolha" from "opcoes"
+        When I select "5" from "escolhas"
+        When I press "Adicionar questão"
+        Then I expect to see "Questão 1"
+
+        When I fill in the following:
+            | question1_title   | Classifique seu rendimento |
+            | question1_option1 | Ótimo                      |
+            | question1_option2 | Bom                        |
+            | question1_option3 | Médio                      |
+            | question1_option4 | Ruim                       |
+            | question1_option5 | Péssimo                    |
+
+        When I select "Texto" from "opcoes"
+        When I press "Adicionar questão"
+        Then I expect to see "Questão 2"
+        When I fill in the following:
+            | question2_title | Dê uma sugestão |
 
         When I press "Salvar"
         Then I expect to be on the "Templates" page

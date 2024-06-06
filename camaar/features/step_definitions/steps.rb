@@ -65,7 +65,6 @@ end
 
 # Forms and templates
 And (/^(?:|I )fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
-  puts field.downcase.gsub(" ", "_")
   fill_in(field.downcase.gsub(" ", "_"), with: value, match: :prefer_exact)
 end
 
@@ -74,13 +73,13 @@ And (/^(?:|I )fill in "([^"]*)" for "([^"]*)"$/) do |value, field|
 end
 
 When (/^(?:|I )fill in the following:$/) do |fields|
-  fields.rows_hash.each do |name, value|
-    When %{I fill in "#{name}" with "#{value}"}
+  fields.rows_hash.each do |field, value|
+    fill_in(field.downcase.gsub(" ", "_"), with: value, match: :prefer_exact)
   end
 end
 
 When (/^(?:|I )select "([^"]*)" from "([^"]*)"$/) do |value, field|
-  select(value, :from => field)
+  select(value, :from => field, visible: :all)
 end
 
 When (/^(?:|I )check "([^"]*)"$/) do |field|
@@ -97,10 +96,6 @@ end
 
 When (/^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/) do |path, field|
   attach_file(field, File.expand_path(path))
-end
-
-Then(/^(?:|I )create question (\d+) as a (multiple choice|text) question:$/) do |number, type|
-  pending
 end
 
 # Database and examples
@@ -171,8 +166,8 @@ Given("that the class {string} was updated with:") do |string, table|
 end
 
 # Visualization
-Then (/^(?:|I )should see "([^"]*)"$/) do |text|
-  if page.respond_to? :should
+Then (/^(?:|I )expect to see "([^"]*)"$/) do |text|
+  if page.respond_to? :expect
     page.should have_content(text)
   else
     assert page.has_content?(text)

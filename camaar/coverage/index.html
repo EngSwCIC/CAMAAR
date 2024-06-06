@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-06-05T16:46:01-03:00">2024-06-05T16:46:01-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-06-06T10:14:09-03:00">2024-06-06T10:14:09-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  16.78%
+  21.02%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.26
+         0.45
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>435</b> relevant lines,
-    <span class="green"><b>73</b> lines covered</span> and
-    <span class="red"><b>362</b> lines missed. </span>
+    <b>452</b> relevant lines,
+    <span class="green"><b>95</b> lines covered</span> and
+    <span class="red"><b>357</b> lines missed. </span>
     (<span class="red">
-  16.78%
+  21.02%
 </span>
 )
   </div>
@@ -226,12 +226,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#fe04bde174241bdb438dbd2831014d08e562015c" class="src_link" title="app/controllers/templates_controller.rb">app/controllers/templates_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">76.67 %</td>
-            <td class="cell--number">77</td>
-            <td class="cell--number">30</td>
-            <td class="cell--number">23</td>
-            <td class="cell--number">7</td>
-            <td class="cell--number">1.40</td>
+            <td class="green strong cell--number t-file__coverage">95.74 %</td>
+            <td class="cell--number">97</td>
+            <td class="cell--number">47</td>
+            <td class="cell--number">45</td>
+            <td class="cell--number">2</td>
+            <td class="cell--number">2.87</td>
             
           </tr>
         
@@ -610,14 +610,14 @@
     <span class="group_name">Controllers</span>
     (<span class="covered_percent">
       <span class="red">
-  14.29%
+  20.06%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.26
+         0.53
        </span>
     </span> hits/line
     )
@@ -630,11 +630,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>322</b> relevant lines,
-    <span class="green"><b>46</b> lines covered</span> and
-    <span class="red"><b>276</b> lines missed. </span>
+    <b>339</b> relevant lines,
+    <span class="green"><b>68</b> lines covered</span> and
+    <span class="red"><b>271</b> lines missed. </span>
     (<span class="red">
-  14.29%
+  20.06%
 </span>
 )
   </div>
@@ -791,12 +791,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#fe04bde174241bdb438dbd2831014d08e562015c" class="src_link" title="app/controllers/templates_controller.rb">app/controllers/templates_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">76.67 %</td>
-            <td class="cell--number">77</td>
-            <td class="cell--number">30</td>
-            <td class="cell--number">23</td>
-            <td class="cell--number">7</td>
-            <td class="cell--number">1.40</td>
+            <td class="green strong cell--number t-file__coverage">95.74 %</td>
+            <td class="cell--number">97</td>
+            <td class="cell--number">47</td>
+            <td class="cell--number">45</td>
+            <td class="cell--number">2</td>
+            <td class="cell--number">2.87</td>
             
           </tr>
         
@@ -5323,8 +5323,8 @@
   <div class="header">
     <h3>app/controllers/templates_controller.rb</h3>
     <h4>
-      <span class="red">
-  76.67%
+      <span class="green">
+  95.74%
 </span>
 
       lines covered
@@ -5333,9 +5333,9 @@
     
 
     <div class="t-line-summary">
-      <b>30</b> relevant lines.
-      <span class="green"><b>23</b> lines covered</span> and
-      <span class="red"><b>7</b> lines missed.</span>
+      <b>47</b> relevant lines.
+      <span class="green"><b>45</b> lines covered</span> and
+      <span class="red"><b>2</b> lines missed.</span>
     </div>
 
     
@@ -5434,13 +5434,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="9">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="5" data-linenumber="9">
+            <span class="hits">5</span>
             
 
             
 
-            <code class="ruby">    Template.where({ coordinator_id: @coordinator.id })</code>
+            <code class="ruby">    @templates = Template.where(coordinator_id: @coordinator.id)</code>
           </li>
         </div>
       
@@ -5478,35 +5478,35 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="13">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="5" data-linenumber="13">
+            <span class="hits">5</span>
             
 
             
 
-            <code class="ruby">    puts params</code>
+            <code class="ruby">    save_questions_data</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="14">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="5" data-linenumber="14">
+            <span class="hits">5</span>
             
 
             
 
-            <code class="ruby">    @questions = session[:questions] || {}</code>
+            <code class="ruby">    save_draft</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="15">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="5" data-linenumber="15">
+            <span class="hits">5</span>
             
 
             
 
-            <code class="ruby">    case params[:opcoes]</code>
+            <code class="ruby">    check_for_commit</code>
           </li>
         </div>
       
@@ -5517,40 +5517,40 @@
 
             
 
-            <code class="ruby">    when &quot;multiple_choice&quot;</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="17">
+          <li class="never" data-hits="" data-linenumber="17">
             
             
 
             
 
-            <code class="ruby">      @questions[(@questions.length + 1).to_s] = {</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="18">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="18">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">        &quot;type&quot; =&gt; params[:opcoes],</code>
+            
+
+            <code class="ruby">  def create</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="19">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="19">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">        &quot;title&quot; =&gt; &quot;&quot;,</code>
+            
+
+            <code class="ruby">    template = Template.new(</code>
           </li>
         </div>
       
@@ -5561,7 +5561,7 @@
 
             
 
-            <code class="ruby">        &quot;options&quot; =&gt; {</code>
+            <code class="ruby">      name: @template_name,</code>
           </li>
         </div>
       
@@ -5572,7 +5572,7 @@
 
             
 
-            <code class="ruby">          &quot;1&quot; =&gt; &quot;&quot;,</code>
+            <code class="ruby">      questions: @questions.to_json,</code>
           </li>
         </div>
       
@@ -5583,7 +5583,7 @@
 
             
 
-            <code class="ruby">          &quot;2&quot; =&gt; &quot;&quot;,</code>
+            <code class="ruby">      coordinator_id: @coordinator.id,</code>
           </li>
         </div>
       
@@ -5594,7 +5594,7 @@
 
             
 
-            <code class="ruby">          &quot;3&quot; =&gt; &quot;&quot;,</code>
+            <code class="ruby">    )</code>
           </li>
         </div>
       
@@ -5605,40 +5605,40 @@
 
             
 
-            <code class="ruby">          &quot;4&quot; =&gt; &quot;&quot;,</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="25">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="25">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">          &quot;5&quot; =&gt; &quot;&quot;,</code>
+            
+
+            <code class="ruby">    if template.save!</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="26">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="26">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">        },</code>
+            
+
+            <code class="ruby">      delete_draft</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="27">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="27">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">        &quot;answer&quot; =&gt; {</code>
+            
+
+            <code class="ruby">      redirect_to &quot;/templates&quot;</code>
           </li>
         </div>
       
@@ -5649,7 +5649,7 @@
 
             
 
-            <code class="ruby">          &quot;1&quot; =&gt; &quot;false&quot;,</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -5660,7 +5660,7 @@
 
             
 
-            <code class="ruby">          &quot;2&quot; =&gt; &quot;false&quot;,</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -5671,18 +5671,18 @@
 
             
 
-            <code class="ruby">          &quot;3&quot; =&gt; &quot;false&quot;,</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="31">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="31">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">          &quot;4&quot; =&gt; &quot;false&quot;,</code>
+            
+
+            <code class="ruby">  def show</code>
           </li>
         </div>
       
@@ -5693,7 +5693,7 @@
 
             
 
-            <code class="ruby">          &quot;5&quot; =&gt; &quot;false&quot;,</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -5704,18 +5704,18 @@
 
             
 
-            <code class="ruby">        },</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="34">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="34">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      }</code>
+            
+
+            <code class="ruby">  def edit</code>
           </li>
         </div>
       
@@ -5726,29 +5726,29 @@
 
             
 
-            <code class="ruby">    when &quot;text&quot;</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="36">
+          <li class="never" data-hits="" data-linenumber="36">
             
             
 
             
 
-            <code class="ruby">      @questions[(@questions.length + 1).to_s] = {</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="37">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="37">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">        &quot;type&quot; =&gt; params[:opcoes],</code>
+            
+
+            <code class="ruby">  def update</code>
           </li>
         </div>
       
@@ -5759,7 +5759,7 @@
 
             
 
-            <code class="ruby">        &quot;title&quot; =&gt; &quot;&quot;,</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -5770,18 +5770,18 @@
 
             
 
-            <code class="ruby">        &quot;answer&quot; =&gt; &quot;&quot;,</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="40">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="40">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      }</code>
+            
+
+            <code class="ruby">  def destroy</code>
           </li>
         </div>
       
@@ -5792,7 +5792,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -5808,293 +5808,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="43">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    if params[:nome_template] &amp;&amp; params[:nome_template].gsub(&quot; &quot;, &quot;&quot;) != &quot;&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="44">
-            
-            
-
-            
-
-            <code class="ruby">      @nome_template = params[:nome_template]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="45">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="46">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="47">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    session[:nome_template] = @nome_template</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="48">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    session[:questions] = @questions</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="49">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="50">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="51">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def create</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="52">
-            
-            
-
-            
-
-            <code class="ruby">    @template = Template.new(template_params)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="53">
-            
-            
-
-            
-
-            <code class="ruby">    @template.save</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="54">
-            
-            
-
-            
-
-            <code class="ruby">    session.delete(:questions)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="55">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="56">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="57">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def show</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="58">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="59">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="60">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def edit</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="61">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="62">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="63">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def update</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="64">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="65">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="66">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def destroy</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="67">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="68">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="69">
+          <li class="covered" data-hits="1" data-linenumber="43">
             <span class="hits">1</span>
             
 
@@ -6105,8 +5819,30 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="70">
-            <span class="hits">6</span>
+          <li class="covered" data-hits="10" data-linenumber="44">
+            <span class="hits">10</span>
+            
+
+            
+
+            <code class="ruby">    @template_name = session[:template_name] || params[:template_name] || &quot;&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="10" data-linenumber="45">
+            <span class="hits">10</span>
+            
+
+            
+
+            <code class="ruby">    @questions = session[:questions] || params[:questions] || {}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="10" data-linenumber="46">
+            <span class="hits">10</span>
             
 
             
@@ -6116,8 +5852,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="71">
-            <span class="hits">6</span>
+          <li class="covered" data-hits="10" data-linenumber="47">
+            <span class="hits">10</span>
             
 
             
@@ -6127,7 +5863,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="72">
+          <li class="never" data-hits="" data-linenumber="48">
             
             
 
@@ -6138,7 +5874,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="73">
+          <li class="never" data-hits="" data-linenumber="49">
             
             
 
@@ -6149,29 +5885,40 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="74">
+          <li class="covered" data-hits="1" data-linenumber="50">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def template_params</code>
+            <code class="ruby">  def save_draft</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="75">
-            
-            
-
+          <li class="covered" data-hits="5" data-linenumber="51">
+            <span class="hits">5</span>
             
 
-            <code class="ruby">    params.require(:template).permit(:nome_template, :questions)</code>
+            
+
+            <code class="ruby">    session[:template_name] = @template_name</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="76">
+          <li class="covered" data-hits="5" data-linenumber="52">
+            <span class="hits">5</span>
+            
+
+            
+
+            <code class="ruby">    session[:questions] = @questions</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="53">
             
             
 
@@ -6182,7 +5929,480 @@
         </div>
       
         <div>
+          <li class="never" data-hits="" data-linenumber="54">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="55">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def check_for_commit</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="5" data-linenumber="56">
+            <span class="hits">5</span>
+            
+
+            
+
+            <code class="ruby">    case params[:commit]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="57">
+            
+            
+
+            
+
+            <code class="ruby">    when &quot;save&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="58">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      create</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="59">
+            
+            
+
+            
+
+            <code class="ruby">    when &quot;cancel&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="60">
+            
+            
+
+            
+
+            <code class="ruby">      delete_draft</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="61">
+            
+            
+
+            
+
+            <code class="ruby">      redirect_to &quot;/templates&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="62">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="63">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="64">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="65">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def delete_draft</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="66">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    session.delete(:questions)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="67">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    session.delete(:template_name)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="68">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="69">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="70">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def save_questions_data</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="5" data-linenumber="71">
+            <span class="hits">5</span>
+            
+
+            
+
+            <code class="ruby">    question_index = (@questions.length + 1).to_s</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="5" data-linenumber="72">
+            <span class="hits">5</span>
+            
+
+            
+
+            <code class="ruby">    case params[:opcoes]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="73">
+            
+            
+
+            
+
+            <code class="ruby">    when &quot;multiple_choice&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="74">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      @questions[question_index] = {</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="75">
+            
+            
+
+            
+
+            <code class="ruby">        &quot;type&quot; =&gt; params[:opcoes],</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="76">
+            
+            
+
+            
+
+            <code class="ruby">        &quot;title&quot; =&gt; &quot;&quot;,</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="never" data-hits="" data-linenumber="77">
+            
+            
+
+            
+
+            <code class="ruby">        &quot;options&quot; =&gt; {},</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="78">
+            
+            
+
+            
+
+            <code class="ruby">        &quot;answers&quot; =&gt; {},</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="79">
+            
+            
+
+            
+
+            <code class="ruby">      }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="80">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      params[:escolhas].to_i.times do |n|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="5" data-linenumber="81">
+            <span class="hits">5</span>
+            
+
+            
+
+            <code class="ruby">        @questions[question_index][&quot;options&quot;][(n + 1).to_s] = &quot;&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="5" data-linenumber="82">
+            <span class="hits">5</span>
+            
+
+            
+
+            <code class="ruby">        @questions[question_index][&quot;answers&quot;][(n + 1).to_s] = &quot;false&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="83">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="84">
+            
+            
+
+            
+
+            <code class="ruby">    when &quot;text&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="85">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      @questions[question_index] = {</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="86">
+            
+            
+
+            
+
+            <code class="ruby">        &quot;type&quot; =&gt; params[:opcoes],</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="87">
+            
+            
+
+            
+
+            <code class="ruby">        &quot;title&quot; =&gt; &quot;&quot;,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="88">
+            
+            
+
+            
+
+            <code class="ruby">        &quot;answer&quot; =&gt; &quot;&quot;,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="89">
+            
+            
+
+            
+
+            <code class="ruby">      }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="90">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="91">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="5" data-linenumber="92">
+            <span class="hits">5</span>
+            
+
+            
+
+            <code class="ruby">    template_name = params[:template_name]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="5" data-linenumber="93">
+            <span class="hits">5</span>
+            
+
+            
+
+            <code class="ruby">    if template_name &amp;&amp; template_name.strip != &quot;&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="94">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">      @template_name = template_name.strip</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="95">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="96">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="97">
             
             
 
