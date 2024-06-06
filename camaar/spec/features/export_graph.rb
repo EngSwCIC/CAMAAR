@@ -17,14 +17,7 @@ RSpec.feature 'Export Graph', type: :feature do
       graph = Gruff::Pie.new
       graph.title = "Respostas do Formulário"
 
-      FactoryBot.define do
-        factory :department do
-          sequence(:name) { |n| "Department #{n}" }
-        end
-
-      end
-
-      department1 = create(:department)
+      department1 = create(:departments)
 
       admin1 = create(:admin)
 
@@ -36,12 +29,9 @@ RSpec.feature 'Export Graph', type: :feature do
       coordinator1 = create(:coordinator)
 
       subject_class1 = create(:subject_class)
-      subject_class2 = create(:subject_class)
-      subject_class3 = create(:subject_class)
 
-      form1 = create(:form, :form1, coordinator: coordinator1, subject_class: subject_class1)
-      form2 = create(:form, :form2, coordinator: coordinator2, subject_class: subject_class2)
-      form3 = create(:form, :form3, coordinator: coordinator3, subject_class: subject_class3)
+
+      form1 = create(:form)
 
 
       answ1 = create(:student_answer, :student_answers1)
