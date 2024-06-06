@@ -193,22 +193,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            # <!-- <div class="row form-group">
-                                            #     <div class="col col-md-3">
-                                            #         <label for="file-multiple-input" class=" form-control-label">Multiple File input</label>
-                                            #     </div>
-                                            #     <div class="col-12 col-md-9">
-                                            #         <input type="file" id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control-file">
-                                            #     </div> -->
-                                            # </div>
-                                            # <div class="card-footer justify-content-center align-items-center text-center">
-                                            #   <button type="reset" class="btn btn-danger btn-sm">
-                                            #         <i class="fa fa-ban"></i> Cancelar
-                                            #   </button>
-                                            #   <div class="btn btn-success btn-sm">
-                                            #     <%= form.submit "Importar", class: "fa fa-dot-circle-o" %>
-                                            #   </div>
-                                            <%= form_with url: admins_import_path, method: :post, local: true, multipart: true do |form| %>
+                                       
+                                          
+                                            <%= simple_form_for :admin_import, url: admins_import_path, method: :post, html: { multipart: true } do |form| %>
                                                 <div class="form-group">
                                                   <%= form.label :file, "Selecione o arquivo JSON para importar" %>
                                                   <%= form.file_field :file, class: "form-control" %>
@@ -218,11 +205,6 @@
                                                 </div>
                                               <% end %>
 
-
-
-                                                 # <button type="submit" class="btn btn-success btn-sm">
-                                                  #  <i class="fa fa-dot-circle-o"></i> Importar
-                                                #</button>
                                             </div>
                                             
                                         </form>
