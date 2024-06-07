@@ -17,7 +17,7 @@ RSpec.feature 'Export Graph', type: :feature do
       graph = Gruff::Pie.new
       graph.title = "Respostas do Formulário"
 
-      department1 = create(:departments)
+      department1 = create(:department)
 
       admin1 = create(:admin)
 
@@ -27,18 +27,19 @@ RSpec.feature 'Export Graph', type: :feature do
       student4 = create(:student, :student4)
 
       coordinator1 = create(:coordinator)
+      template = create (:template)
 
       subject_class1 = create(:subject_class)
 
 
-      form1 = create(:form)
+      form = create(:form)
 
 
       answ1 = create(:student_answer, :student_answers1)
       answ2 = create(:student_answer, :student_answers2)
       answ3 = create(:student_answer, :student_answers3)
 
-      graph.data 'Total de alunos', Student.count
+      graph.data 'Total de ausências', Student.count -  StudentAnswer.where(form_id: 0).count
       graph.data 'Total de respostas', StudentAnswer.where(form_id: 0).count
       graph.write('pie_graph.png')
 

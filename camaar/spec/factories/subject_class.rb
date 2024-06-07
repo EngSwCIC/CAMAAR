@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :subject_classes do
+  factory :subject_class do
     semester  {"primeiro"}
     subject {"a"}
     code {"b"}
