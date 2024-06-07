@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   match '/admins/import', to: 'admins#importdata', via: 'get'
   match '/admins/envio', to: 'admins#envio', via: 'get'
+  match '/admins/import', to: 'admins#import', via: 'post', as: 'admins_import_post'
+  match '/admins/envio', to: 'admins#envio', via: 'post', as: 'admins_envio_post'
+
 
   devise_scope :user do
     get '/users/logout' => 'users/sessions#destroy'
@@ -39,7 +42,6 @@ Rails.application.routes.draw do
                sign_up: 'register',
                sign_out: 'logout',
                password: 'recover-password',
-               define: 'define-password',
                confirmation: 'verification'
              }
 
@@ -56,7 +58,6 @@ Rails.application.routes.draw do
                sign_up: 'register',
                sign_out: 'logout',
                password: 'recover-password',
-               define: 'define-password',
                confirmation: 'verification'
              }
 

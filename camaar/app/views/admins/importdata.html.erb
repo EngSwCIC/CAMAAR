@@ -6,8 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+    <meta name="author" content="Camaar - Grupo 1">
 
     <!-- Title Page-->
     <title>Camaar</title>
@@ -49,29 +48,29 @@
                     <li>
                             <a href="import.html">
                                 <i class="fas fa-database"></i>Importar Dados</a>
-                        </li>
+                    </li>
 
 
-                        <li>
-                            <a href="Turmas">
-                                <i class="fas fa-group"></i>Turmas</a>
-                        </li>
+                    <li>
+                        <a href="turmas.html">
+                            <i class="fas fa-users"></i>Turmas</a>
+                    </li>
                         
                     <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-file-text"></i>Templates</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                <%= link_to "Pendentes", new_user_session_path%>
+                                <%= link_to "Pendentes", admins_forms_path%>
                                 </li>
                                 <li>
-                                    <%= link_to "Respondidos", new_user_registration_path%>
+                                    <%= link_to "Respondidos", admins_forms_path%>
                                 </li>
                             </ul>
                         </li>
-                    </li>
+            
                     <li>
-                            <a href="share_template">
+                            <a href="envio.html">
                                 <i class="fas fa-share"></i>Envio</a>
                         </li>
                     </li>
@@ -79,9 +78,9 @@
                       
                     
                     <li>
-                            <a href="chart.html">
+                            <a href="resultados.html">
                                 <i class="fas fa-chart-bar"></i>Resultados</a>
-                        </li>
+                    </li>
 
                     </ul>
                 </nav>
@@ -91,7 +90,7 @@
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <!-- HEADER DESKTOP-->
+              <!-- HEADER DESKTOP-->
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
@@ -119,9 +118,9 @@
                                            
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Coordenador</a>
+                                                       <%=current_admin.email%>
                                                     </h5>
-                                                    <span class="email"><%= @email %></span>
+                                                    <span class="email"><%= current_admin.email %></span>
                                                 </div>
                                             </div>
                                            
@@ -169,14 +168,6 @@
                                           
                                           
                
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="file-input" class=" form-control-label">Arquivo</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="file" id="file-input" name="file-input" class="form-control-file">
-                                                </div>
-                                            </div>
 
                                             <div class="row form-group">
                                                 <div class="col col-md-3 d-flex align-items-center">
@@ -193,21 +184,25 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="file-multiple-input" class=" form-control-label">Multiple File input</label>
+                                       
+                                          
+                                            <%= simple_form_for :admin_import, url: admins_import_path, method: :post, html: { multipart: true } do |form| %>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <%= form.label :file, "Arquivo" %>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <%= form.file_field :file, class: "form-control-file" %>
+                                                    </div>
                                                 </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="file" id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control-file">
-                                                </div> -->
+
+                                                 <div class="card-footer justify-content-center align-items-center text-center">
+                                              
+                                            <%= form.submit "Importar", class: "btn btn-success btn-sm" %>
                                             </div>
-                                            <div class="card-footer justify-content-center align-items-center text-center">
-                                              <button type="reset" class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-ban"></i> Cancelar
-                                                </button>
-                                                  <button type="submit" class="btn btn-success btn-sm">
-                                                    <i class="fa fa-dot-circle-o"></i> Importar
-                                                </button>
+                                            
+                                              <% end %>
+
                                             </div>
                                             
                                         </form>
@@ -249,15 +244,11 @@
     <%= javascript_include_tag 'bootstrap-progressbar/bootstrap-progressbar.min.js' %>
     <%= javascript_include_tag 'counter-up/jquery.waypoints.min.js' %>
     <%= javascript_include_tag 'counter-up/jquery.counterup.min.js' %>
-    <%= javascript_include_tag 'circle-progress/circle-progress.min.js' %>
     <%= javascript_include_tag 'perfect-scrollbar/perfect-scrollbar.js' %>
-    <%= javascript_include_tag 'chartjs/Chart.bundle.min.js' %>
     <%= javascript_include_tag 'select2/select2.min.js' %>
  
     <!-- Main JS-->
     <%= javascript_include_tag 'main.js' %>
-
-    <%# <script src="js/main.js"></script> %>
 
 </body>
 
