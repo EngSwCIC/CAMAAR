@@ -12,23 +12,35 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-
-    when "Formulários"
-      "/forms"
+    when 'Root'
+      '/'
+    when 'Formulários'
+      '/admins/forms'
     when /Formulário (\d+)/
       "/forms/#{::Regexp.last_match(1)}"
-    when "Templates"
-      "/templates"
-    when "Redefina sua Senha"
-      "/admins/..."
-    when "Users Login"
-      "/users/login"
-    when "Admins Login"
-      "/admins/login"
+    when 'Templates'
+      '/templates'
+    when 'Redefina sua Senha'
+      '/admins/...'
+    when 'Redefinir Senha Usuario'
+      '/users/recover-password/edit'
+
+    when 'User Camaar'
+      '/users/page'
+    when 'Cadastro de Usuário'
+      '/users/register'
+    when 'Admin Camaar'
+      '/admins/page'
+    when 'Users Login'
+      '/users/login'
+    when 'Admins Login'
+
+      '/admins/login'
     when "New Template"
       "/templates/1/edit"
     when "Add Question"
       "/templates/1/template_questions/new"
+
     when /Template (\d+)/
       "/templates/#{::Regexp.last_match(1)}/edit"
     when /Turmas do (\w+)/

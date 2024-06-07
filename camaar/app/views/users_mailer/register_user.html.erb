@@ -1,0 +1,11 @@
+<h1>Caamar - Email</h1>
+
+<p>
+  Entre no Camaar!
+</p>
+<br>
+<p>Bem vinde, <%= @email %>! Siga o link abaixo para se registrar no Camaar</p>
+
+<p>
+  <%=link_to "Registrar", new_user_registration_url(user_email: @email, host:'localhost:3000'), target: '_blank'%>
+</p>
