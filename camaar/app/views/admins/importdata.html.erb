@@ -169,14 +169,6 @@
                                           
                                           
                
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="file-input" class=" form-control-label">Arquivo</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="file" id="file-input" name="file-input" class="form-control-file">
-                                                </div>
-                                            </div>
 
                                             <div class="row form-group">
                                                 <div class="col col-md-3 d-flex align-items-center">
@@ -196,13 +188,20 @@
                                        
                                           
                                             <%= simple_form_for :admin_import, url: admins_import_path, method: :post, html: { multipart: true } do |form| %>
-                                                <div class="form-group">
-                                                  <%= form.label :file, "Selecione o arquivo JSON para importar" %>
-                                                  <%= form.file_field :file, class: "form-control" %>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <%= form.label :file, "Arquivo" %>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <%= form.file_field :file, class: "form-control-file" %>
+                                                    </div>
                                                 </div>
-                                                <div class="form-group">
-                                                  <%= form.submit "Importar", class: "btn btn-success btn-sm" %>
-                                                </div>
+
+                                                 <div class="card-footer justify-content-center align-items-center text-center">
+                                              
+                                            <%= form.submit "Importar", class: "btn btn-success btn-sm" %>
+                                            </div>
+                                            
                                               <% end %>
 
                                             </div>
