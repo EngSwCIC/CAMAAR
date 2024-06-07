@@ -7,16 +7,16 @@ RSpec.feature 'Export Graph', type: :feature do
       graph = Gruff::Pie.new
       graph.title = "Respostas do Formulário"
 
-      department1 = create(:department)
+      department = create(:department)
 
-      admin1 = create(:admin)
+      admin = create(:admin)
 
       student1 = create(:student, :student1)
       student2 = create(:student, :student2)
       student3 = create(:student, :student3)
       student4 = create(:student, :student4)
 
-      coordinator1 = create(:coordinator)
+      coordinator = create(:coordinator)
       template = create (:template)
 
       subject_class1 = create(:subject_class)
