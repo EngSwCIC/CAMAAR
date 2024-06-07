@@ -4,16 +4,6 @@ require 'gruff'
 RSpec.feature 'Export Graph', type: :feature do
   describe 'exporting answers as graph' do
     it 'should export a graph containing answers % by students' do
-
-      # visit '/users/login'
-      # user = create(:user)
-      # expect(page).to have_content 'Bem vindo ao'
-      # expect(page).to have_content 'CAMAAR'
-      # fill_in 'email', with: user.email
-      # fill_in 'password', with: user.password
-      # click_button 'Confirmar'
-      # expect(page).to have_content 'Formulários Pendentes'
-
       graph = Gruff::Pie.new
       graph.title = "Respostas do Formulário"
 
@@ -39,8 +29,11 @@ RSpec.feature 'Export Graph', type: :feature do
       answ2 = create(:student_answer, :student_answers2)
       answ3 = create(:student_answer, :student_answers3)
 
-      graph.data 'Total de ausências', Student.count -  StudentAnswer.where(form_id: 0).count
-      graph.data 'Total de respostas', StudentAnswer.where(form_id: 0).count
+      num_students =  Student.count
+      num_answers = StudentAnswer.where(form_id: 1).count
+
+      graph.data 'Total de ausências', num_students - num_answers
+      graph.data 'Total de respostas', num_answers
       graph.write('pie_graph.png')
 
     end
