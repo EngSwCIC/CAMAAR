@@ -1,8 +1,8 @@
 require "json"
 
 class TemplatesController < ApplicationController
-  before_action :authenticate_admin!
-  before_action :set_admin_data
+  before_action :authenticate_admin!, :set_admin_data
+  before_action :set_template_data, only: [:destroy, :edit, :show]
   layout "admin"
 
   def index
@@ -10,95 +10,57 @@ class TemplatesController < ApplicationController
   end
 
   def new
-    save_questions_data
-    save_draft
-    check_for_commit
-    clear_params
+    template = Template.create({ coordinator_id: @coordinator.id })
+    redirect_to edit_template_path(template)
   end
 
   def create
-    template = Template.new(
-      name: @template_name,
-      questions: @questions.to_json,
-      coordinator_id: @coordinator.id,
-    )
-
-    if template.save!
-      delete_draft
-      redirect_to "/templates"
-    end
   end
 
   def show
+    check_for_commit
   end
 
   def edit
+    # save_template_data
   end
 
   def update
+    save_template_data
+    template = @template.update(
+      name: @template_name,
+      draft: false,
+    )
+
+    if template
+      redirect_to templates_path
+    end
   end
 
   def destroy
-  end
+    template = @template.destroy
 
-  def set_admin_data
-    @template_name = session[:template_name] || params[:template_name] || ""
-    @questions = session[:questions] || params[:questions] || {}
-    @coordinator = Coordinator.find_by({ email: current_admin.email })
-    @department = Department.find_by_id(@coordinator.department_id) if @coordinator
-  end
-
-  def save_draft
-    session[:template_name] = @template_name
-    session[:questions] = @questions
+    if template
+      redirect_to templates_path
+    end
   end
 
   def check_for_commit
     case params[:commit]
     when "save"
-      create
-    when "cancel"
-      delete_draft
-      redirect_to "/templates"
+      update
+    when "delete"
+      destroy
     end
   end
 
-  def delete_draft
-    session.delete(:questions)
-    session.delete(:template_name)
+  def save_template_data
+    @template_name = params[:template][:name] if not params[:template][:name].empty?
   end
 
-  def save_questions_data
-    question_index = (@questions.length + 1).to_s
-    case params[:opcoes]
-    when "multiple_choice"
-      @questions[question_index] = {
-        "type" => params[:opcoes],
-        "title" => "",
-        "options" => {},
-        "answers" => {},
-      }
-      params[:escolhas].to_i.times do |n|
-        @questions[question_index]["options"][(n + 1).to_s] = ""
-        @questions[question_index]["answers"][(n + 1).to_s] = "false"
-      end
-    when "text"
-      @questions[question_index] = {
-        "type" => params[:opcoes],
-        "title" => "",
-        "answer" => "",
-      }
-    end
-
-    template_name = params[:template_name]
-    if template_name && template_name.strip != ""
-      @template_name = template_name.strip
-    end
-  end
-
-  def clear_params
-    if !params[:commit] && params[:opcoes]
-      redirect_to "/templates/new"
-    end
+  def set_template_data
+    @template = Template.find_by_id(params[:id])
+    @template_name = @template.name
+    @questions = TemplateQuestion.where({ template_id: @template.id })
   end
 end

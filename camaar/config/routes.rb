@@ -12,9 +12,12 @@ Rails.application.routes.draw do
   match "/import", to: "admins#importdata", via: "get"
   match "/dispatch", to: "admins#envio", via: "get"
 
-  resources :templates
-  get "/add_question", to: "templates#add_question"
-  
+  resources :templates do
+    resources :template_questions
+  end
+
+  # get "/templates/:id/edit/add", to: "templates#add_question", as: :add_question
+
   devise_scope :user do
     get "/users/logout" => "users/sessions#destroy"
     post "/users/register" => "users/registrations#create"

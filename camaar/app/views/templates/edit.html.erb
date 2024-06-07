@@ -1,0 +1,20 @@
+<%= form_with method: :get, model: @template do |f| %>
+  <div>
+    <%= f.label :name, "Nome do template:" %>
+    <%= f.text_field :name, id: "name", value: @template.name %>
+  </div>
+  <%= link_to "Adicionar questão", new_template_template_question_path(@template), name: "add", id: "add" %>
+  <% if @questions %>
+    <div>
+      <% @questions.each do |question| %>
+        <%= render "/template_questions/show", question: question %>
+        <br>
+      <% end %>
+    </div>
+  <% end %>
+  <div>
+    <%= f.button 'Excluir', name: "commit", value: "delete" ,id: "delete" %>
+    <%= link_to "Cancelar", templates_path,  id: 'cancel' %>
+    <%= f.button "Salvar" , name: "commit", value: "save" , id: "save" %>
+  </div>
+<% end %>
