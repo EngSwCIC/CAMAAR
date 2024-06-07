@@ -1,24 +1,32 @@
-# README
+# Sptint 2: Desenvolvimento
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Criação de Models
 
-Things you may want to cover:
+A criação das models se dá pelo seguinte comando Rails:
 
-* Ruby version
+```bash
+rails g model nome atributo1:tipo atributo2:tipo ...
+```
 
-* System dependencies
+## Testes com Rspec
 
-* Configuration
+Seguindo [a documenteção do Rspec](https://github.com/rspec/rspec-rails?tab=readme-ov-file#creating-boilerplate-specs-with-rails-generate), para uma model já existente, rode o seguinte comando para criar testes:
 
-* Database creation
+```bash
+rails generate rspec:model nome
+```
 
-* Database initialization
+De maneira geral, os testes com Rspec possuem a seguinte estrutura:
 
-* How to run the test suite
+```ruby
+# /spec/models/nome_spec.rb
+require 'rails-helper'
 
-* Services (job queues, cache servers, search engines, etc.)
+RSpec.describe Nome, type: :model do
+    it 'descrição do teste' do
+        # Lógica do teste
+    end
+end
+```
 
-* Deployment instructions
-
-* ...
+Para rodar um teste, então, basta usar o comando `rspec`.
