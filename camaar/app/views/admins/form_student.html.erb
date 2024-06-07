@@ -6,8 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+    <meta name="author" content="Camaar - Grupo 1">
 
     <!-- Title Page-->
     <title>Camaar</title>
@@ -90,7 +89,7 @@
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-             <!-- HEADER DESKTOP-->
+              <!-- HEADER DESKTOP-->
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
@@ -118,9 +117,9 @@
                                            
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Coordenador</a>
+                                                       <%=current_admin.email%>
                                                     </h5>
-                                                    <span class="email"><%= @email %></span>
+                                                    <span class="email"><%= current_admin.email %></span>
                                                 </div>
                                             </div>
                                            
@@ -416,7 +415,7 @@
 
     <!-- Jquery JS-->
     <%= javascript_include_tag 'jquery-3.2.1.min.js' %>
-    <%# <script src="jquery-3.2.1.min.js"></script> %>
+
     <!-- Bootstrap JS-->
     <%= javascript_include_tag 'bootstrap-4.1/popper.min.js' %>
     <%= javascript_include_tag 'bootstrap-4.1/bootstrap.min.js' %>
@@ -425,13 +424,11 @@
     <!-- Vendor JS       -->
     <%= javascript_include_tag 'slick/slick.min.js' %>
 
-    <%# <script src="slick/slick.min.js" %>
-    <%# </script> %>
+
     <%= javascript_include_tag 'slick/slick.min.js' %>
 
     <%= javascript_include_tag 'wow/wow.min.js' %>
 
-    <%# <script src="wow/wow.min.js"></script> %>
     <%= javascript_include_tag 'animsition/animsition.min.js' %>
     <%= javascript_include_tag 'bootstrap-progressbar/bootstrap-progressbar.min.js' %>
     <%= javascript_include_tag 'counter-up/jquery.waypoints.min.js' %>

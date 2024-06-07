@@ -6,8 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+    <meta name="author" content="Camaar - Grupo 1">
 
     <!-- Title Page-->
     <title>Camaar</title>
@@ -89,7 +88,7 @@
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <!-- HEADER DESKTOP-->
+              <!-- HEADER DESKTOP-->
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
@@ -117,9 +116,9 @@
                                            
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Coordenador</a>
+                                                       <%=current_admin.email%>
                                                     </h5>
-                                                    <span class="email"><%= @email %></span>
+                                                    <span class="email"><%= current_admin.email %></span>
                                                 </div>
                                             </div>
                                            
