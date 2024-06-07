@@ -29,11 +29,19 @@ class TemplateQuestionsController < ApplicationController
 
     if @question_type == "multiple_choice"
       body = { "options" => {} }
+
       @options.each_with_index do |option, index|
-        if option == ""
-          @errors << %"option_#{index + 1} Campo não pode estar vazio"
+        option_number = index + 1
+        if option_number <= @options_number.to_i
+          if option.empty?
+            @errors << "option_#{option_number} Campo não pode estar vazio"
+          else
+            body["options"][option_number.to_s] = option
+          end
+        else
+          @options[index] = ""
+          body["options"][option_number.to_s] = ""
         end
-        body["options"][(index + 1).to_s] = option
       end
     end
 

@@ -48,7 +48,7 @@ end
 
 # Buttons and clicks
 When (/^(?:|I )press "([^"]*)"$/) do |button|
-  click_button(button)
+  click_link_or_button(button.downcase.gsub(" ", "_"))
 end
 
 And (/^(?:|I )confirm a popup$/) do
@@ -74,12 +74,12 @@ end
 
 When (/^(?:|I )fill in the following:$/) do |fields|
   fields.rows_hash.each do |field, value|
-    fill_in(field.downcase.gsub(" ", "_"), with: value, match: :prefer_exact)
+    fill_in(field.downcase.gsub(" ", "_"), with: value, match: :prefer_exact, visible: :all)
   end
 end
 
 When (/^(?:|I )select "([^"]*)" from "([^"]*)"$/) do |value, field|
-  select(value, :from => field, visible: :all)
+  select(value, :from => field.gsub(" ", "_"), visible: :all)
 end
 
 When (/^(?:|I )check "([^"]*)"$/) do |field|

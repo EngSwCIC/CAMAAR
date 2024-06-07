@@ -13,22 +13,22 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when 'Formulários'
-      '/forms'
+    when "Formulários"
+      "/forms"
     when /Formulário (\d+)/
       "/forms/#{::Regexp.last_match(1)}"
-    when 'Templates'
-      '/templates'
-    when 'Redefina sua Senha'
-      '/admins/...'
-
-    when 'Users Login'
-      '/users/login'
-    when 'Admins Login'
-
-      '/admins/login'
-    when 'Novo Template'
-      '/templates/new'
+    when "Templates"
+      "/templates"
+    when "Redefina sua Senha"
+      "/admins/..."
+    when "Users Login"
+      "/users/login"
+    when "Admins Login"
+      "/admins/login"
+    when "New Template"
+      "/templates/1/edit"
+    when "Add Question"
+      "/templates/1/template_questions/new"
     when /Template (\d+)/
       "/templates/#{::Regexp.last_match(1)}/edit"
     when /Turmas do (\w+)/
@@ -37,7 +37,7 @@ module NavigationHelpers
       begin
         page_name =~ /^the (.*) page$/
         path_components = ::Regexp.last_match(1).split(/\s+/)
-        send(path_components.push('path').join('_').to_sym)
+        send(path_components.push("path").join("_").to_sym)
       rescue NoMethodError, ArgumentError
         raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
               "Now, go and add a mapping in #{__FILE__}"

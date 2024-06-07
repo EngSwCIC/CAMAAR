@@ -10,39 +10,44 @@ Feature: Create a template form
         Then I expect to be on the "Templates" page
 
     Scenario: Coordinator succesfully creates template
-        When I press "Adicionar Template"
-        Then I expect to be on the "Novo Template" page
+        When I press "Add template"
 
-        And I fill in "Template name" with "Template 1"
-
-        When I select "Múltipla escolha" from "opcoes"
-        When I select "5" from "escolhas"
-        When I press "Adicionar questão"
+        Then I expect to be on the "New Template" page
+        When I press "Add Question"
+        Then I expect to be on the "Add Question" page
+        When I select "Múltipla escolha" from "question type"
+        When I select "5" from "options number"
+        When I fill in the following:
+            | title   | Classifique seu rendimento |
+            | option1 | Ótimo                      |
+            | option2 | Bom                        |
+            | option3 | Médio                      |
+            | option4 | Ruim                       |
+            | option5 | Péssimo                    |
+        When I press "Add"
+        Then I expect to be on the "New Template" page
         Then I expect to see "Questão 1"
 
-        When I fill in the following:
-            | question1_title   | Classifique seu rendimento |
-            | question1_option1 | Ótimo                      |
-            | question1_option2 | Bom                        |
-            | question1_option3 | Médio                      |
-            | question1_option4 | Ruim                       |
-            | question1_option5 | Péssimo                    |
 
-        When I select "Texto" from "opcoes"
-        When I press "Adicionar questão"
+        When I press "Add Question"
+        Then I expect to be on the "Add Question" page
+        When I select "Texto" from "question type"
+        When I fill in the following:
+            | title | Dê uma sugestão |
+        When I press "Add"
+        Then I expect to be on the "New Template" page
         Then I expect to see "Questão 2"
-        When I fill in the following:
-            | question2_title | Dê uma sugestão |
 
-        When I press "Salvar"
+        And I fill in "Name" with "Template 1"
+        When I press "Save"
         Then I expect to be on the "Templates" page
         And I expect to see "Template 1"
 
     Scenario: Template has missing information
-        When I press "Adicionar Template"
-        Then I expect to be on the "Novo Template" page
+        When I press "Add Template"
+        Then I expect to be on the "New Template" page
 
-        And I fill in "Nome template" with "Template 1"
+        And I fill in "name" with "Template 1"
 
-        When I press "Salvar"
+        When I press "Save"
         Then I expect to see "O template precisa conter pelo menos uma pergunta"

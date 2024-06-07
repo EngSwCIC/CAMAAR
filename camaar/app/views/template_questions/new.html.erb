@@ -9,10 +9,19 @@
     <%= f.select :question_type, options_for_select([['Selecione', nil], ['Múltipla escolha', 'multiple_choice'], ['Texto', 'text']], selected: @question_type), {}, id: "question_type" %>
   </div>
   <div id="choices_field" style="display: none;">
-    <%= f.label :options_number, "Número de opções:" %>
-    <%= f.select :options_number, options_for_select(1..5, selected: @options_number), {}, id: "options_number" %>
+    <span>
+      <%= f.label :options_number, "Número de opções:" %>
+      <%= f.select :options_number, options_for_select(1..5, selected: @options_number), {}, id: "options_number" %>
+    </span>
+    <div id="options_fields">
+      <% 5.times do |i| %>
+        <div style="display: none;" id="option<%= i %>_field">
+          <%= f.label "option#{i+1}", "Opção #{i+1}" %>
+          <%= f.text_field :options, id: "option#{i+1}", name: "options[]", value: @options[i] %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div id="options_container"></div>
   <div>
     <%= f.button "Cancelar", name: "commit", value: "cancel", id: 'cancel' %>
     <%= f.button "Adicionar", name: "commit", value: "save", id: "add" %>
@@ -20,46 +29,44 @@
 <% end %>
 <%= @errors %>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const options = <%= raw @options.to_json %>;
-    const questionTypeElement = document.getElementById('question_type');
-    const choicesField = document.getElementById('choices_field');
-    const optionsNumberElement = document.getElementById('options_number');
-    const optionsContainer = document.getElementById('options_container');
-    function toggleChoicesField() {
-      if (questionTypeElement.value === 'multiple_choice') {
+  document.addEventListener("DOMContentLoaded", function() {
+    var questionTypeSelect = document.getElementById('question_type');
+    var choicesField = document.getElementById('choices_field');
+    var optionsFields = document.getElementById('options_fields');
+
+    questionTypeSelect.addEventListener('change', function() {
+      if (questionTypeSelect.value === 'multiple_choice') {
         choicesField.style.display = 'block';
-        generateOptionFields();
       } else {
         choicesField.style.display = 'none';
-        optionsContainer.innerHTML = '';
+      }
+    });
+
+    var optionsNumberSelect = document.getElementById('options_number');
+    optionsNumberSelect.addEventListener('change', function() {
+      var optionsNumber = parseInt(optionsNumberSelect.value);
+      for (var i = 0; i < optionsFields.children.length; i++) {
+        var optionField = optionsFields.children[i];
+        if (i < optionsNumber) {
+          optionField.style.display = 'block';
+        } else {
+          optionField.style.display = 'none';
+        }
+      }
+    });
+
+    // Initial check for the question type and options number on page load
+    if (questionTypeSelect.value === 'multiple_choice') {
+      choicesField.style.display = 'block';
+    }
+    var initialOptionsNumber = parseInt(optionsNumberSelect.value);
+    for (var i = 0; i < optionsFields.children.length; i++) {
+      var optionField = optionsFields.children[i];
+      if (i < initialOptionsNumber) {
+        optionField.style.display = 'block';
+      } else {
+        optionField.style.display = 'none';
       }
     }
-
-    function generateOptionFields() {
-      optionsContainer.innerHTML = '';
-      const numberOfOptions = parseInt(optionsNumberElement.value, 10);
-      for (let i = 1; i <= numberOfOptions; i++) {
-        const optionDiv = document.createElement('div');
-        optionDiv.className = 'option-field';
-        const label = document.createElement('label');
-        label.textContent = `Opção ${i}:`;
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.name = `options[]`;
-        input.id = `option${i}`;
-        input.value = options[i - 1] !== undefined ? options[i - 1] : '';
-        optionDiv.appendChild(label);
-        optionDiv.appendChild(input);
-        optionsContainer.appendChild(optionDiv);
-      }
-    }
-
-    // Initial check in case the form is pre-filled
-    toggleChoicesField();
-
-    // Add event listeners to handle changes
-    questionTypeElement.addEventListener('change', toggleChoicesField);
-    optionsNumberElement.addEventListener('change', generateOptionFields);
   });
 </script>

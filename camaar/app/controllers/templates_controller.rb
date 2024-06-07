@@ -22,18 +22,24 @@ class TemplatesController < ApplicationController
   end
 
   def edit
-    # save_template_data
   end
 
   def update
+    @errors = []
     save_template_data
-    template = @template.update(
-      name: @template_name,
-      draft: false,
-    )
 
-    if template
-      redirect_to templates_path
+    if @questions.any?
+      template = @template.update(
+        name: @template_name,
+        draft: false,
+      )
+
+      if template
+        redirect_to templates_path
+      end
+    else
+      @errors << "O template precisa conter pelo menos uma pergunta"
+      render :edit
     end
   end
 
@@ -60,7 +66,7 @@ class TemplatesController < ApplicationController
 
   def set_template_data
     @template = Template.find_by_id(params[:id])
-    @template_name = @template.name
+    @template_name = params[:name] || @template.name
     @questions = TemplateQuestion.where({ template_id: @template.id })
   end
 end
