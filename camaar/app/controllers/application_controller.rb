@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+
   skip_before_action :verify_authenticity_token
   before_action :authenticate_user!, unless: :devise_controller?
   # before_action :authenticate_user!, unless: :allowed_path?
@@ -20,7 +21,9 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(_resource)
     if admin_signed_in?
-      admins_page_path
+      # admins_page_path
+      templates_path
+
     elsif user_signed_in?
       users_page_path
     else
@@ -30,5 +33,19 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     return if user_signed_in? || admin_signed_in?
+  
+
+  protected
+    
+  def set_admin_data
+    @coordinator = Coordinator.find_by({ email: current_admin.email })
+    @department = Department.find_by_id(@coordinator.department_id) if @coordinator
+  end
+
+  def set_return_to
+    session[:return_to] ||= request.referer
+    @return_to = session[:return_to]
+  end
+
   end
 end

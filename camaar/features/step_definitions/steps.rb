@@ -42,10 +42,10 @@ When(/I click on registration link at "([^"]*)"$/) do |email|
   open_email(email).click_link 'Registrar'
 end
 
-Then(/^(?:|I )should be on the "([^"]*)" page$/) do |page_name|
+Then (/^(?:|I )expect to be on the "([^"]*)" page$/) do |page_name|
   current_path = URI.parse(current_url).path
-  if current_path.respond_to? :should
-    current_path.should == path_to(page_name)
+  if current_path.respond_to? :expect
+    current_path.expect == path_to(page_name)
   else
     assert_equal path_to(page_name), current_path
   end
@@ -56,8 +56,9 @@ Then(/^show me the page$/) do
 end
 
 # Buttons and clicks
-When(/^(?:|I )press "([^"]*)"$/) do |button|
-  click_button(button)
+
+When (/^(?:|I )press "([^"]*)"$/) do |button|
+  click_link_or_button(button.downcase.gsub(" ", "_"))
 end
 
 And(/^(?:|I )confirm a popup$/) do
@@ -73,30 +74,23 @@ And(/^(?:|I )dismiss a popup$/) do
 end
 
 # Forms and templates
-And(/^(?:|I )fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
+
+And (/^(?:|I )fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
+  fill_in(field.downcase.gsub(" ", "_"), with: value, match: :prefer_exact)
+end
+
+And (/^(?:|I )fill in "([^"]*)" for "([^"]*)"$/) do |value, field|
   fill_in(field, with: value)
 end
 
-And(/^(?:|I )fill in "([^"]*)" for "([^"]*)"$/) do |value, field|
-  fill_in(field, with: value)
-end
-
-# When(/^(?:|I )fill in the following:$/) do |fields|
-#   fields.rows_hash.each do |name, value|
-#     When %(I fill in "#{name}" with "#{value}")
-#   end
-# end
-When(/^I fill in the following:/) do |fields|
-  fields.rows_hash.each do |name,value|
-    # puts "Filling in #{name} with #{value}" # Debugging output
-
-    fill_in(name,with:value)
+When (/^(?:|I )fill in the following:$/) do |fields|
+  fields.rows_hash.each do |field, value|
+    fill_in(field.downcase.gsub(" ", "_"), with: value, match: :prefer_exact, visible: :all)
   end
 end
 
-
-When(/^(?:|I )select "([^"]*)" from "([^"]*)"$/) do |value, field|
-  select(value, from: field)
+When (/^(?:|I )select "([^"]*)" from "([^"]*)"$/) do |value, field|
+  select(value, :from => field.gsub(" ", "_"), visible: :all)
 end
 
 When(/^(?:|I )check "([^"]*)"$/) do |field|
@@ -115,9 +109,6 @@ When(/^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/) do |path, field|
   attach_file(field, File.expand_path(path))
 end
 
-Then(/^(?:|I )create question (\d+) as a (multiple choice|text) question:$/) do |_number, _type|
-  pending
-end
 
 # Database and examples
 Given('I am an authenticated User') do
@@ -133,6 +124,7 @@ Given(/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|
   fill_in('password', with: 'admin123')
   fill_in('password_confirmation', with: 'admin123')
   click_button('Confirmar')
+
 end
 
 Given(/that I created the following templates:$/) do |_table|
@@ -211,8 +203,9 @@ Given('that the class {string} was updated with:') do |_string, _table|
 end
 
 # Visualization
-Then(/^(?:|I )should see "([^"]*)"$/) do |text|
-  if page.respond_to? :should
+
+Then (/^(?:|I )expect to see "([^"]*)"$/) do |text|
+  if page.respond_to? :expect
     page.should have_content(text)
   else
     assert page.has_content?(text)

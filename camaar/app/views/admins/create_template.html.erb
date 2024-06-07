@@ -13,24 +13,24 @@
     <title>Camaar</title>
 
     <!-- Fontfaces CSS-->
-    <%= stylesheet_link_tag "font-face.css",  media: "all" %>
-    <%= stylesheet_link_tag "font-awesome-4.7/css/font-awesome.min.css",  media: "all" %>
-    <%= stylesheet_link_tag "font-awesome-5/css/fontawesome-all.min.css",  media: "all" %>
-    <%= stylesheet_link_tag "mdi-font/css/material-design-iconic-font.min.css",  media: "all" %>
+    <%= stylesheet_link_tag "font-face.css", media: "all" %>
+    <%= stylesheet_link_tag "font-awesome-4.7/css/font-awesome.min.css", media: "all" %>
+    <%= stylesheet_link_tag "font-awesome-5/css/fontawesome-all.min.css", media: "all" %>
+    <%= stylesheet_link_tag "mdi-font/css/material-design-iconic-font.min.css", media: "all" %>
 
     <!-- Bootstrap CSS-->
-    <%= stylesheet_link_tag "bootstrap-4.1/bootstrap.min.css",  media: "all" %>
+    <%= stylesheet_link_tag "bootstrap-4.1/bootstrap.min.css", media: "all" %>
     <!-- Vendor CSS-->
-    <%= stylesheet_link_tag "animsition/animsition.min.css",  media: "all" %>
-    <%= stylesheet_link_tag "bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css",  media: "all" %>
-    <%= stylesheet_link_tag "css-hamburgers/hamburgers.min.css",  media: "all" %>
-    <%= stylesheet_link_tag "slick/slick.css",  media: "all" %>
-    <%= stylesheet_link_tag "select2/select2.min.css",  media: "all" %>
-    <%= stylesheet_link_tag "perfect-scrollbar/perfect-scrollbar.css",  media: "all" %>
-    <%= stylesheet_link_tag "theme.css",  media: "all" %>
+    <%= stylesheet_link_tag "animsition/animsition.min.css", media: "all" %>
+    <%= stylesheet_link_tag "bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css", media: "all" %>
+    <%= stylesheet_link_tag "css-hamburgers/hamburgers.min.css", media: "all" %>
+    <%= stylesheet_link_tag "slick/slick.css", media: "all" %>
+    <%= stylesheet_link_tag "select2/select2.min.css", media: "all" %>
+    <%= stylesheet_link_tag "perfect-scrollbar/perfect-scrollbar.css", media: "all" %>
+    <%= stylesheet_link_tag "theme.css", media: "all" %>
 
     <!-- Main CSS-->
-    <%# <link href="theme.css" rel="stylesheet" media="all"> %>
+    <% # <link href="theme.css" rel="stylesheet" media="all"> %>
 
 </head>
 <body class="animsition">
@@ -40,7 +40,7 @@
          <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                    <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo") %>
+                    <%= image_tag("logo-unb.png", alt: "Avaliacao", class: "logo") %>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
@@ -61,10 +61,12 @@
                                 <i class="fas fa-file-text"></i>Templates</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
+
                                 <%= link_to "Pendentes", admins_forms_path%>
                                 </li>
                                 <li>
                                     <%= link_to "Respondidos", admins_forms_path%>
+
                                 </li>
                             </ul>
                         </li>
@@ -125,9 +127,9 @@
                                             </div>
                                            
                                             <div class="account-dropdown__footer">                            
-                                                <%= link_to destroy_admin_session_path, data: {turbo_method: :delete} do %>
+                                                <%= link_to destroy_admin_session_path, data: { turbo_method: :delete } do %>
                                                 <i class ="zmdi zmdi-power"></i> Sair
-                                                <%end%> 
+                                                <% end %> 
                                             </div>
                                         </div>
                                     </div>
@@ -415,14 +417,17 @@
     </div>
 
     <!-- Jquery JS-->
+                                       
     <%= javascript_include_tag 'jquery-3.2.1.min.js' %>
 
+
     <!-- Bootstrap JS-->
-    <%= javascript_include_tag 'bootstrap-4.1/popper.min.js' %>
-    <%= javascript_include_tag 'bootstrap-4.1/bootstrap.min.js' %>
+    <%= javascript_include_tag "bootstrap-4.1/popper.min.js" %>
+    <%= javascript_include_tag "bootstrap-4.1/bootstrap.min.js" %>
 
    
     <!-- Vendor JS       -->
+
     <%= javascript_include_tag 'slick/slick.min.js' %>
 
     <%# <script src="slick/slick.min.js" %>
@@ -438,21 +443,16 @@
     <%= javascript_include_tag 'counter-up/jquery.counterup.min.js' %>
     <%= javascript_include_tag 'perfect-scrollbar/perfect-scrollbar.js' %>
     <%= javascript_include_tag 'select2/select2.min.js' %>
+
  
     <!-- Main JS-->
-    <%= javascript_include_tag 'main.js' %>
+    <%= javascript_include_tag "main.js" %>
 
 
 </body>
 
 </html>
 <!-- end document-->
-
-
-
-
-
-
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');

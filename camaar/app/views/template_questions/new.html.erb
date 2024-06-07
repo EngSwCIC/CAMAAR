@@ -1,0 +1,72 @@
+<%= link_to 'voltar', edit_template_path(@template) %>
+<%= form_with method: :get do |f| %>
+  <div>
+    <%= f.label :title, "Título:" %>
+    <%= f.text_field :title, id: "question_title", value: @title %>
+  </div>
+  <div>
+    <%= f.label :question_type, "Tipo de questão:" %>
+    <%= f.select :question_type, options_for_select([['Selecione', nil], ['Múltipla escolha', 'multiple_choice'], ['Texto', 'text']], selected: @question_type), {}, id: "question_type" %>
+  </div>
+  <div id="choices_field" style="display: none;">
+    <span>
+      <%= f.label :options_number, "Número de opções:" %>
+      <%= f.select :options_number, options_for_select(1..5, selected: @options_number), {}, id: "options_number" %>
+    </span>
+    <div id="options_fields">
+      <% 5.times do |i| %>
+        <div style="display: none;" id="option<%= i %>_field">
+          <%= f.label "option#{i+1}", "Opção #{i+1}" %>
+          <%= f.text_field :options, id: "option#{i+1}", name: "options[]", value: @options[i] %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <%= f.button "Cancelar", name: "commit", value: "cancel", id: 'cancel' %>
+    <%= f.button "Adicionar", name: "commit", value: "save", id: "add" %>
+  </div>
+<% end %>
+<%= @errors %>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var questionTypeSelect = document.getElementById('question_type');
+    var choicesField = document.getElementById('choices_field');
+    var optionsFields = document.getElementById('options_fields');
+
+    questionTypeSelect.addEventListener('change', function() {
+      if (questionTypeSelect.value === 'multiple_choice') {
+        choicesField.style.display = 'block';
+      } else {
+        choicesField.style.display = 'none';
+      }
+    });
+
+    var optionsNumberSelect = document.getElementById('options_number');
+    optionsNumberSelect.addEventListener('change', function() {
+      var optionsNumber = parseInt(optionsNumberSelect.value);
+      for (var i = 0; i < optionsFields.children.length; i++) {
+        var optionField = optionsFields.children[i];
+        if (i < optionsNumber) {
+          optionField.style.display = 'block';
+        } else {
+          optionField.style.display = 'none';
+        }
+      }
+    });
+
+    // Initial check for the question type and options number on page load
+    if (questionTypeSelect.value === 'multiple_choice') {
+      choicesField.style.display = 'block';
+    }
+    var initialOptionsNumber = parseInt(optionsNumberSelect.value);
+    for (var i = 0; i < optionsFields.children.length; i++) {
+      var optionField = optionsFields.children[i];
+      if (i < initialOptionsNumber) {
+        optionField.style.display = 'block';
+      } else {
+        optionField.style.display = 'none';
+      }
+    }
+  });
+</script>
