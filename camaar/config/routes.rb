@@ -42,7 +42,6 @@ Rails.application.routes.draw do
                sign_up: 'register',
                sign_out: 'logout',
                password: 'recover-password',
-               define: 'define-password',
                confirmation: 'verification'
              }
 
@@ -59,7 +58,6 @@ Rails.application.routes.draw do
                sign_up: 'register',
                sign_out: 'logout',
                password: 'recover-password',
-               define: 'define-password',
                confirmation: 'verification'
              }
 
