@@ -1,8 +1,5 @@
 FactoryBot.define do
-    factory :departamento do
-      nome { "Nome do departamento" }
-      # outros atributos, se houver
-    end
+  factory :departamento do
+    nome { Faker::Company.unique.industry }
   end
-  
-  
+end
