@@ -97,16 +97,16 @@
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/coordinator.rb": {
+      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/department.rb": {
         "lines": [
-          1,
-          1,
           1,
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/department.rb": {
+      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/coordinator.rb": {
         "lines": [
+          1,
+          1,
           1,
           null
         ]
@@ -1059,7 +1059,7 @@
         }
       }
     },
-    "timestamp": 1717781654
+    "timestamp": 1717782482
   },
   "Cucumber Features": {
     "coverage": {
