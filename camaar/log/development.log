@@ -1,0 +1,146 @@
+Started GET "/" for ::1 at 2024-06-08 13:30:44 -0300
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 874.8ms | Allocations: 102235)
+  Rendered layout layouts/application.html.erb (Duration: 875.8ms | Allocations: 102355)
+Completed 500 Internal Server Error in 1081ms (ActiveRecord: 0.0ms | Allocations: 111004)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `home_path' for #<ActionView::Base:0x0000000000ac30>):
+    25:       </div>
+    26:       <div>
+    27:         <button class="bnt_enviar">
+    28:           <%= link_to 'Entrar', home_path %>
+    29:         </button>
+    30:       </div>
+    31:     </div>
+  
+app/views/pages/login.html.erb:28
+Started GET "/" for ::1 at 2024-06-08 13:32:01 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2982)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 3068)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 3964)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `home_path' for #<ActionView::Base:0x0000000000e268>):
+    25:       </div>
+    26:       <div>
+    27:         <button class="bnt_enviar">
+    28:           <%= link_to 'Entrar', home_path %>
+    29:         </button>
+    30:       </div>
+    31:     </div>
+  
+app/views/pages/login.html.erb:28
+Started GET "/" for ::1 at 2024-06-08 13:32:47 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 59.3ms | Allocations: 25820)
+  Rendered layout layouts/application.html.erb (Duration: 59.8ms | Allocations: 25940)
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 0.0ms | Allocations: 30560)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `home_path' for #<ActionView::Base:0x0000000000abe0>):
+    25:       </div>
+    26:       <div>
+    27:         <button class="bnt_enviar">
+    28:           <%= link_to 'Entrar', home_path %>
+    29:         </button>
+    30:       </div>
+    31:     </div>
+  
+app/views/pages/login.html.erb:28
+Started GET "/" for ::1 at 2024-06-08 13:36:12 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 64.4ms | Allocations: 26000)
+  Rendered layout layouts/application.html.erb (Duration: 64.9ms | Allocations: 26120)
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 0.0ms | Allocations: 30740)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `home_path' for #<ActionView::Base:0x0000000000abe0>):
+    25:       </div>
+    26:       <div>
+    27:         <button class="bnt_enviar">
+    28:           <%= link_to 'Entrar', home_path %>
+    29:         </button>
+    30:       </div>
+    31:     </div>
+  
+app/views/pages/login.html.erb:28
+Started GET "/" for ::1 at 2024-06-08 13:36:21 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2356)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2441)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 2695)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `home_path' for #<ActionView::Base:0x0000000000af78>):
+    25:       </div>
+    26:       <div>
+    27:         <button class="bnt_enviar">
+    28:           <%= link_to 'Entrar', home_path %>
+    29:         </button>
+    30:       </div>
+    31:     </div>
+  
+app/views/pages/login.html.erb:28
+Started GET "/movies" for ::1 at 2024-06-08 13:41:03 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/movies"):
+  
+Started GET "/" for ::1 at 2024-06-08 13:41:09 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 164.8ms | Allocations: 28070)
+  Rendered layout layouts/application.html.erb (Duration: 195.5ms | Allocations: 44920)
+Completed 200 OK in 208ms (Views: 200.4ms | ActiveRecord: 0.0ms | Allocations: 46854)
+
+
+Started GET "/home" for ::1 at 2024-06-08 13:41:25 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 10.1ms | Allocations: 3109)
+  Rendered layout layouts/application.html.erb (Duration: 146.1ms | Allocations: 14926)
+Completed 200 OK in 150ms (Views: 147.2ms | ActiveRecord: 0.0ms | Allocations: 15257)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-08 13:41:33 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2445)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 3824)
+Completed 200 OK in 13ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 4157)
+
+
+Started GET "/" for ::1 at 2024-06-08 13:41:55 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2050)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 3399)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 3667)
+
+

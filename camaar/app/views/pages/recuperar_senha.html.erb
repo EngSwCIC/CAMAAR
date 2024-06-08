@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar senha</title>
+  <%= stylesheet_link_tag 'recuperar_senha', media: 'all' %>
+</head>
+<body>
+<div id="container">
+  <form action="#" method="post" id="login_form">
+    <div id="login_user">
+      <h1>Redefinir Senha</h1>
+      <div class="senha_input">
+        <label for="password">Nova senha</label> <br />
+        <input type="text" id="redefinir_senha" name="new_password" placeholder="Senha" required>
+        <%= image_tag 'olho_aberto.svg', class: 'olho_aberto', id: 'olho_senha', onclick: 'mostrar_ocultar_r()' %>
+      </div>
+      <div class="senha_input1">
+        <label for="password1">Confirme a senha</label> <br />
+        <input type="password" id="confir_redefinir_senha" name="new_password_1" placeholder="Senha" required>
+        <%= image_tag 'olho_aberto.svg', class: 'olho_aberto', id: 'olho_senha1', onclick: 'mostrar_ocultar_r1()' %>
+      </div>
+      <div>
+        <button class="bnt_enviar" type="submit">Alterar senha</button>
+      </div>
+    </div>
+    <div id="mensagen_login">
+      <div class="text_mesage">
+        <p>Bem vindo </br> ao </br> Camaar</p>
+      </div>
+    </div>
+  </form>
+</div>
+<%= javascript_include_tag 'main' %>
+</body>
+</html>

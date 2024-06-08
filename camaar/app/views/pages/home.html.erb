@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <%= stylesheet_link_tag 'recuperar_senha', media: 'all' %>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="img_list">
+      <%= image_tag 'listar_menu.svg', alt: 'Menu' %>
+    </div>
+    <div>
+      <input type="text" id="campo_pesquisar" name="campo_de_pesquisar">
+    </div>
+    <div>
+      <%= image_tag 'lupa_pesquisa.svg', class: 'lupa', alt: 'Pesquisar' %>
+    </div>
+    <div>
+      <%= image_tag 'user_img.svg', class: 'img_user', alt: 'Img_user' %>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag 'main' %>
+</body>
+</html>
