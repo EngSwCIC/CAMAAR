@@ -1,5 +1,6 @@
 require "json"
-require_relative "../config/environment/"
+require_relative "../config/environment"
+
 
 departments = JSON.parse(File.read("./db/departments.json"))
 classes = JSON.parse(File.read("./db/classes.json"))

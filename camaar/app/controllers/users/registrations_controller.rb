@@ -6,7 +6,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    super
+    build_resource(email: params[:user_email])
+    yield self.resource if block_given?
+    respond_with self.resource
   end
 
   # POST /resource

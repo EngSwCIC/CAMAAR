@@ -6,8 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+    <meta name="author" content="Camaar - Grupo 1">
 
     <!-- Title Page-->
     <title>Camaar</title>
@@ -37,8 +36,8 @@
     <div class="page-wrapper">
         
 
-        <!-- MENU SIDEBAR-->
-       <aside class="menu-sidebar d-none d-lg-block">
+       <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                     <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo") %>
             </div>
@@ -48,29 +47,29 @@
                     <li>
                             <a href="import.html">
                                 <i class="fas fa-database"></i>Importar Dados</a>
-                        </li>
+                    </li>
 
 
-                        <li>
-                            <a href="Turmas">
-                                <i class="fas fa-group"></i>Turmas</a>
-                        </li>
+                    <li>
+                        <a href="turmas.html">
+                            <i class="fas fa-users"></i>Turmas</a>
+                    </li>
                         
                     <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-file-text"></i>Templates</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                <%= link_to "Pendentes", new_user_session_path%>
+                                <%= link_to "Pendentes", admins_forms_path%>
                                 </li>
                                 <li>
-                                    <%= link_to "Respondidos", new_user_registration_path%>
+                                    <%= link_to "Respondidos", admins_forms_path%>
                                 </li>
                             </ul>
                         </li>
-                    </li>
+            
                     <li>
-                            <a href="share_template">
+                            <a href="envio.html">
                                 <i class="fas fa-share"></i>Envio</a>
                         </li>
                     </li>
@@ -78,9 +77,9 @@
                       
                     
                     <li>
-                            <a href="chart.html">
+                            <a href="resultados.html">
                                 <i class="fas fa-chart-bar"></i>Resultados</a>
-                        </li>
+                    </li>
 
                     </ul>
                 </nav>
@@ -90,6 +89,9 @@
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
+
+              <!-- HEADER DESKTOP-->
+
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
@@ -117,9 +119,9 @@
                                            
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Coordenador</a>
+                                                       <%=current_admin.email%>
                                                     </h5>
-                                                    <span class="email"><%= @email %></span>
+                                                    <span class="email"><%= current_admin.email %></span>
                                                 </div>
                                             </div>
                                            
@@ -415,7 +417,7 @@
 
     <!-- Jquery JS-->
     <%= javascript_include_tag 'jquery-3.2.1.min.js' %>
-    <%# <script src="jquery-3.2.1.min.js"></script> %>
+
     <!-- Bootstrap JS-->
     <%= javascript_include_tag 'bootstrap-4.1/popper.min.js' %>
     <%= javascript_include_tag 'bootstrap-4.1/bootstrap.min.js' %>
@@ -424,26 +426,20 @@
     <!-- Vendor JS       -->
     <%= javascript_include_tag 'slick/slick.min.js' %>
 
-    <%# <script src="slick/slick.min.js" %>
-    <%# </script> %>
+
     <%= javascript_include_tag 'slick/slick.min.js' %>
 
     <%= javascript_include_tag 'wow/wow.min.js' %>
 
-    <%# <script src="wow/wow.min.js"></script> %>
     <%= javascript_include_tag 'animsition/animsition.min.js' %>
     <%= javascript_include_tag 'bootstrap-progressbar/bootstrap-progressbar.min.js' %>
     <%= javascript_include_tag 'counter-up/jquery.waypoints.min.js' %>
     <%= javascript_include_tag 'counter-up/jquery.counterup.min.js' %>
-    <%= javascript_include_tag 'circle-progress/circle-progress.min.js' %>
     <%= javascript_include_tag 'perfect-scrollbar/perfect-scrollbar.js' %>
-    <%= javascript_include_tag 'chartjs/Chart.bundle.min.js' %>
     <%= javascript_include_tag 'select2/select2.min.js' %>
  
     <!-- Main JS-->
     <%= javascript_include_tag 'main.js' %>
-
-    <%# <script src="js/main.js"></script> %>
 
 </body>
 
