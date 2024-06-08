@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_08_165202) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_08_165708) do
   create_table "materia", force: :cascade do |t|
     t.string "codigo"
     t.string "nome"
@@ -23,6 +23,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_08_165202) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_matriculas_on_user_id"
+  end
+
+  create_table "templates", force: :cascade do |t|
+    t.string "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "turmas", force: :cascade do |t|
