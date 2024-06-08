@@ -9,14 +9,6 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-.add-question{
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-
-
-
 /* Center the button within the wrapper using Flexbox */
 .button-wrapper {
   display: flex;

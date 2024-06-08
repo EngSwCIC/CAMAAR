@@ -3,10 +3,15 @@
      <div class="container-fluid">
          <div class="formbold-form-wrapper">
              <div class="formbold-form-wrapper">
-              <%= form_with method: :get, model: @template do |f| %>
-
+              <%= form_with method: :get do |f| %>
+               <div class="form-group form-inline">
+                  <%= f.label :title, "Título:" , class: "mr-2"%>
+                  <%= f.text_field :title, id: "question_title", class:"form-control form-control-sm",value: @title %>
+                </div>
+                  <div>
                   <%= f.label :question_type, "Tipo de questão:" %>
                   <%= f.select :question_type, options_for_select([['Selecione', nil], ['Múltipla escolha', 'multiple_choice'], ['Texto', 'text']], selected: @question_type), {}, id: "question_type" %>
+                </div>
                 <div id="choices_field" style="display: none;">
                   <span>
                     <%= f.label :options_number, "Número de opções:" %>
