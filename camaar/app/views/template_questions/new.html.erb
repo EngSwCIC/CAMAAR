@@ -24,6 +24,7 @@
     <%= stylesheet_link_tag "select2/select2.min.css", media: "all" %>
     <%= stylesheet_link_tag "perfect-scrollbar/perfect-scrollbar.css", media: "all" %>
     <%= stylesheet_link_tag "theme.css", media: "all" %>
+    <%= stylesheet_link_tag "formbold.css", media: "all"%>
     <!-- Main CSS-->
   </head>
   <body>
@@ -37,79 +38,36 @@
           <div class="section__content section__content--p30">
             <div class="container-fluid">
               <div class="formbold-form-wrapper">
-                  
-<%= link_to 'voltar', edit_template_path(@template) %>
-<%= form_with method: :get do |f| %>
-  <div>
-    <%= f.label :title, "Título:" %>
-    <%= f.text_field :title, id: "question_title", value: @title %>
-  </div>
-  <div>
-    <%= f.label :question_type, "Tipo de questão:" %>
-    <%= f.select :question_type, options_for_select([['Selecione', nil], ['Múltipla escolha', 'multiple_choice'], ['Texto', 'text']], selected: @question_type), {}, id: "question_type" %>
-  </div>
-  <div id="choices_field" style="display: none;">
-    <span>
-      <%= f.label :options_number, "Número de opções:" %>
-      <%= f.select :options_number, options_for_select(1..5, selected: @options_number), {}, id: "options_number" %>
-    </span>
-    <div id="options_fields">
-      <% 5.times do |i| %>
-        <div style="display: none;" id="option<%= i %>_field">
-          <%= f.label "option#{i+1}", "Opção #{i+1}" %>
-          <%= f.text_field :options, id: "option#{i+1}", name: "options[]", value: @options[i] %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div>
-    <%= f.button "Cancelar", name: "commit", value: "cancel", id: 'cancel' %>
-    <%= f.button "Adicionar", name: "commit", value: "save", id: "add" %>
-  </div>
-<% end %>
-<%= @errors %>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var questionTypeSelect = document.getElementById('question_type');
-    var choicesField = document.getElementById('choices_field');
-    var optionsFields = document.getElementById('options_fields');
-
-    questionTypeSelect.addEventListener('change', function() {
-      if (questionTypeSelect.value === 'multiple_choice') {
-        choicesField.style.display = 'block';
-      } else {
-        choicesField.style.display = 'none';
-      }
-    });
-
-    var optionsNumberSelect = document.getElementById('options_number');
-    optionsNumberSelect.addEventListener('change', function() {
-      var optionsNumber = parseInt(optionsNumberSelect.value);
-      for (var i = 0; i < optionsFields.children.length; i++) {
-        var optionField = optionsFields.children[i];
-        if (i < optionsNumber) {
-          optionField.style.display = 'block';
-        } else {
-          optionField.style.display = 'none';
-        }
-      }
-    });
-
-    // Initial check for the question type and options number on page load
-    if (questionTypeSelect.value === 'multiple_choice') {
-      choicesField.style.display = 'block';
-    }
-    var initialOptionsNumber = parseInt(optionsNumberSelect.value);
-    for (var i = 0; i < optionsFields.children.length; i++) {
-      var optionField = optionsFields.children[i];
-      if (i < initialOptionsNumber) {
-        optionField.style.display = 'block';
-      } else {
-        optionField.style.display = 'none';
-      }
-    }
-  });
-</script>
+                  <%= link_to 'voltar', edit_template_path(@template) %>
+                  <%= form_with method: :get do |f| %>
+                    <div>
+                      <%= f.label :title, "Título:" %>
+                      <%= f.text_field :title, id: "question_title", value: @title %>
+                    </div>
+                    <div>
+                      <%= f.label :question_type, "Tipo de questão:" %>
+                      <%= f.select :question_type, options_for_select([['Selecione', nil], ['Múltipla escolha', 'multiple_choice'], ['Texto', 'text']], selected: @question_type), {}, id: "question_type" %>
+                    </div>
+                    <div id="choices_field" style="display: none;">
+                      <span>
+                        <%= f.label :options_number, "Número de opções:" %>
+                        <%= f.select :options_number, options_for_select(1..5, selected: @options_number), {}, id: "options_number" %>
+                      </span>
+                      <div id="options_fields">
+                        <% 5.times do |i| %>
+                          <div style="display: none;" id="option<%= i %>_field">
+                            <%= f.label "option#{i+1}", "Opção #{i+1}" %>
+                            <%= f.text_field :options, id: "option#{i+1}", name: "options[]", value: @options[i] %>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div>
+                      <%= f.button "Cancelar", name: "commit", value: "cancel", id: 'cancel' %>
+                      <%= f.button "Adicionar", name: "commit", value: "save", id: "add" %>
+                    </div>
+                  <% end %>
+                  <%= @errors %>
 
                 </div>
               </div>
@@ -121,6 +79,10 @@
               
       </div>
     </div>
+
+    <!-- TEMPLATES JS -->
+    <%= javascript_include_tag "/app/templates.js" %>
+
     <!-- Jquery JS-->
     <%= javascript_include_tag "jquery-3.2.1.min.js" %>
     <% # <script src="jquery-3.2.1.min.js"></script> %>
@@ -146,165 +108,4 @@
     <%= javascript_include_tag "main.js" %>
     <% # <script src="js/main.js"></script> %>
   </body>
-
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    .formbold-main-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 48px;
-    }
-  
-    .formbold-form-wrapper {
-      margin: 0 auto;
-      max-width: 570px;
-      width: 100%;
-      background: white;
-      padding: 40px;
-    }
-  
-    .formbold-img {
-      margin-bottom: 40px;
-    }
-  
-    .formbold-input-flex {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-    .formbold-input-flex > div {
-      width: 50%;
-    }
-    .formbold-form-input {
-      width: 100%;
-      padding: 13px 22px;
-      border-radius: 5px;
-      border: 1px solid #dde3ec;
-      background: #ffffff;
-      font-weight: 500;
-      font-size: 16px;
-      color: #536387;
-      outline: none;
-      resize: none;
-    }
-    .formbold-form-input:focus {
-      border-color: #6a64f1;
-      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
-    }
-    .formbold-form-label {
-      color: #536387;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 24px;
-      display: block;
-      margin-bottom: 10px;
-    }
-  
-    .formbold-mb-5 {
-      margin-bottom: 20px;
-    }
-    .formbold-radio-flex {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .formbold-radio-label {
-      font-size: 14px;
-      line-height: 24px;
-      color: #07074d;
-      position: relative;
-      padding-left: 25px;
-      cursor: pointer;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-    .formbold-input-radio {
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
-    }
-    .formbold-radio-checkmark {
-      position: absolute;
-      top: -1px;
-      left: 0;
-      height: 18px;
-      width: 18px;
-      background-color: #ffffff;
-      border: 1px solid #dde3ec;
-      border-radius: 50%;
-    }
-    .formbold-radio-label
-      .formbold-input-radio:checked
-      ~ .formbold-radio-checkmark {
-      background-color: #6a64f1;
-    }
-    .formbold-radio-checkmark:after {
-      content: '';
-      position: absolute;
-      display: none;
-    }
-  
-    .formbold-radio-label
-      .formbold-input-radio:checked
-      ~ .formbold-radio-checkmark:after {
-      display: block;
-    }
-  
-    .formbold-radio-label .formbold-radio-checkmark:after {
-      top: 50%;
-      left: 50%;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #ffffff;
-      transform: translate(-50%, -50%);
-    }
-  
-    .formbold-btn {
-      text-align: center;
-      width: 100%;
-      font-size: 16px;
-      border-radius: 5px;
-      padding: 14px 25px;
-      border: none;
-      font-weight: 500;
-      background-color: #6a64f1;
-      color: white;
-      cursor: pointer;
-      margin-top: 25px;
-    }
-    .formbold-btn:hover {
-      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
-    }
-    .wrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column; 
-    justify-content: center;
-    width: 100%;
-    min-height: 100%;
-    padding: 20px;
-    }
-    .fadeInDown {
-      -webkit-animation-name: fadeInDown;
-      animation-name: fadeInDown;
-      -webkit-animation-duration: 1s;
-      animation-duration: 1s;
-      -webkit-animation-fill-mode: both;
-      animation-fill-mode: both;
-    }
-  
-  </style>
 
