@@ -122,7 +122,6 @@ Given(/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|
   visit('/admins/login')
   fill_in('email', with: coordinator.email)
   fill_in('password', with: 'admin123')
-  fill_in('password_confirmation', with: 'admin123')
   click_button('Confirmar')
 
 end

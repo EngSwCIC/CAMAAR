@@ -1,7 +1,7 @@
 require "json"
 
 class TemplatesController < ApplicationController
-  before_action :authenticate_admin!, :set_admin_data
+  before_action :set_admin_data
   before_action :set_template_data, only: [:destroy, :edit, :show]
   layout "admin"
 
