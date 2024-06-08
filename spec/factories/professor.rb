@@ -7,7 +7,6 @@ FactoryBot.define do
     reset_password_sent_at { nil }
     remember_created_at { nil }
     is_admin { false }
-    association :departamento
-    association :materia
+
   end
 end

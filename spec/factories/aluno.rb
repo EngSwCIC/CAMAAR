@@ -6,8 +6,7 @@ FactoryBot.define do
     reset_password_token { nil }
     reset_password_sent_at { nil }
     remember_created_at { nil }
-    matricula { Faker::Number.number(digits: 9) }
-    curso { Faker::Educator.course }
-    association :materia
+    sequence(:matricula) { |n| "2023#{n}" }  
+    curso { "Curso de Exemplo" }
   end
 end

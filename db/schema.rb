@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_07_122825) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_08_125259) do
   create_table "alunos", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -19,12 +19,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_07_122825) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nome"
-    t.integer "matricula"
-    t.integer "materia_id", null: false
-    t.string "curso"
+    t.string "nome", null: false
+    t.integer "matricula", null: false
+    t.integer "materia_id"
+    t.string "curso", null: false
     t.index ["email"], name: "index_alunos_on_email", unique: true
     t.index ["materia_id"], name: "index_alunos_on_materia_id"
+    t.index ["matricula"], name: "index_alunos_on_matricula", unique: true
     t.index ["reset_password_token"], name: "index_alunos_on_reset_password_token", unique: true
   end
 
@@ -72,10 +73,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_07_122825) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_admin"
-    t.string "nome"
+    t.boolean "is_admin", null: false
+    t.string "nome", null: false
     t.integer "departamento_id", null: false
-    t.integer "materia_id", null: false
+    t.integer "materia_id"
     t.index ["departamento_id"], name: "index_professors_on_departamento_id"
     t.index ["email"], name: "index_professors_on_email", unique: true
     t.index ["materia_id"], name: "index_professors_on_materia_id"

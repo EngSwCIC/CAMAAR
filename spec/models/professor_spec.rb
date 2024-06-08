@@ -25,7 +25,7 @@ RSpec.describe Professor, type: :model do
 
     context 'is not valid without a password' do
       it 'should be invalid without password' do
-        professor = build(:professor, password: nil)
+        professor = build(:professor, encrypted_password: nil)
         expect(professor).not_to be_valid
       end
     end
@@ -47,7 +47,7 @@ RSpec.describe Professor, type: :model do
   end
 
   describe 'associations' do
-    it { should have_and_belong_to_many(:materia) }
+    it { should belong_to(:materia) }
     it { should belong_to(:departamento) }
 
   end

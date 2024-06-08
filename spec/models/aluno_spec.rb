@@ -32,7 +32,7 @@ RSpec.describe Aluno, type: :model do
 
     context 'is not valid without a password' do
       it 'should be invalid without password' do
-        aluno = build(:aluno, password: nil)
+        aluno = build(:aluno, encrypted_password: nil)
         expect(aluno).not_to be_valid
       end
     end
@@ -62,7 +62,7 @@ RSpec.describe Aluno, type: :model do
   end
 
   describe 'associations' do
-    it { should have_and_belong_to_many(:materia) } 
+    it { should belong_to(:materia) }
   end
 
 end
