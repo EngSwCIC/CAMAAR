@@ -8,6 +8,37 @@ class TemplateQuestionsController < ApplicationController
     destroy
   end
 
+  def edit
+    @template_question = TemplateQuestion.find_by_id(params[:id].to_i)
+
+    save_template_question_data
+    get_question_data_from_model
+    check_for_commit
+  end
+
+  def update
+    @errors = []
+
+    if @errors.empty?
+      @question = TemplateQuestion.update({
+        id: params[:id.to_i],
+        title: @title,
+        question_type: @selected_type,
+        body: create_question_body,
+        template_id: @template.id,
+      })
+
+      if @question
+        clear_session
+        redirect_to edit_template_path(@template)
+      else
+        @errors = @question.errors.full_messages
+        puts @errors
+        render :new
+      end
+    end
+  end
+
   def destroy
     question = TemplateQuestion.destroy(params[:id].to_i)
 
@@ -17,18 +48,38 @@ class TemplateQuestionsController < ApplicationController
   end
 
   def new
-    @templates = Template.where(coordinator_id: @coordinator.id)
-
-    params_to_session
-    session_to_controller
+    save_template_question_data
     check_for_commit
   end
 
   def create
     @errors = []
-    types = { "multiple_choice" => 1, "text" => 2 }
-    body = {}
 
+    puts [@title, create_question_body, @question_type, @template.id]
+    if @errors.empty?
+      @question = TemplateQuestion.new({
+        title: @title,
+        body: create_question_body,
+        question_type: @question_type.to_s,
+        template_id: @template.id,
+      })
+
+      if @question.save
+        clear_session
+        redirect_to edit_template_path(@template)
+      else
+        @errors = @question.errors.full_messages
+        puts @errors
+        render :new
+      end
+    end
+  end
+
+  def set_template
+    @template = Template.find_by_id(params[:template_id].to_i)
+  end
+
+  def create_question_body
     if @question_type == "multiple_choice"
       body = { "options" => {} }
 
@@ -45,51 +96,46 @@ class TemplateQuestionsController < ApplicationController
           body["options"][option_number.to_s] = ""
         end
       end
+    else
+      body = {}
     end
-
-    if @errors.empty?
-      @question = TemplateQuestion.new({
-        title: @title,
-        body: body.to_json,
-        question_type: types[params[:question_type]],
-        template_id: @template.id,
-      })
-
-      if @question.save
-        clear_session
-        redirect_to edit_template_path(@template)
-      else
-        @errors = @question.errors.full_messages
-        puts @errors
-        render :new
-      end
-    end
+    return body.to_json
   end
 
-  def set_template
-    @template = Template.find_by_id(params[:template_id])
-  end
-
-  def params_to_session
+  def save_template_question_data
     session[:title] = params[:title] if params[:title]
     session[:options_number] = params[:options_number] if params[:options_number]
     session[:options] = params[:options] if params[:options]
     session[:question_type] = params[:question_type] if params[:question_type]
+    @title = session[:title] || ""
+    @options = session[:options]
+    @options_number = session[:options_number]
+    @question_type = session[:question_type]
   end
 
-  def session_to_controller
-    @title = session[:title] || ""
-    @options = session[:options] || ["", "", "", "", ""]
-    @options_number = session[:options_number] || 1
-    @question_type = session[:question_type]
+  def get_question_data_from_model
+    if not @question_type
+      @question_type = @template_question.question_type
+    end
+
+    if not @options
+      @options = []
+      @options_number = 0
+      JSON.parse(@template_question.body)["options"].values.each do |opt|
+        @options << opt
+        if opt != ""
+          @options_number += 1
+        end
+      end
+    end
   end
 
   def check_for_commit
     case params[:commit]
-    when "cancel"
-      clear_session
-      redirect_to edit_template_path(@template)
+
     when "save"
+      update
+    when "add"
       create
     when "delete"
       destroy

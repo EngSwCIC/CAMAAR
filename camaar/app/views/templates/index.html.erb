@@ -1,0 +1,4 @@
+<% @templates.each do |item| %>
+  <%= link_to item.name, edit_template_path(item) %>
+  <br>
+<% end %>

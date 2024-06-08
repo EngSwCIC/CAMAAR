@@ -7,6 +7,7 @@ class TemplatesController < ApplicationController
   layout "admin"
 
   def index
+    @templates = Template.where({ coordinator_id: @coordinator.id })
   end
 
   def new
@@ -53,6 +54,8 @@ class TemplatesController < ApplicationController
 
   def check_for_commit
     case params[:commit]
+    when "add"
+      create
     when "save"
       update
     when "delete"
