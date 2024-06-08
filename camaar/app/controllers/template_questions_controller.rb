@@ -4,6 +4,9 @@ class TemplateQuestionsController < ApplicationController
   before_action :set_template
   layout "admin"
 
+  def index
+  end
+
   def show
     destroy
   end
@@ -18,13 +21,13 @@ class TemplateQuestionsController < ApplicationController
 
   def update
     @errors = []
-
+    body = create_question_body
     if @errors.empty?
-      @question = TemplateQuestion.update({
-        id: params[:id.to_i],
+      @question = TemplateQuestion.update!({
+        id: params[:id].to_i,
         title: @title,
-        question_type: @selected_type,
-        body: create_question_body,
+        question_type: @question_type,
+        body: body,
         template_id: @template.id,
       })
 
@@ -34,7 +37,7 @@ class TemplateQuestionsController < ApplicationController
       else
         @errors = @question.errors.full_messages
         puts @errors
-        render :new
+        render :edit
       end
     end
   end
@@ -54,12 +57,11 @@ class TemplateQuestionsController < ApplicationController
 
   def create
     @errors = []
-
-    puts [@title, create_question_body, @question_type, @template.id]
+    body = create_question_body,
     if @errors.empty?
       @question = TemplateQuestion.new({
         title: @title,
-        body: create_question_body,
+        body: body,
         question_type: @question_type.to_s,
         template_id: @template.id,
       })
@@ -108,7 +110,7 @@ class TemplateQuestionsController < ApplicationController
     session[:options] = params[:options] if params[:options]
     session[:question_type] = params[:question_type] if params[:question_type]
     @title = session[:title] || ""
-    @options = session[:options]
+    @options = session[:options] || ["", "", "", "", ""]
     @options_number = session[:options_number]
     @question_type = session[:question_type]
   end
@@ -118,11 +120,10 @@ class TemplateQuestionsController < ApplicationController
       @question_type = @template_question.question_type
     end
 
-    if not @options
-      @options = []
+    if @question_type == "multiple_choice"
       @options_number = 0
-      JSON.parse(@template_question.body)["options"].values.each do |opt|
-        @options << opt
+      JSON.parse(@template_question.body)["options"].values.each_with_index do |opt, i|
+        @options[i] = opt
         if opt != ""
           @options_number += 1
         end
@@ -132,7 +133,6 @@ class TemplateQuestionsController < ApplicationController
 
   def check_for_commit
     case params[:commit]
-
     when "save"
       update
     when "add"
