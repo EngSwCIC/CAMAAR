@@ -17,6 +17,8 @@ class TemplateQuestionsController < ApplicationController
   end
 
   def new
+    # @templates = Template.where(coordinator_id: @coordinator.id)
+
     params_to_session
     session_to_controller
     check_for_commit
@@ -59,7 +61,8 @@ class TemplateQuestionsController < ApplicationController
       else
         @errors = @question.errors.full_messages
         puts @errors
-        render :new
+        # render :new
+        redirect_to new_template_template_question_path(@template)
       end
     end
   end

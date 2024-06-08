@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -23,6 +23,7 @@
     <%= stylesheet_link_tag "slick/slick.css", media: "all" %>
     <%= stylesheet_link_tag "select2/select2.min.css", media: "all" %>
     <%= stylesheet_link_tag "perfect-scrollbar/perfect-scrollbar.css", media: "all" %>
+    <%= stylesheet_link_tag "formbold.css", media: "all" %>
     <%= stylesheet_link_tag "theme.css", media: "all" %>
     <!-- Main CSS-->
   </head>
@@ -32,8 +33,31 @@
       <div class="page-container">
         <%= render "layouts/header"%>
         <%=yield%>
-      </div>
-      <div class="main-content">
+       <% if current_page?("/templates") %>
+        <div class="main-content">
+          <div class="section__content section__content--p30">
+            <div class="container-fluid">
+            
+              <div class="formbold-form-wrapper">
+                  <div class="template-links">
+                    <% @templates.each do |template| %>
+                      <%= link_to template.name, edit_template_path(template), class:"btn btn-success btn-sm template-link" %>
+                    <% end %>
+                  </div>
+                  <div class="button-wrapper">
+        
+                    <%= button_to "Adicionar Template", "templates/new", method: :get, id: "add_template", class: "au-btn au-btn-icon au-btn--blue" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      <% end %>        
+
+            <!-- END MAIN CONTENT-->
+              
       </div>
     </div>
     <!-- Jquery JS-->
@@ -59,5 +83,8 @@
     <%= javascript_include_tag "select2/select2.min.js" %>
     <!-- Main JS-->
     <%= javascript_include_tag "main.js" %>
+    <%= javascript_include_tag 'templates.js' %>
+
     <% # <script src="js/main.js"></script> %>
   </body>
+

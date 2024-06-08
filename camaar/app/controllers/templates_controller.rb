@@ -10,21 +10,26 @@ class TemplatesController < ApplicationController
   end
 
   def new
+    # @templates = Template.where(coordinator_id: @coordinator.id)
     template = Template.create({ coordinator_id: @coordinator.id })
     redirect_to edit_template_path(template)
   end
 
   def create
+    # @templates = Template.where(coordinator_id: @coordinator.id)
   end
 
   def show
+    # @templates = Template.where(coordinator_id: @coordinator.id)
     check_for_commit
   end
 
   def edit
+    # @templates = Template.where(coordinator_id: @coordinator.id)
   end
 
   def update
+    # @templates = Template.where(coordinator_id: @coordinator.id)
     @errors = []
     save_template_data
 
@@ -40,10 +45,12 @@ class TemplatesController < ApplicationController
     else
       @errors << "O template precisa conter pelo menos uma pergunta"
       render :edit
+      # redirect_to edit_template_path(@template)
     end
   end
 
   def destroy
+    # @templates = Template.where(coordinator_id: @coordinator.id)
     template = @template.destroy
 
     if template
@@ -52,6 +59,7 @@ class TemplatesController < ApplicationController
   end
 
   def check_for_commit
+    # @templates = Template.where(coordinator_id: @coordinator.id)
     case params[:commit]
     when "save"
       update
@@ -61,10 +69,12 @@ class TemplatesController < ApplicationController
   end
 
   def save_template_data
+    # @templates = Template.where(coordinator_id: @coordinator.id)
     @template_name = params[:template][:name] if not params[:template][:name].empty?
   end
 
   def set_template_data
+    @templates = Template.where(coordinator_id: @coordinator.id)
     @template = Template.find_by_id(params[:id])
     @template_name = params[:name] || @template.name
     @questions = TemplateQuestion.where({ template_id: @template.id })
