@@ -1,4 +1,3 @@
-<%= @question_type %>
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -50,14 +49,14 @@
                       <%= f.label :question_type, "Tipo de questão:" %>
                       <%= f.select :question_type, options_for_select([['Selecione', nil], ['Múltipla escolha', 'multiple_choice'], ['Texto', 'text']], selected: @question_type), {}, id: "question_type" %>
                     </div>
-                    <div id="choices_field" style="display: block;">
+                    <div id="choices_field" style="display: none;">
                       <span>
                         <%= f.label :options_number, "Número de opções:" %>
                         <%= f.select :options_number, options_for_select(1..5, selected: @options_number), {}, id: "options_number" %>
                       </span>
                       <div id="options_fields">
                         <% 5.times do |i| %>
-                          <div style="display: block;" id="option<%= i %>_field">
+                          <div style="display: none;" id="option<%= i %>_field">
                             <%= f.label "option#{i+1}", "Opção #{i+1}" %>
                             <%= f.text_field :options, id: "option#{i+1}", name: "options[]", value: @options[i] %>
                           </div>
