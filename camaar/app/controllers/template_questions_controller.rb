@@ -17,6 +17,8 @@ class TemplateQuestionsController < ApplicationController
   end
 
   def new
+    @templates = Template.where(coordinator_id: @coordinator.id)
+
     params_to_session
     session_to_controller
     check_for_commit
