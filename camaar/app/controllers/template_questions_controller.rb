@@ -13,9 +13,9 @@ class TemplateQuestionsController < ApplicationController
 
   def edit
     @template_question = TemplateQuestion.find_by_id(params[:id].to_i)
-
-    save_template_question_data
     get_question_data_from_model
+    save_to_session
+    save_to_controller
     check_for_commit
   end
 
@@ -36,7 +36,6 @@ class TemplateQuestionsController < ApplicationController
         redirect_to edit_template_path(@template)
       else
         @errors = @question.errors.full_messages
-        puts @errors
         render :edit
       end
     end
@@ -51,13 +50,14 @@ class TemplateQuestionsController < ApplicationController
   end
 
   def new
-    save_template_question_data
+    save_to_session
+    save_to_controller
     check_for_commit
   end
 
   def create
     @errors = []
-    body = create_question_body,
+    body = create_question_body
     if @errors.empty?
       @question = TemplateQuestion.new({
         title: @title,
@@ -71,7 +71,6 @@ class TemplateQuestionsController < ApplicationController
         redirect_to edit_template_path(@template)
       else
         @errors = @question.errors.full_messages
-        puts @errors
         render :new
       end
     end
@@ -82,9 +81,9 @@ class TemplateQuestionsController < ApplicationController
   end
 
   def create_question_body
-    if @question_type == "multiple_choice"
-      body = { "options" => {} }
+    body = { "options" => {} }
 
+    if @question_type == "multiple_choice"
       @options.each_with_index do |option, index|
         option_number = index + 1
         if option_number <= @options_number.to_i
@@ -98,17 +97,19 @@ class TemplateQuestionsController < ApplicationController
           body["options"][option_number.to_s] = ""
         end
       end
-    else
-      body = {}
     end
+
     return body.to_json
   end
 
-  def save_template_question_data
+  def save_to_session
     session[:title] = params[:title] if params[:title]
     session[:options_number] = params[:options_number] if params[:options_number]
     session[:options] = params[:options] if params[:options]
     session[:question_type] = params[:question_type] if params[:question_type]
+  end
+
+  def save_to_controller
     @title = session[:title] || ""
     @options = session[:options] || ["", "", "", "", ""]
     @options_number = session[:options_number]
@@ -116,21 +117,21 @@ class TemplateQuestionsController < ApplicationController
   end
 
   def get_question_data_from_model
-    if not @question_type
-      @question_type = @template_question.question_type
-    end
+    @template_question = TemplateQuestion.find_by_id(params[:id].to_i)
 
-    if @question_type == "multiple_choice"
-      @options_number = 0
-      @options = []
-      options = JSON.parse(@template_question.body)["options"]
-      options.values.each do |opt|
-        @options << opt
-        if opt != ""
-          @options_number += 1
-        end
+    session[:question_type] = @template_question.question_type
+    session[:title] = @template_question.title
+    session[:options] = []
+
+    options = JSON.parse(@template_question.body)["options"]
+    if options.empty?
+      session[:options] = ["", "", "", "", ""]
+    else
+      options.values.each_with_index do |opt, i|
+        session[:options][i] = opt
       end
     end
+
   end
 
   def check_for_commit
