@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <!-- Required meta tags-->
@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
     <title>Camaar</title>
@@ -39,6 +38,10 @@
         <div class="logo">
                     <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo") %>
             </div>
+
+   
+               <hr/>
+
            
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
@@ -102,7 +105,7 @@
                                            
                                             <div class="account-dropdown__footer">                            
                                                 <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
-                                                <i class ="zmdi zmdi-power"></i> Logout
+                                                <i class ="zmdi zmdi-power"></i> Sair
                                                 <%end%> 
                                             </div>
                                         </div>
@@ -188,7 +191,7 @@
 
     <!-- Jquery JS-->
     <%= javascript_include_tag 'jquery-3.2.1.min.js' %>
-    <%# <script src="jquery-3.2.1.min.js"></script> %>
+
     <!-- Bootstrap JS-->
     <%= javascript_include_tag 'bootstrap-4.1/popper.min.js' %>
     <%= javascript_include_tag 'bootstrap-4.1/bootstrap.min.js' %>
@@ -197,19 +200,17 @@
     <!-- Vendor JS       -->
     <%= javascript_include_tag 'slick/slick.min.js' %>
     <%= javascript_include_tag 'slick/slick.min.js' %>
-    <%= javascript_include_tag 'wow/wow.min.js' %>
+    <%= javascript_include_tag 'wow/wow.min.js' %> 
 
     <%= javascript_include_tag 'animsition/animsition.min.js' %>
     <%= javascript_include_tag 'bootstrap-progressbar/bootstrap-progressbar.min.js' %>
     <%= javascript_include_tag 'counter-up/jquery.waypoints.min.js' %>
     <%= javascript_include_tag 'counter-up/jquery.counterup.min.js' %>
-    <%= javascript_include_tag 'circle-progress/circle-progress.min.js' %>
     <%= javascript_include_tag 'perfect-scrollbar/perfect-scrollbar.js' %>
-    <%= javascript_include_tag 'chartjs/Chart.bundle.min.js' %>
     <%= javascript_include_tag 'select2/select2.min.js' %>
  
     <!-- Main JS-->
-    <%= javascript_include_tag 'main.js' %>
+    <%= javascript_include_tag 'main.js'%>
 </body>
 
 </html>

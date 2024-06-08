@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -24,6 +24,8 @@
     <%= stylesheet_link_tag "select2/select2.min.css", media: "all" %>
     <%= stylesheet_link_tag "perfect-scrollbar/perfect-scrollbar.css", media: "all" %>
     <%= stylesheet_link_tag "theme.css", media: "all" %>
+    <%= stylesheet_link_tag "formbold.css", media: "all" %>
+
     <!-- Main CSS-->
   </head>
   <body>
@@ -37,35 +39,33 @@
           <div class="section__content section__content--p30">
             <div class="container-fluid">
               <div class="formbold-form-wrapper">
-                 
-        
+                <div class="formbold-form-wrapper">
 
-
-
-
-<%= form_with method: :get, model: @template do |f| %>
-<div>
-  <%= f.label :name, "Nome do template:" %>
-  <%= f.text_field :name, id: "name", value: @template.name %>
-</div>
-<%= link_to "Adicionar questão", new_template_template_question_path(@template), name: "add_question", id: "add_question" %>
-<% if @questions %>
-  <div>
-    <% @questions.each_with_index do |question,index| %>
-      <h2><%= %"Questão #{index+1}"%></h2>
-      <%= render "/template_questions/show", question: question %>
-      <br>
-    <% end %>
-  </div>
-<% end %>
-<%= @errors%>
-<div>
-  <%= f.button 'Excluir', name: "commit", value: "delete" ,id: "delete" %>
-  <%= link_to "Cancelar", templates_path,  id: 'cancel' %>
-  <%= f.button "Salvar" , name: "commit", value: "save" , id: "save" %>
-</div>
-<% end %>
-
+                      <%= form_with method: :get, model: @template do |f| %>
+                      <div>
+                        <%= f.label :name, "Nome do template:" %>
+                        <%= f.text_field :name, id: "name", value: @template.name %>
+                      </div>
+                      <div class="add-question">
+                      <%= link_to "Adicionar questão", new_template_template_question_path(@template), class: "au-btn au-btn-icon au-btn--blue",name: "add_question", id: "add_question" %>
+                      </div>
+                      <% if @questions %>
+                        <div>
+                          <% @questions.each_with_index do |question,index| %>
+                            <h2><%= %"Questão #{index+1}"%></h2>
+                            <%= render "/template_questions/show", question: question %>
+                            <br>
+                          <% end %>
+                        </div>
+                      <% end %>
+                      <%= @errors%>
+                      <div>
+                        <%= f.button 'Excluir', class:"btn btn-danger btn-sm",name: "commit", value: "delete" ,id: "delete" %>
+                        <%= link_to "Cancelar", templates_path,class:"btn btn-danger btn-sm",   id: 'cancel' %>
+                        <%= f.button "Salvar" , class:"btn btn-success btn-sm",name: "commit", value: "save" , id: "save" %>
+                      </div>
+                      <% end %>
+                    </div>
                 </div>
               </div>
             </div>
@@ -101,165 +101,3 @@
     <%= javascript_include_tag "main.js" %>
     <% # <script src="js/main.js"></script> %>
   </body>
-
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    .formbold-main-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 48px;
-    }
-  
-    .formbold-form-wrapper {
-      margin: 0 auto;
-      max-width: 570px;
-      width: 100%;
-      background: white;
-      padding: 40px;
-    }
-  
-    .formbold-img {
-      margin-bottom: 40px;
-    }
-  
-    .formbold-input-flex {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-    .formbold-input-flex > div {
-      width: 50%;
-    }
-    .formbold-form-input {
-      width: 100%;
-      padding: 13px 22px;
-      border-radius: 5px;
-      border: 1px solid #dde3ec;
-      background: #ffffff;
-      font-weight: 500;
-      font-size: 16px;
-      color: #536387;
-      outline: none;
-      resize: none;
-    }
-    .formbold-form-input:focus {
-      border-color: #6a64f1;
-      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
-    }
-    .formbold-form-label {
-      color: #536387;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 24px;
-      display: block;
-      margin-bottom: 10px;
-    }
-  
-    .formbold-mb-5 {
-      margin-bottom: 20px;
-    }
-    .formbold-radio-flex {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .formbold-radio-label {
-      font-size: 14px;
-      line-height: 24px;
-      color: #07074d;
-      position: relative;
-      padding-left: 25px;
-      cursor: pointer;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-    .formbold-input-radio {
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
-    }
-    .formbold-radio-checkmark {
-      position: absolute;
-      top: -1px;
-      left: 0;
-      height: 18px;
-      width: 18px;
-      background-color: #ffffff;
-      border: 1px solid #dde3ec;
-      border-radius: 50%;
-    }
-    .formbold-radio-label
-      .formbold-input-radio:checked
-      ~ .formbold-radio-checkmark {
-      background-color: #6a64f1;
-    }
-    .formbold-radio-checkmark:after {
-      content: '';
-      position: absolute;
-      display: none;
-    }
-  
-    .formbold-radio-label
-      .formbold-input-radio:checked
-      ~ .formbold-radio-checkmark:after {
-      display: block;
-    }
-  
-    .formbold-radio-label .formbold-radio-checkmark:after {
-      top: 50%;
-      left: 50%;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #ffffff;
-      transform: translate(-50%, -50%);
-    }
-  
-    .formbold-btn {
-      text-align: center;
-      width: 100%;
-      font-size: 16px;
-      border-radius: 5px;
-      padding: 14px 25px;
-      border: none;
-      font-weight: 500;
-      background-color: #6a64f1;
-      color: white;
-      cursor: pointer;
-      margin-top: 25px;
-    }
-    .formbold-btn:hover {
-      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
-    }
-    .wrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column; 
-    justify-content: center;
-    width: 100%;
-    min-height: 100%;
-    padding: 20px;
-    }
-    .fadeInDown {
-      -webkit-animation-name: fadeInDown;
-      animation-name: fadeInDown;
-      -webkit-animation-duration: 1s;
-      animation-duration: 1s;
-      -webkit-animation-fill-mode: both;
-      animation-fill-mode: both;
-    }
-  
-  </style>
-

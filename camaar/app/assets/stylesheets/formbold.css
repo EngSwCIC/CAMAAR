@@ -8,6 +8,39 @@
 body {
   font-family: 'Inter', sans-serif;
 }
+
+.add-question{
+  margin-bottom: 10px;
+}
+
+/* Center the button within the wrapper using Flexbox */
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Adjust if necessary */
+}
+
+/* Adiciona espaçamento entre o contêiner dos links e o botão */
+.template-links {
+  margin-bottom: 20px; /* Espaço entre os links e o botão */
+}
+
+/* Button styling (adjust as needed) */
+#add_template.au-btn.au-btn-icon.au-btn--blue {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.template-link {
+  display: inline-block; /* Ensure each link is treated as a block-level element */
+  margin: 5px; /* Adjust the margin value as needed */
+}
+
 .formbold-main-wrapper {
   display: flex;
   align-items: center;
