@@ -22,16 +22,16 @@ class TemplateQuestionsController < ApplicationController
   def update
     @errors = []
     body = create_question_body
+
     if @errors.empty?
-      @question = TemplateQuestion.update!({
+      @question = TemplateQuestion.find_by_id(params[:id].to_i)
+      if @question.update({
         id: params[:id].to_i,
         title: @title,
         question_type: @question_type,
         body: body,
         template_id: @template.id,
       })
-
-      if @question
         clear_session
         redirect_to edit_template_path(@template)
       else
@@ -122,8 +122,10 @@ class TemplateQuestionsController < ApplicationController
 
     if @question_type == "multiple_choice"
       @options_number = 0
-      JSON.parse(@template_question.body)["options"].values.each_with_index do |opt, i|
-        @options[i] = opt
+      @options = []
+      options = JSON.parse(@template_question.body)["options"]
+      options.values.each do |opt|
+        @options << opt
         if opt != ""
           @options_number += 1
         end
