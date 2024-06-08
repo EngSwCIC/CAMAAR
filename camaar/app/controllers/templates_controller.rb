@@ -44,7 +44,8 @@ class TemplatesController < ApplicationController
       end
     else
       @errors << "O template precisa conter pelo menos uma pergunta"
-      render :edit
+      # render :edit
+      redirect_to edit_template_path(@template)
     end
   end
 
