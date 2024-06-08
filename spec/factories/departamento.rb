@@ -1,5 +1,7 @@
+# spec/factories/departamentos.rb
 FactoryBot.define do
   factory :departamento do
-    nome { Faker::Company.unique.industry }
+    sequence(:nome) { |n| "Departamento#{n}" }
   end
 end
+

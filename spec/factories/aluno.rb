@@ -8,5 +8,6 @@ FactoryBot.define do
     remember_created_at { nil }
     sequence(:matricula) { |n| "2023#{n}" }  
     curso { "Curso de Exemplo" }
+
   end
 end

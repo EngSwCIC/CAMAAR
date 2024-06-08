@@ -6,7 +6,8 @@ FactoryBot.define do
     reset_password_token { nil }
     reset_password_sent_at { nil }
     remember_created_at { nil }
-    is_admin { false }
+    isadmin { false }
+
 
   end
 end

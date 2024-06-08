@@ -5,6 +5,7 @@ class Aluno < ApplicationRecord
   validates :encrypted_password, presence: true
   validates :curso, presence: true
 
- belongs_to :materia, optional: true
+ has_many :materium
+ belongs_to :materium
 end
 
