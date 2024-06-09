@@ -1,6 +1,6 @@
 Feature: Create forms for teachers and students
     
-    As a admin
+    As an admin
     I want to select a form for students and teachers
     So that I can assess the class's performance 
 

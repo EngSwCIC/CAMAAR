@@ -30,7 +30,7 @@ Scenario: User already registred tries his old password
 
 Scenario: User not registred defines his password
 
-    Given not registrd user "Ciclano" with email "ciclano@dominio.com" exists
+    Given not registred user "Ciclano" with email "ciclano@dominio.com" exists
     And recieved an email with a link for registration in the system
     Then I should see "Ciclano" on password definition page
     When I fill in "Senha" with "pass"
@@ -39,7 +39,7 @@ Scenario: User not registred defines his password
     Then I should see "Senha definida com sucesso."
     And trying to login with "ciclano@dominio.com" and "pass"
     Then I should see "Bem vindo, Ciclano"
-    And I shoude see the User home page
+    And I should see the User home page
 
 Scenario: User fill "Senha" with blank space
 
@@ -53,7 +53,7 @@ Scenario: User fill "Senha" with blank space
 
 Scenario: New User fill "Confirmar Senha" with divergent pass
 
-    Given not registrd user "Ciclano" with email "ciclano@dominio.com" exists
+    Given not registred user "Ciclano" with email "ciclano@dominio.com" exists
     And recieved an email with a link for registration in the system
     Then I should see "Ciclano" on password definition page
     When I fill in "Senha" with "pass"

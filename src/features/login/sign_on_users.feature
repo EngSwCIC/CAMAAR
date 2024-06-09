@@ -9,7 +9,7 @@ Background:
     Given I imported data from SIGAA 
     And the student "Fulano" with email "fulano@detal.com" is participant of a SIGAA class
 
-Scenario: System sent an email for portential user imported from SIGAA 
+Scenario: System sent an email for potential user imported from SIGAA 
 
     Given "Fulano" was not already registred
     Then an email should be sent to "fulano@detal.com" containing a link
