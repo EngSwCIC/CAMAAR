@@ -90,7 +90,7 @@ class TemplateQuestionsController < ApplicationController
     when "cancel"
       clear_session
       redirect_to edit_template_path(@template)
-    when "save"
+    when "add"
       create
     when "delete"
       destroy
