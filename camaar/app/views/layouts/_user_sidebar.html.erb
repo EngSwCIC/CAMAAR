@@ -1,0 +1,24 @@
+<aside class="menu-sidebar d-none d-lg-block">
+  <div class="logo">
+    <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo") %>
+  </div>
+  <div class="menu-sidebar__content js-scrollbar1">
+    <nav class="navbar-sidebar">
+      <ul class="list-unstyled navbar__list">
+        <h1>  <%=@user.formation%>  </h1>
+        <h2>  Usuário -  <%= @department.initials%></h2>
+        <hr>
+        <li >
+          <a href="/forms">
+            <i class="fas fa-file-text"></i>
+            Templates
+          </a>
+        </li>
+     
+        <li><%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+            <i class ="zmdi zmdi-power"></i> Sair
+          <%end%> </li>
+      </ul>
+    </nav>
+  </div>
+</aside>

@@ -61,6 +61,10 @@ When (/^(?:|I )press "([^"]*)"$/) do |button|
   click_link_or_button(button.downcase.gsub(" ", "_"))
 end
 
+When(/I click on "Confirmar"/) do
+  click_button('Confirmar')
+end
+
 # Forms and templates
 
 And (/^(?:|I )fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
@@ -230,7 +234,7 @@ end
 
 Then(/^(?:|I )should see the following:$/) do |fields|
   fields.rows_hash.each do |_text|
-    Then %(I should see "#{name}")
+    Then %(I expect to see "#{name}")
   end
 end
 
