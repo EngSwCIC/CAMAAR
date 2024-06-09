@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Application Name</title>
+  </head>
+<body>
+  <h1>Welcome to MyApp!</h1>
+
+
+  <main>
+    <% if @materia.any? %>
+    <h2>Featured Subjects</h2>
+    <ul>
+    <% @materia.each do |materia| %>
+      <li>
+        <b>Disciplina:</b> <%= materia[:codigo] %> - <%= materia[:nome] %>
+      </li>
+    <% end %>
+    </ul>
+    <% end %>
+
+  </main>
+
+</body>
+</html>

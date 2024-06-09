@@ -80,7 +80,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_08_220346) do
     t.string "matricula"
     t.string "formacao"
     t.string "ocupacao"
-    t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
