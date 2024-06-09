@@ -3346,15 +3346,14 @@ section {
   margin-bottom: 5px;
 }
 
-.template-link {
-  font-weight: 300;
-  color: #fff;
-  font-size: 26px;
-  line-height: 1;
-  margin-bottom: 5px;
-  text-decoration: none;
+.overview-box .text .template-link {
+  font-weight: 300 !important;
+  color: #fff !important;
+  font-size: 26px !important;
+  line-height: 1 !important;
+  margin-bottom: 5px !important;
+  text-decoration: none !important;
 }
-
 .overview-box .text span {
   font-size: 15px;
   color: rgba(255, 255, 255, 0.6);
