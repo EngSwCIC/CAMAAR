@@ -16,27 +16,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
-  private
-
-
-  def after_sign_in_path_for(_resource)
-    if admin_signed_in?
-      # admins_page_path
-      templates_path
-
-    elsif user_signed_in?
-      users_page_path
-    else
-      root_path
-    end
-  end
-
-  def authenticate_user!
-    return if user_signed_in? || admin_signed_in?
-  
-
-  protected
-    
   def set_admin_data
     @coordinator = Coordinator.find_by({ email: current_admin.email })
     @department = Department.find_by_id(@coordinator.department_id) if @coordinator
@@ -47,5 +26,20 @@ class ApplicationController < ActionController::Base
     @return_to = session[:return_to]
   end
 
+  private
+
+  def after_sign_in_path_for(_resource)
+    if admin_signed_in?
+      # admins_page_path
+      templates_path
+    elsif user_signed_in?
+      users_page_path
+    else
+      root_path
+    end
+  end
+
+  def authenticate_user!
+    return if user_signed_in? || admin_signed_in?
   end
 end

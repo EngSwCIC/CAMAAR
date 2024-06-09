@@ -2,7 +2,7 @@ class CreateTemplateQuestions < ActiveRecord::Migration[7.1]
   def change
     create_table :template_questions do |t|
       t.string :title
-      t.integer :question_type
+      t.string :question_type
       t.json :body
 
       t.timestamps

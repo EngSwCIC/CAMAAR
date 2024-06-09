@@ -1,12 +1,13 @@
 require "json"
 
 class TemplatesController < ApplicationController
-  before_action :authenticate_admin!, :set_admin_data
+  before_action :set_admin_data
+  before_action :get_admin_templates
   before_action :set_template_data, only: [:destroy, :edit, :show]
   layout "admin"
 
   def index
-    @templates = Template.where(coordinator_id: @coordinator.id)
+    @templates = Template.where({ coordinator_id: @coordinator.id })
   end
 
   def new
@@ -61,6 +62,8 @@ class TemplatesController < ApplicationController
   def check_for_commit
     # @templates = Template.where(coordinator_id: @coordinator.id)
     case params[:commit]
+    when "add"
+      create
     when "save"
       update
     when "delete"
@@ -71,6 +74,10 @@ class TemplatesController < ApplicationController
   def save_template_data
     # @templates = Template.where(coordinator_id: @coordinator.id)
     @template_name = params[:template][:name] if not params[:template][:name].empty?
+  end
+
+  def get_admin_templates
+    @templates = Template.where(coordinator_id: @coordinator.id)
   end
 
   def set_template_data
