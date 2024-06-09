@@ -9,11 +9,13 @@
         <h2>  Coordenador -  <%= @department.initials%></h2>
         <hr>
         <li>
-          <a href="/import">
-            <i class="fas fa-database"></i>Importar Dados</a>
+          <%= link_to admins_import_path(@admin) do %>
+            <i class="fas fa-database"></i> Importar Dados
+          <% end %>
         </li>
+
         <li>
-          <a href="/classes">
+          <a href="/admins/turmas">
             <i class="fas fa-group"></i>Turmas</a>
         </li>
         <li >
@@ -23,11 +25,11 @@
           </a>
         </li>
         <li>
-          <a href="/dispatch">
+          <a href="/admins/envio">
             <i class="fas fa-share"></i>Envio</a>
         </li>
         <li>
-          <a href="/results">
+          <a href="/admins/resultados">
             <i class="fas fa-chart-bar"></i>Resultados</a>
         </li>
         <li><%= link_to destroy_admin_session_path, data: {turbo_method: :delete} do %>

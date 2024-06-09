@@ -3,11 +3,28 @@ Rails.application.routes.draw do
 
   match "/errors/forbidden", to: "errors#forbidden", via: "get"
 
-  get "/forms", to: "forms#index", via: "get"
-  get "/classes", to: "subject_clasess#index"
-  get "/results", to: "results#index"
-  get "/import", to: "admins#import"
-  get "/dispatch", to: "admins#dispatch"
+  # get "/forms", to: "forms#index", via: "get"
+  # get "/classes", to: "subject_clasess#index"
+  # get "/results", to: "results#index"
+  # get "/import", to: "admins#import"
+  # get "/dispatch", to: "admins#dispatch"
+
+  match '/users/page', to: 'users#page', via: 'get'
+  match '/errors/forbidden', to: 'errors#forbidden', via: 'get'
+
+  match '/users/forms',   to: 'users#form_student', via: 'get'
+  match '/admins/page',   to: 'admins#page', via: 'get'
+  match '/admins/forms', to: 'admins#form_student', via: 'get'
+  match '/admins/resultados', to: 'admins#resultados', via: 'get'
+  match '/admins/templates', to: 'admins#create_template', via: 'get'
+  match '/admins/turmas', to: 'admins#turmas', via: 'get'
+
+  match '/admins/import', to: 'admins#importdata', via: 'get'
+  match '/admins/import', to: 'admins#import', via: 'post', as: 'admins_import_post'
+
+  match '/admins/envio', to: 'forms#new', via: 'get'
+  match '/admins/envio', to: 'admins#envio', via: 'post', as: 'admins_envio_post'
+
 
   resources :templates do
     resources :template_questions

@@ -1,6 +1,11 @@
 require "json"
 
 class AdminsController < ApplicationController
+  layout "admin"
+  before_action :authenticate_admin!
+  before_action :set_admin_data
+
+
   def index
     @admin = Admin.new
     @admin = Admin.all
