@@ -83,8 +83,12 @@ class TemplatesController < ApplicationController
   def set_template_data
     @templates = Template.where(coordinator_id: @coordinator.id)
     @template = Template.find_by_id(params[:id])
-    
-    @template_name = params[:name] || @template.name
-    @questions = TemplateQuestion.where({ template_id: @template.id })
+    if @template
+      @template_name = params[:name] || @template.name
+      @questions = TemplateQuestion.where({ template_id: @template.id })
+    else
+      flash[:alert] = "Não foi possível encontrar o template."
+      redirect_to templates_path
+    end
   end
 end
