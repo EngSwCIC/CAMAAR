@@ -71,7 +71,10 @@ class TemplateQuestionsController < ApplicationController
         redirect_to edit_template_path(@template)
       else
         @errors = @question.errors.full_messages
-        render :new
+
+        puts @errors
+        # render :new
+        redirect_to new_template_template_question_path(@template)
       end
     end
   end

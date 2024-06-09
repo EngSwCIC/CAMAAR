@@ -1,107 +1,43 @@
-<%=@question_type%>
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
-    <!-- Title Page-->
-    <title>Camaar</title>
-    <!-- Fontfaces CSS-->
-    <%= stylesheet_link_tag "font-face.css", media: "all" %>
-    <%= stylesheet_link_tag "font-awesome-4.7/css/font-awesome.min.css", media: "all" %>
-    <%= stylesheet_link_tag "font-awesome-5/css/fontawesome-all.min.css", media: "all" %>
-    <%= stylesheet_link_tag "mdi-font/css/material-design-iconic-font.min.css", media: "all" %>
-    <!-- Bootstrap CSS-->
-    <%= stylesheet_link_tag "bootstrap-4.1/bootstrap.min.css", media: "all" %>
-    <!-- Vendor CSS-->
-    <%= stylesheet_link_tag "animsition/animsition.min.css", media: "all" %>
-    <%= stylesheet_link_tag "bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css", media: "all" %>
-    <%= stylesheet_link_tag "css-hamburgers/hamburgers.min.css", media: "all" %>
-    <%= stylesheet_link_tag "slick/slick.css", media: "all" %>
-    <%= stylesheet_link_tag "select2/select2.min.css", media: "all" %>
-    <%= stylesheet_link_tag "perfect-scrollbar/perfect-scrollbar.css", media: "all" %>
-    <%= stylesheet_link_tag "theme.css", media: "all" %>
-    <%= stylesheet_link_tag "formbold.css", media: "all"%>
-    <!-- Main CSS-->
-  </head>
-  <body>
-    <div class="page-wrapper">
-      <%= render "layouts/admin_sidebar" %>
-      <div class="page-container">
-        <%= render "layouts/header"%>
-        <%=yield%>
-        <div class="main-content">
-          <div class="section__content section__content--p30">
-            <div class="container-fluid">
-              <div class="formbold-form-wrapper">
-                <div class="formbold-mb-5">
-                  <%= form_with method: :get do |f| %>
-                    <div class="form-group row">
-                      <%= f.label :title, "Título:", class: "col-sm-2 col-form-label"%>
-                      <div class="col-sm-10">
-                        <%= f.text_field :title, value:@title,class:"form-control"%>
-                      </div>
-                    </div>
-                    <div>
-                      <%= f.label :question_type, "Tipo de questão:" %>
-                      <%= f.select :question_type, options_for_select([['Selecione', nil], ['Múltipla escolha', 'multiple_choice'], ['Texto', 'text']], selected: @question_type), {}, id: "question_type" %>
-                    </div>
-                    <div id="choices_field" style="display: none;">
-                      <span>
-                        <%= f.label :options_number, "Número de opções:" %>
-                        <%= f.select :options_number, options_for_select(1..5, selected: @options_number), {}, id: "options_number" %>
-                      </span>
-                      <div id="options_fields">
-                        <% 5.times do |i| %>
-                          <div style="display: none;" id="option<%= i %>_field">
-                            <%= f.label "option#{i+1}", "Opção #{i+1}" %>
-                            <%= f.text_field :options, id: "option#{i+1}", name: "options[]", value: @options[i] %>
-                          </div>
-                        <% end %>
-                      </div>
-                    </div>
-                    <br>
-                    <div>
-                      <%= link_to "Cancelar", edit_template_path(@template), class: "btn btn-danger btn-sm", id: 'cancel' %>
-                      <%= f.button "Adicionar", class:"btn btn-success btn-sm",name: "commit", value: "add", id: "add" %>
-                    </div>
-                  <% end %>
-                  <%= @errors %>
+
+ <div class="main-content">
+   <div class="section__content section__content--p30">
+     <div class="container-fluid">
+         <div class="formbold-form-wrapper">
+             <div class="formbold-form-wrapper">
+              <%= form_with method: :get do |f| %>
+               <div class="form-group form-inline">
+                  <%= f.label :title, "Título:" , class: "mr-2"%>
+                  <%= f.text_field :title, id: "question_title", class:"form-control form-control-sm",value: @title %>
                 </div>
+                  <div>
+                  <%= f.label :question_type, "Tipo de questão:" %>
+                  <%= f.select :question_type, options_for_select([['Selecione', nil], ['Múltipla escolha', 'multiple_choice'], ['Texto', 'text']], selected: @question_type), {}, id: "question_type" %>
+                </div>
+                <div id="choices_field" style="display: none;">
+                  <span>
+                    <%= f.label :options_number, "Número de opções:" %>
+                    <%= f.select :options_number, options_for_select(1..5, selected: @options_number), {}, id: "options_number" %>
+                  </span>
+                  <div id="options_fields">
+                    <% 5.times do |i| %>
+                      <div style="displayW: none;" id="option<%= i %>_field">
+                        <%= f.label "option#{i+1}", "Opção #{i+1}" %>
+                        <%= f.text_field :options, class:"form-control",id: "option#{i+1}", name: "options[]", value: @options[i] %>
+                      </div>
+                    <% end %>
+                  </div>
               </div>
-            </div>
-          </div>
+              <br>
+            <div>
+                <%= f.button "Cancelar", class:"btn btn-danger btn-sm",name: "commit", value: "cancel", id: 'cancel' %>
+                <%= f.button "Adicionar", class:"btn btn-success btn-sm",name: "commit", value: "save", id: "add" %>
+                  <%= link_to edit_template_path(@template) do %>
+                    <i class="	fa fa-mail-reply-all"></i>Voltar                    
+                  <% end %>
+              </div>
+            <% end %>
+            <%= @errors %>
+</div>
         </div>
-      </div>
-      <!-- END MAIN CONTENT-->
-    </div>
-  </div>
-  <!-- TEMPLATES JS -->
-  <%= javascript_include_tag "/app/templates.js" %>
-  <!-- Jquery JS-->
-  <%= javascript_include_tag "jquery-3.2.1.min.js" %>
-  <% # <script src="jquery-3.2.1.min.js"></script> %>
-  <!-- Bootstrap JS-->
-  <%= javascript_include_tag "bootstrap-4.1/popper.min.js" %>
-  <%= javascript_include_tag "bootstrap-4.1/bootstrap.min.js" %>
-  <!-- Vendor JS       -->
-  <%= javascript_include_tag "slick/slick.min.js" %>
-  <% # <script src="slick/slick.min.js" %>
-  <% # </script> %>
-  <%= javascript_include_tag "slick/slick.min.js" %>
-  <%= javascript_include_tag "wow/wow.min.js" %>
-  <% # <script src="wow/wow.min.js"></script> %>
-  <%= javascript_include_tag "animsition/animsition.min.js" %>
-  <%= javascript_include_tag "bootstrap-progressbar/bootstrap-progressbar.min.js" %>
-  <%= javascript_include_tag "counter-up/jquery.waypoints.min.js" %>
-  <%= javascript_include_tag "counter-up/jquery.counterup.min.js" %>
-  <%= javascript_include_tag "perfect-scrollbar/perfect-scrollbar.js" %>
-  <%= javascript_include_tag "select2/select2.min.js" %>
-  <!-- Main JS-->
-  <%= javascript_include_tag "main.js" %>
-  <% # <script src="js/main.js"></script> %>
-</body>
+   </div>
+ </div>
