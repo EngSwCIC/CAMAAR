@@ -21,7 +21,7 @@ Feature: Delete a form template
     Scenario: Template was already deleted on another page
         Given that "Template 1" was deleted
         When I press "Delete"
-        Then I expect to see "Não foi possível encontrar o template"
         Then I expect to be on the "Templates" page
+        Then I expect to see "Não foi possível encontrar o template"
         Then I expect to not see "Template 1"
 
