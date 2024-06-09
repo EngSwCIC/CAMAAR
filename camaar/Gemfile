@@ -81,5 +81,5 @@ gem "simplecov"
 gem "simple_form"
 
 
-# gem "gruff"
+gem "gruff"
 # gem "rmagick"
