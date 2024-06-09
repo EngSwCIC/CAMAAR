@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Create a template', type: :feature do
   describe 'admin can create a template' do
-    it 'should create a new template' do
+    it 'should create a new template with a text answer' do
 
 
       department = create(:department)
@@ -20,7 +20,6 @@ RSpec.feature 'Create a template', type: :feature do
       expect(page).to have_content 'Adicionar Template'
       click_button 'Adicionar Template'
       expect(page).to have_content 'Nome do template:'
-      fill_in 'template[name]', with: 'template'
       click_link 'add_question'
 
       expect(page).to have_content 'Título'
@@ -37,9 +36,15 @@ RSpec.feature 'Create a template', type: :feature do
       select('Texto', from: 'question_type')
 
       click_button 'Adicionar'
+      expect(page).to have_content 'Questão 1'
+      fill_in 'template[name]', with: 'test_temp'
       click_button 'Salvar'
 
-      # expect(TemplateQuestion.find_by_id...)
+      expect(Template.where(name: "test_temp").count).to eq(1)
+
+      template = Template.find_by(name: "test_temp")
+
+      expect(TemplateQuestion.find_by(template_id:template.id).question_type).to eq("text")
 
     end
   end
