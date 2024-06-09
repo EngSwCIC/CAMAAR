@@ -1,9 +1,11 @@
 FactoryBot.define do
   factory :materium do
-    sequence(:codigo) { |n| n }
-    sequence(:semestre) { |n| n }
-    nome { Faker::Educator.subject }
-    horario { Faker::Time.forward(days: 23, period: :morning) }
+    codigo { 1 }
+    semestre { 1 }
+    nome { "Matéria Exemplo" }
+    horario {Time.now.utc }
+    created_at {Time.now.utc}
+    updated_at {Time.now.utc}
 
   end
 end

@@ -1,10 +1,10 @@
 class Professor < ApplicationRecord
-  validates :nome, presence: true
-  validates :email, presence: true, uniqueness: true
-  validates :isadmin, inclusion: { in: [true, false] }
+  validates :email, presence: true
   validates :encrypted_password, presence: true
+  validates :nome, presence: true
+  validates :isadmin, inclusion: { in: [true, false] }
+  validates :departamento_id, presence: true
 
   belongs_to :departamento
-  has_many :materium
-  belongs_to :materium
+  has_and_belongs_to_many :materium
 end
