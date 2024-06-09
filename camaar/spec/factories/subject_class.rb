@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :subject_class do
+    id {1}
     semester  {"primeiro"}
     subject {"a"}
     code {"b"}

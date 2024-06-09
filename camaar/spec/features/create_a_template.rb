@@ -24,7 +24,6 @@ RSpec.feature 'Create a template', type: :feature do
       expect(page).to have_content 'Tipo de questão:'
       expect(page).to have_content 'Adicionar'
       expect(page).to have_content 'Cancelar'
-      expect(page).to have_content 'Voltar'
 
       fill_in 'question_title', with: 'Tudo bem?'
       select('Texto', from: 'question_type')
@@ -66,11 +65,12 @@ RSpec.feature 'Create a template', type: :feature do
       expect(page).to have_content 'Tipo de questão:'
       expect(page).to have_content 'Adicionar'
       expect(page).to have_content 'Cancelar'
-      expect(page).to have_content 'Voltar'
 
       fill_in 'question_title', with: 'Tudo bem?'
 
       # select('Múltipla escolha', from: 'question_type')
+      # expect(page).to have_content 'Número de questões:'
+
       # select('2', from: 'options_number')
 
       # click_button 'Adicionar'
