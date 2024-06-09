@@ -6,16 +6,16 @@ Feature: Delete a form template
 
     Background: I am an Coordinator
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
-        When I follow "Templates"
-        Then I should be on the "Templates" page
-        Given that I created the following templates:
-            | Template 1 | teacher |
-        Then I should see "Template 1"
-        When I press "Deletar Template"
-        And I confirm a popup
+        Given I am on the "Templates" page
+        Given I created the template "Template 1"
 
     Scenario: Deleting a template
-        Then I should be on the "Templates" page
+        When I follow "Template 1"
+        Then I expect to be on the "Template 1" page
+        And I expect to see "Excluir"
+        # When I press "Delete"
+        When I delete the template
+        Then I expect to be on the "Templates" page
         Then I should not see "Template 1"
 
     Scenario: Template was already deleted on another page

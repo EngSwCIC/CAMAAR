@@ -19,7 +19,7 @@
             <% end %>
             <%= @errors%>
             <div>
-              <%= f.button 'Excluir', class:"btn btn-danger btn-sm",name: "commit", value: "delete" ,id: "delete" %>
+              <%= f.button 'Excluir', class: "btn btn-danger btn-sm", name: "commit", value: "delete", id: "delete" %>
               <%= link_to "Cancelar", templates_path,class:"btn btn-danger btn-sm",   id: 'cancel' %>
               <%= f.button "Salvar" , class:"btn btn-success btn-sm",name: "commit", value: "save" , id: "save" %>
               <%= link_to "Adicionar questão", new_template_template_question_path(@template), class: "btn btn-primary btn-sm",name: "add_question", id: "add_question" %>
@@ -30,4 +30,10 @@
     </div>
   </div>
 </div>
-</div>
+<script>
+  document.getElementById('delete').addEventListener('click', function(e) {
+    if (!confirm('Você tem certeza?')) {
+      e.preventDefault();
+    }
+  });
+</script>
