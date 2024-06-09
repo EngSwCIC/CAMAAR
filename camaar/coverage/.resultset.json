@@ -1442,7 +1442,7 @@
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/student_answer.rb": {
+      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/teacher_answer.rb": {
         "lines": [
           1,
           1,
@@ -1452,15 +1452,6 @@
       },
       "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/department.rb": {
         "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/student.rb": {
-        "lines": [
-          1,
-          1,
-          1,
           1,
           null
         ]
@@ -2621,7 +2612,18 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/teacher_answer.rb": {
+      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/student.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/student_answer.rb": {
         "lines": [
           0,
           0,
@@ -2671,6 +2673,6 @@
         }
       }
     },
-    "timestamp": 1717958488
+    "timestamp": 1717960732
   }
 }
