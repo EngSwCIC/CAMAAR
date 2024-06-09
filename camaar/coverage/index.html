@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-06-09T15:25:06-03:00">2024-06-09T15:25:06-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-06-09T15:41:28-03:00">2024-06-09T15:41:28-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,7 +23,7 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  7.25%
+  7.2%
 </span>
 
      </span>
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>676</b> relevant lines,
+    <b>681</b> relevant lines,
     <span class="green"><b>49</b> lines covered</span> and
-    <span class="red"><b>627</b> lines missed. </span>
+    <span class="red"><b>632</b> lines missed. </span>
     (<span class="red">
-  7.25%
+  7.2%
 </span>
 )
   </div>
@@ -249,10 +249,10 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#3968cda6b23a55d78bd72810f1e48125cb36ebb9" class="src_link" title="app/controllers/templates_controller.rb">app/controllers/templates_controller.rb</a></td>
             <td class="red strong cell--number t-file__coverage">0.00 %</td>
-            <td class="cell--number">90</td>
-            <td class="cell--number">65</td>
+            <td class="cell--number">94</td>
+            <td class="cell--number">70</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">65</td>
+            <td class="cell--number">70</td>
             <td class="cell--number">0.00</td>
             
           </tr>
@@ -707,9 +707,9 @@
   </div>
 
   <div class="t-line-summary">
-    <b>555</b> relevant lines,
+    <b>560</b> relevant lines,
     <span class="green"><b>0</b> lines covered</span> and
-    <span class="red"><b>555</b> lines missed. </span>
+    <span class="red"><b>560</b> lines missed. </span>
     (<span class="red">
   0.0%
 </span>
@@ -891,10 +891,10 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#3968cda6b23a55d78bd72810f1e48125cb36ebb9" class="src_link" title="app/controllers/templates_controller.rb">app/controllers/templates_controller.rb</a></td>
             <td class="red strong cell--number t-file__coverage">0.00 %</td>
-            <td class="cell--number">90</td>
-            <td class="cell--number">65</td>
+            <td class="cell--number">94</td>
+            <td class="cell--number">70</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">65</td>
+            <td class="cell--number">70</td>
             <td class="cell--number">0.00</td>
             
           </tr>
@@ -8024,9 +8024,9 @@
     
 
     <div class="t-line-summary">
-      <b>65</b> relevant lines.
+      <b>70</b> relevant lines.
       <span class="green"><b>0</b> lines covered</span> and
-      <span class="red"><b>65</b> lines missed.</span>
+      <span class="red"><b>70</b> lines missed.</span>
     </div>
 
     
@@ -8972,13 +8972,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="86">
+          <li class="missed" data-hits="0" data-linenumber="86">
             
             
 
             
 
-            <code class="ruby">    </code>
+            <code class="ruby">    if @template</code>
           </li>
         </div>
       
@@ -8989,7 +8989,7 @@
 
             
 
-            <code class="ruby">    @template_name = params[:name] || @template.name</code>
+            <code class="ruby">      @template_name = params[:name] || @template.name</code>
           </li>
         </div>
       
@@ -9000,7 +9000,7 @@
 
             
 
-            <code class="ruby">    @questions = TemplateQuestion.where({ template_id: @template.id })</code>
+            <code class="ruby">      @questions = TemplateQuestion.where({ template_id: @template.id })</code>
           </li>
         </div>
       
@@ -9011,12 +9011,56 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    else</code>
           </li>
         </div>
       
         <div>
           <li class="missed" data-hits="0" data-linenumber="90">
+            
+            
+
+            
+
+            <code class="ruby">      flash[:alert] = &quot;Não foi possível encontrar o template.&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="91">
+            
+            
+
+            
+
+            <code class="ruby">      redirect_to templates_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="92">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="93">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="94">
             
             
 
