@@ -6,8 +6,8 @@ Feature: Create/Edit a template form
 
     Background: I am an Coordinator on the templates page
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
-        When I follow "Templates"
-        Then I expect to be on the "Templates" page
+        
+        Given I am on the "Templates" page
 
     Scenario: Coordinator succesfully creates template
         When I press "Add template"

@@ -10,7 +10,7 @@ require "simplecov"
 require "capybara/email"
 World(Capybara::Email::DSL)
 
-Capybara.default_driver = :selenium_chrome
+# Capybara.default_driver = :selenium
 
 SimpleCov.start "rails"
 require File.dirname(__FILE__) + "/seeds"

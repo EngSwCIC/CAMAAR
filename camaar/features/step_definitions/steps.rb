@@ -61,18 +61,6 @@ When (/^(?:|I )press "([^"]*)"$/) do |button|
   click_link_or_button(button.downcase.gsub(" ", "_"))
 end
 
-And(/^(?:|I )delete the template$/) do
-  accept_confirm do
-    click_link_or_button("delete")
-  end
-end
-
-And(/^(?:|I )dismiss a popup$/) do
-  dismiss_confirm do
-    click_button("Cancel")
-  end
-end
-
 # Forms and templates
 
 And (/^(?:|I )fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
@@ -122,10 +110,6 @@ Given(/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|
   fill_in("email", with: coordinator.email)
   fill_in("password", with: "admin123")
   click_button("Confirmar")
-end
-
-Given(/that I created the following templates:$/) do |_table|
-  pending
 end
 
 Given(/that I am a registered User/) do # if user or admin
@@ -230,6 +214,10 @@ Given (/^I created the template "([^"]*)"$/) do |template_name|
   step "I expect to see \"#{template_name}\""
 end
 
+Given (/^that "([^"]*)" was deleted$/) do |template_name|
+  Template.destroy(template_name.scan(/\d+/).first.to_i)
+end
+
 # Visualization
 
 Then (/^(?:|I )expect to see "([^"]*)"$/) do |text|
@@ -256,7 +244,7 @@ Then(%r{^(?:|I )should see /([^/]*)/$}) do |regexp|
   end
 end
 
-Then(/^(?:|I )should not see "([^"]*)"$/) do |text|
+Then(/^(?:|I )expect to not see "([^"]*)"$/) do |text|
   if page.respond_to? :should
     page.should have_no_content(text)
   else

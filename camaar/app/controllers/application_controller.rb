@@ -8,17 +8,17 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def set_admin_data
+    @coordinator = Coordinator.find_by({ email: current_admin.email })
+    @department = Department.find_by_id(@coordinator.department_id) if @coordinator
+  end
+
   def configure_permitted_parameters
     added_attrs = %i[username email password password_confirmation remember_me]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :sign_in, keys: %i[email password]
     devise_parameter_sanitizer.permit :define, keys: [:email]
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
-  end
-
-  def set_admin_data
-    @coordinator = Coordinator.find_by({ email: current_admin.email })
-    @department = Department.find_by_id(@coordinator.department_id) if @coordinator
   end
 
   def set_return_to
