@@ -1,5 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe Teacher, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'é válido com atributos válidos e FKS existentes' do
+    department = create(:department)
+    admin = create(:admin)
+    user1 = create(:user, :user1)
+    user2 = create(:user,:user2)
+    user3 = create(:user, :user3)
+    user4 = create(:user,:user4)
+    user5 = create(:user,:user5)
+    coordinator = create(:coordinator)
+    teacher = create(:teacher)
+    expect(teacher).to be_valid
+  end
+
+  it 'é inválido sem FKS existentes' do
+    teacher = build(:teacher)
+    expect(teacher).to_not be_valid
+  end
 end
