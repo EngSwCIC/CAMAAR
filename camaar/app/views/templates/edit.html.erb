@@ -2,36 +2,32 @@
   <div class="section__content section__content--p30">
     <div class="container-fluid">
       <div class="formbold-form-wrapper">
-        <div class="formbold-form-wrapper>
-              <%=form_with method: :get, model: @template do |f|%>
-              
-              <div class="form-group form-inline">
-                <%= f.label :name, "Nome do template:" , class: "mr-2"%>
-                <%= f.text_field :name, class: "form-control form-control-sm",id: "name", value: @template.name %>
-              </div>
-
-              <% if @questions %>
-                <div>
-                  <% @questions.each_with_index do |question,index| %>
-                    <h2><%= %"Questão #{index+1}"%></h2>
-                    <%= render "/template_questions/show", question: question %>
-                    <br>
-                  <% end %>
-                </div>
-              <% end %>
-              <%= @errors%>
-              <div>
-                <%= f.button 'Excluir', class:"btn btn-danger btn-sm",name: "commit", value: "delete" ,id: "delete" %>
-                <%= link_to "Cancelar", templates_path,class:"btn btn-danger btn-sm",   id: 'cancel' %>
-                <%= f.button "Salvar" , class:"btn btn-success btn-sm",name: "commit", value: "save" , id: "save" %>
-                <%= link_to "Adicionar questão", new_template_template_question_path(@template), class: "btn btn-primary btn-sm",name: "add_question", id: "add_question" %>
-
-              </div>
-
-              <% end %>
+        <div class="formbold-form-wrapper">
+          <%=form_with method: :get, model: @template do |f|%>
+            <div class="form-group form-inline">
+              <%= f.label :name, "Nome do template:" , class: "mr-2"%>
+              <%= f.text_field :name, class: "form-control form-control-sm",id: "name", value: @template.name %>
             </div>
+            <% if @questions %>
+              <div>
+                <% @questions.each_with_index do |question,index| %>
+                  <h2><%= %"Questão #{index+1}"%></h2>
+                  <%= render "/template_questions/show", question: question %>
+                  <br>
+                <% end %>
+              </div>
+            <% end %>
+            <%= @errors%>
+            <div>
+              <%= f.button 'Excluir', class:"btn btn-danger btn-sm",name: "commit", value: "delete" ,id: "delete" %>
+              <%= link_to "Cancelar", templates_path,class:"btn btn-danger btn-sm",   id: 'cancel' %>
+              <%= f.button "Salvar" , class:"btn btn-success btn-sm",name: "commit", value: "save" , id: "save" %>
+              <%= link_to "Adicionar questão", new_template_template_question_path(@template), class: "btn btn-primary btn-sm",name: "add_question", id: "add_question" %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
