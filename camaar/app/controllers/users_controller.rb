@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  # before_filter :require_user, :only => [:show]
+  # before_action :authenticate_user!
+  # before_action :set_user_data
 
   def index
     @user = User.new

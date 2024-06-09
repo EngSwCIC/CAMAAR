@@ -18,6 +18,7 @@ RSpec.feature 'Export Graph', type: :feature do
 
       coordinator = create(:coordinator)
       template = create (:template)
+      template_questions = create(:template_questions)
 
       subject_class1 = create(:subject_class)
 

@@ -1,20 +1,39 @@
 <div class="main-content">
-  <div class="section__content section__content--p30">
-    <div class="container-fluid">
-      <div class="formbold-form-wrapper">
-        <div class="template-links">
-          <% @templates.each do |template| %>
-            <% if template.draft %>
-              <%= link_to template.name, edit_template_path(template), class:"btn btn-success btn-sm template-link" %>
-            <% else %>
-              <%= link_to template.name, edit_template_path(template), class:"btn btn-success btn-sm template-link" %>
-            <% end %>
-          <% end %>
+    <div class="section__content section__content--p30">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="overview-wrap">
+              <h2 class="title-1">Templates Criados</h2>
+              <%= button_to "Adicionar Template", "templates/new", method: :get, id: "add_template", class: "au-btn au-btn-icon au-btn--blue" %>
+            </div>
+          </div>
         </div>
-        <div class="button-wrapper">
-          <%= button_to "Adicionar Template", "templates/new", method: :get, id: "add_template", class: "au-btn au-btn-icon au-btn--blue" %>
+         
+        <div class="row m-t-25">
+          <% @templates.each do |template| %>
+            <div class="col-sm-6 col-lg-3">
+              <div class="overview-item overview-item--c2">
+                <div class="overview__inner">
+                  <div class="overview-box clearfix">
+                    <div class="text">
+                      <% if template.draft %>
+                        <%= link_to template.name, edit_template_path(template) , class: "template-link"%>
+                      <% else %>
+                        <%= link_to template.name, edit_template_path(template) , class: "template-link" %>
+                      <% end %>
+                      <div class="icons-container">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-download"></i>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
-</div>
+  

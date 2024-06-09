@@ -1,38 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
-    <!-- Title Page-->
-    <title>Camaar</title>
-    <!-- Fontfaces CSS-->
-    <%= stylesheet_link_tag "font-face.css", media: "all" %>
-    <%= stylesheet_link_tag "font-awesome-4.7/css/font-awesome.min.css", media: "all" %>
-    <%= stylesheet_link_tag "font-awesome-5/css/fontawesome-all.min.css", media: "all" %>
-    <%= stylesheet_link_tag "mdi-font/css/material-design-iconic-font.min.css", media: "all" %>
-    <!-- Bootstrap CSS-->
-    <%= stylesheet_link_tag "bootstrap-4.1/bootstrap.min.css", media: "all" %>
-    <!-- Vendor CSS-->
-    <%= stylesheet_link_tag "animsition/animsition.min.css", media: "all" %>
-    <%= stylesheet_link_tag "bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css", media: "all" %>
-    <%= stylesheet_link_tag "css-hamburgers/hamburgers.min.css", media: "all" %>
-    <%= stylesheet_link_tag "slick/slick.css", media: "all" %>
-    <%= stylesheet_link_tag "select2/select2.min.css", media: "all" %>
-    <%= stylesheet_link_tag "perfect-scrollbar/perfect-scrollbar.css", media: "all" %>
-    <%= stylesheet_link_tag "theme.css", media: "all" %>
-    <%= stylesheet_link_tag "formbold.css", media: "all"%>
-    <!-- Main CSS-->
-  </head>
-  <body>
-    <div class="page-wrapper">
-      <%= render "layouts/admin_sidebar" %>
-      <div class="page-container">
-        <%= render "layouts/header"%>
-        <%=yield%>
+
         <div class="main-content">
           <div class="section__content section__content--p30">
             <div class="container-fluid">
@@ -77,30 +43,4 @@
         </div>
       </div>
       <!-- END MAIN CONTENT-->
-    </div>
-  </div>
-  <!-- TEMPLATES JS -->
-  <%= javascript_include_tag "/app/templates.js" %>
-  <!-- Jquery JS-->
-  <%= javascript_include_tag "jquery-3.2.1.min.js" %>
-  <% # <script src="jquery-3.2.1.min.js"></script> %>
-  <!-- Bootstrap JS-->
-  <%= javascript_include_tag "bootstrap-4.1/popper.min.js" %>
-  <%= javascript_include_tag "bootstrap-4.1/bootstrap.min.js" %>
-  <!-- Vendor JS       -->
-  <%= javascript_include_tag "slick/slick.min.js" %>
-  <% # <script src="slick/slick.min.js" %>
-  <% # </script> %>
-  <%= javascript_include_tag "slick/slick.min.js" %>
-  <%= javascript_include_tag "wow/wow.min.js" %>
-  <% # <script src="wow/wow.min.js"></script> %>
-  <%= javascript_include_tag "animsition/animsition.min.js" %>
-  <%= javascript_include_tag "bootstrap-progressbar/bootstrap-progressbar.min.js" %>
-  <%= javascript_include_tag "counter-up/jquery.waypoints.min.js" %>
-  <%= javascript_include_tag "counter-up/jquery.counterup.min.js" %>
-  <%= javascript_include_tag "perfect-scrollbar/perfect-scrollbar.js" %>
-  <%= javascript_include_tag "select2/select2.min.js" %>
-  <!-- Main JS-->
-  <%= javascript_include_tag "main.js" %>
-  <% # <script src="js/main.js"></script> %>
-</body>
+ 
