@@ -1,0 +1,16 @@
+<%= turbo_frame_tag "question_#{form.index}" do %>
+  <%= form.hidden_field :id %>
+
+  <div>
+    <br>
+    <%= form.label :text, "Questão:", style: "display: block" %>
+    <%= form.text_field :text %>
+
+
+    <%= form.submit "Deletar questão",
+                    formaction: question_path(form.index, form.object.id),
+                    formmethod: :delete,
+                    formnovalidate: true,
+                    data: { turbo_frame: "question_#{form.index}" } %>
+<% end %>
+</div>
