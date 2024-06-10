@@ -1,0 +1,7 @@
+<h1>Home page</h1>
+<p>
+    <%='Olá, '+current_user.nome%>
+</p>
+<% if user_signed_in? %>
+    <%= link_to 'Deslogar', destroy_user_session_path, data: { turbo_method: :delete }%>
+<% end %>
