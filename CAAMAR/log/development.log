@@ -1497,3 +1497,113 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 3377)
 
 
+Started GET "/home/index" for ::1 at 2024-06-10 17:31:48 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 202)
+  Rendered layout layouts/application.html.erb (Duration: 71.8ms | Allocations: 47226)
+Completed 200 OK in 85ms (Views: 74.1ms | ActiveRecord: 0.0ms | Allocations: 51328)
+
+
+Started GET "/main/index" for ::1 at 2024-06-10 17:31:53 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered main/index.erb within layouts/application (Duration: 0.4ms | Allocations: 84)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1660)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 2123)
+
+
+Started GET "/main/index" for ::1 at 2024-06-10 17:34:11 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered main/index.erb within layouts/application (Duration: 0.3ms | Allocations: 115)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 18772)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 19684)
+
+
+Started GET "/main/index" for ::1 at 2024-06-10 17:34:28 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered main/index.erb within layouts/application (Duration: 0.1ms | Allocations: 102)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 18588)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 19498)
+
+
+Started GET "/main/index" for ::1 at 2024-06-10 17:35:28 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered main/index.erb within layouts/application (Duration: 0.3ms | Allocations: 116)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 18765)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 19676)
+
+
+Started GET "/main/index" for ::1 at 2024-06-10 17:35:44 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered main/index.erb within layouts/application (Duration: 0.1ms | Allocations: 117)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 18586)
+Completed 200 OK in 8ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 19493)
+
+
+Started GET "/main/index" for ::1 at 2024-06-10 17:35:55 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered main/index.erb within layouts/application (Duration: 0.2ms | Allocations: 114)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 18764)
+Completed 200 OK in 14ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 19675)
+
+
+Started GET "/main/index" for ::1 at 2024-06-10 17:36:15 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered main/index.erb within layouts/application (Duration: 0.1ms | Allocations: 118)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 18645)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 19552)
+
+
+Started GET "/main/index" for ::1 at 2024-06-10 17:37:32 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered main/index.erb within layouts/application (Duration: 0.1ms | Allocations: 105)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 18646)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 19556)
+
+
+Started GET "/main/index" for ::1 at 2024-06-10 17:45:15 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered main/index.erb within layouts/application (Duration: 0.2ms | Allocations: 210)
+  Rendered layout layouts/application.html.erb (Duration: 78.0ms | Allocations: 51313)
+Completed 200 OK in 84ms (Views: 80.2ms | ActiveRecord: 0.0ms | Allocations: 55418)
+
+
+Started GET "/main/index" for ::1 at 2024-06-10 17:45:31 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered main/index.erb within layouts/application (Duration: 0.2ms | Allocations: 133)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 18840)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 19752)
+
+
+Started GET "/main/index" for ::1 at 2024-06-10 17:46:31 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered main/index.erb within layouts/application (Duration: 0.3ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 4312)
+Completed 200 OK in 25ms (Views: 22.7ms | ActiveRecord: 0.0ms | Allocations: 4565)
+
+
