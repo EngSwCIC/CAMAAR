@@ -1,21 +1,13 @@
-Feature: Password Reset
+Feature: Set Password from Registration Email
 
-  Scenario: Request password reset
-    Given I am on the login page
-    When I request to reset my password
+  Scenario: Set password from registration email
+    Given I am a User who has been notified to register myself by an email
+    When I click on the registration link in the email
     Then I should be redirected to the forgot_password page
-    And I enter my email address
-    And I submit the password reset request
-    Then I should receive an email with instructions
-    And I should be redirected to the token_forgot_password_page
-  
-  Scenario: Reset password with non-existent email
-    Given I am on the login page
-    When I request to reset my password
-    Then I should be redirected to the forgot_password page
-    And I enter a fake email address
-    And I submit the password reset request
-    Then I should see an error message
+    And I should enter my email address
+    And I should submit the password reset request
+    Then I should receive an email with registration instructions
+    And  I should be redirected totoken_forgot_password_page
 
   Scenario: Reset password with correct code
     Given I have received a password reset email with a code

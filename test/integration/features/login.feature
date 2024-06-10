@@ -4,7 +4,7 @@ Feature: Access System with Email or Registration Number and Password
     Given I am on the login page
     When I enter my email
     And I enter my password
-    And I click the "Login" button
+    And I click on the "Login" button
     Then I should be logged in to the system
 
   Scenario: Log in with registration number and password
