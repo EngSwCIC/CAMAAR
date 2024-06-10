@@ -1,5 +1,5 @@
 class Aluno < User
-  belongs_to :turma, class_name: "turma", foreign_key: "turma_id"
+  has_and_belongs_to_many :turma
 
   validates :nome, presence: true
   validates :senha, presence: true

@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-
+  #cria rotas para os métodos nos controllers de formulários, templates, alunos e turmas
+  resources :formularios
+  resources :templates
+  resources :alunos
+  resources :turmas
 
   # não sei para que isso serve exatamente, mas parece que é
   # para que o devise saiba que existem 2 tipos de users diferentes

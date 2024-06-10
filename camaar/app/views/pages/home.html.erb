@@ -21,32 +21,21 @@
   </div>
 
   <div class="assessments-container">
-    <div class="assessments-box">
-      <div class="subject-name">Nome da matéria</div>
-      <div class="semester">semestre</div>
-      <div class="professor">Professor</div>
-    </div>
-    <div class="assessments-box">
-      <div class="subject-name">Nome da matéria</div>
-      <div class="semester">semestre</div>
-      <div class="professor">Professor</div>
-    </div>
-    <div class="assessments-box">
-      <div class="subject-name">Nome da matéria</div>
-      <div class="semester">semestre</div>
-      <div class="professor">Professor</div>
-    </div>
-    <div class="assessments-box">
-      <div class="subject-name">Nome da matéria</div>
-      <div class="semester">semestre</div>
-      <div class="professor">Professor</div>
-    </div>
-    <div class="assessments-box">
-      <div class="subject-name">Nome da matéria</div>
-      <div class="semester">semestre</div>
-      <div class="professor">Professor</div>
-    </div>
+    <% current_user.turmas.each do |turma| %>
+      <% turma.formulario.each do |formulario| %>
+        <% if Date.today < formulario.dataDeTermino %>
+          <%= link_to formulario_path(formulario) do %>
+            <div class="assessments-box">
+              <div class="subject-name"><%= turma.nome_materia %></div>
+              <div class="semester"><%= turma.semestre %></div>
+              <div class="professor"><%= turma.nome_professor %></div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
+    
 </div>
 
 </body>
