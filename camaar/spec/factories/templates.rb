@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :template do
-    nome { "MyString" }
+    nome { "Template A" }
   end
 end
