@@ -1,14 +1,10 @@
-  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+Started GET "/" for 127.0.0.1 at 2024-06-10 18:22:11 -0300
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
   [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
-  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-05-31 20:17:47.319648', '2024-05-31 20:17:47.319651') RETURNING "key"[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Started GET "/" for 127.0.0.1 at 2024-05-31 17:17:58 -0300
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by Rails::WelcomeController#index as HTML
   Rendering /var/lib/gems/3.1.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb
   Rendered /var/lib/gems/3.1.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | Allocations: 383)
-Completed 200 OK in 9ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 7688)
+Completed 200 OK in 25ms (Views: 5.6ms | ActiveRecord: 0.0ms | Allocations: 7678)
 
 
