@@ -3,11 +3,11 @@
                     <div class="container-fluid">
 
     <div class="formbold-form-wrapper">
-                          <h1><%= @form.id %> </h1>
+                          <h1><%= @form.name %> </h1>
 
       <form action="http://localhost:3000/layouts/page" method="GET">
 
-      <% if @form_question.question_type == "multiple-choice"%>
+      <% if @form_question.question_type == "multiple_choice"%>
         <div class="formbold-mb-5">
           <label for="qusTwo" class="formbold-form-label">
             Avalie CIC0197

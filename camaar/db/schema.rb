@@ -68,6 +68,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_06_181536) do
   create_table "forms", force: :cascade do |t|
     t.string "role", default: "student"
     t.boolean "open", default: false
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "coordinator_id", null: false

@@ -17,7 +17,7 @@ FactoryBot.define do
     end
 
     trait :user4 do
-      email { 'test4@gmail.com' }
+      email { 'peluticaio@gmail.com' }
     end
 
     trait :user5 do
