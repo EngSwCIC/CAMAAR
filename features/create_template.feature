@@ -7,7 +7,7 @@ Feature: Create Template
     Background:
         Given I am logged in as an admin user 
         And the stored data is up to date
-	      And I am on the templates page
+        And I am on the templates page
 
     Scenario: Create a valid template
         Given I have no templates
