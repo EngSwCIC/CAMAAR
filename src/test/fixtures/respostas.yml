@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_questao: 1
+  id_formulario: 1
+  id_usuario: 1
+  resposta: MyText
+
+two:
+  id_questao: 1
+  id_formulario: 1
+  id_usuario: 1
+  resposta: MyText

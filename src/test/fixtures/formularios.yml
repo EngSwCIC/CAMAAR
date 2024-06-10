@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigo: MyString
+  turma: MyString
+  isRespondido: false
+
+two:
+  codigo: MyString
+  turma: MyString
+  isRespondido: false
