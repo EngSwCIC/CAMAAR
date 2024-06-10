@@ -10,12 +10,13 @@ RSpec.describe 'Sistema de login', type: :system do
   it 'Login bem-sucedido' do
     visit login_path
 
-    fill_in 'username', with: 'email@aluno.unb.br'
-    fill_in 'password', with: 'password'
+    fill_in 'username', with: "email@aluno.unb.br"
+    fill_in 'password', with: "password"
     click_button 'Entrar'
 
     expect(page).to have_content('Welcome, user!')
   end
+
 
   it 'Falha no login com credenciais inválidas' do
     visit login_path
