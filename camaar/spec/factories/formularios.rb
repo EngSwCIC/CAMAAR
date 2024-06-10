@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :formulario do
     nome { "MyString" }
-    turma { nil }
-    template { nil }
+    turma { association :turma}
+    template { association :template}
   end
 end

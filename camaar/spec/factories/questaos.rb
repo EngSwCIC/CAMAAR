@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :questao do
     texto { "MyString" }
-    formulario { nil }
-    template { nil }
+    formulario { association :formulario}
+    template { association :template}
   end
 end
