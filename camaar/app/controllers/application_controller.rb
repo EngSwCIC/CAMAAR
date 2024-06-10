@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(_resource)
     if admin_signed_in? # Assuming there is such a function
       # admins_page_path
-      "/templates"
+      templates_path
     elsif user_signed_in?
       "/users/page"
     else

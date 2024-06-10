@@ -62,7 +62,7 @@ When (/^(?:|I )press "([^"]*)"$/) do |button|
 end
 
 When(/I click on "Confirmar"/) do
-  click_button('Confirmar')
+  click_button("Confirmar")
 end
 
 # Forms and templates
@@ -118,10 +118,10 @@ end
 
 Given(/that I am a registered User/) do # if user or admin
   User.create!({
-    email: 'mholanda@unb.br',
-    password: 'professor123',
-    password_confirmation: 'professor123',
-    confirmed_at: Time.now.utc
+    email: "mholanda@unb.br",
+    password: "professor123",
+    password_confirmation: "professor123",
+    confirmed_at: Time.now.utc,
   })
 end
 
@@ -271,26 +271,26 @@ And("I should only see classes starting with {string}") do |_string|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then(/I should see the button "([^"]*)" on "([^"]*)"$/) do |_button, _element|
+Then(/I expect to see the button "([^"]*)" on "([^"]*)"$/) do |_button, _element|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then(/I should see the following forms as ([^"]*):$/) do |_status, _table|
+Then(/I expect to see the following forms as ([^"]*):$/) do |_status, _table|
   # table is a Cucumber::MultilineArgument::DataTable
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-And("I should see the following classes:") do |_table|
+And("I expect to see the following classes:") do |_table|
   # table is a Cucumber::MultilineArgument::DataTable
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then("I should see the following templates:") do |_table|
+Then("I expect to see the following templates:") do |_table|
   # table is a Cucumber::MultilineArgument::DataTable
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then("I should see the following results:") do |_table|
+Then("I expect to see the following results:") do |_table|
   # table is a Cucumber::MultilineArgument::DataTable
   pending # Write code here that turns the phrase above into concrete actions
 end

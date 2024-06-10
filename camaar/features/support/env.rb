@@ -15,8 +15,11 @@ end
 
 Before do
   DatabaseCleaner.start
+  DatabaseCleaner.clean
+  Rails.application.load_seed
 end
 
 After do |scenario|
+ 
   DatabaseCleaner.clean
 end

@@ -6,7 +6,6 @@ Feature: Create/Edit a template form
 
     Background: I am an Coordinator on the templates page
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
-        
         Given I am on the "Templates" page
 
     Scenario: Coordinator succesfully creates template

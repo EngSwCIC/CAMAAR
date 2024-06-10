@@ -20,13 +20,13 @@ Feature: Reset Password
         Then I expect to be on the "Redefinir Senha Usuario" page
         When I fill in the following:
             | password  | professor123 |
-            | password2 | professor123  |
+            | password2 | professor123 |
         When I click on "Confirmar"
 
         Then I expect to be on the "Users Login" page
         When I fill in the following:
-            | email    | mholanda@unb.br|
-            | password | professor123 |
+            | email    | mholanda@unb.br |
+            | password | professor123    |
         When I click on "Confirmar"
         Then I expect to be on the "User Camaar" page
         And I expect to see "Maristela"
@@ -38,4 +38,4 @@ Feature: Reset Password
         Then I expect to see "Insira seu email para redefinição"
         When I fill in "Email" with "notregistered@gmail.com"
         And I click on "Confirmar"
-        # Then I should see "Usuário não está Registrado"
+# Then I expect to see "Usuário não está Registrado"

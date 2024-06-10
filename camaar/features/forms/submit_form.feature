@@ -14,12 +14,12 @@ Feature: Submit form answers
         Given I am an authenticated User
         When I follow "Formulários"
         Then I should be on the "Formulários" page
-        Then I should see the following forms as pending:
+        Then I expect to see the following forms as pending:
             | CIC0097 | 2021.2 | TA |
         When I follow "Formulário 1"
         Then I should be on the "Formulário 1" page
 
-        Then I should see the following:
+        Then I expect to see the following:
             | Formulário 1 |
             | Questão 1    |
             | Questão 2    |
@@ -28,21 +28,21 @@ Feature: Submit form answers
         When I press "Enviar"
         And I confirm a popup
         Then I should be on the "Formulários" page
-        And I should see the following forms as answered:
+        And I expect to see the following forms as answered:
             | CIC0097 | 2021.2 | TA |
 
-     Scenario: User can't submit a form
+    Scenario: User can't submit a form
         Given I am an authenticated User
         When I follow "Formulários"
         Then I should be on the "Formulários" page
         Then I should no forms as pending
         And I should not be able to submit a form
 
-     Scenario: Student views forms questions
+    Scenario: Student views forms questions
         Given I am enrolled in a class "<TP1>"
         When I click on the associated form with ID "<TP1>"
         Then I should be on the page for form "<TP1>"
-        And I should see all the questions to be answered.
+        And I expect to see all the questions to be answered.
 
         Examples:
             | TP1     |
