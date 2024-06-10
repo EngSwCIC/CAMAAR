@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :materium do
+  factory :materia do
     codigo { "MyString" }
     nome { "MyString" }
   end
