@@ -16,6 +16,8 @@
     <%= form.text_field :title %>
   </div>
 
+  <br>
+
   <div id="questions">
     <%= form.fields_for :questions do |question_form| %>
       <%= render "questions/form", form: question_form %>
