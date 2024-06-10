@@ -1,0 +1,799 @@
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 09:41:45 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 977.4ms | Allocations: 104326)
+  Rendered layout layouts/application.html.erb (Duration: 991.8ms | Allocations: 118726)
+Completed 200 OK in 1028ms (Views: 1000.1ms | ActiveRecord: 0.0ms | Allocations: 123261)
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 09:41:46 -0300
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 09:41:46 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 09:41:46 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 09:41:46 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 09:41:46 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 09:41:46 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 09:41:46 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 09:41:46 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 09:41:46 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 09:41:46 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 09:41:46 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 09:41:47 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:65421/home
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 448)
+Started GET "/home" for 127.0.0.1 at 2024-06-10 09:41:47 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1801)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 2507)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 2829)
+Started GET "/assets/listar_menu-aff92fa079550a6ac3e334f1198cb3e288d41a9beaf55633167ee86c654a9883.svg" for 127.0.0.1 at 2024-06-10 09:41:47 -0300
+Started GET "/assets/user_img-c166ed1cba9b43832e2f10da2c5d6b84173f02580b4a9f8c95ba8f27c9be8359.svg" for 127.0.0.1 at 2024-06-10 09:41:47 -0300
+Started GET "/assets/lupa_pesquisa-1055510cf188ae64ee205dc3ec57381924eddfc5dd8d77d6085e95a142887f3f.svg" for 127.0.0.1 at 2024-06-10 09:41:47 -0300
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 09:44:23 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 82.8ms | Allocations: 25157)
+  Rendered layout layouts/application.html.erb (Duration: 99.0ms | Allocations: 40824)
+Completed 200 OK in 124ms (Views: 108.1ms | ActiveRecord: 0.0ms | Allocations: 45372)
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:65456/home
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 448)
+Started GET "/home" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2339)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3041)
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 3362)
+Started GET "/assets/listar_menu-aff92fa079550a6ac3e334f1198cb3e288d41a9beaf55633167ee86c654a9883.svg" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+Started GET "/assets/lupa_pesquisa-1055510cf188ae64ee205dc3ec57381924eddfc5dd8d77d6085e95a142887f3f.svg" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+Started GET "/assets/user_img-c166ed1cba9b43832e2f10da2c5d6b84173f02580b4a9f8c95ba8f27c9be8359.svg" for 127.0.0.1 at 2024-06-10 09:44:24 -0300
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 09:44:27 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1250)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 1952)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms | Allocations: 2180)
+Started POST "/login" for 127.0.0.1 at 2024-06-10 09:44:27 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 1351)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 09:47:42 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 66.8ms | Allocations: 25020)
+  Rendered layout layouts/application.html.erb (Duration: 83.0ms | Allocations: 40687)
+Completed 200 OK in 109ms (Views: 92.8ms | ActiveRecord: 0.0ms | Allocations: 45223)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 09:47:42 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 09:47:42 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 09:47:42 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 09:47:42 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 09:47:42 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 09:47:42 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 09:47:42 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 09:47:42 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 09:47:42 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 09:47:42 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 09:47:42 -0300
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 09:47:45 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1257)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1959)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 2189)
+Started POST "/login" for 127.0.0.1 at 2024-06-10 09:47:45 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 1564)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 64.9ms | Allocations: 25050)
+  Rendered layout layouts/application.html.erb (Duration: 81.3ms | Allocations: 40717)
+Completed 200 OK in 107ms (Views: 90.9ms | ActiveRecord: 0.0ms | Allocations: 45253)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:49170/home
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 448)
+Started GET "/home" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2339)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3041)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.0ms | Allocations: 3364)
+Started GET "/assets/listar_menu-aff92fa079550a6ac3e334f1198cb3e288d41a9beaf55633167ee86c654a9883.svg" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Started GET "/assets/user_img-c166ed1cba9b43832e2f10da2c5d6b84173f02580b4a9f8c95ba8f27c9be8359.svg" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+Started GET "/assets/lupa_pesquisa-1055510cf188ae64ee205dc3ec57381924eddfc5dd8d77d6085e95a142887f3f.svg" for 127.0.0.1 at 2024-06-10 09:51:58 -0300
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 09:52:09 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1262)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1968)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 2197)
+Started POST "/login" for 127.0.0.1 at 2024-06-10 09:52:09 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 922)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 09:53:27 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 70.0ms | Allocations: 25127)
+  Rendered layout layouts/application.html.erb (Duration: 92.6ms | Allocations: 40794)
+Completed 200 OK in 118ms (Views: 101.7ms | ActiveRecord: 0.0ms | Allocations: 45330)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 09:53:28 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 09:53:28 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 09:53:28 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 09:53:28 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 09:53:28 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 09:53:28 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 09:53:28 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 09:53:28 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 09:53:28 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 09:53:28 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 09:53:28 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 09:53:28 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 182)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 09:53:29 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1255)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1957)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 2185)
+Started POST "/login" for 127.0.0.1 at 2024-06-10 09:53:29 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 1087)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 09:57:43 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 59.0ms | Allocations: 25200)
+  Rendered layout layouts/application.html.erb (Duration: 80.6ms | Allocations: 40888)
+Completed 200 OK in 107ms (Views: 90.4ms | ActiveRecord: 0.0ms | Allocations: 45424)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 09:57:43 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 09:57:43 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 09:57:43 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 09:57:43 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 09:57:43 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 09:57:43 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 09:57:43 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 09:57:43 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 09:57:44 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 09:57:44 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 09:57:44 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 09:57:44 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:49233/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 447)
+Started GET "/" for 127.0.0.1 at 2024-06-10 09:57:44 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1254)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1956)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 2218)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 09:57:54 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1261)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1967)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 2193)
+Started POST "/login" for 127.0.0.1 at 2024-06-10 09:57:55 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 923)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:13:49 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 66.9ms | Allocations: 25034)
+  Rendered layout layouts/application.html.erb (Duration: 83.3ms | Allocations: 40701)
+Completed 200 OK in 111ms (Views: 92.7ms | ActiveRecord: 0.0ms | Allocations: 45237)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 10:13:50 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 10:13:50 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 10:13:50 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 10:13:50 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 10:13:50 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 10:13:50 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 10:13:50 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 10:13:50 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 10:13:50 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 10:13:50 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 10:13:50 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:13:50 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:49714/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 446)
+Started GET "/" for 127.0.0.1 at 2024-06-10 10:13:50 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1258)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1960)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 2223)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:17:24 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 81.6ms | Allocations: 25506)
+  Rendered layout layouts/application.html.erb (Duration: 103.6ms | Allocations: 41183)
+Completed 200 OK in 130ms (Views: 112.9ms | ActiveRecord: 0.0ms | Allocations: 45719)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 10:17:24 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 10:17:24 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 10:17:24 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 10:17:24 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 10:17:24 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 10:17:24 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 10:17:24 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 10:17:24 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 10:17:25 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 10:17:25 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 10:17:25 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:17:25 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:49759/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 303)
+Started GET "/" for 127.0.0.1 at 2024-06-10 10:17:25 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 8.5ms | Allocations: 2636)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 3338)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 3600)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:18:20 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 65.1ms | Allocations: 25437)
+  Rendered layout layouts/application.html.erb (Duration: 86.5ms | Allocations: 41110)
+Completed 200 OK in 112ms (Views: 95.5ms | ActiveRecord: 0.0ms | Allocations: 45646)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 10:18:20 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 10:18:20 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 10:18:20 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 10:18:20 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 10:18:20 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 10:18:20 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 10:18:20 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 10:18:20 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 10:18:21 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 10:18:21 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 10:18:21 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:18:21 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:49779/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 303)
+Started GET "/" for 127.0.0.1 at 2024-06-10 10:18:21 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2639)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 3341)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 3603)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:18:45 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 83.4ms | Allocations: 25534)
+  Rendered layout layouts/application.html.erb (Duration: 98.9ms | Allocations: 41201)
+Completed 200 OK in 125ms (Views: 107.9ms | ActiveRecord: 0.0ms | Allocations: 45737)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 10:18:45 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 10:18:45 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 10:18:45 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 10:18:45 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 10:18:45 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 10:18:45 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 10:18:45 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 10:18:45 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 10:18:45 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 10:18:45 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 10:18:45 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:18:46 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:49821/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 303)
+Started GET "/" for 127.0.0.1 at 2024-06-10 10:18:46 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2651)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 3353)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 3616)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:23:05 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 66.3ms | Allocations: 25421)
+  Rendered layout layouts/application.html.erb (Duration: 82.5ms | Allocations: 41088)
+Completed 200 OK in 107ms (Views: 91.5ms | ActiveRecord: 0.0ms | Allocations: 45624)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 10:23:05 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 10:23:05 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 10:23:05 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 10:23:05 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 10:23:05 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 10:23:05 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 10:23:05 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 10:23:05 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 10:23:06 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 10:23:06 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 10:23:06 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:23:06 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:49897/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 303)
+Started GET "/" for 127.0.0.1 at 2024-06-10 10:23:06 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 9.9ms | Allocations: 2634)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 3336)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 3597)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:23:06 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1336)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2038)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 2266)
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:23:07 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 923)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:26:26 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 64.3ms | Allocations: 25396)
+  Rendered layout layouts/application.html.erb (Duration: 80.0ms | Allocations: 41063)
+Completed 200 OK in 106ms (Views: 88.9ms | ActiveRecord: 0.0ms | Allocations: 45599)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 10:26:26 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 10:26:26 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 10:26:26 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 10:26:26 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 10:26:26 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 10:26:26 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 10:26:26 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 10:26:26 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 10:26:26 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 10:26:26 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 10:26:26 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:26:27 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:49947/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 303)
+Started GET "/" for 127.0.0.1 at 2024-06-10 10:26:27 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 10.5ms | Allocations: 2629)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 3331)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 3594)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:26:27 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1336)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 2038)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 2266)
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:26:27 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 922)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:34:44 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 70.2ms | Allocations: 25504)
+  Rendered layout layouts/application.html.erb (Duration: 93.1ms | Allocations: 41191)
+Completed 200 OK in 119ms (Views: 102.1ms | ActiveRecord: 0.0ms | Allocations: 45727)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 10:34:44 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 10:34:44 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 10:34:44 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 10:34:44 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 10:34:44 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 10:34:44 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 10:34:44 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 10:34:44 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 10:34:44 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 10:34:44 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 10:34:44 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:34:45 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:50061/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 304)
+Started GET "/" for 127.0.0.1 at 2024-06-10 10:34:45 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2633)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 3335)
+Completed 200 OK in 10ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 3597)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:34:45 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1336)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 2038)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 2266)
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:34:45 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1264)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1966)
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms | Allocations: 2372)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:35:27 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 67.1ms | Allocations: 25406)
+  Rendered layout layouts/application.html.erb (Duration: 90.3ms | Allocations: 41080)
+Completed 200 OK in 116ms (Views: 99.1ms | ActiveRecord: 0.0ms | Allocations: 45616)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 10:35:27 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 10:35:27 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 10:35:27 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 10:35:27 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 10:35:27 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 10:35:27 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 10:35:27 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 10:35:27 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 10:35:27 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 10:35:27 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 10:35:27 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:35:28 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:50081/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 303)
+Started GET "/" for 127.0.0.1 at 2024-06-10 10:35:28 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2630)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 3332)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 3594)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:35:28 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1336)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 2038)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 2266)
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:35:29 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 840)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:38:55 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 80.5ms | Allocations: 25435)
+  Rendered layout layouts/application.html.erb (Duration: 97.0ms | Allocations: 41102)
+Completed 200 OK in 130ms (Views: 111.6ms | ActiveRecord: 0.0ms | Allocations: 45638)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 10:38:55 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 10:38:55 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 10:38:55 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 10:38:55 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 10:38:55 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 10:38:55 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 10:38:55 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 10:38:55 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 10:38:55 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 10:38:55 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 10:38:55 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:38:56 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:50141/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 303)
+Started GET "/" for 127.0.0.1 at 2024-06-10 10:38:56 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 8.7ms | Allocations: 2642)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 3344)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 3607)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:38:56 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1336)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 2038)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 2266)
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:38:56 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 784)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:40:42 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 63.1ms | Allocations: 25481)
+  Rendered layout layouts/application.html.erb (Duration: 84.5ms | Allocations: 41165)
+Completed 200 OK in 110ms (Views: 94.1ms | ActiveRecord: 0.0ms | Allocations: 45701)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 10:40:43 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 10:40:43 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 10:40:43 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 10:40:43 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 10:40:43 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 10:40:43 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 10:40:43 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 10:40:43 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 10:40:43 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 10:40:43 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 10:40:43 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:40:43 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:50164/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 303)
+Started GET "/" for 127.0.0.1 at 2024-06-10 10:40:43 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 10.1ms | Allocations: 2636)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 3338)
+Completed 200 OK in 11ms (Views: 11.2ms | ActiveRecord: 0.0ms | Allocations: 3600)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:40:44 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1336)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 2038)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 2263)
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:40:44 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 923)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:42:17 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 64.7ms | Allocations: 25615)
+  Rendered layout layouts/application.html.erb (Duration: 86.6ms | Allocations: 41282)
+Completed 200 OK in 113ms (Views: 96.1ms | ActiveRecord: 0.0ms | Allocations: 45818)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 10:42:17 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 10:42:17 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 10:42:17 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 10:42:17 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 10:42:17 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 10:42:17 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 10:42:17 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 10:42:17 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 10:42:17 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 10:42:17 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 10:42:17 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:42:17 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:50187/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 303)
+Started GET "/" for 127.0.0.1 at 2024-06-10 10:42:17 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 9.6ms | Allocations: 2624)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 3326)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 3588)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:42:18 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1336)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2038)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 2266)
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:42:18 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 240)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:42:44 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 65.3ms | Allocations: 25480)
+  Rendered layout layouts/application.html.erb (Duration: 86.6ms | Allocations: 41148)
+Completed 200 OK in 113ms (Views: 95.3ms | ActiveRecord: 0.0ms | Allocations: 45684)
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 10:42:44 -0300
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 10:42:44 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 10:42:44 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 10:42:44 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 10:42:44 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 10:42:44 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 10:42:44 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 10:42:44 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 10:42:45 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 10:42:45 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 10:42:45 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:42:45 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:50209/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 303)
+Started GET "/" for 127.0.0.1 at 2024-06-10 10:42:45 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 9.6ms | Allocations: 2618)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 3320)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 3582)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:42:45 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1336)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 2038)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 2263)
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:42:46 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 864)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:43:34 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 66.8ms | Allocations: 25565)
+  Rendered layout layouts/application.html.erb (Duration: 90.0ms | Allocations: 41250)
+Completed 200 OK in 117ms (Views: 100.3ms | ActiveRecord: 0.0ms | Allocations: 45786)
+Started GET "/assets/main-d7517f06c933ae73f3cd3c455226ca9f4972097a9100ea66a751dbaa1d495bd4.js" for 127.0.0.1 at 2024-06-10 10:43:34 -0300
+Started GET "/assets/recuperar_senha-3001a2e41fe9202cf493619954ac3713b12b6fe03efc06efe8f91e56795ad977.css" for 127.0.0.1 at 2024-06-10 10:43:34 -0300
+Started GET "/assets/application-1edd70e1c67d260e303e2b0d2a2cd855d05e54957fd4925dbde0b2cacb5ed2fb.css" for 127.0.0.1 at 2024-06-10 10:43:34 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-10 10:43:34 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-10 10:43:34 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-10 10:43:34 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-10 10:43:34 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-10 10:43:34 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-10 10:43:34 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-10 10:43:34 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-10 10:43:34 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:43:35 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:50238/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 303)
+Started GET "/" for 127.0.0.1 at 2024-06-10 10:43:35 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 9.3ms | Allocations: 2617)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 3319)
+Completed 200 OK in 10ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 3581)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:43:35 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1336)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 2038)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 2266)
+Started POST "/login" for 127.0.0.1 at 2024-06-10 10:43:36 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:50238/login
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 239)
+Started GET "/login" for 127.0.0.1 at 2024-06-10 10:43:36 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1461)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2163)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 2386)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m

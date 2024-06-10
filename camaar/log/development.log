@@ -144,3 +144,144 @@ Processing by PagesController#login as HTML
 Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 3667)
 
 
+Started GET "/" for ::1 at 2024-06-09 14:12:27 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 521.7ms | Allocations: 25386)
+  Rendered layout layouts/application.html.erb (Duration: 627.7ms | Allocations: 42428)
+Completed 200 OK in 927ms (Views: 702.5ms | ActiveRecord: 0.0ms | Allocations: 47164)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-09 14:12:43 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 8.4ms | Allocations: 2431)
+  Rendered layout layouts/application.html.erb (Duration: 172.9ms | Allocations: 12501)
+Completed 200 OK in 207ms (Views: 174.5ms | ActiveRecord: 0.0ms | Allocations: 12836)
+
+
+Started GET "/home" for ::1 at 2024-06-09 14:12:51 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 42.6ms | Allocations: 3110)
+  Rendered layout layouts/application.html.erb (Duration: 45.9ms | Allocations: 4468)
+Completed 200 OK in 70ms (Views: 46.9ms | ActiveRecord: 0.0ms | Allocations: 4800)
+
+
+Started GET "/" for ::1 at 2024-06-09 14:14:19 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2051)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 3421)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 3693)
+
+
+Started GET "/home" for ::1 at 2024-06-09 14:14:27 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2790)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 4175)
+Completed 200 OK in 15ms (Views: 12.7ms | ActiveRecord: 0.0ms | Allocations: 4447)
+
+
+Started GET "/" for ::1 at 2024-06-10 09:36:31 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 475.9ms | Allocations: 25945)
+  Rendered layout layouts/application.html.erb (Duration: 553.3ms | Allocations: 42716)
+Completed 200 OK in 789ms (Views: 619.8ms | ActiveRecord: 0.0ms | Allocations: 47389)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-10 09:36:51 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2427)
+  Rendered layout layouts/application.html.erb (Duration: 94.5ms | Allocations: 4978)
+Completed 200 OK in 114ms (Views: 95.5ms | ActiveRecord: 0.0ms | Allocations: 5313)
+
+
+Started POST "/login" for ::1 at 2024-06-10 09:36:55 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://localhost:3000/home
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 562)
+
+
+Started GET "/home" for ::1 at 2024-06-10 09:36:55 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 33.7ms | Allocations: 3110)
+  Rendered layout layouts/application.html.erb (Duration: 37.0ms | Allocations: 4494)
+Completed 200 OK in 57ms (Views: 38.0ms | ActiveRecord: 0.0ms | Allocations: 4866)
+
+
+Started GET "/" for ::1 at 2024-06-10 09:37:30 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2406)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 3584)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 3856)
+
+
+Started GET "/" for ::1 at 2024-06-10 10:19:52 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 77.2ms | Allocations: 27459)
+  Rendered layout layouts/application.html.erb (Duration: 111.5ms | Allocations: 44242)
+Completed 200 OK in 147ms (Views: 128.8ms | ActiveRecord: 0.0ms | Allocations: 48915)
+
+
+Started GET "/" for ::1 at 2024-06-10 10:19:54 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2388)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 3568)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.0ms | Allocations: 3841)
+
+
+Started GET "/icons/olho_fechado.svg" for ::1 at 2024-06-10 10:20:09 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/icons/olho_fechado.svg"):
+  
+Started POST "/login" for ::1 at 2024-06-10 10:20:11 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"email@aluno.unb.br", "password"=>"[FILTERED]"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 546)
+
+
+Started GET "/" for ::1 at 2024-06-10 10:20:11 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2443)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3639)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 3953)
+
+
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "senha" varchar)[0m
+  ↳ config/db_config.rb:10:in `block in <main>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  ↳ config/db_config.rb:9:in `<main>'
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-06-10 14:09:18.553748', '2024-06-10 14:09:18.553751') RETURNING "key"[0m
+  ↳ config/db_config.rb:9:in `<main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ config/db_config.rb:17:in `<main>'
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "senha") VALUES (?, ?) RETURNING "id"[0m  [["email", "email@unb.com.br"], ["senha", "password"]]
+  ↳ config/db_config.rb:17:in `<main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ config/db_config.rb:17:in `<main>'

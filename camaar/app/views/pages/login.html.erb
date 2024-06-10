@@ -8,25 +8,35 @@
 </head>
 <body>
 <div id="container">
-  <form action="#" method="post" id="login_form">
+  <% if flash[:notice].present? %>
+    <div class="notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if flash[:alert].present? %>
+    <div class="alert">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <%= form_with(url: login_path, method: :post, id: 'login_form') do %>
     <div id="login_user">
       <h1>LOGIN</h1>
       <div>
         <label for="username">Email</label> <br />
-        <input type="text" id="username" name="username" placeholder="email@aluno.unb.br" required>
+        <%= text_field_tag :username, nil, id: 'username', placeholder: 'email@aluno.unb.br', required: true %>
       </div>
       <div class="senha_input">
         <label for="password">Confirme a senha</label> <br />
-        <input type="password" id="senha_pass" name="password" placeholder="Senha" required>
+        <%= password_field_tag :password, nil, id: 'senha_pass', placeholder: 'Senha', required: true %>
         <%= image_tag 'olho_aberto.svg', class: 'olho_aberto', id: 'olho_senha', onclick: 'mostrar_ocultar()' %>
       </div>
       <div>
         <a href="<%= url_for(controller: :pages, action: :recuperar_senha) %>">Esqueci a senha</a>
       </div>
       <div>
-        <button class="bnt_enviar">
-          <%= link_to 'Entrar', home_path %>
-        </button>
+        <button class="bnt_enviar" type="submit">Entrar</button>
       </div>
     </div>
     <div id="mensagen_login">
@@ -34,7 +44,7 @@
         <p>Bem vindo </br> ao </br> Camaar</p>
       </div>
     </div>
-  </form>
+  <% end %>
 </div>
 <%= javascript_include_tag 'main' %>
 </body>
