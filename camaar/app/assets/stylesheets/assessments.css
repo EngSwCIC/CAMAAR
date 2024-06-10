@@ -1,0 +1,42 @@
+.assessments-container {
+    display: flex;
+    flex: 1;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: start;
+}
+
+.assessments-box {
+    display: flex;
+    width: 278px;
+    height: 128px;
+    border-radius: 8px;
+    margin: 25px 25px;
+    background-color: #FFFFFF;
+    color: #000000;
+    cursor: pointer;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.subject-name {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    padding: 12px 0 0 24px;
+}
+
+.semester {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    padding: 0 0 0 24px;
+}
+
+.professor{
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    padding: 12px 0 24px 24px;
+}

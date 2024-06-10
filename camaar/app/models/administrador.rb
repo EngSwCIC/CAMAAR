@@ -1,4 +1,4 @@
-class Administrador < ApplicationRecord
+class Administrador < User
   has_many :formularios
   has_many :templates
   has_many :turmas
