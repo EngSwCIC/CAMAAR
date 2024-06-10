@@ -17,6 +17,7 @@ FactoryBot.define do
     end
 
     trait :user4 do
+      id { 8 }
       email { 'peluticaio@gmail.com' }
     end
 
