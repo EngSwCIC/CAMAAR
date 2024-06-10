@@ -7,7 +7,10 @@ feature 'Reset Password' do
   end
 
   scenario 'user forgot_password' do
-    user = create(:user)
+    department = create(:department)
+    admin = create(:admin)
+    user = create(:user, :user5)
+    teacher = create(:teacher)
 
     visit '/users/recover-password/new'
     fill_in 'email', with: user.email
@@ -30,7 +33,9 @@ feature 'Reset Password' do
   end
 
   scenario 'admin forgot_password' do
+    department = create(:department)
     admin = create(:admin)
+    coordinator = create(:coordinator)
 
     visit '/admins/recover-password/new'
     fill_in 'email', with: admin.email

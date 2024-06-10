@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_03_132204) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_06_181536) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -55,27 +55,35 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_132204) do
     t.index ["subject_class_id"], name: "index_enrollments_on_subject_class_id"
   end
 
+  create_table "form_questions", force: :cascade do |t|
+    t.string "title"
+    t.string "question_type"
+    t.json "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "form_id", null: false
+    t.index ["form_id"], name: "index_form_questions_on_form_id"
+  end
+
   create_table "forms", force: :cascade do |t|
-    t.json "questions"
     t.string "role", default: "student"
     t.boolean "open", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "template_id"
     t.integer "coordinator_id", null: false
     t.integer "subject_class_id", null: false
     t.index ["coordinator_id"], name: "index_forms_on_coordinator_id"
     t.index ["subject_class_id"], name: "index_forms_on_subject_class_id"
-    t.index ["template_id"], name: "index_forms_on_template_id"
   end
 
   create_table "student_answers", force: :cascade do |t|
+    t.integer "question_type"
     t.json "answers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "form_id", null: false
+    t.integer "form_question_id", null: false
     t.integer "student_id", null: false
-    t.index ["form_id"], name: "index_student_answers_on_form_id"
+    t.index ["form_question_id"], name: "index_student_answers_on_form_question_id"
     t.index ["student_id"], name: "index_student_answers_on_student_id"
   end
 
@@ -110,12 +118,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_132204) do
   end
 
   create_table "teacher_answers", force: :cascade do |t|
+    t.integer "question_type"
     t.json "answers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "form_id", null: false
+    t.integer "form_question_id", null: false
     t.integer "teacher_id", null: false
-    t.index ["form_id"], name: "index_teacher_answers_on_form_id"
+    t.index ["form_question_id"], name: "index_teacher_answers_on_form_question_id"
     t.index ["teacher_id"], name: "index_teacher_answers_on_teacher_id"
   end
 
@@ -135,9 +144,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_132204) do
     t.index ["user_id"], name: "index_teachers_on_user_id"
   end
 
+  create_table "template_questions", force: :cascade do |t|
+    t.string "title"
+    t.string "question_type"
+    t.json "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "template_id", null: false
+    t.index ["template_id"], name: "index_template_questions_on_template_id"
+  end
+
   create_table "templates", force: :cascade do |t|
-    t.string "name"
-    t.json "questions"
+    t.string "name", default: "Draft"
+    t.boolean "draft", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "coordinator_id", null: false
@@ -169,17 +188,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_132204) do
 
   add_foreign_key "coordinators", "admins"
   add_foreign_key "coordinators", "departments"
+  add_foreign_key "form_questions", "forms"
   add_foreign_key "forms", "coordinators"
   add_foreign_key "forms", "subject_classes"
-  add_foreign_key "forms", "templates"
-  add_foreign_key "student_answers", "forms"
+  add_foreign_key "student_answers", "form_questions"
   add_foreign_key "student_answers", "students"
   add_foreign_key "students", "users"
   add_foreign_key "subject_classes", "departments"
   add_foreign_key "subject_classes", "teachers"
-  add_foreign_key "teacher_answers", "forms"
+  add_foreign_key "teacher_answers", "form_questions"
   add_foreign_key "teacher_answers", "teachers"
   add_foreign_key "teachers", "departments"
   add_foreign_key "teachers", "users"
+  add_foreign_key "template_questions", "templates"
   add_foreign_key "templates", "coordinators"
 end

@@ -24,10 +24,10 @@ Feature: Update database data
         When I press "Upload"
         And I import a "json" file with the updated classes data
         When I press "Importar"
-        Then I should see "Dados das turmas importados com sucesso"
+        Then I expect to see "Dados das turmas importados com sucesso"
         When I go to the "Turmas" page
-        Then I should see "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
-        And I should see the following classes:
+        Then I expect to see "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+        And I expect to see the following classes:
             | name                    | semester | subject | classCode | schedule |
             | BANCOS DE DADOS         | 2021.2   | CIC0097 | TA        | 24T45    |
             | ENGENHARIA DE SOFTWARE  | 2021.2   | CIC0105 | TA        | 35M12    |
@@ -38,17 +38,17 @@ Feature: Update database data
         And I press "Upload"
         And I import a "json" file with the members data
         When I press "Importar"
-        Then I should see "Dados dos alunos importados com sucesso"
+        Then I expect to see "Dados dos alunos importados com sucesso"
         When I go to the "Turmas" page
-        Then I should see "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
-        And I should see the following classes:
+        Then I expect to see "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+        And I expect to see the following classes:
             | name                    | semester | subject | classCode | schedule |
             | BANCOS DE DADOS         | 2021.2   | CIC0097 | TA        | 35T45    |
             | ENGENHARIA DE SOFTWARE  | 2021.2   | CIC0105 | TA        | 35M12    |
             | PROGRAMAÇÃO CONCORRENTE | 2021.2   | CIC0202 | TA        | 35M34    |
         When I follow "2021.2_CIC0197_TA"
         Then I should be on the "2021.2/CIC0197/TA" page
-        And I should see "MARISTELA TERTO DE HOLANDA"
+        And I expect to see "MARISTELA TERTO DE HOLANDA"
         And I should not see "William Xavier dos Santos"
 
     Scenario: Coordinator mismatches the file
@@ -56,4 +56,4 @@ Feature: Update database data
         When I press "Upload"
         And I import a "txt" file
         When I press "Importar"
-        Then I should see "Formato Inválido"
+        Then I expect to see "Formato Inválido"

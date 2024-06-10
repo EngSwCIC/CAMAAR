@@ -17,16 +17,16 @@ Feature: View forms as a Student or Teacher
 
     Scenario: Student views pending forms
         Given that I have not answered any form
-        Then I should see the following forms as pending:
+        Then I expect to see the following forms as pending:
             | CIC0097 | 2021.2 | TA |
             | CIC0105 | 2021.2 | TA |
-            
+
     Scenario: Student views answered forms
         Given that I have answered the following forms:
             | CIC0097 | 2021.2 | TA |
-        Then I should see the following forms as pending:
+        Then I expect to see the following forms as pending:
             | CIC0097 | 2021.2 | TA |
-        Then I should see the following forms as answered:
+        Then I expect to see the following forms as answered:
             | CIC0097 | 2021.2 | TA |
 
 

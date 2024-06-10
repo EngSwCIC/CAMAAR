@@ -1,0 +1,2 @@
+module TemplateQuestionsHelper
+end

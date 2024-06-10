@@ -16,14 +16,14 @@ Feature: Forms Results Page
 
     Scenario: Coordinator views dispatched forms
         Given that the "Formulário 1" form has been answered
-        Then I should see the following results:
+        Then I expect to see the following results:
             | name         | answers      |
             | Formulário 1 | Respostas: 1 |
             | Formulário 2 | Respostas: 0 |
 
     Scenario: Coordinator only sees the answered forms
         Given that the "Formulário 1" form has been answered
-        Then I should see the following results:
+        Then I expect to see the following results:
             | name         | answers      |
             | Formulário 1 | Respostas: 1 |
 
