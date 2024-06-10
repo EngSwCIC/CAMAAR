@@ -7,10 +7,11 @@ feature 'Register User' do
   end
 
   scenario 'admin registering user' do
-    #admin = create(:admin)
-
-    email = 'test@gmail.com'
+    email = 'chacon@unb.br'
     password = 'abc123'
+
+    department = create(:department)
+    admin = create(:admin)
 
     UsersMailer.register_user(email).deliver_now
     open_email(email).click_link 'Registrar'
@@ -20,6 +21,9 @@ feature 'Register User' do
     fill_in 'password2', with: password
     click_button 'Confirmar'
     open_email(email).click_link 'Confirmar'
+    teachers_id = User.find_by(email: 'chacon@unb.br').id
+    puts teachers_id
+    teacher = create(:teacher, id: teachers_id)
     expect(page).to have_content 'Bem vindo ao'
     expect(page).to have_content 'CAMAAR'
     fill_in 'email', with: email
