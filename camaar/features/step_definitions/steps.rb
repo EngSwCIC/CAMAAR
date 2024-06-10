@@ -103,7 +103,7 @@ end
 
 # Database and examples
 Given("I am an authenticated User") do
-  pending
+  user.create!
 end
 
 Given(/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|

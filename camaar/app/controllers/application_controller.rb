@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
       # admins_page_path
       "/templates"
     elsif user_signed_in?
-      '/users/page'
+      "/users/page"
     else
       root_path
     end
@@ -26,11 +26,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
-  def set_return_to
-    session[:return_to] ||= request.referer
-    @return_to = session[:return_to]
-  end
-
   def set_admin_data
     @coordinator = Coordinator.find_by({ email: current_admin.email })
     @department = Department.find_by_id(@coordinator.department_id) if @coordinator
@@ -43,9 +38,9 @@ class ApplicationController < ActionController::Base
       current_user.occupation = student.occupation
       # current_user.name = student.name
       current_user.name = student.name.split.first.capitalize
-      @department = Department.find_by(initials: student.course.split('/').last) if student
+      @department = Department.find_by(initials: student.course.split("/").last) if student
     else
-      teacher = Teacher.find_by(email:current_user.email)
+      teacher = Teacher.find_by(email: current_user.email)
       current_user.occupation = teacher.occupation
       # current_user.name = teacher.name
       current_user.name = teacher.name.split.first.capitalize
@@ -53,10 +48,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
   def authenticate_user!
     return if user_signed_in? || admin_signed_in?
   end
-
-
 end

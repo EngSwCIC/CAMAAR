@@ -9,9 +9,9 @@ Feature:
         Then I expect to see "Bem vindo ao"
         And I expect to see "CAMAAR"
         When I fill in the following:
-            | email    | mholanda@unb.br     |
-            | password | professor123        |
-        And I click on "Confirmar"
+            | email    | mholanda@unb.br |
+            | password | professor123    |
+        When I click on "Confirmar"
         Then I expect to be on the "User Camaar" page
         And I expect to see "Maristela"
         And I expect to see "Docente"
@@ -26,10 +26,10 @@ Feature:
         And I expect to see "CAMAAR"
         When I fill in the following:
             | email    | noexists@gmail.com |
-            | password | 123456         |
-        And I click on "Confirmar"
+            | password | 123456             |
+        When I click on "Confirmar"
         Then I expect to be on the "Root" page
-        # Then I expect to see "Credenciais Inválidas"
+    # Then I expect to see "Credenciais Inválidas"
 
 
     Scenario: Coordinator logs in with valid credentials
@@ -38,9 +38,9 @@ Feature:
         Then I expect to see "Bem vindo ao"
         And I expect to see "CAMAAR"
         When I fill in the following:
-            | email           | admin.dex@gmail.com |
-            | password | admin123   |
-        And I click on "Confirmar"
+            | email    | admin.dex@gmail.com |
+            | password | admin123            |
+        When I click on "Confirmar"
         Then I expect to be on the "Templates" page
         And I expect to see "Jhon Doe"
         And I expect to see "Coordenador"
@@ -51,8 +51,8 @@ Feature:
         Then I expect to see "Bem vindo ao"
         And I expect to see "CAMAAR"
         When I fill in the following:
-            | email          | user@gmail.com |
-            | password  | abc123   |
-        And I click on "Confirmar"
+            | email    | user@gmail.com |
+            | password | abc123         |
+        When I click on "Confirmar"
         Then I expect to be on the "Root" page
-        # Then I expect to see "Credenciais Inválidas"
+# Then I expect to see "Credenciais Inválidas"

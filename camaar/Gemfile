@@ -64,6 +64,7 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem "database_cleaner-active_record"
   gem "capybara"
   gem "cucumber-rails", require: false
   gem "database_cleaner"
@@ -81,5 +82,7 @@ gem "simplecov"
 gem "simple_form"
 
 
-gem "gruff"
+# gem "gruff"
 # gem "rmagick"
+
+gem "rails-controller-testing", "~> 1.0"
