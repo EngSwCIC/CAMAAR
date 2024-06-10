@@ -5,8 +5,8 @@
   <div class="menu-sidebar__content js-scrollbar1">
     <nav class="navbar-sidebar">
       <ul class="list-unstyled navbar__list">
-        <h1>  <%=@user.formation%>  </h1>
-        <h2>  Usuário -  <%= @department.initials%></h2>
+        <h1>  <%=current_user.occupation%>  </h1>
+        <h2>  Usuário -  <%= @department&.initials%></h2>
         <hr>
         <li >
           <a href="/forms">

@@ -36,14 +36,16 @@ class ApplicationController < ActionController::Base
     @department = Department.find_by_id(@coordinator.department_id) if @coordinator
   end
 
-  def set_user_data(resource)
-    student = Student.find_by(email: resource.email)
+  def set_user_data
+    student = Student.find_by(email: current_user.email)
     if student
       @student = student
-      @department = Department.find_by_id(@coordinator.department_id) if @student
+      current_user.occupation = student.occupation
+      @department = Department.find_by_id(student.department_id) if @student
     else
-      @teacher = Teacher.find_by(email:resource.email)
-      @department = Department.find_by_id(@coordinator.department_id) if @teacher
+      teacher = Teacher.find_by(email:current_user.email)
+      current_user.occupation = teacher.occupation
+      @department = Department.find_by_id(teacher.department_id) if @teacher
     end
   end
 
