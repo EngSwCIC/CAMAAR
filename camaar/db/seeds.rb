@@ -62,7 +62,7 @@ classes_members.each do |data|
       occupation: data["docente"]["ocupacao"],
       email: data["docente"]["email"],
       department_id: Department.find_by(name: data["docente"]["departamento"]).id,
-      user_id: teacher_user.id,
+      # user_id: teacher_user.id,
     }
   )
 
@@ -91,7 +91,7 @@ classes_members.each do |data|
       formation: student_data["formacao"],
       occupation: student_data["ocupacao"],
       email: student_data["email"],
-      user_id: student_user.id,
+      # user_id: student_user.id,
     })
 
     Enrollment.create!({
