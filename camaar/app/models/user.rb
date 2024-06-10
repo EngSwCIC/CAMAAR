@@ -9,4 +9,8 @@ class User < ApplicationRecord
 
   # Add the role attribute (replace with your desired role types)
   enum role: [:admin, :user]  # This defines roles as 'admin' or 'user'
+  after_initialize :set_default_role, :if => :new_record?
+  def set_default_role
+    self.role ||= :user
+  end
 end

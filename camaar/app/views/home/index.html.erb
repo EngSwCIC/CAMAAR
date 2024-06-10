@@ -8,16 +8,25 @@
 
 
   <main>
-    <% if @materia.any? %>
-    <h2>Featured Subjects</h2>
-    <ul>
-    <% @materia.each do |materia| %>
-      <li>
-        <b>Disciplina:</b> <%= materia[:codigo] %> - <%= materia[:nome] %>
-      </li>
-    <% end %>
-    </ul>
-    <% end %>
+    <%if current_user %>
+      <% if @materia.any? %>
+        <h2>Featured Subjects</h2>
+        <ul>
+        <% @materia.each do |materia| %>
+          <li>
+            <b>Disciplina:</b> <%= materia[:codigo] %> - <%= materia[:nome] %>
+          </li>
+        <% end %>
+        </ul>
+      <% end %>
+      <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete %>
+    <% else %>
+      <p>you are not signed in.</p>
+      <%= link_to "Sign Up!", new_user_registration_path%>
+      <br/>
+      <%= link_to "Login", new_user_session_path%>
+    <%end %>
+    
 
   </main>
 
