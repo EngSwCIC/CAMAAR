@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :materia do
-    codigo { "MyString" }
-    nome { "MyString" }
+    codigo { "CIC0097" }
+    nome { "BANCOS DE DADOS" }
   end
 end
