@@ -1,4 +1,4 @@
-class Aluno < ApplicationRecord
+class Aluno < User
   belongs_to :turma, class_name: "turma", foreign_key: "turma_id"
 
   validates :nome, presence: true

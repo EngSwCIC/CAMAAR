@@ -1,0 +1,28 @@
+.management-contents{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-box{
+    width: 462px;
+    height: 655px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button-box button{
+    max-height: 43px;
+    max-width: 302px;
+    border-radius: 6px;
+    background-color: #22C55E;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+}

@@ -7,4 +7,17 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+
+
+  # não sei para que isso serve exatamente, mas parece que é
+  # para que o devise saiba que existem 2 tipos de users diferentes
+  devise_for :aluno
+  devise_for :administrador
+
+   # Define a rota para a página de login como a root
+  root 'sessions#new'
+
+  # Define a rota para a homepage
+  get 'home', to: 'pages#home'
 end
