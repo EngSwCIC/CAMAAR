@@ -12,8 +12,10 @@ Feature:
             | email    | mholanda@unb.br     |
             | password | professor123        |
         And I click on "Confirmar"
-        Then I should be on the "User Camaar" page
-        And I expect to see "mholanda@unb.br"
+        Then I expect to be on the "User Camaar" page
+        And I expect to see "Maristela"
+        And I expect to see "Docente"
+        And I expect to see "CIC"
         And I expect to see "Formulários"
 
 
@@ -26,7 +28,7 @@ Feature:
             | email    | noexists@gmail.com |
             | password | 123456         |
         And I click on "Confirmar"
-        Then I should be on the "Root" page
+        Then I expect to be on the "Root" page
         # Then I expect to see "Credenciais Inválidas"
 
 
@@ -39,8 +41,8 @@ Feature:
             | email           | admin.dex@gmail.com |
             | password | admin123   |
         And I click on "Confirmar"
-        Then I should be on the "Admin Camaar" page
-        And I expect to see "admin.dex@gmail.com"
+        Then I expect to be on the "Templates" page
+        And I expect to see "Jhon Doe"
         And I expect to see "Coordenador"
 
     Scenario: Coordinator can't log in with invalid credentials
@@ -51,6 +53,6 @@ Feature:
         When I fill in the following:
             | email          | user@gmail.com |
             | password  | abc123   |
-        And I press "Confirmar"
-        Then I should be on the "Root" page
+        And I click on "Confirmar"
+        Then I expect to be on the "Root" page
         # Then I expect to see "Credenciais Inválidas"

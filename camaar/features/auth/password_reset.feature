@@ -12,28 +12,30 @@ Feature: Reset Password
 
     Scenario: User has clicked on the reset password link
         Given I have no emails at "mholanda@unb.br"
-        Then I should see "Insira seu email para redefinição"
+        Then I expect to see "Insira seu email para redefinição"
         When I fill in "Email" with "mholanda@unb.br"
-        And I press "Confirmar"
+        And I click on "Confirmar"
         And I received a Reset password instructions email at "mholanda@unb.br"
         And I follow "Mudar minha Senha" at "mholanda@unb.br"
-        Then I should be on the "Redefinir Senha Usuario" page
+        Then I expect to be on the "Redefinir Senha Usuario" page
         When I fill in the following:
-            | password    | professor123 |
+            | password  | professor123 |
             | password2 | professor123  |
-        When I press "Confirmar"
+        When I click on "Confirmar"
 
-        Then I should be on the "Users Login" page
+        Then I expect to be on the "Users Login" page
         When I fill in the following:
-            | email             | mholanda@unb.br    |
+            | email    | mholanda@unb.br|
             | password | professor123 |
-        When I press "Confirmar"
-        Then I should be on the "User Camaar" page
-        And I should see "mholanda@unb.br"
-        And I should see "Usuário"
+        When I click on "Confirmar"
+        Then I expect to be on the "User Camaar" page
+        And I expect to see "Maristela"
+        And I expect to see "Docente"
+        And I expect to see "CIC"
+        And I expect to see "Formulários"
 
     Scenario: User informed the wrong email
-        Then I should see "Insira seu email para redefinição"
+        Then I expect to see "Insira seu email para redefinição"
         When I fill in "Email" with "notregistered@gmail.com"
-        And I press "Confirmar"
+        And I click on "Confirmar"
         # Then I should see "Usuário não está Registrado"

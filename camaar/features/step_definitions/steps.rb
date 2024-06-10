@@ -117,11 +117,12 @@ Given(/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|
 end
 
 Given(/that I am a registered User/) do # if user or admin
-  user = User.find_by({ email: "mholanda@unb.br" })
-  # visit('/users/login')
-  # fill_in('email', with: user.email)
-  # fill_in('password', with: 'aluno123')
-  # click_button('Confirmar')
+  User.create!({
+    email: 'mholanda@unb.br',
+    password: 'professor123',
+    password_confirmation: 'professor123',
+    confirmed_at: Time.now.utc
+  })
 end
 
 Given(/that I am a registered Admin/) do # if user or admin

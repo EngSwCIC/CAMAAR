@@ -1,3 +1,5 @@
+require "json"
+
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user_data
@@ -29,6 +31,7 @@ class UsersController < ApplicationController
   def page
 
   end
+
   def destroy
     # @templates = Template.where(coordinator_id: @coordinator.id)
     # template = @template.destroy

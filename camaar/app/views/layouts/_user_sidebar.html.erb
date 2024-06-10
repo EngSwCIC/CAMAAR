@@ -5,13 +5,13 @@
   <div class="menu-sidebar__content js-scrollbar1">
     <nav class="navbar-sidebar">
       <ul class="list-unstyled navbar__list">
-        <h1>  <%=current_user.occupation%>  </h1>
-        <h2>  Usuário -  <%= @department&.initials%></h2>
+        <h1>  <%=current_user.name%>  </h1>
+        <h2>   <%=current_user.occupation.capitalize%> -  <%= @department&.initials%></h2>
         <hr>
         <li >
-          <a href="/forms">
+          <a href="/users/forms">
             <i class="fas fa-file-text"></i>
-            Templates
+            Formulários
           </a>
         </li>
      

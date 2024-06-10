@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   match '/users/page', to: 'users#page', via: 'get'
   match '/errors/forbidden', to: 'errors#forbidden', via: 'get'
-
   match '/users/forms',   to: 'users#form_student', via: 'get'
+
   match '/admins/page',   to: 'admins#page', via: 'get'
   match '/admins/forms', to: 'admins#form_student', via: 'get'
   match '/admins/resultados', to: 'admins#resultados', via: 'get'
@@ -24,7 +24,6 @@ Rails.application.routes.draw do
 
   match '/admins/envio', to: 'forms#new', via: 'get'
   match '/admins/envio', to: 'admins#envio', via: 'post', as: 'admins_envio_post'
-
 
   resources :templates do
     resources :template_questions

@@ -41,11 +41,15 @@ class ApplicationController < ActionController::Base
     if student
       @student = student
       current_user.occupation = student.occupation
-      @department = Department.find_by_id(student.department_id) if @student
+      # current_user.name = student.name
+      current_user.name = student.name.split.first.capitalize
+      @department = Department.find_by(initials: student.course.split('/').last) if student
     else
       teacher = Teacher.find_by(email:current_user.email)
       current_user.occupation = teacher.occupation
-      @department = Department.find_by_id(teacher.department_id) if @teacher
+      # current_user.name = teacher.name
+      current_user.name = teacher.name.split.first.capitalize
+      @department = Department.find_by_id(teacher.department_id) if teacher
     end
   end
 

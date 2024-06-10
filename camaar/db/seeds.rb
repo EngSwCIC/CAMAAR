@@ -47,12 +47,12 @@ end
 
 # parse members (teacher and students)
 classes_members.each do |data|
-  teacher_user = User.create!({
-    email: data["docente"]["email"],
-    password: "professor123",
-    password_confirmation: "professor123",
-    confirmed_at: Time.now.utc,
-  })
+  # teacher_user = User.create!({
+  #   email: data["docente"]["email"],
+  #   password: "professor123",
+  #   password_confirmation: "professor123",
+  #   confirmed_at: Time.now.utc,
+  # })
 
   teacher = Teacher.create!(
     {
@@ -77,12 +77,12 @@ classes_members.each do |data|
   })
 
   data["discente"].each do |student_data|
-    student_user = User.create!({
-      email: student_data["email"],
-      password: "aluno123",
-      password_confirmation: "aluno123",
-      confirmed_at: Time.now.utc,
-    })
+    # student_user = User.create!({
+    #   email: student_data["email"],
+    #   password: "aluno123",
+    #   password_confirmation: "aluno123",
+    #   confirmed_at: Time.now.utc,
+    # })
 
     student = Student.create!({
       name: student_data["nome"],
