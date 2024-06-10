@@ -1,5 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Department, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'é inválido sem FKS existentes' do
+    department = create(:department)
+    department2 = build(:department)
+    expect(department2).to_not be_valid
+  end
+
+  it 'é válido com atributos válidos e FKS existentes' do
+    department = build(:department)
+    expect(department).to be_valid
+  end
 end

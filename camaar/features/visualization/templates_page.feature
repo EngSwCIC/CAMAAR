@@ -14,16 +14,16 @@ Feature: View Templates
         And I am on the "Templates" page
 
     Scenario: Coordinator views created templates
-        Then I should see the following templates:
+        Then I expect to see the following templates:
             | name       | role    |
             | Template 1 | teacher |
             | Template 2 | student |
 
-        Then I should see the button "Deletar" on "Template 1"
-        Then I should see the button "Editar" on "Template 1"
+        Then I expect to see the button "Deletar" on "Template 1"
+        Then I expect to see the button "Editar" on "Template 1"
 
-        Then I should see the button "Deletar" on "Template 2"
-        Then I should see the button "Editar" on "Template 2"
+        Then I expect to see the button "Deletar" on "Template 2"
+        Then I expect to see the button "Editar" on "Template 2"
 
     Scenario: Coordinator tries to edit uncreated templates
         Given that I want to edit "Template 3"

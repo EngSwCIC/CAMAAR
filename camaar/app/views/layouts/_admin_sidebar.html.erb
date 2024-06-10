@@ -1,0 +1,40 @@
+<aside class="menu-sidebar d-none d-lg-block">
+  <div class="logo">
+    <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo") %>
+  </div>
+  <div class="menu-sidebar__content js-scrollbar1">
+    <nav class="navbar-sidebar">
+      <ul class="list-unstyled navbar__list">
+        <h1>  <%=@coordinator.name%>  </h1>
+        <h2>  Coordenador -  <%= @department.initials%></h2>
+        <hr>
+        <li>
+          <%= link_to admins_import_path(@admin) do %>
+            <i class="fas fa-database"></i> Importar Dados
+          <% end %>
+        </li>
+        <li>
+          <a href="/admins/classes">
+            <i class="fas fa-group"></i>Turmas</a>
+        </li>
+        <li >
+          <%= link_to templates_path do%>
+            <i class="fas fa-file-text"></i> Templates
+          <% end %>
+        </a>
+      </li>
+      <li>
+        <a href="/admins/envio">
+          <i class="fas fa-share"></i>Envio</a>
+      </li>
+      <li>
+        <a href="/admins/results">
+          <i class="fas fa-chart-bar"></i>Resultados</a>
+      </li>
+      <li><%= link_to destroy_admin_session_path, data: {turbo_method: :delete} do %>
+          <i class ="zmdi zmdi-power"></i> Sair
+        <%end%> </li>
+    </ul>
+  </nav>
+</div>
+</aside>

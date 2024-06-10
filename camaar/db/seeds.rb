@@ -1,5 +1,6 @@
 require "json"
-require_relative "../config/environment/development"
+require_relative "../config/environment"
+
 
 departments = JSON.parse(File.read("./db/departments.json"))
 classes = JSON.parse(File.read("./db/classes.json"))
@@ -46,12 +47,12 @@ end
 
 # parse members (teacher and students)
 classes_members.each do |data|
-  teacher_user = User.create!({
-    email: data["docente"]["email"],
-    password: "professor123",
-    password_confirmation: "professor123",
-    confirmed_at: Time.now.utc,
-  })
+  # teacher_user = User.create!({
+  #   email: data["docente"]["email"],
+  #   password: "professor123",
+  #   password_confirmation: "professor123",
+  #   confirmed_at: Time.now.utc,
+  # })
 
   teacher = Teacher.create!(
     {
@@ -61,7 +62,7 @@ classes_members.each do |data|
       occupation: data["docente"]["ocupacao"],
       email: data["docente"]["email"],
       department_id: Department.find_by(name: data["docente"]["departamento"]).id,
-      user_id: teacher_user.id,
+      # user_id: teacher_user.id,
     }
   )
 
@@ -76,12 +77,12 @@ classes_members.each do |data|
   })
 
   data["discente"].each do |student_data|
-    student_user = User.create!({
-      email: student_data["email"],
-      password: "aluno123",
-      password_confirmation: "aluno123",
-      confirmed_at: Time.now.utc,
-    })
+    # student_user = User.create!({
+    #   email: student_data["email"],
+    #   password: "aluno123",
+    #   password_confirmation: "aluno123",
+    #   confirmed_at: Time.now.utc,
+    # })
 
     student = Student.create!({
       name: student_data["nome"],
@@ -90,7 +91,7 @@ classes_members.each do |data|
       formation: student_data["formacao"],
       occupation: student_data["ocupacao"],
       email: student_data["email"],
-      user_id: student_user.id,
+      # user_id: student_user.id,
     })
 
     Enrollment.create!({

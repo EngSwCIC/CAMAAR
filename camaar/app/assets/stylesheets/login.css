@@ -83,15 +83,6 @@ body {
   }
   
   
-  /* Estilo para a marca d'água */
-.watermark {
-    text-align: center;
-    font-size: 20px;
-    font-family: Verdana;
-    color: #5fbae9;
-    margin-top: 20px;
-  }
-
   .logo {
     margin-bottom: 20px; /* Ajuste este valor conforme necessário */
     margin-top: 20px;

@@ -1,0 +1,13 @@
+<div>
+  <h3>Questão <%=question[0]%></h3>
+  <label for="">Título:</label>
+  <input type="text" id=<%='question'+question[0]+'_title'%>>
+  <div>
+    <% if question[1]["type"] == "multiple_choice"  %>
+      <% question[1]["options"].each do |item| %>
+        <label><%=item[0]%></label>
+        <input type="text" id=<%='question'+question[0]+'_option' + item[0]%>>
+      <% end %>
+    <% end %>
+  </div>
+</div>

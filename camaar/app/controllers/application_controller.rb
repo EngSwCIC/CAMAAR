@@ -1,8 +1,20 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   skip_before_action :verify_authenticity_token
+  # before_action :authenticate_user!, unless: :devise_controller?
   # before_action :authenticate_user!, unless: :allowed_path?
   # before_action :redirect_signed_in, only: [:index]
+
+  def after_sign_in_path_for(_resource)
+    if admin_signed_in? # Assuming there is such a function
+      # admins_page_path
+      templates_path
+    elsif user_signed_in?
+      "/users/page"
+    else
+      root_path
+    end
+  end
 
   protected
 
@@ -14,60 +26,29 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
-  private
-
-  def allowed_path?
-    allowed_paths = [
-      root_path,
-      new_user_session_path,
-      new_user_password_path,
-      new_admin_session_path,
-      new_admin_password_path
-    ]
-
-    allowed_paths.include?(request.path) ||
-      valid_reset_password_path? ||
-      valid_registration_path? ||
-      valid_confirmation_path? ||
-      user_signed_in? ||
-      admin_signed_in?
+  def set_admin_data
+    @coordinator = Coordinator.find_by({ email: current_admin.email })
+    @department = Department.find_by_id(@coordinator.department_id) if @coordinator
   end
 
-  def after_sign_in_path_for(_resource)
-    if admin_signed_in?
-      admins_page_path
-    elsif user_signed_in?
-      users_page_path
+  def set_user_data
+    student = Student.find_by(email: current_user.email)
+    if student
+      @student = student
+      current_user.occupation = student.occupation
+      # current_user.name = student.name
+      current_user.name = student.name.split.first.capitalize
+      @department = Department.find_by(initials: student.course.split("/").last) if student
     else
-      root_path
+      teacher = Teacher.find_by(email: current_user.email)
+      current_user.occupation = teacher.occupation
+      # current_user.name = teacher.name
+      current_user.name = teacher.name.split.first.capitalize
+      @department = Department.find_by_id(teacher.department_id) if teacher
     end
-  end
-
-  # def redirect_signed_in
-  #   if admin_signed_in?
-  #     redirect_to admins_page_path
-  #   elsif user_signed_in?
-  #     redirect_to users_page_path
-  #   else
-  #     root_path
-  #   end
-  # end
-
-  def valid_reset_password_path?
-    request.path == edit_user_password_path && params[:reset_password_token].present?
-  end
-
-  def valid_registration_path?
-    request.path == new_user_registration_path && params[:registration_token].present?
-  end
-
-  def valid_confirmation_path?
-    request.path == user_confirmation_path && params[:confirmation_token].present?
   end
 
   def authenticate_user!
     return if user_signed_in? || admin_signed_in?
-
-    redirect_to errors_forbidden_path
   end
 end
