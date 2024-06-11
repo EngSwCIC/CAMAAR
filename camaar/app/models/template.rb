@@ -7,14 +7,4 @@ class Template < ApplicationRecord
   validates :fatorDeCorrecao?, presence: true
 
   validate :discursiva_alternatives_check
-
-  private
-
-  def discursiva_alternatives_check
-    if discursiva? && numeroDeAlternativas != 0
-      errors.add(:numeroDeAlternativas, "Precisa ser 0 para questões discursivas")
-    elsif !discursiva? && (numeroDeAlternativas < 2 || numeroDeAlternativas > 5)
-      errors.add(:numeroDeAlternativas, "Uma questão não pode ter apenas 1 alternativa")
-    end
-  end
 end
