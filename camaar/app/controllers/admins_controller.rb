@@ -57,4 +57,16 @@ class AdminsController < ApplicationController
       end
     end
   end
+
+  def turmas
+    @admin = current_admin
+    @coordinator = Coordinator.find_by(admin_id: @admin.id)
+    @department = Department.find(@coordinator.department_id)
+    @subject_classes = SubjectClass.where(department_id: @department.id)
+  end
+
+  # end
+  # def envio
+  #  UsersMailer.deliver
+  #end
 end

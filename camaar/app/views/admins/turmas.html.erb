@@ -6,7 +6,7 @@
                                 <!-- DATA TABLE-->
                                 <div class="table-responsive m-b-40">
                                     <table class="table table-borderless table-data3">
-                                    <h1 style ="text-align:center;"> Departamento de Ciências da Computação</h1>
+                                    <h1 style ="text-align:center;"> <%= @department.name %> </h1>
                                         <thead>
                                             <tr>
                                                 <th>Nome</th>
@@ -16,21 +16,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>OAC</td>
-                                                <td>2024.1</td>
-                                                <td>CIC0099</td>
-                                                <td>1</td>
-                                            </tr>
-                                      
-                                            <tr>
-                                                <td>APC</td>
-                                                <td>2024.1</td>
-                                                <td>CIC0180</td>
-                                                <td>2</td>
-                                            </tr>
-                                      
-                                          
+                                            <% @subject_classes.each do |subject_class| %>
+                                                <tr>
+                                                    <td><%= subject_class.name %></td>
+                                                    <td><%= subject_class.semester %></td>
+                                                    <td><%= subject_class.code %></td>
+                                                    <td><%= subject_class.subject %></td>
+                                                </tr>
+                                            <% end %>
                                         </tbody>
                                     </table>
                                 </div>
@@ -44,17 +37,3 @@
             </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
