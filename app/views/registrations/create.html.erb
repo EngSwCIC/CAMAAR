@@ -7,7 +7,7 @@
 
 <h1>Create a new account</h1>
 
-<%= form_with url: '/create', method: :post, scope: :user do |form| %>
+<%= form_with url: register_path, method: :post, scope: :user do |form| %>
   <% if flash[:error] %>
     <p style="color: red;"><%= flash[:error] %></p>
   <% end %>
