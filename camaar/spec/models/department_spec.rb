@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Department, type: :model do
-  it 'é inválido sem FKS existentes' do
+  it 'é inválido com constraints duplicadas' do
     department = create(:department)
     department2 = build(:department)
     expect(department2).to_not be_valid
