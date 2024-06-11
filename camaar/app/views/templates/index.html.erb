@@ -9,6 +9,23 @@
           </div>
         </div>
       </div>
+      <div>
+        <br>
+        <% if @errors.any? %>
+          <div>
+            <% @errors.each do |error| %>
+              <p class="alert alert-warning">
+                <%= error %>
+              </p>
+            <% end %>
+          </div>
+        <% end %>
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>">
+            <%= value %>
+          </div>
+        <% end %>
+      </div>
       <div class="row m-t-25">
         <% @templates.each do |template| %>
           <div class="col-sm-6 col-lg-3">
@@ -33,13 +50,6 @@
                 </div>
               </div>
             </div>
-          </div>
-        <% end %>
-      </div>
-      <div>
-        <% flash.each do |key, value| %>
-          <div class="alert alert-<%= key %>">
-            <%= value %>
           </div>
         <% end %>
       </div>

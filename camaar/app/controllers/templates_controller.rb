@@ -78,10 +78,14 @@ class TemplatesController < ApplicationController
 
   def get_admin_templates
     @templates = Template.where(coordinator_id: @coordinator.id)
+    if @templates.empty?
+      @errors << "Não foram encontrados templates"
+    end
   end
 
   def set_template_data
     @templates = Template.where(coordinator_id: @coordinator.id)
+
     @template = Template.find_by_id(params[:id])
     if @template
       @template_name = params[:name] || @template.name
