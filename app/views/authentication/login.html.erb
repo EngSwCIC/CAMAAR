@@ -1,1 +1,25 @@
-<h1>Atentique-se</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página de Login</title>
+</head>
+<body>
+
+<h1>Faça login</h1>
+
+<%= form_with url: '/process_login', method: :post do |form| %>
+  <% if flash[:error] %>
+    <p style="color: red;"><%= flash[:error] %></p>
+  <% end %>
+
+  <label for="email">Email:</label>
+  <%= form.text_field :email, id: "email" %><br>
+
+  <label for="password">Senha:</label>
+  <%= form.password_field :password, id: "password" %><br>
+
+  <%= form.submit "Entrar" %>
+<% end %>
+
+</body>
+</html>

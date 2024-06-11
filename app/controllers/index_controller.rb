@@ -1,9 +1,9 @@
 class IndexController < ApplicationController
-    def index
-      if user_signed_in?
-        redirect_to home_path
-      else
-        redirect_to new_user_session_path
-      end
+  def index
+    if AuthenticationController.new.check_authentication
+      redirect_to home_path
+    else
+      redirect_to login_path
     end
+  end
 end

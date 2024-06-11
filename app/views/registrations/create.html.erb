@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+</head>
+<body>
+
+<h1>Create a new account</h1>
+
+<%= form_with url: '/create', method: :post, scope: :user do |form| %>
+  <% if flash[:error] %>
+    <p style="color: red;"><%= flash[:error] %></p>
+  <% end %>
+
+  <label for="email">Email:</label>
+  <%= form.text_field :email, id: "email" %><br>
+
+  <label for="password">Password:</label>
+  <%= form.password_field :password, id: "password" %><br>
+
+  <label for="password_confirmation">Confirm Password:</label>
+  <%= form.password_field :password_confirmation, id: "password_confirmation" %><br>
+
+  <%= form.submit "Sign Up" %>
+<% end %>
+
+</body>
+</html>

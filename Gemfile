@@ -1,6 +1,7 @@
 ruby "3.1.2"
 
 #gems 
+gem 'bcrypt', '~> 3.1.7'
 gem 'mysql2'
 gem 'bundler-audit'
 gem "rails", "~> 7.1.3.4"
