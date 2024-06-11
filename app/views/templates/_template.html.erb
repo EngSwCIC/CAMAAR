@@ -1,0 +1,11 @@
+<strong> Título: </strong>
+<%= template.title %> <br>
+<ol>
+  <% template.questions.each do |question| %>
+    <li>
+      <%= question.text %>
+    </li>
+  <% end %>
+</ol>
+
+

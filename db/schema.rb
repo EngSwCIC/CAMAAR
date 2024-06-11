@@ -21,4 +21,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_11_180454) do
     t.string "session_key"
   end
 
+ActiveRecord::Schema[7.1].define(version: 2024_06_10_191346) do
+  create_table "questions", force: :cascade do |t|
+    t.string "text"
+    t.string "type"
+    t.integer "template_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["template_id"], name: "index_questions_on_template_id"
+  end
+
+  create_table "templates", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "questions", "templates"
 end

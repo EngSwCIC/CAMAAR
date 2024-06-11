@@ -6,4 +6,13 @@ Rails.application.routes.draw do
   post '/process_login', to: 'authentication#process_login'
   get '/home', to: 'home#index', as: 'home'
   root "authentication#login"
+  
+  resources :templates
+
+  resources :questions, only: [], param: :index do
+    member do
+      delete '(:id)' => "questions#destroy", as: ""
+      post '/' => "questions#create"
+    end
+  end
 end

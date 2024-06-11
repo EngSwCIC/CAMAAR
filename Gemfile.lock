@@ -131,6 +131,7 @@ GEM
     drb (2.2.1)
     erubi (1.12.0)
     ffi (1.16.3)
+    ffi (1.16.3-x64-mingw-ucrt)
     globalid (1.2.1)
       activesupport (>= 6.1)
     haml (6.3.0)
@@ -176,15 +177,7 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.3)
-    nokogiri (1.16.5-aarch64-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.5-arm-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.5-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.16.5-x86-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.5-x86_64-darwin)
+    nokogiri (1.16.5-x64-mingw-ucrt)
       racc (~> 1.4)
     nokogiri (1.16.5-x86_64-linux)
       racc (~> 1.4)
@@ -272,6 +265,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2024.1)
+      tzinfo (>= 1.0.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -287,11 +282,7 @@ GEM
     zeitwerk (2.6.15)
 
 PLATFORMS
-  aarch64-linux
-  arm-linux
-  arm64-darwin
-  x86-linux
-  x86_64-darwin
+  x64-mingw-ucrt
   x86_64-linux
 
 DEPENDENCIES
