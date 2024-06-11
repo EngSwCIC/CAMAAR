@@ -1,0 +1,40 @@
+<div class="main-content">
+  <div class="section__content section__content--p30">
+    <div class="row m-t-30">
+      <div class="col-md-12">
+        <h1 style="text-align:center;"> <%= @department.name %> </h1>
+        <% if @errors %>
+          <% @errors.each do |e| %>
+            <div class="alert alert-warning">
+              <%= e %>
+            </div>
+          <% end %>
+        <% end %>
+        <% if @subject_classes.present? %>
+          <div class="table-responsive m-b-40">
+            <table class="table table-borderless table-data3">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Semestre</th>
+                  <th>Código</th>
+                  <th>Turma</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @subject_classes.each do |subject_class| %>
+                  <tr>
+                    <td><%= subject_class.name %></td>
+                    <td><%= subject_class.semester %></td>
+                    <td><%= subject_class.code %></td>
+                    <td><%= subject_class.subject %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
