@@ -69,3 +69,5 @@ group :test do
   gem 'cucumber', '~> 8.0'
   gem 'database_cleaner'
 end
+
+gem "tailwindcss-rails", "~> 2.6"

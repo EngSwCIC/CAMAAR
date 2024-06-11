@@ -118,6 +118,7 @@
     <orderEntry type="library" scope="PROVIDED" name="stringio (v3.1.0, rbenv: 2.7.8) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="strscan (v3.1.0, rbenv: 2.7.8) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sys-uname (v1.2.3, rbenv: 2.7.8) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tailwindcss-rails (v2.6.1, rbenv: 2.7.8) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.3.1, rbenv: 2.7.8) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="timeout (v0.4.1, rbenv: 2.7.8) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="turbo-rails (v2.0.5, rbenv: 2.7.8) [gem]" level="application" />
