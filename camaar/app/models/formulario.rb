@@ -4,7 +4,7 @@ class Formulario < ApplicationRecord
 
   validates :turmas, presence: true
   validates :dataDeTermino, presence: true
-  validates :Resultados, presence: true
+  validates :resultados, presence: true
 
   validate :dataDeTermino_in_future
 
