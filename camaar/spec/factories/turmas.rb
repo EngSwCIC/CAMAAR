@@ -1,8 +1,9 @@
 FactoryBot.define do
   factory :turma do
-    codigo { "MyString" }
-    semestre { "MyString" }
-    horario { "MyString" }
-    materia { nil }
+    # id { 1 }
+    codigo { "TA" }
+    semestre { "2021.2" }
+    horario { "35T45" }
+    materia { association :materia }
   end
 end
