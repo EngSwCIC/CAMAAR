@@ -2941,3 +2941,338 @@ Started GET "/gerenciamento/show" for ::1 at 2024-06-10 21:13:36 -0300
   
 ActionController::RoutingError (No route matches [GET] "/gerenciamento/show"):
   
+Started GET "/main/index" for ::1 at 2024-06-10 21:46:18 -0300
+Started GET "/" for ::1 at 2024-06-10 21:46:18 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendering layout layouts/application.html.erb
+  Rendered main/index.erb within layouts/application (Duration: 0.2ms | Allocations: 255)
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 803)
+  Rendered layout layouts/application.html.erb (Duration: 99.5ms | Allocations: 88799)
+Completed 200 OK in 107ms (Views: 102.7ms | ActiveRecord: 0.0ms | Allocations: 93925)
+
+
+  Rendered layout layouts/application.html.erb (Duration: 101.7ms | Allocations: 96884)
+Completed 200 OK in 109ms (Views: 105.0ms | ActiveRecord: 0.0ms | Allocations: 101813)
+
+
+Started GET "/" for ::1 at 2024-06-10 21:46:23 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1750)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 2004)
+
+
+Started GET "//user/15" for ::1 at 2024-06-10 21:46:23 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/user/15"):
+  
+Started GET "/" for ::1 at 2024-06-10 21:46:24 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 1751)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms | Allocations: 2004)
+
+
+Started GET "/main/index" for ::1 at 2024-06-10 21:46:24 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered main/index.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 1731)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms | Allocations: 1979)
+
+
+Started GET "/gerenciamento" for ::1 at 2024-06-10 21:47:06 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 118)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 1869)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.0ms | Allocations: 2334)
+
+
+Started GET "/" for ::1 at 2024-06-10 22:01:03 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 1728)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 1978)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-11 16:20:57 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 202)
+  Rendered layout layouts/application.html.erb (Duration: 61.2ms | Allocations: 44694)
+Completed 200 OK in 67ms (Views: 63.3ms | ActiveRecord: 0.0ms | Allocations: 48797)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-11 16:21:04 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 2731)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 2986)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-11 16:21:05 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1737)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 1991)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:21:07 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 125)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 1864)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 2333)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:22:14 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 141)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 18989)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 19911)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:22:28 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 147)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 18995)
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 19917)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:23:09 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 157)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 18789)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 19706)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:23:22 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 157)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 19002)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 19923)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:23:23 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 1752)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 2002)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:23:23 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 1720)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms | Allocations: 1970)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:23:35 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 154)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 18892)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 19811)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:23:36 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 1729)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 1979)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:23:53 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 158)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 18853)
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 19773)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:23:53 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 1762)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 2012)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:24:02 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 155)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 18992)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 19913)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:24:08 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 161)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 18821)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 19738)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:24:09 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 1728)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 1978)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:25:22 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/_navbar.html.erb (Duration: 0.1ms | Allocations: 117)
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 434)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 19278)
+Completed 200 OK in 10ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 20199)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:25:25 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/_navbar.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 70)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 1793)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 2043)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:25:35 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/_navbar.html.erb (Duration: 0.1ms | Allocations: 112)
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 391)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 19195)
+Completed 200 OK in 11ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 20112)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:25:41 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/_navbar.html.erb (Duration: 0.1ms | Allocations: 111)
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 394)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 19113)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 20033)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:25:49 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1719)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1811)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2727)
+
+
+  
+ActionView::Template::Error (Missing partial gerenciamento/_navbar, application/_navbar with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/henriqueramos.qs/Documents/Educativo/UnB/7º semestre/EngSof/CAMAAR/CAAMAR/app/views"
+  * "/Users/henriqueramos.qs/.rvm/gems/ruby-3.2.0/gems/turbo-rails-2.0.5/app/views"
+  * "/Users/henriqueramos.qs/.rvm/gems/ruby-3.2.0/gems/actiontext-7.1.3.4/app/views"
+  * "/Users/henriqueramos.qs/.rvm/gems/ruby-3.2.0/gems/actionmailbox-7.1.3.4/app/views"
+):
+    1: <%=render 'navbar'%>
+    2: <%# 
+    3: <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    4: 
+  
+app/views/gerenciamento/show.html.erb:1
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:25:55 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.1ms | Allocations: 111)
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 396)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 19253)
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 20169)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:26:16 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.2ms | Allocations: 110)
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 356)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 19213)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 20133)
+
+
+Started GET "/gerenciamento" for 127.0.0.1 at 2024-06-11 16:26:17 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 75)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 1813)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms | Allocations: 2063)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-11 16:26:18 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 108)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1856)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 2313)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-11 16:26:20 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered main/index.erb within layouts/application (Duration: 0.9ms | Allocations: 199)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 1965)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 2421)
+
+
