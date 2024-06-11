@@ -70,6 +70,7 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'cucumber', '~> 8.0'
   gem 'database_cleaner'
+  gem "rspec-rails"
 end
 
 gem "tailwindcss-rails", "~> 2.6"
