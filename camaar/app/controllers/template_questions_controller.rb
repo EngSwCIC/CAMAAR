@@ -1,5 +1,4 @@
 class TemplateQuestionsController < ApplicationController
-  before_action :authenticate_admin!
   before_action :set_admin_data
   before_action :set_template
   layout "admin"

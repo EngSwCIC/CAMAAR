@@ -10,7 +10,6 @@ Feature: Manage classes from department
         Then I expect to see "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
 
     Scenario: Coordinator acess department page
-        Given that I imported classes for the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         Then I expect to only see classes starting with "CIC"
 
     Scenario: Coordinator has not imported classes data

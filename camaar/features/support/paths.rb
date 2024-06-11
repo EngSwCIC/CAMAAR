@@ -25,7 +25,7 @@ module NavigationHelpers
     when 'Redefinir Senha Usuario'
       '/users/recover-password/edit'
     when 'Meu Departamento'
-      '/classes'
+      '/admins/classes'
     when 'User Camaar'
       '/users/page'
     when 'Cadastro de Usuário'
