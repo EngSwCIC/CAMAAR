@@ -5,4 +5,8 @@ Rails.application.routes.draw do
       post '/' => "questions#create"
     end
   end
+
+  resources :templates
+
+  root :to => redirect('/templates')
 end

@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_11_181410) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_11_210937) do
   create_table "questions", force: :cascade do |t|
     t.string "type"
     t.string "description"
     t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "template_id"
+    t.index ["template_id"], name: "index_questions_on_template_id"
   end
 
   create_table "semesters", force: :cascade do |t|
@@ -24,17 +26,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_11_181410) do
     t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "template_id"
+    t.index ["template_id"], name: "index_semesters_on_template_id"
   end
 
   create_table "templates", force: :cascade do |t|
-    t.integer "semester_id"
-    t.integer "questions_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["questions_id"], name: "index_templates_on_questions_id"
-    t.index ["semester_id"], name: "index_templates_on_semester_id"
   end
 
-  add_foreign_key "templates", "questions", column: "questions_id"
-  add_foreign_key "templates", "semesters"
+  add_foreign_key "questions", "templates"
+  add_foreign_key "semesters", "templates"
 end
