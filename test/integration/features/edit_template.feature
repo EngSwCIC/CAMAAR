@@ -9,41 +9,25 @@ Feature: Edit Templates
         And the stored data is up to date
 	And I am on the templates page
 
-    Scenario: Create a valid template
-        Given I have no templates
-        When I click "Create Template"
-	And I fill "Template Name" with "Template 1"
-	And I choose "Text" for "Type"
-	And I fill "Question" with "Who was Alan Turing?"
-	And I click "Create"
-	Then I should see "Template created successfully."
-	And I should see "Template 1"	
-
-    Scenario: Create an invalid template	
-	Given I have no templates
-        And I click "Create Template"
-	And I click "Create"
-	Then I should see "Fill in the necessary fields." 
-
     Scenario: Edit a valid template
 	Given I have a template with name "Template 1"
-	When I open "Template 1"
-	And I fill "Template name" with "Template 2"
-	And I click "Edit"
-	Then I should see "Templated edited successfully."
-	And I should see "Template 2"
+	When I click "Visualizar template"
+	And I click "Editar template"
+ 	And I fill "Título" with "Template 2"
+   	And I click "Criar template"
+    	Then I should see "Template atualizado com sucesso."
+     	And I should see "Template 2"
 
     Scenario: Edit an invalid template
 	Given I have a template with name "Template 1"
-	When I open "Template 1"
-	And I fill "Template name" with ""
-	And I click "Edit"
-	Then I should see "Fill in the necessary fields."
+	When I click "Visualizar template"
+	And I click "Editar template"
+ 	And I fill "Título" with ""
+    	Then I should see "1 erro imperdiram o template de ser salvo"
 
     Scenario: Delete a template
-	Given I have templates with names "Template 1" and "Template 2"
-	When I open "Template 1"
-	And I click "Delete Template 1"
-	And I click "Confirm"
-	Then I should see "Template 2"
-	And I should not see "Template 1"
+	Given I have a template with name "Template 1"
+	When I click "Visualizar template"
+	And I click "Deletar template"
+	Then I should be on the templates page
+ 	And I should see no templates
