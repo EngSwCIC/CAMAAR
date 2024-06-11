@@ -165,8 +165,11 @@ Given(/the "([^"]*)" department has no classes$/) do |dpt_name|
   classes = SubjectClass.where({ department_id: department.id })
   classes.each do |subject|
     subject.destroy!
+    puts subject.name
   end
+
   visit "/admins/classes"
+  page.should have_content("O departamento não possui turmas")
 end
 
 Given("that a form has been assigned to the following classes:") do |_table|
