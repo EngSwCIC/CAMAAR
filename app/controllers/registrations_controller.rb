@@ -11,9 +11,9 @@ class RegistrationsController < ApplicationController
     @user = User.criarUser(email, password, password_confirmation)
     
     if @user.present? && @user.persisted?
-      redirect_to root_path, notice: "User successfully created!"
+      redirect_to login_path, notice: "User successfully created!"
     else
-      flash[:error] = "User creation failed"
+      flash[:error] = "Todos os campos devem ser preenchidos e as senhas devem coincidir."
       render :create
     end
   end

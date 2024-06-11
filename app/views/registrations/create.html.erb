@@ -2,27 +2,42 @@
 <html>
 <head>
   <title>Sign Up</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<h1>Create a new account</h1>
+<div class="container mt-5">
+   <h1 class="text-center"><i>Quick Class Eval</i></h1>
 
-<%= form_with url: register_path, method: :post, scope: :user do |form| %>
-  <% if flash[:error] %>
-    <p style="color: red;"><%= flash[:error] %></p>
-  <% end %>
+  <div class="card p-4">
+     <h4 class="text-center">Registre-se em nossa Aplicação.</h4>
+    <%= form_with url: register_path, method: :post, scope: :user do |form| %>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <%= form.text_field :email, id: "email", class: "form-control" %>
+      </div>
 
-  <label for="email">Email:</label>
-  <%= form.text_field :email, id: "email" %><br>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <%= form.password_field :password, id: "password", class: "form-control" %>
+      </div>
 
-  <label for="password">Password:</label>
-  <%= form.password_field :password, id: "password" %><br>
+      <div class="form-group">
+        <label for="password_confirmation">Confirm Password:</label>
+        <%= form.password_field :password_confirmation, id: "password_confirmation", class: "form-control" %>
+      </div>
 
-  <label for="password_confirmation">Confirm Password:</label>
-  <%= form.password_field :password_confirmation, id: "password_confirmation" %><br>
+      <%= form.submit "Sign Up", class: "btn btn-primary" %>
+      <% if flash.now[:error] %>
+        <p class="text-center" style="color: red;"><%= flash[:error] %></p>
+      <% end %>
+      <p class="text-center"><a href="<%= login_path %>">Já possui uma conta? Entre por aqui!</a></p>
+    <% end %>
+  </div>
+</div>
 
-  <%= form.submit "Sign Up" %>
-<% end %>
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

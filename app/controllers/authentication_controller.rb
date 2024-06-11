@@ -7,12 +7,17 @@ class AuthenticationController < ApplicationController
 
   def process_login
     user = User.find_by(email: params[:email])
-    if user && User.authenticate(user.id, params[:password])
+    if params[:email].blank? || params[:password].blank?
+      flash[:error] = "Email e Senha devem ser prenchidos."
+      redirect_to login_path
+      
+    elsif user && User.authenticate(user.id, params[:password])
       key = user.generate_session_key
       create_cookie(user, key)
       redirect_to home_path
+  
     else
-      flash[:error] = "Não foi possível fazer login"
+      flash[:error] = "Email ou Senha estão errados."
       redirect_to login_path
     end
   end
@@ -34,6 +39,10 @@ class AuthenticationController < ApplicationController
   private def create_cookie(user, key)
     timestamp = Time.current.to_i
     cookie_value = "#{key}_#{timestamp}_#{user.email}"
-    cookies.signed[:user_info] = { value: cookie_value, expires: 1.hour.from_now }
+    cookies.signed[:user_info] = {
+      value: cookie_value,
+      expires: 1.hour.from_now,
+      httponly: true
+    }    
   end
 end

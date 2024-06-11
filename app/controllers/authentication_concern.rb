@@ -4,21 +4,21 @@ module AuthenticationConcern
   def authenticate_user
     user_info = cookies.signed[:user_info]
     unless check_authentication_from_controller(user_info)
-      flash[:error] = "Usuário não autenticado"
       redirect_to login_path
+      return false
     end
+    return true
   end
 
   def check_authentication_from_controller(cookie_value)
     if cookie_value.present?
-      key, timestamp, email = cookie_value.split('_')
-      puts "Informações do usuário: #{cookie_value.inspect}"
-      if Time.current.to_i - timestamp.to_i < 1.hour
-        user = User.find_by(email: email)
+        key, timestamp, email = cookie_value.split('_')
+        puts "Informações do usuário: #{cookie_value.inspect}"
+        if Time.current.to_i - timestamp.to_i < 1.hour
+          user = User.find_by(email: email)
 
-        if user && key == user.session_key
-          puts "Usuário autenticado: #{email}"
-          return true
+          if user && key == user.session_key
+            return true
         end
       end
     end

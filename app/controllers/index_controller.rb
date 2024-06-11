@@ -1,9 +1,8 @@
 class IndexController < ApplicationController
+  include AuthenticationConcern
   def index
-    if AuthenticationController.new.check_authentication
+    if authenticate_user == true
       redirect_to home_path
-    else
-      redirect_to login_path
     end
-  end
+  end  
 end

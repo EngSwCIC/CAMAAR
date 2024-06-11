@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   include AuthenticationConcern
   def index
-    self.authenticate_user
-    render 'home'
+    if self.authenticate_user == true
+      render 'home'
+    end
   end
 end

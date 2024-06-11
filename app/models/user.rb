@@ -19,7 +19,9 @@ class User < ApplicationRecord
   end
 
   def self.criarUser(email, password, password_confirmation)
-    return nil unless password == password_confirmation
+    if email.blank? || password.blank? || password_confirmation.blank? || password != password_confirmation 
+      return nil
+    end
 
     salt = BCrypt::Engine.generate_salt
     hashed_password = BCrypt::Engine.hash_secret(password, salt)
