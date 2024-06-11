@@ -15,6 +15,8 @@ class AdminsController < ApplicationController
     @admin = Admin.all
   end
 
+  def envio; end
+
   def import
     json = params[:admin_import][:file].tempfile.path
     selected_data = params[:select_data]

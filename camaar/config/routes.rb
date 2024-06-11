@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   match '/users/forms', to: 'users#form_student', via: 'get'
 
   match '/admins/page', to: 'admins#page', via: 'get'
-  match '/admins/forms', to: 'admins#form_student', via: 'get'
+  # match '/admins/forms', to: 'admins#form_student', via: 'get'
   match '/admins/results', to: 'admins#resultados', via: 'get'
   # match "/admins/templates", to: "admins#create_template", via: "get"
   match '/admins/classes', to: 'admins#turmas', via: 'get'
@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   match '/admins/import', to: 'admins#importdata', via: 'get'
   match '/admins/import', to: 'admins#import', via: 'post', as: 'admins_import_post'
 
-  match '/admins/envio', to: 'forms#new', via: 'get'
+  # match '/admins/envio', to: 'forms#new', via: 'get'
+  match '/admins/envio', to: 'admins#envio', via: 'get'
   match '/admins/envio', to: 'admins#envio', via: 'post', as: 'admins_envio_post'
 
   scope 'admins' do
