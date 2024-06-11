@@ -168,8 +168,7 @@ Given(/the "([^"]*)" department has no classes$/) do |dpt_name|
     puts subject.name
   end
 
-  visit "/admins/classes"
-  page.should have_content("O departamento não possui turmas")
+  # page.should have_content("O departamento não possui turmas")
 end
 
 Given("that a form has been assigned to the following classes:") do |_table|

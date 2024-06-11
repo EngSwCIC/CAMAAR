@@ -19,7 +19,9 @@ Feature: View department classes
 
     Scenario: There are no classes for the department
         Given the "DEPTO CIÊNCIAS DA COMPUTAÇÃO" department has no classes
+        When I follow "Turmas"
         Then I expect to see "O departamento não possui turmas"
+
         Then I expect to see "Importar turmas"
         When I press "Importar turmas"
-        Then I should be on the "Importar dados" page
+        Then I expect to be on the "Importar dados" page
