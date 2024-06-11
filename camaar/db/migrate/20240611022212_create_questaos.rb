@@ -7,7 +7,6 @@ class CreateQuestaos < ActiveRecord::Migration[7.1]
       t.decimal :fatorDeCorrecao, null: false, default: 0, precision: 10, scale: 2
       t.string :alternativaCorreta, null: false
 
-      t.references :formulario, null: false, foreign_key: true
       t.references :template, null: false, foreign_key: true
 
       t.timestamps

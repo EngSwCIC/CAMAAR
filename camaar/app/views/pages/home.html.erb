@@ -23,7 +23,7 @@
   <div class="assessments-container">
     <% current_user.turmas.each do |turma| %>
       <% turma.formulario.each do |formulario| %>
-        <% if Date.today < formulario.dataDeTermino %>
+        <% if Date.today < formulario.dataDeTermino && !formulario.resultados.key?(current_user.nome)%>
           <%= link_to formulario_path(formulario) do %>
             <div class="assessments-box">
               <div class="subject-name"><%= turma.nome_materia %></div>
