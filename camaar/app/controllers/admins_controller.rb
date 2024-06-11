@@ -18,7 +18,6 @@ class AdminsController < ApplicationController
   def import
     json = params[:admin_import][:file].tempfile.path
     selected_data = params[:select_data]
-    puts "data = #{selected_data}"
     if selected_data == '1'
       members = JSON.parse(File.read(json))
       members.each do |member|
