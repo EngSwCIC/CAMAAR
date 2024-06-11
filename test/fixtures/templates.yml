@@ -1,7 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
+  semester: one
+  questions: one
 
 two:
-  title: MyString
+  semester: two
+  questions: two
