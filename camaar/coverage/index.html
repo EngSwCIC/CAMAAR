@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-06-10T20:43:23-03:00">2024-06-10T20:43:23-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-06-10T22:05:04-03:00">2024-06-10T22:05:04-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,7 +23,7 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  14.96%
+  15.01%
 </span>
 
      </span>
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>695</b> relevant lines,
-    <span class="green"><b>104</b> lines covered</span> and
-    <span class="red"><b>591</b> lines missed. </span>
+    <b>706</b> relevant lines,
+    <span class="green"><b>106</b> lines covered</span> and
+    <span class="red"><b>600</b> lines missed. </span>
     (<span class="red">
-  14.96%
+  15.01%
 </span>
 )
   </div>
@@ -160,12 +160,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#226ec7006fa6875991e98baec40adf69193cc96b" class="src_link" title="app/controllers/admins_controller.rb">app/controllers/admins_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">77.78 %</td>
-            <td class="cell--number">39</td>
-            <td class="cell--number">18</td>
-            <td class="cell--number">14</td>
-            <td class="cell--number">4</td>
-            <td class="cell--number">3.17</td>
+            <td class="red strong cell--number t-file__coverage">55.17 %</td>
+            <td class="cell--number">58</td>
+            <td class="cell--number">29</td>
+            <td class="cell--number">16</td>
+            <td class="cell--number">13</td>
+            <td class="cell--number">2.03</td>
             
           </tr>
         
@@ -687,7 +687,7 @@
     <span class="group_name">Controllers</span>
     (<span class="covered_percent">
       <span class="red">
-  10.93%
+  11.07%
 </span>
 
      </span>
@@ -707,11 +707,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>558</b> relevant lines,
-    <span class="green"><b>61</b> lines covered</span> and
-    <span class="red"><b>497</b> lines missed. </span>
+    <b>569</b> relevant lines,
+    <span class="green"><b>63</b> lines covered</span> and
+    <span class="red"><b>506</b> lines missed. </span>
     (<span class="red">
-  10.93%
+  11.07%
 </span>
 )
   </div>
@@ -802,12 +802,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#226ec7006fa6875991e98baec40adf69193cc96b" class="src_link" title="app/controllers/admins_controller.rb">app/controllers/admins_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">77.78 %</td>
-            <td class="cell--number">39</td>
-            <td class="cell--number">18</td>
-            <td class="cell--number">14</td>
-            <td class="cell--number">4</td>
-            <td class="cell--number">3.17</td>
+            <td class="red strong cell--number t-file__coverage">55.17 %</td>
+            <td class="cell--number">58</td>
+            <td class="cell--number">29</td>
+            <td class="cell--number">16</td>
+            <td class="cell--number">13</td>
+            <td class="cell--number">2.03</td>
             
           </tr>
         
@@ -4610,7 +4610,7 @@
     <h3>app/controllers/admins_controller.rb</h3>
     <h4>
       <span class="red">
-  77.78%
+  55.17%
 </span>
 
       lines covered
@@ -4619,9 +4619,9 @@
     
 
     <div class="t-line-summary">
-      <b>18</b> relevant lines.
-      <span class="green"><b>14</b> lines covered</span> and
-      <span class="red"><b>4</b> lines missed.</span>
+      <b>29</b> relevant lines.
+      <span class="green"><b>16</b> lines covered</span> and
+      <span class="red"><b>13</b> lines missed.</span>
     </div>
 
     
@@ -4638,7 +4638,7 @@
 
             
 
-            <code class="ruby">require &quot;json&quot;</code>
+            <code class="ruby">require &#39;json&#39;</code>
           </li>
         </div>
       
@@ -4671,7 +4671,7 @@
 
             
 
-            <code class="ruby">  layout &quot;admin&quot;</code>
+            <code class="ruby">  layout &#39;admin&#39;</code>
           </li>
         </div>
       
@@ -4819,35 +4819,35 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="18">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="18">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  # def enviar</code>
+            
+
+            <code class="ruby">  def import</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="19">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="19">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  # @adminll = Admin.new</code>
+            
+
+            <code class="ruby">    json = params[:admin_import][:file].tempfile.path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="20">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="20">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  # end</code>
+            
+
+            <code class="ruby">    selected_data = params[:select_data]</code>
           </li>
         </div>
       
@@ -4869,7 +4869,7 @@
 
             
 
-            <code class="ruby">  def import</code>
+            <code class="ruby">    if selected_data == &#39;1&#39;</code>
           </li>
         </div>
       
@@ -4880,7 +4880,7 @@
 
             
 
-            <code class="ruby">    json = params[:admin_import][:file].tempfile.path</code>
+            <code class="ruby">      members = JSON.parse(File.read(json))</code>
           </li>
         </div>
       
@@ -4891,7 +4891,7 @@
 
             
 
-            <code class="ruby">    members = JSON.parse(File.read(json))</code>
+            <code class="ruby">      members.each do |member|</code>
           </li>
         </div>
       
@@ -4902,7 +4902,7 @@
 
             
 
-            <code class="ruby">    members.each do |member|</code>
+            <code class="ruby">        UsersMailer.register_user(member[&#39;docente&#39;][&#39;email&#39;]).deliver</code>
           </li>
         </div>
       
@@ -4913,29 +4913,29 @@
 
             
 
-            <code class="ruby">      UsersMailer.register_user(member[&quot;docente&quot;][&quot;email&quot;]).deliver</code>
+            <code class="ruby">        member[&#39;discente&#39;].each do |student|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="27">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      member[&quot;discente&quot;].each do |student|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="44" data-linenumber="28">
+          <li class="covered" data-hits="44" data-linenumber="27">
             <span class="hits">44</span>
             
 
             
 
-            <code class="ruby">        UsersMailer.register_user(student[&quot;email&quot;]).deliver</code>
+            <code class="ruby">          UsersMailer.register_user(student[&#39;email&#39;]).deliver</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="28">
+            
+            
+
+            
+
+            <code class="ruby">        end</code>
           </li>
         </div>
       
@@ -4957,62 +4957,62 @@
 
             
 
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="31">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="32">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="33">
+          <li class="missed" data-hits="0" data-linenumber="31">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    elsif selected_data == &#39;2&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="34">
+          <li class="missed" data-hits="0" data-linenumber="32">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      classes = JSON.parse(File.read(json))</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="35">
+          <li class="missed" data-hits="0" data-linenumber="33">
             
             
 
             
 
-            <code class="ruby">  # end</code>
+            <code class="ruby">      classes.each do |klass|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="34">
+            
+            
+
+            
+
+            <code class="ruby">        teacher = Teacher.find_by(department_id: current_admin.department_id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="35">
+            
+            
+
+            
+
+            <code class="ruby">        SubjectClass.create!(</code>
           </li>
         </div>
       
@@ -5023,7 +5023,7 @@
 
             
 
-            <code class="ruby">  # def envio</code>
+            <code class="ruby">          code: klass[&#39;code&#39;],</code>
           </li>
         </div>
       
@@ -5034,7 +5034,7 @@
 
             
 
-            <code class="ruby">  #  UsersMailer.deliver</code>
+            <code class="ruby">          name: klass[&#39;name&#39;],</code>
           </li>
         </div>
       
@@ -5045,12 +5045,221 @@
 
             
 
-            <code class="ruby">  #end</code>
+            <code class="ruby">          semester: klass[&#39;semester&#39;],</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="39">
+            
+            
+
+            
+
+            <code class="ruby">          created_at: Time.now.utc,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="40">
+            
+            
+
+            
+
+            <code class="ruby">          updated_at: Time.now.utc,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="41">
+            
+            
+
+            
+
+            <code class="ruby">          department_id: current_admin.department_id,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="42">
+            
+            
+
+            
+
+            <code class="ruby">          initials: klass[&#39;code&#39;].gsub(/[^a-zA-Z]/, &#39;&#39;),</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="43">
+            
+            
+
+            
+
+            <code class="ruby">          teacher_id: teacher.id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="44">
+            
+            
+
+            
+
+            <code class="ruby">        )</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="45">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="46">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="47">
+            
+            
+
+            
+
+            <code class="ruby">    elsif selected_data == &#39;3&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="48">
+            
+            
+
+            
+
+            <code class="ruby">      departamentos = JSON.parse(File.read(json))</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="49">
+            
+            
+
+            
+
+            <code class="ruby">      departamentos.each do |dpto|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="50">
+            
+            
+
+            
+
+            <code class="ruby">        Department.create!(</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="51">
+            
+            
+
+            
+
+            <code class="ruby">          id: dpto[&#39;id&#39;],</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="52">
+            
+            
+
+            
+
+            <code class="ruby">          initials: dpto[&#39;initials&#39;],</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="53">
+            
+            
+
+            
+
+            <code class="ruby">          name: dpto[&#39;name&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="54">
+            
+            
+
+            
+
+            <code class="ruby">        )</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="55">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="56">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="57">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="58">
             
             
 
