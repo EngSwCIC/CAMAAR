@@ -1,11 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  text: MyString
   type: 
-  template: one
+  description: MyString
+  label: MyString
+  answer: MyString
 
 two:
-  text: MyString
   type: 
-  template: two
+  description: MyString
+  label: MyString
+  answer: MyString
