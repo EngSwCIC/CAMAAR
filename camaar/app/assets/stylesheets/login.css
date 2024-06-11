@@ -1,0 +1,151 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #DBDBDB; /* Add this line */
+}
+
+.container {
+    display: flex;
+    height: 525px; /* Height of the container */
+}
+
+.white-section {
+    width: 398px;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    border-radius: 8px 0 0 8px;
+}
+
+.purple-section {
+    width: 500px;
+    height: 100%;
+    background-color: #6C2365;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 8px 8px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    /* LOGIN */
+
+    width: 69px;
+    height: 24px;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    /* identical to box height, or 100% */
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    margin-bottom: 24px;
+}
+
+.input-container {
+    width: 320px;
+    height: 76px;
+    margin-bottom: 24px;
+}
+
+
+.input-container label {
+
+    /* text-md/Medium */
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    /* Gray/800 */
+    color: #333F51;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+}
+
+.input-container input {
+    width: 304px;
+    height: 44px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    margin-top: 5px;
+    
+
+}
+
+.input-field {
+    
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0 0 0 14px;
+
+}
+
+.button {
+
+    width: 320px;
+    height: 46px;
+    background-color: #22C55E;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+.button:hover {
+    background-color: #22C55A;
+}
+
+.purple-section p {
+
+    width: 305px;
+    height: 373px;
+    left: 41px;
+    top: 76px;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 56px;
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
