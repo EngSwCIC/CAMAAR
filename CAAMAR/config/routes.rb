@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'home/index'
-  root 'home#index'
+  root 'auth#login'
   get 'main/index'
   get 'gerenciamento', to: 'gerenciamento#show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

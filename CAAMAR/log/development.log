@@ -3276,3 +3276,233 @@ Processing by MainController#index as HTML
 Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 2421)
 
 
+Started GET "/" for ::1 at 2024-06-11 16:30:29 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+Zeitwerk::NameError (expected file /Users/henriqueramos.qs/Documents/Educativo/UnB/7º semestre/EngSof/CAMAAR/CAAMAR/app/controllers/home_controller.rb to define constant HomeController, but didn't):
+  
+zeitwerk (2.6.15) lib/zeitwerk/loader/callbacks.rb:33:in `on_file_autoloaded'
+zeitwerk (2.6.15) lib/zeitwerk/kernel.rb:27:in `require'
+activesupport (7.1.3.4) lib/active_support/inflector/methods.rb:290:in `const_get'
+activesupport (7.1.3.4) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (7.1.3.4) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (7.1.3.4) lib/action_dispatch/http/request.rb:90:in `controller_class_for'
+actionpack (7.1.3.4) lib/action_dispatch/request/utils.rb:100:in `action_encoding_template'
+actionpack (7.1.3.4) lib/action_dispatch/request/utils.rb:85:in `encode'
+actionpack (7.1.3.4) lib/action_dispatch/request/utils.rb:45:in `set_binary_encoding'
+actionpack (7.1.3.4) lib/action_dispatch/http/parameters.rb:68:in `path_parameters='
+actionpack (7.1.3.4) lib/action_dispatch/journey/router.rb:48:in `block in serve'
+actionpack (7.1.3.4) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.4) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.4) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.4) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.4) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.4) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.4) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.4) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.4) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.5.1) lib/sprockets/rails/quiet_assets.rb:17:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.4) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for ::1 at 2024-06-11 16:30:52 -0300
+  
+ActionController::RoutingError (uninitialized constant HomeController):
+  
+Started GET "/" for ::1 at 2024-06-11 16:30:57 -0300
+  
+ActionController::RoutingError (uninitialized constant HomeController):
+  
+Started GET "/" for ::1 at 2024-06-11 16:31:11 -0300
+  
+ActionController::RoutingError (uninitialized constant AutoController):
+  
+Started GET "/" for ::1 at 2024-06-11 16:31:12 -0300
+  
+ActionController::RoutingError (uninitialized constant AutoController):
+  
+Started GET "/" for ::1 at 2024-06-11 16:31:20 -0300
+  
+TypeError (superclass mismatch for class Auth):
+  
+app/controllers/auth_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2024-06-11 16:31:45 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.1ms | Allocations: 114)
+  Rendered layout layouts/application.html.erb (Duration: 34.5ms | Allocations: 44283)
+Completed 200 OK in 37ms (Views: 35.5ms | ActiveRecord: 0.0ms | Allocations: 46159)
+
+
+Started GET "/" for ::1 at 2024-06-11 16:31:48 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 1719)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 1970)
+
+
+Started GET "/gerenciamento" for ::1 at 2024-06-11 16:31:49 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1719)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 1969)
+
+
+Started GET "/gerenciamento" for ::1 at 2024-06-11 16:31:52 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 1740)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 1990)
+
+
+Started GET "/gerenciamento" for ::1 at 2024-06-11 16:32:08 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.1ms | Allocations: 116)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 18967)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 19883)
+
+
+Started GET "/gerenciamento" for ::1 at 2024-06-11 16:32:10 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1746)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 1997)
+
+
+Started GET "/gerenciamento" for ::1 at 2024-06-11 16:32:12 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.1ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 18774)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 19686)
+
+
+Started GET "/gerenciamento" for ::1 at 2024-06-11 16:32:18 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.1ms | Allocations: 112)
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 369)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 19200)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 20124)
+
+
+Started GET "/main/index" for ::1 at 2024-06-11 16:32:23 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered main/index.erb within layouts/application (Duration: 0.8ms | Allocations: 199)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 1935)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 2391)
+
+
+Started GET "/main/index" for ::1 at 2024-06-11 16:32:40 -0300
+  
+SyntaxError (/Users/henriqueramos.qs/Documents/Educativo/UnB/7º semestre/EngSof/CAMAAR/CAAMAR/config/routes.rb:3: syntax error, unexpected string literal, expecting `end' or dummy end
+  get 'main', :to 'main#index'
+                  ^
+):
+  
+config/routes.rb:3: syntax error, unexpected string literal, expecting `end' or dummy end
+Started GET "/main/index" for ::1 at 2024-06-11 16:33:04 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/main/index"):
+  
+Started GET "/main/index" for ::1 at 2024-06-11 16:33:52 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.2ms | Allocations: 110)
+  Rendered main/index.erb within layouts/application (Duration: 0.9ms | Allocations: 370)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 19256)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 20165)
+
+
+Started GET "/main/index" for ::1 at 2024-06-11 16:34:01 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.1ms | Allocations: 112)
+  Rendered main/index.erb within layouts/application (Duration: 0.4ms | Allocations: 370)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 19113)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 20023)
+
+
+Started GET "/main/index" for ::1 at 2024-06-11 16:34:01 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered main/index.erb within layouts/application (Duration: 0.3ms | Allocations: 75)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 1805)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.0ms | Allocations: 2053)
+
+
+Started GET "/main/index" for ::1 at 2024-06-11 16:34:04 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/main/index"):
+  
+Started GET "/main/index" for ::1 at 2024-06-11 16:34:38 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.2ms | Allocations: 110)
+  Rendered main/index.erb within layouts/application (Duration: 0.9ms | Allocations: 368)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 19283)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.0ms | Allocations: 20191)
+
+
