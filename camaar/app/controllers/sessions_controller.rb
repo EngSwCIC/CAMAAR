@@ -20,13 +20,12 @@ class SessionsController < Devise::SessionsController
   private
 
   def after_sign_in_path_for(resource)
-    # no futuro, outra rota deve ser criada, pois o user pode ser um
-    # administrador ou um usuário
-    # e esses 2 tipos diferentes de users tem views diferentes para suas homepages
-
-    # no momento, o programa tem configurado apenas a rota que leva para a view homepage de aluno
-    # localizada em views/pages/home.html.erb
-    home_path
+    if resource.is_a?(Aluno)
+      home_aluno_path
+    elsif resource.is_a?(Administrador)
+      home_adm_path
+    else
+      super
+    end
   end
-
 end
