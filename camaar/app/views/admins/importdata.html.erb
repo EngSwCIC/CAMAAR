@@ -11,16 +11,14 @@
                                     <div class="card-body card-block">
                                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                            
+                                          
+                                            <%= simple_form_for :admin_import, url: admins_import_path, method: :post, html: { multipart: true } do |form| %>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Tipos de Dados</label>
+                                                    <label for="select" class="form-control-label">Tipos de Dados</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <select name="select" id="select" class="form-control">
-                                                        <option value="0">Selecione</option>
-                                                        <option value="1">Membros</option>
-                                                        <option value="2">Turmas</option>
-                                                    </select>
+                                                    <%= form.input_field :select_data, as: :select,name:'select_data', collection: [['Membros', '1'], ['Turmas', '2'], ['Departamentos', '3']],class: 'form-control'%>
                                                 </div>
                                             </div>
                                           
@@ -42,9 +40,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                       
-                                          
-                                            <%= simple_form_for :admin_import, url: admins_import_path, method: :post, html: { multipart: true } do |form| %>
+                            
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
                                                         <%= form.label :file, "Arquivo" %>
