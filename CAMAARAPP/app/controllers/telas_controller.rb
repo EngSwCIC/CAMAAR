@@ -31,4 +31,8 @@ class TelasController < ApplicationController
     end
 
   end
+
+  def cadastro_aluno
+    
+  end
 end

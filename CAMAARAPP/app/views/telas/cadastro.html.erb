@@ -1,0 +1,24 @@
+<h1>Cadastro</h1>
+
+
+<%= Aluno.find(params["id"]).nome %>
+
+<br>
+
+<%= Aluno.find(params["id"]).matricula %>
+
+<br>
+<br>
+<br>
+
+
+<label for="fname">Senha:</label>
+<input type="text" id="fname" name="fname">
+
+<br>
+<br>
+
+<body>
+<%= button_to "cadastro_aluno", "/telas/cadastro", method: :post %>
+
+</body>
