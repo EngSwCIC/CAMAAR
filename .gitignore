@@ -65,4 +65,4 @@ yarn-debug.log*
 /public/uploads
 /config/master.key
 
-/credentials.yml.enc
+/config/credentials.yml.enc
