@@ -43,8 +43,12 @@
                       <% end %>
                     <% end %>
                     <div class="icons-container">
-                      <i class="fas fa-edit"></i>
-                      <i class="fas fa-download"></i>
+                      <%= button_to template_path(template), method: :delete do%>
+                        <i class="fas fa-trash"></i>
+                      <% end %>
+                      <%= button_to edit_template_path(template) do%>
+                        <i class="fas fa-edit"></i>
+                      <% end %>
                     </div>
                   </div>
                 </div>
