@@ -1,2 +1,0 @@
-class MateriumsController < ApplicationController
-end
