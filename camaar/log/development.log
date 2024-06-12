@@ -1301,3 +1301,1401 @@ puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
 puma (6.4.2) lib/puma/server.rb:464:in `process_client'
 puma (6.4.2) lib/puma/server.rb:245:in `block in run'
 puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2024-06-11 20:42:16 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+[Devise] Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 630)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.9.4) app/controllers/devise_controller.rb:104:in `unknown_action!'
+devise (4.9.4) app/controllers/devise_controller.rb:79:in `assert_is_devise_resource!'
+devise (4.9.4) app/controllers/devise_controller.rb:117:in `require_no_authentication'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:403:in `block in make_lambda'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:183:in `block (2 levels) in halting_and_conditional'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:184:in `block in halting_and_conditional'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:21:in `block in <class:Constraints>'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2024-06-11 20:42:20 -0300
+Processing by Devise::SessionsController#new as HTML
+[Devise] Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 2ms (ActiveRecord: 0.0ms | Allocations: 478)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.9.4) app/controllers/devise_controller.rb:104:in `unknown_action!'
+devise (4.9.4) app/controllers/devise_controller.rb:79:in `assert_is_devise_resource!'
+devise (4.9.4) app/controllers/devise_controller.rb:117:in `require_no_authentication'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:403:in `block in make_lambda'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:183:in `block (2 levels) in halting_and_conditional'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:184:in `block in halting_and_conditional'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:21:in `block in <class:Constraints>'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2024-06-11 20:43:01 -0300
+Processing by Devise::SessionsController#new as HTML
+[Devise] Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 563)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.9.4) app/controllers/devise_controller.rb:104:in `unknown_action!'
+devise (4.9.4) app/controllers/devise_controller.rb:79:in `assert_is_devise_resource!'
+devise (4.9.4) app/controllers/devise_controller.rb:117:in `require_no_authentication'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:403:in `block in make_lambda'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:183:in `block (2 levels) in halting_and_conditional'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:184:in `block in halting_and_conditional'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:21:in `block in <class:Constraints>'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2024-06-11 20:44:27 -0300
+  
+ArgumentError ('/devise/sessions' is not a supported controller name. This can lead to potential routing problems. See https://guides.rubyonrails.org/routing.html#specifying-a-controller-to-use):
+  
+config/routes.rb:20:in `block (2 levels) in <main>'
+config/routes.rb:19:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2024-06-11 20:45:38 -0300
+  
+ArgumentError (Missing :action key on routes definition, please check your routes.):
+  
+config/routes.rb:21:in `block (2 levels) in <main>'
+config/routes.rb:19:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2024-06-11 20:46:32 -0300
+  
+ArgumentError (You need to supply at least one validation):
+  
+app/models/user.rb:4:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+config/routes.rb:11:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2024-06-11 20:48:07 -0300
+  
+ArgumentError (Missing :action key on routes definition, please check your routes.):
+  
+config/routes.rb:22:in `block (2 levels) in <main>'
+config/routes.rb:20:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2024-06-11 20:51:00 -0300
+Processing by Devise::SessionsController#new as HTML
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms | Allocations: 2685)
+
+
+  
+NoMethodError (undefined method `authentication_keys' for class User):
+  
+activerecord (7.1.3.3) lib/active_record/dynamic_matchers.rb:22:in `method_missing'
+devise (4.9.4) lib/devise/parameter_sanitizer.rb:158:in `extract_auth_keys'
+devise (4.9.4) lib/devise/parameter_sanitizer.rb:45:in `initialize'
+devise (4.9.4) lib/devise/controllers/helpers.rb:161:in `new'
+devise (4.9.4) lib/devise/controllers/helpers.rb:161:in `devise_parameter_sanitizer'
+devise (4.9.4) app/controllers/devise/sessions_controller.rb:37:in `sign_in_params'
+devise (4.9.4) app/controllers/devise/sessions_controller.rb:11:in `new'
+actionpack (7.1.3.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.5) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.5) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.3.3) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:21:in `block in <class:Constraints>'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2024-06-11 20:57:12 -0300
+Processing by Devise::SessionsController#new as HTML
+Completed 500 Internal Server Error in 313ms (ActiveRecord: 186.9ms | Allocations: 4810)
+
+
+  
+RuntimeError (Undeclared attribute type for enum 'role'. Enums must be backed by a database column or declared with an explicit type via `attribute`.):
+  
+activerecord (7.1.3.3) lib/active_record/enum.rb:250:in `block in _enum'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:225:in `block in attribute'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:266:in `block in load_schema!'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:265:in `each'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:265:in `load_schema!'
+activerecord (7.1.3.3) lib/active_record/encryption/encryptable_record.rb:127:in `load_schema!'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:563:in `block in load_schema'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:560:in `synchronize'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:560:in `load_schema'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:441:in `attribute_types'
+activerecord (7.1.3.3) lib/active_record/attribute_methods.rb:256:in `_has_attribute?'
+activerecord (7.1.3.3) lib/active_record/inheritance.rb:61:in `new'
+devise (4.9.4) app/controllers/devise/sessions_controller.rb:11:in `new'
+actionpack (7.1.3.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.5) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.5) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.3.3) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:21:in `block in <class:Constraints>'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2024-06-11 20:57:39 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/lucas/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/lucas/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1362)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1453)
+Completed 500 Internal Server Error in 163ms (ActiveRecord: 47.5ms | Allocations: 17736)
+
+
+  
+ActionView::Template::Error (undefined method `session_path' for an instance of #<Class:0x00007f5d49f13350>):
+    1: <h2>Log in</h2>
+    2: 
+    3: <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    4:   <div class="field">
+    5:     <%= f.label :email %><br />
+    6:     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  
+devise (4.9.4) app/views/devise/sessions/new.html.erb:3
+actionview (7.1.3.3) lib/action_view/base.rb:264:in `public_send'
+actionview (7.1.3.3) lib/action_view/base.rb:264:in `_run'
+actionview (7.1.3.3) lib/action_view/template.rb:261:in `block in render'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:208:in `instrument'
+actionview (7.1.3.3) lib/action_view/template.rb:549:in `instrument_render_template'
+actionview (7.1.3.3) lib/action_view/template.rb:249:in `render'
+actionview (7.1.3.3) lib/action_view/renderer/template_renderer.rb:66:in `block (2 levels) in render_template'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.1.3.3) lib/action_view/renderer/template_renderer.rb:60:in `block in render_template'
+actionview (7.1.3.3) lib/action_view/renderer/template_renderer.rb:76:in `block in render_with_layout'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.1.3.3) lib/action_view/renderer/template_renderer.rb:75:in `render_with_layout'
+actionview (7.1.3.3) lib/action_view/renderer/template_renderer.rb:59:in `render_template'
+actionview (7.1.3.3) lib/action_view/renderer/template_renderer.rb:11:in `render'
+actionview (7.1.3.3) lib/action_view/renderer/renderer.rb:63:in `render_template_to_object'
+actionview (7.1.3.3) lib/action_view/renderer/renderer.rb:31:in `render_to_object'
+actionview (7.1.3.3) lib/action_view/rendering.rb:135:in `block in _render_template'
+actionview (7.1.3.3) lib/action_view/base.rb:291:in `in_rendering_context'
+actionview (7.1.3.3) lib/action_view/rendering.rb:134:in `_render_template'
+actionpack (7.1.3.3) lib/action_controller/metal/streaming.rb:256:in `_render_template'
+actionview (7.1.3.3) lib/action_view/rendering.rb:121:in `render_to_body'
+actionpack (7.1.3.3) lib/action_controller/metal/rendering.rb:158:in `render_to_body'
+actionpack (7.1.3.3) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+actionpack (7.1.3.3) lib/abstract_controller/rendering.rb:27:in `render'
+actionpack (7.1.3.3) lib/action_controller/metal/rendering.rb:139:in `render'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:29:in `block (2 levels) in render'
+/home/lucas/.rvm/rubies/ruby-3.3.0/lib/ruby/3.3.0/benchmark.rb:313:in `realtime'
+activesupport (7.1.3.3) lib/active_support/core_ext/benchmark.rb:14:in `ms'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:29:in `block in render'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:98:in `cleanup_view_runtime'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:39:in `cleanup_view_runtime'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:28:in `render'
+responders (3.1.1) lib/action_controller/responder.rb:245:in `default_render'
+responders (3.1.1) lib/action_controller/responder.rb:175:in `to_html'
+responders (3.1.1) lib/action_controller/responder.rb:168:in `respond'
+responders (3.1.1) lib/action_controller/responder.rb:161:in `call'
+responders (3.1.1) lib/action_controller/respond_with.rb:216:in `respond_with'
+devise (4.9.4) app/controllers/devise/sessions_controller.rb:14:in `new'
+actionpack (7.1.3.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.5) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.5) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.3.3) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:21:in `block in <class:Constraints>'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2024-06-11 21:03:33 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 750.0ms | Allocations: 93917)
+  Rendered layout layouts/application.html.erb (Duration: 789.3ms | Allocations: 109602)
+Completed 200 OK in 854ms (Views: 791.9ms | ActiveRecord: 13.5ms | Allocations: 121364)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-11 21:05:40 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 746)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 1894)
+Completed 200 OK in 55ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 15878)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-11 21:05:41 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 745)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1893)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 2531)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-11 21:05:41 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 745)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 1893)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 2534)
+
+
+Started GET "/" for ::1 at 2024-06-11 23:48:28 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (8.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 31.5ms | Allocations: 5929)
+
+
+  
+RuntimeError (Undeclared attribute type for enum 'role'. Enums must be backed by a database column or declared with an explicit type via `attribute`.):
+  
+activerecord (7.1.3.3) lib/active_record/enum.rb:250:in `block in _enum'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:225:in `block in attribute'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:266:in `block in load_schema!'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:265:in `each'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:265:in `load_schema!'
+activerecord (7.1.3.3) lib/active_record/encryption/encryptable_record.rb:127:in `load_schema!'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:563:in `block in load_schema'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:560:in `synchronize'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:560:in `load_schema'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:441:in `attribute_types'
+activerecord (7.1.3.3) lib/active_record/attribute_methods.rb:256:in `_has_attribute?'
+activerecord (7.1.3.3) lib/active_record/inheritance.rb:61:in `new'
+devise (4.9.4) app/controllers/devise/sessions_controller.rb:11:in `new'
+actionpack (7.1.3.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.5) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.5) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.3.3) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:21:in `block in <class:Constraints>'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/produtos" for ::1 at 2024-06-11 23:48:32 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/produtos"):
+  
+Started GET "/" for ::1 at 2024-06-11 23:48:35 -0300
+Processing by Devise::SessionsController#new as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 905)
+
+
+  
+RuntimeError (Undeclared attribute type for enum 'role'. Enums must be backed by a database column or declared with an explicit type via `attribute`.):
+  
+activerecord (7.1.3.3) lib/active_record/enum.rb:250:in `block in _enum'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:225:in `block in attribute'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:266:in `block in load_schema!'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:265:in `each'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:265:in `load_schema!'
+activerecord (7.1.3.3) lib/active_record/encryption/encryptable_record.rb:127:in `load_schema!'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:563:in `block in load_schema'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:560:in `synchronize'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:560:in `load_schema'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:441:in `attribute_types'
+activerecord (7.1.3.3) lib/active_record/attribute_methods.rb:256:in `_has_attribute?'
+activerecord (7.1.3.3) lib/active_record/inheritance.rb:61:in `new'
+devise (4.9.4) app/controllers/devise/sessions_controller.rb:11:in `new'
+actionpack (7.1.3.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.5) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.5) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.3.3) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:21:in `block in <class:Constraints>'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for ::1 at 2024-06-11 23:48:36 -0300
+Processing by Devise::SessionsController#new as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 904)
+
+
+  
+RuntimeError (Undeclared attribute type for enum 'role'. Enums must be backed by a database column or declared with an explicit type via `attribute`.):
+  
+activerecord (7.1.3.3) lib/active_record/enum.rb:250:in `block in _enum'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:225:in `block in attribute'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:266:in `block in load_schema!'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:265:in `each'
+activerecord (7.1.3.3) lib/active_record/attributes.rb:265:in `load_schema!'
+activerecord (7.1.3.3) lib/active_record/encryption/encryptable_record.rb:127:in `load_schema!'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:563:in `block in load_schema'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:560:in `synchronize'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:560:in `load_schema'
+activerecord (7.1.3.3) lib/active_record/model_schema.rb:441:in `attribute_types'
+activerecord (7.1.3.3) lib/active_record/attribute_methods.rb:256:in `_has_attribute?'
+activerecord (7.1.3.3) lib/active_record/inheritance.rb:61:in `new'
+devise (4.9.4) app/controllers/devise/sessions_controller.rb:11:in `new'
+actionpack (7.1.3.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.5) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.5) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.3.3) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:21:in `block in <class:Constraints>'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for ::1 at 2024-06-11 23:49:23 -0300
+Processing by Devise::SessionsController#new as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 4.7ms | Allocations: 1846)
+
+
+  
+ActiveRecord::SubclassNotFound (The single-table inheritance mechanism failed to locate the subclass: 'Aluno'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite User.inheritance_column to use another column for that information.):
+  
+activerecord (7.1.3.3) lib/active_record/inheritance.rb:201:in `rescue in sti_class_for'
+activerecord (7.1.3.3) lib/active_record/inheritance.rb:194:in `sti_class_for'
+activerecord (7.1.3.3) lib/active_record/inheritance.rb:311:in `find_sti_class'
+activerecord (7.1.3.3) lib/active_record/inheritance.rb:335:in `subclass_from_attributes'
+activerecord (7.1.3.3) lib/active_record/inheritance.rb:69:in `new'
+devise (4.9.4) app/controllers/devise/sessions_controller.rb:11:in `new'
+actionpack (7.1.3.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.5) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.5) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.3.3) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:21:in `block in <class:Constraints>'
+actionpack (7.1.3.3) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+  [1m[35m (602.6ms)[0m  [1m[35mCREATE DATABASE "camaar_development" ENCODING = 'unicode'[0m
+  [1m[35m (212.5ms)[0m  [1m[35mCREATE DATABASE "camaar_test" ENCODING = 'unicode'[0m
+  [1m[35m (24.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4241813582003914140)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (5.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-06-12 03:46:58.990109', '2024-06-12 03:46:58.990114') RETURNING "key"[0m
+Migrating to CreateDocentes (20240611021722)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (26.1ms)[0m  [1m[35mCREATE TABLE "docentes" ("id" bigserial primary key, "departamento" character varying NOT NULL, "formularios" character varying[] DEFAULT '{}', "templates" character varying[] DEFAULT '{}', "turmas" character varying[] DEFAULT '{}', "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_616b0b2ccc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(4241813582003914140)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4241813582003914140)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateUsers (20240611022122)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "nome" character varying NOT NULL, "email" character varying NOT NULL, "senha" character varying NOT NULL, "type" character varying DEFAULT 'Dicente' NOT NULL, "usuario" character varying NOT NULL, "formacao" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240611022122') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4241813582003914140)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4241813582003914140)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateDocentes (20240611021722)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "docentes" ("id" bigserial primary key, "departamento" character varying NOT NULL, "formularios" character varying[] DEFAULT '{}', "templates" character varying[] DEFAULT '{}', "turmas" character varying[] DEFAULT '{}', "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_616b0b2ccc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE INDEX "index_docentes_on_user_id" ON "docentes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240611021722') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDicentes (20240611022117)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "dicentes" ("id" bigserial primary key, "matricula" character varying NOT NULL, "curso" character varying NOT NULL, "turma" character varying[] DEFAULT '{}', "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c0834a3e4b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE INDEX "index_dicentes_on_user_id" ON "dicentes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240611022117') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTurmas (20240611022152)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4241813582003914140)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4241813582003914140)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateTemplates (20240611022239)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "templates" ("id" bigserial primary key, "nome" character varying NOT NULL, "numeroDeAlternativas" integer NOT NULL, "discursiva" boolean NOT NULL, "fatorDeCorrecao" boolean NOT NULL, "docente_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_296de19493"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE INDEX "index_templates_on_docente_id" ON "templates" ("docente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240611022239') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4241813582003914140)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4241813582003914140)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateQuestaos (20240611022212)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "questaos" ("id" bigserial primary key, "pergunta" character varying NOT NULL, "alternativas" jsonb DEFAULT '{}' NOT NULL, "pontos" decimal(10,2) NOT NULL, "fatorDeCorrecao" decimal(10,2) DEFAULT 0.0 NOT NULL, "alternativaCorreta" character varying NOT NULL, "template_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_be75f99e42"
+FOREIGN KEY ("template_id")
+  REFERENCES "templates" ("id")
+)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE INDEX "index_questaos_on_template_id" ON "questaos" ("template_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240611022212') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(4241813582003914140)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4241813582003914140)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateFormularios (20240611022202)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4241813582003914140)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4241813582003914140)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateFormularios (20240611022202)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "formularios" ("id" bigserial primary key, "nome" character varying NOT NULL, "turmas" character varying[] DEFAULT '{}', "dataDeTermino" date NOT NULL, "resultados" jsonb DEFAULT '{}', "docente_id" bigint NOT NULL, "questao_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_6f0653cb68"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+, CONSTRAINT "fk_rails_ce1a0b57b1"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_docente_id" ON "formularios" ("docente_id")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_questao_id" ON "formularios" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240611022202') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4241813582003914140)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4241813582003914140)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateTurmas (20240611022152)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "turmas" ("id" bigserial primary key, "codigo" character varying NOT NULL, "nome_materia" character varying NOT NULL, "semestre" character varying NOT NULL, "horario" character varying NOT NULL, "dicentes" character varying[] DEFAULT '{}', "formularios" character varying[] DEFAULT '{}', "docente_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e9c48d9324"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_turmas_on_docente_id" ON "turmas" ("docente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240611022152') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsQuestaos (20240611135913)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "questaos" ADD "formulario_id" bigint[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE INDEX "index_questaos_on_formulario_id" ON "questaos" ("formulario_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "questaos" ADD CONSTRAINT "fk_rails_cbffe82f6d"
+FOREIGN KEY ("formulario_id")
+  REFERENCES "formularios" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240611135913') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4241813582003914140)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2024-06-12 01:03:11 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 48.3ms | Allocations: 21073)
+  Rendered layout layouts/application.html.erb (Duration: 81.0ms | Allocations: 36928)
+Completed 200 OK in 157ms (Views: 94.6ms | ActiveRecord: 7.7ms | Allocations: 62872)
+
+
+Started GET "/" for ::1 at 2024-06-12 01:03:11 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 749)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1921)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 2515)
+
+
+Started GET "/" for ::1 at 2024-06-12 01:03:24 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 759)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1925)
+Completed 200 OK in 14ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 3649)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-12 01:03:45 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 745)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1907)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 2562)
+
+

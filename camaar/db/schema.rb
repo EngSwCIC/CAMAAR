@@ -10,39 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_11_155919) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_11_135913) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "administradors", force: :cascade do |t|
-    t.bigint "users_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "nomes_turmas", default: [], array: true
-    t.text "nomes_templates", default: [], array: true
-    t.text "nomes_formularios", default: [], array: true
-    t.index ["users_id"], name: "index_administradors_on_users_id"
-  end
-
-  create_table "alunos", force: :cascade do |t|
+  create_table "dicentes", force: :cascade do |t|
     t.string "matricula", null: false
-    t.jsonb "nomes_turmas_matriculadas", default: [], null: false
+    t.string "curso", null: false
+    t.string "turma", default: [], array: true
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_alunos_on_user_id"
+    t.index ["user_id"], name: "index_dicentes_on_user_id"
+  end
+
+  create_table "docentes", force: :cascade do |t|
+    t.string "departamento", null: false
+    t.string "formularios", default: [], array: true
+    t.string "templates", default: [], array: true
+    t.string "turmas", default: [], array: true
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_docentes_on_user_id"
   end
 
   create_table "formularios", force: :cascade do |t|
-    t.jsonb "turmas", default: []
+    t.string "nome", null: false
+    t.string "turmas", default: [], array: true
     t.date "dataDeTermino", null: false
     t.jsonb "resultados", default: {}
-    t.bigint "administrador_id", null: false
+    t.bigint "docente_id", null: false
     t.bigint "questao_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nome", null: false
-    t.index ["administrador_id"], name: "index_formularios_on_administrador_id"
+    t.index ["docente_id"], name: "index_formularios_on_docente_id"
     t.index ["questao_id"], name: "index_formularios_on_questao_id"
   end
 
@@ -65,38 +67,42 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_11_155919) do
     t.integer "numeroDeAlternativas", null: false
     t.boolean "discursiva", null: false
     t.boolean "fatorDeCorrecao", null: false
-    t.bigint "administrador_id", null: false
+    t.bigint "docente_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["administrador_id"], name: "index_templates_on_administrador_id"
+    t.index ["docente_id"], name: "index_templates_on_docente_id"
   end
 
   create_table "turmas", force: :cascade do |t|
-    t.string "nome_turma", null: false
+    t.string "codigo", null: false
     t.string "nome_materia", null: false
     t.string "semestre", null: false
-    t.jsonb "nomes_alunos", default: []
-    t.jsonb "nomes_formularios", default: []
-    t.bigint "administrador_id", null: false
+    t.string "horario", null: false
+    t.string "dicentes", default: [], array: true
+    t.string "formularios", default: [], array: true
+    t.bigint "docente_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["administrador_id"], name: "index_turmas_on_administrador_id"
+    t.index ["docente_id"], name: "index_turmas_on_docente_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "nome", null: false
+    t.string "email", null: false
     t.string "senha", null: false
+    t.string "type", default: "Dicente", null: false
+    t.string "usuario", null: false
+    t.string "formacao", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "type", default: "Aluno", null: false
   end
 
-  add_foreign_key "administradors", "users", column: "users_id"
-  add_foreign_key "alunos", "users"
-  add_foreign_key "formularios", "administradors"
+  add_foreign_key "dicentes", "users"
+  add_foreign_key "docentes", "users"
+  add_foreign_key "formularios", "docentes"
   add_foreign_key "formularios", "questaos"
   add_foreign_key "questaos", "formularios"
   add_foreign_key "questaos", "templates"
-  add_foreign_key "templates", "administradors"
-  add_foreign_key "turmas", "administradors"
+  add_foreign_key "templates", "docentes"
+  add_foreign_key "turmas", "docentes"
 end
