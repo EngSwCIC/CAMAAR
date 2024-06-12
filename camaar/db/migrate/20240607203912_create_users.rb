@@ -7,7 +7,6 @@ class CreateUsers < ActiveRecord::Migration[7.1]
       t.string :matricula
       t.string :formacao
       t.string :ocupacao
-      t.boolean :admin
 
       t.timestamps
     end

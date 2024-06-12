@@ -4,7 +4,7 @@ Rails.application.configure do
   # Configure 'rails notes' to inspect Cucumber files
   config.annotations.register_directories('features')
   config.annotations.register_extensions('feature') { |tag| /#\s*(#{tag}):?\s*(.*)$/ }
-
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
