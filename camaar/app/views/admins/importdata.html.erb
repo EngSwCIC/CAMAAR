@@ -3,6 +3,13 @@
     <div class="container-fluid">
       <div class="row justify-content-center align-items-center">
         <div class="col-lg-7">
+          <% if flash %>
+            <% flash.each do |k,v| %>
+              <p class="alert alert-success">
+                <%= v %>
+              </p>
+            <% end %>
+          <% end %>
           <div class="card">
             <div class="card-header text-center">
               <strong >Opções para Importação</strong>
