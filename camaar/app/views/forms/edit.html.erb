@@ -9,10 +9,10 @@
           <% end %>
           <div class="row">
             <div class="col">
-              <%= form.submit "Enviar", class: "btn btn-primary btn-block", style: "height: 38px;" %>
+              <%= link_to "Cancelar", forms_path, class: "btn btn-danger btn-block", style: "height: 38px;" %>
             </div>
             <div class="col">
-              <%= link_to "Cancelar", forms_path, class: "btn btn-danger btn-block", style: "height: 38px;" %>
+              <%= form.submit "Enviar", class: "btn btn-primary btn-block", style: "height: 38px;" %>
             </div>
           </div>
         <% end %>
