@@ -1,121 +1,57 @@
 <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="formbold-form-wrapper">
+        <h1><%= @form.name %> </h1>
 
-    <div class="formbold-form-wrapper">
-                          <h1><%= @form.name %> </h1>
-
-      <form action="http://localhost:3000/layouts/page" method="GET">
-
-      <% if @form_question.question_type == "multiple_choice"%>
-        <div class="formbold-mb-5">
-          <label for="qusTwo" class="formbold-form-label">
-            Avalie CIC0197
-          </label>
-  
-          <div class="formbold-radio-flex">
-            <div class="formbold-radio-group">
-              <label class="formbold-radio-label">
-                <input
-                  class="formbold-input-radio"
-                  type="radio"
-                  name="qusOne"
-                  id="qusOne"
-                />
-                0
-                <span class="formbold-radio-checkmark"></span>
-              </label>
-            </div>
-  
-            <div class="formbold-radio-group">
-              <label class="formbold-radio-label">
-                <input
-                  class="formbold-input-radio"
-                  type="radio"
-                  name="qusOne"
-                  id="qusOne"
-                />
-                 1
-                <span class="formbold-radio-checkmark"></span>
-              </label>
-            </div>
-  
-            <div class="formbold-radio-group">
-              <label class="formbold-radio-label">
-                <input
-                  class="formbold-input-radio"
-                  type="radio"
-                  name="qusOne"
-                  id="qusOne"
-                />
-                2
-                <span class="formbold-radio-checkmark"></span>
-              </label>
-            </div>
-  
-            <div class="formbold-radio-group">
-              <label class="formbold-radio-label">
-                <input
-                  class="formbold-input-radio"
-                  type="radio"
-                  name="qusOne"
-                  id="qusOne"
-                />
-                3
-                <span class="formbold-radio-checkmark"></span>
-              </label>
-            </div>
-            <div class="formbold-radio-group">
-                <label class="formbold-radio-label">
-                  <input
-                    class="formbold-input-radio"
-                    type="radio"
-                    name="qusOne"
-                    id="qusOne"
-                  />
-                  4
-                  <span class="formbold-radio-checkmark"></span>
+        <%= form_with(url: student_answers_path, method: "post") do |form| %>
+          <% @form_questions.each do |form_question| %>
+            <% if form_question.question_type == "multiple_choice" %>
+              <div class="formbold-mb-5">
+                <label for="<%= form_question.id %>" class="formbold-form-label">
+                  <%= form_question.title %>
                 </label>
+  
+                <div class="formbold-radio-flex">
+                  <% form_question.options.each do |option, value| %>
+                    <div class="formbold-radio-group">
+                      <label class="formbold-radio-label">
+                        <%= form.radio_button :answers, option, id: "#{form_question.id}_#{option}" %>
+                        <%= value %>
+                        <span class="formbold-radio-checkmark"></span>
+                      </label>
+                    </div>
+                  <% end %>
+                </div>
               </div>
-              <div class="formbold-radio-group">
-                <label class="formbold-radio-label">
+            <% elsif form_question.question_type == "text" %>
+              <div class="formbold-input-flex">
+                <div>
+                  <label for="reclamation" class="formbold-form-label">
+                    <%= form_question.title %>
+                  </label>
                   <input
-                    class="formbold-input-radio"
-                    type="radio"
-                    name="qusOne"
-                    id="qusOne"
+                    type="text"
+                    name="reclamation"
+                    id="reclamation"
+                    placeholder="Digite..."
+                    class="formbold-form-input"
                   />
-                  5
-                  <span class="formbold-radio-checkmark"></span>
-                </label>
+                </div>
               </div>
+            <% end %>
+          <% end %>
+          
+          <div class="row">
+            <div class="col">
+              <%= form.submit "Enviar", class: "btn btn-primary btn-block", style: "height: 38px;" %>
+            </div>
+            <div class="col">
+              <%= link_to "Cancelar", users_page_path, class: "btn btn-danger btn-block", style: "height: 38px;" %>
+            </div>
           </div>
-        </div>
-        <% end %> 
-
-        <%if @form_question.question_type == "text"%>
-          <div class="formbold-input-flex">
-            <div>
-              <label for="reclamation" class="formbold-form-label">
-               <%= @form_question.title%>
-              </label>
-              <input
-                type="text"
-                name="reclamation"
-                id="reclamation"
-                placeholder="Digite..."
-                class="formbold-form-input"
-              />
-            </div>
-        </div>
         <% end %>
-        
-        <button class="formbold-btn">Enviar</button>
-      </form>
+      </div>
     </div>
   </div>
-                   
-                    </div>
-                </div>
-            </div>
-            <!-- END MAIN CONTENT-->
+</div>

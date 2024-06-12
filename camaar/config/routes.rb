@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   match "/users/page", to: "users#page", via: "get"
   match "/errors/forbidden", to: "errors#forbidden", via: "get"
   match "/users/forms", to: "users#form_student", via: "get"
+  post "/student_answers", to: "student_answers#create"
+
 
   match "/admins/page", to: "admins#page", via: "get"
   # match '/admins/forms', to: 'admins#form_student', via: 'get'

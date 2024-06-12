@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     enrollments = Enrollment.find_by(student_id:student.id)
     subject_classes = SubjectClass.find_by_id(enrollments.subject_class_id)
     @form = Form.find_by(subject_class_id: subject_classes.id)
-    @form_question = FormQuestion.find_by(form_id:Form.find_by(subject_class_id: subject_classes.id).id)
+    @form_questions = FormQuestion.where(form_id: @form.id)
   end
 
 
