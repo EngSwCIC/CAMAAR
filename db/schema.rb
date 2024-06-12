@@ -10,27 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_11_210937) do
-  create_table "questions", force: :cascade do |t|
+ActiveRecord::Schema[7.1].define(version: 2024_06_11_235323) do
+  create_table "questions", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.string "type"
     t.string "description"
     t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "template_id"
+    t.bigint "template_id"
     t.index ["template_id"], name: "index_questions_on_template_id"
   end
 
-  create_table "semesters", force: :cascade do |t|
+  create_table "semesters", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.boolean "half"
     t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "template_id"
+    t.bigint "template_id"
     t.index ["template_id"], name: "index_semesters_on_template_id"
   end
 
-  create_table "templates", force: :cascade do |t|
+  create_table "templates", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
