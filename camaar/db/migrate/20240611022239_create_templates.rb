@@ -5,7 +5,7 @@ class CreateTemplates < ActiveRecord::Migration[7.1]
       t.integer :numeroDeAlternativas, null: false
       t.boolean :discursiva, null: false
       t.boolean :fatorDeCorrecao, null: false
-      t.references :administrador, null: false, foreign_key: true
+      t.references :docente, null: false, foreign_key: true
 
       t.timestamps
     end
