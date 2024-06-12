@@ -1,0 +1,2 @@
+class TurmasController < ApplicationController
+end

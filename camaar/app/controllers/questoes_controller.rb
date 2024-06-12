@@ -1,0 +1,2 @@
+class QuestoesController < ApplicationController
+end
