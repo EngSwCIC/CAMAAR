@@ -13,9 +13,9 @@
         <br>
         <% if @errors.any? %>
           <div>
-            <% @errors.each do |error| %>
+            <% @errors.each do |e| %>
               <p class="alert alert-warning">
-                <%= error %>
+                <%= e %>
               </p>
             <% end %>
           </div>

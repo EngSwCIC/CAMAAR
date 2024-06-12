@@ -27,20 +27,11 @@ class FormsController < ApplicationController
     else
       @forms = Form.where(subject_class_id: @subject_classes.pluck(:id), role: occupation)
     end
-
-    # @forms = []
-    # @subject_classes.each do |subject|
-    #   form = Form.where(subject_class_id: subject.id)
-    #   if form_ids.empty?
-    #     @errors << "Nenhum formulário encontrado."
-    #   else
-    #     form_questions = FormQuestion.where(form_id: form_ids).pluck(:id, :question)
-    #     @forms << [form, form_questions]
-    #   end
-    # end
   end
 
   def edit
+    @form = Form.find_by_id(params[:id])
+    @form_questions = FormQuestion.where(form_id: @form.id)
   end
 
   def export(form)

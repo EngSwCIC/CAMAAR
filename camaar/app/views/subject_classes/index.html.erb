@@ -3,7 +3,7 @@
     <div class="row m-t-30">
       <div class="col-md-12">
         <h1 style="text-align:center;"> <%= @department.name %> </h1>
-        <% if @errors %>
+        <% if @errors.present? %>
           <div>
             <% @errors.each do |e| %>
               <p class="alert alert-warning">

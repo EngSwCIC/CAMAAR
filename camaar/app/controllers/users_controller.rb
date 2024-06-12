@@ -38,15 +38,6 @@ class UsersController < ApplicationController
     # end
   end
 
-  # def form_student
-  #   @user = current_user
-  #   student = Student.find_by_id(current_user.id)
-  #   enrollments = Enrollment.find_by(student_id:student.id)
-  #   subject_classes = SubjectClass.find_by_id(enrollments.subject_class_id)
-  #   @form = Form.find_by(subject_class_id: subject_classes.id)
-  #   @form_questions = FormQuestion.where(form_id: @form.id)
-  # end
-
   private
 
   def require_user

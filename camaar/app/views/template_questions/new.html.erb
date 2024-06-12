@@ -32,7 +32,14 @@
               <%= f.button "Adicionar", class:"btn btn-success btn-sm",name: "commit", value: "add", id: "add" %>
             </div>
           <% end %>
-          <%= @errors %>
+          <% if @errors.present? %>
+            <% @errors.each do |e| %>
+              <p class="alert alert-warning">
+                <%= e %>
+              </p>
+            <% end %>
+          <% end %>
+          <%=  %>
         </div>
       </div>
     </div>

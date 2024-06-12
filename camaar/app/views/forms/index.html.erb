@@ -11,7 +11,8 @@
   <% end %>
   <div>
     <% @forms.each do |form| %>
-      <%= form.id%>
+      <%= link_to form.name, edit_form_path(form) %>
+      <br>
     <% end %>
   </div>
 </div>

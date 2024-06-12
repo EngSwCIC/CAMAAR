@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post "/student_answers", to: "student_answers#create"
 
   scope "users" do
-    resources :forms, only: [:index]
+    resources :forms, only: [:index,:edit]
   end
   scope "admins" do
     resources :templates do
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     # match "/templates", to: "admins#create_template", via: "get"
     match "/classes", to: "subject_classes#index", via: "get"
 
-    match "/import", to: "admins#importdata", via: "get"
+    match "/import", to: "admins#importdata", via: "get", as: "admins_import"
     match "/import", to: "admins#import", via: "post", as: "admins_import_post"
 
     # match '/admins/envio', to: 'forms#new', via: 'get'
