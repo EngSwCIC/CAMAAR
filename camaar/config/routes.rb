@@ -11,27 +11,28 @@ Rails.application.routes.draw do
 
   match "/users/page", to: "users#page", via: "get"
   match "/errors/forbidden", to: "errors#forbidden", via: "get"
-  match "/users/forms", to: "users#form_student", via: "get"
+  # match "/users/forms", to: "users#form_student", via: "get"
   post "/student_answers", to: "student_answers#create"
 
-
-  match "/admins/page", to: "admins#page", via: "get"
-  # match '/admins/forms', to: 'admins#form_student', via: 'get'
-  match "/admins/results", to: "admins#resultados", via: "get"
-  # match "/admins/templates", to: "admins#create_template", via: "get"
-  match "/admins/classes", to: "subject_classes#index", via: "get"
-
-  match "/admins/import", to: "admins#importdata", via: "get"
-  match "/admins/import", to: "admins#import", via: "post", as: "admins_import_post"
-
-  # match '/admins/envio', to: 'forms#new', via: 'get'
-  match "/admins/envio", to: "admins#envio", via: "get"
-  match "/admins/envio", to: "admins#envio", via: "post", as: "admins_envio_post"
-
+  scope "users" do
+    resources :forms, only: [:index]
+  end
   scope "admins" do
     resources :templates do
       resources :template_questions
     end
+
+    # match '/admins/forms', to: 'admins#form_student', via: 'get'
+    match "/results", to: "admins#resultados", via: "get"
+    # match "/templates", to: "admins#create_template", via: "get"
+    match "/classes", to: "subject_classes#index", via: "get"
+
+    match "/import", to: "admins#importdata", via: "get"
+    match "/import", to: "admins#import", via: "post", as: "admins_import_post"
+
+    # match '/admins/envio', to: 'forms#new', via: 'get'
+    match "/envio", to: "admins#envio", via: "get"
+    match "/envio", to: "admins#envio", via: "post", as: "admins_envio_post"
   end
 
   devise_scope :user do

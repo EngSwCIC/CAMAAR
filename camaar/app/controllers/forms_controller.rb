@@ -1,13 +1,53 @@
 class FormsController < ApplicationController
-  def index; end
+  before_action :set_user_data
 
-  def edit; end
+  layout "user"
+
+  def index
+    @errors = []
+
+    occupation = current_user.occupation
+
+    case occupation
+    when "discente"
+      @enrollments = Enrollment.where(student_id: @student.id)
+
+      if @enrollments.empty?
+        @errors << "Parece que você não está matriculado em nenhum disciplina."
+      else
+        @subject_classes = SubjectClass.where({ id: @enrollments.pluck(:subject_class_id) })
+      end
+    when "docente"
+      @subject_classes = SubjectClass.where(teacher_id: @teacher.id)
+    end
+
+    if @subject_classes.blank?
+      @forms = []
+      @errors << "Nenhum formulário encontrado."
+    else
+      @forms = Form.where(subject_class_id: @subject_classes.pluck(:id), role: occupation)
+    end
+
+    # @forms = []
+    # @subject_classes.each do |subject|
+    #   form = Form.where(subject_class_id: subject.id)
+    #   if form_ids.empty?
+    #     @errors << "Nenhum formulário encontrado."
+    #   else
+    #     form_questions = FormQuestion.where(form_id: form_ids).pluck(:id, :question)
+    #     @forms << [form, form_questions]
+    #   end
+    # end
+  end
+
+  def edit
+  end
 
   def export(form)
     create_graph(form)
-    temp_file = Tempfile.new(['pie_graph', '.png'])
+    temp_file = Tempfile.new(["pie_graph", ".png"])
     graph.write(temp_file.path)
-    send_file temp_file.path, type: 'image/png', disposition: 'attachment', filename: 'pie_graph.png'
+    send_file temp_file.path, type: "image/png", disposition: "attachment", filename: "pie_graph.png"
     temp_file.close
     temp_file.unlink
   end
@@ -15,11 +55,11 @@ class FormsController < ApplicationController
   def create_graph(_form)
     # export a graph
     graph = Gruff::Pie.new
-    graph.title = 'Respostas do Formulário'
+    graph.title = "Respostas do Formulário"
     num_students = Student.count
     num_answers = StudentAnswer.where(form_question_id: form_question.id).count
-    graph.data 'Total de ausências', num_students - num_answers
-    graph.data 'Total de respostas', num_answers
-    graph.write('pie_graph.png')
+    graph.data "Total de ausências", num_students - num_answers
+    graph.data "Total de respostas", num_answers
+    graph.write("pie_graph.png")
   end
 end

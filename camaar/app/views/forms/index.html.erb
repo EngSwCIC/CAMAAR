@@ -1,0 +1,17 @@
+<div>
+  <br>
+  <% if @errors.any? %>
+    <div>
+      <% @errors.each do |e| %>
+        <p class="alert alert-warning">
+          <%= e %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+  <div>
+    <% @forms.each do |form| %>
+      <%= form.id%>
+    <% end %>
+  </div>
+</div>

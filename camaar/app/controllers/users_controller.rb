@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   def create
   end
 
-
   def show
     # @templates = Template.where(coordinator_id: @coordinator.id)
     check_for_commit
@@ -25,11 +24,9 @@ class UsersController < ApplicationController
   end
 
   def update
-
   end
 
   def page
-
   end
 
   def destroy
@@ -37,19 +34,18 @@ class UsersController < ApplicationController
     # template = @template.destroy
 
     # if template
-      # redirect_to templates_path
+    # redirect_to templates_path
     # end
   end
 
-  def form_student
-    @user = current_user
-    student = Student.find_by_id(current_user.id)
-    enrollments = Enrollment.find_by(student_id:student.id)
-    subject_classes = SubjectClass.find_by_id(enrollments.subject_class_id)
-    @form = Form.find_by(subject_class_id: subject_classes.id)
-    @form_questions = FormQuestion.where(form_id: @form.id)
-  end
-
+  # def form_student
+  #   @user = current_user
+  #   student = Student.find_by_id(current_user.id)
+  #   enrollments = Enrollment.find_by(student_id:student.id)
+  #   subject_classes = SubjectClass.find_by_id(enrollments.subject_class_id)
+  #   @form = Form.find_by(subject_class_id: subject_classes.id)
+  #   @form_questions = FormQuestion.where(form_id: @form.id)
+  # end
 
   private
 
@@ -57,5 +53,4 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     redirect_to root_url if @user.nil?
   end
-
 end
