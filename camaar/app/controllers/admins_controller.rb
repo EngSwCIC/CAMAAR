@@ -4,6 +4,7 @@ class AdminsController < ApplicationController
   layout 'admin'
   before_action :authenticate_admin!
   before_action :set_admin_data
+  before_action :envio
 
   def index
     @admin = Admin.new
@@ -15,7 +16,10 @@ class AdminsController < ApplicationController
     @admin = Admin.all
   end
 
-  def envio; end
+  def envio
+    @templates = Template.where(coordinator_id: @coordinator.id)
+    @classes = SubjectClass.all
+  end
 
   def import
     json = params[:admin_import][:file].tempfile.path
