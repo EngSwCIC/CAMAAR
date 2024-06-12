@@ -35,6 +35,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_11_210937) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "created_at", null: false
+    t.string "salt", null: false
+    t.string "password", null: false
+    t.string "session_key"
+  end
+
   add_foreign_key "questions", "templates"
   add_foreign_key "semesters", "templates"
 end
