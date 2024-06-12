@@ -1,11 +1,19 @@
 class MateriasController < ApplicationController
     def index
         @materias = Materia.all
-        render json: @materias
+
+        respond_to do |format|
+            format.html
+            format.json { render json: @materias }
+        end
     end
     def show
         @materia = Materia.find(params[:id])
-        render json: @materia
+
+        respond_to do |format|
+            format.html
+            format.json { render json: @materia }
+        end
     end
 end
 
