@@ -1,7 +1,7 @@
-require 'json'
+require "json"
 
 class AdminsController < ApplicationController
-  layout 'admin'
+  layout "admin"
   before_action :authenticate_admin!
   before_action :set_admin_data
 
@@ -21,44 +21,54 @@ class AdminsController < ApplicationController
     json = params[:admin_import][:file].tempfile.path
     selected_data = params[:select_data]
 
-    if selected_data == '1'
+    case selected_data
+    when "1"
       members = JSON.parse(File.read(json))
       members.each do |member|
-        UsersMailer.register_user(member['docente']['email']).deliver
-        member['discente'].each do |student|
-          UsersMailer.register_user(student['email']).deliver
+        UsersMailer.register_user(member["docente"]["email"]).deliver
+        member["discente"].each do |student|
+          UsersMailer.register_user(student["email"]).deliver
         end
       end
-
-    elsif selected_data == '2'
+    when "2"
       classes = JSON.parse(File.read(json))
-      classes.each do |klass|
-        teacher = Teacher.find_by(department_id: current_admin.department_id)
-        SubjectClass.create!(
-          code: klass['code'],
-          name: klass['name'],
-          semester: klass['semester'],
-          created_at: Time.now.utc,
-          updated_at: Time.now.utc,
-          department_id: current_admin.department_id,
-          initials: klass['code'].gsub(/[^a-zA-Z]/, ''),
-          teacher_id: teacher.id
-        )
-      end
+      classes.each do |subject_class|
+        initials = subject_class["code"].gsub(/[^a-zA-Z]/, "")
+        keys = { subject: subject_class["code"],
+                 code: subject_class["class"]["classCode"],
+                 semester: subject_class["class"]["semester"] }
+        imported_data = {
+          name: subject_class["name"],
+          schedule: subject_class["class"]["time"],
+          department_id: Department.find_by(initials: initials).id,
+        }
 
-    elsif selected_data == '3'
+        db_subject_class = SubjectClass.find_by(keys)
+
+        if db_subject_class
+          db_subject_class.update(
+            imported_data
+          )
+        else
+          SubjectClass.create(
+            keys.merge(imported_data)
+          )
+        end
+      end
+      flash[:notice] = "Turmas importadas com sucesso"
+      redirect_to subject_classes_path
+    when "3"
       departamentos = JSON.parse(File.read(json))
       departamentos.each do |dpto|
         Department.create!(
-          id: dpto['id'],
-          initials: dpto['initials'],
-          name: dpto['name']
+
+          id: dpto["id"],
+          initials: dpto["initials"],
+          name: dpto["name"],
         )
       end
     end
   end
-
-
 
   # end
   # def envio
