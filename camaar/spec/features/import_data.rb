@@ -63,9 +63,13 @@ feature 'Import Data from json' do
     page.attach_file(json) do
       page.find('file-upload-button').click
     end
+    save_and_open_page
+
+    expect(page).to have_content 'Importar'
 
     click_button 'Importar'
-    find('a[name="Turmas"]').click
+    expect(page).to have_content 'Turmas'
+    click_link 'Turmas'
 
     expect(page).to have_content 'DEPTO CIÊNCIAS DA COMPUTAÇÃO'
     expect(page).to have_content 'BANCOS DE DADOS'

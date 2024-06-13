@@ -7,15 +7,21 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/rails'
 require 'support/factory_bot'
 
-Capybara.register_driver :headless_chromium do |app|
-  options = Selenium::WebDriver::Chrome::Options.new
-  options.add_argument("--headless")
-  options.add_argument("--no-sandbox")
-  options.add_argument("--disable-dev-shm-usage")
-  options.add_argument("--window-size=1280,900")
-  Capybara::Selenium::Driver.new(app, browser: :chrome, capabilities: options)
+# Capybara.register_driver :headless_chromium do |app|
+#   options = Selenium::WebDriver::Chrome::Options.new
+#   options.add_argument("--headless")
+#   options.add_argument("--no-sandbox")
+#   options.add_argument("--disable-dev-shm-usage")
+#   options.add_argument("--window-size=1280,900")
+#   Capybara::Selenium::Driver.new(app, browser: :chrome, capabilities: options)
+# end
+# Capybara.javascript_driver = :headless_chromium
+
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new app, window_size: [1600, 1200], js_errors: false
 end
-Capybara.javascript_driver = :headless_chromium
+
+
 
 # require 'capybara/rspec'
 # require 'capybara/rails'
