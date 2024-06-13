@@ -1,5 +1,4 @@
 <div>
   <%= question.title %>
-  <%= link_to 'Excluir', template_template_question_path(question.template_id, question), method: :delete, data: { confirm: 'Are you sure?' } %>
   <%= link_to 'Editar', edit_template_template_question_path(question.template_id, question) %>
 </div>

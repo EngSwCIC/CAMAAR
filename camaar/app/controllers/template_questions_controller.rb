@@ -2,13 +2,13 @@ class TemplateQuestionsController < ApplicationController
   before_action :set_admin_data
   before_action :set_template
   before_action :set_template_question, only: [:edit, :update, :destroy]
+  before_action :check_for_commit
   layout "admin"
 
   def index
   end
 
   def show
-    destroy
   end
 
   def edit
@@ -31,8 +31,6 @@ class TemplateQuestionsController < ApplicationController
       template_id: @template.id,
     }
 
-    p "______________________--------------___---__________________---___--_______-__---______-_______"
-    p new_data
     if @template_question.update(new_data) and @errors.empty?
       clear_session
       redirect_to edit_template_path(@template)
@@ -44,9 +42,8 @@ class TemplateQuestionsController < ApplicationController
   end
 
   def destroy
-    question = TemplateQuestion.destroy(params[:id].to_i)
-
-    if question
+    if @template_question.destroy
+      clear_session
       redirect_to edit_template_path(@template)
     end
   end
@@ -133,8 +130,6 @@ class TemplateQuestionsController < ApplicationController
   end
 
   def get_question_data_from_model
-    set_template_question
-
     session[:question_type] = @template_question.question_type
     session[:title] = @template_question.title
     session[:options_number] = 0
@@ -155,20 +150,12 @@ class TemplateQuestionsController < ApplicationController
 
   def check_for_commit
     case params[:commit]
-    when "save"
-      update
-    when "add"
-      create
-    when "delete"
-      destroy
     when "cancel"
       clear_session
       redirect_to edit_template_path(@template)
+    when "delete"
+      destroy
     end
-  end
-
-  def clear_params
-    redirect_to new_template_template_question_path(@template)
   end
 
   def clear_session

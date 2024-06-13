@@ -31,22 +31,11 @@
             <br>
             <div>
               <%= f.button "Cancelar", class:"btn btn-danger btn-sm",name: "commit", value: "cancel", id: "cancel" %>
+              <%=  f.button 'Excluir',  class:"btn btn-danger btn-sm",name: "commit", value: "delete", id: "delete" %>
               <%= f.submit "Salvar", class:"btn btn-success btn-sm"%>
             </div>
           <% end %>
-          <% flash.each do |type, messages| %>
-            <% css_class = case type.to_sym
-                when :notice then 'alert alert-success'
-                when :alert then 'alert alert-danger'
-                when :error then 'alert alert-danger'
-                else 'alert alert-warning'
-                end %>
-            <% messages.each do |m| %>
-              <p class="<%= css_class %>">
-                <%= m %>
-              </p>
-            <% end %>
-          <% end %>
+         <%= render '/layouts/flashes' %>
         </div>
       </div>
     </div>
