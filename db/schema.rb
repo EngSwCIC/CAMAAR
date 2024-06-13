@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_11_235323) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_13_125524) do
   create_table "questions", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.string "type"
     t.string "description"
@@ -26,13 +26,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_11_235323) do
     t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "template_id"
-    t.index ["template_id"], name: "index_semesters_on_template_id"
   end
 
   create_table "templates", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "semester_id", null: false
+    t.index ["semester_id"], name: "index_templates_on_semester_id"
   end
 
   create_table "users", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
@@ -46,5 +46,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_11_235323) do
   end
 
   add_foreign_key "questions", "templates"
-  add_foreign_key "semesters", "templates"
+  add_foreign_key "templates", "semesters"
 end

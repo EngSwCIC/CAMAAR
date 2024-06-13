@@ -1,4 +1,4 @@
 class Template < ApplicationRecord
-  has_one :semester
+  belongs_to :semester
   has_many :questions
 end

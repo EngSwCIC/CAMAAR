@@ -1,4 +1,4 @@
 class Semester < ApplicationRecord
-   belongs_to :template
+   has_many :templates
    validates :half, uniqueness: { scope: :year}
 end
