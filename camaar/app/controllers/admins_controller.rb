@@ -49,11 +49,15 @@ class AdminsController < ApplicationController
                          occupation: data["docente"]["ocupacao"],
                          email: data["docente"]["email"],
                          department_id: Department.find_by(name: data["docente"]["departamento"]).id }
-        if db_teacher
+        if (User.find_by(id:db_teacher.registration) and (db_teacher))
           db_teacher.update(teacher_data)
         else
+          if db_teacher
+            UsersMailer.register_user(data["docente"]["email"]).deliver
+          else
           db_teacher = Teacher.create(teacher_data)
-          UsersMailer.register_user(member["docente"]["email"]).deliver
+          UsersMailer.register_user(data["docente"]["email"]).deliver
+          end
         end
         db_subject_class.update({
           teacher_id: db_teacher.id,
@@ -67,12 +71,16 @@ class AdminsController < ApplicationController
                            formation: student["formacao"],
                            occupation: student["ocupacao"],
                            email: student["email"] }
-          if db_student
+          if (User.find_by(id:db_student.registration) and (db_student))
             db_student.update(student_data)
+          else
+            if db_student
+              UsersMailer.register_user(student["email"]).deliver
           else
             db_student = Student.create(student_data)
             UsersMailer.register_user(student["email"]).deliver
           end
+        end
 
           db_enrollment = Enrollment.find_by({
             student_id: db_student.id,

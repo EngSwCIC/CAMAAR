@@ -23,7 +23,7 @@ feature 'Import Data from json' do
 
     expect(page).to have_content 'Opções para Importação'
 
-    select 'Membros', from: 'select_data'
+    select 'Departamentos', from: 'select_data'
 
     json = Rails.root + 'db/class_members.json'
 
@@ -68,7 +68,7 @@ feature 'Import Data from json' do
     click_button 'Importar'
 
     expect(page).to have_content 'Turmas'
-    click_link 'a[name=Turmas]'
+    click_link 'Turmas'
 
     expect(page).to have_content 'DEPTO CIÊNCIAS DA COMPUTAÇÃO'
     expect(page).to have_content 'BANCOS DE DADOS'
@@ -110,7 +110,7 @@ feature 'Import Data from json' do
     click_button 'Importar'
 
     expect(page).to have_content 'Turmas'
-    click_link 'a[name=Turmas]'
+    click_link 'Turmas'
 
     expect(page).to have_content 'DEPTO CIÊNCIAS DA COMPUTAÇÃO'
     expect(page).to have_content 'BANCOS DE DADOS'
