@@ -145,6 +145,9 @@ class TemplateQuestionsController < ApplicationController
       create
     when "delete"
       destroy
+    when "cancel"
+      clear_session
+      redirect_to edit_template_path(@template)
     end
   end
 
