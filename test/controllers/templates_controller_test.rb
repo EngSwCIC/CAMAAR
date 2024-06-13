@@ -1,6 +1,8 @@
 require "test_helper"
 
 class TemplatesControllerTest < ActionDispatch::IntegrationTest
+  include Rails.application.routes.url_helpers
+
   setup do
     @template = templates(:one)
   end
