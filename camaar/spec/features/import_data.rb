@@ -38,9 +38,14 @@ feature 'Import Data from json' do
     open_email(email).click_link 'Registrar'
   end
 
+  # Department.create(id:1000,initials:"Root",name:"Root",created_at:Time.now.utc,updated_at:Time.now.utc)
+  # Admin.create!(id:100,email:"mandelli@unb.br",password:"abc123",password_confirmation:"abc123",confirmed_at:Time.now.utc)
+  # Coordinator.create(id:100,name:"mandelli",admin_id:100,department_id:1000,email:"mandelli@unb.br")
+
   scenario 'admin can regiser departments different than their department' do
-    # departament = create(:department)
-    department = create(:department, id: 1)
+    DatabaseCleaner.clean
+    DatabaseCleaner.start
+    department = create(:department, id: 1, initials: 'ROOT', name: 'ROOT')
     admin = create(:admin)
     coordinator = create(:coordinator, department_id: 1)
 
@@ -63,13 +68,13 @@ feature 'Import Data from json' do
     page.attach_file(json) do
       page.find('file-upload-button').click
     end
-    save_and_open_page
 
     expect(page).to have_content 'Importar'
 
     click_button 'Importar'
+
     expect(page).to have_content 'Turmas'
-    click_link 'Turmas'
+    click_link 'a[name=Turmas]'
 
     expect(page).to have_content 'DEPTO CIÊNCIAS DA COMPUTAÇÃO'
     expect(page).to have_content 'BANCOS DE DADOS'

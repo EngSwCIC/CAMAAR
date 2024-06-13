@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
       # admins_page_path
       templates_path
     elsif user_signed_in?
-      "/users/forms"
+      '/users/forms'
     else
       root_path
     end
@@ -41,13 +41,12 @@ class ApplicationController < ActionController::Base
       current_user.occupation = student.occupation
       # current_user.name = student.name
       current_user.name = student.name.split.first.capitalize
-      @department = Department.find_by(initials: student.course.split("/").last) if student
+      @department = Department.find_by(initials: student.course.split('/').last) if student
     else
       @teacher = Teacher.find_by(email: current_user.email)
-      current_user.occupation = teacher.occupation
-      # current_user.name = teacher.name
-      current_user.name = teacher.name.split.first.capitalize
-      @department = Department.find_by_id(teacher.department_id) if teacher
+      current_user.occupation = @teacher.occupation
+      current_user.name = @teacher.name.split.first.capitalize
+      @department = Department.find_by_id(@teacher.department_id) if @teacher
     end
   end
 

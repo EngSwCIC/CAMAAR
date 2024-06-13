@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-06-13T11:51:57-03:00">2024-06-13T11:51:57-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-06-13T13:21:38-03:00">2024-06-13T13:21:38-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -165,7 +165,7 @@
             <td class="cell--number">33</td>
             <td class="cell--number">25</td>
             <td class="cell--number">8</td>
-            <td class="cell--number">4.27</td>
+            <td class="cell--number">4.24</td>
             
           </tr>
         
@@ -183,7 +183,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#f871390809157a6fb73e21bb67d11e6a89d2b682" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
             <td class="red strong cell--number t-file__coverage">60.00 %</td>
-            <td class="cell--number">57</td>
+            <td class="cell--number">56</td>
             <td class="cell--number">35</td>
             <td class="cell--number">21</td>
             <td class="cell--number">14</td>
@@ -851,7 +851,7 @@
             <td class="cell--number">33</td>
             <td class="cell--number">25</td>
             <td class="cell--number">8</td>
-            <td class="cell--number">4.27</td>
+            <td class="cell--number">4.24</td>
             
           </tr>
         
@@ -869,7 +869,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#f871390809157a6fb73e21bb67d11e6a89d2b682" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
             <td class="red strong cell--number t-file__coverage">60.00 %</td>
-            <td class="cell--number">57</td>
+            <td class="cell--number">56</td>
             <td class="cell--number">35</td>
             <td class="cell--number">21</td>
             <td class="cell--number">14</td>
@@ -5325,8 +5325,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="65" data-linenumber="56">
-            <span class="hits">65</span>
+          <li class="covered" data-hits="64" data-linenumber="56">
+            <span class="hits">64</span>
             
 
             
@@ -6009,7 +6009,7 @@
 
             
 
-            <code class="ruby">      &quot;/users/forms&quot;</code>
+            <code class="ruby">      &#39;/users/forms&#39;</code>
           </li>
         </div>
       
@@ -6350,7 +6350,7 @@
 
             
 
-            <code class="ruby">      @department = Department.find_by(initials: student.course.split(&quot;/&quot;).last) if student</code>
+            <code class="ruby">      @department = Department.find_by(initials: student.course.split(&#39;/&#39;).last) if student</code>
           </li>
         </div>
       
@@ -6383,18 +6383,18 @@
 
             
 
-            <code class="ruby">      current_user.occupation = teacher.occupation</code>
+            <code class="ruby">      current_user.occupation = @teacher.occupation</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="48">
+          <li class="missed" data-hits="0" data-linenumber="48">
             
             
 
             
 
-            <code class="ruby">      # current_user.name = teacher.name</code>
+            <code class="ruby">      current_user.name = @teacher.name.split.first.capitalize</code>
           </li>
         </div>
       
@@ -6405,23 +6405,12 @@
 
             
 
-            <code class="ruby">      current_user.name = teacher.name.split.first.capitalize</code>
+            <code class="ruby">      @department = Department.find_by_id(@teacher.department_id) if @teacher</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="50">
-            
-            
-
-            
-
-            <code class="ruby">      @department = Department.find_by_id(teacher.department_id) if teacher</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="51">
+          <li class="never" data-hits="" data-linenumber="50">
             
             
 
@@ -6432,7 +6421,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="52">
+          <li class="never" data-hits="" data-linenumber="51">
             
             
 
@@ -6443,7 +6432,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="53">
+          <li class="never" data-hits="" data-linenumber="52">
             
             
 
@@ -6454,7 +6443,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="54">
+          <li class="covered" data-hits="1" data-linenumber="53">
             <span class="hits">1</span>
             
 
@@ -6465,7 +6454,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="55">
+          <li class="missed" data-hits="0" data-linenumber="54">
             
             
 
@@ -6476,7 +6465,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="56">
+          <li class="never" data-hits="" data-linenumber="55">
             
             
 
@@ -6487,7 +6476,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="57">
+          <li class="never" data-hits="" data-linenumber="56">
             
             
 
