@@ -3,11 +3,13 @@
 one:
   id_questao: 1
   id_formulario: 1
-  id_usuario: 1
+  usuario: 1
   resposta: MyText
+  numero: 1
 
 two:
   id_questao: 1
   id_formulario: 1
-  id_usuario: 1
+  usuario: 1
   resposta: MyText
+  numero: 1

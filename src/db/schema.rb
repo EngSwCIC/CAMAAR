@@ -10,60 +10,83 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_11_205443) do
-  create_table "departamentos", force: :cascade do |t|
+ActiveRecord::Schema[7.1].define(version: 2024_06_13_094543) do
+  create_table "formularios", force: :cascade do |t|
+    t.integer "id_turma"
+    t.integer "id_template"
+    t.integer "turma_id"
+    t.integer "template_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["template_id"], name: "index_formularios_on_template_id"
+    t.index ["turma_id"], name: "index_formularios_on_turma_id"
+  end
+
+  create_table "materias", force: :cascade do |t|
+    t.string "code"
     t.string "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "formularios", force: :cascade do |t|
-    t.string "codigo"
-    t.string "turma"
-    t.boolean "isRespondido"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "materias", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "questoes", force: :cascade do |t|
-    t.string "codigo"
-    t.string "questao"
-    t.text "resposta"
-    t.integer "numero"
+    t.string "tipo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "questoes_templates", id: false, force: :cascade do |t|
+    t.integer "questao_id"
+    t.integer "template_id"
+    t.index ["questao_id"], name: "index_questoes_templates_on_questao_id"
+    t.index ["template_id"], name: "index_questoes_templates_on_template_id"
   end
 
   create_table "respostas", force: :cascade do |t|
-    t.integer "id_questao"
-    t.integer "id_formulario"
-    t.integer "id_usuario"
     t.text "resposta"
+    t.integer "numero"
+    t.integer "questao_id"
+    t.integer "formulario_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["formulario_id"], name: "index_respostas_on_formulario_id"
+    t.index ["questao_id"], name: "index_respostas_on_questao_id"
+    t.index ["user_id"], name: "index_respostas_on_user_id"
   end
 
   create_table "templates", force: :cascade do |t|
     t.string "codigo"
     t.string "nome"
     t.string "semestre"
-    t.datetime "last_update"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "id_usuario"
+    t.index ["user_id"], name: "index_templates_on_user_id"
+  end
+
+  create_table "templates_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "template_id"
+    t.index ["template_id"], name: "index_templates_users_on_template_id"
+    t.index ["user_id"], name: "index_templates_users_on_user_id"
   end
 
   create_table "turmas", force: :cascade do |t|
-    t.string "codigo"
-    t.string "materia"
+    t.string "classCode"
     t.string "semestre"
+    t.integer "professor_id"
+    t.integer "materia_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["materia_id"], name: "index_turmas_on_materia_id"
+  end
+
+  create_table "turmas_users", id: false, force: :cascade do |t|
+    t.integer "turma_id"
+    t.integer "user_id"
+    t.index ["turma_id"], name: "index_turmas_users_on_turma_id"
+    t.index ["user_id"], name: "index_turmas_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -85,4 +108,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_11_205443) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "formularios", "templates"
+  add_foreign_key "formularios", "turmas"
+  add_foreign_key "respostas", "formularios"
+  add_foreign_key "respostas", "questoes"
+  add_foreign_key "respostas", "users"
+  add_foreign_key "turmas", "materias"
 end

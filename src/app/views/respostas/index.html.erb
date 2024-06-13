@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Respostas</h1>
+
+<div id="respostas">
+  <% @respostas.each do |resposta| %>
+    <%= render resposta %>
+    <p>
+      <%= link_to "Show this resposta", resposta %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New resposta", new_resposta_path %>

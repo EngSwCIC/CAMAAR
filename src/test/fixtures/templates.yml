@@ -4,10 +4,10 @@ one:
   codigo: MyString
   nome: MyString
   semestre: MyString
-  last_update: 2024-06-10 12:22:13
+  id_usuario: 1
 
 two:
   codigo: MyString
   nome: MyString
   semestre: MyString
-  last_update: 2024-06-10 12:22:13
+  id_usuario: 1

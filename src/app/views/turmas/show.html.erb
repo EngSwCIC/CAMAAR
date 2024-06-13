@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @turma %>
+
+<div>
+  <%= link_to "Edit this turma", edit_turma_path(@turma) %> |
+  <%= link_to "Back to turmas", turmas_path %>
+
+  <%= button_to "Destroy this turma", @turma, method: :delete %>
+</div>

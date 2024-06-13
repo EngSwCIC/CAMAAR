@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
+  resources :respostas
+  resources :questoes
+  resources :materias
+  
+  resources :materia
+  resources :questaos
+  resources :formularios
+  resources :resposta
+  resources :turmas
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  
   root 'home#index'
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-
-end
-
-
-Rails.application.routes.draw do
+  
+  resources :templates
 
   resources :imports, only: [:new, :create]
 end

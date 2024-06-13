@@ -1,0 +1,27 @@
+<%= form_with(model: formulario) do |form| %>
+  <% if formulario.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(formulario.errors.count, "error") %> prohibited this formulario from being saved:</h2>
+
+      <ul>
+        <% formulario.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :id_turma, style: "display: block" %>
+    <%= form.number_field :id_turma %>
+  </div>
+
+  <div>
+    <%= form.label :id_template, style: "display: block" %>
+    <%= form.number_field :id_template %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
