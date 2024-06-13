@@ -3237,9 +3237,9 @@ section {
 }
 
 .overview-item--nform {
-  background-image: -moz-linear-gradient(90deg, yellow 0%, rgb(246, 243, 83) 100%);
-  background-image: -webkit-linear-gradient(90deg, yellow 0%, rgb(246, 243, 83) 100%);
-  background-image: -ms-linear-gradient(90deg, yellow 0%, rgb(246, 243, 83) 100%);
+  background-image: -moz-linear-gradient(90deg, yellow 0%, rgb(175, 172, 0) 100%);
+  background-image: -webkit-linear-gradient(90deg, yellow 0%, rgb(175, 172, 0) 100%);
+  background-image: -ms-linear-gradient(90deg, yellow 0%, rgb(175, 172, 0) 100%);
 }
 
 .overview-item--sform {
