@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="formbold-form-wrapper">
         <h1><%= @form.name %></h1>
-        <%= form_with(url: student_answers_path, method: "post") do |form| %>
+        <%= form_with(url: answers_path, method: "post") do |form| %>
           <% @form_questions.each do |form_question| %>
             <%= render partial: 'question', locals: { form_question: form_question, form:form } %>
           <% end %>

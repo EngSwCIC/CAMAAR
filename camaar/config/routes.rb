@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   match "/users/page", to: "users#page", via: "get"
   match "/errors/forbidden", to: "errors#forbidden", via: "get"
   # match "/users/forms", to: "users#form_student", via: "get"
-  post "/student_answers", to: "student_answers#create"
+  # post "/answers", to: "student_answers#create"
 
   scope "users" do
+    resources :answers, only: [:create]
     resources :forms, only: [:index,:edit]
   end
   scope "admins" do
