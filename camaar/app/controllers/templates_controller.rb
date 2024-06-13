@@ -21,7 +21,7 @@ class TemplatesController < ApplicationController
   end
 
   def show
-    # @templates = Template.where(coordinator_id: @coordinator.id)
+    @templates = Template.where(coordinator_id: @coordinator.id)
     check_for_commit
   end
 

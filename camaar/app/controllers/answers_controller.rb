@@ -1,17 +1,28 @@
-class StudentAnswersController < ApplicationController
-    def create
-        @student_answer = StudentAnswer.new(student_answer_params)
-  
-        if @student_answer.save
-            redirect_to user_path(user)
-        else
-            flash[:alert] = "Erro ao salvar a resposta."
-            redirect_back(fallback_location: root_path)
-        end
+class AnswersController < ApplicationController
+  def create
+    @form = Form.find(params[:form_id])
+    @form_questions = FormQuestion.where(form_id: @form.id)
+
+    @form_questions.each do |form_question|
+      answer_params = params[:answers][form_question.id.to_s]
+
+      if current_user.teacher?
+        TeacherAnswer.create(
+          question_type: form_question.question_type,
+          answers: answer_params,
+          form_question_id: form_question.id,
+          teacher_id: current_user.id
+        )
+      else
+        StudentAnswer.create(
+          question_type: form_question.question_type,
+          answers: answer_params,
+          form_question_id: form_question.id,
+          student_id: current_user.id
+        )
+      end
     end
-  
-    def student_answer_params
-        params.require(:student_answer).permit(:question_type, :answers, :form_question_id, :student_id)
-    end
+
+    redirect_to some_path
   end
-  
+end

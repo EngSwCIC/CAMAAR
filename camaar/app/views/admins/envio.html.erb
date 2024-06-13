@@ -1,81 +1,78 @@
-            <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                       <div class="row justify-content-center align-items-center">
-                            <div class="col-lg-7">
-                                <div class="card">
-                                    <div class="card-header text-center">
-                                        <strong >Opções para Envio</strong> 
-                                    </div>
-                                    <div class="card-body card-block">
-                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                           
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Professores</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select name="select" id="select" class="form-control">
-                                                        <option value="0">Template</option>
-                                                        <option value="1">Template 1</option>
-                                                        <option value="2">Template 2</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+<div class="main-content">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-7">
+          <div class="card">
+            <div class="card-header text-center">
+              <strong>Opções para Envio</strong>
+            </div>
+            <div class="card-body card-block">
+              <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
 
-                                             <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Alunos</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select name="select" id="select" class="form-control">
-                                                        <option value="0">Template</option>
-                                                        <option value="1">Template 1</option>
-                                                        <option value="2">Template 2</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                          
-                                           <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Turmas</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select name="select" id="select" class="form-control">
-                                                        <option value="0">Turma</option>
-                                                        <option value="1">Turma 1</option>
-                                                        <option value="2">Turma 2</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                          
-
-                                          
-                                            <!-- <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="file-multiple-input" class=" form-control-label">Multiple File input</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="file" id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control-file">
-                                                </div> -->
-                                            </div>
-                                            <div class="card-footer justify-content-center align-items-center text-center">
-                                                <button type="reset" class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-ban"></i> Cancelar
-                                                </button>
-                                                  <button type="submit" class="btn btn-success btn-sm">
-                                                    <i class="fa fa-dot-circle-o"></i> Enviar
-                                                </button>
-                                            </div>
-                                            
-                                        </form>
-                                    </div>
-                            
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-               
-                    </div>
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="professores_select" class="form-control-label">Professores</label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <select name="professor_template_id" id="professores_select" class="form-control">
+                      <% if @templates.present? %>
+                        <option value="">Selecione um Template</option>
+                        <% @templates.each do |template| %>
+                          <option value="<%= template.id %>"><%= template.name %></option>
+                        <% end %>
+                      <% else %>
+                        <option value="" disabled selected>Nenhum template disponível</option>
+                      <% end %>
+                    </select>
+                  </div>
                 </div>
-      
+
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="alunos_select" class="form-control-label">Alunos</label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <select name="aluno_template_id" id="alunos_select" class="form-control">
+                      <% if @templates.present? %>
+                        <option value="">Selecione um Template</option>
+                        <% @templates.each do |template| %>
+                          <option value="<%= template.id %>"><%= template.name %></option>
+                        <% end %>
+                      <% else %>
+                        <option value="" disabled selected>Nenhum template disponível</option>
+                      <% end %>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="alunos_select" class="form-control-label">Alunos</label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <select name="aluno_template_id" id="alunos_select" class="form-control">
+                      <% if @classes.present? %>
+                        <option value="">Selecione uma Turma</option>
+                        <% @classes.each do |classe| %>
+                          <option value="<%= classe.id %>"><%= classe.name %></option>
+                        <% end %>
+                      <% else %>
+                        <option value="" disabled selected>Nenhuma turma disponível</option>
+                      <% end %>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="card-footer justify-content-center align-items-center text-center">
+                  <button type="reset" class="btn btn-danger btn-sm">
+                    <i class="fa fa-ban"></i> Cancelar
+                  </button>
+                  <button type="submit" class="btn btn-success btn-sm">
+                    <i class="fa fa-dot-circle-o"></i> Enviar
+                  </button>
+                </div>
+
+              </form>
+            </div>
+ 

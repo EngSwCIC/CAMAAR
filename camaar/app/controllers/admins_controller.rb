@@ -4,6 +4,7 @@ class AdminsController < ApplicationController
   layout "admin"
   before_action :authenticate_admin!
   before_action :set_admin_data
+  before_action :envio
 
   def index
     @admin = Admin.new
@@ -15,7 +16,10 @@ class AdminsController < ApplicationController
     @admin = Admin.all
   end
 
-  def envio; end
+  def envio
+    @templates = Template.where(coordinator_id: @coordinator.id)
+    @classes = SubjectClass.all
+  end
 
   def import
     @errors = []
@@ -85,6 +89,7 @@ class AdminsController < ApplicationController
 
     when "2"
       classes = JSON.parse(File.read(json))
+
       classes.each do |subject_class|
         initials = subject_class["code"].gsub(/[^a-zA-Z]/, "")
         keys = { subject: subject_class["code"],
@@ -95,6 +100,7 @@ class AdminsController < ApplicationController
           schedule: subject_class["class"]["time"],
           department_id: Department.find_by(initials: initials).id,
         }
+
 
         db_subject_class = SubjectClass.find_by(keys)
 
@@ -125,5 +131,5 @@ class AdminsController < ApplicationController
   # end
   # def envio
   #  UsersMailer.deliver
-  #end
+  # end
 end

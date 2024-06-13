@@ -66,7 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_06_181536) do
   end
 
   create_table "forms", force: :cascade do |t|
-    t.string "role", default: "student"
+    t.string "role", default: "discente"
     t.boolean "open", default: false
     t.string "name"
     t.datetime "created_at", null: false
