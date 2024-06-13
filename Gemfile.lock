@@ -78,6 +78,7 @@ GEM
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     bigdecimal (3.1.8)
     bindex (0.8.1)
     bootsnap (1.18.3)
@@ -137,9 +138,20 @@ GEM
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    devise (4.9.4)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.5.1)
     drb (2.2.1)
     erubi (1.12.0)
+    factory_bot (6.4.5)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.3)
+      factory_bot (~> 6.4)
+      railties (>= 5.0.0)
     ffi (1.16.3)
     ffi (1.16.3-x64-mingw32)
     globalid (1.2.1)
@@ -193,6 +205,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.6-x86_64-linux)
       racc (~> 1.4)
+    orm_adapter (0.5.0)
     psych (5.1.2)
       stringio
     public_suffix (5.0.5)
@@ -242,8 +255,28 @@ GEM
     regexp_parser (2.9.2)
     reline (0.5.8)
       io-console (~> 0.5)
+    responders (3.1.1)
+      actionpack (>= 5.2)
+      railties (>= 5.2)
     rexml (3.2.8)
       strscan (>= 3.0.9)
+    rspec-core (3.13.0)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-rails (6.1.2)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.13)
+      rspec-expectations (~> 3.13)
+      rspec-mocks (~> 3.13)
+      rspec-support (~> 3.13)
+    rspec-support (3.13.1)
     rubyzip (2.3.2)
     selenium-webdriver (4.9.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -266,6 +299,12 @@ GEM
     strscan (3.1.0)
     sys-uname (1.2.3)
       ffi (~> 1.1)
+    tailwindcss-rails (2.6.1)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.6.1-x64-mingw32)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.6.1-x86_64-linux)
+      railties (>= 7.0.0)
     thor (1.3.1)
     timeout (0.4.1)
     turbo-rails (2.0.5)
@@ -276,6 +315,8 @@ GEM
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2024.1)
       tzinfo (>= 1.0.0)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -306,14 +347,18 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   debug
+  devise
+  factory_bot_rails
   importmap-rails
   jbuilder
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.2)
+  rspec-rails
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  tailwindcss-rails (~> 2.6)
   turbo-rails
   tzinfo-data
   web-console
