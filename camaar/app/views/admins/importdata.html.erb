@@ -1,74 +1,48 @@
-
-            <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                       <div class="row justify-content-center align-items-center">
-                            <div class="col-lg-7">
-                                <div class="card">
-                                    <div class="card-header text-center">
-                                        <strong >Opções para Importação</strong> 
-                                    </div>
-                                    <div class="card-body card-block">
-                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                           
-                                          
-                                            <%= simple_form_for :admin_import, url: admins_import_path, method: :post, html: { multipart: true } do |form| %>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="select" class="form-control-label">Tipos de Dados</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <%= form.input_field :select_data, as: :select,name:'select_data', collection: [['Membros', '1'], ['Turmas', '2'], ['Departamentos', '3']],class: 'form-control'%>
-                                                </div>
-                                            </div>
-                                          
-                                          
-               
-
-                                            <div class="row form-group">
-                                                <div class="col col-md-3 d-flex align-items-center">
-                                                    <label class=" form-control-label mb-0">Sobreescrever Dados </label>
-                                                </div>
-                                                <div class="col col-md-8">
-                                                    <div class="form-check">
-                                                        <div class="checkbox">
-                                                            <label for="checkbox1" class="form-check-label ">
-                                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="option1" class="form-check-input">
-                                                            </label>
-                                                        </div>
-                                                   
-                                                    </div>
-                                                </div>
-                                            </div>
-                            
-                                                <div class="row form-group">
-                                                    <div class="col col-md-3">
-                                                        <%= form.label :file, "Arquivo" %>
-                                                    </div>
-                                                    <div class="col-12 col-md-9">
-                                                        <%= form.file_field :file, class: "form-control-file" %>
-                                                    </div>
-                                                </div>
-
-                                                 <div class="card-footer justify-content-center align-items-center text-center">
-                                              
-                                            <%= form.submit "Importar", class: "btn btn-success btn-sm" %>
-                                            </div>
-                                            
-                                              <% end %>
-
-                                            </div>
-                                            
-                                        </form>
-                                    </div>
-                            
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-               
+<div class="main-content">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-7">
+          <% if flash %>
+            <% flash.each do |k,v| %>
+              <p class="alert alert-success">
+                <%= v %>
+              </p>
+            <% end %>
+          <% end %>
+          <div class="card">
+            <div class="card-header text-center">
+              <strong >Opções para Importação</strong>
+            </div>
+            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+              <%= simple_form_for :admin_import, url: admins_import_path, method: :post, html: { multipart: true } do |form| %>
+                <div class="card-body card-block">
+                  <div class="row form-group">
+                    <div class="col col-md-3">
+                      <label for="select" class="form-control-label">Tipos de Dados</label>
                     </div>
+                    <div class="col-12 col-md-9">
+                      <%= form.select :select_data, [['Membros', '1'], ['Turmas', '2'], ['Departamentos', '3']], {}, { class: 'form-control', name:"select_data" } %>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3">
+                      <%= form.label :file, "Arquivo" %>
+                    </div>
+                    <div class="col-12 col-md-9">
+                      <%= form.file_field :file, class: "form-control-file" %>
+                    </div>
+                  </div>
                 </div>
-
-    
-
+                <div class="card-footer justify-content-center align-items-center text-center">
+                  <%= form.submit "Importar", class: "btn btn-primary btn-sm text-white" %>
+                </div>
+              <% end %>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
