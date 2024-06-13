@@ -7,7 +7,9 @@ feature 'Import Data from json' do
   end
 
   scenario 'admin sends email to students to register' do
+    departament = create(:department)
     admin = create(:admin)
+    coordinator = create(:coordinator)
 
     visit '/admins/login'
 
@@ -17,14 +19,16 @@ feature 'Import Data from json' do
     fill_in 'password', with: admin.password
     click_button 'Confirmar'
 
-    visit '/admins/import'
+    click_link 'Importar Dados'
+
+    expect(page).to have_content 'Opções para Importação'
+
+    select 'Membros', from: 'select_data'
 
     json = Rails.root + 'db/class_members.json'
 
-    #bundle exec rspec spec/features/import_data_spec.rb
-
     page.attach_file(json) do
-        page.find('file-upload-button').click
+      page.find('file-upload-button').click
     end
 
     click_button 'Importar'
@@ -32,7 +36,39 @@ feature 'Import Data from json' do
     email = 'mholanda@unb.br'
 
     open_email(email).click_link 'Registrar'
+  end
 
+  scenario 'admin can regiser departments different than their department' do
+    # departament = create(:department)
+    department = create(:department, id: 1)
+    admin = create(:admin)
+    coordinator = create(:coordinator, department_id: 1)
+
+    visit '/admins/login'
+
+    expect(page).to have_content 'Bem vindo ao'
+    expect(page).to have_content 'CAMAAR'
+    fill_in 'email', with: admin.email
+    fill_in 'password', with: admin.password
+    click_button 'Confirmar'
+
+    click_link 'Importar Dados'
+
+    expect(page).to have_content 'Opções para Importação'
+
+    select 'Departamentos', from: 'select_data'
+
+    json = Rails.root + 'db/departments.json'
+
+    page.attach_file(json) do
+      page.find('file-upload-button').click
+    end
+
+    click_button 'Importar'
+    find('a[name="Turmas"]').click
+
+    expect(page).to have_content 'DEPTO CIÊNCIAS DA COMPUTAÇÃO'
+    expect(page).to have_content 'BANCOS DE DADOS'
   end
 end
 
