@@ -17,7 +17,7 @@ class AdminsController < ApplicationController
   end
 
   def envio
-    @templates = Template.where(coordinator_id: @coordinator.id)
+    @templates = Template.where(coordinator_id: @coordinator.id, draft: false )
     @classes = SubjectClass.all
   end
 
