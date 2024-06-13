@@ -37,15 +37,14 @@ class AdminsController < ApplicationController
     elsif selected_data == '2'
       classes = JSON.parse(File.read(json))
       classes.each do |klass|
-        teacher = Teacher.find_by(department_id: current_admin.department_id)
+        teacher = Teacher.find_by(department_id: @coordinator.department_id)
         SubjectClass.create!(
           code: klass['code'],
           name: klass['name'],
           semester: klass['semester'],
           created_at: Time.now.utc,
           updated_at: Time.now.utc,
-          department_id: current_admin.department_id,
-          initials: klass['code'].gsub(/[^a-zA-Z]/, ''),
+          department_id: @coordinator.department_id,
           teacher_id: teacher.id
         )
       end
@@ -62,10 +61,8 @@ class AdminsController < ApplicationController
     end
   end
 
-
-
   # end
   # def envio
   #  UsersMailer.deliver
-  #end
+  # end
 end

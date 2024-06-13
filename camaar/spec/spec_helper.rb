@@ -2,7 +2,7 @@ require 'simplecov'
 require 'capybara/email/rspec'
 require 'support/factory_bot'
 require 'capybara/poltergeist'
-
+require 'capybara/dsl'
 SimpleCov.start 'rails'
 
 Capybara.register_driver :poltergeist do |app|
@@ -29,6 +29,7 @@ RSpec.configure do |config|
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
   Capybara.javascript_driver = :poltergeist
+  config.include Capybara::DSL
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation) # moving to before :each doesn't help
