@@ -1,6 +1,7 @@
 class TemplateQuestionsController < ApplicationController
   before_action :set_admin_data
   before_action :set_template
+  before_action :set_template_question, only: [:edit, :update, :destroy]
   layout "admin"
 
   def index
@@ -11,32 +12,34 @@ class TemplateQuestionsController < ApplicationController
   end
 
   def edit
-    @template_question = TemplateQuestion.find_by_id(params[:id].to_i)
     get_question_data_from_model
     save_to_session
     save_to_controller
-    check_for_commit
   end
 
   def update
     @errors = []
-    body = create_question_body
+    get_question_data_from_model
+    save_to_session
+    save_to_controller
 
-    if @errors.empty?
-      @question = TemplateQuestion.find_by_id(params[:id].to_i)
-      if @question.update({
-        id: params[:id].to_i,
-        title: @title,
-        question_type: @question_type,
-        body: body,
-        template_id: @template.id,
-      })
-        clear_session
-        redirect_to edit_template_path(@template)
-      else
-        @errors = @question.errors.full_messages
-        render :edit
-      end
+    new_data = {
+      id: params[:id].to_i,
+      title: @title,
+      question_type: @question_type,
+      body: create_question_body,
+      template_id: @template.id,
+    }
+
+    p "______________________--------------___---__________________---___--_______-__---______-_______"
+    p new_data
+    if @template_question.update(new_data) and @errors.empty?
+      clear_session
+      redirect_to edit_template_path(@template)
+    else
+      @errors.concat @template_question.errors.full_messages
+      flash[:alert] = @errors
+      redirect_to edit_template_template_question_path(@template, @template_question)
     end
   end
 
@@ -51,33 +54,39 @@ class TemplateQuestionsController < ApplicationController
   def new
     save_to_session
     save_to_controller
-    check_for_commit
   end
 
   def create
+    save_to_session
+    save_to_controller
     @errors = []
-    body = create_question_body
-    if @errors.empty?
-      @question = TemplateQuestion.new({
-        title: @title,
-        body: body,
-        question_type: @question_type.to_s,
-        template_id: @template.id,
-      })
 
-      if @question.save
-        clear_session
-        redirect_to edit_template_path(@template)
-      else
-        @errors = @question.errors.full_messages
+    @question = TemplateQuestion.new({
+      title: @title,
+      body: create_question_body,
+      question_type: @question_type,
+      template_id: @template.id,
+    })
 
-        render :new
-      end
+    if @question.save and @errors.empty?
+      clear_session
+      redirect_to edit_template_path(@template)
+    else
+      @errors.concat @question.errors.full_messages
+
+      flash[:alert] = @errors
+
+      save_to_session
+      redirect_to new_template_template_question_path
     end
   end
 
   def set_template
     @template = Template.find_by_id(params[:template_id].to_i)
+  end
+
+  def set_template_question
+    @template_question = TemplateQuestion.find_by_id(params[:id].to_i)
   end
 
   def create_question_body
@@ -103,10 +112,17 @@ class TemplateQuestionsController < ApplicationController
   end
 
   def save_to_session
-    session[:title] = params[:title] if params[:title]
-    session[:options_number] = params[:options_number] if params[:options_number]
-    session[:options] = params[:options] if params[:options]
-    session[:question_type] = params[:question_type] if params[:question_type]
+    if not params[:template_question]
+      session[:title] = params[:title] if params[:title]
+      session[:options_number] = params[:options_number] if params[:options_number]
+      session[:options] = params[:options] if params[:options]
+      session[:question_type] = params[:question_type] if params[:question_type]
+    else
+      session[:title] = params[:template_question][:title] if params[:template_question][:title]
+      session[:options_number] = params[:template_question][:options_number] if params[:template_question][:options_number]
+      session[:options] = params[:options] if params[:options]
+      session[:question_type] = params[:template_question][:question_type] if params[:template_question][:question_type]
+    end
   end
 
   def save_to_controller
@@ -117,7 +133,7 @@ class TemplateQuestionsController < ApplicationController
   end
 
   def get_question_data_from_model
-    @template_question = TemplateQuestion.find_by_id(params[:id].to_i)
+    set_template_question
 
     session[:question_type] = @template_question.question_type
     session[:title] = @template_question.title

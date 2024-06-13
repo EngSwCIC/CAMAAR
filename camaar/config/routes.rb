@@ -15,11 +15,10 @@ Rails.application.routes.draw do
   # post "/answers", to: "student_answers#create"
 
   scope "users" do
-
     resources :answers, only: [:create]
-    resources :forms, only: [:index,:edit]
-
+    resources :forms, only: [:index, :edit]
   end
+  
   scope "admins" do
     resources :templates do
       resources :template_questions

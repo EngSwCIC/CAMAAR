@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="formbold-form-wrapper">
         <div class="formbold-mb-5">
-          <%= form_with method: :get do |f| %>
+          <%= form_with model: @template_question, url: template_template_question_path(@template, @template_question), method: :put do |f| %>
             <div class="form-group row">
               <%= f.label :title, "Título:", class: "col-sm-2 col-form-label"%>
               <div class="col-sm-10">
@@ -30,11 +30,23 @@
             </div>
             <br>
             <div>
-              <%= f.button "Cancelar", class:"btn btn-success btn-sm",name: "commit", value: "cancel", id: "cancel" %>
-              <%= f.button "Salvar", class:"btn btn-success btn-sm",name: "commit", value: "save", id: "save" %>
+              <%= f.button "Cancelar", class:"btn btn-danger btn-sm",name: "commit", value: "cancel", id: "cancel" %>
+              <%= f.submit "Salvar", class:"btn btn-success btn-sm"%>
             </div>
           <% end %>
-          <%= @errors %>
+          <% flash.each do |type, messages| %>
+            <% css_class = case type.to_sym
+                when :notice then 'alert alert-success'
+                when :alert then 'alert alert-danger'
+                when :error then 'alert alert-danger'
+                else 'alert alert-warning'
+                end %>
+            <% messages.each do |m| %>
+              <p class="<%= css_class %>">
+                <%= m %>
+              </p>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
