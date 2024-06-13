@@ -1,10 +1,15 @@
 <h1>Templates</h1>
 
-<% @questions.each do |question| %>
-    <h2>
-        <%= question.label %>
-    </h2>
-    <p>
-    <%= question.description %>
-    </p>
+<% @templates.each do |template| %>
+    <h2><%= template.semester.half %> <%= template.semester.year %></h2>
+
+    <% template.questions.each do |question| %>
+        <h2>
+            <%= question.label %>
+        </h2>
+        <p>
+        <%= question.description %>
+        </p>
+    <% end %>
+    <hr>
 <% end %>

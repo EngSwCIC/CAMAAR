@@ -1,5 +1,8 @@
 class TemplatesController < ApplicationController
+  include AuthenticationConcern
     def index
-        @questions = Question.all
+        if self.user_authenticated
+            @templates = Template.all
+        end
     end
 end
