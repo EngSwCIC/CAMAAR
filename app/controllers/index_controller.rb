@@ -1,8 +1,8 @@
 class IndexController < ApplicationController
   include AuthenticationConcern
   def index
-    if authenticate_user == true
+    if self.user_authenticated
       redirect_to home_path
     end
-  end  
+  end
 end
