@@ -3,22 +3,14 @@ Rails.application.routes.draw do
 
   match "/errors/forbidden", to: "errors#forbidden", via: "get"
 
-  # get "/forms", to: "forms#index", via: "get"
-  # get "/classes", to: "subject_clasess#index"
-  # get "/results", to: "results#index"
-  # get "/import", to: "admins#import"
-  # get "/dispatch", to: "admins#dispatch"
-
   match "/users/page", to: "users#page", via: "get"
   match "/errors/forbidden", to: "errors#forbidden", via: "get"
-  # match "/users/forms", to: "users#form_student", via: "get"
-  # post "/answers", to: "student_answers#create"
 
   scope "users" do
     resources :answers, only: [:create]
     resources :forms, only: [:index, :edit]
   end
-  
+
   scope "admins" do
     resources :templates do
       resources :template_questions
@@ -32,7 +24,6 @@ Rails.application.routes.draw do
     match "/import", to: "admins#importdata", via: "get", as: "admins_import"
     match "/import", to: "admins#import", via: "post", as: "admins_import_post"
 
-    # match '/admins/envio', to: 'forms#new', via: 'get'
     match "/envio", to: "admins#envio", via: "get"
     match "/envio", to: "admins#envio", via: "post", as: "admins_envio_post"
   end
