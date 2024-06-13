@@ -2,13 +2,21 @@
 
 Sistema para avaliação de atividades acadêmicas remotas do CIC
 
-# Testes
+# Iniciando
 
-Para instalar as gems do cucumber, execute o comando no diretório raíz src/ da aplicação
+Primeiro, é necessário instalar todas as gemas do projeto
 
 ```
 bundle install
 ```
+
+Em seguida, deve-se fazer as migrações
+
+```
+rails db:migrate
+```
+
+# Testes
 
 Para executar o cucumber, basta rodar
 
