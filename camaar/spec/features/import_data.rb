@@ -10,6 +10,8 @@ feature 'Import Data from json' do
     departament = create(:department)
     admin = create(:admin)
     coordinator = create(:coordinator)
+    user = create(:user, :user5)
+    teacher = create(:teacher)
 
     visit '/admins/login'
 
@@ -23,7 +25,19 @@ feature 'Import Data from json' do
 
     expect(page).to have_content 'Opções para Importação'
 
-    select 'Departamentos', from: 'select_data'
+    select 'Turmas', from: 'select_data'
+
+    json = Rails.root + 'db/classes.json'
+
+    page.attach_file(json) do
+      page.find('file-upload-button').click
+    end
+
+    click_button 'Importar'
+
+    expect(page).to have_content 'Opções para Importação'
+
+    select 'Membros', from: 'select_data'
 
     json = Rails.root + 'db/class_members.json'
 
@@ -79,8 +93,6 @@ feature 'Import Data from json' do
   # Coordinator.create(id:100,name:"mandelli",admin_id:100,department_id:1000,email:"mandelli@unb.br")
 
   scenario 'admin can regiser departments different than their department' do
-    DatabaseCleaner.clean
-    DatabaseCleaner.start
     department = create(:department, id: 1, initials: 'ROOT', name: 'ROOT')
     admin = create(:admin)
     coordinator = create(:coordinator, department_id: 1)
@@ -110,10 +122,12 @@ feature 'Import Data from json' do
     click_button 'Importar'
 
     expect(page).to have_content 'Turmas'
-    click_link 'Turmas'
+    expect(page).to have_content 'Opções para Importação'
 
-    expect(page).to have_content 'DEPTO CIÊNCIAS DA COMPUTAÇÃO'
-    expect(page).to have_content 'BANCOS DE DADOS'
+    department = Department.find_by(id: 508)
+    expect(department.id).to eq(508)
+    expect(department.initials).to eq('CIC')
+    expect(department.name).to eq('DEPTO CIÊNCIAS DA COMPUTAÇÃO')
   end
 end
 

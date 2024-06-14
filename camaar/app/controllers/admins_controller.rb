@@ -1,7 +1,7 @@
-require "json"
+require 'json'
 
 class AdminsController < ApplicationController
-  layout "admin"
+  layout 'admin'
   before_action :authenticate_admin!
   before_action :set_admin_data
   before_action :envio
@@ -17,7 +17,7 @@ class AdminsController < ApplicationController
   end
 
   def envio
-    @templates = Template.where(coordinator_id: @coordinator.id, draft: false )
+    @templates = Template.where(coordinator_id: @coordinator.id, draft: false)
     @classes = SubjectClass.all
   end
 
@@ -27,88 +27,88 @@ class AdminsController < ApplicationController
     selected_data = params[:select_data]
 
     case selected_data
-    when "1"
+    when '1'
       members = JSON.parse(File.read(json))
 
       members.each do |data|
         db_subject_class = SubjectClass.find_by(
-          { subject: data["code"],
-            code: data["classCode"],
-            semester: data["semester"] }
+          { subject: data['code'],
+            code: data['classCode'],
+            semester: data['semester'] }
         )
 
-        if not db_subject_class
-          @errors << %'#{data["code"]}-#{data["classCode"]}-#{data["semester"]} Turma não foi encontrada'
+        unless db_subject_class
+          @errors << %(#{data['code']}-#{data['classCode']}-#{data['semester']} Turma não foi encontrada)
           next
         end
 
-        db_teacher = Teacher.find_by({ registration: data["docente"]["usuario"] })
-        teacher_data = { name: data["docente"]["nome"],
-                         formation: data["docente"]["formacao"],
-                         registration: data["docente"]["usuario"],
-                         occupation: data["docente"]["ocupacao"],
-                         email: data["docente"]["email"],
-                         department_id: Department.find_by(name: data["docente"]["departamento"]).id }
-        if (User.find_by(id:db_teacher.registration) and (db_teacher))
+        db_teacher = Teacher.find_by({ registration: data['docente']['usuario'] })
+        user_teacher = User.find_by(email: data['docente']['email'])
+
+        teacher_data = { name: data['docente']['nome'],
+                         formation: data['docente']['formacao'],
+                         registration: data['docente']['usuario'],
+                         occupation: data['docente']['ocupacao'],
+                         email: data['docente']['email'],
+                         department_id: Department.find_by(name: data['docente']['departamento']).id }
+        if user_teacher
           db_teacher.update(teacher_data)
+        elsif db_teacher
+          UsersMailer.register_user(data['docente']['email']).deliver
         else
-          if db_teacher
-            UsersMailer.register_user(data["docente"]["email"]).deliver
-          else
           db_teacher = Teacher.create(teacher_data)
-          UsersMailer.register_user(data["docente"]["email"]).deliver
-          end
+          UsersMailer.register_user(data['docente']['email']).deliver
         end
         db_subject_class.update({
-          teacher_id: db_teacher.id,
-        })
+                                  teacher_id: db_teacher.id
+                                })
 
-        data["discente"].each do |student|
-          db_student = Student.find_by({ registration: student["matricula"] })
-          student_data = { name: student["nome"],
-                           course: student["curso"],
-                           registration: student["matricula"],
-                           formation: student["formacao"],
-                           occupation: student["ocupacao"],
-                           email: student["email"] }
-          if (User.find_by(id:db_student.registration) and (db_student))
+        data['discente'].each do |student|
+          db_student = Student.find_by({ registration: student['matricula'] })
+          user_student = User.find_by(email: student['email'])
+
+          student_data = { name: student['nome'],
+                           course: student['curso'],
+                           registration: student['matricula'],
+                           formation: student['formacao'],
+                           occupation: student['ocupacao'],
+                           email: student['email'] }
+
+          if user_student
             db_student.update(student_data)
-          else
-            if db_student
-              UsersMailer.register_user(student["email"]).deliver
+          elsif db_student
+            UsersMailer.register_user(student['email']).deliver
           else
             db_student = Student.create(student_data)
-            UsersMailer.register_user(student["email"]).deliver
+            UsersMailer.register_user(student['email']).deliver
           end
-        end
 
           db_enrollment = Enrollment.find_by({
-            student_id: db_student.id,
-            subject_class_id: db_subject_class.id,
-          })
-          if not db_enrollment
+                                               student_id: db_student.id,
+                                               subject_class_id: db_subject_class.id
+                                             })
+          unless db_enrollment
             Enrollment.create({ student_id: db_student.id,
                                 subject_class_id: db_subject_class.id })
           end
         end
-        flash[:notice] = "Membros importados com sucesso"
-        redirect_to "/admins/import"
+        flash[:notice] = 'Membros importados com sucesso'
+        redirect_to '/admins/import'
       end
 
-    when "2"
+    when '2'
       classes = JSON.parse(File.read(json))
 
       classes.each do |subject_class|
-        initials = subject_class["code"].gsub(/[^a-zA-Z]/, "")
-        keys = { subject: subject_class["code"],
-                 code: subject_class["class"]["classCode"],
-                 semester: subject_class["class"]["semester"] }
+        initials = subject_class['code'].gsub(/[^a-zA-Z]/, '')
+        keys = { subject: subject_class['code'],
+                 code: subject_class['class']['classCode'],
+                 semester: subject_class['class']['semester'] }
         imported_data = {
-          name: subject_class["name"],
-          schedule: subject_class["class"]["time"],
-          department_id: Department.find_by(initials: initials).id,
+          name: subject_class['name'],
+          schedule: subject_class['class']['time'],
+          department_id: Department.find_by(initials:).id
         }
-
 
         db_subject_class = SubjectClass.find_by(keys)
 
@@ -122,17 +122,18 @@ class AdminsController < ApplicationController
           )
         end
       end
-      flash[:notice] = "Turmas importadas com sucesso"
-      redirect_to "/admins/import"
-    when "3"
+      flash[:notice] = 'Turmas importadas com sucesso'
+      redirect_to '/admins/import'
+    when '3'
       departamentos = JSON.parse(File.read(json))
       departamentos.each do |dpto|
         Department.create!(
-          id: dpto["id"],
-          initials: dpto["initials"],
-          name: dpto["name"],
+          id: dpto['id'],
+          initials: dpto['initials'],
+          name: dpto['name']
         )
       end
+      redirect_to '/admins/import'
     end
   end
 
