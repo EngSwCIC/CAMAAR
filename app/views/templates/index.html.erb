@@ -1,12 +1,12 @@
 <h1>Templates</h1>
 
 <% @templates.each do |template| %>
-    <h2><%= template.semester.half %> <%= template.semester.year %></h2>
+    <b>Semestre</b>: <%= template.semester.half ? 1 : 2 %>-<%= template.semester.year %>
 
     <% template.questions.each do |question| %>
-        <h2>
+        <h3>
             <%= question.label %>
-        </h2>
+        </h3>
         <p>
         <%= question.description %>
         </p>
