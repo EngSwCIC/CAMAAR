@@ -1,45 +1,4 @@
-/*------------------------------------------------------------------
-[Master Stylesheet]
 
-Project:  CoolAdmin
-Version:	1.0
-Last change:	08/10/2018 [Add Define a table of contents Link]
-Assigned to:	Hau Nguyen
-Primary use:	Open Source
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[LAYOUT]
-
-* body
-    + Header / header
-	+ Page Content / .page-content .name-page
-        + Section Layouts / section .name-section
-        ...
-	+ Footer / footer
-
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-# [Color codes]
-
-# Text Color (text): #666666
-# Text Color Deep (Text, title): #333333
-
-------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[Typography]
-
-Notes:	decreasing heading by 0.4em with every subsequent heading level
--------------------------------------------------------------------*/
-/*-----------------------------------------------------*/
-/*                   SETTINGS                          */
-/*-----------------------------------------------------*/
-/*-----------------------------------------------------*/
-/*                   TOOLS                             */
-/*-----------------------------------------------------*/
-/*-----------------------------------------------------*/
-/*                   GENERIC                           */
-/*-----------------------------------------------------*/
-/* ----- Normalize ----- */
 * {
   margin: 0;
   padding: 0;
@@ -3270,29 +3229,25 @@ section {
   }
 }
 
-.overview-item--c1 {
-  background-image: -moz-linear-gradient(90deg, #3f5efb 0%, #fc466b 100%);
-  background-image: -webkit-linear-gradient(90deg, #3f5efb 0%, #fc466b 100%);
-  background-image: -ms-linear-gradient(90deg, #3f5efb 0%, #fc466b 100%);
+
+.overview-item--template {
+  background-image: -moz-linear-gradient(90deg, white 0%, white 100%);
+  background-image: -webkit-linear-gradient(90deg, white 0%, white 100%);
+  background-image: -ms-linear-gradient(90deg, white 0%, white 100%);
 }
 
-.overview-item--c2 {
-  background-image: -moz-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
-  background-image: -webkit-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
-  background-image: -ms-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+.overview-item--nform {
+  background-image: -moz-linear-gradient(90deg, yellow 0%, rgb(175, 172, 0) 100%);
+  background-image: -webkit-linear-gradient(90deg, yellow 0%, rgb(175, 172, 0) 100%);
+  background-image: -ms-linear-gradient(90deg, yellow 0%, rgb(175, 172, 0) 100%);
 }
 
-.overview-item--c3 {
-  background-image: -moz-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
-  background-image: -webkit-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
-  background-image: -ms-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
+.overview-item--sform {
+  background-image: -moz-linear-gradient(90deg, rgb(85, 237, 85) 0%, rgb(175, 255, 110) 100%);
+  background-image: -webkit-linear-gradient(90deg, rgb(85, 237, 85) 0%, rgb(175, 255, 110) 100%);
+  background-image: -ms-linear-gradient(90deg, rgb(85, 237, 85) 0%, rgb(175, 255, 110) 100%);
 }
 
-.overview-item--c4 {
-  background-image: -moz-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
-  background-image: -webkit-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
-  background-image: -ms-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
-}
 
 .overview-box .icon {
   display: inline-block;
@@ -3361,30 +3316,28 @@ section {
 
 .icons-container {
   text-align: left;
+  display: flex;
+  margin-top: auto; /* Pushes the container to the bottom */
+  gap: 10px; /* Adds spacing between buttons */
 }
 
 .icons-container i {
-  font-size: 15px; /* Adjust size as needed */
-  color: #fff; /* Change to desired color */
+  font-size: 20px; /* Adjust size as needed */
+  color: black; 
 }
 
-.icon-container {
-  margin-bottom: 10px; /* Adjust as needed */
-  display: center;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  height: 50px; /* Set a fixed height for the container */
+.template-name {
+  color: black !important;
 }
 
-.icon-container i {
-  font-size: 24px; /* Adjust size as needed */
-  color: #fff; /* Change to desired color */
-  display: center;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+.icon-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer; /* Ensures the cursor is a pointer */
 }
+
+
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .overview-box .text {

@@ -1,7 +1,36 @@
 class FormsController < ApplicationController
-  def index; end
+  before_action :set_user_data
 
-  def edit; end
+  layout 'user'
+
+  def index
+    @errors = []
+
+    occupation = current_user.occupation
+    case occupation
+    when 'discente'
+      @enrollments = Enrollment.where(student_id: @student.id)
+      if @enrollments.empty?
+        @errors << 'Parece que você não está matriculado em nenhum disciplina.'
+      else
+        @subject_classes = SubjectClass.where({ id: @enrollments.pluck(:subject_class_id) })
+      end
+    when 'docente'
+      @subject_classes = SubjectClass.where(teacher_id: @teacher.id)
+    end
+
+    if @subject_classes.blank?
+      @forms = []
+      @errors << 'Nenhum formulário encontrado.'
+    else
+      @forms = Form.where(subject_class_id: @subject_classes.pluck(:id), role: occupation)
+    end
+  end
+
+  def edit
+    @form = Form.find_by_id(params[:id])
+    @form_questions = FormQuestion.where(form_id: @form.id)
+  end
 
   def export(form)
     create_graph(form)

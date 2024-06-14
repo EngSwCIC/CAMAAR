@@ -3,33 +3,29 @@ Rails.application.routes.draw do
 
   match "/errors/forbidden", to: "errors#forbidden", via: "get"
 
-  # get "/forms", to: "forms#index", via: "get"
-  # get "/classes", to: "subject_clasess#index"
-  # get "/results", to: "results#index"
-  # get "/import", to: "admins#import"
-  # get "/dispatch", to: "admins#dispatch"
-
   match "/users/page", to: "users#page", via: "get"
   match "/errors/forbidden", to: "errors#forbidden", via: "get"
-  match "/users/forms", to: "users#form_student", via: "get"
 
-  match "/admins/page", to: "admins#page", via: "get"
-  # match '/admins/forms', to: 'admins#form_student', via: 'get'
-  match "/admins/results", to: "admins#resultados", via: "get"
-  # match "/admins/templates", to: "admins#create_template", via: "get"
-  match "/admins/classes", to: "subject_classes#index", via: "get"
-
-  match "/admins/import", to: "admins#importdata", via: "get"
-  match "/admins/import", to: "admins#import", via: "post", as: "admins_import_post"
-
-  # match '/admins/envio', to: 'forms#new', via: 'get'
-  match "/admins/envio", to: "admins#envio", via: "get"
-  match "/admins/envio", to: "admins#envio", via: "post", as: "admins_envio_post"
+  scope "users" do
+    resources :answers, only: [:create]
+    resources :forms, only: [:index, :edit]
+  end
 
   scope "admins" do
     resources :templates do
       resources :template_questions
     end
+
+    match "/results", to: "admins#resultados", via: "get"
+
+    resources :subject_classes, only: [:index]
+    match "/classes", to: "subject_classes#index", via: "get"
+
+    match "/import", to: "admins#importdata", via: "get", as: "admins_import"
+    match "/import", to: "admins#import", via: "post", as: "admins_import_post"
+
+    match "/envio", to: "admins#envio", via: "get"
+    match "/envio", to: "admins#envio", via: "post", as: "admins_envio_post"
   end
 
   devise_scope :user do

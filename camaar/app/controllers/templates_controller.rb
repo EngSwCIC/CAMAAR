@@ -3,7 +3,8 @@ require "json"
 class TemplatesController < ApplicationController
   before_action :set_admin_data
   before_action :get_admin_templates
-  before_action :set_template_data, only: [:destroy, :edit, :show]
+  before_action :set_template_data, only: [:destroy, :edit, :update, :show]
+  before_action :check_for_commit
   layout "admin"
 
   def index
@@ -11,26 +12,22 @@ class TemplatesController < ApplicationController
   end
 
   def new
-    # @templates = Template.where(coordinator_id: @coordinator.id)
     template = Template.create({ coordinator_id: @coordinator.id })
     redirect_to edit_template_path(template)
   end
 
   def create
-    # @templates = Template.where(coordinator_id: @coordinator.id)
   end
 
   def show
-    # @templates = Template.where(coordinator_id: @coordinator.id)
+    @templates = Template.where(coordinator_id: @coordinator.id)
     check_for_commit
   end
 
   def edit
-    # @templates = Template.where(coordinator_id: @coordinator.id)
   end
 
   def update
-    # @templates = Template.where(coordinator_id: @coordinator.id)
     @errors = []
     save_template_data
 
@@ -44,14 +41,14 @@ class TemplatesController < ApplicationController
         redirect_to templates_path
       end
     else
-      @errors << "O template precisa conter pelo menos uma pergunta"
-      render :edit
-      # redirect_to edit_template_path(@template)
+      flash[:alert] = "O template precisa conter pelo menos uma pergunta"
+
+      # render :edit
+      redirect_to edit_template_path(@template)
     end
   end
 
   def destroy
-    # @templates = Template.where(coordinator_id: @coordinator.id)
     template = @template.destroy
 
     if template
@@ -60,19 +57,13 @@ class TemplatesController < ApplicationController
   end
 
   def check_for_commit
-    # @templates = Template.where(coordinator_id: @coordinator.id)
     case params[:commit]
-    when "add"
-      create
-    when "save"
-      update
     when "delete"
       destroy
     end
   end
 
   def save_template_data
-    # @templates = Template.where(coordinator_id: @coordinator.id)
     @template_name = params[:template][:name] if not params[:template][:name].empty?
   end
 

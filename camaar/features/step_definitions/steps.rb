@@ -155,52 +155,46 @@ And(/I received a ([^"]*) email at "([^"]*)"$/) do |_email_type, email| # reset 
   current_email == _email_type
 end
 
-Given(/that I imported classes for the "([^"]*)"$/) do |_dpt_name|
-  department = Department.find_by({ name: _dpt_name })
-  SubjectClass.find_by(department_id: department.id)
+Given(/that I imported ([^"]*) for the "([^"]*)"$/) do |_datatype, _dpt_name|
+  pending
 end
 
-Given(/the "([^"]*)" department has no classes$/) do |dpt_name|
-  department = Department.find_by({ name: dpt_name })
-  classes = SubjectClass.where({ department_id: department.id })
-  classes.each do |subject|
-    subject.destroy!
-    puts subject.name
-  end
+Given(/that the department "([^"]*)" has no classes$/) do |dpt_name|
+  department = Department.find_by(name: dpt_name)
 
-  # page.should have_content("O departamento não possui turmas")
+  SubjectClass.where(department_id: department.id).destroy_all
 end
 
 Given("that a form has been assigned to the following classes:") do |_table|
   # table is a Cucumber::MultilineArgument::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
 Given("that I am an User associated with the following classes:") do |_table|
   # table is a Cucumber::MultilineArgument::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
 Given("that I have not answered any form") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
 Given(/that I have answered the following forms:$/) do |_table|
   # table is a Cucumber::MultilineArgument::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
 Given(/that the "([^"]*)" form has been answered/) do |_form_name|
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
 Given("that the student {string} has left the class {string}") do |_string, _string2|
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
 Given("that the class {string} was updated with:") do |_string, _table|
   # table is a Cucumber::MultilineArgument::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
 When(/^(?:|I )create a "([^"]*)" question with the following:$/) do |question_type, fields|
@@ -249,9 +243,9 @@ Then(/^(?:|I )expect to see "([^"]*)"$/) do |text|
   end
 end
 
-Then(/^(?:|I )expect to see the following:$/) do |table|
-  table.raw.flatten.each do |text|
-    step %(I expect to see "#{text}")
+Then(/^(?:|I )should see the following:$/) do |fields|
+  fields.rows_hash.each do |_text|
+    Then %(I expect to see "#{name}")
   end
 end
 
@@ -283,32 +277,46 @@ Then(%r{^(?:|I )should not see /([^/]*)/$}) do |regexp|
   end
 end
 
-And("I should only see classes starting with {string}") do |_string|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/I expect to only see classes starting with "([^"]*)"/) do |initials|
+  # Locate the table rows
+  rows = find("table.table.table-borderless.table-data3 tbody").all("tr")
+
+  # Iterate through the rows and check if the class names start with the initials
+  rows.each do |row|
+    class_name = row.find("td:nth-child(3)").text
+    expect(class_name).to start_with(initials)
+  end
 end
 
 Then(/I expect to see the button "([^"]*)" on "([^"]*)"$/) do |_button, _element|
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
 Then(/I expect to see the following forms as ([^"]*):$/) do |_status, _table|
   # table is a Cucumber::MultilineArgument::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
-And("I expect to see the following classes:") do |_table|
-  # table is a Cucumber::MultilineArgument::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
+And("I expect to see the following on Turmas:") do |_table|
+  data = table.all("tr").map do |row|
+    {
+      Nome: row.find('td[data-field="name"]')&.text,
+      Semestre: row.find('td[data-field="semester"]')&.text,
+      Código: row.find('td[data-field="subject"]')&.text,
+      Turma: row.find('td[data-field="classCode"]')&.text, # Adjust data-field attribute names if needed
+      Horário: row.find('td[data-field="schedule"]')&.text,
+    }
+    page.should have_content(data.name)
+  end
 end
 
 Then("I expect to see the following templates:") do |_table|
   # table is a Cucumber::MultilineArgument::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
 Then("I expect to see the following results:") do |_table|
-  # table is a Cucumber::MultilineArgument::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
 # Field verification
@@ -414,15 +422,15 @@ end
 
 # Import and export
 Then("I should download be able to export a {string} file with all the answers") do |_string|
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
 Then("I should be able to see the answered form as a chart") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
 When(/I import a "([^"]*)" file with the ([^"]*) data$/) do |_filetype, _datatype|
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
 # When(/When I select "Membros" from "Tipos de dados"/) do

@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.feature 'Create a template', type: :feature do
   describe 'admin can create a template' do
     it 'should create a new template with a text answer' do
-      department = create(:department)
-      admin = create(:admin)
+      department = create(:department,:departament1)
+      admin = create(:admin, :admin1)
       coordinator = create(:coordinator)
 
       visit '/admins/login'
@@ -33,19 +33,16 @@ RSpec.feature 'Create a template', type: :feature do
       fill_in 'template[name]', with: 'test_temp'
       click_button 'Salvar'
 
-      expect(Template.where(name: "test_temp").count).to eq(1)
+      expect(Template.where(name: 'test_temp').count).to eq(1)
 
-      template = Template.find_by(name: "test_temp")
+      template = Template.find_by(name: 'test_temp')
 
-      expect(TemplateQuestion.find_by(template_id:template.id).question_type).to eq("text")
-
+      expect(TemplateQuestion.find_by(template_id: template.id).question_type).to eq('text')
     end
 
     it 'should create a new template with a text answer' do
-
-
-      department = create(:department)
-      admin = create(:admin)
+      department = create(:department,:departament1)
+      admin = create(:admin,:admin1)
       coordinator = create(:coordinator)
 
       visit '/admins/login'
@@ -83,7 +80,6 @@ RSpec.feature 'Create a template', type: :feature do
       # template = Template.find_by(name: "test_temp2")
 
       # expect(TemplateQuestion.find_by(template_id:template.id).question_type).to eq("text")
-
     end
   end
 end

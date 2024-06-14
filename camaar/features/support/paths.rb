@@ -27,7 +27,7 @@ module NavigationHelpers
     when 'Meu Departamento'
       '/admins/classes'
     when 'User Camaar'
-      '/users/page'
+      '/users/forms'
     when 'Cadastro de Usuário'
       '/users/register'
     when 'Importar dados'

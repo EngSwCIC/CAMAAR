@@ -13,9 +13,9 @@
         <br>
         <% if @errors.any? %>
           <div>
-            <% @errors.each do |error| %>
+            <% @errors.each do |e| %>
               <p class="alert alert-warning">
-                <%= error %>
+                <%= e %>
               </p>
             <% end %>
           </div>
@@ -29,34 +29,34 @@
       <div class="row m-t-25">
         <% @templates.each do |template| %>
           <div class="col-sm-6 col-lg-3">
-            <div class="overview-item overview-item--c2">
+            <div class="overview-item overview-item--template">
               <div class="overview__inner">
                 <div class="overview-box clearfix">
-                  <div class="text">
-                    <% if template.draft %>
-                      <%= link_to edit_template_path(template), class: "template-link" do %>
-                        <h1><%= template.name %></h1>
-                      <% end %>
-                    <% else %>
-                      <%= link_to edit_template_path(template), class: "template-link" do %>
-                        <h1><%= template.name %></h1>
-                      <% end %>
+                  <% if template.draft %>
+                    <%= link_to edit_template_path(template), class: "template-link" do %>
+                      <h1 class="template-name"><%= template.name %></h1>
                     <% end %>
-                    <div class="icons-container">
-                      <%= button_to template_path(template), method: :delete do%>
-                        <i class="fas fa-trash"></i>
-                      <% end %>
-                      <%= button_to edit_template_path(template) do%>
-                        <i class="fas fa-edit"></i>
-                      <% end %>
-                    </div>
+                  <% else %>
+                    <%= link_to edit_template_path(template), class: "template-link" do %>
+                      <h1 class="template-name"><%= template.name %></h1>
+                    <% end %>
+                  <% end %>
+                  <div class="icons-container">
+                    <%= button_to template_path(template), class: "icon-button",method: :delete do%>
+                      <i class="fas fa-trash "></i>
+                    <% end %>
+                    <%= link_to edit_template_path(template),class: "icon-button" do%>
+                      <i class="fas fa-edit "></i>
+                    <% end %>
+         
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
+</div>
 </div>

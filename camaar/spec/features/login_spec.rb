@@ -2,10 +2,12 @@ require 'rails_helper'
 
 RSpec.feature 'Logins', type: :feature do
   describe 'teacher login' do
+    before do
+      department = create(:department, :departament1)
+      admin = create(:admin, :admin1)
+    end
     it 'should login teacher with username and password' do
       visit '/users/login'
-      department = create(:department)
-      admin = create(:admin)
       user = create(:user, :user5)
       teacher = create(:teacher)
       expect(page).to have_content 'Bem vindo ao'
@@ -21,10 +23,12 @@ RSpec.feature 'Logins', type: :feature do
   end
 
   describe 'student login' do
+    before do
+      department = create(:department, :departament1)
+      admin = create(:admin, :admin1)
+    end
     it 'should login student with username and password' do
       visit '/users/login'
-      department = create(:department)
-      admin = create(:admin)
       user = create(:user, :user4)
       student = create(:student, :student4)
       expect(page).to have_content 'Bem vindo ao'
@@ -40,10 +44,12 @@ RSpec.feature 'Logins', type: :feature do
   end
 
   describe 'admin login' do
+    before do
+      department = create(:department, :departament1)
+    end
     it 'should login admin with username and password' do
       visit '/admins/login'
-      department = create(:department)
-      admin = create(:admin)
+      admin = create(:admin, :admin1)
       coordinator = create(:coordinator)
 
       expect(page).to have_content 'Bem vindo ao'
@@ -52,6 +58,42 @@ RSpec.feature 'Logins', type: :feature do
       fill_in 'password', with: admin.password
       click_button 'Confirmar'
       expect(page).to have_content 'Coordenador'
+    end
+  end
+
+  describe 'user cant login as admin' do
+    before do
+      department = create(:department, :departament1)
+    end
+    it 'should redirect to root page' do
+      visit '/admins/login'
+      user = create(:user, :user4)
+      student = create(:student, :student4)
+      expect(page).to have_content 'Bem vindo ao'
+      expect(page).to have_content 'CAMAAR'
+      fill_in 'email', with: user.email
+      fill_in 'password', with: user.password
+      click_button 'Confirmar'
+      expect(page).to have_content 'Usuário'
+      expect(page).to have_content 'Admin'
+    end
+  end
+
+  describe 'admin cant login as user' do
+    before do
+      department = create(:department, :departament1)
+    end
+    it 'should redirect to root page' do
+      visit '/users/login'
+      admin = create(:admin, :admin1)
+      coordinator = create(:coordinator)
+      expect(page).to have_content 'Bem vindo ao'
+      expect(page).to have_content 'CAMAAR'
+      fill_in 'email', with: admin.email
+      fill_in 'password', with: admin.password
+      click_button 'Confirmar'
+      expect(page).to have_content 'Usuário'
+      expect(page).to have_content 'Admin'
     end
   end
 end

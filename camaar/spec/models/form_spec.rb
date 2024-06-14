@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Form, type: :model do
   it 'é válido com atributos válidos e FKS existentes' do
-    department = create(:department)
+    department = create(:department, :departament1)
 
-    admin = create(:admin)
+    admin = create(:admin, :admin1)
 
     user1 = create(:user, :user1)
     user2 = create(:user, :user2)
@@ -36,9 +36,9 @@ RSpec.describe Form, type: :model do
   end
 
   it 'é inválido sem uma turma' do
-    department = create(:department)
+    department = create(:department, :departament1)
 
-    admin = create(:admin)
+    admin = create(:admin, :admin1)
 
     user1 = create(:user, :user1)
     user2 = create(:user, :user2)

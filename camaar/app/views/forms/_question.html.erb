@@ -1,0 +1,34 @@
+ <% if form_question.question_type == "multiple_choice" %>
+  <div class="formbold-mb-5">
+    <label for="<%= form_question.id %>" class="formbold-form-label">
+      <%= form_question.title %>
+    </label>
+    <div class="formbold-radio-flex">
+      <% JSON.parse(form_question.body).with_indifferent_access["options"].each do |option, value| %>
+        <% if value.present? %>
+          <div class="formbold-radio-group">
+            <label for="<%= "#{form_question.id}_#{option}" %>" class="formbold-radio-label">
+              <%= form.radio_button :answers, false, id: "#{form_question.id}_#{option}" %>
+              <%= value %>
+            </label>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% elsif form_question.question_type == "text" %>
+  <div class="formbold-input-flex">
+    <div>
+      <label for="reclamation_<%= form_question.id %>" class="formbold-form-label">
+        <%= form_question.title %>
+      </label>
+      <input
+                    type="text"
+                    name="reclamation"
+                    id="reclamation_<%= form_question.id %>"
+        placeholder="Digite..."
+        class="formbold-form-input"
+        />
+      </div>
+    </div>
+  <% end %>

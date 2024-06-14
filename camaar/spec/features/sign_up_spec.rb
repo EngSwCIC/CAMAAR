@@ -10,8 +10,8 @@ feature 'Register User' do
     email = 'chacon@unb.br'
     password = 'abc123'
 
-    department = create(:department)
-    admin = create(:admin)
+    department = create(:department, :departament1)
+    admin = create(:admin, :admin1)
 
     UsersMailer.register_user(email).deliver_now
     open_email(email).click_link 'Registrar'
@@ -31,6 +31,6 @@ feature 'Register User' do
     click_button 'Confirmar'
     expect(page).to have_content 'Fernando'
     expect(page).to have_content 'Docente'
-    expect(page).to have_content 'Formulário de Avaliação'
+    expect(page).to have_content 'Pendências'
   end
 end

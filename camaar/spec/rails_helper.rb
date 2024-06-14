@@ -7,16 +7,6 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/rails'
 require 'support/factory_bot'
 
-Capybara.register_driver :headless_chromium do |app|
-  options = Selenium::WebDriver::Chrome::Options.new
-  options.add_argument("--headless")
-  options.add_argument("--no-sandbox")
-  options.add_argument("--disable-dev-shm-usage")
-  options.add_argument("--window-size=1280,900")
-  Capybara::Selenium::Driver.new(app, browser: :chrome, capabilities: options)
-end
-Capybara.javascript_driver = :headless_chromium
-
 # require 'capybara/rspec'
 # require 'capybara/rails'
 # require 'capybara/webkit/matchers'
@@ -56,6 +46,9 @@ RSpec.configure do |config|
       end
     end
   end
+
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Devise::Test::ControllerHelpers, type: :controller
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')

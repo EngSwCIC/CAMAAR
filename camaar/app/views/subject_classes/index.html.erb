@@ -2,19 +2,28 @@
   <div class="section__content section__content--p30">
     <div class="row m-t-30">
       <div class="col-md-12">
-        <h1 style="text-align:center;"> <%= @department.name %> </h1>
-        <% if @errors %>
-          <div>
-            <% @errors.each do |e| %>
-              <p class="alert alert-warning">
-                <%= e %>
+        <div>
+          <% if @errors.present? %>
+            <div>
+              <% @errors.each do |e| %>
+                <p class="alert alert-warning">
+                  <%= e %>
+                </p>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to 'Importar turmas', "/admins/import", class:"btn btn-primary", id:"importar_turmas" %>
+            </div>
+          <% end %>
+          <% if flash %>
+            <% flash.each do |k,v| %>
+              <p class="alert alert-success">
+                <%= v %>
               </p>
             <% end %>
-          </div>
-          <div>
-            <%= link_to 'Importar turmas', "/admins/import", class:"btn btn-primary", id:"importar_turmas" %>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
+        <h1 style="text-align:center;"> <%= @department.name %> </h1>
       </div>
       <% if @subject_classes.present? %>
         <div class="table-responsive m-b-40">
@@ -25,6 +34,7 @@
                 <th>Semestre</th>
                 <th>Código</th>
                 <th>Turma</th>
+                <th>Horário</th>
               </tr>
             </thead>
             <tbody>
@@ -32,8 +42,9 @@
                 <tr>
                   <td><%= subject_class.name %></td>
                   <td><%= subject_class.semester %></td>
-                  <td><%= subject_class.code %></td>
                   <td><%= subject_class.subject %></td>
+                  <td><%= subject_class.code %></td>
+                  <td><%= subject_class.schedule %></td>
                 </tr>
               <% end %>
             </tbody>
