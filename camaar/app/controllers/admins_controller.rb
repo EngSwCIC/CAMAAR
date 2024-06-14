@@ -4,7 +4,7 @@ class AdminsController < ApplicationController
   layout 'admin'
   before_action :authenticate_admin!
   before_action :set_admin_data
-  before_action :envio
+  before_action :load
 
   def index
     @admin = Admin.new
@@ -16,9 +16,36 @@ class AdminsController < ApplicationController
     @admin = Admin.all
   end
 
-  def envio
+  def load
     @templates = Template.where(coordinator_id: @coordinator.id, draft: false)
     @classes = SubjectClass.all
+  end
+
+  def envio
+    professor_template_id = params[:professor_template_id]
+    aluno_template_id = params[:aluno_template_id]
+    turma_ids = params[:turma_ids]
+    if turma_ids.present?
+      turma_ids.each do |turma|
+        if professor_template_id.present?
+          template = Template.find_by(id: professor_template_id, draft: false)
+          unless Form.find_by(role: "teacher", name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma).present?
+            form = Form.create(role: "teacher", name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma)
+            flash[:success] = "O formulário para o template '#{template.name}' para o(s) professor(es) da turma '#{SubjectClass.find_by(id:turma).name}' foi criado com sucesso."
+          else
+            flash[:warning] = "O formulário para o template '#{template.name}' para o(s) professor(es) já existe para a turma #{SubjectClass.find_by(id:turma).name}."
+          end
+        elsif aluno_template_id.present?
+          template = Template.find_by(id: aluno_template_id)
+          unless Form.find_by(role: "student", name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma).present?
+            form = Form.create(name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma)
+            flash[:success] = "O formulário para o template '#{template.name}' para os alunos da turma '#{SubjectClass.find_by(id:turma).name}' foi criado com sucesso."
+          else
+            flash[:warning] = "O formulário para o template '#{template.name}' já existe para os alunos da turma #{SubjectClass.find_by(id:turma).name}."
+          end
+        end
+      end
+    end
   end
 
   def import

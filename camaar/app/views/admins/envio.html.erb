@@ -3,12 +3,25 @@
     <div class="container-fluid">
       <div class="row justify-content-center align-items-center">
         <div class="col-lg-7">
+        <% if flash %>
+          <% flash.each do |key, message| %>
+            <% if key == 'warning' %>
+              <p class="alert alert-warning">
+                <%= message %>
+              </p>
+            <% elsif key == 'success' %>
+              <p class="alert alert-success">
+                <%= message %>
+              </p>
+            <% end %>
+          <% end %>
+        <% end %>
           <div class="card">
             <div class="card-header text-center">
               <strong>Opções para Envio</strong>
             </div>
             <div class="card-body card-block">
-              <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+              <%= form_with url: admins_envio_post_path, method: :post, class: "form-horizontal" do %>
 
                 <div class="row form-group">
                   <div class="col col-md-3">
@@ -48,19 +61,19 @@
 
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="alunos_select" class="form-control-label">Alunos</label>
+                    <label class="form-control-label">Turmas</label>
                   </div>
                   <div class="col-12 col-md-9">
-                    <select name="aluno_template_id" id="alunos_select" class="form-control">
-                      <% if @classes.present? %>
-                        <option value="">Selecione uma Turma</option>
-                        <% @classes.each do |classe| %>
-                          <option value="<%= classe.id %>"><%= classe.name %></option>
-                        <% end %>
-                      <% else %>
-                        <option value="" disabled selected>Nenhuma turma disponível</option>
+                    <% if @classes.present? %>
+                      <% @classes.each do |classe| %>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="turma_ids[]" value="<%= classe.id %>" id="turma_<%= classe.id %>">
+                          <label class="form-check-label" for="turma_<%= classe.id %>"><%= classe.name %></label>
+                        </div>
                       <% end %>
-                    </select>
+                    <% else %>
+                      <p>Nenhuma turma disponível</p>
+                    <% end %>
                   </div>
                 </div>
 
@@ -73,6 +86,11 @@
                   </button>
                 </div>
 
-              </form>
+              <% end %>
             </div>
- 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
