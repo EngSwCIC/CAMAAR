@@ -9,4 +9,9 @@ class TemplatesController < ApplicationController
 
     @templates = Template.all
   end
+
+  def show
+    id = params[:id]
+    @template = Template.find(id)
+  end
 end
