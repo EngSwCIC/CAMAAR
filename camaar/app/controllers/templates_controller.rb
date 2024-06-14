@@ -12,7 +12,7 @@ class TemplatesController < ApplicationController
     @template = Template.new(template_params)
 
     if @template.save
-      redirect_to templates_path, notice: "#{@template.title} created."
+      redirect_to templates_path, notice: "#{@template.nome} created."
     else
       flash[:alert] = "Template could not be created: " + @template.errors.full_messages.join(", ")
       render 'new'
@@ -24,9 +24,9 @@ class TemplatesController < ApplicationController
   def update
     @template = Template.find params[:id]
     if (@template.update_attributes(template_params))
-      redirect_to template_path(@template), :notice => "#{@template.title} updated."
+      redirect_to template_path(@template), :notice => "#{@template.nome} updated."
     else
-      flash[:alert] = "#{@template.title} could not be updated: " +
+      flash[:alert] = "#{@template.nome} could not be updated: " +
         @template.errors.full_messages.join(",")
       render 'edit'
     end
@@ -34,11 +34,10 @@ class TemplatesController < ApplicationController
   def destroy
     @template = Template.find(params[:id])
     @template.destroy
-    redirect_to templates_path, :notice => "#{@template.title} deleted."
+    redirect_to templates_path, :notice => "#{@template.nome} deleted."
   end
   private
   def template_params
-    params.require(:template)
-    params[:template].permit(:title,:rating,:release_date)
+    params.require(:template).permit(:nome)
   end
 end

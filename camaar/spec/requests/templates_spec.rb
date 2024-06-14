@@ -22,4 +22,18 @@ RSpec.describe "Templates", type: :request do
       expect(response).to be_successful
     end
   end
+  describe "POST /create" do
+    context "with valid parameters" do
+      it "creates a new Template" do
+        expect {
+          post templates_url, params: { template: valid_attributes }
+        }.to change(Template, :count).by(1)
+      end
+
+      it "redirects to the created template" do
+        post templates_url, params: { template: valid_attributes }
+        expect(response).to redirect_to(templates_url)
+      end
+    end
+  end
 end
