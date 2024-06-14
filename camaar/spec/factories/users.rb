@@ -7,6 +7,7 @@ FactoryBot.define do
     formacao { "graduando" }
     ocupacao { "dicente" }
     password { "123456789" }
+    role { :user }
     password_confirmation { "123456789" }
     reset_password_token{ nil }
     reset_password_sent_at { nil }
