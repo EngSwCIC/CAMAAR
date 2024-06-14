@@ -1,33 +1,14 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/department.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/models/department.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/coordinator.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/subject_class.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/teacher.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/models/coordinator.rb": {
         "lines": [
           1,
           1,
@@ -35,7 +16,26 @@
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/student.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/models/subject_class.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/models/teacher.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/models/student.rb": {
         "lines": [
           1,
           1,
@@ -46,7 +46,7 @@
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/enrollment.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/models/enrollment.rb": {
         "lines": [
           1,
           1,
@@ -54,7 +54,7 @@
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/admins/sessions_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/admins/sessions_controller.rb": {
         "lines": [
           null,
           null,
@@ -63,12 +63,12 @@
           null,
           null,
           1,
-          3,
+          2,
           null,
           null,
           null,
           1,
-          3,
+          2,
           null,
           null,
           null,
@@ -80,12 +80,12 @@
           null,
           null,
           1,
-          3,
+          2,
           null,
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/application_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/application_controller.rb": {
         "lines": [
           1,
           1,
@@ -95,9 +95,9 @@
           null,
           null,
           1,
-          3,
+          2,
           null,
-          3,
+          2,
           0,
           0,
           null,
@@ -108,19 +108,19 @@
           1,
           null,
           1,
-          6,
-          6,
-          6,
-          6,
-          6,
+          4,
+          4,
+          4,
+          4,
+          4,
           null,
           null,
           1,
-          12,
-          12,
-          12,
-          12,
-          12,
+          2,
+          2,
+          2,
+          2,
+          2,
           null,
           null,
           1,
@@ -145,67 +145,67 @@
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/helpers/application_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/helpers/admin_helper.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/helpers/classes_helper.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/helpers/admin_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/helpers/departments_helper.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/helpers/classes_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/helpers/errors_helper.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/helpers/departments_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/helpers/forms_helper.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/helpers/errors_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/helpers/subject_classes_helper.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/helpers/forms_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/helpers/subjectclasss_helper.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/helpers/subject_classes_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/helpers/template_questions_helper.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/helpers/subjectclasss_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/helpers/templates_helper.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/helpers/template_questions_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/templates_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/helpers/templates_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/templates_controller.rb": {
         "lines": [
           1,
           null,
@@ -217,7 +217,7 @@
           1,
           null,
           1,
-          3,
+          2,
           null,
           null,
           1,
@@ -266,7 +266,7 @@
           null,
           null,
           1,
-          3,
+          2,
           null,
           0,
           null,
@@ -277,9 +277,9 @@
           null,
           null,
           1,
-          3,
-          3,
-          3,
+          2,
+          2,
+          2,
           null,
           null,
           null,
@@ -298,7 +298,7 @@
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/template.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/models/template.rb": {
         "lines": [
           1,
           1,
@@ -307,236 +307,42 @@
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/admins_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/subject_classes_controller.rb": {
         "lines": [
           1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          9,
-          9,
-          null,
-          null,
-          1,
-          3,
-          3,
-          3,
-          null,
-          3,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          1,
-          1,
-          null,
-          0,
-          0,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          44,
-          44,
-          null,
-          44,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          44,
-          0,
-          44,
-          44,
-          null,
-          0,
-          0,
-          null,
-          null,
-          44,
-          null,
-          null,
-          null,
-          44,
-          0,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
           1,
           null,
           1,
           3,
           3,
           null,
+          3,
+          0,
+          0,
+          null,
+          null,
+          3,
+          3,
+          0,
+          0,
+          null,
+          null,
+          3,
+          3,
+          0,
+          0,
           null,
           null,
           3,
           null,
-          null,
-          null,
-          null,
           3,
-          null,
-          3,
-          3,
-          null,
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
           1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
           null,
           null
         ]
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/mailers/users_mailer.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          null,
-          null,
-          1,
-          45,
-          45,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/mailers/application_mailer.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/subject_classes_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/channels/application_cable/channel.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
           0,
@@ -546,7 +352,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/channels/application_cable/connection.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/channels/application_cable/connection.rb": {
         "lines": [
           0,
           0,
@@ -556,7 +362,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/admins/confirmations_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/admins/confirmations_controller.rb": {
         "lines": [
           null,
           null,
@@ -592,7 +398,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/admins/omniauth_callbacks_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/admins/omniauth_callbacks_controller.rb": {
         "lines": [
           null,
           null,
@@ -628,7 +434,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/admins/passwords_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/admins/passwords_controller.rb": {
         "lines": [
           null,
           null,
@@ -680,7 +486,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/admins/registrations_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/admins/registrations_controller.rb": {
         "lines": [
           null,
           null,
@@ -751,7 +557,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/admins/unlocks_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/admins/unlocks_controller.rb": {
         "lines": [
           null,
           null,
@@ -787,7 +593,171 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/answers_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/admins_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/answers_controller.rb": {
         "lines": [
           0,
           0,
@@ -821,7 +791,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/classes_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/classes_controller.rb": {
         "lines": [
           0,
           0,
@@ -836,7 +806,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/departments_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/errors_controller.rb": {
         "lines": [
           0,
           0,
@@ -847,18 +817,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/errors_controller.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/forms_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/forms_controller.rb": {
         "lines": [
           0,
           0,
@@ -918,7 +877,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/home_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/home_controller.rb": {
         "lines": [
           0,
           0,
@@ -938,7 +897,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/template_questions_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/template_questions_controller.rb": {
         "lines": [
           0,
           0,
@@ -1111,236 +1070,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/users/confirmations_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/users/omniauth_callbacks_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/users/passwords_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/users/registrations_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/users/sessions_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/users/unlocks_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/users/confirmations_controller.rb": {
         "lines": [
           null,
           null,
@@ -1376,7 +1106,236 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/users_controller.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/users/omniauth_callbacks_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/users/passwords_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/users/registrations_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/users/sessions_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/users/unlocks_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/controllers/users_controller.rb": {
         "lines": [
           0,
           null,
@@ -1386,12 +1345,9 @@
           0,
           null,
           0,
-          0,
           null,
           0,
-          0,
           null,
-          0,
           0,
           null,
           0,
@@ -1404,9 +1360,7 @@
           0,
           null,
           0,
-          0,
           null,
-          0,
           0,
           null,
           0,
@@ -1429,7 +1383,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/jobs/application_job.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/jobs/application_job.rb": {
         "lines": [
           0,
           null,
@@ -1442,7 +1396,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/mailers/admins_mailer.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/mailers/admins_mailer.rb": {
         "lines": [
           0,
           0,
@@ -1465,7 +1419,43 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/admin.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/mailers/application_mailer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/mailers/users_mailer.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/models/admin.rb": {
         "lines": [
           0,
           null,
@@ -1479,7 +1469,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/application_record.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/models/application_record.rb": {
         "lines": [
           0,
           0,
@@ -1488,7 +1478,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/form.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/models/form.rb": {
         "lines": [
           0,
           null,
@@ -1499,7 +1489,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/form_question.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/models/form_question.rb": {
         "lines": [
           0,
           0,
@@ -1508,17 +1498,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/student_answer.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/teacher_answer.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/models/student_answer.rb": {
         "lines": [
           0,
           0,
@@ -1528,11 +1508,9 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/template_question.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/models/teacher_answer.rb": {
         "lines": [
           0,
-          0,
-          null,
           0,
           0,
           0
@@ -1540,24 +1518,8 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/user.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/models/template_question.rb": {
         "lines": [
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/services/admin_registration_service.rb": {
-        "lines": [
-          0,
           0,
           0,
           null,
@@ -1568,7 +1530,22 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/services/user_forgot_service.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/models/user.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/services/admin_registration_service.rb": {
         "lines": [
           0,
           0,
@@ -1581,7 +1558,7 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/services/user_registration_service.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/services/user_forgot_service.rb": {
         "lines": [
           0,
           0,
@@ -1594,7 +1571,20 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/lib/custom_failure.rb": {
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/app/services/user_registration_service.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/will/Documents/UnB/Disciplinas/5o SEMESTRE/EngSw/CAMAAR/camaar/lib/custom_failure.rb": {
         "lines": [
           0,
           0,
@@ -1619,7 +1609,7 @@
         }
       }
     },
-    "timestamp": 1718371958
+    "timestamp": 1718398294
   },
   "RSpec": {
     "coverage": {
