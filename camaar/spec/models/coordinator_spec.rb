@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Coordinator, type: :model do
   it 'é válido com atributos válidos e FKS existentes' do
-    admin = create(:admin)
+    admin = create(:admin, :admin1)
     expect(admin).to be_valid
-    department = create(:department)
+    department = create(:department, :departament1)
     coordinator = create(:coordinator)
     expect(coordinator).to be_valid
   end

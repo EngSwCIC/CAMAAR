@@ -78,6 +78,8 @@ gem 'devise'
 gem 'letter_opener_web'
 # gem 'mailcatcher'
 gem 'capybara-email'
+# gem install metric_fu-Saikuro
+gem 'rubycritic', require: false
 gem 'simple_bdd'
 gem 'simplecov'
 gem 'simple_form'

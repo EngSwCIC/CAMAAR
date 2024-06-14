@@ -7,8 +7,8 @@ feature 'Reset Password' do
   end
 
   scenario 'user forgot_password' do
-    department = create(:department)
-    admin = create(:admin)
+    department = create(:department, :departament1)
+    admin = create(:admin, :admin1)
     user = create(:user, :user5)
     teacher = create(:teacher)
 
@@ -33,8 +33,8 @@ feature 'Reset Password' do
   end
 
   scenario 'admin forgot_password' do
-    department = create(:department)
-    admin = create(:admin)
+    department = create(:department, :departament1)
+    admin = create(:admin, :admin1)
     coordinator = create(:coordinator)
 
     visit '/admins/recover-password/new'

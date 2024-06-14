@@ -4,8 +4,8 @@ RSpec.feature 'Logins', type: :feature do
   describe 'teacher login' do
     it 'should login teacher with username and password' do
       visit '/users/login'
-      department = create(:department)
-      admin = create(:admin)
+      department = create(:department, :departament1)
+      admin = create(:admin, :admin1)
       user = create(:user, :user5)
       teacher = create(:teacher)
       expect(page).to have_content 'Bem vindo ao'
@@ -23,8 +23,8 @@ RSpec.feature 'Logins', type: :feature do
   describe 'student login' do
     it 'should login student with username and password' do
       visit '/users/login'
-      department = create(:department)
-      admin = create(:admin)
+      department = create(:department, :departament1)
+      admin = create(:admin, :admin1)
       user = create(:user, :user4)
       student = create(:student, :student4)
       expect(page).to have_content 'Bem vindo ao'
@@ -42,8 +42,8 @@ RSpec.feature 'Logins', type: :feature do
   describe 'admin login' do
     it 'should login admin with username and password' do
       visit '/admins/login'
-      department = create(:department)
-      admin = create(:admin)
+      department = create(:department, :departament1)
+      admin = create(:admin, :admin1)
       coordinator = create(:coordinator)
 
       expect(page).to have_content 'Bem vindo ao'

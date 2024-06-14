@@ -10,8 +10,8 @@ feature 'Register User' do
     email = 'chacon@unb.br'
     password = 'abc123'
 
-    department = create(:department)
-    admin = create(:admin)
+    department = create(:department, :departament1)
+    admin = create(:admin, :admin1)
 
     UsersMailer.register_user(email).deliver_now
     open_email(email).click_link 'Registrar'
