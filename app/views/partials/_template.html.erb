@@ -1,0 +1,13 @@
+<h1>Template #<%= template.id %></h1>
+<p>
+    <em>Semester:</em> <%= template.semester.to_s %>
+</p>
+
+<% template.questions.each do |question| %>
+    <h3><%= question.label %></h3>
+    <p>
+        <%= question.description %>
+        <!-- Render question input method -->
+        <%= render partial: 'partials/question_input', locals: { question: } %>
+    </p>
+<% end %>
