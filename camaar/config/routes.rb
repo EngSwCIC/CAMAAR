@@ -6,11 +6,22 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-
   # root "posts#index"
+
   get "/formularios", to: "formularios#index"
 
   root to: "home#index"
   devise_for :users
+
+  scope "/turmas" do
+    get "/", to: "turmas#index"
+    get "/:id", to: "turmas#show"
+    # post "/", to: "turmas#create"
+    # get "/new", to: "turmas#new"
+    # get "/:id/edit", to: "turmas#edit"
+    # patch "/:id", to: "turmas#update"
+    # put "/:id", to: "turmas#update"
+    # delete "/:id", to: "turmas#destroy"
+  end
 
 end
