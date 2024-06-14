@@ -7,7 +7,6 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/rails'
 require 'support/factory_bot'
 
-
 # require 'capybara/rspec'
 # require 'capybara/rails'
 # require 'capybara/webkit/matchers'
@@ -47,6 +46,9 @@ RSpec.configure do |config|
       end
     end
   end
+
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Devise::Test::ControllerHelpers, type: :controller
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')

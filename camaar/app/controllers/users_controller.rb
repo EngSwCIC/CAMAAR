@@ -1,18 +1,15 @@
-require "json"
+require 'json'
 
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user_data
-  layout "user"
+  layout 'user'
 
-  def index
-  end
+  def index; end
 
-  def new
-  end
+  def new; end
 
-  def create
-  end
+  def create; end
 
   def show
     # @templates = Template.where(coordinator_id: @coordinator.id)
@@ -23,11 +20,9 @@ class UsersController < ApplicationController
     # @templates = Template.where(coordinator_id: @coordinator.id)
   end
 
-  def update
-  end
+  def update; end
 
-  def page
-  end
+  def page; end
 
   def destroy
     # @templates = Template.where(coordinator_id: @coordinator.id)
