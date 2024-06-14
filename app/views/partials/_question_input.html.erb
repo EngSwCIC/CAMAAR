@@ -1,4 +1,5 @@
-<% if question.type == 'TextInputQuestion' %>
+<% case question.type %>
+<% when 'TextInputQuestion'%>
     <span>
         <input type='text'>
     </span>
