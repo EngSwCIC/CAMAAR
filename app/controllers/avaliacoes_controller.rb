@@ -1,0 +1,2 @@
+class AvaliacoesController < ApplicationController
+end

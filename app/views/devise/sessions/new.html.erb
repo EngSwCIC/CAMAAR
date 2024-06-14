@@ -10,7 +10,7 @@
           </div>
 
           <div class="field flex flex-col gap-2">
-            <%= f.label :password, class: "text-3xl lg:text-base" %>
+            <%= f.label :password, "Senha", class: "text-3xl lg:text-base" %>
             <%= f.password_field :password, autocomplete: "current-password", class: "p-8 lg:p-4 text-4xl lg:text-xl border border-slate-400 rounded-lg" %>
           </div>
 
@@ -22,7 +22,7 @@
           <% end %>
 
           <div class="actions flex justify-center hover:opacity-75 hover:cursor-pointer bg-green-500 w-full rounded-lg p-8 lg:p-4">
-            <%= f.submit "Log in", :class => 'text-6xl lg:text-2xl text-white hover:cursor-pointer' %>
+            <%= f.submit "Entrar", :class => 'text-6xl lg:text-2xl text-white hover:cursor-pointer' %>
           </div>
         </div>
       <% end %>

@@ -5,6 +5,7 @@ Feature: Login System
 
   Background: Starting on the login page
     Given I am on the login page
+    And There is a user with email "teste@email.com" and password "123456"
 
   Scenario: Correct information with email (happy path)
     When I log in with "teste@email.com" as an e-mail and "123456" as a password
