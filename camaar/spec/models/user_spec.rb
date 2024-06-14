@@ -44,6 +44,14 @@ RSpec.describe User, type: :model do
       user = build(:user, ocupacao:nil)
       expect(user).to_not  be_valid
     end
+    it "a role deve vir como padrao user" do
+      user = build(:user,)
+      expect(user.role).to eq("user")
+    end
+    it "a role deve vir como padrao user" do
+      user = build(:user,role: :admin)
+      expect(user.role).to eq("admin")
+    end
     it "deve possuir uma password" do
       user = build(:user, password:nil)
       expect(user).to_not  be_valid
