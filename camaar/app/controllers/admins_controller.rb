@@ -125,13 +125,27 @@ class AdminsController < ApplicationController
       flash[:notice] = 'Turmas importadas com sucesso'
       redirect_to '/admins/import'
     when '3'
-      departamentos = JSON.parse(File.read(json))
-      departamentos.each do |dpto|
-        Department.create!(
-          id: dpto['id'],
-          initials: dpto['initials'],
-          name: dpto['name']
-        )
+      root_dpto = Department.find_by(initials: 'ROOT')
+      if root_dpto.nil?
+        flash[:notice] = 'Você não é admin ROOT'
+        return redirect_to '/admins/import'
+      end
+      root_cord = Coordinator.find_by(department_id: root_dpto.id)
+      if root_cord.nil?
+        flash[:notice] = 'Você não é admin ROOT'
+        return redirect_to '/admins/import'
+      end
+      if current_admin.email == root_cord.email
+        departamentos = JSON.parse(File.read(json))
+        departamentos.each do |dpto|
+          Department.create!(
+            id: dpto['id'],
+            initials: dpto['initials'],
+            name: dpto['name']
+          )
+        end
+      else
+        flash[:notice] = 'Você não é admin ROOT'
       end
       redirect_to '/admins/import'
     end

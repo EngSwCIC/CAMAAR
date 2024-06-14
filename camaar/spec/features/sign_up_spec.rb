@@ -32,6 +32,5 @@ feature 'Register User' do
     expect(page).to have_content 'Fernando'
     expect(page).to have_content 'Docente'
     expect(page).to have_content 'Pendências'
-    save_and_open_page
   end
 end

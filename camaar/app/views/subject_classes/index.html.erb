@@ -34,6 +34,7 @@
                 <th>Semestre</th>
                 <th>Código</th>
                 <th>Turma</th>
+                <th>Horário</th>
               </tr>
             </thead>
             <tbody>
@@ -41,8 +42,9 @@
                 <tr>
                   <td><%= subject_class.name %></td>
                   <td><%= subject_class.semester %></td>
-                  <td><%= subject_class.code %></td>
                   <td><%= subject_class.subject %></td>
+                  <td><%= subject_class.code %></td>
+                  <td><%= subject_class.schedule %></td>
                 </tr>
               <% end %>
             </tbody>
