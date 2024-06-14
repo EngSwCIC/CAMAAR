@@ -1,7 +1,7 @@
 ruby "3.1.2"
 source "https://rubygems.org"
 
-#gems 
+#gems
 gem 'bcrypt'
 gem 'mysql2'
 gem 'bundler-audit'
@@ -20,6 +20,7 @@ gem "cucumber"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
+  gem 'rubocop'
 end
 
 group :development do
