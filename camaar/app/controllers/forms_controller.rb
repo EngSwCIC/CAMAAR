@@ -6,6 +6,7 @@ class FormsController < ApplicationController
   layout "admin"
 
   def create
+=begin
     set_admin_data
     @student_templates = Template.where({ coordinator_id: @coordinator.id, role: "discente" })
     @teacher_templates = Template.where({ coordinator_id: @coordinator.id, role: "docente" })
@@ -19,7 +20,27 @@ class FormsController < ApplicationController
       if turma_ids.present?
         turma_ids.each do |subject_class_id|
           if professor_template_id.present? and aluno_template_id.present?
-            subject_class_forms = Form.where(subject_class_id: subject_class_id)
+            subject_class_formsset_admin_data
+            @student_templates = Template.where({ coordinator_id: @coordinator.id, role: "discente" })
+            @teacher_templates = Template.where({ coordinator_id: @coordinator.id, role: "docente" })
+        
+            flash.clear
+            professor_template_id = params[:professor_template_id]
+            aluno_template_id = params[:aluno_template_id]
+            turma_ids = params[:turma_ids]
+            commit = params[:commit]
+            if commit == "confirm"
+              if turma_ids.present?
+                turma_ids.each do |subject_class_id|
+                  if professor_template_id.present? and aluno_template_id.present?
+                    subject_class_forms = Form.where(subject_class_id: subject_class_id)
+        
+                    if subject_class_forms.empty?
+                      teacher_template = Template.find_by(id: professor_template_id, draft: false)
+                      teacher_form = Form.new(
+                        role: teacher_template.role,
+                        name: teacher_template.name,
+                        coordin = Form.where(subject_class_id: subject_class_id)
 
             if subject_class_forms.empty?
               teacher_template = Template.find_by(id: professor_template_id, draft: false)
@@ -71,6 +92,7 @@ class FormsController < ApplicationController
         flash[:warning] = "Selecione as turmas para envio."
       end
     end
+=end
   end
 
   def index

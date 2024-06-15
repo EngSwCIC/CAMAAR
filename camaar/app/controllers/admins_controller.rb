@@ -28,23 +28,44 @@ class AdminsController < ApplicationController
     if turma_ids.present?
       turma_ids.each do |turma|
         if professor_template_id.present?
-          template = Template.find_by(id: professor_template_id, draft: false)
-          unless Form.find_by(role: "teacher", name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma).present?
-            form = Form.create(role: "teacher", name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma)
-            flash[:success] = "O formulário para o template '#{template.name}' para o(s) professor(es) da turma '#{SubjectClass.find_by(id:turma).name}' foi criado com sucesso."
+          teacher_template = Template.find_by(id: professor_template_id, draft: false)
+          unless Form.find_by(role: "docente", name: teacher_template.name, coordinator_id: @coordinator.id, subject_class_id: turma).present?
+            teacher_form = Form.create(role: "docente", name: teacher_template.name, coordinator_id: @coordinator.id, subject_class_id: turma)
+            teacher_questions = TemplateQuestion.where({ template_id: teacher_template.id })
+                teacher_questions.each do |question|
+                  FormQuestion.create({
+                    title: question.title,
+                    body: question.body,
+                    question_type: question.question_type,
+                    form_id: teacher_form.id,
+                  })
+                end
+            flash[:success] = "Os formulários para a turma #{SubjectClass.find_by(id: turma).name} foram criados com sucesso."
           else
-            flash[:warning] = "O formulário para o template '#{template.name}' para o(s) professor(es) já existe para a turma #{SubjectClass.find_by(id:turma).name}."
+            flash[:warning] = "Os formulários para a turma #{SubjectClass.find_by(id: turma).name} já existem."
           end
-        elsif aluno_template_id.present?
-          template = Template.find_by(id: aluno_template_id)
-          unless Form.find_by(role: "student", name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma).present?
-            form = Form.create(name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma)
-            flash[:success] = "O formulário para o template '#{template.name}' para os alunos da turma '#{SubjectClass.find_by(id:turma).name}' foi criado com sucesso."
+        end
+        if aluno_template_id.present?
+          student_template = Template.find_by(id: aluno_template_id)
+          unless Form.find_by(role: "discente", name: student_template.name, coordinator_id: @coordinator.id, subject_class_id: turma).present?
+            student_form = Form.create(name: student_template.name, coordinator_id: @coordinator.id, subject_class_id: turma)
+            student_questions = TemplateQuestion.where({ template_id: student_template.id })
+                student_questions.each do |question|
+                  FormQuestion.create({
+                    title: question.title,
+                    body: question.body,
+                    question_type: question.question_type,
+                    form_id: student_form.id,
+                  })
+                end
+            flash[:success] = "Os formulários para a turma #{SubjectClass.find_by(id: turma).name} foram criados com sucesso."
           else
-            flash[:warning] = "O formulário para o template '#{template.name}' já existe para os alunos da turma #{SubjectClass.find_by(id:turma).name}."
+            flash[:warning] = "Os formulários para a turma #{SubjectClass.find_by(id: turma).name} já existem."
           end
         end
       end
+    else
+      flash[:warning] = "Selecione as turmas para envio."
     end
   end
 
