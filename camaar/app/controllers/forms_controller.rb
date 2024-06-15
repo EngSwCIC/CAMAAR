@@ -38,6 +38,26 @@ class FormsController < ApplicationController
               )
 
               if teacher_form.save and student_form.save
+                teacher_template_questions = TemplateQuestion.where({ template_id: teacher_template.id })
+                teacher_template_questions.each do |question|
+                  FormQuestion.create({
+                    title: question.title,
+                    body: question.body,
+                    question_type: question.question_type,
+                    form_id: teacher_form.id,
+                  })
+                end
+
+                student_template_questions = TemplateQuestion.where({ template_id: student_template.id })
+                student_template_questions.each do |question|
+                  FormQuestion.create({
+                    title: question.title,
+                    body: question.body,
+                    question_type: question.question_type,
+                    form_id: student_form.id,
+                  })
+                end
+
                 flash[:success] = "Os formulários para a turma #{SubjectClass.find_by(id: subject_class_id).name} foram criados com sucesso."
               end
             else
