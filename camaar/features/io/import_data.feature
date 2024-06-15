@@ -29,7 +29,7 @@ Feature: Registers students data on the system
 
         Then I expect to see "Turmas"
         When I go to the "Meu Departamento" page
-        And I expect to see the following on Turmas:
+        Then I should see the following on Turmas:
         | Nome                    | Semestre | Código  | Turma     | Horário  |
         | BANCOS DE DADOS         | 2021.2   | CIC0097 | TA        | 35T45    |
         | ENGENHARIA DE SOFTWARE  | 2021.2   | CIC0105 | TA        | 35M12    |

@@ -5,10 +5,13 @@ Feature: View forms as a Student or Teacher
     So that I can choose which one to respond to
 
     Background: A form was assigned to some classes
+        
         Given I am an authenticated User from class "BANCOS DE DADOS"
         Given that a form has been assigned to the following classes:
-            | Formulário 1 | teacher | CIC0097 | 2021.2 | TA |
-            | Formulário 2 | student | CIC0105 | 2021.2 | TA |
+        | Formulário   | Role    | Turma   | Semestre | Código |
+        | Formulário 1 | teacher | CIC0097 | 2021.2   | TA     |
+        | Formulário 2 | student | CIC0105 | 2021.2   | TA     |
+        
         Given that I am an User associated with the following classes:
             | CIC0097 | 2021.2 | TA |
             | CIC0105 | 2021.2 | TA |

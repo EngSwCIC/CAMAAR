@@ -189,9 +189,17 @@ Given(/that the department "([^"]*)" has no classes$/) do |dpt_name|
   SubjectClass.where(department_id: department.id).destroy_all
 end
 
-Given('that a form has been assigned to the following classes:') do |_table|
-  # table is a Cucumber::MultilineArgument::DataTable
-  pending
+Given(/^that a form has been assigned to the following classes:$/) do |fields|
+  fields.hashes.each do |form|
+    subject_class = SubjectClass.find_by(subject: form['Turma'])
+    coordinator = Coordinator.find_by(department_id: subject_class.department_id)
+    Form.create(open: true,
+                name: form['Formulário'],
+                created_at: Time.now.utc,
+                updated_at: Time.now.utc,
+                coordinator_id: 35,
+                subject_class_id: subject_class.id)
+  end
 end
 
 Given('that I am an User associated with the following classes:') do |_table|
@@ -321,22 +329,19 @@ Then(/I expect to see the following forms as ([^"]*):$/) do |_status, _table|
   pending
 end
 
-And('I expect to see the following on Turmas:') do |_table|
-  data = table.all('tr').map do |row|
-    {
-      Nome: row.find('td[data-field="name"]')&.text,
-      Semestre: row.find('td[data-field="semester"]')&.text,
-      Código: row.find('td[data-field="subject"]')&.text,
-      Turma: row.find('td[data-field="classCode"]')&.text, # Adjust data-field attribute names if needed
-      Horário: row.find('td[data-field="schedule"]')&.text
-    }
-    page.should have_content(data.name)
-  end
-end
-
 Then('I expect to see the following templates:') do |_table|
   # table is a Cucumber::MultilineArgument::DataTable
   pending
+end
+
+Then('I should see the following on Turmas:') do |table|
+  table.hashes.each do |fields|
+    page.should have_content(fields['Nome'])
+    page.should have_content(fields['Semestre'])
+    page.should have_content(fields['Código'])
+    page.should have_content(fields['Turma'])
+    page.should have_content(fields['Horário'])
+  end
 end
 
 Then('I expect to see the following results:') do |_table|
