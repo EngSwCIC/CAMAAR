@@ -9,9 +9,29 @@ FactoryBot.define do
       subject { 'CIC0097' }
       code { 'TA' }
       name { 'BANCOS DE DADOS' }
-      schedule { '24M34' }
+      schedule { '35T45' }
       department_id { 508 }
       teacher_id { 100 }
+    end
+
+    trait :subject_class2 do
+      id { 2 }
+      semester { '2021.2' }
+      subject { 'CIC0105' }
+      code { 'TA' }
+      name { 'ENGENHARIA DE SOFTWARE' }
+      schedule { '35M12' }
+      department_id { 508 }
+    end
+
+    trait :subject_class3 do
+      id { 3 }
+      semester { '2021.2' }
+      subject { 'CIC0202' }
+      code { 'TA' }
+      name { 'PROGRAMAÇÃO CONCORRENTE' }
+      schedule { '35M34' }
+      department_id { 508 }
     end
   end
 end
