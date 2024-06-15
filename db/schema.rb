@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_14_235534) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_15_002420) do
   create_table "questions", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.string "type"
     t.string "description"
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_14_235534) do
     t.bigint "template_id"
     t.string "answer"
     t.string "input"
+    t.string "format"
     t.index ["template_id"], name: "index_questions_on_template_id"
   end
 
