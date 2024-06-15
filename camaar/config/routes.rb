@@ -17,10 +17,7 @@ Rails.application.routes.draw do
     get "/", to: "turmas#index"
     get "/:id", to: "turmas#show"
     # post "/", to: "turmas#create"
-    # get "/new", to: "turmas#new"
-    # get "/:id/edit", to: "turmas#edit"
     # patch "/:id", to: "turmas#update"
-    # put "/:id", to: "turmas#update"
     # delete "/:id", to: "turmas#destroy"
   end
 
@@ -29,10 +26,15 @@ Rails.application.routes.draw do
     delete "/:id", to: "matriculas#delete"
     get "/", to: "matriculas#index"
     # get "/:id", to: "matriculas#show"
-    # get "/new", to: "matriculas#new"
-    # get "/:id/edit", to: "matriculas#edit"
     # patch "/:id", to: "matriculas#update"
-    # put "/:id", to: "matriculas#update"
+  end
+
+  scope "/formularios" do
+    get "/", to: "formularios#index"
+    get "/:id", to: "formularios#show"
+    post "/", to: "formularios#create"
+    patch "/:id", to: "formularios#update"
+    delete "/:id", to: "formularios#delete"
   end
 
 end
