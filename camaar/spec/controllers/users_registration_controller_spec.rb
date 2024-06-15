@@ -1,17 +1,19 @@
 require 'rails_helper'
 RSpec.describe Users::RegistrationsController, type: :controller do
-  let(:user) { create(:user, :user1) }
   @controller = Users::RegistrationsController.new
   before do
     allow(controller).to receive(:authenticate_user!).and_return(true)
-    allow(controller).to receive(:current_user).and_return(user)
     @request.env['devise.mapping'] = Devise.mappings[:user]
-    sign_in user
   end
 
-  it 'creates user' do
-    post 'create', params: { username: 'jonsnow', password: '012345678912345', authenticity_token: '12345' }
-    expect(response.status).to eq(200)
+  it 'creates new user' do
+    user = build(:user, :user1)
+    post :create,
+         params: { user: { email: user.email, password: user.password,
+                           password_confirmation: user.password_confirmation } }
+    expect(response).to have_http_status(:redirect)
+    expect(response).to redirect_to(root_path) # Assuming redirection to root_path
+    expect(User.find_by(email: user.email)).to_not be_nil
   end
   # it 'changes user attributes' do
   #   put :update, params: { user: { email: 'jerry@test.com' } }

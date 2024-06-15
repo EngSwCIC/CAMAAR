@@ -42,6 +42,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
+  def sign_up_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
+  def account_update_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     added_attrs = %i[username email password password_confirmation remember_me]
@@ -50,7 +58,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    added_attrs = %i[username email password password_confirmation remember_me]
+    added_attrs = %i[email password password_confirmation remember_me]
     devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)
   end
 

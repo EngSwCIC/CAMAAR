@@ -22,7 +22,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_in_params
-    added_attrs = %i[username email password password_confirmation remember_me]
+    added_attrs = %i[email password password_confirmation remember_me]
     devise_parameter_sanitizer.permit(:sign_in, keys: added_attrs)
   end
 end
