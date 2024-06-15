@@ -45,26 +45,25 @@
         }
         /* Modal styles */
         .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1; 
-            padding-top: 60px; 
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
             left: 0;
             top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto; 
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.4); 
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
         }
         .modal-content {
             background-color: #fefefe;
-            margin: auto;
+            margin: 5% auto; /* 15% from the top and centered */
             padding: 20px;
             border: 1px solid #888;
-            width: 80%;
+            width: 80%; /* Could be more or less, depending on screen size */
             max-width: 500px;
-            border-radius: 10px;
             text-align: center;
         }
         .close {
@@ -82,29 +81,30 @@
         .modal-button {
             padding: 10px 20px;
             margin: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
             font-size: 16px;
-            transition: 0.5s;
-        }
-        .modal-button:hover{
-          border-radius: 20px;
-          transform: scale(1.05);
+            border: none;
+            cursor: pointer;
         }
         .view-button {
             background-color: #4CAF50;
             color: white;
+            transition: 0.25s;
         }
         .view-button:hover {
-          background-color: purple;
+            background-color: purple;
+            transform: scale(1.05);
+            border-radius: 20px;
         }
         .delete-button {
             background-color: #f44336;
             color: white;
+            transition: 0.25s;
         }
-        .delete-button:hover{
-          background-color: darkred;
+
+        .delete-button:hover {
+            background-color: darkred;
+            transform: scale(1.05);
+            border-radius: 20px;
         }
     </style>
 </head>
@@ -112,48 +112,65 @@
     <h1>JSON Templates</h1>
     <div id="buttons-container">
         <% @files.each do |file| %>
-            <button class="button" onclick="openModal('<%= file %>')"><%= file.split('.json')[0] %></button>
+            <button class="button" onclick="handleButtonClick('<%= file %>')"><%= file.split('.json')[0] %></button>
         <% end %>
     </div>
 
-    <div id="myModal" class="modal">
+    <!-- The Modal -->
+    <div id="fileModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <p id="modal-text"></p>
-            <button class="modal-button view-button" onclick="viewFile()">View</button>
-            <button class="modal-button delete-button" onclick="deleteFile()">Delete</button>
+            <p id="modalText"></p>
+            <button class="modal-button view-button" onclick="viewFile()">Vizualizar</button>
+            <button class="modal-button delete-button" onclick="deleteFile()">Deletar</button>
         </div>
     </div>
 
     <script>
         let selectedFile = '';
+        let fileNoExtension = '';
 
-        function openModal(file) {
+        function handleButtonClick(file) {
             selectedFile = file;
-            document.getElementById('modal-text').innerText = `O que deseja fazer com "${file.split('.json')[0]}"?`;
-            document.getElementById('myModal').style.display = 'block';
+            fileNoExtension = file.split('.json')[0];
+            document.getElementById('modalText').innerText = `Template ${fileNoExtension}`;
+            document.getElementById('fileModal').style.display = "block";
         }
 
         function closeModal() {
-            document.getElementById('myModal').style.display = 'none';
+            document.getElementById('fileModal').style.display = "none";
         }
 
         function viewFile() {
+            alert('Viewing file...');
             closeModal();
-            console.log(`Viewing file: ${selectedFile}`);
-            // Add your view file logic here
         }
 
         function deleteFile() {
+            if (confirm('Are you sure you want to delete this file?')) {
+                fetch(`/delete_file?file_name=${selectedFile}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    if (data.status === 'success') {
+                        location.reload();
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
             closeModal();
-            console.log(`Deleting file: ${selectedFile}`);
-            // Add your delete file logic here
         }
 
+        // Close the modal when the user clicks anywhere outside of the modal
         window.onclick = function(event) {
-            const modal = document.getElementById('myModal');
+            var modal = document.getElementById('fileModal');
             if (event.target == modal) {
-                modal.style.display = 'none';
+                modal.style.display = "none";
             }
         }
     </script>

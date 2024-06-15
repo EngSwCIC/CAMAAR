@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'formulario_templates/index'
   get 'formulario_templates/edit_template', to: 'formulario_templates#edit_template', as: 'edit_template'
   root 'formulario_templates#index'
-  
+
+  delete 'delete_file', to: 'formulario_templates#delete_file'
+
+
   resources :reports_professors
   resources :reports_alunos
   resources :formulario_templates

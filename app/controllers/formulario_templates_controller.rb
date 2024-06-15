@@ -72,6 +72,18 @@ class FormularioTemplatesController < ApplicationController
     end
   end
 
+  def delete_file
+    file_name = params[:file_name]
+    file_path = Rails.root.join('public', 'templates', file_name)
+    
+    if File.exist?(file_path)
+      File.delete(file_path)
+      render json: { status: 'success', message: 'File deleted successfully' }
+    else
+      render json: { status: 'error', message: 'File not found' }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_formulario_template
