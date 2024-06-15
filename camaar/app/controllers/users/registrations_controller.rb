@@ -44,7 +44,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+    added_attrs = %i[username email password password_confirmation remember_me]
+    devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
