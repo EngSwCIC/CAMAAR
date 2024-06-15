@@ -10,7 +10,7 @@ feature 'Reset Password' do
     department = create(:department, :departament1)
     admin = create(:admin, :admin1)
     user = create(:user, :user5)
-    teacher = create(:teacher)
+    teacher = create(:teacher, :teacher1)
 
     visit '/users/recover-password/new'
     fill_in 'email', with: user.email

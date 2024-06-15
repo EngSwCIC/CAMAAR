@@ -18,14 +18,14 @@ RSpec.describe StudentAnswer, type: :model do
     student4 = create(:student, :student4)
 
     coordinator = create(:coordinator, :coordinator1)
-    template = create(:template)
-    template_questions = create(:template_question)
-    teacher = create(:teacher)
+    template = create(:template, :template1)
+    template_questions = create(:template_question, :template_question1)
+    teacher = create(:teacher,:teacher1)
 
-    subject_class1 = create(:subject_class)
+    subject_class1 = create(:subject_class,:subject_class1)
 
-    form = create(:form)
-    form_question = create(:form_question)
+    form = create(:form,:form1)
+    form_question = create(:form_question,:form_question1)
 
     answ1 = create(:student_answer, :student_answers1)
     answ2 = create(:student_answer, :student_answers2)

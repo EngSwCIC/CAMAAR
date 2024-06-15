@@ -23,7 +23,7 @@ feature 'Register User' do
     open_email(email).click_link 'Confirmar'
     user_teacher = User.find_by(email: 'chacon@unb.br')
     expect(user_teacher).to be_valid
-    teacher = create(:teacher, id: user_teacher.id, user_id: user_teacher.id)
+    teacher = create(:teacher, :teacher1, id: user_teacher.id, user_id: user_teacher.id)
     expect(page).to have_content 'Bem vindo ao'
     expect(page).to have_content 'CAMAAR'
     fill_in 'email', with: email

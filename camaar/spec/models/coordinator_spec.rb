@@ -23,4 +23,14 @@ RSpec.describe Coordinator, type: :model do
     coordinator2 = build(:coordinator, :coordinator1)
     expect(coordinator2).to_not be_valid
   end
+
+  it 'não pode haver atributos essenciais nulos' do
+    admin = create(:admin, :admin1)
+    expect(admin).to be_valid
+    department = create(:department, :departament1)
+    coordinator = build(:coordinator, :coordinator1, department_id: nil)
+    expect(coordinator).to_not be_valid
+    coordinator2 = build(:coordinator, :coordinator1, admin_id: nil)
+    expect(coordinator2).to_not be_valid
+  end
 end

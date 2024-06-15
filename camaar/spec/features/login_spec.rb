@@ -9,7 +9,7 @@ RSpec.feature 'Logins', type: :feature do
     it 'should login teacher with username and password' do
       visit '/users/login'
       user = create(:user, :user5)
-      teacher = create(:teacher)
+      teacher = create(:teacher,:teacher1)
       expect(page).to have_content 'Bem vindo ao'
       expect(page).to have_content 'CAMAAR'
       fill_in 'email', with: user.email

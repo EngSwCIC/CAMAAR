@@ -11,7 +11,7 @@ feature 'Import Data from json' do
     admin = create(:admin, :admin1)
     coordinator = create(:coordinator, :coordinator1)
     user = create(:user, :user5)
-    teacher = create(:teacher)
+    teacher = create(:teacher, :teacher1)
 
     visit '/admins/login'
 
@@ -57,7 +57,7 @@ feature 'Import Data from json' do
     admin = create(:admin, :admin1)
     coordinator = create(:coordinator, :coordinator1)
     user = create(:user, :user5)
-    teacher = create(:teacher)
+    teacher = create(:teacher, :teacher1)
 
     visit '/admins/login'
 
