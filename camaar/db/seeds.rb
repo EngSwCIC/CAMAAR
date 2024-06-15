@@ -99,7 +99,7 @@ classes_members.each do |data|
                        })
 
     # Colar isso em rails c
-    # User.create!(id:8,email:'peluticaio@gmail.com',password:'abc123',password_confirmation:'abc123',created_at:Time.now.utc,updated_at:Time.now.utc,confirmed_at:Time.now.utc)
+    # User.update(id:8,email:'peluticaio@gmail.com',password:'abc123',password_confirmation:'abc123',created_at:Time.now.utc,updated_at:Time.now.utc,confirmed_at:Time.now.utc)
     # Enrollment.create!(student_id:8,subject_class_id:8)
     # Form.create(open:true,name:'Avaliação Institucional I', created_at:Time.now.utc,updated_at:Time.now.utc,coordinator_id:35,subject_class_id:1)
     # FormQuestion.create(question_type:'text',body:["{\"options\":{\"1\":\"Não\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\"}}"],created_at:Time.now.utc,updated_at:Time.now.utc,form_id:1)
