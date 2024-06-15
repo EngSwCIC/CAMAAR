@@ -5,7 +5,11 @@
 class Question < ApplicationRecord
   belongs_to :template
 
-  def answer
-    nil
+  def input?
+    false
+  end
+
+  def objective?
+    !input? && !self[:answer].nil?
   end
 end
