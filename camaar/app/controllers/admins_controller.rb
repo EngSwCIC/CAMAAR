@@ -25,24 +25,31 @@ class AdminsController < ApplicationController
     professor_template_id = params[:professor_template_id]
     aluno_template_id = params[:aluno_template_id]
     turma_ids = params[:turma_ids]
-    if turma_ids.present?
-      turma_ids.each do |turma|
-        if professor_template_id.present?
-          template = Template.find_by(id: professor_template_id, draft: false)
-          unless Form.find_by(role: "teacher", name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma).present?
-            form = Form.create(role: "teacher", name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma)
-            flash[:success] = "O formulário para o template '#{template.name}' para o(s) professor(es) da turma '#{SubjectClass.find_by(id:turma).name}' foi criado com sucesso."
-          else
-            flash[:warning] = "O formulário para o template '#{template.name}' para o(s) professor(es) já existe para a turma #{SubjectClass.find_by(id:turma).name}."
-          end
-        elsif aluno_template_id.present?
-          template = Template.find_by(id: aluno_template_id)
-          unless Form.find_by(role: "student", name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma).present?
-            form = Form.create(name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma)
-            flash[:success] = "O formulário para o template '#{template.name}' para os alunos da turma '#{SubjectClass.find_by(id:turma).name}' foi criado com sucesso."
-          else
-            flash[:warning] = "O formulário para o template '#{template.name}' já existe para os alunos da turma #{SubjectClass.find_by(id:turma).name}."
-          end
+    return unless turma_ids.present?
+
+    turma_ids.each do |turma|
+      if professor_template_id.present?
+        template = Template.find_by(id: professor_template_id, draft: false)
+        if Form.find_by(role: 'teacher', name: template.name, coordinator_id: @coordinator.id,
+                        subject_class_id: turma).present?
+          flash[:warning] =
+            "O formulário para o template '#{template.name}' para o(s) professor(es) já existe para a turma #{SubjectClass.find_by(id: turma).name}."
+        else
+          form = Form.create(role: 'teacher', name: template.name, coordinator_id: @coordinator.id,
+                             subject_class_id: turma)
+          flash[:success] =
+            "O formulário para o template '#{template.name}' para o(s) professor(es) da turma '#{SubjectClass.find_by(id: turma).name}' foi criado com sucesso."
+        end
+      elsif aluno_template_id.present?
+        template = Template.find_by(id: aluno_template_id)
+        if Form.find_by(role: 'student', name: template.name, coordinator_id: @coordinator.id,
+                        subject_class_id: turma).present?
+          flash[:warning] =
+            "O formulário para o template '#{template.name}' já existe para os alunos da turma #{SubjectClass.find_by(id: turma).name}."
+        else
+          form = Form.create(name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma)
+          flash[:success] =
+            "O formulário para o template '#{template.name}' para os alunos da turma '#{SubjectClass.find_by(id: turma).name}' foi criado com sucesso."
         end
       end
     end
@@ -154,12 +161,12 @@ class AdminsController < ApplicationController
     when '3'
       root_dpto = Department.find_by(initials: 'ROOT')
       if root_dpto.nil?
-        flash[:notice] = 'Você não é admin ROOT'
+        flash[:error] = 'Você não é admin ROOT'
         return redirect_to '/admins/import'
       end
       root_cord = Coordinator.find_by(department_id: root_dpto.id)
       if root_cord.nil?
-        flash[:notice] = 'Você não é admin ROOT'
+        flash[:error] = 'Você não é admin ROOT'
         return redirect_to '/admins/import'
       end
       if current_admin.email == root_cord.email
@@ -172,7 +179,7 @@ class AdminsController < ApplicationController
           )
         end
       else
-        flash[:notice] = 'Você não é admin ROOT'
+        flash[:error] = 'Você não é admin ROOT'
       end
       redirect_to '/admins/import'
     end

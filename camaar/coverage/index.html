@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-06-15T12:04:30-03:00">2024-06-15T12:04:30-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-06-15T12:09:40-03:00">2024-06-15T12:09:40-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,7 +23,7 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  29.69%
+  29.47%
 </span>
 
      </span>
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>832</b> relevant lines,
+    <b>838</b> relevant lines,
     <span class="green"><b>247</b> lines covered</span> and
-    <span class="red"><b>585</b> lines missed. </span>
+    <span class="red"><b>591</b> lines missed. </span>
     (<span class="red">
-  29.69%
+  29.47%
 </span>
 )
   </div>
@@ -161,10 +161,10 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#226ec7006fa6875991e98baec40adf69193cc96b" class="src_link" title="app/controllers/admins_controller.rb">app/controllers/admins_controller.rb</a></td>
             <td class="red strong cell--number t-file__coverage">0.00 %</td>
-            <td class="cell--number">185</td>
-            <td class="cell--number">161</td>
+            <td class="cell--number">192</td>
+            <td class="cell--number">167</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">161</td>
+            <td class="cell--number">167</td>
             <td class="cell--number">0.00</td>
             
           </tr>
@@ -720,7 +720,7 @@
     <span class="group_name">Controllers</span>
     (<span class="covered_percent">
       <span class="red">
-  24.19%
+  23.99%
 </span>
 
      </span>
@@ -740,11 +740,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>711</b> relevant lines,
+    <b>717</b> relevant lines,
     <span class="green"><b>172</b> lines covered</span> and
-    <span class="red"><b>539</b> lines missed. </span>
+    <span class="red"><b>545</b> lines missed. </span>
     (<span class="red">
-  24.19%
+  23.99%
 </span>
 )
   </div>
@@ -836,10 +836,10 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#226ec7006fa6875991e98baec40adf69193cc96b" class="src_link" title="app/controllers/admins_controller.rb">app/controllers/admins_controller.rb</a></td>
             <td class="red strong cell--number t-file__coverage">0.00 %</td>
-            <td class="cell--number">185</td>
-            <td class="cell--number">161</td>
+            <td class="cell--number">192</td>
+            <td class="cell--number">167</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">161</td>
+            <td class="cell--number">167</td>
             <td class="cell--number">0.00</td>
             
           </tr>
@@ -4685,9 +4685,9 @@
     
 
     <div class="t-line-summary">
-      <b>161</b> relevant lines.
+      <b>167</b> relevant lines.
       <span class="green"><b>0</b> lines covered</span> and
-      <span class="red"><b>161</b> lines missed.</span>
+      <span class="red"><b>167</b> lines missed.</span>
     </div>
 
     
@@ -5001,18 +5001,18 @@
 
             
 
-            <code class="ruby">    if turma_ids.present?</code>
+            <code class="ruby">    return unless turma_ids.present?</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="29">
+          <li class="never" data-hits="" data-linenumber="29">
             
             
 
             
 
-            <code class="ruby">      turma_ids.each do |turma|</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -5023,7 +5023,7 @@
 
             
 
-            <code class="ruby">        if professor_template_id.present?</code>
+            <code class="ruby">    turma_ids.each do |turma|</code>
           </li>
         </div>
       
@@ -5034,7 +5034,7 @@
 
             
 
-            <code class="ruby">          template = Template.find_by(id: professor_template_id, draft: false)</code>
+            <code class="ruby">      if professor_template_id.present?</code>
           </li>
         </div>
       
@@ -5045,7 +5045,7 @@
 
             
 
-            <code class="ruby">          unless Form.find_by(role: &quot;teacher&quot;, name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma).present?</code>
+            <code class="ruby">        template = Template.find_by(id: professor_template_id, draft: false)</code>
           </li>
         </div>
       
@@ -5056,7 +5056,7 @@
 
             
 
-            <code class="ruby">            form = Form.create(role: &quot;teacher&quot;, name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma)</code>
+            <code class="ruby">        if Form.find_by(role: &#39;teacher&#39;, name: template.name, coordinator_id: @coordinator.id,</code>
           </li>
         </div>
       
@@ -5067,7 +5067,7 @@
 
             
 
-            <code class="ruby">            flash[:success] = &quot;O formulário para o template &#39;#{template.name}&#39; para o(s) professor(es) da turma &#39;#{SubjectClass.find_by(id:turma).name}&#39; foi criado com sucesso.&quot;</code>
+            <code class="ruby">                        subject_class_id: turma).present?</code>
           </li>
         </div>
       
@@ -5078,7 +5078,7 @@
 
             
 
-            <code class="ruby">          else</code>
+            <code class="ruby">          flash[:warning] =</code>
           </li>
         </div>
       
@@ -5089,7 +5089,7 @@
 
             
 
-            <code class="ruby">            flash[:warning] = &quot;O formulário para o template &#39;#{template.name}&#39; para o(s) professor(es) já existe para a turma #{SubjectClass.find_by(id:turma).name}.&quot;</code>
+            <code class="ruby">            &quot;O formulário para o template &#39;#{template.name}&#39; para o(s) professor(es) já existe para a turma #{SubjectClass.find_by(id: turma).name}.&quot;</code>
           </li>
         </div>
       
@@ -5100,7 +5100,7 @@
 
             
 
-            <code class="ruby">          end</code>
+            <code class="ruby">        else</code>
           </li>
         </div>
       
@@ -5111,7 +5111,7 @@
 
             
 
-            <code class="ruby">        elsif aluno_template_id.present?</code>
+            <code class="ruby">          form = Form.create(role: &#39;teacher&#39;, name: template.name, coordinator_id: @coordinator.id,</code>
           </li>
         </div>
       
@@ -5122,7 +5122,7 @@
 
             
 
-            <code class="ruby">          template = Template.find_by(id: aluno_template_id)</code>
+            <code class="ruby">                             subject_class_id: turma)</code>
           </li>
         </div>
       
@@ -5133,7 +5133,7 @@
 
             
 
-            <code class="ruby">          unless Form.find_by(role: &quot;student&quot;, name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma).present?</code>
+            <code class="ruby">          flash[:success] =</code>
           </li>
         </div>
       
@@ -5144,7 +5144,7 @@
 
             
 
-            <code class="ruby">            form = Form.create(name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma)</code>
+            <code class="ruby">            &quot;O formulário para o template &#39;#{template.name}&#39; para o(s) professor(es) da turma &#39;#{SubjectClass.find_by(id: turma).name}&#39; foi criado com sucesso.&quot;</code>
           </li>
         </div>
       
@@ -5155,7 +5155,7 @@
 
             
 
-            <code class="ruby">            flash[:success] = &quot;O formulário para o template &#39;#{template.name}&#39; para os alunos da turma &#39;#{SubjectClass.find_by(id:turma).name}&#39; foi criado com sucesso.&quot;</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
@@ -5166,7 +5166,7 @@
 
             
 
-            <code class="ruby">          else</code>
+            <code class="ruby">      elsif aluno_template_id.present?</code>
           </li>
         </div>
       
@@ -5177,7 +5177,7 @@
 
             
 
-            <code class="ruby">            flash[:warning] = &quot;O formulário para o template &#39;#{template.name}&#39; já existe para os alunos da turma #{SubjectClass.find_by(id:turma).name}.&quot;</code>
+            <code class="ruby">        template = Template.find_by(id: aluno_template_id)</code>
           </li>
         </div>
       
@@ -5188,7 +5188,7 @@
 
             
 
-            <code class="ruby">          end</code>
+            <code class="ruby">        if Form.find_by(role: &#39;student&#39;, name: template.name, coordinator_id: @coordinator.id,</code>
           </li>
         </div>
       
@@ -5199,7 +5199,7 @@
 
             
 
-            <code class="ruby">        end</code>
+            <code class="ruby">                        subject_class_id: turma).present?</code>
           </li>
         </div>
       
@@ -5210,7 +5210,7 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">          flash[:warning] =</code>
           </li>
         </div>
       
@@ -5221,7 +5221,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">            &quot;O formulário para o template &#39;#{template.name}&#39; já existe para os alunos da turma #{SubjectClass.find_by(id: turma).name}.&quot;</code>
           </li>
         </div>
       
@@ -5232,18 +5232,18 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">        else</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="50">
+          <li class="missed" data-hits="0" data-linenumber="50">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">          form = Form.create(name: template.name, coordinator_id: @coordinator.id, subject_class_id: turma)</code>
           </li>
         </div>
       
@@ -5254,7 +5254,7 @@
 
             
 
-            <code class="ruby">  def import</code>
+            <code class="ruby">          flash[:success] =</code>
           </li>
         </div>
       
@@ -5265,7 +5265,7 @@
 
             
 
-            <code class="ruby">    @errors = []</code>
+            <code class="ruby">            &quot;O formulário para o template &#39;#{template.name}&#39; para os alunos da turma &#39;#{SubjectClass.find_by(id: turma).name}&#39; foi criado com sucesso.&quot;</code>
           </li>
         </div>
       
@@ -5276,7 +5276,7 @@
 
             
 
-            <code class="ruby">    json = params[:admin_import][:file].tempfile.path</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
@@ -5287,18 +5287,18 @@
 
             
 
-            <code class="ruby">    selected_data = params[:select_data]</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="55">
+          <li class="missed" data-hits="0" data-linenumber="55">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -5309,34 +5309,12 @@
 
             
 
-            <code class="ruby">    case selected_data</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="57">
-            
-            
-
-            
-
-            <code class="ruby">    when &#39;1&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="58">
-            
-            
-
-            
-
-            <code class="ruby">      members = JSON.parse(File.read(json))</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="59">
+          <li class="never" data-hits="" data-linenumber="57">
             
             
 
@@ -5347,13 +5325,35 @@
         </div>
       
         <div>
+          <li class="missed" data-hits="0" data-linenumber="58">
+            
+            
+
+            
+
+            <code class="ruby">  def import</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="59">
+            
+            
+
+            
+
+            <code class="ruby">    @errors = []</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="missed" data-hits="0" data-linenumber="60">
             
             
 
             
 
-            <code class="ruby">      members.each do |data|</code>
+            <code class="ruby">    json = params[:admin_import][:file].tempfile.path</code>
           </li>
         </div>
       
@@ -5364,18 +5364,18 @@
 
             
 
-            <code class="ruby">        db_subject_class = SubjectClass.find_by(</code>
+            <code class="ruby">    selected_data = params[:select_data]</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="62">
+          <li class="never" data-hits="" data-linenumber="62">
             
             
 
             
 
-            <code class="ruby">          { subject: data[&#39;code&#39;],</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -5386,7 +5386,7 @@
 
             
 
-            <code class="ruby">            code: data[&#39;classCode&#39;],</code>
+            <code class="ruby">    case selected_data</code>
           </li>
         </div>
       
@@ -5397,7 +5397,7 @@
 
             
 
-            <code class="ruby">            semester: data[&#39;semester&#39;] }</code>
+            <code class="ruby">    when &#39;1&#39;</code>
           </li>
         </div>
       
@@ -5408,7 +5408,7 @@
 
             
 
-            <code class="ruby">        )</code>
+            <code class="ruby">      members = JSON.parse(File.read(json))</code>
           </li>
         </div>
       
@@ -5430,7 +5430,7 @@
 
             
 
-            <code class="ruby">        unless db_subject_class</code>
+            <code class="ruby">      members.each do |data|</code>
           </li>
         </div>
       
@@ -5441,7 +5441,7 @@
 
             
 
-            <code class="ruby">          @errors &lt;&lt; %(#{data[&#39;code&#39;]}-#{data[&#39;classCode&#39;]}-#{data[&#39;semester&#39;]} Turma não foi encontrada)</code>
+            <code class="ruby">        db_subject_class = SubjectClass.find_by(</code>
           </li>
         </div>
       
@@ -5452,7 +5452,7 @@
 
             
 
-            <code class="ruby">          next</code>
+            <code class="ruby">          { subject: data[&#39;code&#39;],</code>
           </li>
         </div>
       
@@ -5463,18 +5463,18 @@
 
             
 
-            <code class="ruby">        end</code>
+            <code class="ruby">            code: data[&#39;classCode&#39;],</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="71">
+          <li class="missed" data-hits="0" data-linenumber="71">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">            semester: data[&#39;semester&#39;] }</code>
           </li>
         </div>
       
@@ -5485,29 +5485,29 @@
 
             
 
-            <code class="ruby">        db_teacher = Teacher.find_by({ registration: data[&#39;docente&#39;][&#39;usuario&#39;] })</code>
+            <code class="ruby">        )</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="73">
-            
-            
-
-            
-
-            <code class="ruby">        user_teacher = User.find_by(email: data[&#39;docente&#39;][&#39;email&#39;])</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="74">
+          <li class="never" data-hits="" data-linenumber="73">
             
             
 
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="74">
+            
+            
+
+            
+
+            <code class="ruby">        unless db_subject_class</code>
           </li>
         </div>
       
@@ -5518,7 +5518,7 @@
 
             
 
-            <code class="ruby">        teacher_data = { name: data[&#39;docente&#39;][&#39;nome&#39;],</code>
+            <code class="ruby">          @errors &lt;&lt; %(#{data[&#39;code&#39;]}-#{data[&#39;classCode&#39;]}-#{data[&#39;semester&#39;]} Turma não foi encontrada)</code>
           </li>
         </div>
       
@@ -5529,7 +5529,7 @@
 
             
 
-            <code class="ruby">                         formation: data[&#39;docente&#39;][&#39;formacao&#39;],</code>
+            <code class="ruby">          next</code>
           </li>
         </div>
       
@@ -5540,18 +5540,18 @@
 
             
 
-            <code class="ruby">                         registration: data[&#39;docente&#39;][&#39;usuario&#39;],</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="78">
+          <li class="never" data-hits="" data-linenumber="78">
             
             
 
             
 
-            <code class="ruby">                         occupation: data[&#39;docente&#39;][&#39;ocupacao&#39;],</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -5562,7 +5562,7 @@
 
             
 
-            <code class="ruby">                         email: data[&#39;docente&#39;][&#39;email&#39;],</code>
+            <code class="ruby">        db_teacher = Teacher.find_by({ registration: data[&#39;docente&#39;][&#39;usuario&#39;] })</code>
           </li>
         </div>
       
@@ -5573,18 +5573,18 @@
 
             
 
-            <code class="ruby">                         department_id: Department.find_by(name: data[&#39;docente&#39;][&#39;departamento&#39;]).id }</code>
+            <code class="ruby">        user_teacher = User.find_by(email: data[&#39;docente&#39;][&#39;email&#39;])</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="81">
+          <li class="never" data-hits="" data-linenumber="81">
             
             
 
             
 
-            <code class="ruby">        if user_teacher</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -5595,7 +5595,7 @@
 
             
 
-            <code class="ruby">          db_teacher.update(teacher_data)</code>
+            <code class="ruby">        teacher_data = { name: data[&#39;docente&#39;][&#39;nome&#39;],</code>
           </li>
         </div>
       
@@ -5606,7 +5606,7 @@
 
             
 
-            <code class="ruby">        elsif db_teacher</code>
+            <code class="ruby">                         formation: data[&#39;docente&#39;][&#39;formacao&#39;],</code>
           </li>
         </div>
       
@@ -5617,7 +5617,7 @@
 
             
 
-            <code class="ruby">          UsersMailer.register_user(data[&#39;docente&#39;][&#39;email&#39;]).deliver</code>
+            <code class="ruby">                         registration: data[&#39;docente&#39;][&#39;usuario&#39;],</code>
           </li>
         </div>
       
@@ -5628,7 +5628,7 @@
 
             
 
-            <code class="ruby">        else</code>
+            <code class="ruby">                         occupation: data[&#39;docente&#39;][&#39;ocupacao&#39;],</code>
           </li>
         </div>
       
@@ -5639,7 +5639,7 @@
 
             
 
-            <code class="ruby">          db_teacher = Teacher.create(teacher_data)</code>
+            <code class="ruby">                         email: data[&#39;docente&#39;][&#39;email&#39;],</code>
           </li>
         </div>
       
@@ -5650,7 +5650,7 @@
 
             
 
-            <code class="ruby">          UsersMailer.register_user(data[&#39;docente&#39;][&#39;email&#39;]).deliver</code>
+            <code class="ruby">                         department_id: Department.find_by(name: data[&#39;docente&#39;][&#39;departamento&#39;]).id }</code>
           </li>
         </div>
       
@@ -5661,7 +5661,7 @@
 
             
 
-            <code class="ruby">        end</code>
+            <code class="ruby">        if user_teacher</code>
           </li>
         </div>
       
@@ -5672,7 +5672,7 @@
 
             
 
-            <code class="ruby">        db_subject_class.update({</code>
+            <code class="ruby">          db_teacher.update(teacher_data)</code>
           </li>
         </div>
       
@@ -5683,7 +5683,7 @@
 
             
 
-            <code class="ruby">                                  teacher_id: db_teacher.id</code>
+            <code class="ruby">        elsif db_teacher</code>
           </li>
         </div>
       
@@ -5694,18 +5694,18 @@
 
             
 
-            <code class="ruby">                                })</code>
+            <code class="ruby">          UsersMailer.register_user(data[&#39;docente&#39;][&#39;email&#39;]).deliver</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="92">
+          <li class="missed" data-hits="0" data-linenumber="92">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        else</code>
           </li>
         </div>
       
@@ -5716,7 +5716,7 @@
 
             
 
-            <code class="ruby">        data[&#39;discente&#39;].each do |student|</code>
+            <code class="ruby">          db_teacher = Teacher.create(teacher_data)</code>
           </li>
         </div>
       
@@ -5727,7 +5727,7 @@
 
             
 
-            <code class="ruby">          db_student = Student.find_by({ registration: student[&#39;matricula&#39;] })</code>
+            <code class="ruby">          UsersMailer.register_user(data[&#39;docente&#39;][&#39;email&#39;]).deliver</code>
           </li>
         </div>
       
@@ -5738,18 +5738,18 @@
 
             
 
-            <code class="ruby">          user_student = User.find_by(email: student[&#39;email&#39;])</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="96">
+          <li class="missed" data-hits="0" data-linenumber="96">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        db_subject_class.update({</code>
           </li>
         </div>
       
@@ -5760,7 +5760,7 @@
 
             
 
-            <code class="ruby">          student_data = { name: student[&#39;nome&#39;],</code>
+            <code class="ruby">                                  teacher_id: db_teacher.id</code>
           </li>
         </div>
       
@@ -5771,18 +5771,18 @@
 
             
 
-            <code class="ruby">                           course: student[&#39;curso&#39;],</code>
+            <code class="ruby">                                })</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="99">
+          <li class="never" data-hits="" data-linenumber="99">
             
             
 
             
 
-            <code class="ruby">                           registration: student[&#39;matricula&#39;],</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -5793,7 +5793,7 @@
 
             
 
-            <code class="ruby">                           formation: student[&#39;formacao&#39;],</code>
+            <code class="ruby">        data[&#39;discente&#39;].each do |student|</code>
           </li>
         </div>
       
@@ -5804,7 +5804,7 @@
 
             
 
-            <code class="ruby">                           occupation: student[&#39;ocupacao&#39;],</code>
+            <code class="ruby">          db_student = Student.find_by({ registration: student[&#39;matricula&#39;] })</code>
           </li>
         </div>
       
@@ -5815,7 +5815,7 @@
 
             
 
-            <code class="ruby">                           email: student[&#39;email&#39;] }</code>
+            <code class="ruby">          user_student = User.find_by(email: student[&#39;email&#39;])</code>
           </li>
         </div>
       
@@ -5837,7 +5837,7 @@
 
             
 
-            <code class="ruby">          if user_student</code>
+            <code class="ruby">          student_data = { name: student[&#39;nome&#39;],</code>
           </li>
         </div>
       
@@ -5848,7 +5848,7 @@
 
             
 
-            <code class="ruby">            db_student.update(student_data)</code>
+            <code class="ruby">                           course: student[&#39;curso&#39;],</code>
           </li>
         </div>
       
@@ -5859,7 +5859,7 @@
 
             
 
-            <code class="ruby">          elsif db_student</code>
+            <code class="ruby">                           registration: student[&#39;matricula&#39;],</code>
           </li>
         </div>
       
@@ -5870,7 +5870,7 @@
 
             
 
-            <code class="ruby">            UsersMailer.register_user(student[&#39;email&#39;]).deliver</code>
+            <code class="ruby">                           formation: student[&#39;formacao&#39;],</code>
           </li>
         </div>
       
@@ -5881,7 +5881,7 @@
 
             
 
-            <code class="ruby">          else</code>
+            <code class="ruby">                           occupation: student[&#39;ocupacao&#39;],</code>
           </li>
         </div>
       
@@ -5892,18 +5892,18 @@
 
             
 
-            <code class="ruby">            db_student = Student.create(student_data)</code>
+            <code class="ruby">                           email: student[&#39;email&#39;] }</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="110">
+          <li class="never" data-hits="" data-linenumber="110">
             
             
 
             
 
-            <code class="ruby">            UsersMailer.register_user(student[&#39;email&#39;]).deliver</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -5914,18 +5914,18 @@
 
             
 
-            <code class="ruby">          end</code>
+            <code class="ruby">          if user_student</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="112">
+          <li class="missed" data-hits="0" data-linenumber="112">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">            db_student.update(student_data)</code>
           </li>
         </div>
       
@@ -5936,7 +5936,7 @@
 
             
 
-            <code class="ruby">          db_enrollment = Enrollment.find_by({</code>
+            <code class="ruby">          elsif db_student</code>
           </li>
         </div>
       
@@ -5947,7 +5947,7 @@
 
             
 
-            <code class="ruby">                                               student_id: db_student.id,</code>
+            <code class="ruby">            UsersMailer.register_user(student[&#39;email&#39;]).deliver</code>
           </li>
         </div>
       
@@ -5958,7 +5958,7 @@
 
             
 
-            <code class="ruby">                                               subject_class_id: db_subject_class.id</code>
+            <code class="ruby">          else</code>
           </li>
         </div>
       
@@ -5969,7 +5969,7 @@
 
             
 
-            <code class="ruby">                                             })</code>
+            <code class="ruby">            db_student = Student.create(student_data)</code>
           </li>
         </div>
       
@@ -5980,7 +5980,7 @@
 
             
 
-            <code class="ruby">          unless db_enrollment</code>
+            <code class="ruby">            UsersMailer.register_user(student[&#39;email&#39;]).deliver</code>
           </li>
         </div>
       
@@ -5991,18 +5991,18 @@
 
             
 
-            <code class="ruby">            Enrollment.create({ student_id: db_student.id,</code>
+            <code class="ruby">          end</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="119">
+          <li class="never" data-hits="" data-linenumber="119">
             
             
 
             
 
-            <code class="ruby">                                subject_class_id: db_subject_class.id })</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -6013,7 +6013,7 @@
 
             
 
-            <code class="ruby">          end</code>
+            <code class="ruby">          db_enrollment = Enrollment.find_by({</code>
           </li>
         </div>
       
@@ -6024,7 +6024,7 @@
 
             
 
-            <code class="ruby">        end</code>
+            <code class="ruby">                                               student_id: db_student.id,</code>
           </li>
         </div>
       
@@ -6035,7 +6035,7 @@
 
             
 
-            <code class="ruby">        flash[:notice] = &#39;Membros importados com sucesso&#39;</code>
+            <code class="ruby">                                               subject_class_id: db_subject_class.id</code>
           </li>
         </div>
       
@@ -6046,7 +6046,7 @@
 
             
 
-            <code class="ruby">        redirect_to &#39;/admins/import&#39;</code>
+            <code class="ruby">                                             })</code>
           </li>
         </div>
       
@@ -6057,18 +6057,18 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">          unless db_enrollment</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="125">
+          <li class="missed" data-hits="0" data-linenumber="125">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">            Enrollment.create({ student_id: db_student.id,</code>
           </li>
         </div>
       
@@ -6079,7 +6079,7 @@
 
             
 
-            <code class="ruby">    when &#39;2&#39;</code>
+            <code class="ruby">                                subject_class_id: db_subject_class.id })</code>
           </li>
         </div>
       
@@ -6090,18 +6090,18 @@
 
             
 
-            <code class="ruby">      classes = JSON.parse(File.read(json))</code>
+            <code class="ruby">          end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="128">
+          <li class="missed" data-hits="0" data-linenumber="128">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
@@ -6112,7 +6112,7 @@
 
             
 
-            <code class="ruby">      classes.each do |subject_class|</code>
+            <code class="ruby">        flash[:notice] = &#39;Membros importados com sucesso&#39;</code>
           </li>
         </div>
       
@@ -6123,7 +6123,7 @@
 
             
 
-            <code class="ruby">        initials = subject_class[&#39;code&#39;].gsub(/[^a-zA-Z]/, &#39;&#39;)</code>
+            <code class="ruby">        redirect_to &#39;/admins/import&#39;</code>
           </li>
         </div>
       
@@ -6134,18 +6134,18 @@
 
             
 
-            <code class="ruby">        keys = { subject: subject_class[&#39;code&#39;],</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="132">
+          <li class="never" data-hits="" data-linenumber="132">
             
             
 
             
 
-            <code class="ruby">                 code: subject_class[&#39;class&#39;][&#39;classCode&#39;],</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -6156,7 +6156,7 @@
 
             
 
-            <code class="ruby">                 semester: subject_class[&#39;class&#39;][&#39;semester&#39;] }</code>
+            <code class="ruby">    when &#39;2&#39;</code>
           </li>
         </div>
       
@@ -6167,18 +6167,18 @@
 
             
 
-            <code class="ruby">        imported_data = {</code>
+            <code class="ruby">      classes = JSON.parse(File.read(json))</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="135">
+          <li class="never" data-hits="" data-linenumber="135">
             
             
 
             
 
-            <code class="ruby">          name: subject_class[&#39;name&#39;],</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -6189,7 +6189,7 @@
 
             
 
-            <code class="ruby">          schedule: subject_class[&#39;class&#39;][&#39;time&#39;],</code>
+            <code class="ruby">      classes.each do |subject_class|</code>
           </li>
         </div>
       
@@ -6200,7 +6200,7 @@
 
             
 
-            <code class="ruby">          department_id: Department.find_by(initials:).id</code>
+            <code class="ruby">        initials = subject_class[&#39;code&#39;].gsub(/[^a-zA-Z]/, &#39;&#39;)</code>
           </li>
         </div>
       
@@ -6211,18 +6211,18 @@
 
             
 
-            <code class="ruby">        }</code>
+            <code class="ruby">        keys = { subject: subject_class[&#39;code&#39;],</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="139">
+          <li class="missed" data-hits="0" data-linenumber="139">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">                 code: subject_class[&#39;class&#39;][&#39;classCode&#39;],</code>
           </li>
         </div>
       
@@ -6233,18 +6233,18 @@
 
             
 
-            <code class="ruby">        db_subject_class = SubjectClass.find_by(keys)</code>
+            <code class="ruby">                 semester: subject_class[&#39;class&#39;][&#39;semester&#39;] }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="141">
+          <li class="missed" data-hits="0" data-linenumber="141">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        imported_data = {</code>
           </li>
         </div>
       
@@ -6255,7 +6255,7 @@
 
             
 
-            <code class="ruby">        if db_subject_class</code>
+            <code class="ruby">          name: subject_class[&#39;name&#39;],</code>
           </li>
         </div>
       
@@ -6266,7 +6266,7 @@
 
             
 
-            <code class="ruby">          db_subject_class.update(</code>
+            <code class="ruby">          schedule: subject_class[&#39;class&#39;][&#39;time&#39;],</code>
           </li>
         </div>
       
@@ -6277,7 +6277,7 @@
 
             
 
-            <code class="ruby">            imported_data</code>
+            <code class="ruby">          department_id: Department.find_by(initials:).id</code>
           </li>
         </div>
       
@@ -6288,386 +6288,12 @@
 
             
 
-            <code class="ruby">          )</code>
+            <code class="ruby">        }</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="146">
-            
-            
-
-            
-
-            <code class="ruby">        else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="147">
-            
-            
-
-            
-
-            <code class="ruby">          SubjectClass.create(</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="148">
-            
-            
-
-            
-
-            <code class="ruby">            keys.merge(imported_data)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="149">
-            
-            
-
-            
-
-            <code class="ruby">          )</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="150">
-            
-            
-
-            
-
-            <code class="ruby">        end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="151">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="152">
-            
-            
-
-            
-
-            <code class="ruby">      flash[:notice] = &#39;Turmas importadas com sucesso&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="153">
-            
-            
-
-            
-
-            <code class="ruby">      redirect_to &#39;/admins/import&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="154">
-            
-            
-
-            
-
-            <code class="ruby">    when &#39;3&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="155">
-            
-            
-
-            
-
-            <code class="ruby">      root_dpto = Department.find_by(initials: &#39;ROOT&#39;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="156">
-            
-            
-
-            
-
-            <code class="ruby">      if root_dpto.nil?</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="157">
-            
-            
-
-            
-
-            <code class="ruby">        flash[:notice] = &#39;Você não é admin ROOT&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="158">
-            
-            
-
-            
-
-            <code class="ruby">        return redirect_to &#39;/admins/import&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="159">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="160">
-            
-            
-
-            
-
-            <code class="ruby">      root_cord = Coordinator.find_by(department_id: root_dpto.id)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="161">
-            
-            
-
-            
-
-            <code class="ruby">      if root_cord.nil?</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="162">
-            
-            
-
-            
-
-            <code class="ruby">        flash[:notice] = &#39;Você não é admin ROOT&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="163">
-            
-            
-
-            
-
-            <code class="ruby">        return redirect_to &#39;/admins/import&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="164">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="165">
-            
-            
-
-            
-
-            <code class="ruby">      if current_admin.email == root_cord.email</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="166">
-            
-            
-
-            
-
-            <code class="ruby">        departamentos = JSON.parse(File.read(json))</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="167">
-            
-            
-
-            
-
-            <code class="ruby">        departamentos.each do |dpto|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="168">
-            
-            
-
-            
-
-            <code class="ruby">          Department.create!(</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="169">
-            
-            
-
-            
-
-            <code class="ruby">            id: dpto[&#39;id&#39;],</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="170">
-            
-            
-
-            
-
-            <code class="ruby">            initials: dpto[&#39;initials&#39;],</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="171">
-            
-            
-
-            
-
-            <code class="ruby">            name: dpto[&#39;name&#39;]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="172">
-            
-            
-
-            
-
-            <code class="ruby">          )</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="173">
-            
-            
-
-            
-
-            <code class="ruby">        end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="174">
-            
-            
-
-            
-
-            <code class="ruby">      else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="175">
-            
-            
-
-            
-
-            <code class="ruby">        flash[:notice] = &#39;Você não é admin ROOT&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="176">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="177">
-            
-            
-
-            
-
-            <code class="ruby">      redirect_to &#39;/admins/import&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="178">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="179">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="180">
+          <li class="never" data-hits="" data-linenumber="146">
             
             
 
@@ -6678,7 +6304,458 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="181">
+          <li class="missed" data-hits="0" data-linenumber="147">
+            
+            
+
+            
+
+            <code class="ruby">        db_subject_class = SubjectClass.find_by(keys)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="148">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="149">
+            
+            
+
+            
+
+            <code class="ruby">        if db_subject_class</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="150">
+            
+            
+
+            
+
+            <code class="ruby">          db_subject_class.update(</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="151">
+            
+            
+
+            
+
+            <code class="ruby">            imported_data</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="152">
+            
+            
+
+            
+
+            <code class="ruby">          )</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="153">
+            
+            
+
+            
+
+            <code class="ruby">        else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="154">
+            
+            
+
+            
+
+            <code class="ruby">          SubjectClass.create(</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="155">
+            
+            
+
+            
+
+            <code class="ruby">            keys.merge(imported_data)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="156">
+            
+            
+
+            
+
+            <code class="ruby">          )</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="157">
+            
+            
+
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="158">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="159">
+            
+            
+
+            
+
+            <code class="ruby">      flash[:notice] = &#39;Turmas importadas com sucesso&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="160">
+            
+            
+
+            
+
+            <code class="ruby">      redirect_to &#39;/admins/import&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="161">
+            
+            
+
+            
+
+            <code class="ruby">    when &#39;3&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="162">
+            
+            
+
+            
+
+            <code class="ruby">      root_dpto = Department.find_by(initials: &#39;ROOT&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="163">
+            
+            
+
+            
+
+            <code class="ruby">      if root_dpto.nil?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="164">
+            
+            
+
+            
+
+            <code class="ruby">        flash[:error] = &#39;Você não é admin ROOT&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="165">
+            
+            
+
+            
+
+            <code class="ruby">        return redirect_to &#39;/admins/import&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="166">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="167">
+            
+            
+
+            
+
+            <code class="ruby">      root_cord = Coordinator.find_by(department_id: root_dpto.id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="168">
+            
+            
+
+            
+
+            <code class="ruby">      if root_cord.nil?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="169">
+            
+            
+
+            
+
+            <code class="ruby">        flash[:error] = &#39;Você não é admin ROOT&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="170">
+            
+            
+
+            
+
+            <code class="ruby">        return redirect_to &#39;/admins/import&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="171">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="172">
+            
+            
+
+            
+
+            <code class="ruby">      if current_admin.email == root_cord.email</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="173">
+            
+            
+
+            
+
+            <code class="ruby">        departamentos = JSON.parse(File.read(json))</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="174">
+            
+            
+
+            
+
+            <code class="ruby">        departamentos.each do |dpto|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="175">
+            
+            
+
+            
+
+            <code class="ruby">          Department.create!(</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="176">
+            
+            
+
+            
+
+            <code class="ruby">            id: dpto[&#39;id&#39;],</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="177">
+            
+            
+
+            
+
+            <code class="ruby">            initials: dpto[&#39;initials&#39;],</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="178">
+            
+            
+
+            
+
+            <code class="ruby">            name: dpto[&#39;name&#39;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="179">
+            
+            
+
+            
+
+            <code class="ruby">          )</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="180">
+            
+            
+
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="181">
+            
+            
+
+            
+
+            <code class="ruby">      else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="182">
+            
+            
+
+            
+
+            <code class="ruby">        flash[:error] = &#39;Você não é admin ROOT&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="183">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="184">
+            
+            
+
+            
+
+            <code class="ruby">      redirect_to &#39;/admins/import&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="185">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="186">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="187">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="188">
             
             
 
@@ -6689,7 +6766,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="182">
+          <li class="never" data-hits="" data-linenumber="189">
             
             
 
@@ -6700,7 +6777,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="183">
+          <li class="never" data-hits="" data-linenumber="190">
             
             
 
@@ -6711,7 +6788,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="184">
+          <li class="never" data-hits="" data-linenumber="191">
             
             
 
@@ -6722,7 +6799,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="185">
+          <li class="missed" data-hits="0" data-linenumber="192">
             
             
 
