@@ -3,59 +3,42 @@
     <div class="container-fluid">
       <div class="row justify-content-center align-items-center">
         <div class="col-lg-7">
-        <% if flash %>
-          <% flash.each do |key, message| %>
-            <% if key == 'warning' %>
-              <p class="alert alert-warning">
-                <%= message %>
-              </p>
-            <% elsif key == 'success' %>
-              <p class="alert alert-success">
-                <%= message %>
-              </p>
-            <% end %>
-          <% end %>
-        <% end %>
-          <div class="card">
-            <div class="card-header text-center">
-              <strong>Opções para Envio</strong>
-            </div>
-            <div class="card-body card-block">
-              <%= form_with url: admins_envio_post_path, method: :post, class: "form-horizontal" do %>
+          <%= render "/layouts/flashes" %>
+
+          <%= form_with url: admins_envio_post_path, method: :post, class: "form-horizontal" do |f| %>
+            <div class="card">
+              <div class="card-header text-center">
+                <strong>Opções para Envio</strong>
+              </div>
+              <div class="card-body card-block">
 
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="professores_select" class="form-control-label">Professores</label>
+                    <%= f.label :professor_template_id, "Professores", class: "form-control-label" %>
                   </div>
                   <div class="col-12 col-md-9">
-                    <select name="professor_template_id" id="professores_select" class="form-control">
-                      <% if @teacher_templates.present? %>
-                        <option value="">Selecione um Template</option>
-                        <% @teacher_templates.each do |template| %>
-                          <option value="<%= template.id %>"><%= template.name %></option>
-                        <% end %>
-                      <% else %>
+                    <% if @teacher_templates.present? %>
+                     <%= f.select :professor_template_id, options_from_collection_for_select(@teacher_templates, :id, :name), { prompt: "Selecione um Template" }, class: "form-control" %>              
+                    <% else %>
+                      <select disabled class="form-control">
                         <option value="" disabled selected>Nenhum template disponível</option>
-                      <% end %>
-                    </select>
+                      </select>
+                    <% end %>
                   </div>
                 </div>
 
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <label for="alunos_select" class="form-control-label">Alunos</label>
+                    <%= f.label :aluno_template_id, "Alunos", class: "form-control-label" %>
                   </div>
                   <div class="col-12 col-md-9">
-                    <select name="aluno_template_id" id="alunos_select" class="form-control">
-                      <% if @student_templates.present? %>
-                        <option value="">Selecione um Template</option>
-                        <% @student_templates.each do |template| %>
-                          <option value="<%= template.id %>"><%= template.name %></option>
-                        <% end %>
-                      <% else %>
+                    <% if @student_templates.present? %>
+                      <%= f.select :aluno_template_id, options_from_collection_for_select(@student_templates, :id, :name), { prompt: "Selecione um Template" }, class: "form-control" %>
+                    <% else %>
+                      <select disabled class="form-control">
                         <option value="" disabled selected>Nenhum template disponível</option>
-                      <% end %>
-                    </select>
+                      </select>
+                    <% end %>
                   </div>
                 </div>
 
@@ -67,8 +50,8 @@
                     <% if @classes.present? %>
                       <% @classes.each do |classe| %>
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" name="turma_ids[]" value="<%= classe.id %>" id="turma_<%= classe.id %>">
-                          <label class="form-check-label" for="turma_<%= classe.id %>"><%= classe.name %></label>
+                          <%= f.check_box :turma_ids, { multiple: true, class: "form-check-input", id: "turma_#{classe.id}" }, classe.id, nil %>
+                          <%= f.label "turma_#{classe.id}", classe.name, class: "form-check-label" %>
                         </div>
                       <% end %>
                     <% else %>
@@ -77,18 +60,17 @@
                   </div>
                 </div>
 
-                <div class="card-footer justify-content-center align-items-center text-center">
-                  <button type="reset" class="btn btn-danger btn-sm">
-                    <i class="fa fa-ban"></i> Cancelar
-                  </button>
-                  <button type="submit" class="btn btn-success btn-sm">
-                    <i class="fa fa-dot-circle-o"></i> Enviar
-                  </button>
-                </div>
-
-              <% end %>
+              </div>
+              <div class="card-footer justify-content-center align-items-center text-center">
+                <%= link_to templates_path, class: "btn btn-danger btn-sm" do %>
+                  <i class="fa fa-ban"></i> Cancelar
+                <% end %>
+                <button type="submit" class="btn btn-success btn-sm" name="commit" value="confirm">
+                  <i class="fa fa-dot-circle-o"></i> Enviar
+                </button>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>
