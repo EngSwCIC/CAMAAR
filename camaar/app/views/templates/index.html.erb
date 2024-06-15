@@ -32,6 +32,7 @@
             <div class="overview-item overview-item--template">
               <div class="overview__inner">
                 <div class="overview-box clearfix">
+                  <div class="text">
                   <% if template.draft %>
                     <%= link_to edit_template_path(template), class: "template-link" do %>
                       <h1 class="template-name"><%= template.name %></h1>
@@ -56,6 +57,7 @@
           </div>
         </div>
       <% end %>
+      </div>
     </div>
   </div>
 </div>
