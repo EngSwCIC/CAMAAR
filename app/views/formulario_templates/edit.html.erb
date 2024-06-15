@@ -100,23 +100,56 @@
             color: white;
             transition: 0.25s;
         }
-
         .delete-button:hover {
             background-color: darkred;
             transform: scale(1.05);
             border-radius: 20px;
         }
+        .template-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .button-create-template {
+            margin: auto;
+            background-color: purple;
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 30px;
+            margin-bottom: 20px;
+            width: 50px; /* Define a largura e a altura inicial do botão */
+            height: 50px; /* Define a largura e a altura inicial do botão */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s;
+            border: none; /* Remove qualquer borda padrão */
+        }
+        .button-create-template:hover {
+            background-color: gray;
+            transform: scale(1.3);
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
-    <h1>JSON Templates</h1>
+    <h1>Templates</h1>
     <div id="buttons-container">
         <% @files.each do |file| %>
             <button class="button" onclick="handleButtonClick('<%= file %>')"><%= file.split('.json')[0] %></button>
         <% end %>
+
+        <%= link_to "+", new_formulario_template_path, id: "force-reload-link", class: "button-create-template" %>
+                    <script>
+                        document.getElementById("force-reload-link").addEventListener("click", function(event) {
+                        event.preventDefault();
+                        window.location.href = this.href + "?timestamp=" + new Date().getTime(); });
+                    </script>
     </div>
 
-    <!-- The Modal -->
+    <!-- The Modal for actions -->
     <div id="fileModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -126,53 +159,96 @@
         </div>
     </div>
 
+    <!-- The Modal for viewing content -->
+    <div id="viewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeViewModal()">&times;</span>
+            <div class="template-name" id="templateName"></div>
+            <div id="fileContent" style="white-space: pre-wrap; text-align: left;"></div>
+        </div>
+    </div>
+    
     <script>
-        let selectedFile = '';
-        let fileNoExtension = '';
+      let selectedFile = '';
+      let fileNoExtension = '';
 
-        function handleButtonClick(file) {
-            selectedFile = file;
-            fileNoExtension = file.split('.json')[0];
-            document.getElementById('modalText').innerText = `Template ${fileNoExtension}`;
-            document.getElementById('fileModal').style.display = "block";
-        }
+      function handleButtonClick(file) {
+          selectedFile = file;
+          fileNoExtension = file.split('.json')[0];
+          document.getElementById('modalText').innerText = `Template ${fileNoExtension}`;
+          document.getElementById('fileModal').style.display = "block";
+      }
 
-        function closeModal() {
-            document.getElementById('fileModal').style.display = "none";
-        }
+      function closeModal() {
+          document.getElementById('fileModal').style.display = "none";
+      }
 
-        function viewFile() {
-            alert('Viewing file...');
-            closeModal();
-        }
+      function closeViewModal() {
+          document.getElementById('viewModal').style.display = "none";
+      }
 
-        function deleteFile() {
-            if (confirm('Are you sure you want to delete this file?')) {
-                fetch(`/delete_file?file_name=${selectedFile}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    alert(data.message);
-                    if (data.status === 'success') {
-                        location.reload();
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-            }
-            closeModal();
-        }
+      function viewFile() {
+          fetch(`/view_file?file_name=${selectedFile}`)
+          .then(response => response.json())
+          .then(data => {
+              if (data.status === 'success') {
+                  const content = JSON.parse(data.content);
+                  const templateName = content.templateName;
+                  const questions = content.questions;
 
-        // Close the modal when the user clicks anywhere outside of the modal
-        window.onclick = function(event) {
-            var modal = document.getElementById('fileModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
+                  document.getElementById('templateName').innerText = templateName;
+                  
+                  let formattedContent = '';
+                  questions.forEach((question, index) => {
+                      const questionType = question.type;
+                      if (questionType === 'text') {
+                          formattedContent += `Questão ${index + 1} (${questionType})<br>`;
+                      } else {
+                          const optionsCount = question.options ? question.options.length : 0;
+                          formattedContent += `Questão ${index + 1} (${questionType}, ${optionsCount} opções)<br>`;
+                      }
+                  });
+
+                  document.getElementById('fileContent').innerHTML = formattedContent;
+                  closeModal();
+                  document.getElementById('viewModal').style.display = "block";
+              } else {
+                  alert(data.message);
+              }
+          })
+          .catch(error => console.error('Error:', error));
+      }
+
+      function deleteFile() {
+          if (confirm('Are you sure you want to delete this file?')) {
+              fetch(`/delete_file?file_name=${selectedFile}`, {
+                  method: 'DELETE',
+                  headers: {
+                      'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+                  }
+              })
+              .then(response => response.json())
+              .then(data => {
+                  alert(data.message);
+                  if (data.status === 'success') {
+                      location.reload();
+                  }
+              })
+              .catch(error => console.error('Error:', error));
+          }
+          closeModal();
+      }
+
+      // Close the modal when the user clicks anywhere outside of the modal
+      window.onclick = function(event) {
+          if (event.target == document.getElementById('fileModal')) {
+              closeModal();
+          }
+          if (event.target == document.getElementById('viewModal')) {
+              closeViewModal();
+          }
+      }
     </script>
+
 </body>
 </html>

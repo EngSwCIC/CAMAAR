@@ -34,6 +34,31 @@ class FormularioTemplatesController < ApplicationController
     render :edit
   end
 
+  # GET /view_file
+  def view_file
+    file_name = params[:file_name]
+    file_path = Rails.root.join('public', 'templates', file_name)
+
+    if File.exist?(file_path)
+      content = File.read(file_path)
+      render json: { status: 'success', content: content }
+    else
+      render json: { status: 'error', message: 'File not found' }, status: 404
+    end
+  end
+
+  def delete_file
+    file_name = params[:file_name]
+    file_path = Rails.root.join('public', 'templates', file_name)
+    
+    if File.exist?(file_path)
+      File.delete(file_path)
+      render json: { status: 'success', message: 'File deleted successfully' }
+    else
+      render json: { status: 'error', message: 'File not found' }
+    end
+  end
+
   # POST /formulario_templates or /formulario_templates.json
   def create
     @formulario_template = FormularioTemplate.new(formulario_template_params)
@@ -69,18 +94,6 @@ class FormularioTemplatesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to formulario_templates_url, notice: "Formulario template was successfully destroyed." }
       format.json { head :no_content }
-    end
-  end
-
-  def delete_file
-    file_name = params[:file_name]
-    file_path = Rails.root.join('public', 'templates', file_name)
-    
-    if File.exist?(file_path)
-      File.delete(file_path)
-      render json: { status: 'success', message: 'File deleted successfully' }
-    else
-      render json: { status: 'error', message: 'File not found' }
     end
   end
 

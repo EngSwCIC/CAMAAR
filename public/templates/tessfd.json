@@ -1,0 +1,11 @@
+{
+  "templateName": "tessfd",
+  "questions": [
+    {
+      "type": "checkbox",
+      "options": [
+        "Opção 1"
+      ]
+    }
+  ]
+}

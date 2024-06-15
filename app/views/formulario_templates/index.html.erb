@@ -11,9 +11,15 @@
   <% end %>
 </div>
 
-<%= link_to "New formulario template", new_formulario_template_path %>
+<%= link_to "New formulario template", new_formulario_template_path, id: "force-reload-link" %>
 <br><br>
 <a href="<%= edit_template_path %>" class="button">Edit Template</a>
 
+<script>
+  document.getElementById("force-reload-link").addEventListener("click", function(event) {
+    event.preventDefault();
+    window.location.href = this.href + "?timestamp=" + new Date().getTime();
+  });
+</script>
 
 

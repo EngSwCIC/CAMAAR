@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   root 'formulario_templates#index'
 
   delete 'delete_file', to: 'formulario_templates#delete_file'
+  get 'view_file', to: 'formulario_templates#view_file'
 
+  get 'templates/check_name', to: 'templates#check_name'
 
   resources :reports_professors
   resources :reports_alunos

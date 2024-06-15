@@ -15,4 +15,11 @@ class TemplatesController < ApplicationController
     logger.error "Erro ao salvar o template: #{e.message}"
     render plain: 'Erro ao salvar o template', status: :internal_server_error
   end
+
+  def check_name
+    template_name = params[:name]
+    template_exists = Template.exists?(name: template_name)
+    render json: { exists: template_exists }
+  end
+  
 end
