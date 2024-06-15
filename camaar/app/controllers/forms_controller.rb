@@ -1,9 +1,11 @@
 class FormsController < ApplicationController
-  # before_action :set_admin_data
+  #before_action :set_admin_data
+  before_action :authenticate_user!
+  before_action :set_user_data
 
-  # layout "user"
+  layout "user"
 
-  layout "admin"
+  #layout "admin"
 
   def create
 =begin
