@@ -7,8 +7,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     build_resource(email: params[:user_email])
-    yield self.resource if block_given?
-    respond_with self.resource
+    yield resource if block_given?
+    respond_with resource
   end
 
   # POST /resource
@@ -49,7 +49,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+    added_attrs = %i[username email password password_confirmation remember_me]
+    devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)
   end
 
   # The path used after sign up.
