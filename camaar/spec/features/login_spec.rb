@@ -50,7 +50,7 @@ RSpec.feature 'Logins', type: :feature do
     it 'should login admin with username and password' do
       visit '/admins/login'
       admin = create(:admin, :admin1)
-      coordinator = create(:coordinator)
+      coordinator = create(:coordinator,:coordinator1)
 
       expect(page).to have_content 'Bem vindo ao'
       expect(page).to have_content 'CAMAAR'
@@ -86,7 +86,7 @@ RSpec.feature 'Logins', type: :feature do
     it 'should redirect to root page' do
       visit '/users/login'
       admin = create(:admin, :admin1)
-      coordinator = create(:coordinator)
+      coordinator = create(:coordinator,:coordinator1)
       expect(page).to have_content 'Bem vindo ao'
       expect(page).to have_content 'CAMAAR'
       fill_in 'email', with: admin.email

@@ -12,7 +12,7 @@ RSpec.describe TeacherAnswer, type: :model do
     user4 = create(:user, :user4)
     user5 = create(:user, :user5)
 
-    coordinator = create(:coordinator)
+    coordinator = create(:coordinator, :coordinator1)
     template = create(:template)
     template_questions = create(:template_question)
     teacher = create(:teacher)

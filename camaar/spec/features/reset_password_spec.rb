@@ -35,7 +35,7 @@ feature 'Reset Password' do
   scenario 'admin forgot_password' do
     department = create(:department, :departament1)
     admin = create(:admin, :admin1)
-    coordinator = create(:coordinator)
+    coordinator = create(:coordinator, :coordinator1)
 
     visit '/admins/recover-password/new'
     fill_in 'email', with: admin.email

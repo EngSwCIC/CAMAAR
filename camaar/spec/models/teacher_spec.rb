@@ -9,7 +9,7 @@ RSpec.describe Teacher, type: :model do
     user3 = create(:user, :user3)
     user4 = create(:user, :user4)
     user5 = create(:user, :user5)
-    coordinator = create(:coordinator)
+    coordinator = create(:coordinator, :coordinator1)
     teacher = create(:teacher)
     expect(teacher).to be_valid
   end

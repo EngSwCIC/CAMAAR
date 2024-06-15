@@ -4,7 +4,7 @@ RSpec.describe Template, type: :model do
   it 'é válido com atributos válidos e FKS existentes' do
     department = create(:department, :departament1)
     admin = create(:admin, :admin1)
-    coordinator = create(:coordinator)
+    coordinator = create(:coordinator, :coordinator1)
     template = create(:template)
     template_questions = create(:template_question)
     expect(template).to be_valid

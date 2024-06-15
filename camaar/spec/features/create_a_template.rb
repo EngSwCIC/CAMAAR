@@ -5,7 +5,7 @@ RSpec.feature 'Create a template', type: :feature do
     it 'should create a new template with a text answer' do
       department = create(:department,:departament1)
       admin = create(:admin, :admin1)
-      coordinator = create(:coordinator)
+      coordinator = create(:coordinator,:coordinator1)
 
       visit '/admins/login'
 
@@ -43,7 +43,7 @@ RSpec.feature 'Create a template', type: :feature do
     it 'should create a new template with a text answer' do
       department = create(:department,:departament1)
       admin = create(:admin,:admin1)
-      coordinator = create(:coordinator)
+      coordinator = create(:coordinator,:coordinator1)
 
       visit '/admins/login'
 

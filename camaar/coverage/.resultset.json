@@ -13,6 +13,7 @@
           1,
           1,
           1,
+          1,
           null
         ]
       },
@@ -1612,7 +1613,7 @@
         }
       }
     },
-    "timestamp": 1718398702
+    "timestamp": 1718412604
   },
   "RSpec": {
     "coverage": {
@@ -1854,6 +1855,7 @@
       },
       "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/models/coordinator.rb": {
         "lines": [
+          1,
           1,
           1,
           1,
@@ -3217,6 +3219,6 @@
         }
       }
     },
-    "timestamp": 1718401063
+    "timestamp": 1718412563
   }
 }

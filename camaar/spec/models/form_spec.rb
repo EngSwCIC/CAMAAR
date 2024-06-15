@@ -17,7 +17,7 @@ RSpec.describe Form, type: :model do
     student3 = create(:student, :student3)
     student4 = create(:student, :student4)
 
-    coordinator = create(:coordinator)
+    coordinator = create(:coordinator, :coordinator1)
     template = create(:template)
     template_questions = create(:template_question)
 
@@ -51,7 +51,7 @@ RSpec.describe Form, type: :model do
     student3 = create(:student, :student3)
     student4 = create(:student, :student4)
 
-    coordinator = create(:coordinator)
+    coordinator = create(:coordinator, :coordinator1)
     form = build(:form)
     expect(form).to_not be_valid
   end

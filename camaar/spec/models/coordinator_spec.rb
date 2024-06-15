@@ -5,12 +5,22 @@ RSpec.describe Coordinator, type: :model do
     admin = create(:admin, :admin1)
     expect(admin).to be_valid
     department = create(:department, :departament1)
-    coordinator = create(:coordinator)
+    coordinator = create(:coordinator, :coordinator1)
     expect(coordinator).to be_valid
   end
 
   it 'é inválido sem FKS existentes' do
-    coordinator = build(:coordinator)
+    coordinator = build(:coordinator, :coordinator1)
     expect(coordinator).to_not be_valid
+  end
+
+  it 'não pode haver atributos repetidos' do
+    admin = create(:admin, :admin1)
+    expect(admin).to be_valid
+    department = create(:department, :departament1)
+    coordinator = create(:coordinator, :coordinator1)
+    expect(coordinator).to be_valid
+    coordinator2 = build(:coordinator, :coordinator1)
+    expect(coordinator2).to_not be_valid
   end
 end

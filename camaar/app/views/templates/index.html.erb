@@ -32,30 +32,31 @@
             <div class="overview-item overview-item--template">
               <div class="overview__inner">
                 <div class="overview-box clearfix">
-                  <% if template.draft %>
-                    <%= link_to edit_template_path(template), class: "template-link" do %>
-                      <h1 class="template-name"><%= template.name %></h1>
+                  <div class="text">
+                    <% if template.draft %>
+                      <%= link_to edit_template_path(template), class: "template-link" do %>
+                        <h1 class="template-name"><%= template.name %></h1>
+                      <% end %>
+                    <% else %>
+                      <%= link_to edit_template_path(template), class: "template-link" do %>
+                        <h1 class="template-name"><%= template.name %></h1>
+                      <% end %>
                     <% end %>
-                  <% else %>
-                    <%= link_to edit_template_path(template), class: "template-link" do %>
-                      <h1 class="template-name"><%= template.name %></h1>
-                    <% end %>
-                  <% end %>
-                  <div class="icons-container">
-                    <%= button_to template_path(template), class: "icon-button",method: :delete do%>
-                      <i class="fas fa-trash "></i>
-                    <% end %>
-                    <%= link_to edit_template_path(template),class: "icon-button" do%>
-                      <i class="fas fa-edit "></i>
-                    <% end %>
-         
+                    <div class="icons-container">
+                      <%= button_to template_path(template), class: "icon-button",method: :delete do%>
+                        <i class="fas fa-trash "></i>
+                      <% end %>
+                      <%= link_to edit_template_path(template),class: "icon-button" do%>
+                        <i class="fas fa-edit "></i>
+                      <% end %>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      <% end %>
+        <% end %>
+        </div>
     </div>
   </div>
 </div>

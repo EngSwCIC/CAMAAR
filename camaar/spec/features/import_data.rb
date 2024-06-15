@@ -7,9 +7,9 @@ feature 'Import Data from json' do
   end
 
   scenario 'admin sends email to students to register' do
-    departament = create(:department,:departament1)
+    departament = create(:department, :departament1)
     admin = create(:admin, :admin1)
-    coordinator = create(:coordinator)
+    coordinator = create(:coordinator, :coordinator1)
     user = create(:user, :user5)
     teacher = create(:teacher)
 
@@ -53,9 +53,9 @@ feature 'Import Data from json' do
   end
 
   scenario 'admin can import classes' do
-    departament = create(:department,:departament1)
+    departament = create(:department, :departament1)
     admin = create(:admin, :admin1)
-    coordinator = create(:coordinator)
+    coordinator = create(:coordinator, :coordinator1)
     user = create(:user, :user5)
     teacher = create(:teacher)
 
@@ -91,7 +91,7 @@ feature 'Import Data from json' do
   scenario 'admin can regiser departments different than their department' do
     department = create(:department, :root)
     admin = create(:admin, :admin1)
-    coordinator = create(:coordinator, department_id: 1)
+    coordinator = create(:coordinator, :coordinator1, department_id: 1)
 
     visit '/admins/login'
 
