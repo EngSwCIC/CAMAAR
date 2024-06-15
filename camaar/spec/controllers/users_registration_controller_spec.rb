@@ -16,8 +16,11 @@ RSpec.describe Users::RegistrationsController, type: :controller do
     expect(User.find_by(email: user.email)).to_not be_nil
   end
   # it 'changes user attributes' do
-  #   put :update, params: { user: { email: 'jerry@test.com' } }
+  #   user = create(:user, :user1)
+  #   put :update,
+  #       params: { user: { email: user.email, password: 'xyz123',
+  #                         password_confirmation: 'xyz123' } }
   #   user.reload
-  #   expect(user.email).to eq 'jerry@test.com'
+  #   expect(user.email).to eq user.email
   # end
 end

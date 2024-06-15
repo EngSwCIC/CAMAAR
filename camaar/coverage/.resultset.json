@@ -1862,15 +1862,18 @@
           null,
           null,
           null,
-          1,
-          0,
+          null,
+          null,
           null,
           null,
           1,
-          null,
           null,
           1,
           2,
+          null,
+          null,
+          1,
+          0,
           null,
           null,
           null,
@@ -2375,17 +2378,6 @@
           1,
           1,
           null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          null,
           null
         ]
       },
@@ -2436,17 +2428,6 @@
           1,
           null,
           1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          null,
-          null,
           1,
           1,
           1,
@@ -2505,26 +2486,6 @@
           1,
           null
         ]
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/channels/application_cable/channel.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/channels/application_cable/connection.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
       },
       "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/controllers/admins_controller.rb": {
         "lines": [
@@ -3042,19 +3003,6 @@
         "branches": {
         }
       },
-      "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/jobs/application_job.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/home/jpantonow/Documents/Estudos/UNB/5o Semestre/ENG-SOFTWARE/camaar/CAMAAR/camaar/app/services/user_forgot_service.rb": {
         "lines": [
           0,
@@ -3082,6 +3030,6 @@
         }
       }
     },
-    "timestamp": 1718492367
+    "timestamp": 1718493277
   }
 }
