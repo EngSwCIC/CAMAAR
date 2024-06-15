@@ -27,9 +27,9 @@
             <div class="overview-item overview-item--nform">
               <div class="overview__inner">
                   <div class="overview-box clearfix">
-                      <%= link_to form.name, edit_form_path(form), class: "template-link" do %>
-                        <h1 class="template-name"><%= form.name %></h1>
-                      <% end %>
+                   <%= link_to edit_form_path(form), class: "template-link" do %>
+                    <h1 class="template-name"><%= form.name %></h1>
+                  <% end %>
                     <div class="icons-container">
                         <i class="fas fa-clock "></i>
                     </div>

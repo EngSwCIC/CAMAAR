@@ -3,18 +3,22 @@
     <div class="container-fluid">
       <div class="formbold-form-wrapper">
         <h1><%= @form.name %></h1>
-        <%= form_with(url: answers_path, method: "post") do |form| %>
-          <% @form_questions.each do |form_question| %>
-            <%= render partial: 'question', locals: { form_question: form_question, form:form } %>
-          <% end %>
-          <div class="row">
-            <div class="col">
-              <%= link_to "Cancelar", forms_path, class: "btn btn-danger btn-block", style: "height: 38px;" %>
+          <%= form_with(url: edit_form_path(@form), method: :post) do |form| %>        
+           
+           
+            <% @form_questions.each do |form_question| %>
+              <%= render partial: "question", locals: { form_question: form_question, form: form } %>
+            <% end %>
+
+
+            <div class="row">
+              <div class="col">
+                <%= link_to "Cancelar", forms_path, class: "btn btn-danger btn-block", style: "height: 38px;" %>
+              </div>
+              <div class="col">
+                <%= form.submit "Enviar", class: "btn btn-primary btn-block", style: "height: 38px;" %>
+              </div>
             </div>
-            <div class="col">
-              <%= form.submit "Enviar", class: "btn btn-primary btn-block", style: "height: 38px;" %>
-            </div>
-          </div>
         <% end %>
       </div>
     </div>

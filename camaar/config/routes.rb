@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   match "/errors/forbidden", to: "errors#forbidden", via: "get"
 
   scope "users" do
-    resources :answers, only: [:create]
-    resources :forms, only: [:index, :edit]
+    resources :forms do
+      resources :answers, only: [:create]
+    end
+
   end
 
   scope "admins" do

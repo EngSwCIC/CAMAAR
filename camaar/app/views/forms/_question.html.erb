@@ -1,5 +1,5 @@
  <% if form_question.question_type == "multiple_choice" %>
-  <div class="formbold-mb-5">
+   <div>
     <label for="<%= form_question.id %>" class="formbold-form-label">
       <%= form_question.title %>
     </label>
@@ -7,8 +7,8 @@
       <% JSON.parse(form_question.body).with_indifferent_access["options"].each do |option, value| %>
         <% if value.present? %>
           <div class="formbold-radio-group">
+            <input type="radio" name="question_<%= form_question.id %>" value="<%= "#{option}" %>" id="<%= "#{form_question.id}_#{option}" %>">
             <label for="<%= "#{form_question.id}_#{option}" %>" class="formbold-radio-label">
-              <%= form.radio_button :answers, false, id: "#{form_question.id}_#{option}" %>
               <%= value %>
             </label>
           </div>
@@ -19,13 +19,13 @@
 <% elsif form_question.question_type == "text" %>
   <div class="formbold-input-flex">
     <div>
-      <label for="reclamation_<%= form_question.id %>" class="formbold-form-label">
+      <label for="<%= form_question.id %>" class="formbold-form-label">
         <%= form_question.title %>
       </label>
       <input
-                    type="text"
-                    name="reclamation"
-                    id="reclamation_<%= form_question.id %>"
+        type="text"
+        name="question_<%= form_question.id %>"
+        id="<%= form_question.id %>"
         placeholder="Digite..."
         class="formbold-form-input"
         />

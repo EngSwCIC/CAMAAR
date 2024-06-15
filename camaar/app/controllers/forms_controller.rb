@@ -31,6 +31,9 @@ class FormsController < ApplicationController
     @form_questions = FormQuestion.where(form_id: @form.id)
   end
 
+  def update
+  end
+
   def export(form)
     create_graph(form)
     temp_file = Tempfile.new(["pie_graph", ".png"])
