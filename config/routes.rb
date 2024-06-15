@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  post 'save_template', to: 'templates#save_template'
+
+  get 'formulario_templates/index'
+  get 'formulario_templates/edit_template', to: 'formulario_templates#edit_template', as: 'edit_template'
+  root 'formulario_templates#index'
+  
   resources :reports_professors
   resources :reports_alunos
   resources :formulario_templates

@@ -1,0 +1,27 @@
+{
+  "templateName": "teste3",
+  "questions": [
+    {
+      "type": "radio",
+      "options": [
+        "Opção 1",
+        "Opção 2",
+        "Opção 3"
+      ]
+    },
+    {
+      "type": "text",
+      "options": [
+        "Opção 1",
+        "Opção 2"
+      ]
+    },
+    {
+      "type": "radio",
+      "options": [
+        "Opção 1",
+        "Opção 2"
+      ]
+    }
+  ]
+}

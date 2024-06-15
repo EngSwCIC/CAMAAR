@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_09_112953) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_13_124907) do
   create_table "alunos", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_09_112953) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nome"
+    t.string "name"
   end
 
   create_table "formularios", force: :cascade do |t|
@@ -55,6 +56,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_09_112953) do
     t.datetime "updated_at", null: false
     t.string "nome"
     t.integer "formulario_templates_id", null: false
+    t.string "question_type"
+    t.json "options"
     t.index ["formulario_templates_id"], name: "index_formularios_on_formulario_templates_id"
   end
 
@@ -94,6 +97,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_09_112953) do
     t.index ["reset_password_token"], name: "index_professors_on_reset_password_token", unique: true
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.integer "template_id", null: false
+    t.string "question_type"
+    t.text "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["template_id"], name: "index_questions_on_template_id"
+  end
+
   create_table "reports_alunos", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -108,6 +120,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_09_112953) do
     t.index ["formularios_id"], name: "index_reports_professors_on_formularios_id"
   end
 
+  create_table "templates", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "alunos_materias", "alunos"
   add_foreign_key "alunos_materias", "materia", column: "materia_id"
   add_foreign_key "formularios", "formulario_templates", column: "formulario_templates_id"
@@ -115,6 +133,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_09_112953) do
   add_foreign_key "materias_professors", "materia", column: "materia_id"
   add_foreign_key "materias_professors", "professors"
   add_foreign_key "professors", "departamentos"
+  add_foreign_key "questions", "templates"
   add_foreign_key "reports_alunos", "formularios", column: "formularios_id"
   add_foreign_key "reports_professors", "formularios", column: "formularios_id"
 end

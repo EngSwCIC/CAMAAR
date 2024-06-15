@@ -1,9 +1,170 @@
-<h1>New formulario template</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criação de Templates de Formulário</title>
+    <link rel="stylesheet" href="app/assets/stylesheets/Criacao_de_template.css">
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: linear-gradient(to right, rgb(223, 223, 223), rgb(189, 189, 189));
+        }
+    </style>
+    <div class="form-container" id="form-container">
+        <form>
+        <legend id="legend-NovoTemplate"><b>Novo Template</b></legend>
+        <br><br>
+        <fieldset>
+        <div class="form-group">
+            <input type="text" id="template-name" placeholder="">
+            <label id="label-TemplateName">Nome do Template</label>
+            <br><br>
+        </div>
+        <div id="questions-container"></div>
+        <br>
+        <button id="add-question" class="add-button" type="button">Adicionar Questão</button>
+        <br><br>
+        <button id="create-template" class="create-button" type="button">Criar</button>
+        </fieldset>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script>
+        const formContainer = document.getElementById('form-container');
+        const createButton = document.getElementById('create-template');
 
-<%= render "form", formulario_template: @formulario_template %>
+        createButton.addEventListener('mouseover', () => {
+            formContainer.classList.add('border-change');
+        });
 
-<br>
+        createButton.addEventListener('mouseout', () => {
+            formContainer.classList.remove('border-change');
+        });
 
-<div>
-  <%= link_to "Back to formulario templates", formulario_templates_path %>
-</div>
+        document.getElementById('template-name').addEventListener('input', function() {
+        if (this.value.length > 0) {
+          this.classList.add('has-text');
+          document.getElementById('label-TemplateName').classList.add('has-text');
+        } else {
+          this.classList.remove('has-text');
+          document.getElementById('label-TemplateName').classList.remove('has-text');
+        }
+        });
+
+        document.getElementById('add-question').addEventListener('click', addQuestion);
+        document.getElementById('create-template').addEventListener('click', createTemplate);
+
+        let questionCount = 0;
+
+        function addQuestion() {
+            questionCount++;
+
+            const questionContainer = document.createElement('div');
+            questionContainer.classList.add('form-group');
+            questionContainer.setAttribute('id', `question-${questionCount}`);
+            questionContainer.innerHTML = `
+                <label for="question-${questionCount}">Questão ${questionCount}</label>
+                <select id="question-type-${questionCount}" class="question-type" onchange="toggleOptions(${questionCount})">
+                    <option value="radio">Radio</option>
+                    <option value="text">Texto</option>
+                </select>
+                <div id="options-container-${questionCount}" class="options-container">
+                    <div class="option-buttons" id="option-buttons-${questionCount}">
+                        <button type="button" onclick="changeOptionCount(${questionCount}, -1)">-</button>
+                        <span class="option-count" id="option-count-${questionCount}">0</span>
+                        <button type="button" onclick="changeOptionCount(${questionCount}, 1)">+</button>
+                    </div>
+                </div>
+                <button type="button" class="remove-button" onclick="removeQuestion(${questionCount})">X</button>
+            `;
+
+            document.getElementById('questions-container').appendChild(questionContainer);
+        }
+
+        function changeOptionCount(questionNumber, delta) {
+            const optionCountSpan = document.getElementById(`option-count-${questionNumber}`);
+            let optionCount = parseInt(optionCountSpan.textContent);
+            optionCount = Math.max(0, optionCount + delta);
+            optionCountSpan.textContent = optionCount;
+        }
+
+        function toggleOptions(questionNumber) {
+            const type = document.getElementById(`question-type-${questionNumber}`).value;
+            const optionButtons = document.getElementById(`option-buttons-${questionNumber}`);
+
+            if (type === 'text') {
+                optionButtons.style.display = 'none';
+            } else {
+                optionButtons.style.display = 'flex';
+            }
+        }
+
+        function removeQuestion(questionNumber) {
+            const questionContainer = document.getElementById(`question-${questionNumber}`);
+            questionContainer.remove();
+            updateQuestionNumbers();
+        }
+
+        function updateQuestionNumbers() {
+            const questionsContainer = document.getElementById('questions-container');
+            const questionContainers = questionsContainer.children;
+            questionCount = questionContainers.length;
+
+            for (let i = 0; i < questionCount; i++) {
+                const questionContainer = questionContainers[i];
+                const questionNumber = i + 1;
+                questionContainer.id = `question-${questionNumber}`;
+                questionContainer.querySelector('label').setAttribute('for', `question-${questionNumber}`);
+                questionContainer.querySelector('label').textContent = `Questão ${questionNumber}`;
+                questionContainer.querySelector('.question-type').setAttribute('id', `question-type-${questionNumber}`);
+                questionContainer.querySelector('.question-type').setAttribute('onchange', `toggleOptions(${questionNumber})`);
+                questionContainer.querySelector('.options-container').setAttribute('id', `options-container-${questionNumber}`);
+                questionContainer.querySelector('.option-buttons').setAttribute('id', `option-buttons-${questionNumber}`);
+                questionContainer.querySelector('.option-count').setAttribute('id', `option-count-${questionNumber}`);
+                questionContainer.querySelector('.remove-button').setAttribute('onclick', `removeQuestion(${questionNumber})`);
+            }
+        }
+
+        function createTemplate() {
+            const templateName = document.getElementById('template-name').value;
+            const questions = [];
+            const questionContainers = document.getElementById('questions-container').children;
+
+            for (let container of questionContainers) {
+                const questionNumber = container.id.split('-')[1];
+                const type = document.getElementById(`question-type-${questionNumber}`).value;
+                const optionCount = parseInt(document.getElementById(`option-count-${questionNumber}`).textContent);
+                const options = Array(optionCount).fill(null).map((_, idx) => `Opção ${idx + 1}`);
+
+                questions.push({ type, options });
+            }
+
+            const templateData = { templateName, questions };
+
+            fetch('/save_template', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ template: templateData }),
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao salvar o template');
+            });
+        }
+    </script>
+</body>
+</html>

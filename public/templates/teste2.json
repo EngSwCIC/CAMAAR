@@ -1,0 +1,57 @@
+{
+  "templateName": "teste2",
+  "questions": [
+    {
+      "type": "radio",
+      "options": [
+        "Opção 1",
+        "Opção 2",
+        "Opção 3"
+      ]
+    },
+    {
+      "type": "radio",
+      "options": [
+        "Opção 1"
+      ]
+    },
+    {
+      "type": "radio",
+      "options": [
+        "Opção 1",
+        "Opção 2",
+        "Opção 3"
+      ]
+    },
+    {
+      "type": "radio",
+      "options": [
+        "Opção 1",
+        "Opção 2",
+        "Opção 3",
+        "Opção 4"
+      ]
+    },
+    {
+      "type": "radio",
+      "options": [
+        "Opção 1",
+        "Opção 2",
+        "Opção 3"
+      ]
+    },
+    {
+      "type": "radio",
+      "options": [
+        "Opção 1",
+        "Opção 2"
+      ]
+    },
+    {
+      "type": "text",
+      "options": [
+
+      ]
+    }
+  ]
+}

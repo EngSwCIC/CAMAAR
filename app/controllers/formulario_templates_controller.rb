@@ -15,8 +15,23 @@ class FormularioTemplatesController < ApplicationController
     @formulario_template = FormularioTemplate.new
   end
 
+  def set_no_cache
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+  end
+
   # GET /formulario_templates/1/edit
   def edit
+  end
+
+  # GET /formulario_templates/edit_no_params
+  def edit_template
+    templates_dir = Rails.root.join('public', 'templates')
+    @files = Dir.children(templates_dir).select { |file| file.end_with?('.json') }
+
+    @formulario_template = FormularioTemplate.first # ou outro critério
+    render :edit
   end
 
   # POST /formulario_templates or /formulario_templates.json
@@ -49,7 +64,7 @@ class FormularioTemplatesController < ApplicationController
 
   # DELETE /formulario_templates/1 or /formulario_templates/1.json
   def destroy
-    @formulario_template.destroy!
+    @formulario_template.destroy
 
     respond_to do |format|
       format.html { redirect_to formulario_templates_url, notice: "Formulario template was successfully destroyed." }
@@ -65,6 +80,6 @@ class FormularioTemplatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def formulario_template_params
-      params.require(:formulario_template).permit(:forms_id)
+      params.require(:formulario_template).permit(:name, :content)
     end
 end

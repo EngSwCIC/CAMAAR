@@ -1,10 +1,161 @@
-<h1>Editing formulario template</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Templates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        #buttons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1400px;
+        }
+        .button {
+            padding: 20px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 20px;
+            border: 3px solid purple;
+            transition: 0.5s;
+        }
+        .button:hover {
+            background-color: purple;
+            transform: scale(1.1);
+        }
+        /* Modal styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            padding-top: 60px; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; 
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4); 
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal-button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.5s;
+        }
+        .modal-button:hover{
+          border-radius: 20px;
+          transform: scale(1.05);
+        }
+        .view-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .view-button:hover {
+          background-color: purple;
+        }
+        .delete-button {
+            background-color: #f44336;
+            color: white;
+        }
+        .delete-button:hover{
+          background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <h1>JSON Templates</h1>
+    <div id="buttons-container">
+        <% @files.each do |file| %>
+            <button class="button" onclick="openModal('<%= file %>')"><%= file.split('.json')[0] %></button>
+        <% end %>
+    </div>
 
-<%= render "form", formulario_template: @formulario_template %>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modal-text"></p>
+            <button class="modal-button view-button" onclick="viewFile()">View</button>
+            <button class="modal-button delete-button" onclick="deleteFile()">Delete</button>
+        </div>
+    </div>
 
-<br>
+    <script>
+        let selectedFile = '';
 
-<div>
-  <%= link_to "Show this formulario template", @formulario_template %> |
-  <%= link_to "Back to formulario templates", formulario_templates_path %>
-</div>
+        function openModal(file) {
+            selectedFile = file;
+            document.getElementById('modal-text').innerText = `O que deseja fazer com "${file.split('.json')[0]}"?`;
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        function viewFile() {
+            closeModal();
+            console.log(`Viewing file: ${selectedFile}`);
+            // Add your view file logic here
+        }
+
+        function deleteFile() {
+            closeModal();
+            console.log(`Deleting file: ${selectedFile}`);
+            // Add your delete file logic here
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
