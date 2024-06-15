@@ -24,4 +24,15 @@ Rails.application.routes.draw do
     # delete "/:id", to: "turmas#destroy"
   end
 
+  scope "/matriculas" do
+    post "/create", to: "matriculas#create"
+    delete "/:id", to: "matriculas#delete"
+    get "/", to: "matriculas#index"
+    # get "/:id", to: "matriculas#show"
+    # get "/new", to: "matriculas#new"
+    # get "/:id/edit", to: "matriculas#edit"
+    # patch "/:id", to: "matriculas#update"
+    # put "/:id", to: "matriculas#update"
+  end
+
 end
