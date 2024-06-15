@@ -1,19 +1,17 @@
 class AnswersController < ApplicationController
   before_action :set_user_data
-  layout 'user'
+  layout "user"
 
   def create
-    Rails.logger.debug("Received params: #{params.inspect}")
-
     occupation = current_user.occupation
 
     case occupation
-    when 'discente'
+    when "discente"
       answers_params = params[:answers]
 
       answers_params.each do |question_id, answer|
         form_question = FormQuestion.find(question_id.to_i)
-        next unless form_question  # Verifica se a questão existe no banco de dados
+        next unless form_question
 
         StudentAnswer.create(
           answers: { question_id => answer }.to_json,
@@ -21,12 +19,12 @@ class AnswersController < ApplicationController
           student_id: current_user.id
         )
       end
-    when 'docente'
+    when "docente"
       answers_params = params[:answers]
 
       answers_params.each do |question_id, answer|
         form_question = FormQuestion.find(question_id.to_i)
-        next unless form_question  # Verifica se a questão existe no banco de dados
+        next unless form_question
 
         TeacherAnswer.create(
           answers: { question_id => answer }.to_json,
@@ -36,7 +34,7 @@ class AnswersController < ApplicationController
     end
   end
 
-    redirect_to forms_path, notice: 'Respostas enviadas com sucesso.'
+    redirect_to forms_path
   end
 
   def show
