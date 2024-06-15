@@ -33,6 +33,12 @@ class TelasController < ApplicationController
   end
 
   def cadastro_aluno
-    
+    @senha = params["senha"]["senha"]
+    @id = params["senha"]["id"]
+    puts @senha
+    puts @id
+
+    usuario = User.new(matricula:Aluno.find(@id).matricula, email:Aluno.find(@id).email, password:@senha, password_confirmation:@senha)
+    usuario.save!
   end
 end
