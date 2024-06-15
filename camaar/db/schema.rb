@@ -66,7 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_06_181536) do
   end
 
   create_table "forms", force: :cascade do |t|
-    t.string "role", default: "student"
+    t.string "role", default: "discente"
     t.boolean "open", default: false
     t.string "name"
     t.datetime "created_at", null: false
@@ -78,7 +78,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_06_181536) do
   end
 
   create_table "student_answers", force: :cascade do |t|
-    t.integer "question_type"
     t.json "answers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -119,7 +118,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_06_181536) do
   end
 
   create_table "teacher_answers", force: :cascade do |t|
-    t.integer "question_type"
     t.json "answers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -156,7 +154,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_06_181536) do
   end
 
   create_table "templates", force: :cascade do |t|
-    t.string "name", default: "Draft"
+    t.string "name", default: "draft"
+    t.string "role", default: "discente"
     t.boolean "draft", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

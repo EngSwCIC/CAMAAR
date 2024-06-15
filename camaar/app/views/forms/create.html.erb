@@ -1,0 +1,96 @@
+<div class="main-content">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-7">
+        <% if flash %>
+          <% flash.each do |key, message| %>
+            <% if key == 'warning' %>
+              <p class="alert alert-warning">
+                <%= message %>
+              </p>
+            <% elsif key == 'success' %>
+              <p class="alert alert-success">
+                <%= message %>
+              </p>
+            <% end %>
+          <% end %>
+        <% end %>
+          <div class="card">
+            <div class="card-header text-center">
+              <strong>Opções para Envio</strong>
+            </div>
+            <div class="card-body card-block">
+              <%= form_with url: admins_envio_post_path, method: :post, class: "form-horizontal" do %>
+
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="professores_select" class="form-control-label">Professores</label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <select name="professor_template_id" id="professores_select" class="form-control">
+                      <% if @teacher_templates.present? %>
+                        <option value="">Selecione um Template</option>
+                        <% @teacher_templates.each do |template| %>
+                          <option value="<%= template.id %>"><%= template.name %></option>
+                        <% end %>
+                      <% else %>
+                        <option value="" disabled selected>Nenhum template disponível</option>
+                      <% end %>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="alunos_select" class="form-control-label">Alunos</label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <select name="aluno_template_id" id="alunos_select" class="form-control">
+                      <% if @student_templates.present? %>
+                        <option value="">Selecione um Template</option>
+                        <% @student_templates.each do |template| %>
+                          <option value="<%= template.id %>"><%= template.name %></option>
+                        <% end %>
+                      <% else %>
+                        <option value="" disabled selected>Nenhum template disponível</option>
+                      <% end %>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label class="form-control-label">Turmas</label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <% if @classes.present? %>
+                      <% @classes.each do |classe| %>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="turma_ids[]" value="<%= classe.id %>" id="turma_<%= classe.id %>">
+                          <label class="form-check-label" for="turma_<%= classe.id %>"><%= classe.name %></label>
+                        </div>
+                      <% end %>
+                    <% else %>
+                      <p>Nenhuma turma disponível</p>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="card-footer justify-content-center align-items-center text-center">
+                  <button type="reset" class="btn btn-danger btn-sm">
+                    <i class="fa fa-ban"></i> Cancelar
+                  </button>
+                  <button type="submit" class="btn btn-success btn-sm">
+                    <i class="fa fa-dot-circle-o"></i> Enviar
+                  </button>
+                </div>
+
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

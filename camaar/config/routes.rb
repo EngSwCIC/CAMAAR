@@ -24,8 +24,8 @@ Rails.application.routes.draw do
     match "/import", to: "admins#importdata", via: "get", as: "admins_import"
     match "/import", to: "admins#import", via: "post", as: "admins_import_post"
 
-    match "/envio", to: "admins#envio", via: "get"
-    match "/envio", to: "admins#envio", via: "post", as: "admins_envio_post"
+    match "/dispatch", to: "forms#create", via: "get"
+    match "/dispatch", to: "forms#create", via: "post", as: "admins_envio_post"
   end
 
   devise_scope :user do
