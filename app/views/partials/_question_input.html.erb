@@ -3,4 +3,14 @@
     <span>
         <input type='text'>
     </span>
+<% when 'MultipleChoiceQuestion'%>
+    <% if question.options.nil? %>
+        No options available.
+    <% else %>
+        <ul>
+            <% question.options.each do |option| %>
+                <li><%= option  %></b></li>
+            <% end %>
+        </ul>
+    <% end %>
 <% end %>

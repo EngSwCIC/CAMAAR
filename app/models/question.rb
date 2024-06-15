@@ -3,7 +3,7 @@
 # Basic question type. Has no input.
 #
 class Question < ApplicationRecord
-  belongs_to :template
+  belongs_to :template # TODO: Use `{ polymorphic: true }` once we create the forms table
 
   def input?
     false
