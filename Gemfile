@@ -74,4 +74,6 @@ group :test do
   gem "rspec-rails"
 end
 
+gem 'json', '~> 2.7', '>= 2.7.2'
+
 gem "tailwindcss-rails", "~> 2.6"
