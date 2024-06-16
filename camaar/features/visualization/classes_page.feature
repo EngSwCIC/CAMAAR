@@ -11,15 +11,17 @@ Feature: View department classes
         Then I expect to see "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
 
     Scenario: Coordinator from CIC see classes
-        Given that I imported classes for the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
-        Then I expect to see the following:
-            | BANCOS DE DADOS         |
-            | ENGENHARIA DE SOFTWARE  |
-            | PROGRAMAÇÃO CONCORRENTE |
+        Given that I imported classes for "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+        And I am on the "Meu Departamento" page
+        Then I should see the following on Turmas:
+        | Nome                    | Semestre | Código  | Turma     | Horário  |
+        | BANCOS DE DADOS         | 2021.2   | CIC0097 | TA        | 35T45    |
+        | ENGENHARIA DE SOFTWARE  | 2021.2   | CIC0105 | TA        | 35M12    |
+        | PROGRAMAÇÃO CONCORRENTE | 2021.2   | CIC0202 | TA        | 35M34    |
 
     Scenario: There are no classes for the department
-        Given the "DEPTO CIÊNCIAS DA COMPUTAÇÃO" department has no classes
-        When I follow "Turmas"
+        Given that the department "DEPTO CIÊNCIAS DA COMPUTAÇÃO" has no classes
+        And I am on the "Meu Departamento" page
         Then I expect to see "O departamento não possui turmas"
 
         Then I expect to see "Importar turmas"

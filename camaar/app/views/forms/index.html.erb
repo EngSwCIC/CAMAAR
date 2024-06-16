@@ -1,51 +1,39 @@
 <div class="main-content">
   <div class="section__content section__content--p30">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="overview-wrap">
-            <h2 class="title-1">Formulários Pendentes</h2>
-          </div>
-        </div>
-      </div>
       <div>
-        <br>
-        <% if @errors.any? %>
-          <div>
-            <% @errors.each do |e| %>
-              <p class="alert alert-warning">
-                <%= e %>
-              </p>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-      <div class="row m-t-25">
-          
-    <% @forms.each do |form| %>
-          <div class="col-sm-6 col-lg-3">
-            <div class="overview-item overview-item--nform">
-              <div class="overview__inner">
-                  <div class="overview-box clearfix">
-                  <div class="text">
-                   <%= link_to edit_form_path(form), class: "template-link" do %>
-                    <h1 class="template-name"><%= form.name %></h1>
-                  <% end %>
-                    <div class="icons-container">
-                        <i class="fas fa-clock "></i>
-                    </div>
-                  </div>
-                </div>
-                </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="overview-wrap">
+              <% if @filter == "pending" %>
+                <h2 class="title-1">Formulários Pendentes</h2>
+              <% else %>
+                <h2 class="title-1">Formulários Respondidos</h2>
+              <% end %>
             </div>
           </div>
-        <% end %>
+        </div>
+        <div class="row m-t-25">
+          <% @forms.each do |form| %>
+            <div class="col-sm-6 col-lg-3">
+              <div class="overview-item overview-item--nform">
+                <div class="overview__inner">
+                  <div class="overview-box clearfix">
+                    <div class="text">
+                      <%= link_to edit_form_path(form), class: "template-link" do %>
+                        <h1 class="template-name"><%= form.name %></h1>
+                      <% end %>
+                      <div class="icons-container">
+
+                        <i class="fas fa-clock "></i>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-

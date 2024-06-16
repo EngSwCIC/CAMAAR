@@ -7,8 +7,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     build_resource(email: params[:user_email])
-    yield self.resource if block_given?
-    respond_with self.resource
+    yield resource if block_given?
+    respond_with resource
   end
 
   # POST /resource
@@ -18,13 +18,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-    super
+    render :'errors/forbidden', status: :forbidden
   end
 
   # PUT /resource
-  def update
-    super
-  end
+  # def update
+  #   super
+  # end
 
   # DELETE /resource
   def destroy
@@ -36,21 +36,31 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # in to be expired now. This is useful if the user wants to
   # cancel oauth signing in/up in the middle of the process,
   # removing all OAuth session data.
-  def cancel
-    super
-  end
+  # def cancel
+  #   super
+  # end
 
   protected
 
+  def sign_up_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
+  # def account_update_params
+  #   params.require(:user).permit(:email, :password, :password_confirmation)
+  # end
+
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+    added_attrs = %i[email password password_confirmation remember_me]
+    devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  end
+  # def configure_account_update_params
+  #   added_attrs = %i[email password password_confirmation remember_me]
+  #   devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)
+  # end
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
