@@ -1,3 +1,5 @@
+require "csv"
+
 class AnswersController < ApplicationController
   before_action :set_user_data
   layout "user"
@@ -37,42 +39,6 @@ class AnswersController < ApplicationController
     redirect_to forms_path
   end
 
-  def show
-    @form = Form.find_by_id(params[:id])
-    @form_questions = FormQuestion.where(form_id: @form.id)
-    @subject_class = SubjectClass.find_by_id(@form.subject_class_id)
-
-    @answers = {
-      "text" => [],
-      "multiple_choice" => {
-        1 => 0,
-        2 => 0,
-        3 => 0,
-        4 => 0,
-        5 => 0,
-      },
-    }
-
-    @form_questions.each do |question|
-      if @form.role == "discente"
-        answers = StudentAnswer.where(question_id: question.id)
-        answers.each do |answ|
-          body = JSON.parse(answ.body)
-          case question.question_type
-          when "text"
-            @answers["text"] << body
-          when "multiple_choice"
-            5.times.each do |i|
-              @answers["multiple_choice"][i] += 1 if body["answer"][i]
-            end
-          end
-        end
-      else
-        @answers[question] = TeacherAnswer.where(question_id: question.id)
-      end
-    end
-  end
-
   def create_answer_body(answer)
     question_body = JSON.parse(@form_question.body)
     answer_body = { "answers" => {} }
@@ -86,7 +52,7 @@ class AnswersController < ApplicationController
         end
       end
     else
-      answer_body = answer
+      answer_body["answers"] = answer
     end
 
     return answer_body.to_json

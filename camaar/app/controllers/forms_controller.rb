@@ -29,14 +29,16 @@ class FormsController < ApplicationController
       @answered_forms = []
 
       @forms.each do |form|
+        @form_questions = FormQuestion.where(form_id: form.id)
+
         case occupation
         when "discente"
-          answers = StudentAnswer.where(form_id: form.id)
+          answers = StudentAnswer.where(form_question_id: @form_questions.pluck(:id))
         when "docente"
-          answers = TeacherAnswer.where(form_id: form.id)
+          answers = TeacherAnswer.where(form_question_id: @form_questions.pluck(:id))
         end
 
-        if answers
+        if answers.any?
           @answered_forms << form
         else
           @pending_forms << form
@@ -59,7 +61,7 @@ class FormsController < ApplicationController
   def update
   end
 
-  def export(form)
+  def export_graph(form)
     create_graph(form)
     temp_file = Tempfile.new(["pie_graph", ".png"])
     graph.write(temp_file.path)

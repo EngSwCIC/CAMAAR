@@ -194,14 +194,13 @@ class AdminsController < ApplicationController
     when "3"
       root_dpto = Department.find_by(initials: "ROOT")
       if root_dpto.nil?
-        flash[:error] = 'Você não é admin ROOT'
-        return redirect_to '/admins/import'
+        flash[:error] = "Você não é admin ROOT"
+        return redirect_to "/admins/import"
       end
       root_cord = Coordinator.find_by(department_id: root_dpto.id)
       if root_cord.nil?
-        flash[:error] = 'Você não é admin ROOT'
-        return redirect_to '/admins/import'
-
+        flash[:error] = "Você não é admin ROOT"
+        return redirect_to "/admins/import"
       end
       if current_admin.email == root_cord.email
         departamentos = JSON.parse(File.read(json))
@@ -213,17 +212,95 @@ class AdminsController < ApplicationController
           )
         end
       else
-        flash[:error] = 'Você não é admin ROOT'
-
+        flash[:error] = "Você não é admin ROOT"
       end
       redirect_to "/admins/import"
     end
   end
 
-  def resultados
-    @forms = Form.where({ coordinator_id: @coordinator.id })
-    if @forms.empty?
-      @errors << "Não foram enviados templates."
+  def results
+    @forms = Form.where(coordinator_id: @coordinator.id)
+
+    answered_forms = []
+    @forms.each do |form|
+      @form_questions = FormQuestion.where(form_id: form.id)
+
+      occupation = form.role
+      case occupation
+      when "discente"
+        answers = StudentAnswer.where(form_question_id: @form_questions.pluck(:id))
+      when "docente"
+        answers = TeacherAnswer.where(form_question_id: @form_questions.pluck(:id))
+      end
+
+      if answers.any?
+        answered_forms << form
+      end
     end
+    @forms = answered_forms
+
+    case params[:export]
+    when "csv"
+      @form = Form.find_by_id(params[:form_id])
+      @form_questions = FormQuestion.where(form_id: @form.id)
+      export_to_csv
+    when "graph"
+    end
+  end
+
+  def export_to_csv
+    csv_string = generate_csv
+    csv_data = CSV.parse(csv_string, headers: true)
+
+    file_path = Rails.root.join("export", "#{@form.id}_#{@form.name}_results.csv")
+    directory_path = File.dirname(file_path)
+    FileUtils.mkdir_p(directory_path) unless File.directory?(directory_path)
+
+    CSV.open(file_path, "w") do |csv|
+      csv << csv_data.headers
+
+      csv_data.each do |row|
+        csv << row
+      end
+    end
+  end
+
+  def generate_csv
+    table = []
+    @form_questions.each do |question|
+      if @form.role == "discente"
+        answers = StudentAnswer.where(form_question_id: question.id)
+      else
+        answers = TeacherAnswer.where(form_question_id: question.id)
+      end
+
+      line = [question.title]
+
+      answers.each do |answ|
+        answer_body = JSON.parse(answ.answers)["answers"]
+        case question.question_type
+        when "text"
+          line << answer_body
+        when "multiple_choice"
+          answer_body.each do |num, selected|
+            line << num.to_i if selected
+          end
+        end
+      end
+      table << line
+    end
+
+    head = ["Questão"]
+    (table[0].length - 1).times do |i|
+      head << "Resposta #{i + 1}"
+    end
+    table.unshift(head)
+
+    csv_string = CSV.generate do |csv|
+      table.each do |row|
+        csv << row
+      end
+    end
+    return csv_string
   end
 end
