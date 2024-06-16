@@ -1,6 +1,8 @@
 <% flash.each do |type, messages| %>
   <% css_class = case type.to_sym
-                when :notice then 'alert alert-success'
+                when :success then 'alert alert-success'
+                when :notice then 'alert alert-primary'
+                when :warning then 'alert alert-warning'
                 when :alert then 'alert alert-danger'
                 when :error then 'alert alert-danger'
                 else 'alert alert-warning'

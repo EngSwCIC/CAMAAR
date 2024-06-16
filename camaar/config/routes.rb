@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   match '/users/page', to: 'users#page', via: 'get'
   match '/errors/forbidden', to: 'errors#forbidden', via: 'get'
 
-  scope 'users' do
-    resources :answers, only: [:create]
-    resources :forms, only: %i[index edit]
+
+  scope "users" do
+    resources :forms do
+      resources :answers, only: [:create]
+    end
+
   end
 
   scope 'admins' do
@@ -24,8 +27,9 @@ Rails.application.routes.draw do
     match '/import', to: 'admins#importdata', via: 'get', as: 'admins_import'
     match '/import', to: 'admins#import', via: 'post', as: 'admins_import_post'
 
-    match '/envio', to: 'admins#envio', via: 'get'
-    match '/envio', to: 'admins#envio', via: 'post', as: 'admins_envio_post'
+
+    match "/dispatch", to: "admins#envio", via: "get"
+    match "/dispatch", to: "admins#envio", via: "post", as: "admins_envio_post"
   end
 
   devise_scope :user do

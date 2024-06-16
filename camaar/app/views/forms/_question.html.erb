@@ -1,4 +1,4 @@
- <% if form_question.question_type == "multiple_choice" %>
+<% if form_question.question_type == "multiple_choice" %>
   <div class="formbold-mb-5">
     <label for="<%= form_question.id %>" class="formbold-form-label">
       <%= form_question.title %>
@@ -19,16 +19,10 @@
 <% elsif form_question.question_type == "text" %>
   <div class="formbold-input-flex">
     <div>
-      <label for="reclamation_<%= form_question.id %>" class="formbold-form-label">
+      <label for="answer_<%= form_question.id %>" class="formbold-form-label">
         <%= form_question.title %>
       </label>
-      <input
-                    type="text"
-                    name="reclamation"
-                    id="reclamation_<%= form_question.id %>"
-        placeholder="Digite..."
-        class="formbold-form-input"
-        />
-      </div>
+      <%= text_field_tag "answers[#{form_question.id}]", nil, placeholder: "Digite...", class: "formbold-form-input" %>
     </div>
-  <% end %>
+  </div>
+<% end %>

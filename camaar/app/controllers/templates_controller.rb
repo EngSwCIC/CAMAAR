@@ -34,6 +34,7 @@ class TemplatesController < ApplicationController
     if @questions.any?
       template = @template.update(
         name: @template_name,
+        role: @role,
         draft: false,
       )
 
@@ -65,6 +66,7 @@ class TemplatesController < ApplicationController
 
   def save_template_data
     @template_name = params[:template][:name] if not params[:template][:name].empty?
+    @role = params[:template][:role] if not params[:template][:role].empty?
   end
 
   def get_admin_templates
@@ -79,7 +81,8 @@ class TemplatesController < ApplicationController
 
     @template = Template.find_by_id(params[:id])
     if @template
-      @template_name = params[:name] || @template.name
+      @template_name = @template.name|| params[:name]
+      @role = @template.role || params[:role]
       @questions = TemplateQuestion.where({ template_id: @template.id })
     else
       flash[:alert] = "Não foi possível encontrar o template."

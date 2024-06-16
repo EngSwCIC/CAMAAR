@@ -2,12 +2,16 @@
   <div class="section__content section__content--p30">
     <div class="container-fluid">
       <div class="formbold-form-wrapper">
-        <div class="formbold-form-wrapper">
-          <%=form_with model: @template, method: :put  do |f|%>
+          <%= form_with model: @template, method: :put do |f|%>
+
             <div class="form-group form-inline">
-              <%= f.label :name, "Nome do template:" , class: "mr-2"%>
-              <%= f.text_field :name, class: "form-control form-control-sm",id: "name", value: @template.name %>
+              <%= f.label :name, "Nome do template:", class: "mr-2"%>
+              <%= f.text_field :name, class: "form-control form-control-sm", id: "name", value: @template.name %>
+
+              <%= f.label :role, "Tipo de template:", class: "mr-2" %>
+              <%= f.select :role, options_for_select([["Discente", "discente"], ["Docente", "docente"]], @role) %>
             </div>
+
             <% if @questions %>
               <div>
                 <% @questions.each_with_index do |question,index| %>
@@ -17,15 +21,17 @@
                 <% end %>
               </div>
             <% end %>
+
             <div>
               <%= f.button "Excluir", class:"btn btn-danger btn-sm", name:"commit", value:"delete", id:"delete" %>
               <%= link_to "Cancelar", templates_path,class:"btn btn-danger btn-sm",   id: 'cancel' %>
               <%= f.button "Salvar" , class:"btn btn-success btn-sm" , name:"save", value:"save",id: "save" %>
               <%= link_to "Adicionar questão", new_template_template_question_path(@template), class: "btn btn-primary btn-sm",name: "add_question", id: "add_question" %>
             </div>
+
           <% end %>
-        </div>
-        <%= render '/layouts/flashes' %>
+      
+          <%= render '/layouts/flashes' %>   
       </div>
     </div>
   </div>
