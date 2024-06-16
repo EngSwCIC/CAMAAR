@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+
+  get 'view_file_form', to: 'formularios#view_file_form'
+  delete 'delete_file_form', to: 'formularios#delete_file_form'
+  # Adicione a rota para criação de novos formulários se necessário
+  get 'new_formulario', to: 'formularios#new'
+  get 'formularios', to: 'formularios#index'
+  
+  resources :formularios
+  post 'save_formulario', to: 'formularios#save_formulario'
+
   post 'save_template', to: 'templates#save_template'
 
   get 'formulario_templates/index'

@@ -1,9 +1,324 @@
-<h1>New formulario</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escolha de Template</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient(to right, rgb(223, 223, 223), rgb(189, 189, 189));
+    }
 
-<%= render "form", formulario: @formulario %>
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    .form-group {
+      margin-bottom: 1em;
+    }
+    .actions {
+      text-align: center;
+    }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.4);
+      padding-top: 60px;
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%;
+    }
+    .close {
+      margin: auto;
+      background-color: red;
+      color: red;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      cursor: pointer;
+    }
+    .option-group {
+      margin-left: 50px;
+      font-size: 0.9em;
+    }
+    .option-input {
+      border: none;
+      border-bottom: 1px solid #ccc;
+      width: calc(100% - 20px);
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+    .option-input:focus {
+      outline: none;
+      border-bottom: 2px solid #000;
+    }
+    .title {
+      color: purple;
+    }
 
-<br>
+    .SubmitButton {
+      background-color: #00ff3c;
+      color: #ffffff;
+      width: 200px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.5s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-<div>
-  <%= link_to "Back to formularios", formularios_path %>
-</div>
+    .SubmitButton:hover {
+      background-color: #00cc32;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+      width: 250px;
+    }
+
+    .SubmitButton:active {
+      background-color: #00b12d;
+      transform: translateY(0);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .ConfirmButton {
+      background-color: darkviolet;
+      color: #ffffff;
+      width: 200px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .ConfirmButton:hover {
+      background-color: purple;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+      width: 250px;
+    }
+
+    .ConfirmButton:active {
+      background-color: #00b12d;
+      transform: translateY(0);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Specific styles for formName, professorName, and semester input and label */
+    .form-group.animated-input {
+      position: relative;
+    }
+    .form-group.animated-input input {
+      border: none;
+      border-bottom: 1px solid #ccc;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .form-group.animated-input input:focus {
+      outline: none;
+      border-bottom: 2px solid #000;
+    }
+    .form-group.animated-input label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 16px;
+      color: #999;
+      transition: all 0.5s ease;
+      pointer-events: none;
+    }
+    .form-group.animated-input input:focus + label,
+    .form-group.animated-input input:not(:placeholder-shown) + label {
+      top: -20px;
+      left: 0;
+      font-size: 15px;
+      color: darkviolet;
+    }
+  </style>
+</head>
+<body>
+  <a href="<%= formularios_path %>" class="button-back">Voltar</a>
+  <div class="form-container">
+    <h2>Escolha um Template</h2>
+    <div class="form-group">
+      <label for="templateSelect">Templates Disponíveis:</label>
+      <select id="templateSelect" class="form-control">
+        <% @templates.each do |template| %>
+          <option value="<%= template %>"><%= template %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="actions">
+      <button type="button" class="ConfirmButton" onclick="confirmTemplate()"><strong>Confirmar Template</strong></button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="questionsModal" class="modal">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal()">Fechar</button>
+      <br><br>
+      <h3 class="title">Novo Formulário</h3>
+      <br>
+      <div class="form-group animated-input">
+        <input type="text" id="formName" name="formName" class="form-control" placeholder=" ">
+        <label for="formName">Nome do Formulário</label>
+      </div>
+      <div class="form-group animated-input">
+        <input type="text" id="professorName" name="professorName" class="form-control" placeholder=" ">
+        <label for="professorName">Professor</label>
+      </div>
+      <div class="form-group animated-input">
+        <input type="text" id="semester" name="semester" class="form-control" placeholder=" ">
+        <label for="semester">Semestre</label>
+      </div>
+      <form id="questionsFormContainer">
+        <!-- Questions will be inserted here -->
+      </form>
+      <div class="actions">
+        <button class="SubmitButton" onclick="submitQuestions()"><strong>Salvar Formulário</strong></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function loadTemplate(templateName) {
+      const response = await fetch(`/templates/${templateName}.json`);
+      return await response.json();
+    }
+
+    async function confirmTemplate() {
+      const templateSelect = document.getElementById('templateSelect');
+      const selectedTemplate = templateSelect.value;
+      const template = await loadTemplate(selectedTemplate);
+
+      const questionsFormContainer = document.getElementById('questionsFormContainer');
+
+      // Clear previous questions
+      questionsFormContainer.innerHTML = '';
+
+      // Add questions based on the template
+      template.questions.forEach((question, index) => {
+        const formGroup = document.createElement('div');
+        formGroup.className = 'form-group';
+
+        // Input for the question text
+        const questionLabel = document.createElement('label');
+        questionLabel.innerHTML = `Questão ${index + 1}:`;
+        const questionInput = document.createElement('input');
+        questionInput.type = 'text';
+        questionInput.name = `question_${index}`;
+        questionInput.className = 'form-control';
+
+        formGroup.appendChild(questionLabel);
+        formGroup.appendChild(questionInput);
+
+        // If the question type is checkbox, add inputs for options
+        if (question.type === 'checkbox') {
+          const optionGroup = document.createElement('div');
+          optionGroup.className = 'option-group';
+
+          question.options.forEach((option, optionIndex) => {
+            const optionInput = document.createElement('input');
+            optionInput.type = 'text';
+            optionInput.name = `question_${index}_option_${optionIndex}`;
+            optionInput.className = 'option-input';
+            optionInput.placeholder = `Opção ${optionIndex + 1}`; // Placeholder for option text
+
+            optionGroup.appendChild(optionInput);
+          });
+
+          formGroup.appendChild(optionGroup);
+        }
+
+        questionsFormContainer.appendChild(formGroup);
+      });
+
+      // Display the modal
+      const modal = document.getElementById('questionsModal');
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('questionsModal');
+      modal.style.display = "none";
+    }
+
+    async function submitQuestions() {
+      const formName = document.getElementById('formName').value;
+      const professorName = document.getElementById('professorName').value;
+      const semester = document.getElementById('semester').value;
+      const questionsFormContainer = document.getElementById('questionsFormContainer');
+      const inputs = questionsFormContainer.getElementsByTagName('input');
+      const questions = [];
+
+      for (let i = 0; i < inputs.length; i++) {
+        const nameParts = inputs[i].name.split('_');
+        const questionIndex = nameParts[1];
+        const optionIndex = nameParts.length > 3 ? nameParts[3] : null;
+
+        if (!questions[questionIndex]) {
+          questions[questionIndex] = {
+            question: '',
+            type: '',
+            options: []
+          };
+        }
+
+        if (optionIndex !== null) {
+          questions[questionIndex].options[optionIndex] = inputs[i].value;
+          questions[questionIndex].type = 'checkbox';
+        } else {
+          questions[questionIndex].question = inputs[i].value;
+          if (!questions[questionIndex].type) {
+            questions[questionIndex].type = 'text';
+          }
+        }
+      }
+
+      const payload = {
+        form_name: formName,
+        professor: professorName,
+        semester: semester,
+        questions: questions.filter(q => q.question)
+      };
+
+      console.log('Payload:', JSON.stringify(payload));  // Log para verificar o payload
+
+      const response = await fetch('/save_formulario', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+      alert(result.message);  // Exibir a mensagem de sucesso como um alerta
+    }
+  </script>
+</body>
+</html>
