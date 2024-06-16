@@ -9,11 +9,11 @@
         <h2>   <%= current_user.occupation.capitalize %> -  <%= @department&.initials %></h2>
         <hr>
         <li >
-          <%= button_to forms_path, method: :get, name: :filter, value: :pending do %>
+          <%= link_to forms_path({filter: :pending}), method: :get do %>
             <i class="fas fa-file-text"></i>
             Pendências
           <% end %>
-          <%= button_to forms_path, method: :get, name: :filter, value: :answered do %>
+          <%= link_to forms_path({filter: :answered}), method: :get do %>
             <i class="fas fa-file-text"></i>
             Respondidos
           <% end %>
