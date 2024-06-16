@@ -20,9 +20,25 @@ class FormsController < ApplicationController
 
     if @subject_classes.blank?
       @forms = []
-      @errors << "Nenhum formulário encontrado."
+      @errors << "Usuário não está associado a nenhuma turma"
     else
       @forms = Form.where(subject_class_id: @subject_classes.pluck(:id), role: occupation)
+
+      @pending_forms = []
+      @answered_forms = []
+      @forms.each do |form|
+        case occupation
+        when "discente"
+          answers = StudentAnswer.where(form_id: form.id)
+        when "docente"
+          answers = TeacherAnswer.where(form_id: form.id)
+        end
+        if answers
+          @answered_forms << form
+        else
+          @pending_forms << form
+        end
+      end
     end
   end
 
