@@ -17,19 +17,19 @@ RSpec.describe SubjectClass, type: :model do
     student3 = create(:student, :student3)
     student4 = create(:student, :student4)
 
-    coordinator = create(:coordinator)
-    template = create(:template)
-    template_questions = create(:template_question)
+    coordinator = create(:coordinator, :coordinator1)
+    template = create(:template, :template1)
+    template_questions = create(:template_question, :template_question1)
 
-    teacher = create(:teacher)
+    teacher = create(:teacher, :teacher1)
 
-    subject_class1 = create(:subject_class)
+    subject_class1 = create(:subject_class, :subject_class1)
 
     expect(subject_class1).to be_valid
   end
 
   it 'é inválido sem FKS existentes' do
-    subject_class = build(:subject_class)
+    subject_class = build(:subject_class, :subject_class1)
     expect(subject_class).to_not be_valid
   end
 end

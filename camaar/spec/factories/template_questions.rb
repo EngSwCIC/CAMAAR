@@ -1,11 +1,14 @@
 FactoryBot.define do
   factory :template_question do
-    id {1}
-    title {"How are you"}
-    question_type {"text"}
-    body { [{ question: "Qual seu nível de satisfação?", type: "text" }] }
-    created_at {Time.now.utc}
-    updated_at {Time.now.utc}
-    template_id {1}
+    created_at { Time.now.utc }
+    updated_at { Time.now.utc }
+
+    trait :template_question1 do
+      id { 1 }
+      title { 'How are you' }
+      question_type { 'text' }
+      body { [{ question: 'Qual seu nível de satisfação?', type: 'text' }] }
+      template_id { 1 }
+    end
   end
 end

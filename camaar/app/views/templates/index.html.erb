@@ -5,7 +5,7 @@
         <div class="col-md-12">
           <div class="overview-wrap">
             <h2 class="title-1">Templates Criados</h2>
-            <%= button_to "Adicionar Template", "templates/new", method: :get, id: "add_template", class: "au-btn au-btn-icon au-btn--blue" %>
+            <%= button_to "ADICIONAR TEMPLATE", "templates/new", method: :get, id: "add_template", class: "au-btn au-btn-icon au-btn--blue" %>
           </div>
         </div>
       </div>
@@ -33,31 +33,32 @@
               <div class="overview__inner">
                 <div class="overview-box clearfix">
                   <div class="text">
-                  <% if template.draft %>
-                    <%= link_to edit_template_path(template), class: "template-link" do %>
-                      <h1 class="template-name"><%= template.name %></h1>
+                    <% if template.draft %>
+                      <%= link_to edit_template_path(template), class: "template-link" do %>
+                        <h1 class="template-name"><%= template.name %></h1>
+                      <% end %>
+                    <% else %>
+                      <%= link_to edit_template_path(template), class: "template-link" do %>
+                        <h1 class="template-name"><%= template.name %></h1>
+                      <% end %>
+
                     <% end %>
-                  <% else %>
-                    <%= link_to edit_template_path(template), class: "template-link" do %>
-                      <h1 class="template-name"><%= template.name %></h1>
-                    <% end %>
-                  <% end %>
-                  <div class="icons-container">
-                    <%= button_to template_path(template), class: "icon-button",method: :delete do%>
-                      <i class="fas fa-trash "></i>
-                    <% end %>
-                    <%= link_to edit_template_path(template),class: "icon-button" do%>
-                      <i class="fas fa-edit "></i>
-                    <% end %>
-         
+                    <div class="icons-container">
+                      <%= button_to template_path(template), class: "icon-button",method: :delete do%>
+                        <i class="fas fa-trash "></i>
+                      <% end %>
+                      <%= link_to edit_template_path(template),class: "icon-button" do%>
+                        <i class="fas fa-edit "></i>
+                      <% end %>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      <% end %>
-      </div>
+        <% end %>
+        </div>
+
     </div>
   </div>
 </div>
