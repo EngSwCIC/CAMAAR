@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   
   resources :templates
 
-  resources :imports, only: [:new, :create]
-end
+
+
 
