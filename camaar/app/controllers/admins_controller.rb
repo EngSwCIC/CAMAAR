@@ -239,13 +239,44 @@ class AdminsController < ApplicationController
     end
     @forms = answered_forms
 
+    @form = Form.find_by_id(params[:form_id]) if params[:form_id]
+    @form_questions = FormQuestion.where(form_id: @form.id) if @form
     case params[:export]
     when "csv"
-      @form = Form.find_by_id(params[:form_id])
-      @form_questions = FormQuestion.where(form_id: @form.id)
       export_to_csv
     when "graph"
     end
+  end
+
+  def generate_summary
+    resumo = { "text" => [],
+              "multiple_choice" => { 1 => 0,
+                                     2 => 0,
+                                     3 => 0,
+                                     4 => 0,
+                                     5 => 0 } }
+
+    @form_questions.each do |question|
+      if @form.role == "discente"
+        answers = StudentAnswer.where(form_question_id: question.id)
+      else
+        answers = TeacherAnswer.where(form_question_id: question.id)
+      end
+
+      answers.each do |answ|
+        answer_body = JSON.parse(answ.answers)["answers"]
+        case question.question_type
+        when "text"
+          resumo["text"] << answer_body
+        when "multiple_choice"
+          answer_body.each do |num, selected|
+            resumo["multiple_choice"][num.to_i] += 1 if selected
+          end
+        end
+      end
+    end
+
+    p resumo
   end
 
   def export_to_csv
