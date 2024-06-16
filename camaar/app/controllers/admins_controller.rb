@@ -263,6 +263,8 @@ class AdminsController < ApplicationController
         csv << row
       end
     end
+
+    send_file file_path, filename: "#{@form.id}_#{@form.name}_results.csv", type: "text/csv"
   end
 
   def generate_csv
