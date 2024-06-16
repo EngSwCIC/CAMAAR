@@ -3328,6 +3328,10 @@ section {
 
 .template-name {
   color: black !important;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 26px;
+  
 }
 
 .icon-button {

@@ -29,6 +29,7 @@ class AdminsController < ApplicationController
     professor_template_id = params[:professor_template_id]
     aluno_template_id = params[:aluno_template_id]
     turma_ids = params[:turma_ids]
+
     commit = params[:commit]
     if commit == "confirm"
       if turma_ids.present?
@@ -193,13 +194,14 @@ class AdminsController < ApplicationController
     when "3"
       root_dpto = Department.find_by(initials: "ROOT")
       if root_dpto.nil?
-        flash[:notice] = "Você não é admin ROOT"
-        return redirect_to "/admins/import"
+        flash[:error] = 'Você não é admin ROOT'
+        return redirect_to '/admins/import'
       end
       root_cord = Coordinator.find_by(department_id: root_dpto.id)
       if root_cord.nil?
-        flash[:notice] = "Você não é admin ROOT"
-        return redirect_to "/admins/import"
+        flash[:error] = 'Você não é admin ROOT'
+        return redirect_to '/admins/import'
+
       end
       if current_admin.email == root_cord.email
         departamentos = JSON.parse(File.read(json))
@@ -211,7 +213,8 @@ class AdminsController < ApplicationController
           )
         end
       else
-        flash[:notice] = "Você não é admin ROOT"
+        flash[:error] = 'Você não é admin ROOT'
+
       end
       redirect_to "/admins/import"
     end
