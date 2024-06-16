@@ -37,4 +37,12 @@ Rails.application.routes.draw do
     delete "/:id", to: "formularios#delete"
   end
 
+  scope "/questoes" do
+    get "/", to: "questoes#index"
+    get "/:id", to: "questoes#show"
+    post "/", to: "questoes#create"
+    patch "/:id", to: "questoes#update"
+    delete "/:id", to: "questoes#delete"
+  end
+
 end
