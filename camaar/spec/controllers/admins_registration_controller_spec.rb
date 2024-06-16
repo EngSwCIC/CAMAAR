@@ -15,6 +15,14 @@ RSpec.describe Admins::RegistrationsController, type: :controller do
     expect(response).to redirect_to(root_path) # Assuming redirection to root_path
     expect(Admin.find_by(email: admin.email)).to_not be_nil
   end
+  it 'should redirect to forbidden page when trying to edit' do
+    departament = create(:department, :departament1)
+    admin = create(:admin, :admin1)
+    coordinator = create(:coordinator, :coordinator1)
+    sign_in admin
+    get :edit
+    expect(response).to have_http_status(:forbidden)
+  end
   # it 'changes admin attributes' do
   #   admin = create(:admin, :admin1)
   #   put :update,

@@ -36,9 +36,9 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # in to be expired now. This is useful if the user wants to
   # cancel oauth signing in/up in the middle of the process,
   # removing all OAuth session data.
-  def cancel
-    super
-  end
+  # def cancel
+  #   super
+  # end
 
   protected
 
