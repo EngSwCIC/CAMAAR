@@ -3,6 +3,7 @@ class FormsController < ApplicationController
   layout "user"
 
   def index
+    @filter = params[:filter] || "pending"
     @errors = []
 
     occupation = current_user.occupation
@@ -26,6 +27,7 @@ class FormsController < ApplicationController
 
       @pending_forms = []
       @answered_forms = []
+
       @forms.each do |form|
         case occupation
         when "discente"
@@ -33,10 +35,17 @@ class FormsController < ApplicationController
         when "docente"
           answers = TeacherAnswer.where(form_id: form.id)
         end
+
         if answers
           @answered_forms << form
         else
           @pending_forms << form
+        end
+
+        if @filter == "pending"
+          @forms = @pending_forms
+        else
+          @forms = @answered_forms
         end
       end
     end
