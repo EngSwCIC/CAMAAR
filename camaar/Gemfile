@@ -79,6 +79,7 @@ gem 'letter_opener_web'
 # gem 'mailcatcher'
 gem 'capybara-email'
 # gem install metric_fu-Saikuro
+gem 'rchart'
 gem 'rdoc'
 gem 'rubycritic', require: false
 gem 'simple_bdd'
