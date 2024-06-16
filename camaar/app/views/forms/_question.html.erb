@@ -8,7 +8,7 @@
         <% if value.present? %>
           <div class="formbold-radio-group">
             <label for="<%= "#{form_question.id}_#{option}" %>" class="formbold-radio-label">
-              <%= form.radio_button :answers, false, id: "#{form_question.id}_#{option}" %>
+              <%= form.radio_button "answers[#{form_question.id}]", option, id: "#{form_question.id}_#{option}"%>
               <%= value %>
             </label>
           </div>
@@ -19,10 +19,10 @@
 <% elsif form_question.question_type == "text" %>
   <div class="formbold-input-flex">
     <div>
-      <label for="answer_<%= form_question.id %>" class="formbold-form-label">
+      <label for="<%= form_question.id %>" class="formbold-form-label">
         <%= form_question.title %>
       </label>
-      <%= text_field_tag "answers[#{form_question.id}]", nil, placeholder: "Digite...", class: "formbold-form-input" %>
+      <%= text_field_tag "answers[#{form_question.id}]", nil, id: form_question.id,placeholder: "Digite...", class: "formbold-form-input" %>
     </div>
   </div>
 <% end %>
