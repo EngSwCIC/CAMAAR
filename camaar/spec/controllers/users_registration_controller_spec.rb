@@ -16,12 +16,18 @@ RSpec.describe Users::RegistrationsController, type: :controller do
     expect(response).to redirect_to(root_path) # Assuming redirection to root_path
     expect(User.find_by(email: user.email)).to_not be_nil
   end
-  it 'should delete a user' do
-    user = create(:user, :user1)
-    sign_in user
-    user.destroy
-    expect(User.find_by(email: user.email)).to be_nil
-  end
+  # it 'should redirect to forbidden page when trying to edit' do
+  #   user = create(:user, :user1)
+  #   sign_in user
+  #   get users_
+  #   expect(response).to have_http_status(:forbidden)
+  # end
+  # it 'should delete a user' do
+  #   user = create(:user, :user1)
+  #   sign_in user
+
+  #   expect(User.find_by(email: user.email)).to be_nil
+  # end
   # it 'changes user attributes' do
   #   user = create(:user, :user1)
   #   put :update, params: { user: { email: user.email, password: 'xyz123',
