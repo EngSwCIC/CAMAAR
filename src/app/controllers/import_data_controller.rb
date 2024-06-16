@@ -10,7 +10,7 @@ class DataImportController < ApplicationController
   #
   # Caso a importação e o cadastro sejam bem-sucedidos, é retornado status 200
   # com a mensagem: "Participantes importados com sucesso"
-  def import
+  def create
 
     # verifica se o arquivo foi enviado, cc. retorna erro
     if params[:file].nil?
@@ -124,3 +124,34 @@ Cadastra a inscrição (Enrollment).
 # codigo procura no banco de dados um registro na tabela subjects
 # que tenha o codigo e o nome especificados. Se nao encontrar, cria
 # um novo registro com esses atributos
+
+''' exemplo do arquivo JSON
+{
+  "classes": [
+    {
+      "codigo": "MAT101",
+      "nome": "Matemática Básica",
+      "turma": "A",
+      "semestre": "2024.1",
+      "horario": "08:00-10:00"
+    }
+  ],
+  "participantes": [
+    {
+      "code": "MAT101",
+      "classCode": "A",
+      "dicente": [
+        {
+          "nome": "João Silva",
+          "curso": "Engenharia",
+          "matricula": "123456",
+          "usuario": "joaos",
+          "formacao": "Graduando",
+          "email": "joao.silva@example.com"
+        }
+      ]
+    }
+  ]
+}
+
+'''
