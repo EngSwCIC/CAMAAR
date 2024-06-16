@@ -45,4 +45,12 @@ Rails.application.routes.draw do
     delete "/:id", to: "questoes#delete"
   end
 
+  scope "/respostas" do
+    get "/", to: "respostas#index"
+    get "/:id", to: "respostas#show"
+    post "/", to: "respostas#create"
+    patch "/:id", to: "respostas#update"
+    delete "/:id", to: "respostas#delete"
+  end
+
 end
