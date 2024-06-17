@@ -1,30 +1,15 @@
 <%=render '/navbar/navbar'%>
 
-<div class="grid-container">
-
-    <div class="card">
-        <h2>Subject Name</h2>
-        <p>Semester: 1</p>
-        <p>Professor: Maicon Douglas</p>
+<% if @templates.empty? %>
+    <h1 style="margin-left: auto; margin-right: auto; width: fit-content; margin-top: 1rem">Não existem templates criados</h1>
+<% else %>
+    <div class="grid-container" style="padding: 1rem">
+        <% @templates.each do |template| %>
+            <div class="card">
+                <h2><%= template.subject %></h2>
+                <p>Semestre: <%= template.semester %></p>
+                <p>Professor: <%= template.professor %></p>
+            </div>
+        <% end %>
     </div>
-    <div class="card">
-        <h2>Subject Name</h2>
-        <p>Semester: 2</p>
-        <p>Professor: Curintcha</p>
-    </div>
-    <div class="card">
-        <h2>Subject Name</h2>
-        <p>Semester: 3</p>
-        <p>Professor: FLAMENGOn</p>
-    </div>
-    <div class="card">
-        <h2>Subject Name</h2>
-        <p>Semester: 3</p>
-        <p>Professor: PAulão</p>
-    </div>
-    <div class="card">
-        <h2>Subject Name</h2>
-        <p>Semester: 3</p>
-        <p>Professor: aiiin</p>
-    </div>
-</div>
+<% end %>

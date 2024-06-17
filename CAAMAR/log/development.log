@@ -3551,3 +3551,332 @@ Processing by MainController#index as HTML
 Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 1717)
 
 
+Started GET "/" for 127.0.0.1 at 2024-06-17 17:34:11 -0300
+Started GET "/" for 127.0.0.1 at 2024-06-17 17:34:11 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as HTML
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 223)
+  Rendered auth/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 241)
+  Rendered layout layouts/application.html.erb (Duration: 165.3ms | Allocations: 56006)
+  Rendered layout layouts/application.html.erb (Duration: 169.9ms | Allocations: 62035)
+Completed 200 OK in 186ms (Views: 175.5ms | ActiveRecord: 0.0ms | Allocations: 66282)
+
+
+Completed 200 OK in 188ms (Views: 175.4ms | ActiveRecord: 0.0ms | Allocations: 66636)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 17:34:39 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.7ms | Allocations: 118)
+  Rendered main/index.erb within layouts/application (Duration: 3.3ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 2844)
+Completed 200 OK in 30ms (Views: 17.6ms | ActiveRecord: 0.0ms | Allocations: 3305)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 17:37:46 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered main/index.erb within layouts/application (Duration: 0.4ms | Allocations: 75)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 1479)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 1728)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 17:43:01 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.6ms | Allocations: 109)
+  Rendered main/index.erb within layouts/application (Duration: 1.4ms | Allocations: 367)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 15593)
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.0ms | Allocations: 16502)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 17:43:22 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered main/index.erb within layouts/application (Duration: 0.3ms | Allocations: 75)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 1471)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 1717)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (23.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-06-17 21:01:49.718516', '2024-06-17 21:01:49.718520') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTemplates (20240617205527)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "templates" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "subject" varchar, "semester" integer, "professor" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240617205527') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTemplate Create (1.9ms)[0m  [1m[32mINSERT INTO "templates" ("subject", "semester", "professor", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["subject", "Subject Test"], ["semester", 6], ["professor", "Maicon Douglas"], ["created_at", "2024-06-17 21:02:16.427911"], ["updated_at", "2024-06-17 21:02:16.427911"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTemplate Load (0.5ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:02:59 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.9ms | Allocations: 130)
+  [1m[36mTemplate Load (0.3ms)[0m  [1m[34mSELECT "templates".* FROM "templates"[0m
+  ↳ app/views/main/index.erb:4
+  Rendered main/index.erb within layouts/application (Duration: 55.2ms | Allocations: 11545)
+  Rendered layout layouts/application.html.erb (Duration: 367.4ms | Allocations: 46170)
+Completed 200 OK in 430ms (Views: 369.0ms | ActiveRecord: 5.5ms | Allocations: 56059)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:16:25 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.3ms | Allocations: 113)
+  [1m[36mTemplate Load (1.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates"[0m
+  ↳ app/views/main/index.erb:4
+  Rendered main/index.erb within layouts/application (Duration: 8.5ms | Allocations: 3649)
+  Rendered layout layouts/application.html.erb (Duration: 30.8ms | Allocations: 18694)
+Completed 200 OK in 34ms (Views: 30.2ms | ActiveRecord: 1.9ms | Allocations: 20180)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:16:47 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.6ms | Allocations: 126)
+  Rendered main/index.erb within layouts/application (Duration: 3.2ms | Allocations: 645)
+  Rendered layout layouts/application.html.erb (Duration: 132.7ms | Allocations: 35573)
+Completed 200 OK in 148ms (Views: 139.5ms | ActiveRecord: 0.0ms | Allocations: 39672)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:16:58 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.3ms | Allocations: 113)
+  Rendered main/index.erb within layouts/application (Duration: 1.6ms | Allocations: 475)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 15538)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.0ms | Allocations: 16454)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:16:58 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered main/index.erb within layouts/application (Duration: 0.2ms | Allocations: 75)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 1465)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 1718)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:17:16 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.3ms | Allocations: 111)
+  Rendered main/index.erb within layouts/application (Duration: 1.2ms | Allocations: 473)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 15732)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.0ms | Allocations: 16650)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:19:45 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.2ms | Allocations: 109)
+  Rendered main/index.erb within layouts/application (Duration: 1.0ms | Allocations: 486)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 15525)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.0ms | Allocations: 16438)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:19:45 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered main/index.erb within layouts/application (Duration: 1.2ms | Allocations: 133)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 2526)
+Completed 200 OK in 14ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 3151)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:20:47 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.3ms | Allocations: 113)
+  Rendered main/index.erb within layouts/application (Duration: 1.1ms | Allocations: 484)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 15728)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.0ms | Allocations: 16645)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:20:52 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.2ms | Allocations: 111)
+  Rendered main/index.erb within layouts/application (Duration: 1.0ms | Allocations: 482)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 15724)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.0ms | Allocations: 16641)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:21:21 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.3ms | Allocations: 109)
+  Rendered main/index.erb within layouts/application (Duration: 1.0ms | Allocations: 480)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 15664)
+Completed 200 OK in 24ms (Views: 23.6ms | ActiveRecord: 0.0ms | Allocations: 16577)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:21:21 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered main/index.erb within layouts/application (Duration: 0.4ms | Allocations: 76)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 1514)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 1774)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:21:34 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.3ms | Allocations: 113)
+  Rendered main/index.erb within layouts/application (Duration: 1.0ms | Allocations: 484)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 15751)
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.0ms | Allocations: 16668)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:21:46 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.3ms | Allocations: 126)
+  [1m[36mTemplate Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "templates" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/main/index.erb:3
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates"[0m
+  ↳ app/views/main/index.erb:7
+  Rendered main/index.erb within layouts/application (Duration: 40.0ms | Allocations: 12795)
+  Rendered layout layouts/application.html.erb (Duration: 176.8ms | Allocations: 47419)
+Completed 200 OK in 212ms (Views: 178.5ms | ActiveRecord: 3.6ms | Allocations: 57309)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:32:08 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/elaina/Code/Ruby/CAMAAR/CAAMAR/app/helpers/main_helper.rb:2: syntax error, unexpected constant, expecting `end' or dummy end
+    // TODO
+       ^~~~
+):
+  
+app/helpers/main_helper.rb:2: syntax error, unexpected constant, expecting `end' or dummy end
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/main_controller.rb:1:in `<main>'
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:32:19 -0300
+Processing by MainController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1352)
+
+
+  
+NoMethodError (undefined method `is_user_admin' for #<MainController:0x0000000000dd40>):
+  
+app/controllers/main_controller.rb:3:in `index'
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:33:10 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.9ms | Allocations: 113)
+  [1m[36mTemplate Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "templates" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/main/index.erb:3
+  [1m[36mTemplate Load (0.4ms)[0m  [1m[34mSELECT "templates".* FROM "templates"[0m
+  ↳ app/views/main/index.erb:7
+  Rendered main/index.erb within layouts/application (Duration: 126.0ms | Allocations: 12588)
+  Rendered layout layouts/application.html.erb (Duration: 366.9ms | Allocations: 45650)
+Completed 200 OK in 401ms (Views: 358.1ms | ActiveRecord: 11.3ms | Allocations: 52544)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:33:18 -0300
+Processing by MainController#index as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 506)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-17 18:33:18 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/login.html.erb within layouts/application (Duration: 2.5ms | Allocations: 117)
+  Rendered layout layouts/application.html.erb (Duration: 102.7ms | Allocations: 15191)
+Completed 200 OK in 112ms (Views: 107.4ms | ActiveRecord: 0.0ms | Allocations: 15895)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:33:48 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.4ms | Allocations: 113)
+  [1m[36mTemplate Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "templates" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/main/index.erb:3
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates"[0m
+  ↳ app/views/main/index.erb:7
+  Rendered main/index.erb within layouts/application (Duration: 13.5ms | Allocations: 4588)
+  Rendered layout layouts/application.html.erb (Duration: 49.4ms | Allocations: 19736)
+Completed 200 OK in 56ms (Views: 48.6ms | ActiveRecord: 3.1ms | Allocations: 21253)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:35:17 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 1.9ms | Allocations: 109)
+  [1m[36mTemplate Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "templates" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/main/index.erb:3
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates"[0m
+  ↳ app/views/main/index.erb:7
+  Rendered main/index.erb within layouts/application (Duration: 22.7ms | Allocations: 4505)
+  Rendered layout layouts/application.html.erb (Duration: 64.8ms | Allocations: 19623)
+Completed 200 OK in 69ms (Views: 61.9ms | ActiveRecord: 4.6ms | Allocations: 21127)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:35:23 -0300
+Processing by MainController#index as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 424)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-17 18:35:24 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.7ms | Allocations: 119)
+  Rendered layout layouts/application.html.erb (Duration: 35.0ms | Allocations: 15263)
+Completed 200 OK in 41ms (Views: 38.3ms | ActiveRecord: 0.0ms | Allocations: 15966)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2024-06-17 18:35:33 -0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.6ms | Allocations: 109)
+  [1m[36mTemplate Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "templates" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/main/index.erb:3
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates"[0m
+  ↳ app/views/main/index.erb:7
+  Rendered main/index.erb within layouts/application (Duration: 13.0ms | Allocations: 4563)
+  Rendered layout layouts/application.html.erb (Duration: 47.9ms | Allocations: 19615)
+Completed 200 OK in 54ms (Views: 47.6ms | ActiveRecord: 2.8ms | Allocations: 21121)
+
+

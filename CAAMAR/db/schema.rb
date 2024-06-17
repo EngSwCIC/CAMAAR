@@ -10,15 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_19_234942) do
-  create_table "usuarios", force: :cascade do |t|
-    t.string "matricula"
-    t.string "nome"
-    t.string "email"
-    t.string "formacao"
+ActiveRecord::Schema[7.1].define(version: 2024_06_17_205527) do
+  create_table "templates", force: :cascade do |t|
+    t.string "subject"
+    t.integer "semester"
+    t.string "professor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "senha"
   end
 
 end
