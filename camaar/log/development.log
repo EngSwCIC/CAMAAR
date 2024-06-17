@@ -333,3 +333,1102 @@ Migrating to CreateUsers (20240610145954)
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2024-06-16 22:17:20 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 510.3ms | Allocations: 26291)
+  Rendered layout layouts/application.html.erb (Duration: 605.5ms | Allocations: 43078)
+Completed 200 OK in 871ms (Views: 672.7ms | ActiveRecord: 0.0ms | Allocations: 47752)
+
+
+Started GET "/" for ::1 at 2024-06-16 22:18:38 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 159.0ms | Allocations: 27561)
+  Rendered layout layouts/application.html.erb (Duration: 183.9ms | Allocations: 44348)
+Completed 200 OK in 215ms (Views: 193.1ms | ActiveRecord: 0.0ms | Allocations: 49020)
+
+
+Started GET "/" for ::1 at 2024-06-16 22:18:42 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2403)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 3583)
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 3856)
+
+
+Started GET "/" for ::1 at 2024-06-17 12:24:19 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 732.8ms | Allocations: 40134)
+  Rendered layout layouts/application.html.erb (Duration: 772.0ms | Allocations: 56839)
+Completed 200 OK in 1020ms (Views: 835.5ms | ActiveRecord: 0.0ms | Allocations: 61515)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-17 12:24:23 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 7.0ms | Allocations: 2439)
+  Rendered layout layouts/application.html.erb (Duration: 94.4ms | Allocations: 4984)
+Completed 200 OK in 117ms (Views: 95.7ms | ActiveRecord: 0.0ms | Allocations: 5322)
+
+
+Started GET "/home" for ::1 at 2024-06-17 12:24:29 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 28.0ms | Allocations: 3148)
+  Rendered layout layouts/application.html.erb (Duration: 28.8ms | Allocations: 3233)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.0ms | Allocations: 3570)
+
+
+  
+ActionView::Template::Error (The asset "styles.css" is not present in the asset pipeline.
+):
+    4:   <meta charset="UTF-8">
+    5:   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    6:   <title>Home</title>
+    7:   <%= stylesheet_link_tag 'styles', media: 'all' %> <!-- Importa o arquivo de estilos -->
+    8: </head>
+    9: 
+   10: <body>
+  
+app/views/pages/home.html.erb:7
+Started GET "/home" for ::1 at 2024-06-17 12:28:14 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.2ms | Allocations: 3501)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 3621)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms | Allocations: 8243)
+
+
+  
+ActionView::Template::Error (The asset "styles.css" is not present in the asset pipeline.
+):
+    4:   <meta charset="UTF-8">
+    5:   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    6:   <title>Home</title>
+    7:   <%= stylesheet_link_tag 'styles', media: 'all' %> <!-- Importa o arquivo de estilos -->
+    8: </head>
+    9: 
+   10: <body>
+  
+app/views/pages/home.html.erb:7
+Started GET "/home" for ::1 at 2024-06-17 12:28:22 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2081)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2166)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 2420)
+
+
+  
+ActionView::Template::Error (The asset "styles.css" is not present in the asset pipeline.
+):
+    4:   <meta charset="UTF-8">
+    5:   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    6:   <title>Home</title>
+    7:   <%= stylesheet_link_tag 'styles', media: 'all' %> <!-- Importa o arquivo de estilos -->
+    8: </head>
+    9: 
+   10: <body>
+  
+app/views/pages/home.html.erb:7
+Started GET "/home" for ::1 at 2024-06-17 12:28:24 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2079)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2164)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2417)
+
+
+  
+ActionView::Template::Error (The asset "styles.css" is not present in the asset pipeline.
+):
+    4:   <meta charset="UTF-8">
+    5:   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    6:   <title>Home</title>
+    7:   <%= stylesheet_link_tag 'styles', media: 'all' %> <!-- Importa o arquivo de estilos -->
+    8: </head>
+    9: 
+   10: <body>
+  
+app/views/pages/home.html.erb:7
+Started GET "/home" for ::1 at 2024-06-17 12:29:05 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 62.6ms | Allocations: 25757)
+  Rendered layout layouts/application.html.erb (Duration: 63.4ms | Allocations: 25843)
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 0.0ms | Allocations: 26737)
+
+
+  
+ActionView::Template::Error (The asset "icons/user_img.svg" is not present in the asset pipeline.
+):
+    20:   </div>
+    21: 
+    22:   <div class="user-icon">
+    23:     <img class="img_user" src="<%= asset_path('icons/user_img.svg') %>" alt="Img_user">
+    24:     <%= image_tag 'user_img.svg', class: 'img_user', id: 'Img_user' %>
+    25:   </div>
+    26: 
+  
+app/views/pages/home.html.erb:23
+Started GET "/home" for ::1 at 2024-06-17 12:29:25 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 72.2ms | Allocations: 26645)
+  Rendered layout layouts/application.html.erb (Duration: 73.1ms | Allocations: 26765)
+Completed 500 Internal Server Error in 102ms (ActiveRecord: 0.0ms | Allocations: 31386)
+
+
+  
+ActionView::Template::Error (The asset "icons/user_img.svg" is not present in the asset pipeline.
+):
+    20:   </div>
+    21: 
+    22:   <div class="user-icon">
+    23:     <img class="img_user" src="<%= asset_path('icons/user_img.svg') %>" alt="Img_user">
+    24:     <%= image_tag 'user_img.svg', class: 'img_user', id: 'Img_user' %>
+    25:   </div>
+    26: 
+  
+app/views/pages/home.html.erb:23
+Started GET "/home" for ::1 at 2024-06-17 12:29:27 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2980)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3065)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 3319)
+
+
+  
+ActionView::Template::Error (The asset "icons/user_img.svg" is not present in the asset pipeline.
+):
+    20:   </div>
+    21: 
+    22:   <div class="user-icon">
+    23:     <img class="img_user" src="<%= asset_path('icons/user_img.svg') %>" alt="Img_user">
+    24:     <%= image_tag 'user_img.svg', class: 'img_user', id: 'Img_user' %>
+    25:   </div>
+    26: 
+  
+app/views/pages/home.html.erb:23
+Started GET "/" for ::1 at 2024-06-17 12:29:34 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 9.8ms | Allocations: 3754)
+  Rendered layout layouts/application.html.erb (Duration: 44.7ms | Allocations: 20592)
+Completed 200 OK in 50ms (Views: 45.9ms | ActiveRecord: 0.0ms | Allocations: 20976)
+
+
+Started GET "/home" for ::1 at 2024-06-17 12:29:39 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.0ms | Allocations: 2975)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 3060)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 3313)
+
+
+  
+ActionView::Template::Error (The asset "icons/user_img.svg" is not present in the asset pipeline.
+):
+    20:   </div>
+    21: 
+    22:   <div class="user-icon">
+    23:     <img class="img_user" src="<%= asset_path('icons/user_img.svg') %>" alt="Img_user">
+    24:     <%= image_tag 'user_img.svg', class: 'img_user', id: 'Img_user' %>
+    25:   </div>
+    26: 
+  
+app/views/pages/home.html.erb:23
+Started GET "/home" for ::1 at 2024-06-17 12:31:41 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2978)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 3063)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 3316)
+
+
+  
+ActionView::Template::Error (The asset "icons/user_img.svg" is not present in the asset pipeline.
+):
+    20:   </div>
+    21: 
+    22:   <div class="user-icon">
+    23:     <img class="img_user" src="<%= asset_path('icons/user_img.svg') %>" alt="Img_user">
+    24:     <%= image_tag 'user_img.svg', class: 'img_user', id: 'Img_user' %>
+    25:   </div>
+    26: 
+  
+app/views/pages/home.html.erb:23
+Started GET "/" for ::1 at 2024-06-17 12:32:12 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 98.3ms | Allocations: 27641)
+  Rendered layout layouts/application.html.erb (Duration: 121.3ms | Allocations: 44448)
+Completed 200 OK in 148ms (Views: 130.9ms | ActiveRecord: 0.0ms | Allocations: 49121)
+
+
+Started GET "/home" for ::1 at 2024-06-17 12:32:17 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.4ms | Allocations: 4140)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4225)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 4563)
+
+
+  
+ActionView::Template::Error (The asset "icons/user_img.svg" is not present in the asset pipeline.
+):
+    20:   </div>
+    21: 
+    22:   <div class="user-icon">
+    23:     <img class="img_user" src="<%= asset_path('icons/user_img.svg') %>" alt="Img_user">
+    24:     <%= image_tag 'user_img.svg', class: 'img_user', id: 'Img_user' %>
+    25:   </div>
+    26: 
+  
+app/views/pages/home.html.erb:23
+Started GET "/home" for ::1 at 2024-06-17 12:32:54 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3407)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3493)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 4389)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    27: 
+    28: <main>
+    29:   <div class="subject-list" id="subject-list">
+    30:     <% @subjects.each do |subject| %>
+    31:       <div class="subject-card">
+    32:         <h3><%= subject.name %></h3>
+    33:         <p><%= subject.semester %></p>
+  
+app/views/pages/home.html.erb:30
+Started GET "/home" for ::1 at 2024-06-17 12:33:28 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.3ms | Allocations: 3178)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3264)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 4160)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `import_data_path' for #<ActionView::Base:0x00000000011b20>):
+    36: <div id="popup" class="popup">
+    37:   <div class="popup-content">
+    38:     <span class="close-popup" id="close-popup">&times;</span>
+    39:     <%= button_to "Importar Dados", import_data_path, method: :post, class: "popup-btn", remote: true %>
+    40:     <%= button_to "Editar Templates", edit_templates_path, method: :get, class: "popup-btn", disabled: true %>
+    41:     <%= button_to "Enviar Formulários", send_forms_path, method: :post, class: "popup-btn", disabled: true %>
+    42:     <%= button_to "Resultados", results_path, method: :get, class: "popup-btn", disabled: true %>
+  
+app/views/pages/home.html.erb:39
+Started GET "/home" for ::1 at 2024-06-17 12:35:00 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 185.4ms | Allocations: 26304)
+  Rendered layout layouts/application.html.erb (Duration: 186.0ms | Allocations: 26390)
+Completed 500 Internal Server Error in 193ms (ActiveRecord: 0.0ms | Allocations: 27288)
+
+
+  
+ActionView::Template::Error (Asset `home.js` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link home.js
+
+and restart your server):
+    43:   </div>
+    44: </div>
+    45: 
+    46: <%= javascript_include_tag 'home' %> <!-- Importa o arquivo de script -->
+    47: </body>
+    48: </html>
+  
+app/views/pages/home.html.erb:46
+Started GET "/home" for ::1 at 2024-06-17 12:37:00 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 67.1ms | Allocations: 27295)
+  Rendered layout layouts/application.html.erb (Duration: 67.9ms | Allocations: 27380)
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 0.0ms | Allocations: 27629)
+
+
+  
+ActionView::Template::Error (Asset `home.js` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link home.js
+
+and restart your server):
+    43:   </div>
+    44: </div>
+    45: 
+    46: <%= javascript_include_tag 'home' %> <!-- Importa o arquivo de script -->
+    47: </body>
+    48: </html>
+  
+app/views/pages/home.html.erb:46
+Started GET "/home" for ::1 at 2024-06-17 12:37:03 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 28.3ms | Allocations: 21191)
+  Rendered layout layouts/application.html.erb (Duration: 28.9ms | Allocations: 21276)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms | Allocations: 21525)
+
+
+  
+ActionView::Template::Error (Asset `home.js` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link home.js
+
+and restart your server):
+    43:   </div>
+    44: </div>
+    45: 
+    46: <%= javascript_include_tag 'home' %> <!-- Importa o arquivo de script -->
+    47: </body>
+    48: </html>
+  
+app/views/pages/home.html.erb:46
+Started GET "/home" for ::1 at 2024-06-17 12:38:25 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 240.3ms | Allocations: 55047)
+  Rendered layout layouts/application.html.erb (Duration: 241.0ms | Allocations: 55167)
+Completed 500 Internal Server Error in 276ms (ActiveRecord: 0.0ms | Allocations: 59788)
+
+
+  
+ActionView::Template::Error (Asset `home.js` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link home.js
+
+and restart your server):
+    43:   </div>
+    44: </div>
+    45: 
+    46: <%= javascript_include_tag 'home' %> <!-- Importa o arquivo de script -->
+    47: </body>
+    48: </html>
+  
+app/views/pages/home.html.erb:46
+Started GET "/home" for ::1 at 2024-06-17 12:40:05 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 218.5ms | Allocations: 38423)
+  Rendered layout layouts/application.html.erb (Duration: 238.6ms | Allocations: 55138)
+Completed 200 OK in 268ms (Views: 249.3ms | ActiveRecord: 0.0ms | Allocations: 59812)
+
+
+Started GET "/home" for ::1 at 2024-06-17 12:41:37 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 172.9ms | Allocations: 25448)
+  Rendered layout layouts/application.html.erb (Duration: 173.7ms | Allocations: 25568)
+Completed 500 Internal Server Error in 204ms (ActiveRecord: 0.0ms | Allocations: 30189)
+
+
+  
+ActionView::Template::Error (couldn't find file '../javascript/home.js' under 'C:/Users/vitor/OneDrive/Documentos/Materias_UNB/Eng_soft/CAMAAR/camaar/app/assets/config'
+Checked in these paths: 
+  C:/Users/vitor/OneDrive/Documentos/Materias_UNB/Eng_soft/CAMAAR/camaar/app/assets/config
+  C:/Users/vitor/OneDrive/Documentos/Materias_UNB/Eng_soft/CAMAAR/camaar/app/assets/images
+  C:/Users/vitor/OneDrive/Documentos/Materias_UNB/Eng_soft/CAMAAR/camaar/app/assets/javascripts
+  C:/Users/vitor/OneDrive/Documentos/Materias_UNB/Eng_soft/CAMAAR/camaar/app/assets/stylesheets
+  C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/stimulus-rails-1.3.3/app/assets/javascripts
+  C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/turbo-rails-2.0.5/app/assets/javascripts
+  C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actioncable-7.1.3.3/app/assets/javascripts
+  C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.3.3/app/assets/javascripts
+  C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.3.3/app/assets/stylesheets
+  C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/activestorage-7.1.3.3/app/assets/javascripts
+  C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actionview-7.1.3.3/app/assets/javascripts
+  C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actionview-7.1.3.3/lib/assets/compiled
+  C:/Users/vitor/OneDrive/Documentos/Materias_UNB/Eng_soft/CAMAAR/camaar/app/javascript
+  C:/Users/vitor/OneDrive/Documentos/Materias_UNB/Eng_soft/CAMAAR/camaar/vendor/javascript):
+  
+sprockets (4.2.1) lib/sprockets/resolve.rb:62:in `resolve!'
+sprockets (4.2.1) lib/sprockets/directive_processor.rb:427:in `resolve'
+sprockets (4.2.1) lib/sprockets/directive_processor.rb:327:in `process_link_directive'
+sprockets (4.2.1) lib/sprockets/directive_processor.rb:189:in `block in process_directives'
+sprockets (4.2.1) lib/sprockets/directive_processor.rb:187:in `each'
+sprockets (4.2.1) lib/sprockets/directive_processor.rb:187:in `process_directives'
+sprockets (4.2.1) lib/sprockets/directive_processor.rb:84:in `_call'
+sprockets (4.2.1) lib/sprockets/directive_processor.rb:65:in `call'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.1) lib/sprockets/loader.rb:184:in `load_from_unloaded'
+sprockets (4.2.1) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.1) lib/sprockets/loader.rb:339:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.1) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.1) lib/sprockets/bundle.rb:27:in `call'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.1) lib/sprockets/loader.rb:184:in `load_from_unloaded'
+sprockets (4.2.1) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.1) lib/sprockets/loader.rb:339:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.1) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.1) lib/sprockets/base.rb:81:in `find_asset'
+sprockets (4.2.1) lib/sprockets/base.rb:88:in `find_all_linked_assets'
+sprockets (4.2.1) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.1) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.1) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:359:in `run_task'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:350:in `block (3 levels) in create_worker'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:341:in `loop'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:341:in `block (2 levels) in create_worker'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:340:in `catch'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:340:in `block in create_worker'
+Started GET "/home" for ::1 at 2024-06-17 12:42:33 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 173.3ms | Allocations: 25262)
+  Rendered layout layouts/application.html.erb (Duration: 174.1ms | Allocations: 25382)
+Completed 500 Internal Server Error in 201ms (ActiveRecord: 0.0ms | Allocations: 30005)
+
+
+  
+ActionView::Template::Error (link_tree argument must be a directory):
+  
+sprockets (4.2.1) lib/sprockets/directive_processor.rb:407:in `expand_relative_dirname'
+sprockets (4.2.1) lib/sprockets/directive_processor.rb:359:in `process_link_tree_directive'
+sprockets (4.2.1) lib/sprockets/directive_processor.rb:189:in `block in process_directives'
+sprockets (4.2.1) lib/sprockets/directive_processor.rb:187:in `each'
+sprockets (4.2.1) lib/sprockets/directive_processor.rb:187:in `process_directives'
+sprockets (4.2.1) lib/sprockets/directive_processor.rb:84:in `_call'
+sprockets (4.2.1) lib/sprockets/directive_processor.rb:65:in `call'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.1) lib/sprockets/loader.rb:184:in `load_from_unloaded'
+sprockets (4.2.1) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.1) lib/sprockets/loader.rb:339:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.1) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.1) lib/sprockets/bundle.rb:27:in `call'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.1) lib/sprockets/loader.rb:184:in `load_from_unloaded'
+sprockets (4.2.1) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.1) lib/sprockets/loader.rb:339:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.1) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.1) lib/sprockets/base.rb:81:in `find_asset'
+sprockets (4.2.1) lib/sprockets/base.rb:88:in `find_all_linked_assets'
+sprockets (4.2.1) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.1) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.1) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:359:in `run_task'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:350:in `block (3 levels) in create_worker'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:341:in `loop'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:341:in `block (2 levels) in create_worker'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:340:in `catch'
+concurrent-ruby (1.3.1) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:340:in `block in create_worker'
+Started GET "/home" for ::1 at 2024-06-17 12:47:14 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 285.9ms | Allocations: 57168)
+  Rendered layout layouts/application.html.erb (Duration: 286.5ms | Allocations: 57288)
+Completed 500 Internal Server Error in 312ms (ActiveRecord: 0.0ms | Allocations: 61908)
+
+
+  
+ActionView::Template::Error (Asset `home.js` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link home.js
+
+and restart your server):
+    43:   </div>
+    44: </div>
+    45: 
+    46: <%= javascript_include_tag 'home' %> <!-- Importa o arquivo de script -->
+    47: </body>
+    48: </html>
+  
+app/views/pages/home.html.erb:46
+Started GET "/home" for ::1 at 2024-06-17 12:56:55 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 287.4ms | Allocations: 40838)
+  Rendered layout layouts/application.html.erb (Duration: 310.9ms | Allocations: 57553)
+Completed 200 OK in 341ms (Views: 320.2ms | ActiveRecord: 0.0ms | Allocations: 62229)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:00:45 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.5ms | Allocations: 3370)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4554)
+Completed 200 OK in 14ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 4830)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:00:49 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.8ms | Allocations: 3346)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 4530)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 4805)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:17:05 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 258.9ms | Allocations: 40561)
+  Rendered layout layouts/application.html.erb (Duration: 279.5ms | Allocations: 57276)
+Completed 200 OK in 308ms (Views: 290.1ms | ActiveRecord: 0.0ms | Allocations: 61952)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:19:10 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 10.0ms | Allocations: 3362)
+  Rendered layout layouts/application.html.erb (Duration: 39.2ms | Allocations: 19560)
+Completed 200 OK in 43ms (Views: 40.3ms | ActiveRecord: 0.0ms | Allocations: 19838)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:19:37 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 248.9ms | Allocations: 40736)
+  Rendered layout layouts/application.html.erb (Duration: 269.5ms | Allocations: 57451)
+Completed 200 OK in 297ms (Views: 278.7ms | ActiveRecord: 0.0ms | Allocations: 62127)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:22:17 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 261.2ms | Allocations: 40688)
+  Rendered layout layouts/application.html.erb (Duration: 282.8ms | Allocations: 57403)
+Completed 200 OK in 311ms (Views: 293.0ms | ActiveRecord: 0.0ms | Allocations: 62079)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:22:32 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.0ms | Allocations: 3368)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4552)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 4828)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:22:33 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.3ms | Allocations: 3353)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 4537)
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 4812)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:22:33 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.2ms | Allocations: 3349)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 4533)
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 4804)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:22:33 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3349)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 4533)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 4804)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:22:33 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.5ms | Allocations: 3374)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 4559)
+Completed 200 OK in 14ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4830)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:25:21 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 268.8ms | Allocations: 33492)
+  Rendered layout layouts/application.html.erb (Duration: 297.5ms | Allocations: 50293)
+Completed 200 OK in 327ms (Views: 307.7ms | ActiveRecord: 0.0ms | Allocations: 54970)
+
+
+Started GET "/" for ::1 at 2024-06-17 13:28:28 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 261.4ms | Allocations: 37969)
+  Rendered layout layouts/application.html.erb (Duration: 281.8ms | Allocations: 54674)
+Completed 200 OK in 309ms (Views: 291.0ms | ActiveRecord: 0.0ms | Allocations: 59348)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:28:34 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.6ms | Allocations: 3824)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 5008)
+Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 5342)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:32:16 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 67.7ms | Allocations: 26121)
+  Rendered layout layouts/application.html.erb (Duration: 68.5ms | Allocations: 26241)
+Completed 500 Internal Server Error in 95ms (ActiveRecord: 0.0ms | Allocations: 30862)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `import_data_path' for #<ActionView::Base:0x0000000000ad70>):
+    34: <div id="popup" class="popup">
+    35:   <div class="popup-content">
+    36:     <span class="close-popup" id="close-popup">&times;</span>
+    37:     <%= button_to "Importar Dados", import_data_path, method: :post, class: "popup-btn", remote: true %>
+    38:     <%= button_to "Editar Templates", edit_templates_path, method: :get, class: "popup-btn", disabled: true %>
+    39:     <%= button_to "Enviar Formulários", send_forms_path, method: :post, class: "popup-btn", disabled: true %>
+    40:     <%= button_to "Resultados", results_path, method: :get, class: "popup-btn", disabled: true %>
+  
+app/views/pages/home.html.erb:37
+Started GET "/home" for ::1 at 2024-06-17 13:32:36 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.6ms | Allocations: 4567)
+  Rendered layout layouts/application.html.erb (Duration: 31.5ms | Allocations: 21352)
+Completed 200 OK in 39ms (Views: 36.2ms | ActiveRecord: 0.0ms | Allocations: 22309)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:32:38 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.2ms | Allocations: 3353)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4537)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 4810)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:32:44 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.2ms | Allocations: 3365)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4549)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 4821)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:33:23 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 151.7ms | Allocations: 8261)
+  Rendered layout layouts/application.html.erb (Duration: 180.4ms | Allocations: 12793)
+Completed 200 OK in 184ms (Views: 181.6ms | ActiveRecord: 0.0ms | Allocations: 13065)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:33:27 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.0ms | Allocations: 3371)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 4555)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 4823)
+
+
+Started GET "/" for ::1 at 2024-06-17 13:33:47 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 237.6ms | Allocations: 38081)
+  Rendered layout layouts/application.html.erb (Duration: 257.4ms | Allocations: 54790)
+Completed 200 OK in 285ms (Views: 267.8ms | ActiveRecord: 0.0ms | Allocations: 59463)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:33:54 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.5ms | Allocations: 3842)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 5026)
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 5360)
+
+
+Started POST "/home?class=popup-btn&disabled=true&method=get" for ::1 at 2024-06-17 13:33:58 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-17 13:33:59 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&disabled=true&method=get" for ::1 at 2024-06-17 13:34:00 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started GET "/home" for ::1 at 2024-06-17 13:34:31 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 10.4ms | Allocations: 3566)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 4971)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.0ms | Allocations: 5241)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:34:33 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3395)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 4579)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 4849)
+
+
+Started GET "/" for ::1 at 2024-06-17 13:34:57 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 71.0ms | Allocations: 27659)
+  Rendered layout layouts/application.html.erb (Duration: 94.9ms | Allocations: 44462)
+Completed 200 OK in 124ms (Views: 104.8ms | ActiveRecord: 0.0ms | Allocations: 49136)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:35:04 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 10.8ms | Allocations: 3869)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 5053)
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 5387)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:41:16 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.1ms | Allocations: 3344)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 4528)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 4800)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:41:18 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.0ms | Allocations: 3359)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4543)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 4815)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:41:21 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 13.0ms | Allocations: 3377)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 4578)
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 0.0ms | Allocations: 4850)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:41:24 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3373)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 4571)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 4841)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:41:27 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.5ms | Allocations: 3366)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 4550)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4818)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:41:29 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.9ms | Allocations: 3353)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 4537)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 4807)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:42:32 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 272.6ms | Allocations: 40558)
+  Rendered layout layouts/application.html.erb (Duration: 292.4ms | Allocations: 57268)
+Completed 200 OK in 320ms (Views: 302.8ms | ActiveRecord: 0.0ms | Allocations: 61941)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:42:35 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.0ms | Allocations: 3356)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 4540)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 4813)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:42:39 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.3ms | Allocations: 3365)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 4549)
+Completed 200 OK in 15ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 4821)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:42:48 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.0ms | Allocations: 3365)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 4549)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4821)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:42:50 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.9ms | Allocations: 3356)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 4540)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 4812)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:42:52 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.4ms | Allocations: 3373)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 4565)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 4834)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:42:54 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.0ms | Allocations: 3358)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4542)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4812)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:42:56 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.3ms | Allocations: 3361)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 4545)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 4813)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:42:58 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.2ms | Allocations: 3362)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 4546)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 4816)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:44:36 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.9ms | Allocations: 3376)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4560)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 4828)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:44:38 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.4ms | Allocations: 3358)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4542)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 4810)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:44:39 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.6ms | Allocations: 3361)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 4545)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 4813)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:44:42 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.9ms | Allocations: 3358)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4542)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 4812)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:45:07 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 81.3ms | Allocations: 28380)
+  Rendered layout layouts/application.html.erb (Duration: 105.3ms | Allocations: 45188)
+Completed 200 OK in 133ms (Views: 115.2ms | ActiveRecord: 0.0ms | Allocations: 49861)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:45:10 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.4ms | Allocations: 3368)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 4552)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 4825)
+
+
+Started GET "/home" for ::1 at 2024-06-17 13:45:12 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3368)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 4552)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 4824)
+
+
+Started GET "/home" for ::1 at 2024-06-17 14:08:11 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 294.1ms | Allocations: 45306)
+  Rendered layout layouts/application.html.erb (Duration: 315.5ms | Allocations: 62016)
+Completed 200 OK in 342ms (Views: 324.4ms | ActiveRecord: 0.0ms | Allocations: 66689)
+
+
+Started GET "/home" for ::1 at 2024-06-17 14:08:17 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.7ms | Allocations: 3361)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 4545)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 4818)
+
+
+Started GET "/home" for ::1 at 2024-06-17 14:12:53 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 72.3ms | Allocations: 28538)
+  Rendered layout layouts/application.html.erb (Duration: 95.2ms | Allocations: 45342)
+Completed 200 OK in 123ms (Views: 104.8ms | ActiveRecord: 0.0ms | Allocations: 50016)
+
+

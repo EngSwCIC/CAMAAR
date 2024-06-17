@@ -1,28 +1,46 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
-  <%= stylesheet_link_tag 'recuperar_senha', media: 'all' %>
+  <%= stylesheet_link_tag 'home', media: 'all' %> <!-- Importa o arquivo de estilos -->
 </head>
+
 <body>
-<div class="container">
-  <div class="header">
-    <div class="img_list">
-      <%= image_tag 'listar_menu.svg', alt: 'Menu' %>
-    </div>
-    <div>
-      <input type="text" id="campo_pesquisar" name="campo_de_pesquisar">
-    </div>
-    <div>
-      <%= image_tag 'lupa_pesquisa.svg', class: 'lupa', alt: 'Pesquisar' %>
-    </div>
-    <div>
-      <%= image_tag 'user_img.svg', class: 'img_user', alt: 'Img_user' %>
-    </div>
+<header>
+  <div class="menu">
+    <span class="menu-icon" id="menu-icon">&#9776;</span>
+    <span class="title" id="title"></span>
+  </div>
+
+  <div class="pesquisar-profile">
+    <%= image_tag 'lupa_pesquisa.svg', class: 'lupa', id: 'Pesquisar' %>
+    <input type="text" id="campo_pesquisar" name="campo_de_pesquisar">
+  </div>
+
+  <div class="user-icon">
+    <%= image_tag 'user_img.svg', class: 'img_user', id: 'Img_user' %>
+  </div>
+
+</header>
+
+<div id="sidebar" class="sidebar">
+  <a href="#" class="closebtn" id="closebtn">&times;</a>
+  <%= link_to "Avaliações", "#", id: "avaliacoes-btn" %>
+  <%= link_to "Gerenciamento", "#", id: "gerenciamento-btn" %>
+</div>
+
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close-popup" id="close-popup">&times;</span>
+    <%= button_to "Importar Dados", method: :post, class: "popup-btn", remote: true %>
+    <%= button_to "Editar Templates", method: :get, class: "popup-btn", disabled: true %>
+    <%= button_to "Enviar Formulários", method: :post, class: "popup-btn", disabled: true %>
+    <%= button_to "Resultados", method: :get, class: "popup-btn", disabled: true %>
   </div>
 </div>
-<%= javascript_include_tag 'main' %>
+
+<%= javascript_include_tag 'main' %> <!-- Importa o arquivo de script -->
 </body>
 </html>
