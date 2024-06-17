@@ -25,5 +25,10 @@ FactoryBot.define do
       id { 100 }
       email { 'chacon@unb.br' }
     end
+
+    trait :user6 do
+      id { 6 }
+      email { 'mholanda@unb.br' }
+    end
   end
 end

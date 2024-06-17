@@ -13,5 +13,16 @@ FactoryBot.define do
       department_id { 508 }
       user_id { 100 }
     end
+
+    trait :teacher2 do
+      id { 6 }
+      registration { 27_612_295_172 }
+      name { 'MARISTELA HOLANDA' }
+      formation { 'DOUTORADO' }
+      occupation { 'docente' }
+      email { 'mholanda@unb.br' }
+      department_id { 508 }
+      user_id { 6 }
+    end
   end
 end

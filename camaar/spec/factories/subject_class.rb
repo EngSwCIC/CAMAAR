@@ -8,7 +8,7 @@ FactoryBot.define do
       semester { '2021.2' }
       subject { 'CIC0097' }
       code { 'TA' }
-      name { 'BANCOS DE DADOS' }
+      name { 'ENGENHARIA DE SOFTWARE' }
       schedule { '35T45' }
       department_id { 508 }
       teacher_id { 100 }
@@ -19,9 +19,10 @@ FactoryBot.define do
       semester { '2021.2' }
       subject { 'CIC0105' }
       code { 'TA' }
-      name { 'ENGENHARIA DE SOFTWARE' }
+      name { 'BANCOS DE DADOS' }
       schedule { '35M12' }
       department_id { 508 }
+      teacher_id { 6 }
     end
 
     trait :subject_class3 do

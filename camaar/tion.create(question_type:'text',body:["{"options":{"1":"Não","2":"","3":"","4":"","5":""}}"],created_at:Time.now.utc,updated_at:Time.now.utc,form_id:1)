@@ -1,0 +1,9 @@
+=> 
+[32m#<FormQuestion:0x00007f40547a1f70[0m
+ id: [34m[1m2[0m,
+ title: [36m[1mnil[0m,
+ question_type: [31m[1m"[0m[31mtext[0m[31m[1m"[0m,
+ body: [[31m[1m"[0m[31m{\"options\":{\"1\":\"Não\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\"}}[0m[31m[1m"[0m],
+ created_at: Mon, 17 Jun 2024 22:00:23.992262000 UTC +00:00,
+ updated_at: Mon, 17 Jun 2024 22:00:23.992265000 UTC +00:00,
+ form_id: [34m[1m2[0m[32m>[0m
