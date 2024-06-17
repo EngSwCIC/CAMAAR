@@ -13,3 +13,185 @@
  *= require_tree .
  *= require_self
  */
+
+ html, body, div, span, applet, object, iframe,
+ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ a, abbr, acronym, address, big, cite, code,
+ del, dfn, em, img, ins, kbd, q, s, samp,
+ small, strike, strong, sub, sup, tt, var,
+ b, u, i, center,
+ dl, dt, dd, ol, ul, li,
+ fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td,
+ article, aside, canvas, details, embed, 
+ figure, figcaption, footer, header, hgroup, 
+ menu, nav, output, ruby, section, summary,
+ time, mark, audio, video {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     font-size: 100%;
+     font: inherit;
+     vertical-align: baseline;
+ }
+ /* HTML5 display-role reset for older browsers */
+ article, aside, details, figcaption, figure, 
+ footer, header, hgroup, menu, nav, section {
+     display: block;
+ }
+ body {
+     line-height: 1;
+ }
+ ol, ul {
+     list-style: none;
+ }
+ blockquote, q {
+     quotes: none;
+ }
+ blockquote:before, blockquote:after,
+ q:before, q:after {
+     content: '';
+     content: none;
+ }
+ table {
+     border-collapse: collapse;
+     border-spacing: 0;
+ 
+ }
+
+ body {
+  background-color: #DBDBDB;
+  font-family: Roboto;
+  font-weight: 400;
+  line-height: 24px;
+  box-sizing: border-box;
+ }
+.header-menu {
+  top: 0;
+  height: 50px;
+  position: fixed;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+  box-sizing: border-box;
+  gap: 20px;
+  font-size: 20px;
+}
+.icon-menu {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -550px;
+  background-color: #fff;
+  transition: left 0.3s ease;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 1px 6px 5px 3px rgba(0,0,0,0.12);
+  cursor: pointer;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar ul {
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  color: black;
+}
+
+.sidebar ul li a {
+  text-decoration: unset;
+  color: black;
+}
+
+.sidebar li:hover {
+  background-color: #6C2365;
+}
+.open-menu {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: #fff;
+  font-size: 24px;
+}
+.profile {
+  width: 30px; /* Largura da bola */
+  height: 30px; /* Altura da bola */
+  border-radius: 50%; /* Torna a div em um círculo */
+  background: #6C2365;
+  color: #fff;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+.logout {
+  width: 220px;
+  height: 38px;
+  position: fixed;
+  margin-top: 50px;
+  top: 0;
+  background-color: #FFFFFF;
+  right: -550px;
+  display: flex;
+  align-items: center;
+  padding: 0px 24px;
+  box-sizing: border-box;
+  box-shadow: 1px 6px 5px 3px rgba(0,0,0,0.12);
+}
+.logout:hover {
+  background-color: #6C2365;
+}
+.logout a { 
+  color: black;
+  text-decoration: unset;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+}
+.logout.open {
+  right: 0;
+}
+.container-formularios {
+  margin-top: 70px;
+  padding: 0px 20px 0px 90px;
+  box-sizing: border-box;
+}
+.box-avaliacao {
+  background-color: #fff;
+  width: 240px;
+  height: 100px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+}
+.container-formularios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

@@ -3,7 +3,8 @@ class FormulariosController < ApplicationController
 
   # GET /formularios or /formularios.json
   def index
-    @formularios = Formulario.all
+    @formularios = Formulario.joins(turma: [:professor, :materia], template: [])
+                  .select('formularios.*, turmas.classCode as turma_classCode, turmas.semestre as turma_semestre, users.nome as professor_name, materias.nome as materia_nome')
   end
 
   # GET /formularios/1 or /formularios/1.json

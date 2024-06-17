@@ -1,14 +1,1 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Formularios</h1>
-
-<div id="formularios">
-  <% @formularios.each do |formulario| %>
-    <%= render formulario %>
-    <p>
-      <%= link_to "Show this formulario", formulario %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New formulario", new_formulario_path %>
+<%= render partial: 'formularios/formulario', locals: { formularios: @formularios } %>
