@@ -9,6 +9,9 @@
 
   <main>
     <%if current_user %>
+      <% if current_user.admin?%>
+       <h1> voce é admin!</h1>
+      <%end%>
       <% if @materia.any? %>
         <h2>Featured Subjects</h2>
         <ul>

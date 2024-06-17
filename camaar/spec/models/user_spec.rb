@@ -44,6 +44,34 @@ RSpec.describe User, type: :model do
       user = build(:user, ocupacao:nil)
       expect(user).to_not  be_valid
     end
+    it "a role deve vir como padrao user" do
+      user = build(:user,)
+      expect(user.role).to eq("user")
+    end
+    it "a role deve vir como padrao user" do
+      user = build(:user,role: :admin)
+      expect(user.role).to eq("admin")
+    end
+    it "deve possuir uma password" do
+      user = build(:user, password:nil)
+      expect(user).to_not  be_valid
+    end
+    it "deve possuir uma password_confirmation" do
+      user = build(:user, password_confirmation:nil)
+      expect(user).to_not  be_valid
+    end
+    it "deve possuir uma token de resetar a senha nula" do
+      user = build(:user, reset_password_token:nil)
+      expect(user).to  be_valid
+    end
+    it "deve possuir uma token de resetar nula" do
+      user = build(:user, reset_password_sent_at:nil)
+      expect(user).to  be_valid
+    end
+    it "não deve lembrar da senha" do
+      user = build(:user, remember_created_at:nil)
+      expect(user).to  be_valid
+    end
   end
 
   describe "para ter relações válidas" do
