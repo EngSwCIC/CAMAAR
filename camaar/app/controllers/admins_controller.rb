@@ -240,16 +240,58 @@ class AdminsController < ApplicationController
     end
     @forms = answered_forms
 
+    @form = Form.find_by_id(params[:form_id]) if params[:form_id]
+    @form_questions = FormQuestion.where(form_id: @form.id) if @form
     case params[:export]
     when "csv"
-      @form = Form.find_by_id(params[:form_id])
-      @form_questions = FormQuestion.where(form_id: @form.id)
       export_to_csv
     when "graph"
       @form = Form.find_by_id(params[:form_id])
       @form_questions = FormQuestion.where(form_id: @form.id)
       export_to_png
     end
+  end
+
+  def summary
+    @form = Form.find_by_id(params[:id])
+    @form_questions = FormQuestion.where(form_id: @form.id)
+    @form_summary = generate_summary
+  end
+
+  def generate_summary
+    resumo = {}
+
+    @form_questions.each do |question|
+      if @form.role == "discente"
+        answers = StudentAnswer.where(form_question_id: question.id)
+      else
+        answers = TeacherAnswer.where(form_question_id: question.id)
+      end
+
+      question_body = JSON.parse(question.body)
+      answers.each do |answ|
+        answer_body = JSON.parse(answ.answers)["answers"]
+
+        case question.question_type
+        when "text"
+          resumo[question.title] ||= []
+          resumo[question.title] << answer_body
+        when "multiple_choice"
+          resumo[question.title] ||= {}
+          question_body["options"].each do |option|
+            if option[1] != ""
+              resumo[question.title][option[1]] ||= 0
+            end
+          end
+
+          answer_body.each do |k, selected|
+            resumo[question.title][question_body["options"][k]] += 1 if selected
+          end
+        end
+      end
+    end
+
+    return resumo
   end
 
   def export_to_csv
@@ -267,6 +309,8 @@ class AdminsController < ApplicationController
         csv << row
       end
     end
+
+    send_file file_path, filename: "#{@form.id}_#{@form.name}_results.csv", type: "text/csv"
   end
 
   def export_to_png
