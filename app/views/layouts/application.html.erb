@@ -22,6 +22,7 @@
             <%= link_to "Área de Avaliações", home_path, class: "nav-link" %>
           </li>
         </ul>
+        <%= button_to "Redefine sua senha", redefine_password_path, method: :get, class: "btn btn-outline-primary my-2 my-sm-0" %>
         <%= button_to "Logout", logout_path, method: :post, class: "btn btn-outline-danger my-2 my-sm-0" %>
       </div>
     </nav>

@@ -1,0 +1,2 @@
+module RedefinePasswordHelper
+end
