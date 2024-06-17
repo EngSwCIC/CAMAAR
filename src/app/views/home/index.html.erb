@@ -1,7 +1,16 @@
-<h1>Home page</h1>
-<p>
-    <%='Olá, '+current_user.nome%>
-</p>
-<% if user_signed_in? %>
-    <%= link_to 'Deslogar', destroy_user_session_path, data: { turbo_method: :delete }%>
-<% end %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Caamar</title>
+  <%= csrf_meta_tags %> 
+  <%= csp_meta_tag %>  
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
+<body>
+  <%= render partial: 'shared/header' %>
+  <div class="container">
+    <%= yield%>
+  </div>
+</body>
+</html>
