@@ -8,12 +8,13 @@ Rails.application.routes.draw do
   resources :formularios
   resources :resposta
   resources :turmas
+  resources :imports, only: [:create]
   devise_for :users
   
   root 'home#index'
   
   resources :templates
 
-  resources :imports, only: [:new, :create]
-end
+
+
 
