@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_17_214034) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_17_214941) do
   create_table "questions", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "text"
     t.string "type"
@@ -42,6 +42,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_17_214034) do
     t.string "salt", null: false
     t.string "password", null: false
     t.string "session_key"
+    t.boolean "is_admin", default: false
   end
 
   add_foreign_key "questions", "templates"

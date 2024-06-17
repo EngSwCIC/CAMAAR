@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/home', to: 'home#index', as: 'home'
   # Root Path
   root "index#index"
+  # Adm's page
   
   resources :templates
 
