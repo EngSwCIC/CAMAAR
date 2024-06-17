@@ -23,7 +23,7 @@ class AuthenticationController < ApplicationController
   end
   
   def logout
-    if cookies.signed[:user_info].present? && cookies.signed[:user_info].readonly?
+    if cookies.signed[:user_info].present?
       cookie_value = cookies.signed[:user_info]
       key, timestamp, email = cookie_value.split('_')
   
