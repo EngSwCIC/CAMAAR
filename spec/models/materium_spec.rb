@@ -47,4 +47,22 @@ RSpec.describe Materium, type: :model do
       end
 
   end
+
+  describe 'retrieving data from SIGAA' do
+    context 'when calling the method get_data_from_SIGAA' do
+      it 'returns the existing classes data from SIGAA' do
+        @sigaa_data = File.read('classes.json')
+
+        allow(Materium).to receive(:get_sigaa_classes).and_return(JSON.parse(@sigaa_data))
+        expect(Materium.get_sigaa_classes).to eq(JSON.parse(@sigaa_data))
+      end
+    end
+
+    # context 'when the system is out of service for maintenance (or network issues)' do
+    #   it 'raises an "ConnectionTimeoutError"' do
+    #     allow(Materium).to receive(:get_sigaa_classes).and_raise(Materium::ConnectionTimeoutError)
+    #     expect {Materium.get_sigaa_classes}.to raise_error(Materium::ConnectionTimeoutError)
+    #   end
+    # end
+  end
 end
