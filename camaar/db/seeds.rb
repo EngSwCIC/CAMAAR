@@ -3,7 +3,18 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 # Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+
+# Criar uma nova instância de Dicente
+dicente = Dicente.new(
+  nome: 'Fulano',
+  email: 'fulano@example.com',
+  password: 'senha123',
+  type: 'Dicente',
+  usuario: 'fulano',
+  formacao: 'Bacharelado',
+  matricula: '0001',
+  curso: 'Engenharia de Software'
+)
+
+# Salvar o dicente no banco de dados
+dicente.save!
