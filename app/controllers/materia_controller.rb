@@ -57,6 +57,15 @@ class MateriaController < ApplicationController
     end
   end
 
+  # POST
+  def search_in_sigaa
+    @materiums = Materium.get_sigaa_classes
+  # rescue Materium::ConnectionTimeoutError
+  #   flash[:warning] = "Erro, não foi possível concluir a operação"
+
+    flash[:warning] = "Turmas importadas com sucesso do SIGAA"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_materium

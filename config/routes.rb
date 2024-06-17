@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'templates/check_name', to: 'templates#check_name'
 
+  post 'materia/search_in_sigaa'
+
   resources :reports_professors
   resources :reports_alunos
   resources :formulario_templates
