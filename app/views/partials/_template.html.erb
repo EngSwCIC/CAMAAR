@@ -5,10 +5,8 @@
 
 <% template.questions.each do |question| %>
     <h3><%= question.label %></h3>
-    <p>
-        <%= question.description %>
-        <% if question.input? %>
-            <%= render partial: 'partials/question_input', locals: { question: } %>
-        <% end %>
-    </p>
+    <%= question.description %>
+    <% if question.input? %>
+        <%= render partial: 'partials/question_input', locals: { question:, disabled: true} %>
+    <% end %>
 <% end %>
