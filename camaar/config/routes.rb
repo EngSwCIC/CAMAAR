@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   scope "/matriculas" do
-    post "/create", to: "matriculas#create"
+    post "/", to: "matriculas#create"
     delete "/:id", to: "matriculas#delete"
     get "/", to: "matriculas#index"
     # get "/:id", to: "matriculas#show"

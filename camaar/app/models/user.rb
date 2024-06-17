@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :formacao, presence: true
   validates :ocupacao, presence: true
   validates :password, presence: true
-  validates :password_confirmation, presence: true
+  # validates :password_confirmation, presence: true
 
 
   has_many :matriculas

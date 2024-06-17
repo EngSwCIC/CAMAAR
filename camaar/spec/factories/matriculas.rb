@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :matricula do
-    turma { nil }
-    user { nil }
+    turma { association :turma }
+    user { association :user}
   end
 end
