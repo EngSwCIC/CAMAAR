@@ -15,20 +15,19 @@ class TemplatesController < ApplicationController
       redirect_to templates_path, notice: "#{@template.nome} created."
     else
       flash[:alert] = "Template could not be created: " + @template.errors.full_messages.join(", ")
-      render 'new'
+      render 'new', status: :unprocessable_entity
     end
   end
   def edit
     @template = Template.find params[:id]
   end
   def update
-    @template = Template.find params[:id]
-    if (@template.update_attributes(template_params))
-      redirect_to template_path(@template), :notice => "#{@template.nome} updated."
+    @template = Template.find(params[:id])
+    if @template.update(template_params)
+      redirect_to templates_path, notice: "#{@template.nome} updated."
     else
-      flash[:alert] = "#{@template.nome} could not be updated: " +
-        @template.errors.full_messages.join(",")
-      render 'edit'
+      flash.now[:alert] = "#{@template.nome} could not be updated: " + @template.errors.full_messages.join(", ")
+      render 'edit', status: :unprocessable_entity
     end
   end
   def destroy
