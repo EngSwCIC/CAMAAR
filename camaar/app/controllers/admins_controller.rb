@@ -1,4 +1,5 @@
 require "json"
+require 'rchart'
 
 class AdminsController < ApplicationController
   layout "admin"
@@ -245,6 +246,9 @@ class AdminsController < ApplicationController
       @form_questions = FormQuestion.where(form_id: @form.id)
       export_to_csv
     when "graph"
+      @form = Form.find_by_id(params[:form_id])
+      @form_questions = FormQuestion.where(form_id: @form.id)
+      export_to_png
     end
   end
 
@@ -263,6 +267,76 @@ class AdminsController < ApplicationController
         csv << row
       end
     end
+  end
+
+  def export_to_png
+    graph = generate_graph
+
+    filename = @form.name + ".png"
+
+    destination_path = File.join("export", filename)
+
+    # Render and save the PNG file to the specified destination
+    ch.render_png(destination_path)
+  end
+
+  def generate_graph
+    if @form.role == 'discente'
+    enrollments = Enrollment.where(subject_class_id: @form.subject_class_id)
+    number_of_students = enrollments.distinct.count(:student_id)
+    num_answers = StudentAnswer.where(student_id: enrollments.distinct.pluck(:student_id)).count
+    num_absents = number_of_students - num_answers
+    p = Rdata.new
+    p.add_point([num_answers, num_absents], 'Serie1')
+    p.add_point(%w[Respostas Ausências], 'Serie2')
+    p.add_all_series
+    p.set_abscise_label_serie('Serie2')
+
+    ch = Rchart.new(300, 200)
+    ch.set_font_properties('tahoma.ttf', 8)
+    ch.draw_filled_rounded_rectangle(7, 7, 293, 193, 5, 240, 240, 240)
+    ch.draw_rounded_rectangle(5, 5, 295, 195, 5, 230, 230, 230)
+
+    # Draw the pie chart
+    ch.antialias_quality = 0
+    ch.set_shadow_properties(2, 2, 200, 200, 200)
+    ch.draw_flat_pie_graph_with_shadow(p.get_data, p.get_data_description, 120, 100, 60, Rchart::PIE_PERCENTAGE, 8)
+    ch.clear_shadow
+
+    ch.draw_pie_legend(210, 35, p.get_data, p.get_data_description, 250, 250, 250)
+
+    # ch.render_png(@form.name)
+
+    elsif @form.role == 'docente'
+      form_questions = FormQuestion.where(form_id: @form.id)
+      form_question_ids = form_questions.pluck(:id)
+      teacher_answers = TeacherAnswer.where(form_question_id: form_question_ids)
+
+      text_answers = teacher_answers.where(question_type: "text")
+      multiple_choice_answers = teacher_answers.where(question_type: "multiple_question")
+
+      p = Rdata.new
+      p.add_point([text_answers, multiple_choice_answers], 'Serie1')
+      p.add_point(%w[Texto Múltipla-Escolha], 'Serie2')
+      p.add_all_series
+      p.set_abscise_label_serie('Serie2')
+
+      ch = Rchart.new(300, 200)
+      ch.set_font_properties('tahoma.ttf', 8)
+      ch.draw_filled_rounded_rectangle(7, 7, 293, 193, 5, 240, 240, 240)
+      ch.draw_rounded_rectangle(5, 5, 295, 195, 5, 230, 230, 230)
+
+      # Draw the pie chart
+      ch.antialias_quality = 0
+      ch.set_shadow_properties(2, 2, 200, 200, 200)
+      ch.draw_flat_pie_graph_with_shadow(p.get_data, p.get_data_description, 120, 100, 60, Rchart::PIE_PERCENTAGE, 8)
+      ch.clear_shadow
+
+      ch.draw_pie_legend(210, 35, p.get_data, p.get_data_description, 250, 250, 250)
+
+      # ch.render_png(@form.name)
+    end
+    ch
   end
 
   def generate_csv
