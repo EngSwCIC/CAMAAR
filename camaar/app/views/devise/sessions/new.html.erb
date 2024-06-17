@@ -1,26 +1,157 @@
-<h2>Log in</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela Inicial</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: -20px; /* Espaço entre os quadrados */
+    }
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+    .square, .square-2 {
+      width: 320px;
+      padding: 20px;
+      background-color: #3498db;
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    .square-2 {
+      background-color: white;
+      color: black;
+    }
+
+    h2, h3 {
+      margin: 0 0 20px;
+      text-align: center;
+    }
+
+    .field-texts, .actions-login {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .field-texts label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .field-infor {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px; /* Espaço entre os campos */
+    }
+
+    .field-infor input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .field-remember {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .actions-login {
+      margin-top: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .actions-login input[type="submit"] {
+      padding: 10px 130px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      align-self: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .actions-login input[type="submit"]:hover {
+      background-color: #2980b9;
+    }
+
+    .links {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .links a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="square">
+      <h2>Bem-vindo(a) ao CAMAAR</h2>
     </div>
-  <% end %>
+    <div class="square-2">
+      <h3>LOGIN</h3>
 
-  <div class="actions">
-    <%= f.submit "Log in", data: {turbo: false} %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+        <div class="field-texts">
+          <%= f.label :email, "E-mail" %>
+          <div class="field-infor">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "fulano@aluno.unb.br" %>
+          </div>
+        </div>
+
+        <div class="field-texts">
+          <%= f.label :password, "Senha" %>
+          <div class="field-infor">
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "000000" %>
+          </div>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="field-remember">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+
+        <div class="actions-login">
+          <%= f.submit "Entrar" %>
+        </div>
+      <% end %>
+
+      <div class="links">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</body>
+</html>
