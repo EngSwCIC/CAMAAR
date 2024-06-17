@@ -5,6 +5,13 @@ FactoryBot.define do
     trait :template1 do
       id { 1 }
       name { 'A' }
+      role {'discente'}
+      coordinator_id { 100 }
+    end
+    trait :template2 do
+      id { 2 }
+      name { 'B' }
+      role {'docente'}
       coordinator_id { 100 }
     end
   end

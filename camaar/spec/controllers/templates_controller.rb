@@ -22,9 +22,11 @@ RSpec.describe TemplatesController, type: :controller do
   #   departament = create(:department, :departament1)
   #   coordinator = create(:coordinator, :coordinator1)
   #   sign_in admin
-
-  #   put :update
-  #   template = build(:template,:template1)
+  #   template = create(:template,:template1)
+  #   template2 = build(:template,:template2)
+  #   @template = template
+  #   @template_name = template2.name
+  #   put :update, params: {id: template.id}
   #   expect(response).to redirect_to(edit_template_path(template))
   # end
 
