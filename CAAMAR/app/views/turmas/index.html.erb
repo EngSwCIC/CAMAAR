@@ -1,0 +1,19 @@
+<%= render '/navbar/navbar' %>
+
+<h1>Turmas</h1>
+
+<div class="grid-container">
+
+    <% @json_classes.each do |e| %>
+        <div class="card">
+            <h2> <%= e["name"] %> </h2>
+            <h4> <%= e["code"] %> </h4>
+            <p>Turma: <%= e["class"]["classCode"] %> </p>
+            <p>Semestre: <%= e["class"]["semester"] %> </p>
+            <p>Horário: <%= e["class"]["time"] %> </p>
+            
+            <button> Enviar </button>
+        </div>
+    <% end %>
+
+</div>
