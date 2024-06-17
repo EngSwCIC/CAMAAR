@@ -1,19 +1,39 @@
-<h2>Entrar</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <%= csrf_meta_tags %> 
+  <%= stylesheet_link_tag 'resetcss', media: 'all' %>
+  <%= stylesheet_link_tag 'form', media: 'all' %>
+</head>
+<body>
+  <div class="container-form">
+    <div class="form-infos">
+      <h2>form</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label "E-mail" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label "Email" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"email@aluno.unb.br" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "Senha" %><br />
+          <%= f.password_field :password, autocomplete: "current-password", placeholder:"Password" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Entrar" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+    <div class="form-mensagem">
+      <h1>Bem vindo</h1>
+      <h1>ao</h1>
+      <h1>Camaar</h1>
+    </div>
   </div>
+</body>
+</html>
 
-  <div class="field">
-    <%= f.label "Senha" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Entrar" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>

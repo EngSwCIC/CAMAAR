@@ -1,29 +1,48 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+<!DOCTYPE html>
+<html>
+<head>
+  <%= csrf_meta_tags %> 
+  <%= stylesheet_link_tag 'resetcss', media: 'all' %>
+  <%= stylesheet_link_tag 'form', media: 'all' %>
+</head>
+<body>
+<%= render "devise/shared/error_messages", resource: resource %>
+  <div class="container-form">
+    <div class="form-infos">
+    <h2>Registro</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"email@aluno.unb.br" %>
+      </div>
+    
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", placeholder:"Password" %>
+      </div>
+    
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"Password" %>
+      </div>
+        
+      <div class="actions">
+        <%= f.submit "Registrar" %>
+      </div>
+    <% end %>
+    
+    <%= render "devise/shared/links" %>
+    </div>
+    <div class="form-mensagem">
+      <h1>Registre-se</h1>
+      <h1>no</h1>
+      <h1>Camaar</h1>
+    </div>
   </div>
-<% end %>
+</body>
+</html>
 
-<%= render "devise/shared/links" %>
