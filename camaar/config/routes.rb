@@ -53,4 +53,5 @@ Rails.application.routes.draw do
     delete "/:id", to: "respostas#delete"
   end
 
+  resources :templates
 end
