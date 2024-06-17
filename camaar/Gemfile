@@ -91,7 +91,7 @@ gem 'simple_form'
 
 gem 'rails-controller-testing', '~> 1.0'
 
-gem "rchart", "~> 2.0"
+gem "rchart"
 
 gem "chartkick", "~> 5.0"
 

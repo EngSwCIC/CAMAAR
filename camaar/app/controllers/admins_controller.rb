@@ -1,5 +1,4 @@
 require "json"
-require 'rchart'
 
 class AdminsController < ApplicationController
   layout "admin"

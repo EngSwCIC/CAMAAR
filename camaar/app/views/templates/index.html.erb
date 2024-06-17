@@ -44,10 +44,10 @@
 
                     <% end %>
                     <div class="icons-container">
-                      <%= button_to template_path(template), class: "icon-button",method: :delete do%>
+                      <%= button_to template_path(template), id: "delete-template-button",class: "icon-button",method: :delete do%>
                         <i class="fas fa-trash "></i>
                       <% end %>
-                      <%= link_to edit_template_path(template),class: "icon-button" do%>
+                      <%= link_to edit_template_path(template),id: "edit-template-button",class: "icon-button" do%>
                         <i class="fas fa-edit "></i>
                       <% end %>
                   </div>
