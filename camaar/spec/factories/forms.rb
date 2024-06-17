@@ -6,6 +6,7 @@ FactoryBot.define do
 
     trait :form1 do
       id { 1 }
+      name {"Avaliação Institucional"}
       coordinator_id { 100 }
       subject_class_id { 1 }
     end
