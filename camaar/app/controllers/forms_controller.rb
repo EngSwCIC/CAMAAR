@@ -1,4 +1,5 @@
 class FormsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user_data
   layout "user"
 
@@ -59,6 +60,22 @@ class FormsController < ApplicationController
   end
 
   def update
+  end
+
+  def show
+    @form = Form.find_by_id(params[:id])
+    @form_questions = FormQuestion.where(form_id: @form.id)
+
+    @questions_and_answers = []
+    @form_questions.each do |question|
+      if current_user.occupation == "discente"
+        answer = StudentAnswer.find_by({ student_id: @student.id, form_question_id: question.id })
+        @questions_and_answers << [question, answer]
+      else
+        answer = StudentAnswer.find_by({ teacher_id: @teacher.id, form_question_id: question.id })
+        @questions_and_answers << [question, answer]
+      end
+    end
   end
 
   def export_graph(form)

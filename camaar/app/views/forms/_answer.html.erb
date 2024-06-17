@@ -1,0 +1,35 @@
+<% if form_question.question_type == "multiple_choice" %>
+  <div class="formbold-mb-5">
+    <label for="<%= form_question.id %>" class="formbold-form-label">
+      <%= form_question.title %>
+    </label>
+    <div class="formbold-radio-flex">
+      <% JSON.parse(form_question.body).with_indifferent_access["options"].each do |option, value| %>
+        <% if value.present? %>
+          <% checked = JSON.parse(answer.answers)["answers"][option] %>
+          <div class="formbold-radio-group">
+            <label for="<%= "#{form_question.id}_#{option}" %>" class="formbold-radio-label">
+              <% if checked %>
+                <input type="radio"  checked disabled/>
+              <% else %>
+                <input type="radio"  disabled />
+              <% end %>
+              <%= value %>
+            </label>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% elsif form_question.question_type == "text" %>
+  <div class="formbold-input-flex">
+    <div>
+      <label for="<%= form_question.id %>" class="formbold-form-label">
+        <%= form_question.title %>
+      </label>
+      <span class="formbold-form-input" id="<%= answer.id %>">
+        <%= JSON.parse(answer.answers)["answers"] %>
+      </span>
+    </div>
+  </div>
+<% end %>

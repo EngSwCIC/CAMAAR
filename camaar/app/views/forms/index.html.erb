@@ -15,25 +15,42 @@
         </div>
         <div class="row m-t-25">
           <% @forms.each do |form| %>
-            <div class="col-sm-6 col-lg-3">
-              <div class="overview-item overview-item--nform">
-                <div class="overview__inner">
-                  <div class="overview-box clearfix">
-                    <div class="text">
-                      <%= link_to edit_form_path(form), class: "template-link" do %>
-                        <h1 class="template-name"><%= form.name %></h1>
-                      <% end %>
-                      <div class="icons-container">
-
-                        <i class="fas fa-clock "></i>
+            <% if @filter == "pending" %>
+              <div class="col-sm-6 col-lg-3">
+                <div class="overview-item overview-item--nform">
+                  <div class="overview__inner">
+                    <div class="overview-box clearfix">
+                      <div class="text">
+                        <%= link_to edit_form_path(form), class: "template-link" do %>
+                          <h1 class="template-name"><%= form.name %></h1>
+                        <% end %>
+                        <div class="icons-container">
+                          <i class="fas fa-clock "></i>
+                        </div>
                       </div>
                     </div>
+                  </div>
                 </div>
-              </div>
+              <% else %>
+                <div class="col-sm-6 col-lg-3">
+                  <div class="overview-item overview-item--sform">
+                    <div class="overview__inner">
+                      <div class="overview-box clearfix">
+                        <div class="text">
+                          <%= link_to form_path(form), class: "template-link" do %>
+                            <h1 class="template-name"><%= form.name %></h1>
+                          <% end %>
+                          <div class="icons-container">
+                            <i class="fas fa-check "></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
             </div>
-          <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
