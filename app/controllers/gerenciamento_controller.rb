@@ -7,11 +7,10 @@ class GerenciamentoController < ApplicationController
     hash_class = JSON.parse(File.read("classes.json"))
     hash_members = JSON.parse(File.read("class_members.json"))
 
-    valid = check_class_json hash_class
     if !(check_class_json hash_class) or !(check_class_members_json hash_members)
       flash[:alert] = "Dados inválidos"
     else
-
+      flash[:notice] = "Data imported successfully"
     end
 
     render 'gerenciamento/index'
@@ -29,9 +28,18 @@ class GerenciamentoController < ApplicationController
         if not obj.respond_to? :keys or obj.keys.sort != keys_class_members
           return false
         else
-          if not obj["dicente"].respond_to? :keys or obj["dicente"].keys.sort != keys_dicente
+          # dicente eh uma lista de objs
+          if obj["dicente"].respond_to? :keys
             return false
-          elsif not obj["docente"].respond_to? :keys or obj["docente"].keys.sort != keys_docente
+          else
+            obj["dicente"].each do |aluno|
+              if not aluno.respond_to? :keys or aluno.keys.sort != keys_dicente
+                return false
+              end
+            end
+          end
+
+          if not obj["docente"].respond_to? :keys or obj["docente"].keys.sort != keys_docente
             return false
           end
         end
