@@ -9,9 +9,6 @@ RSpec.describe GerenciamentoController, type: :controller do
 
     describe 'invalid JSON' do
       it "warns because it's missing fields (classes.json)" do
-        # parece que precisa pra funcionar com args padrao
-        allow(File).to receive(:read).and_call_original
-
         # fazendo um mock da leitura do arquivo pra eu conseguir testar com jsons especificos
         json_classes = <<-EOF
           [ {"code": "CIC0000", "class": { "classCode": "TA", "semester": "2024.1", "time": "25M34"} } ]
@@ -44,8 +41,6 @@ RSpec.describe GerenciamentoController, type: :controller do
       end
 
       it "warns because it's missing fields from the class (class_member.json)" do
-        allow(File).to receive(:read).and_call_original
-
         json_classes = <<-EOF
           [ {"code": "CIC0000", "name": "TESTE", "class": { "classCode": "TA", "semester": "2024.1", "time": "25M34"} } ]
         EOF
@@ -57,7 +52,7 @@ RSpec.describe GerenciamentoController, type: :controller do
                 "nome": "FULANO DE CICLANO", "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO", "formacao": "DOUTORADO", "usuario": "12345", "email": "fulano@email.com", "ocupacao": "docente" } 
               } ]
         EOF
-        filepath_members = "classes.json"
+        filepath_members = "class_members.json"
         allow(File).to receive(:read).with(filepath_members).and_return(json_members)
 
         put :import
@@ -66,8 +61,6 @@ RSpec.describe GerenciamentoController, type: :controller do
       end
 
       it "warns because it's missing fields from the student (class_members.json)" do
-        allow(File).to receive(:read).and_call_original
-
         json_classes = <<-EOF
           [ {"code": "CIC0000", "name": "TESTE", "class": { "classCode": "TA", "semester": "2024.1", "time": "25M34"} } ]
         EOF
@@ -88,7 +81,7 @@ RSpec.describe GerenciamentoController, type: :controller do
                 "nome": "FULANO DE CICLANO", "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO", "formacao": "DOUTORADO", "usuario": "12345", "email": "fulano@email.com", "ocupacao": "docente" } 
               } ]
         EOF
-        filepath_members = "classes.json"
+        filepath_members = "class_members.json"
         allow(File).to receive(:read).with(filepath_members).and_return(json_members)
 
         put :import
