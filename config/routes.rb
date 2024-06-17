@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get '/home', to: 'home#index', as: 'home'
   # Root Path
   root "index#index"
-  # Adm's page
+  # Redifine Password Path
+  get '/redefine_password', to: 'redefine_password#index', as: 'redefine_password'
+  post '/redefine_password', to: 'redefine_password#redefine', as: 'redefine_password_post'
   
   resources :templates
 
