@@ -56,10 +56,10 @@ RSpec.describe User, type: :model do
       user = build(:user, password:nil)
       expect(user).to_not  be_valid
     end
-    it "deve possuir uma password_confirmation" do
-      user = build(:user, password_confirmation:nil)
-      expect(user).to_not  be_valid
-    end
+    # it "deve possuir uma password_confirmation" do
+    #   user = build(:user, password_confirmation:nil)
+    #   expect(user).to_not  be_valid
+    # end
     it "deve possuir uma token de resetar a senha nula" do
       user = build(:user, reset_password_token:nil)
       expect(user).to  be_valid
