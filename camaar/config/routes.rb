@@ -6,14 +6,53 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-
   # root "posts#index"
-
-  resources :templates
 
   get "/formularios", to: "formularios#index"
 
   root to: "home#index"
   devise_for :users
+
+  scope "/turmas" do
+    get "/", to: "turmas#index"
+    get "/:id", to: "turmas#show"
+    # post "/", to: "turmas#create"
+    # patch "/:id", to: "turmas#update"
+    # delete "/:id", to: "turmas#destroy"
+  end
+
+  scope "/matriculas" do
+    post "/create", to: "matriculas#create"
+    delete "/:id", to: "matriculas#delete"
+    get "/", to: "matriculas#index"
+    # get "/:id", to: "matriculas#show"
+    # patch "/:id", to: "matriculas#update"
+  end
+
+  scope "/formularios" do
+    get "/", to: "formularios#index"
+    get "/:id", to: "formularios#show"
+    post "/", to: "formularios#create"
+    patch "/:id", to: "formularios#update"
+    delete "/:id", to: "formularios#delete"
+  end
+
+  scope "/questoes" do
+    get "/", to: "questoes#index"
+    get "/:id", to: "questoes#show"
+    post "/", to: "questoes#create"
+    patch "/:id", to: "questoes#update"
+    delete "/:id", to: "questoes#delete"
+  end
+
+  scope "/respostas" do
+    get "/", to: "respostas#index"
+    get "/:id", to: "respostas#show"
+    post "/", to: "respostas#create"
+    patch "/:id", to: "respostas#update"
+    delete "/:id", to: "respostas#delete"
+  end
+
+  resources :templates
 
 end
