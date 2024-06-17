@@ -255,8 +255,7 @@ class AdminsController < ApplicationController
   end
 
   def generate_summary
-    resumo = { "text" => {},
-               "multiple_choice" => {} }
+    resumo = {}
 
     @form_questions.each do |question|
       if @form.role == "discente"
@@ -271,18 +270,18 @@ class AdminsController < ApplicationController
 
         case question.question_type
         when "text"
-          resumo["text"][question.title] ||= []
-          resumo["text"][question.title] << answer_body
+          resumo[question.title] ||= []
+          resumo[question.title] << answer_body
         when "multiple_choice"
-          resumo["multiple_choice"][question.title] ||= {}
+          resumo[question.title] ||= {}
           question_body["options"].each do |option|
             if option[1] != ""
-              resumo["multiple_choice"][question.title][option[1]] ||= 0
+              resumo[question.title][option[1]] ||= 0
             end
           end
 
           answer_body.each do |k, selected|
-            resumo["multiple_choice"][question.title][question_body["options"][k]] += 1 if selected
+            resumo[question.title][question_body["options"][k]] += 1 if selected
           end
         end
       end

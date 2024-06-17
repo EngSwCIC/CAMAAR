@@ -1,6 +1,13 @@
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-<% @form_summary["multiple_choice"].each do |title, answers| %>
-  <%= title%>
-  <%= answers%>
-  <%= pie_chart answers %>
+
+<% @form_summary.each_with_index do |(title, answers), index| %>
+  <h2><%= index + 1 %> - <%= title %></h2>
+  
+  <% if answers.length > 1 %>
+    <%= pie_chart answers %>
+  <% else %>
+    <% answers.each do |answ| %>
+      <p><%= answ %></p>
+    <% end %>
+  <% end %>
 <% end %>
