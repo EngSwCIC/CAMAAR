@@ -14,6 +14,7 @@
             <div class="overview-item overview-item--c2">
               <div class="overview__inner">
                 <div class="overview-box clearfix">
+                  <%= link_to form.name, form_summary_path(form) %>
                   <div class="text">
                     <div class="icons-container">
                       <%= link_to results_path(export: :graph, form_id: form.id )  do%>

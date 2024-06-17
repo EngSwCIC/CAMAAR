@@ -248,13 +248,15 @@ class AdminsController < ApplicationController
     end
   end
 
+  def summary
+    @form = Form.find_by_id(params[:id])
+    @form_questions = FormQuestion.where(form_id: @form.id)
+    @form_summary = generate_summary
+  end
+
   def generate_summary
-    resumo = { "text" => [],
-              "multiple_choice" => { 1 => 0,
-                                     2 => 0,
-                                     3 => 0,
-                                     4 => 0,
-                                     5 => 0 } }
+    resumo = { "text" => {},
+               "multiple_choice" => {} }
 
     @form_questions.each do |question|
       if @form.role == "discente"
@@ -263,20 +265,30 @@ class AdminsController < ApplicationController
         answers = TeacherAnswer.where(form_question_id: question.id)
       end
 
+      question_body = JSON.parse(question.body)
       answers.each do |answ|
         answer_body = JSON.parse(answ.answers)["answers"]
+
         case question.question_type
         when "text"
-          resumo["text"] << answer_body
+          resumo["text"][question.title] ||= []
+          resumo["text"][question.title] << answer_body
         when "multiple_choice"
-          answer_body.each do |num, selected|
-            resumo["multiple_choice"][num.to_i] += 1 if selected
+          resumo["multiple_choice"][question.title] ||= {}
+          question_body["options"].each do |option|
+            if option[1] != ""
+              resumo["multiple_choice"][question.title][option[1]] ||= 0
+            end
+          end
+
+          answer_body.each do |k, selected|
+            resumo["multiple_choice"][question.title][question_body["options"][k]] += 1 if selected
           end
         end
       end
     end
 
-    p resumo
+    return resumo
   end
 
   def export_to_csv

@@ -101,6 +101,7 @@ GEM
     capybara-email (3.0.2)
       capybara (>= 2.4, < 4.0)
       mail
+    chartkick (5.0.7)
     childprocess (5.0.0)
     cliver (0.3.2)
     coercible (1.0.0)
@@ -209,6 +210,8 @@ GEM
       hashie (~> 3.5, >= 3.5.2)
       oauth2 (~> 1.0)
     globalid (1.2.1)
+      activesupport (>= 6.1)
+    groupdate (6.4.0)
       activesupport (>= 6.1)
     hashie (3.6.0)
     highline (3.0.1)
@@ -473,12 +476,14 @@ DEPENDENCIES
   bootsnap
   capybara
   capybara-email
+  chartkick (~> 5.0)
   cucumber-rails
   database_cleaner
   database_cleaner-active_record
   debug
   devise
   factory_bot (~> 6.4)
+  groupdate (~> 6.4)
   importmap-rails
   jbuilder
   letter_opener

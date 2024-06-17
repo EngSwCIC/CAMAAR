@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :template_questions
     end
 
+    match "results/:id", to: "admins#summary", via: "get", as:"form_summary"
     match "/results", to: "admins#results", via: "get", as: "results"
 
     resources :subject_classes, only: [:index]
