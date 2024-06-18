@@ -2,7 +2,8 @@ Feature: Import Data from Database
   As a coordenador I want to import data from the SIGAA database
 
 Background: There is a database with data to import
-  Given I am logged in as an administrator
+  Given I am registered
+  And I am an admin
   And there is a source database with updated data
   And I don't have the database yet
 
