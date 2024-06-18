@@ -1,2 +1,16 @@
-<h1>Welcome to the Manager Index Page</h1>
-<p>This is the index view for the Manager controller.</p>
+<div class="container">
+  <h1 class="text-center"><i>Gerenciamento</i></h1>
+  <br>
+
+  <div class="custom-button-container">
+    <%= button_to "Enviar Email de Cadastro para Alunos", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <br>
+    <%= button_to "Importar Dados e Iniciar um Novo Semestre", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <br>
+    <%= button_to "Editar Templates", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <br>
+    <%= button_to "Enviar Formulários", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <br>
+    <%= button_to "Gerar CSV de Resultados", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+  </div>
+</div>
