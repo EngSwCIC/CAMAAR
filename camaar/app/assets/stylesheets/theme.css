@@ -3301,6 +3301,10 @@ section {
   margin-bottom: 5px;
 }
 
+.h1-aligned {
+  text-align: center;
+}
+
 .overview-box .text .template-link {
   font-weight: 300 !important;
   color: #fff !important;

@@ -1,13 +1,24 @@
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-
-<% @form_summary.each_with_index do |(title, answers), index| %>
-  <h2><%= index + 1 %> - <%= title %></h2>
+<div class="main-content">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="formbold-form-wrapper">
+        <h1 class="h1-aligned"><%= @form.name %></h1>
+      
+        <% @form_summary.each_with_index do |(title, answers), index| %>
+  <h2 class="formbold-form-question-title"><%= index + 1 %> - <%= title %></h2>
   
   <% if answers.length > 1 %>
     <%= pie_chart answers %>
   <% else %>
     <% answers.each do |answ| %>
-      <p><%= answ %></p>
+      <p class="formbold-form-question-answer"><%= answ %></p>
     <% end %>
   <% end %>
 <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
