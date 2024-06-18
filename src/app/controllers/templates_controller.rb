@@ -8,6 +8,7 @@ class TemplatesController < ApplicationController
 
   # GET /templates/1 or /templates/1.json
   def show
+    @template = Template.find_by(id: params[:id])
   end
 
   # GET /templates/new
@@ -25,7 +26,7 @@ class TemplatesController < ApplicationController
 
     respond_to do |format|
       if @template.save
-        format.html { redirect_to template_url(@template), notice: "Template was successfully created." }
+        format.html { redirect_to template_url(@template), notice: "Template criado com sucesso." }
         format.json { render :show, status: :created, location: @template }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +66,6 @@ class TemplatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def template_params
-      params.require(:template).permit(:codigo, :nome, :semestre, :id_usuario)
+      params.require(:template).permit(:nome, :semestre, :usuario, :users_id)
     end
 end
