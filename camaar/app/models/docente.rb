@@ -1,7 +1,8 @@
-class Docente < User
+class Docente < ApplicationRecord
   has_many :formularios
   has_many :templates
   has_many :classes
+  belongs_to :user
 
   validates :departamento, presence: true
 

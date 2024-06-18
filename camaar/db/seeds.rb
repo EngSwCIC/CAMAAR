@@ -4,17 +4,19 @@
 #
 # Example:
 
-# Criar uma nova instância de Dicente
-dicente = Dicente.new(
-  nome: 'Fulano',
-  email: 'fulano@example.com',
-  password: 'senha123',
-  type: 'Dicente',
-  usuario: 'fulano',
-  formacao: 'Bacharelado',
-  matricula: '0001',
-  curso: 'Engenharia de Software'
+# Criando um novo user
+user = User.find_or_create_by!(
+  nome: 'fulano',
+  email: 'fulano@egmail.com',
+  password: 'senha1234',
+  usuario: 'usuario123',
+  formacao: 'graduação'
 )
 
-# Salvar o dicente no banco de dados
-dicente.save!
+# Criando um novo Dicente
+Dicente.find_or_create_by!(
+  user_id: user.id,
+  matricula: '00001'
+)
+
+puts "Seed de Dicente criada com sucesso!"

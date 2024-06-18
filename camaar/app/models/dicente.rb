@@ -1,5 +1,6 @@
-class Dicente < User
+class Dicente < ApplicationRecord
   has_many :classes
+  belongs_to :user
 
   validates :matricula, presence: true
   validates :curso, presence: true

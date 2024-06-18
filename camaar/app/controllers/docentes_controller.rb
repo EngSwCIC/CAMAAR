@@ -1,56 +1,64 @@
 class DocentesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :set_docente, only: [:show, :edit, :update, :destroy]
 
   # GET /docentes
   def index
     @docentes = Docente.all
   end
 
-  # GET /docentes/:id
+  # GET /docentes/1
   def show
-    @docente = Docente.find(params[:id])
   end
 
   # GET /docentes/new
   def new
     @docente = Docente.new
+    @user = User.new
+  end
+
+  # GET /docentes/1/edit
+  def edit
   end
 
   # POST /docentes
   def create
+    @user = User.new(user_params)
     @docente = Docente.new(docente_params)
-    if @docente.save
-      redirect_to @docente, notice: 'Docente was successfully created.'
+    @docente.user = @user
+
+    if @user.save && @docente.save
+      redirect_to @docente, notice: 'Docente foi criado com sucesso.'
     else
       render :new
     end
   end
 
-  # GET /docentes/:id/edit
-  def edit
-    @docente = Docente.find(params[:id])
-  end
-
-  # PATCH/PUT /docentes/:id
+  # PATCH/PUT /docentes/1
   def update
-    @docente = Docente.find(params[:id])
     if @docente.update(docente_params)
-      redirect_to @docente, notice: 'Docente was successfully updated.'
+      redirect_to @docente, notice: 'Docente foi atualizado com sucesso.'
     else
       render :edit
     end
   end
 
-  # DELETE /docentes/:id
+  # DELETE /docentes/1
   def destroy
-    @docente = Docente.find(params[:id])
     @docente.destroy
-    redirect_to docentes_url, notice: 'Docente was successfully destroyed.'
+    redirect_to docentes_url, notice: 'Docente foi excluído com sucesso.'
   end
 
   private
 
+  def set_docente
+    @docente = Docente.find(params[:id])
+  end
+
   def docente_params
-    params.require(:docente).permit(:nome, :email, :password, :type, :usuario, :formacao, :departamento)
+    params.require(:docente).permit(:user_id, :departamento)
+  end
+
+  def user_params
+    params.require(:user).permit(:nome, :email, :password, :usuario, :formacao)
   end
 end

@@ -1,23 +1,24 @@
-class DicientesController < ApplicationController
-  before_action :authenticate_user!
+class DicentesController < ApplicationController
+  before_action :set_dicente, only: [:show, :edit, :update, :destroy]
 
   # GET /dicentes
   def index
-    @dicientes = Dicente.all
+    @dicentes = Dicente.all
   end
 
   # GET /dicentes/:id
   def show
-    @dicente = Dicente.find(params[:id])
   end
 
   # GET /dicentes/new
   def new
     @dicente = Dicente.new
+    @user = User.new
   end
 
   # POST /dicentes
   def create
+    @user = User.new(user_params)
     @dicente = Dicente.new(dicente_params)
     if @dicente.save
       redirect_to @dicente, notice: 'Dicente was successfully created.'
@@ -28,12 +29,10 @@ class DicientesController < ApplicationController
 
   # GET /dicentes/:id/edit
   def edit
-    @dicente = Dicente.find(params[:id])
   end
 
   # PATCH/PUT /dicentes/:id
   def update
-    @dicente = Dicente.find(params[:id])
     if @dicente.update(dicente_params)
       redirect_to @dicente, notice: 'Dicente was successfully updated.'
     else
@@ -43,14 +42,20 @@ class DicientesController < ApplicationController
 
   # DELETE /dicentes/:id
   def destroy
-    @dicente = Dicente.find(params[:id])
     @dicente.destroy
     redirect_to dicientes_url, notice: 'Dicente was successfully destroyed.'
   end
 
   private
+  def set_dicente
+    @dicente = Dicente.find(params[:id])
+  end
 
   def dicente_params
-    params.require(:dicente).permit(:nome, :email, :password, :type, :usuario, :formacao, :matricula, :curso)
+    params.require(:dicente).permit(:user_id, :matricula, :curso)
+  end
+
+  def user_params
+    params.require(:user).permit(:nome, :email, :password, :usuario, :formacao)
   end
 end
