@@ -48,6 +48,8 @@ module NavigationHelpers
       "/admins/templates/#{::Regexp.last_match(1)}/edit"
     when /Turmas do (\w+)/
       "/classes/#{::Regexp.last_match(1)}"
+    when "Dispatch"
+      "/admins/dispatch"
     else
       begin
         page_name =~ /^the (.*) page$/

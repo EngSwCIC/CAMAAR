@@ -186,7 +186,9 @@ end
 Given(/that the department "([^"]*)" has no classes$/) do |dpt_name|
   department = Department.find_by(name: dpt_name)
 
-  SubjectClass.where(department_id: department.id).destroy_all
+  SubjectClass.where(department_id: department.id).each do |sbj|
+    sbj.destroy!
+  end
 end
 
 Given(/^that a form has been assigned to the following classes:$/) do |fields|
@@ -205,6 +207,15 @@ end
 Given("that I am an User associated with the following classes:") do |_table|
   # table is a Cucumber::MultilineArgument::DataTable
   pending
+end
+
+Then("I expect to see the following classes:") do |table|
+  expected_classes = table.hashes
+
+  expected_classes.each do |subject_class|
+    text = "#{subject_class["semester"]} - #{subject_class["name"]} - #{subject_class["code"]}"
+    expect(page).to have_text(text)
+  end
 end
 
 Given("that I have not answered any form") do
@@ -267,13 +278,15 @@ Given(/^that I created the (teacher|student) template "([^"]*)"$/) do |template_
 end
 
 Given(/^that "([^"]*)" was deleted$/) do |template_name|
-  Template.destroy(template_name.scan(/\d+/).first.to_i)
+  Template.destroy!(template_name.scan(/\d+/).first.to_i)
 end
 
 # Visualization
 
 Then(/^(?:|I )expect to see "([^"]*)"$/) do |text|
   if page.respond_to? :expect
+    page.expect have_content(text)
+  elsif page.respond_to? :should
     page.should have_content(text)
   else
     assert page.has_content?(text)

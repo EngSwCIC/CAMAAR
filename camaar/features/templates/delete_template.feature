@@ -7,7 +7,7 @@ Feature: Delete a form template
     Background: I am an Coordinator
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         Given I am on the "Templates" page
-        Given I created the template "Template 1"
+        Given that I created the student template "Template 1"
         When I follow "Template 1"
         Then I expect to be on the "Template 1" page
 
