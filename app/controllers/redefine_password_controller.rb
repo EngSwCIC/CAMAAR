@@ -1,6 +1,7 @@
 class RedefinePasswordController < ApplicationController
+  include AuthenticationConcern
     def index
-      if authenticate_user == true
+      if user_authenticated
         render :index
       else
         redirect_to root_path, alert: "Acesso não autorizado"
