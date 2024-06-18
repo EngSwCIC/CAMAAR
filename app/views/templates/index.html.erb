@@ -1,14 +1,6 @@
-<p style="color: green"><%= notice %></p>
+<h1>Templates</h1>
 
-<h1> Gerenciamento - Templates </h1>
-
-<div id="templates">
-  <% @templates.each do |template| %>
-    <%= render template %>
-    <%= link_to "Visualizar template", template %> <br> <br>
-  <% end %>
-</div>
-
-<br>
-
-<%= link_to "Novo template", new_template_path %>
+<% @templates.each do |template| %>
+    <%= render partial: 'partials/template', locals: { template: } %>
+    <hr>
+<% end %>

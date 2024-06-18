@@ -1,7 +1,8 @@
-class Template < ApplicationRecord
-  has_many :questions, dependent: :destroy
-  accepts_nested_attributes_for :questions, reject_if: :all_blank, allow_destroy: true
+# frozen_string_literal: true
 
-  validates :title, presence: true
-  validates :questions, presence: true
+# Model representing a form template.
+#
+class Template < ApplicationRecord
+  belongs_to :semester
+  has_many :questions
 end

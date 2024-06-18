@@ -66,3 +66,4 @@ yarn-debug.log*
 /config/master.key
 
 /config/credentials.yml.enc
+tmp/cache/bootsnap/load-path-cache

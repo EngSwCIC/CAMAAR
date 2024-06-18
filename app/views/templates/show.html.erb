@@ -1,14 +1,1 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @template %>
-
-<br>
-
-<div>
-  <%= link_to "Editar template", edit_template_path(@template) %> |
-  <%= link_to "Voltar", templates_path %>
-
-  <br> <br>
-
-  <%= button_to "Deletar template", @template, method: :delete %>
-</div>
+<%= render partial: 'partials/template', locals: { template: @template } %>
