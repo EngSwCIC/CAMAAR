@@ -1,9 +1,8 @@
 ruby "3.1.2"
-source "https://rubygems.org"
 
 #gems 
-gem 'bcrypt'
-gem 'mysql2'
+gem 'bcrypt', '~> 3.1.7'
+gem 'sqlite3', '~> 1.4', platforms: [:ruby]
 gem 'bundler-audit'
 gem "rails", "~> 7.1.3.4"
 gem "sprockets-rails"

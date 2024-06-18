@@ -1,15 +1,16 @@
 default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  username: <%= Rails.application.credentials.dig(:db_username) %>
-  password: <%= Rails.application.credentials.dig(:db_password) %>
-  host: <%= Rails.application.credentials.dig(:db_host) %>
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 development:
   <<: *default
-  database: <%= Rails.application.credentials.dig(:development, :db_database_dsv) %>
+  database: storage/development.sqlite3
 
 test:
   <<: *default
-  database: <%= Rails.application.credentials.dig(:test, :db_database_tst) %>
+  database: storage/test.sqlite3
+
+production:
+  <<: *default
+  database: storage/production.sqlite3
