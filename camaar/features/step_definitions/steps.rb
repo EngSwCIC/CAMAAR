@@ -103,11 +103,11 @@ end
 
 # Database and examples
 Given("I am an authenticated User") do
-  user = FactoryBot.create(:user, :user1)
+  FactoryBot.create(:user, :user1)
 end
 
 Given('I am an authenticated User from class "BANCOS DE DADOS"') do
-  user = FactoryBot.create(:user, :user4)
+  FactoryBot.create(:user, :user4)
 end
 
 Given(/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|
@@ -115,6 +115,7 @@ Given(/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|
   coordinator = Coordinator.find_by({ department_id: department.id })
 
   visit("/admins/login")
+
   fill_in("email", with: coordinator.email)
   fill_in("password", with: "admin123")
   click_button("Confirmar")
@@ -191,16 +192,28 @@ Given(/that the department "([^"]*)" has no classes$/) do |dpt_name|
   end
 end
 
-Given(/^that a form has been assigned to the following classes:$/) do |fields|
+Given(/^that a form has been assigned to the (students|teachers) of the following classes:$/) do |role, fields|
   fields.hashes.each do |form|
-    subject_class = SubjectClass.find_by(subject: form["Turma"])
-    coordinator = Coordinator.find_by(department_id: subject_class.department_id)
-    Form.create(open: true,
-                name: form["Formulário"],
-                created_at: Time.now.utc,
-                updated_at: Time.now.utc,
-                coordinator_id: 35,
-                subject_class_id: subject_class.id)
+    step 'I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"'
+
+    step 'that I created the teacher template "Template 1"'
+    step 'that I created the student template "Template 2"'
+
+    step 'I follow "Envio"'
+    step 'I expect to be on the "Dispatch" page'
+    step 'I expect to see "Opções para Envio"'
+
+    if role == "teachers"
+      step 'I select "Template 1" from "Teacher template"'
+      step 'I expect to see "Template 1"'
+    else
+      step 'I select "Template 2" from "Student template"'
+      step 'I expect to see "Template 2"'
+    end
+
+    step %'I check "#{form["semester"]}_#{form["subject"]}_#{form["code"]}"'
+    step 'I press "Confirm"'
+    step 'I expect to see "O formulário para os alunos da turma BANCOS DE DADOS foi criado com sucesso."'
   end
 end
 
@@ -260,6 +273,7 @@ When(/^(?:|I )create a "([^"]*)" question with the following:$/) do |question_ty
 end
 
 Given(/^that I created the (teacher|student) template "([^"]*)"$/) do |template_type, template_name|
+  step 'I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"'
   step 'I am on the "Templates" page'
   step 'I press "Add template"'
   step 'I expect to be on the "New Template" page'

@@ -4,14 +4,13 @@ Feature: Submit form answers
     So that I can submit my class evaluation
 
     Background: A form was assigned to some classes
-        Given that a form has been assigned to the following classes:
-            | CIC0097 | 2021.2 | TA |
-            | CIC0105 | 2021.2 | TA |
-        Given that I am an User associated with the following classes:
-            | CIC0097 | 2021.2 | TA |
+        Given that a form has been assigned to the students of the following classes:
+            | subject | semester | code |
+            | CIC0097 | 2021.2   | TA   |
+        Given I am an authenticated User from class "BANCOS DE DADOS"
 
     Scenario: User tries to submit a form
-        Given I am an authenticated User
+
         When I follow "Formulários"
         Then I should be on the "Formulários" page
         Then I expect to see the following forms as pending:
@@ -32,7 +31,7 @@ Feature: Submit form answers
             | CIC0097 | 2021.2 | TA |
 
     Scenario: User can't submit a form
-        Given I am an authenticated User
+
         When I follow "Formulários"
         Then I should be on the "Formulários" page
         Then I should no forms as pending

@@ -13,7 +13,6 @@ Feature: Create a form for students and/or teachers of a class
         Then I expect to be on the "Dispatch" page
         And I expect to see "Opções para Envio"
 
-        # And I expect to see "Nenhuma turma disponível"
         And I expect to see the following classes:
             | name                    | semester | subject | code | schedule |
             | BANCOS DE DADOS         | 2021.2   | CIC0097 | TA   | 35T45    |
