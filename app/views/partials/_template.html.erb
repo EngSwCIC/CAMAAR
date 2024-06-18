@@ -1,0 +1,12 @@
+<h2>Template #<%= template.id %></h2>
+<p>
+    <em>Semester:</em> <%= template.semester.to_s %>
+</p>
+
+<% template.questions.each do |question| %>
+    <h3><%= question.label %></h3>
+    <%= question.description %>
+    <% if question.input? %>
+        <%= render partial: 'partials/question_input', locals: { question:, disabled: true} %>
+    <% end %>
+<% end %>

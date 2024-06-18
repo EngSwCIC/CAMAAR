@@ -1,7 +1,7 @@
 module AuthenticationConcern
   extend ActiveSupport::Concern
 
-  def authenticate_user
+  def user_authenticated
     user_info = cookies.signed[:user_info]
     return check_authentication_from_controller(user_info)
   end

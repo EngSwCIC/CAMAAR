@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   get '/check_authentication', to: 'authentication#check_authentication'
   post '/process_login', to: 'authentication#process_login'
   post '/logout' => 'authentication#logout', as: :logout
-  # Registrations Paths 
+  # Registrations Paths
   get '/create', to: 'registrations#index', as: 'create'
   post '/create', to: 'registrations#create', as: 'register'
-  # Home Paths  
+  # Home Paths
   get '/home', to: 'home#index', as: 'home'
   # Root Path
-  root "index#index"
+  root 'index#index'
   # Redifine Password Path
   get '/redefine_password', to: 'redefine_password#index', as: 'redefine_password'
   post '/redefine_password', to: 'redefine_password#redefine', as: 'redefine_password_post'
@@ -21,8 +21,10 @@ Rails.application.routes.draw do
 
   resources :questions, only: [], param: :index do
     member do
-      delete '(:id)' => "questions#destroy", as: ""
-      post '/' => "questions#create"
+      delete '(:id)' => 'questions#destroy', as: ''
+      post '/' => 'questions#create'
     end
   end
+
+  resources :templates
 end
