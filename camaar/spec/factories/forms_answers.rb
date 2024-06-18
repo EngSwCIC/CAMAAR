@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :student_answer do
-    answers { ['{"answers":"abcd"}'] }
+    answers { '{"answers":"abcd"}' }
     created_at { Time.now.utc }
     updated_at { Time.now.utc }
 

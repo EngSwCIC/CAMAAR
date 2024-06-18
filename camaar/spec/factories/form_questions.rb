@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :form_question do
-    body { ['{"options":{}}'] }
+    body { '{"options":{}}' }
     created_at { Time.now.utc }
     updated_at { Time.now.utc }
 

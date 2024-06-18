@@ -355,8 +355,6 @@ class AdminsController < ApplicationController
 
       ch.draw_pie_legend(210, 35, p.get_data, p.get_data_description, 250, 250, 250)
 
-      # ch.render_png(@form.name)
-
     elsif @form.role == 'docente'
       form_questions = FormQuestion.where(form_id: @form.id)
       form_question_ids = form_questions.pluck(:id)
@@ -384,7 +382,6 @@ class AdminsController < ApplicationController
 
       ch.draw_pie_legend(210, 35, p.get_data, p.get_data_description, 250, 250, 250)
 
-      # ch.render_png(@form.name)
     end
     ch
   end

@@ -7,7 +7,7 @@ FactoryBot.define do
       id { 1 }
       title { 'How are you' }
       question_type { 'text' }
-      body { [{ question: 'Qual seu nível de satisfação?', type: 'text' }] }
+      body { '{"options":{}}' }
       template_id { 1 }
     end
   end

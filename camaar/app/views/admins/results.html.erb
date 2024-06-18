@@ -19,10 +19,10 @@
                     <h1 class="template-name"><%= form.name %></h1>
                         <% end %>
                     <div class="icons-container">
-                      <%= link_to results_path(export: :graph, form_id: form.id )  do%>
+                      <%= link_to results_path(export: :graph, form_id: form.id ), id:'export-graph'  do%>
                         <i class="fas fa-chart-pie"></i>
                       <% end %>
-                      <%= link_to results_path(export: :csv,form_id: form.id)  do%>
+                      <%= link_to results_path(export: :csv,form_id: form.id), id:'export-csv'  do%>
                         <i class="fas fa-download"></i>
                       <% end %>
                     </div>
