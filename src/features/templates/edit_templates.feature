@@ -6,16 +6,15 @@ Feature: Edit and delete templates
 
     Background:
         Given I am on the Templates page
+        And I have clicked on the edit icon of a specific template
 
     Scenario: Editing a form
-        When I click on the edit icon
-        And I change a question
+        When I change a question
         And I click on "Criar" button
-        Them I should see an alert saying that the form has been successfully edited
+        Then I should see an alert saying that the form has been successfully edited
         
-    Scenario: Removing all the questions of a form
-        When I click on the edit icon
-        And I delete the name of the template
+    Scenario: Removing the name of a form
+        When I delete the name of the template
         And I click on "Criar" button
         Then I should see an alert saying that it is not possible to create a form without a name
         And the form should not be edited

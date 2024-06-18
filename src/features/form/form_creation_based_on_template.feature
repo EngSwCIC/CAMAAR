@@ -10,8 +10,8 @@ Background:
 Scenario: Admin creates a form based on a template for selected class
     Given there are available templates for form creation
     And there are available classes to evaluate
-    When I select a the classes I want to evaluate
-    And I select template
+    When I select a template
+    And I select the class I want to evaluate
     And I add text for the questions to the form
     And I click on "Criar formulário"
     Then the form should be created for the selected class
