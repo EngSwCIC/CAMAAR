@@ -1,8 +1,8 @@
-require 'uri'
-require 'cgi'
+require "uri"
+require "cgi"
 
-require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'paths'))
-require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'selectors'))
+require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
+require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
 
 module WithinHelpers
   def with_scope(locator, &block)
@@ -39,7 +39,7 @@ end
 
 When(/I click on registration link at "([^"]*)"$/) do |email|
   UsersMailer.register_user(email).deliver_now
-  open_email(email).click_link 'Registrar'
+  open_email(email).click_link "Registrar"
 end
 
 Then(/^(?:|I )expect to be on the "([^"]*)" page$/) do |page_name|
@@ -58,17 +58,17 @@ end
 # Buttons and clicks
 
 When(/^(?:|I )press "([^"]*)"$/) do |button|
-  click_link_or_button(button.downcase.gsub(' ', '_'))
+  click_link_or_button(button.downcase.gsub(" ", "_"))
 end
 
 When(/I click on "Confirmar"/) do
-  click_button('Confirmar')
+  click_button("Confirmar")
 end
 
 # Forms and templates
 
 And(/^(?:|I )fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
-  fill_in(field.downcase.gsub(' ', '_'), with: value, match: :prefer_exact, visible: :all)
+  fill_in(field.downcase.gsub(" ", "_"), with: value, match: :prefer_exact, visible: :all)
 end
 
 And(/^(?:|I )fill in "([^"]*)" for "([^"]*)"$/) do |value, field|
@@ -77,12 +77,12 @@ end
 
 When(/^(?:|I )fill in the following:$/) do |fields|
   fields.rows_hash.each do |field, value|
-    fill_in(field.downcase.gsub(' ', '_'), with: value, match: :prefer_exact, visible: :all)
+    fill_in(field.downcase.gsub(" ", "_"), with: value, match: :prefer_exact, visible: :all)
   end
 end
 
 When(/^(?:|I )select "([^"]*)" from "([^"]*)"$/) do |value, field|
-  select(value, from: field.gsub(' ', '_'), visible: :all)
+  select(value, from: field.gsub(" ", "_").downcase, visible: :all)
 end
 
 When(/^(?:|I )check "([^"]*)"$/) do |field|
@@ -102,7 +102,7 @@ When(/^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/) do |path, field|
 end
 
 # Database and examples
-Given('I am an authenticated User') do
+Given("I am an authenticated User") do
   user = FactoryBot.create(:user, :user1)
 end
 
@@ -114,26 +114,26 @@ Given(/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|
   department = Department.find_by({ name: dpt_name })
   coordinator = Coordinator.find_by({ department_id: department.id })
 
-  visit('/admins/login')
-  fill_in('email', with: coordinator.email)
-  fill_in('password', with: 'admin123')
-  click_button('Confirmar')
+  visit("/admins/login")
+  fill_in("email", with: coordinator.email)
+  fill_in("password", with: "admin123")
+  click_button("Confirmar")
 end
 
 Given(/that I imported classes for "DEPTO CIÊNCIAS DA COMPUTAÇÃO"/) do
   classes = SubjectClass.find_by({ department_id: 508 })
   unless classes
-    classes = JSON.parse(File.read('./db/classes.json'))
+    classes = JSON.parse(File.read("./db/classes.json"))
     classes.each do |subject_class|
-      initials = subject_class['code'].gsub(/[^a-zA-Z]/, '')
+      initials = subject_class["code"].gsub(/[^a-zA-Z]/, "")
       SubjectClass.create!(
         {
-          subject: subject_class['code'],
-          name: subject_class['name'],
-          code: subject_class['class']['classCode'],
-          semester: subject_class['class']['semester'],
-          schedule: subject_class['class']['time'],
-          department_id: Department.find_by(initials:).id
+          subject: subject_class["code"],
+          name: subject_class["name"],
+          code: subject_class["class"]["classCode"],
+          semester: subject_class["class"]["semester"],
+          schedule: subject_class["class"]["time"],
+          department_id: Department.find_by(initials:).id,
         }
       )
     end
@@ -141,20 +141,20 @@ Given(/that I imported classes for "DEPTO CIÊNCIAS DA COMPUTAÇÃO"/) do
 end
 
 When(/I press on "Importar"/) do
-  click_button('Importar')
+  click_button("Importar")
 end
 
 Given(/that I am a registered User/) do # if user or admin
   User.create!({
-                 email: 'mholanda@unb.br',
-                 password: 'professor123',
-                 password_confirmation: 'professor123',
-                 confirmed_at: Time.now.utc
+                 email: "mholanda@unb.br",
+                 password: "professor123",
+                 password_confirmation: "professor123",
+                 confirmed_at: Time.now.utc,
                })
 end
 
 Given(/that I am a registered Admin/) do # if user or admin
-  admin = Admin.find_by({ email: 'admin.dex@gmail.com' })
+  admin = Admin.find_by({ email: "admin.dex@gmail.com" })
   # visit('/admins/login')
   # fill_in('email', with: admin.email)
   # fill_in('password', with: 'admin123')
@@ -162,7 +162,7 @@ Given(/that I am a registered Admin/) do # if user or admin
 end
 
 Given(/that I am an unregistered ([^"]*)$/) do |_role|
-  User.find_by({ email: 'noexists@gmail.com' }) == 0
+  User.find_by({ email: "noexists@gmail.com" }) == 0
 end
 
 And(/there are no emails/) do
@@ -191,10 +191,10 @@ end
 
 Given(/^that a form has been assigned to the following classes:$/) do |fields|
   fields.hashes.each do |form|
-    subject_class = SubjectClass.find_by(subject: form['Turma'])
+    subject_class = SubjectClass.find_by(subject: form["Turma"])
     coordinator = Coordinator.find_by(department_id: subject_class.department_id)
     Form.create(open: true,
-                name: form['Formulário'],
+                name: form["Formulário"],
                 created_at: Time.now.utc,
                 updated_at: Time.now.utc,
                 coordinator_id: 35,
@@ -202,12 +202,12 @@ Given(/^that a form has been assigned to the following classes:$/) do |fields|
   end
 end
 
-Given('that I am an User associated with the following classes:') do |_table|
+Given("that I am an User associated with the following classes:") do |_table|
   # table is a Cucumber::MultilineArgument::DataTable
   pending
 end
 
-Given('that I have not answered any form') do
+Given("that I have not answered any form") do
   pending
 end
 
@@ -220,11 +220,11 @@ Given(/that the "([^"]*)" form has been answered/) do |_form_name|
   pending
 end
 
-Given('that the student {string} has left the class {string}') do |_string, _string2|
+Given("that the student {string} has left the class {string}") do |_string, _string2|
   pending
 end
 
-Given('that the class {string} was updated with:') do |_string, _table|
+Given("that the class {string} was updated with:") do |_string, _table|
   # table is a Cucumber::MultilineArgument::DataTable
   pending
 end
@@ -235,7 +235,7 @@ When(/^(?:|I )create a "([^"]*)" question with the following:$/) do |question_ty
   step %(I select "#{question_type}" from "question type")
 
   case question_type
-  when 'Múltipla escolha'
+  when "Múltipla escolha"
     options_count = fields.rows.size - 1
     step %(I select "#{options_count}" from "options number")
   end
@@ -248,7 +248,7 @@ When(/^(?:|I )create a "([^"]*)" question with the following:$/) do |question_ty
   step 'I expect to be on the "New Template" page'
 end
 
-Given(/^I created the template "([^"]*)"$/) do |template_name|
+Given(/^that I created the (teacher|student) template "([^"]*)"$/) do |template_type, template_name|
   step 'I am on the "Templates" page'
   step 'I press "Add template"'
   step 'I expect to be on the "New Template" page'
@@ -256,6 +256,11 @@ Given(/^I created the template "([^"]*)"$/) do |template_name|
     | title | Dê uma sugestão |
   ))
   step "I fill in \"Name\" with \"#{template_name}\""
+  if template_type == "teacher"
+    step 'I select "Docente" from "Template role"'
+  else
+    step 'I select "Discente" from "Template role"'
+  end
   step 'I press "Save"'
   step 'I expect to be on the "Templates" page'
   step "I expect to see \"#{template_name}\""
@@ -275,9 +280,13 @@ Then(/^(?:|I )expect to see "([^"]*)"$/) do |text|
   end
 end
 
-Then(/^(?:|I )should see the following:$/) do |fields|
-  fields.rows_hash.each do |_text|
-    Then %(I expect to see "#{name}")
+Then(/^(?:|I )expect to see the following:$/) do |fields|
+  fields.raw[1..-1].flatten.each do |text|
+    if page.respond_to? :expect
+      page.should have_content(text)
+    else
+      assert page.has_content?(text)
+    end
   end
 end
 
@@ -285,9 +294,9 @@ Then(%r{^(?:|I )should see /([^/]*)/$}) do |regexp|
   regexp = Regexp.new(regexp)
 
   if page.respond_to? :should
-    page.should have_xpath('//*', text: regexp)
+    page.should have_xpath("//*", text: regexp)
   else
-    assert page.has_xpath?('//*', text: regexp)
+    assert page.has_xpath?("//*", text: regexp)
   end
 end
 
@@ -303,25 +312,25 @@ Then(%r{^(?:|I )should not see /([^/]*)/$}) do |regexp|
   regexp = Regexp.new(regexp)
 
   if page.respond_to? :should
-    page.should have_no_xpath('//*', text: regexp)
+    page.should have_no_xpath("//*", text: regexp)
   else
-    assert page.has_no_xpath?('//*', text: regexp)
+    assert page.has_no_xpath?("//*", text: regexp)
   end
 end
 
 Then(/I expect to only see classes starting with "([^"]*)"/) do |initials|
   # Locate the table rows
-  rows = find('table.table.table-borderless.table-data3 tbody').all('tr')
+  rows = find("table.table.table-borderless.table-data3 tbody").all("tr")
 
   # Iterate through the rows and check if the class names start with the initials
   rows.each do |row|
-    class_name = row.find('td:nth-child(3)').text
+    class_name = row.find("td:nth-child(3)").text
     expect(class_name).to start_with(initials)
   end
 end
 
-Then(/I expect to see the button "([^"]*)" on "([^"]*)"$/) do |_button, _element|
-  pending
+Then(/I expect to see the button "([^"]*)"$/) do |button|
+  expect(page).to have_button(id: button.gsub(" ", "_").downcase)
 end
 
 Then(/I expect to see the following forms as ([^"]*):$/) do |_status, _table|
@@ -329,22 +338,27 @@ Then(/I expect to see the following forms as ([^"]*):$/) do |_status, _table|
   pending
 end
 
-Then('I expect to see the following templates:') do |_table|
+Given ("that no templates have been created") do
+  Template.destroy_all
+  visit templates_path
+end
+
+Then("I expect to see the following templates:") do |_table|
   # table is a Cucumber::MultilineArgument::DataTable
   pending
 end
 
-Then('I should see the following on Turmas:') do |table|
+Then("I should see the following on Turmas:") do |table|
   table.hashes.each do |fields|
-    page.should have_content(fields['Nome'])
-    page.should have_content(fields['Semestre'])
-    page.should have_content(fields['Código'])
-    page.should have_content(fields['Turma'])
-    page.should have_content(fields['Horário'])
+    page.should have_content(fields["Nome"])
+    page.should have_content(fields["Semestre"])
+    page.should have_content(fields["Código"])
+    page.should have_content(fields["Turma"])
+    page.should have_content(fields["Horário"])
   end
 end
 
-Then('I expect to see the following results:') do |_table|
+Then("I expect to see the following results:") do |_table|
   pending
 end
 
@@ -352,7 +366,7 @@ end
 Then(/^the "([^"]*)" field(?: within (.*))? should contain "([^"]*)"$/) do |field, parent, value|
   with_scope(parent) do
     field = find_field(field)
-    field_value = field.tag_name == 'textarea' ? field.text : field.value
+    field_value = field.tag_name == "textarea" ? field.text : field.value
     if field_value.respond_to? :should
       field_value.should =~ /#{value}/
     else
@@ -364,7 +378,7 @@ end
 Then(/^the "([^"]*)" field(?: within (.*))? should not contain "([^"]*)"$/) do |field, parent, value|
   with_scope(parent) do
     field = find_field(field)
-    field_value = field.tag_name == 'textarea' ? field.text : field.value
+    field_value = field.tag_name == "textarea" ? field.text : field.value
     if field_value.respond_to? :should_not
       field_value.should_not =~ /#{value}/
     else
@@ -375,11 +389,11 @@ end
 
 Then(/^the "([^"]*)" field should have the error "([^"]*)"$/) do |field, error_message|
   element = find_field(field)
-  classes = element.find(:xpath, '..')[:class].split(' ')
+  classes = element.find(:xpath, "..")[:class].split(" ")
 
-  form_for_input = element.find(:xpath, 'ancestor::form[1]')
-  using_formtastic = form_for_input[:class].include?('formtastic')
-  error_class = using_formtastic ? 'error' : 'field_with_errors'
+  form_for_input = element.find(:xpath, "ancestor::form[1]")
+  using_formtastic = form_for_input[:class].include?("formtastic")
+  error_class = using_formtastic ? "error" : "field_with_errors"
 
   if classes.respond_to? :should
     classes.should include(error_class)
@@ -404,19 +418,19 @@ end
 
 Then(/^the "([^"]*)" field should have no error$/) do |field|
   element = find_field(field)
-  classes = element.find(:xpath, '..')[:class].split(' ')
+  classes = element.find(:xpath, "..")[:class].split(" ")
   if classes.respond_to? :should
-    classes.should_not include('field_with_errors')
-    classes.should_not include('error')
+    classes.should_not include("field_with_errors")
+    classes.should_not include("error")
   else
-    assert !classes.include?('field_with_errors')
-    assert !classes.include?('error')
+    assert !classes.include?("field_with_errors")
+    assert !classes.include?("error")
   end
 end
 
 Then(/^the "([^"]*)" checkbox(?: within (.*))? should be checked$/) do |label, parent|
   with_scope(parent) do
-    field_checked = find_field(label)['checked']
+    field_checked = find_field(label)["checked"]
     if field_checked.respond_to? :should
       field_checked.should be_true
     else
@@ -427,7 +441,7 @@ end
 
 Then(/^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/) do |label, parent|
   with_scope(parent) do
-    field_checked = find_field(label)['checked']
+    field_checked = find_field(label)["checked"]
     if field_checked.respond_to? :should
       field_checked.should be_false
     else
@@ -440,7 +454,7 @@ Then(/^(?:|I )should have the following query string:$/) do |expected_pairs|
   query = URI.parse(current_url).query
   actual_params = query ? CGI.parse(query) : {}
   expected_params = {}
-  expected_pairs.rows_hash.each_pair { |k, v| expected_params[k] = v.split(',') }
+  expected_pairs.rows_hash.each_pair { |k, v| expected_params[k] = v.split(",") }
 
   if actual_params.respond_to? :should
     actual_params.should == expected_params
@@ -450,11 +464,11 @@ Then(/^(?:|I )should have the following query string:$/) do |expected_pairs|
 end
 
 # Import and export
-Then('I should download be able to export a {string} file with all the answers') do |_string|
+Then("I should download be able to export a {string} file with all the answers") do |_string|
   pending
 end
 
-Then('I should be able to see the answered form as a chart') do
+Then("I should be able to see the answered form as a chart") do
   pending
 end
 
