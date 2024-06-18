@@ -1,0 +1,99 @@
+.frame-error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+
+  margin: -200px 0 0 -200px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.modal-error {
+  position: absolute;
+  width: 280px;
+  height: 170px;
+  top: 95px;
+  left: 60px;
+
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 4px 8px 12px 0 rgba(0, 0, 0, 0.4);
+  text-align: center;
+  overflow: hidden;
+  animation: show-modal-error 0.7s ease-in-out;
+}
+
+.hide-modal {
+  animation: hide-modal-error 0.6s ease-in-out both;
+}
+
+.modal-error .title {
+  display: block;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  margin: 15px 0;
+}
+
+.modal-error li {
+  margin-top: 5px;
+}
+
+.modal-error .button {
+  position: absolute;
+  height: 40px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #f65656;
+  color: #fff;
+  line-height: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.modal-error .button:hover {
+  background: #ec3434;
+}
+
+@keyframes show-modal-error {
+  0% {
+    transform: scale(0);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes hide-modal-error {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.field_with_errors label:after {
+  color: #ec3434;
+  left: 0;
+  content: '*';
+}
+
+
+.field br{
+  display: none;
+}
