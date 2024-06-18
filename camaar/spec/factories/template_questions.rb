@@ -10,5 +10,13 @@ FactoryBot.define do
       body { '{"options":{}}' }
       template_id { 1 }
     end
+
+    trait :template_question2 do
+      id { 2 }
+      title { 'Messi or Cr7?' }
+      question_type { 'text' }
+      body { '{"options":{}}' }
+      template_id { 1 }
+    end
   end
 end

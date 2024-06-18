@@ -1,9 +1,7 @@
-require 'simplecov'
 require 'capybara/email/rspec'
 require 'support/factory_bot'
 require 'capybara/poltergeist'
 require 'capybara/dsl'
-SimpleCov.start 'rails'
 
 Capybara.current_driver = Capybara.javascript_driver
 Capybara.javascript_driver = :selenium

@@ -82,4 +82,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root to: 'home#index'
+  default_url_options host: 'localhost', port: 3000
 end

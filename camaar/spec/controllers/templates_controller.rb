@@ -14,7 +14,7 @@ RSpec.describe TemplatesController, type: :controller do
     sign_in admin
 
     get :new
-    template = build(:template,:template1)
+    template = build(:template, :template1)
     expect(response).to redirect_to(edit_template_path(template))
   end
 
@@ -34,11 +34,11 @@ RSpec.describe TemplatesController, type: :controller do
     departament = create(:department, :departament1)
     coordinator = create(:coordinator, :coordinator1)
     sign_in admin
-    template = create(:template,:template1)
+    template = create(:template, :template1)
     @template = template
-    delete :destroy, params: { id:template.id }
-    old_temp = build(:template,:template1)
-    expect(Template.find_by(id:old_temp.id)).to be_nil
+    delete :destroy, params: { id: template.id }
+    old_temp = build(:template, :template1)
+    expect(Template.find_by(id: old_temp.id)).to be_nil
     expect(response).to redirect_to(templates_path)
   end
 end
