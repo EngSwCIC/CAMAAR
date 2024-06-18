@@ -59,9 +59,18 @@ class MateriaController < ApplicationController
 
   # POST
   def search_in_sigaa
-    @materiums = Materium.get_sigaa_classes
-  # rescue Materium::ConnectionTimeoutError
-  #   flash[:warning] = "Erro, não foi possível concluir a operação"
+    sigaa_materiums = Materium.get_sigaa_classes
+
+    for sigaa_materium in sigaa_materiums
+      if Materium.find_by_codigo(sigaa_materium.code).nil?
+        Materium.create(sigaa_materium)
+      else
+        Materium.find_by_codigo(sigaa_materium.code).update(sigaa_materium)
+      end
+    end
+
+  rescue Materium::ConnectionTimeoutError
+    flash[:warning] = "Erro, não foi possível concluir a operação"
 
     flash[:warning] = "Turmas importadas com sucesso do SIGAA"
   end

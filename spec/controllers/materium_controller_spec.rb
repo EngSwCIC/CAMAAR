@@ -12,7 +12,6 @@ describe MateriaController do
 
   describe 'updating CAMAAR DB with updated SIGAA data' do
     it 'calls the model PUT (UPDATE) method' do
-        @sigaa_data = File.read('classes.json')
     end
   end
 end

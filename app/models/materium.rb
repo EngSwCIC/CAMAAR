@@ -1,12 +1,15 @@
 class Materium < ApplicationRecord
-  # class Materium::ConnectionTimeoutError < StardardError; end
+  class Materium::ConnectionTimeoutError < StandardError; end
+  class Materium::NotFoundError < StandardError; end
 
   def self.get_sigaa_classes
-    # begin
-      return File.read('classes.json')
-    # rescue ActiveRecord::ConnectionTimeoutError
-    #   raise Materium::ConnectionTimeoutError, 'Connection timed out'
-    # end
+    begin
+      SIGAA::Client.fetch_classes
+    rescue SIGAA::Client::ConnectionTimeoutError
+      raise Materium::ConnectionTimeoutError, 'Erro ao conectar com o banco de dados. Tente novamente mais tarde.'
+    rescue SIGAA::Client::NotFound
+      raise Materium::NotFoundError, 'Não foi possível encontrar a turma solicitada.'
+    end
   end
 
   validates :codigo, presence: true
