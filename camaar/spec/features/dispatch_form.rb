@@ -32,6 +32,7 @@ feature 'Import Data from json' do
     page.check('BANCOS DE DADOS')
     click_button 'Enviar'
     expect(page).to_not have_content 'Selecione os templates.'
-    # expect(Form.find_by(name: template.name).count).to eq(1)
+    expect(page).to have_content "Os formulários para a turma #{SubjectClass.find_by(id: subject_class1).name} foram criados com sucesso."
+    expect(Form.where(name: template.name).count).to eq(1)
   end
 end
