@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sua Aplicação</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %>
+</head>
+<body>
+
+  <% unless controller_name == 'authentication' || controller_name == 'registrations' %>
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="home">Quick Class Evall</a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to "Área do Gestor", home_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Área de Avaliações", home_path, class: "nav-link" %>
+          </li>
+        </ul>
+        <%= button_to "Redefine sua senha", redefine_password_path, method: :get, class: "btn btn-outline-primary my-2 my-sm-0" %>
+        <%= button_to "Logout", logout_path, method: :post, class: "btn btn-outline-danger my-2 my-sm-0" %>
+      </div>
+    </nav>
+  <% end %>
+
+  <div class="container mt-5">
+    <%= yield %>
+  </div>
+
+</body>
+</html>

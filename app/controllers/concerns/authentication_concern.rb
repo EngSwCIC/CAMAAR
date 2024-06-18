@@ -11,18 +11,23 @@ module AuthenticationConcern
   end
 
   def check_authentication_from_controller(cookie_value)
-    if cookie_value.present?
-        key, timestamp, email = cookie_value.split('_')
-        puts "Informações do usuário: #{cookie_value.inspect}"
-        if Time.current.to_i - timestamp.to_i < 1.hour
-          user = User.find_by(email: email)
-
-          if user && key == user.session_key
-            return true
-        end
+    return false unless cookie_value.present?
+    key, timestamp, email = cookie_value.split('_')
+    return false unless key && timestamp && email
+  
+    user = User.find_by(email: email)
+    if user && key == user.session_key
+      if Time.current.to_i - timestamp.to_i < 1.hour
+        return true
+      else
+        user.update(session_key: nil)
+        cookies.delete(:user_info)
+        return false
       end
+    else
+      cookies.delete(:user_info)
+      return false
     end
-    puts "Falha na autenticação para: #{email}"
-    return false
   end
+  
 end

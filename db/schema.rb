@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_15_002420) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_17_214941) do
   create_table "questions", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.string "type"
     t.string "description"
@@ -31,6 +31,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_15_002420) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sign_up_availables", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "key", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_sign_up_availables_on_email", unique: true
+  end
+
   create_table "templates", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,6 +54,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_15_002420) do
     t.string "salt", null: false
     t.string "password", null: false
     t.string "session_key"
+    t.boolean "is_admin", default: false
   end
 
   add_foreign_key "questions", "templates"
