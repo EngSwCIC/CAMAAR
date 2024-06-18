@@ -21,7 +21,6 @@ RSpec.feature 'Create a template', type: :feature do
       expect(page).to have_content 'Nome do template:'
       click_link 'add_question'
 
-      sleep(3)
       expect(page).to have_content 'Título'
       expect(page).to have_content 'Tipo de questão:'
       expect(page).to have_content 'Cancelar'
