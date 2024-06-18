@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_18_222322) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_18_225542) do
   create_table "alternativas", force: :cascade do |t|
     t.integer "questao_id", null: false
     t.string "texto", null: false
@@ -130,7 +130,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_18_222322) do
   create_table "users", force: :cascade do |t|
     t.string "nome", null: false
     t.string "email", null: false
-    t.string "password", null: false
+    t.string "password"
     t.string "usuario", null: false
     t.string "formacao", null: false
     t.datetime "created_at", null: false

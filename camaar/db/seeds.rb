@@ -6,17 +6,18 @@
 
 # Criando um novo user
 user = User.find_or_create_by!(
-  nome: 'fulano',
-  email: 'fulano@egmail.com',
-  password: 'senha1234',
-  usuario: 'usuario123',
+  nome: 'ciclano',
+  email: 'ciclano@egmail.com',
+  password: 'senha12346',
+  usuario: 'usuario1234',
   formacao: 'graduação'
 )
 
 # Criando um novo Dicente
 Dicente.find_or_create_by!(
   user_id: user.id,
-  matricula: '00001'
+  matricula: '00001',
+  curso: 'Ciência da Computação'
 )
 
 puts "Seed de Dicente criada com sucesso!"
