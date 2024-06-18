@@ -13,5 +13,10 @@
         "name": "ALGEBRA 2",
         "code": "MAT0040",
         "professor_registration": "777"
+    },
+    {
+        "name": "OAC",
+        "code": "CIC0093",
+        "professor_registration": "777"
     }
 ]

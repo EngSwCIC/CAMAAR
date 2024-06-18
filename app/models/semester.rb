@@ -31,4 +31,13 @@ class Semester < ApplicationRecord
       "Sem semestre cadastrado."
     end
   end
+
+  def self.current_semester_id
+    latest_semester = self.order(id: :desc).first
+    if latest_semester
+      return latest_semester.id
+    else
+      return latest_semester
+    end
+  end
 end

@@ -9,6 +9,26 @@ class SigaaManagementController < ApplicationController
     return
   end
 
+  def update_sigaa_data
+    semester_id = Semester.current_semester_id
+    if semester_id
+      import_professors
+      import_class_members
+      import_disciplines(semester_id)
+      flash[:success] = "Dados atualizados com sucesso!"
+    else
+      flash[:error] = "Não é possível atualizar os dados sem um semestre cadastrado, importe os dados do sistema."
+    end
+    redirect_to manager_path
+  end  
+
+  def send_email_availables_sign_up
+    SignUpAvailable.send_keys_availables_sign_up
+    flash[:success] = "Chave de acesso enviada para todos os Alunos Importados do SIGAA."
+    redirect_to manager_path
+    return
+  end
+
   private
 
   def import_professors

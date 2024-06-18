@@ -7,13 +7,18 @@
       <%= flash[:success] %>
     </div>
   <% end %>
+    <% if flash[:error] %>
+    <div class="alert alert-danger">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
 
   <div class="custom-button-container">
-    <%= button_to "Enviar Email de Cadastro para Alunos", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <%= button_to "Enviar Email de Cadastro para Alunos", send_email_availables_sign_up_path, method: :post, class: "btn btn-outline-primary btn-block" %>
     <br>
    <%= button_to "Importar Dados e Iniciar um Novo Semestre", import_from_sigaa_path, method: :post, class: "btn btn-outline-primary btn-block" %>
     <br>
-    <%= button_to "Atualziar Dados do Semestre Atual", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <%= button_to "Atualziar Dados do Semestre Atual", update_sigaa_data_path, method: :post, class: "btn btn-outline-primary btn-block" %>
     <br>
     <%= button_to "Editar Templates", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
     <br>
