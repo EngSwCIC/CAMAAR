@@ -191,7 +191,7 @@ end
 
 Given(/^that a form has been assigned to the following classes:$/) do |fields|
   fields.hashes.each do |form|
-    subject_class = SubjectClass.find_by(subject: form['Turma'])
+    subject_class = SubjectClass.find_by(subject: form['subject'])
     coordinator = Coordinator.find_by(department_id: subject_class.department_id)
     Form.create(open: true,
                 name: form['Formulário'],

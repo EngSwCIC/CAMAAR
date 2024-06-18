@@ -23,8 +23,8 @@ class AdminsController < ApplicationController
   end
 
   def envio
-    @student_templates = Template.where({ coordinator_id: @coordinator.id, role: "discente" })
-    @teacher_templates = Template.where({ coordinator_id: @coordinator.id, role: "docente" })
+    @student_templates = Template.where({ coordinator_id: @coordinator.id, role: 'discente' })
+    @teacher_templates = Template.where({ coordinator_id: @coordinator.id, role: 'docente' })
 
     flash.clear
     professor_template_id = params[:professor_template_id]
@@ -32,63 +32,79 @@ class AdminsController < ApplicationController
     turma_ids = params[:turma_ids]
 
     commit = params[:commit]
-    if commit == "confirm"
-      if turma_ids.present?
-        turma_ids.each do |subject_class_id|
-          if professor_template_id.present? and aluno_template_id.present?
-            subject_class_forms = Form.where(subject_class_id: subject_class_id)
+    return unless commit == 'confirm'
 
-            if subject_class_forms.empty?
-              teacher_template = Template.find_by(id: professor_template_id, draft: false)
-              teacher_form = Form.new(
-                role: teacher_template.role,
-                name: teacher_template.name,
-                coordinator_id: teacher_template.coordinator_id,
-                subject_class_id: subject_class_id,
-              )
+    if turma_ids.present?
+      turma_ids.each do |subject_class_id|
+        if professor_template_id.present?
+          subject_class_forms = Form.where(subject_class_id:)
 
-              student_template = Template.find_by(id: aluno_template_id)
-              student_form = Form.new(
-                name: student_template.name,
-                coordinator_id: student_template.coordinator_id,
-                subject_class_id: subject_class_id,
-              )
+          if subject_class_forms.empty?
+            teacher_template = Template.find_by(id: professor_template_id, draft: false)
+            teacher_form = Form.new(
+              role: teacher_template.role,
+              name: teacher_template.name,
+              coordinator_id: teacher_template.coordinator_id,
+              subject_class_id:
+            )
 
-              if teacher_form.save and student_form.save
-                teacher_template_questions = TemplateQuestion.where({ template_id: teacher_template.id })
-                teacher_template_questions.each do |question|
-                  FormQuestion.create({
-                                        title: question.title,
-                                        body: question.body,
-                                        question_type: question.question_type,
-                                        form_id: teacher_form.id,
-                                      })
-                end
-
-                student_template_questions = TemplateQuestion.where({ template_id: student_template.id })
-                student_template_questions.each do |question|
-                  FormQuestion.create({
-                                        title: question.title,
-                                        body: question.body,
-                                        question_type: question.question_type,
-                                        form_id: student_form.id,
-                                      })
-                end
-
-                flash[:success] = "Os formulários para a turma #{SubjectClass.find_by(id: subject_class_id).name} foram criados com sucesso."
+            if teacher_form.save
+              teacher_template_questions = TemplateQuestion.where({ template_id: teacher_template.id })
+              teacher_template_questions.each do |question|
+                FormQuestion.create({
+                                      title: question.title,
+                                      body: question.body,
+                                      question_type: question.question_type,
+                                      form_id: teacher_form.id
+                                    })
               end
-            else
-              flash[:warning] = "Os formulários para a turma #{SubjectClass.find_by(id: subject_class_id).name} já existem."
+
+              flash[:success] =
+                "Os formulários para a turma #{SubjectClass.find_by(id: subject_class_id).name} foram criados com sucesso."
             end
           else
-            flash[:warning] = "Selecione os templates para envio."
+            flash[:warning] =
+              "Os formulários para a turma #{SubjectClass.find_by(id: subject_class_id).name} já existem."
           end
         end
-      else
-        flash[:warning] = "Selecione as turmas para envio."
+
+        next unless aluno_template_id.present?
+
+        subject_class_forms = Form.where(subject_class_id:)
+
+        if subject_class_forms.empty?
+          student_template = Template.find_by(id: aluno_template_id)
+          student_form = Form.new(
+            name: student_template.name,
+            coordinator_id: student_template.coordinator_id,
+            subject_class_id:
+          )
+
+          if student_form.save
+            student_template_questions = TemplateQuestion.where({ template_id: student_template.id })
+            student_template_questions.each do |question|
+              FormQuestion.create({
+                                    title: question.title,
+                                    body: question.body,
+                                    question_type: question.question_type,
+                                    form_id: student_form.id
+                                  })
+            end
+
+            flash[:success] =
+              "Os formulários para a turma #{SubjectClass.find_by(id: subject_class_id).name} foram criados com sucesso."
+          end
+        else
+          flash[:warning] =
+            "Os formulários para a turma #{SubjectClass.find_by(id: subject_class_id).name} já existem."
+        end
       end
+
+    else
+      flash[:warning] = 'Selecione as turmas para envio.'
     end
   end
+
 
   def import
     @errors = []

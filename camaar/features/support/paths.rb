@@ -42,6 +42,8 @@ module NavigationHelpers
       '/admins/templates/1/edit'
     when 'Add Question'
       '/admins/templates/1/template_questions/new'
+    when 'Resultados'
+      '/admins/results'
     when /Template (\d+)/
       "/admins/templates/#{::Regexp.last_match(1)}/edit"
     when /Turmas do (\w+)/
