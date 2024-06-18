@@ -1,0 +1,38 @@
+  <div class="header-menu">
+    <div style="display: flex; gap: 20px; align-items: center;">
+      <%= image_tag('menu.svg', alt: 'Logo SVG', class: 'icon-menu', id: 'openMenu') %>
+      <h1>Avaliações</h1>
+    </div>
+    <div id="profile" class="profile">
+      <% if user_signed_in? %>
+        <p><%= current_user.email.first %></p>
+      <% end %>
+    </div>
+  </div>
+  <div class="logout" id="logout">
+    <% if user_signed_in? %>
+      <%= link_to 'Deslogar', destroy_user_session_path, data: { turbo_method: :delete }%>
+    <% end %>
+  </div>
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <% if user_signed_in? %>
+        <% if current_user.isAdmin %>
+          <li><%= link_to 'Avaliações', root_path %></li>
+          <li>Gerenciamento</li>
+        <% else %>
+          <li><%= link_to 'Avaliações', root_path %></li>
+          <li><%= link_to 'Gerenciamento', turmas_path %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <script>
+    // JavaScript para abrir/fechar o menu lateral
+    document.getElementById('openMenu').addEventListener('click', function() {
+      document.getElementById('sidebar').classList.toggle('open');
+    });
+    document.getElementById('profile').addEventListener('click', function() {
+      document.getElementById('logout').classList.toggle('open');
+    });
+  </script>

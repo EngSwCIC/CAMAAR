@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'home#index'
   resources :respostas
   resources :questoes
   resources :materias
@@ -8,12 +9,7 @@ Rails.application.routes.draw do
   resources :formularios
   resources :resposta
   resources :turmas
-  devise_for :users
-  
-  root 'home#index'
-  
+  resources :imports, only: [:create]
+  devise_for :users  
   resources :templates
-
-  resources :imports, only: [:new, :create]
 end
-

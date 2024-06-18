@@ -1,12 +1,11 @@
-<div id="<%= dom_id formulario %>">
-  <p>
-    <strong>Id turma:</strong>
-    <%= formulario.id_turma %>
-  </p>
-
-  <p>
-    <strong>Id template:</strong>
-    <%= formulario.id_template %>
-  </p>
-
+<div class="container-formularios">
+  <% @formularios.each do |formulario| %>
+    <div class="box-avaliacao">
+      <h1><%= formulario.materia_nome %></h1>
+      <p><%= formulario.turma_semestre %></p>
+      <% first_name = formulario.professor_name.split(' ').first %>
+      <h4><%= first_name %></h4>
+    </div>
+  <% end %>
+  <div> teste </div>
 </div>
