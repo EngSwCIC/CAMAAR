@@ -41,7 +41,6 @@ RSpec.configure do |config|
     unless ENV['ASSET_PRECOMPILE_DONE']
       prep_passed = system 'rails test:prepare'
       ENV['ASSET_PRECOMPILE_DONE'] = 'true'
-      ENV['EAGER_LOAD'] = 'true'
       unless prep_passed
         abort "\nYour assets didn't compile. Exiting WITHOUT running any tests. Review the output above to resolve any errors."
       end
