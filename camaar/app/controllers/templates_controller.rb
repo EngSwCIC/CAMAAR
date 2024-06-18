@@ -12,7 +12,7 @@ class TemplatesController < ApplicationController
     @template = Template.new(template_params)
 
     if @template.save
-      redirect_to root_path, notice: "#{@template.nome} created."
+      redirect_to template_path, notice: "#{@template.nome} created."
     else
       flash[:alert] = "Template could not be created: " + @template.errors.full_messages.join(", ")
       render 'new', status: :unprocessable_entity
