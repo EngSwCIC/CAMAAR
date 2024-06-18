@@ -61,5 +61,5 @@ Rails.application.routes.draw do
     delete "/:id", to: "users#delete"
   end
 
-  resources :templates]
+  resources :templates
 end
