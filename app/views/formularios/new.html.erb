@@ -185,7 +185,7 @@
       <br>
       <div class="form-group animated-input">
         <input type="text" id="formName" name="formName" class="form-control" placeholder=" ">
-        <label for="formName">Nome do Formulário</label>
+        <label for="formName">Disciplina</label>
       </div>
       <div class="form-group animated-input">
         <input type="text" id="professorName" name="professorName" class="form-control" placeholder=" ">
@@ -308,12 +308,14 @@
 
       console.log('Payload:', JSON.stringify(payload));  // Log para verificar o payload
 
-      const response = await fetch('/save_formulario', {
+      const folderName = `${formName}-${professorName}-${semester}`;  // Novo formato do nome da pasta
+
+      const response = await fetch('/formularios/save_formulario', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({ ...payload, folder_name: folderName })  // Incluindo o nome da pasta no payload
       });
 
       const result = await response.json();

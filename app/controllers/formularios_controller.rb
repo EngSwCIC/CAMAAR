@@ -59,12 +59,10 @@ class FormulariosController < ApplicationController
     semester = params[:semester]
     questions = params[:questions]
 
-    # Gerar um nome de arquivo seguro, substituindo apenas os caracteres problemáticos
     safe_form_name = form_name.gsub(/[^0-9A-Za-z.\- ]/, '')
     safe_professor_name = professor_name.gsub(/[^0-9A-Za-z.\- ]/, '')
     safe_semester = semester.gsub(/[^0-9A-Za-z.\- ]/, '')
 
-    # Nome do arquivo no formato "nome do formulário-professor-semestre.json"
     safe_file_name = "#{safe_form_name}-#{safe_professor_name}-#{safe_semester}.json"
 
     formulario_data = {
@@ -77,6 +75,9 @@ class FormulariosController < ApplicationController
     File.open(Rails.root.join('public', 'formularios', safe_file_name), 'w') do |file|
       file.write(formulario_data.to_json)
     end
+
+    folder_name = "#{safe_form_name}-#{safe_professor_name}-#{safe_semester}"
+    create_response_directory(folder_name)
 
     render json: { status: 'success', message: 'Formulário salvo com sucesso' }
   end
@@ -92,14 +93,74 @@ class FormulariosController < ApplicationController
   end
 
   def delete_file_form
-    file_path = "#{Rails.root}/public/formularios/#{params[:file_name]}"
+    file_name = params[:file_name]
+    file_path = Rails.root.join('public', 'formularios', file_name)
+
     if File.exist?(file_path)
       File.delete(file_path)
-      render json: { status: 'success', message: 'File deleted successfully' }
+
+      form_details = file_name.split('.json').first.split('-')
+      form_name = form_details[0]
+      professor_name = form_details[1]
+      semester = form_details[2]
+
+      folder_name = "#{form_name}-#{professor_name}-#{semester}"
+      delete_response_directory(folder_name)
+
+      render json: { status: 'success', message: 'Arquivo deletado com sucesso' }
     else
-      render json: { status: 'error', message: 'File not found' }
+      render json: { status: 'error', message: 'Arquivo não encontrado' }
     end
   end
+
+
+
+
+  def get_response_files
+  form_name = params[:form_name]
+  question_key = params[:question_key]
+  base_path = Rails.root.join('public', 'respostas', form_name)
+  search_pattern = "#{base_path}/*.json"
+  files = Dir.glob(search_pattern)
+
+  responses = []
+
+  Rails.logger.debug "Procurando arquivos em: #{search_pattern}"
+  Rails.logger.debug "Arquivos encontrados: #{files.inspect}"
+
+  files.each do |file|
+    if File.exist?(file)
+      file_content = File.read(file)
+      response_data = JSON.parse(file_content)
+      if response_data[question_key]
+        responses << { file: File.basename(file), response: response_data[question_key] }
+      end
+    end
+  end
+
+  render json: { responses: responses }
+end
+
+
+
+  def count_responses
+  form_name = params[:form_name]
+  professor = params[:professor]
+  semester = params[:semester]
+  response_path = Rails.root.join('public', 'respostas', "#{form_name}-#{professor}-#{semester}")
+
+  puts "Counting responses in: #{response_path}" # Log do caminho
+  total_responses = Dir.glob("#{response_path}/*.json").count
+  puts "Total responses: #{total_responses}" # Log da contagem
+
+  render json: { totalResponses: total_responses }
+end
+
+
+
+
+
+
 
   private
 
@@ -117,5 +178,17 @@ class FormulariosController < ApplicationController
 
     def formulario_params
       params.require(:formulario).permit(:template_usado, :perguntas)
+    end
+
+    def create_response_directory(folder_name)
+      dir_path = Rails.root.join('public', 'respostas', folder_name)
+      Dir.mkdir(dir_path) unless Dir.exist?(dir_path)
+    end
+
+    def delete_response_directory(folder_name)
+      dir_path = Rails.root.join('public', 'respostas', folder_name)
+      if Dir.exist?(dir_path)
+        FileUtils.rm_rf(dir_path)
+      end
     end
 end

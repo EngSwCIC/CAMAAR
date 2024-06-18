@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  get 'get_response_files', to: 'formularios#get_response_files'
+  get 'list_json_files', to: 'formularios#list_json_files'
+
+  get 'count_responses', to: 'formularios#count_responses'
+
+
+  post 'submit_form', to: 'reports_alunos#submit_form'
+
+  resources :formularios do
+    collection do
+      post :save_formulario
+    end
+  end
+
+  get 'reports_alunos/formularios', to: 'reports_alunos#formularios'
+  get 'fetch_form', to: 'reports_alunos#fetch_form'
 
   get 'view_file_form', to: 'formularios#view_file_form'
   delete 'delete_file_form', to: 'formularios#delete_file_form'
