@@ -6,8 +6,8 @@ Feature: Creation of form templates
 Background:
     Given I am logged in as an administrator
     And I am on the template creation page
-    And I clicked on the "+" icon
-    And I entered a template name
+    And I have clicked on the "+" icon
+    And I have entered a template name
 
 Scenario: Admin creates a form template with questions
     When I add questions to the template
