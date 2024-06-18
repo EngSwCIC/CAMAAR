@@ -26,8 +26,22 @@ end
 # Generate 1-15 questions per template
 Template.find_each do |template|
   rand(1..15).times do
-    Question.create template:,
-                    label: Faker::Lorem.words(number: rand(3..7)).join(' '),
-                    description: Faker::Lorem.paragraphs(number: rand(1..3)).join(' ')
+    # Create questions
+    types = %w[MultipleChoiceQuestion TextInputQuestion Question].sample
+    case types
+    when 'MultipleChoiceQuestion'
+      MultipleChoiceQuestion.create template:,
+                                    label: Faker::Lorem.words(number: rand(3..7)).join(' '),
+                                    description: Faker::Lorem.paragraphs(number: rand(1..3)).join(' '),
+                                    format: Faker::Lorem.words(number: 4).join('|')
+    when 'TextInputQuestion'
+      TextInputQuestion.create template:,
+                               label: Faker::Lorem.words(number: rand(3..7)).join(' '),
+                               description: Faker::Lorem.paragraphs(number: rand(1..3)).join(' ')
+    else
+      Question.create template:,
+                      label: Faker::Lorem.words(number: rand(3..7)).join(' '),
+                      description: Faker::Lorem.paragraphs(number: rand(1..3)).join(' ')
+    end
   end
 end
