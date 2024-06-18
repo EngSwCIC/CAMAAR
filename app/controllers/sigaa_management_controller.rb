@@ -4,12 +4,9 @@ class SigaaManagementController < ApplicationController
     import_professors
     import_class_members
     import_disciplines(semester_id)
-  end
-
-  def import_sigaa_data
-    import_professors
-    import_class_members
-    import_disciplines(semester_id)
+    flash[:success] = "Dados importados com sucesso!"
+    redirect_to manager_path
+    return
   end
 
   private

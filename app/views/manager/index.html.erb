@@ -1,6 +1,12 @@
 <div class="container">
   <h1 class="text-center"><i>Gerenciamento</i></h1>
+  <h4 class="text-center"><i>Semestre Atual: <%= current_semester? %></i></h4>
   <br>
+  <% if flash[:success] %>
+    <div class="alert alert-success">
+      <%= flash[:success] %>
+    </div>
+  <% end %>
 
   <div class="custom-button-container">
     <%= button_to "Enviar Email de Cadastro para Alunos", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>

@@ -3,18 +3,32 @@ class Semester < ApplicationRecord
     latest_semester = self.order(id: :desc).first
 
     if latest_semester.nil?
-      half = 1
+      half = 0
       year = 2020
     else
-      if latest_semester.half == 1
-        half = 2
-        year = latest_semester.year
+      if latest_semester.half
+        half = 0
+        year = latest_semester.year + 1
       else
         half = 1
-        year = latest_semester.year + 1
+        year = latest_semester.year
       end
     end
     new_semester = self.create(half: half, year: year)
     return new_semester.id
+  end
+
+  def self.current_semester
+    latest_semester = self.order(id: :desc).first
+    if latest_semester 
+      if latest_semester.half
+        half = 2
+      else
+        half = 1
+      end
+        "#{latest_semester.year}.#{half}."
+    else
+      "Sem semestre cadastrado."
+    end
   end
 end

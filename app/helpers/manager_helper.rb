@@ -9,4 +9,8 @@ module ManagerHelper
         user = User.find_by(email: email)
         user&.is_admin || false
       end
+    
+    def current_semester?
+      return Semester.current_semester
+    end
 end
