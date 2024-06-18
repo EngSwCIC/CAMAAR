@@ -1,19 +1,15 @@
+<!-- Expects to be inside a form helper tag -->
 <% question_html_id = "question-#{question.id}" %>
 <% disabled = disabled ? "disabled" : "" %>
 
 <% case question.type %>
 <% when 'TextInputQuestion'%>
-    <span>
-        <input type='text' id="<%= question_html_id %>" name="<%= question_html_id %>" <%= disabled %>>
-    </span>
+    <%= form.label question.id, "Resposta: "%>
+    <%= form.text_field question.id %>
 <% when 'MultipleChoiceQuestion'%>
-    <% if question.options.nil? %>
-        No options available.
-    <% else %>
-        <% question.options.each do |option| %>
-            <input type="radio" id="<%= question_html_id %>" name="<%= question_html_id %>" value="<%= option %>" <%= disabled %>/>
-            <label for="<%= question_html_id %>"><%= option %></label>
-            <br>
-        <% end %>
+    <% question.options.each do |option| %>
+        <%= form.radio_button question.id, option %>
+        <%= form.label question.id, option %>
+        <br>
     <% end %>
 <% end %>
