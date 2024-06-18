@@ -56,6 +56,34 @@ class TemplatesController < ApplicationController
       render edit
     end
   end
+
+  def destroy_questao
+    @questao = @template.questaos.find(params[:questao_id])
+    @questao.destroy
+    redirect_to @template
+  end
+
+   #A criação de questões será feita dentro da view de criação de template, portanto, acho uma boa desição de design
+   # usar o mesmo controller para os 2
+
+  def add_alternativa
+    @alternativa = @template.questaos.alternativas.build
+  end
+
+  def update_alternativa
+    @alternativa = @template.questaos.alternativas.find(params[:alternativa_id])
+    if @alternativa.update(alternativa_params)
+      redirect_to @template, notice: 'alternativa atualizada'
+    end
+    render edit
+  end
+
+  def destroy_alternativa
+    @alternativa = @template.questaos.alternativas.find(params[:alternativa_id])
+    @alternativa.destroy
+    redirect_to @template
+  end
+
   private
 
   def template_params
@@ -63,6 +91,10 @@ class TemplatesController < ApplicationController
   end
 
   def questao_params
-    params.require(:questao).permit(:pergunta, :alternativas, :pontos, :fatorDeCorrecao, :alternativaCorreta, :tipo)
+    params.require(:questao).permit(:pergunta, :pontos, :fatorDeCorrecao, :alternativaCorreta, :tipo, alternativa_attributes:[:id, :texto])
+  end
+
+  def alternativa_params
+    params.require(:alternativa).permit(:texto)
   end
 end

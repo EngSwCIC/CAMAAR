@@ -1,4 +1,3 @@
-# app/controllers/docentes_controller.rb
 class DocentesController < ApplicationController
   before_action :authenticate_user!
 

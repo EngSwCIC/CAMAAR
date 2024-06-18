@@ -53,6 +53,6 @@ class FormulariosController < ApplicationController
   private
     # Only allow a list of trusted parameters through.
     def formulario_params
-      params.require(:formulario).permit(:classe_id, :dataDeTermino, :Resultados, :template_id, resultados_attributes: [:id, :aluno_id, :nota, :_destroy])
+      params.require(:formulario).permit(:nome, :dataDeTermino, :template_id)
     end
 end
