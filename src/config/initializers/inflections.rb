@@ -15,4 +15,6 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular 'materia', 'materias'
   inflect.irregular 'questao', 'questoes'
   inflect.irregular 'resposta', 'respostas'
+  inflect.irregular 'user_turma', 'users_turmas'
+  inflect.irregular 'questao_template', 'questoes_templates'
 end

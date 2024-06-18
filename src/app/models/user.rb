@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_and_belongs_to_many :turmas
+  has_many :users_turmas
+  has_many :turmas, through: :users_turmas 
   has_many :respostas
   has_many :templates
 
