@@ -312,17 +312,15 @@ class AdminsController < ApplicationController
 
     send_file file_path, filename: "#{@form.id}_#{@form.name}_results.csv", type: "text/csv"
   end
-
   def export_to_png
     graph = generate_graph
 
-    filename = @form.name + ".png"
-
-    destination_path = File.join("export", filename)
-
-    # Render and save the PNG file to the specified destination
-    ch.render_png(destination_path)
+    filename = @form.name + '.png'
+    file_path = File.join('export', filename)
+    graph.render_png(file_path)
+    send_file file_path, filename:, type: 'image/png'
   end
+
 
   def generate_graph
     if @form.role == 'discente'
