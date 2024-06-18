@@ -3,11 +3,7 @@ module AuthenticationConcern
 
   def authenticate_user
     user_info = cookies.signed[:user_info]
-    unless check_authentication_from_controller(user_info)
-      redirect_to login_path
-      return false
-    end
-    return true
+    return check_authentication_from_controller(user_info)
   end
 
   def check_authentication_from_controller(cookie_value)
@@ -29,5 +25,4 @@ module AuthenticationConcern
       return false
     end
   end
-  
 end

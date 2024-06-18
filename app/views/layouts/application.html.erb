@@ -15,9 +15,11 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <%= link_to "Área do Gestor", home_path, class: "nav-link" %>
-          </li>
+          <% if admin_user? %>
+            <li class="nav-item active">
+              <%= link_to "Área do Gestor", manager_path, class: "nav-link" %>
+            </li>
+          <% end %>
           <li class="nav-item active">
             <%= link_to "Área de Avaliações", home_path, class: "nav-link" %>
           </li>

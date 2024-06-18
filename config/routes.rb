@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   # Redifine Password Path
   get '/redefine_password', to: 'redefine_password#index', as: 'redefine_password'
   post '/redefine_password', to: 'redefine_password#redefine', as: 'redefine_password_post'
-  
+  # Manager path Path
+  get '/manager', to: 'manager#index', as: 'manager'
+
   resources :templates
 
   resources :questions, only: [], param: :index do
