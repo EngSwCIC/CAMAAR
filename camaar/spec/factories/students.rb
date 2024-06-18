@@ -1,12 +1,8 @@
 FactoryBot.define do
   factory :student do
-    sequence(:name) { |n| "test#{n}" }
     course { 'CIC' }
-    sequence(:registration) { |n| n }
     formation { 'graduando' }
     occupation { 'discente' }
-    sequence(:email) { |n| "test#{n}@gmail.com" }
-    sequence(:user_id) { |n| n }
 
     trait :student1 do
       name { 'test1' }

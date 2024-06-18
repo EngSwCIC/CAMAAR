@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :form_question do
-    body { [{ question: 'Qual seu nível de satisfação?', type: 'text' }] }
+    body { '{"options":{}}' }
     created_at { Time.now.utc }
     updated_at { Time.now.utc }
 

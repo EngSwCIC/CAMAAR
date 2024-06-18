@@ -14,7 +14,7 @@ RSpec.feature 'Delete a template', type: :feature do
     fill_in 'password', with: admin.password
     click_button 'Confirmar'
   end
-  describe 'admin can create a template ' do
+  describe 'admin can delete a template ' do
     it 'should create and then delete a template' do
       expect(page).to have_content 'ADICIONAR TEMPLATE'
       click_button 'ADICIONAR TEMPLATE'
@@ -43,7 +43,6 @@ RSpec.feature 'Delete a template', type: :feature do
       expect(Template.where(name: 'test_temp2').count).to eq(1)
       click_button 'delete-template-button'
       expect(Template.where(name: 'test_temp2').count).to eq(0)
-
     end
   end
   describe 'admin can delete a template question' do

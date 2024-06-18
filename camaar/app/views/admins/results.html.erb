@@ -14,13 +14,15 @@
             <div class="overview-item overview-item--sform">
               <div class="overview__inner">
                 <div class="overview-box clearfix">
-                  <%= link_to form.name, form_summary_path(form) %>
                   <div class="text">
+                  <%= link_to form_summary_path(form), class: "template-link" do %>
+                    <h1 class="template-name"><%= form.name %></h1>
+                        <% end %>
                     <div class="icons-container">
-                      <%= link_to results_path(export: :graph, form_id: form.id )  do%>
+                      <%= link_to results_path(export: :graph, form_id: form.id ), id:'export-graph'  do%>
                         <i class="fas fa-chart-pie"></i>
                       <% end %>
-                      <%= link_to results_path(export: :csv,form_id: form.id)  do%>
+                      <%= link_to results_path(export: :csv,form_id: form.id), id:'export-csv'  do%>
                         <i class="fas fa-download"></i>
                       <% end %>
                     </div>
