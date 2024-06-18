@@ -27,13 +27,6 @@ RSpec.feature 'Delete a template', type: :feature do
     enrollment3 = create(:enrollment,:enrollment3)
     enrollment4 = create(:enrollment,:enrollment4)
 
-    form = create(:form, :form1)
-    form_question = create(:form_question, :form_question1)
-
-    answ1 = create(:student_answer, :student_answers1)
-    answ2 = create(:student_answer, :student_answers2)
-    answ3 = create(:student_answer, :student_answers3)
-
     visit '/admins/login'
 
     expect(page).to have_content 'Bem vindo ao'
@@ -43,6 +36,15 @@ RSpec.feature 'Delete a template', type: :feature do
     click_button 'Confirmar'
   end
   describe 'admin can export a graph with stats ' do
+    before do
+    form = create(:form, :form1)
+    form_question = create(:form_question, :form_question1)
+
+    answ1 = create(:student_answer, :student_answers1)
+    answ2 = create(:student_answer, :student_answers2)
+    answ3 = create(:student_answer, :student_answers3)
+
+    end
     it 'should export a graph with stats of questions' do
       click_link 'Resultados'
       expect(page).to have_content 'Resultados'
@@ -52,6 +54,15 @@ RSpec.feature 'Delete a template', type: :feature do
     end
   end
   describe 'admin can export a csv with answers ' do
+    before do
+      form = create(:form, :form1)
+      form_question = create(:form_question, :form_question1)
+
+      answ1 = create(:student_answer, :student_answers1)
+      answ2 = create(:student_answer, :student_answers2)
+      answ3 = create(:student_answer, :student_answers3)
+
+      end
     it 'should export a csv with answers of questions' do
       click_link 'Resultados'
       expect(page).to have_content 'Resultados'

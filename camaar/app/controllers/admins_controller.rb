@@ -7,15 +7,6 @@ class AdminsController < ApplicationController
   before_action :set_admin_data
   before_action :load
 
-  def index
-    @admin = Admin.new
-    @admin = Admin.all
-  end
-
-  def login
-    @admin = Admin.new
-    @admin = Admin.allf
-  end
 
   def load
     @templates = Template.where(coordinator_id: @coordinator.id, draft: false)

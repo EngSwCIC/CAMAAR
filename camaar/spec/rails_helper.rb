@@ -1,6 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-ENV['RAILS_ENV'] ||= 'test'
+ENV['RAILS_ENV'] = 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
@@ -41,6 +41,7 @@ RSpec.configure do |config|
     unless ENV['ASSET_PRECOMPILE_DONE']
       prep_passed = system 'rails test:prepare'
       ENV['ASSET_PRECOMPILE_DONE'] = 'true'
+      ENV['EAGER_LOAD'] = 'true'
       unless prep_passed
         abort "\nYour assets didn't compile. Exiting WITHOUT running any tests. Review the output above to resolve any errors."
       end
