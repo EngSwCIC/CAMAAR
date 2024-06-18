@@ -9,14 +9,16 @@ class TemplatesController < ApplicationController
 
   def new
     @template = Template.new
+    @tipos = Tipo.all
   end
 
   def create
     @template = Template.new(template_params)
+    @template.docente = current_user
     if @template.save
       redirect_to @template
     else
-      flash[:alert] = "Infelizmente houve um erro na criação de seu template"
+      @tipos = Tipo.all
       render 'new'
     end
   end
@@ -40,9 +42,27 @@ class TemplatesController < ApplicationController
     redirect_to templates_path
   end
 
+  #A criação de questões será feita dentro da view de criação de template, portanto, acho uma boa desição de design
+  # usar o mesmo controller para os 2
+  def add_questao
+    @questao = @template.questaos.build
+  end
+
+  def update_questao
+    @questao = @template.questaos.find(params[:questao_id])
+    if @questao.update(questao_params)
+      redirect_to @template, notice: 'Questão atualizada com sucesso.'
+    else
+      render edit
+    end
+  end
   private
 
   def template_params
-    params.require(:template).permit(:numeroDeAlternativas, :discursiva?, :nome, :fatorDeCorreção?)
+    params.require(:template).permit(:nome, questaos_attributes: [:id, :pergunta, :alternativas, :pontos, :fatorDeCorrecao, :alternativaCorreta, :tipo, :_destroy])
+  end
+
+  def questao_params
+    params.require(:questao).permit(:pergunta, :alternativas, :pontos, :fatorDeCorrecao, :alternativaCorreta, :tipo)
   end
 end

@@ -1,7 +1,7 @@
 class Docente < User
   has_many :formularios
   has_many :templates
-  has_many :turmas
+  has_many :classes
 
   validates :departamento, presence: true
 

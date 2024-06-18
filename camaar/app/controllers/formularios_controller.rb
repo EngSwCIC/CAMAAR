@@ -1,53 +1,58 @@
 class FormulariosController < ApplicationController
+  # GET /formularios
   def index
     @formularios = Formulario.all
   end
 
+  # GET /formularios/1
   def show
     @formulario = Formulario.find(params[:id])
   end
 
+  # GET /formularios/new
   def new
     @formulario = Formulario.new
     @templates = Template.all
   end
 
-  def create
-    @formulario = Formulario.new(formulario_params)
-    @formulario.administrador = current_administrador
-    if @formulario.save
-      redirect_to @formulario
-    else
-      @templates = Template.all
-      render 'new'
-    end
-  end
-
+  # GET /formularios/1/edit
   def edit
     @formulario = Formulario.find(params[:id])
   end
 
-  def update
-    @formulario = Formulario.find(params[:id])
-    if @formulario.update(formulario_params)
-      redirect_to @formulario
+  # POST /formularios
+  def create
+    @formulario = Formulario.new(formulario_params)
+
+    if @formulario.save
+      redirect_to @formulario, notice: 'Formulário foi criado com sucesso.'
     else
-      render 'edit'
+      @templates = Template.all
+      render :new
     end
   end
 
+  # PATCH/PUT /formularios/1
+  def update
+    @formulario = Formulario.find(params[:id])
+    if @formulario.update(formulario_params)
+      redirect_to @formulario, notice: 'Formulário foi atualizado com sucesso.'
+    else
+      @templates = Template.all
+      render :edit
+    end
+  end
+
+  # DELETE /formularios/1
   def destroy
     @formulario = Formulario.find(params[:id])
     @formulario.destroy
-    redirect_to formularios_path
+    redirect_to formularios_url, notice: 'Formulário foi excluído com sucesso.'
   end
 
   private
-
-  def formulario_params
-    params.require(:formulario).permit(
-      :turmas, :dataDeTermino,{ Resultados: {} },
-      questaos_attributes: [:template_id, :pergunta, :alternativas, :pontos, :fatorDeCorrecao, :alternativaCorreta]
-    )
-  end
+    # Only allow a list of trusted parameters through.
+    def formulario_params
+      params.require(:formulario).permit(:classe_id, :dataDeTermino, :Resultados, :template_id, resultados_attributes: [:id, :aluno_id, :nota, :_destroy])
+    end
 end

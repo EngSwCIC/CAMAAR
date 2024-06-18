@@ -1,10 +1,12 @@
-class Turma < ApplicationRecord
+class Classe < ApplicationRecord
+  belongs_to :disciplina
   has_many :dicentes
-  has_many :formularios
   has_one :docente
 
-  validates :codigo, presence: true;
-  validates :nome_materia, presence: true;
+  has_many :formularios_classes, dependent: :destroy
+  has_many :formularios, through: :formularios_classes
+
+  validates :class_code, presence: true;
   validates :semestre, presence: true;
   validates :horario, presence: true;
 

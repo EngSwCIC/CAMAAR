@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :templates
   resources :alunos
   resources :turmas
+  resources :tipos
 
   # Define a rota para a página de login como a root
   devise_scope :user do

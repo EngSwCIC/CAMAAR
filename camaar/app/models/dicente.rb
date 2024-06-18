@@ -1,5 +1,5 @@
 class Dicente < User
-  has_many :turmas
+  has_many :classes
 
   validates :matricula, presence: true
   validates :curso, presence: true

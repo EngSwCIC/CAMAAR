@@ -1,23 +1,22 @@
-# app/controllers/dicientes_controller.rb
 class DicientesController < ApplicationController
   before_action :authenticate_user!
 
-  # GET /dicientes
+  # GET /dicentes
   def index
     @dicientes = Dicente.all
   end
 
-  # GET /dicientes/:id
+  # GET /dicentes/:id
   def show
     @dicente = Dicente.find(params[:id])
   end
 
-  # GET /dicientes/new
+  # GET /dicentes/new
   def new
     @dicente = Dicente.new
   end
 
-  # POST /dicientes
+  # POST /dicentes
   def create
     @dicente = Dicente.new(dicente_params)
     if @dicente.save
@@ -27,12 +26,12 @@ class DicientesController < ApplicationController
     end
   end
 
-  # GET /dicientes/:id/edit
+  # GET /dicentes/:id/edit
   def edit
     @dicente = Dicente.find(params[:id])
   end
 
-  # PATCH/PUT /dicientes/:id
+  # PATCH/PUT /dicentes/:id
   def update
     @dicente = Dicente.find(params[:id])
     if @dicente.update(dicente_params)
@@ -42,7 +41,7 @@ class DicientesController < ApplicationController
     end
   end
 
-  # DELETE /dicientes/:id
+  # DELETE /dicentes/:id
   def destroy
     @dicente = Dicente.find(params[:id])
     @dicente.destroy
