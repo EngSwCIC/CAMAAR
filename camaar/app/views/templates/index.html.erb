@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Templates</title>
+  </head>
+<body>
+  <main>
+    <%if current_user %>
+    <h1>templates.</h1>
+        <p><%= link_to 'Criar um novo template', new_template_path %> </p>
+        <div id="Templates">
+            <div class="row">
+                <div class="col-8">Nome template</div>
+            </div>
+            <%- @templates.each do |template| %>
+                <div class="row">
+                    <div class="col-8"> <%= link_to template.nome, template_path(template) %> </div>
+                </div>
+            <% end %>
+        </div>
+        <p><%= link_to 'Voltar para pagina anterior', root_path %> </p>
+    <% else %>
+      <p>you are not signed in.</p>
+      <%= link_to "Sign Up!", new_user_registration_path%>
+      <br/>
+      <%= link_to "Login", new_user_session_path%>
+    <%end %>
+  </main>
+</body>
+</html>

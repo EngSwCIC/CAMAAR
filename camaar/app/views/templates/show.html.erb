@@ -1,0 +1,13 @@
+<h1>Details about <%= @template.nome %></h1>
+
+    <div id="metadata">
+      <ul id="details">
+        <li>ID: <%= @template.id %></li>
+        <li>Nome: <%= @template.nome %></li>
+        <li>Criado em: <%= @template.created_at.strftime('%d/%m/%Y %H:%M') %></li>
+        <li>Última atualização: <%= @template.updated_at.strftime('%d/%m/%Y %H:%M') %></li>
+      </ul>
+    </div>
+
+<%= link_to 'Editar o nome deste template', edit_template_path(@template), :class => 'btn' %>
+<%= link_to 'Voltar para templates', template_path, :class => 'btn btn-primary' %>
