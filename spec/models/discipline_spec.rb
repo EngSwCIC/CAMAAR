@@ -1,5 +1,8 @@
 require 'rails_helper'
 
+require 'simplecov'
+SimpleCov.start
+
 RSpec.describe Discipline, type: :model do
   describe '.create_by_json' do
     let(:data) { { "name" => "Math", "code" => "MTH101", "professor_registration" => "12345" } }

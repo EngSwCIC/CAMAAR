@@ -1,5 +1,8 @@
 require 'rails_helper'
 
+require 'simplecov'
+SimpleCov.start
+
 RSpec.describe Semester, type: :model do
   describe '.next_semester_id' do
     context 'when no semesters exist' do

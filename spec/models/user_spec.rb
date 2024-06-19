@@ -1,13 +1,16 @@
 require 'rails_helper'
 require 'bcrypt'
 
+require 'simplecov'
+SimpleCov.start
+
 RSpec.describe User, type: :model do
   describe '.find' do
     context 'when user exists' do
-      let!(:user) { User.create(email: "test@example.com", salt: "teste", password: "teste") }
+      let!(:user) { User.create(email: "test12@example.com", salt: "teste", password: "teste") }
 
       it 'returns the user with the specified email' do
-        found_user = User.find("test@example.com")
+        found_user = User.find("test12@example.com")
         expect(found_user).to eq(user)
       end
     end

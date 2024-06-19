@@ -24,6 +24,9 @@ group :development, :test do
   gem 'debug', platforms: %i[ mri windows ]
   gem 'faker'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'rubycritic'
+  gem 'simplecov', require: false
 end
 
 group :development do
