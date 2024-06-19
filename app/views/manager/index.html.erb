@@ -1,16 +1,31 @@
 <div class="container">
   <h1 class="text-center"><i>Gerenciamento</i></h1>
+  <h4 class="text-center"><i>Semestre Atual: <%= current_semester? %></i></h4>
   <br>
+  <% if flash[:success] %>
+    <div class="alert alert-success">
+      <%= flash[:success] %>
+    </div>
+  <% end %>
+    <% if flash[:error] %>
+    <div class="alert alert-danger">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
 
   <div class="custom-button-container">
-    <%= button_to "Enviar Email de Cadastro para Alunos", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <%= button_to "Enviar Email de Cadastro para Alunos", send_email_availables_sign_up_path, method: :post, class: "btn btn-outline-primary btn-block" %>
     <br>
-    <%= button_to "Importar Dados e Iniciar um Novo Semestre", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+   <%= button_to "Importar Dados e Iniciar um Novo Semestre", import_from_sigaa_path, method: :post, class: "btn btn-outline-primary btn-block" %>
+    <br>
+    <%= button_to "Atualziar Dados do Semestre Atual", update_sigaa_data_path, method: :post, class: "btn btn-outline-primary btn-block" %>
     <br>
     <%= button_to "Editar Templates", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
     <br>
-    <%= button_to "Enviar Formulários", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <%= button_to "Enviar Formulários para Semestre Atual", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
     <br>
-    <%= button_to "Gerar CSV de Resultados", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <%= button_to "Gerar CSV de Resultados deste Semestre", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <br>
+     <%= button_to "Gerar CSV de Resultados de todos os Semestres", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
   </div>
 </div>

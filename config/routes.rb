@@ -14,8 +14,12 @@ Rails.application.routes.draw do
   # Redifine Password Path
   get '/redefine_password', to: 'redefine_password#index', as: 'redefine_password'
   post '/redefine_password', to: 'redefine_password#redefine', as: 'redefine_password_post'
-  # Manager path Path
+  # Manager Path
   get '/manager', to: 'manager#index', as: 'manager'
+  # Sigaa Management Path
+  post '/import_sigaa_data', to: 'sigaa_management#import_sigaa_data', as: 'import_from_sigaa'
+  post '/update_sigaa_data', to: 'sigaa_management#update_sigaa_data', as: 'update_sigaa_data'
+  post '/send_email_availables_sign_up', to: 'sigaa_management#send_email_availables_sign_up', as: 'send_email_availables_sign_up'
 
   resources :templates
 

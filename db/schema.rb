@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_18_020100) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_18_190551) do
+  create_table "disciplines", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.string "professor_registration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "semester_id"
+  end
+
+  create_table "professors", force: :cascade do |t|
+    t.string "registration_number", null: false
+    t.string "name", null: false
+    t.string "department_code", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["registration_number"], name: "index_professors_on_registration_number", unique: true
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string "type"
     t.string "description"
@@ -36,6 +54,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_18_020100) do
     t.string "key", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "registration_number"
     t.index ["email"], name: "index_sign_up_availables_on_email", unique: true
   end
 
