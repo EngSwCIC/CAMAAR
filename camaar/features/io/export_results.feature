@@ -15,15 +15,19 @@ Feature: Export form results
             
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         When I follow "Resultados"
+        
         Then I expect to see "Formulário Aluno"
+        Then I expect to see "Formulário Professor"
+
 
     Scenario: Export the responses of a answered form
-        When I press "export csv"
+        When I press "export csv 1"
         Then I expect to see a download window with the file "1_Formulário_Aluno.csv"
 
     Scenario: Generate a report from the responses of a answered form
-        When I press "export graph"
+        When I press "export graph 1"
         Then I expect to see a download window with the file "1_Formulário_Aluno.png"
 
-    Scenario: Tries to find form with no responses
-        Then I expect to not see "Formulário Professor"
+    Scenario: Tries to export graph of a with no responses
+        When I press "export graph 2"
+        Then I expect to see "O formulário não possui respostas"
