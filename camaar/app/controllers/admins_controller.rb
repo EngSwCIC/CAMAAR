@@ -231,23 +231,47 @@ class AdminsController < ApplicationController
         answers = TeacherAnswer.where(form_question_id: @form_questions.pluck(:id))
       end
 
-      answered_forms << form if answers.any?
+      # if answers.any?
+      #   answered_forms << form
+      # end
+
     end
-    @forms = answered_forms
+    # @forms = answered_forms
 
     @form = Form.find_by_id(params[:form_id]) if params[:form_id]
     @form_questions = FormQuestion.where(form_id: @form.id) if @form
-    case params[:export]
-    when 'csv'
-      export_to_csv
-    when 'graph'
-      export_to_png
+
+    student_answers = StudentAnswer.where(form_question_id: @form_questions.pluck(:id))
+    teacher_answers = TeacherAnswer.where(form_question_id: @form_questions.pluck(:id))
+
+    if params[:export].present? and not(student_answers.present? or teacher_answers.present?)
+      flash[:warning] = "O formulário não possui respostas"
+      redirect_to "/admins/results"
+    else
+      case params[:export]
+      when "csv"
+        export_to_csv
+      when "graph"
+        @form = Form.find_by_id(params[:form_id])
+        @form_questions = FormQuestion.where(form_id: @form.id)
+        export_to_png
+      end
     end
   end
 
   def summary
     @form = Form.find_by_id(params[:id])
     @form_questions = FormQuestion.where(form_id: @form.id)
+    @form_answers = StudentAnswer.where(form_question_id: @form_questions[0].id)
+    # @form_status = @form.open ? "Aberto": "Fechado"
+
+    if @form.role == "discente"
+      @total_number = Enrollment.where(subject_class_id: @form.subject_class_id).length
+    else
+      @total_number = 1
+    end
+    @answered_number = @form_answers.length
+
     @form_summary = generate_summary
   end
 
@@ -381,13 +405,16 @@ class AdminsController < ApplicationController
       line = [question.title]
 
       answers.each do |answ|
-        answer_body = JSON.parse(answ.answers)['answers']
+
+        question_body = JSON.parse(FormQuestion.find_by_id(answ.form_question_id).body)
+        answer_body = JSON.parse(answ.answers)["answers"]
+
         case question.question_type
         when 'text'
           line << answer_body
         when 'multiple_choice'
           answer_body.each do |num, selected|
-            line << num.to_i if selected
+            line << question_body["options"][num] if selected
           end
         end
       end

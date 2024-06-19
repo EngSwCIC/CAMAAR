@@ -4,31 +4,40 @@ Feature: Forms Results Page
     I want to view the created forms
     So that I can generate a report from the responses.
 
-    Background:
+
+
+    Scenario: Coordinator views dispatched forms answers
+        Given that a form assigned to the students of the following classes were answered:
+            | subject | semester | code |
+            | CIC0097 | 2021.2   | TA   |
+
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
-        Given that I imported classes for the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+        When I follow "Resultados"
 
-        Given that a form has been assigned to the following classes:
-            | name         | role    | subject | semester | classCode |
-            | Formulário 1 | teacher | CIC0097 | 2021.2   | TA        |
-            | Formulário 2 | student | CIC0105 | 2021.2   | TA        |
-        And I am on the "Resultados" page
+        Then I expect to see "Formulário Aluno"
 
-    Scenario: Coordinator views dispatched forms
-        Given that the "Formulário 1" form has been answered
-        Then I expect to see the following results:
-            | name         | answers      |
-            | Formulário 1 | Respostas: 1 |
-            | Formulário 2 | Respostas: 0 |
+        When I follow "Formulário Aluno"
+        Then I expect to be on the "Resultados Formulário Aluno" page
+        And I expect to see "Formulário Aluno"
 
-    Scenario: Coordinator only sees the answered forms
-        Given that the "Formulário 1" form has been answered
-        Then I expect to see the following results:
-            | name         | answers      |
-            | Formulário 1 | Respostas: 1 |
+        And I expect to see the following:
+            | question                       | answer 1 |
+            | 1 - Classifique seu rendimento | Ótimo    |
+            | 2 - Dê uma sugestão            | Resposta |
 
-    Scenario: Coordinator only sees the created forms
-        Given that I expect to see forms
-        And I am on "Results Page"
-        But there are no forms created
-        Then I should not see any forms
+        Then I expect to see "Número de respostas: 1/45"
+
+
+    Scenario: Coordinator tries to see empty form
+        Given that a form has been assigned to the teachers of the following classes:
+            | subject | semester | code |
+            | CIC0097 | 2021.2   | TA   |
+        Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+        When I follow "Resultados"
+
+        And I expect to see "Formulário Professor"
+        When I follow "Formulário Professor"
+        Then I expect to be on the "Resultados Formulário Professor" page
+
+        And I expect to see "Número de respostas: 0/1"
+
