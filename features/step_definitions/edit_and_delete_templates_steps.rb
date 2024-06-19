@@ -10,7 +10,3 @@ end
 Then('the template should not be updated') do
   expect(page).to have_content('Error updating template')
 end
-
-Then('I should see {string}') do |message|
-  expect(page).to have_content(message)
-end
