@@ -17,6 +17,18 @@
         h1 {
             margin-bottom: 20px;
         }
+        #search-bar {
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+        #search-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid purple;
+            border-radius: 5px;
+        }
         #buttons-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -136,9 +148,12 @@
 </head>
 <body>
     <h1>Templates</h1>
+    <div id="search-bar">
+        <input type="text" id="search-input" onkeyup="searchTemplates()" placeholder="Pesquisar templates...">
+    </div>
     <div id="buttons-container">
         <% @files.each do |file| %>
-            <button class="button" onclick="handleButtonClick('<%= file %>')"><%= file.split('.json')[0] %></button>
+            <button class="button" onclick="handleButtonClick('<%= file %>')" data-name="<%= file %>"><%= file.split('.json')[0] %></button>
         <% end %>
 
         <%= link_to "+", new_formulario_template_path, id: "force-reload-link", class: "button-create-template" %>
@@ -246,6 +261,22 @@
           }
           if (event.target == document.getElementById('viewModal')) {
               closeViewModal();
+          }
+      }
+
+      function searchTemplates() {
+          let input, filter, buttons, button, i, txtValue;
+          input = document.getElementById('search-input');
+          filter = input.value.toUpperCase();
+          buttons = document.getElementById("buttons-container").getElementsByClassName('button');
+          for (i = 0; i < buttons.length; i++) {
+              button = buttons[i];
+              txtValue = button.textContent || button.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  buttons[i].style.display = "";
+              } else {
+                  buttons[i].style.display = "none";
+              }
           }
       }
     </script>

@@ -1,0 +1,12 @@
+{
+  "templateName": "pequeno",
+  "questions": [
+    {
+      "type": "checkbox",
+      "options": [
+        "Opção 1",
+        "Opção 2"
+      ]
+    }
+  ]
+}

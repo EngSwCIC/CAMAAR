@@ -1,9 +1,50 @@
 class ReportsAlunosController < ApplicationController
   before_action :set_reports_aluno, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token, only: [:submit_form]
 
   # GET /reports_alunos or /reports_alunos.json
   def index
     @reports_alunos = ReportsAluno.all
+    @formularios = Dir.glob(Rails.root.join('public', 'formularios', '*.json')).map do |file_path|
+      File.basename(file_path)
+    end
+  end
+
+  # GET /fetch_form
+  def fetch_form
+    file_path = Rails.root.join('public', 'formularios', params[:file_name])
+    if File.exist?(file_path)
+      render json: JSON.parse(File.read(file_path))
+    else
+      render json: { error: "File not found" }, status: 404
+    end
+  end
+
+  # POST /submit_form
+  def submit_form
+    json_data = JSON.parse(request.body.read)
+    file_name = json_data['fileName']
+    data = json_data['data']
+    form_name = json_data['formName']
+    professor = json_data['professor']
+    semester = json_data['semester']
+
+    directory = Rails.root.join('public', 'respostas', "#{form_name}-#{professor}-#{semester}")
+    Dir.mkdir(directory) unless Dir.exist?(directory)
+
+    file_path = directory.join(file_name)
+    
+    Rails.logger.info "Saving file to: #{file_path}"
+
+    begin
+      File.open(file_path, 'w') do |file|
+        file.write(JSON.pretty_generate(data))
+      end
+      render json: { success: true, file_path: file_path.to_s }
+    rescue => e
+      Rails.logger.error "Error: #{e.message}"    # Log para verificar erros
+      render json: { success: false, error: e.message }
+    end
   end
 
   # GET /reports_alunos/1 or /reports_alunos/1.json
