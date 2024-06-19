@@ -13,7 +13,7 @@ Feature: View department classes
     Scenario: Coordinator from CIC see classes
         Given that I imported classes for "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
         And I am on the "Meu Departamento" page
-        Then I should see the following on Turmas:
+        Then I expect to see the following table:
         | Nome                    | Semestre | Código  | Turma     | Horário  |
         | BANCOS DE DADOS         | 2021.2   | CIC0097 | TA        | 35T45    |
         | ENGENHARIA DE SOFTWARE  | 2021.2   | CIC0105 | TA        | 35M12    |

@@ -6,26 +6,23 @@ Feature: View Templates
 
     Background:
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
-        Given that I created the following templates:
-            | name       | role    |
-            | Template 1 | teacher |
-            | Template 2 | student |
-
+        Given that I created the teacher template "Template 1"
+        Given that I created the student template "Template 2"
         And I am on the "Templates" page
 
     Scenario: Coordinator views created templates
-        Then I expect to see the following templates:
-            | name       | role    |
-            | Template 1 | teacher |
-            | Template 2 | student |
+        Then I expect to see the following:
+            | name       |
+            | Template 1 |
+            | Template 2 |
 
-        Then I expect to see the button "Deletar" on "Template 1"
-        Then I expect to see the button "Editar" on "Template 1"
+        Then I expect to see the button "delete Template 1"
+        Then I expect to see the button "edit Template 1"
+        Then I expect to see the button "delete Template 2"
+        Then I expect to see the button "edit Template 2"
 
-        Then I expect to see the button "Deletar" on "Template 2"
-        Then I expect to see the button "Editar" on "Template 2"
 
-    Scenario: Coordinator tries to edit uncreated templates
-        Given that I want to edit "Template 3"
-        But there is no "Template 3" on "Templates" page
-        Then I should not be able to edit it
+
+    Scenario: No templates available
+        Given that no templates have been created
+        Then I expect to see "Não foram encontrados templates"

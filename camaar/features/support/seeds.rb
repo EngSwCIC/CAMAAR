@@ -2,7 +2,13 @@ require "json"
 require "database_cleaner"
 require_relative "../../config/environments/test"
 
-departments = JSON.parse(File.read("./db/departments.json"))
+# departments = JSON.parse(File.read("./db/departments.json"))
+departments = [{
+  "id" => 508,
+  "initials" => "CIC",
+  "name" => "DEPTO CIÊNCIAS DA COMPUTAÇÃO",
+}]
+
 classes = JSON.parse(File.read("./db/classes.json"))
 classes_members = JSON.parse(File.read("./db/class_members.json"))
 

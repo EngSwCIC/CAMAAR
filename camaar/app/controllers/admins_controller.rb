@@ -1,4 +1,7 @@
-require 'json'
+
+require "json"
+require "rchart"
+require "csv"
 
 class AdminsController < ApplicationController
   layout 'admin'
@@ -12,85 +15,76 @@ class AdminsController < ApplicationController
   end
 
   def envio
-    @student_templates = Template.where({ coordinator_id: @coordinator.id, role: 'discente' })
-    @teacher_templates = Template.where({ coordinator_id: @coordinator.id, role: 'docente' })
+
+    @student_templates = Template.where({ coordinator_id: @coordinator.id, draft: false, role: "discente" })
+    @teacher_templates = Template.where({ coordinator_id: @coordinator.id, draft: false, role: "docente" })
 
     flash.clear
-    professor_template_id = params[:professor_template_id]
-    aluno_template_id = params[:aluno_template_id]
-    turma_ids = params[:turma_ids]
+    teacher_template_id = params[:teacher_template]
+    student_template_id = params[:student_template]
+    classes_ids = params[:classes_ids]
 
     commit = params[:commit]
-    return unless commit == 'confirm'
+    if classes_ids.present? && commit == "confirm"
+      classes_ids.each do |subject_class_id|
+        if teacher_template_id.present? and student_template_id.present?
+          flash[:warning] = "Selecione pelo menos um template para envio."
+        else
+          if teacher_template_id.present?
+            puts "professor"
 
-    if turma_ids.present?
-      turma_ids.each do |subject_class_id|
-        if professor_template_id.present?
-          subject_class_forms = Form.where(subject_class_id:)
-
-          if subject_class_forms.empty?
-            teacher_template = Template.find_by(id: professor_template_id)
+            teacher_template = Template.find_by(id: teacher_template_id, draft: false)
             teacher_form = Form.new(
               role: teacher_template.role,
               name: teacher_template.name,
               coordinator_id: teacher_template.coordinator_id,
-              subject_class_id:
+
+              subject_class_id: subject_class_id,
             )
 
             if teacher_form.save
               teacher_template_questions = TemplateQuestion.where({ template_id: teacher_template.id })
               teacher_template_questions.each do |question|
                 FormQuestion.create({
-                                      title: question.title,
-                                      body: question.body,
-                                      question_type: question.question_type,
-                                      form_id: teacher_form.id
-                                    })
+                  title: question.title,
+                  body: question.body,
+                  question_type: question.question_type,
+                  form_id: teacher_form.id,
+                })
               end
 
-              flash[:success] =
-                "Os formulários para a turma #{SubjectClass.find_by(id: subject_class_id).name} foram criados com sucesso."
+              flash[:success] = "O formulário para o professor da turma #{SubjectClass.find_by(id: subject_class_id).name} foi criado com sucesso."
             end
-          else
-            flash[:warning] =
-              "Os formulários para a turma #{SubjectClass.find_by(id: subject_class_id).name} já existem."
           end
-        end
 
-        next unless aluno_template_id.present?
+          if student_template_id.present?
+            puts "alunos"
 
-        subject_class_forms = Form.where(subject_class_id:)
+            student_template = Template.find_by(id: student_template_id)
+            student_form = Form.new(
+              name: student_template.name,
+              coordinator_id: student_template.coordinator_id,
+              subject_class_id: subject_class_id,
+            )
 
-        if subject_class_forms.empty?
-          student_template = Template.find_by(id: aluno_template_id)
-          student_form = Form.new(
-            name: student_template.name,
-            coordinator_id: student_template.coordinator_id,
-            subject_class_id:
-          )
+            if student_form.save
+              student_template_questions = TemplateQuestion.where({ template_id: student_template.id })
+              student_template_questions.each do |question|
+                FormQuestion.create({
+                  title: question.title,
+                  body: question.body,
+                  question_type: question.question_type,
+                  form_id: student_form.id,
+                })
+              end
 
-          if student_form.save
-            student_template_questions = TemplateQuestion.where({ template_id: student_template.id })
-            student_template_questions.each do |question|
-              FormQuestion.create({
-                                    title: question.title,
-                                    body: question.body,
-                                    question_type: question.question_type,
-                                    form_id: student_form.id
-                                  })
+              flash[:success] = "O formulário para os alunos da turma #{SubjectClass.find_by(id: subject_class_id).name} foi criado com sucesso."
             end
-
-            flash[:success] =
-              "Os formulários para a turma #{SubjectClass.find_by(id: subject_class_id).name} foram criados com sucesso."
           end
-        else
-          flash[:warning] =
-            "Os formulários para a turma #{SubjectClass.find_by(id: subject_class_id).name} já existem."
         end
       end
-
     else
-      flash[:warning] = 'Selecione as turmas para envio.'
+      flash[:warning] = "Selecione as turmas para envio."
     end
   end
 
@@ -308,20 +302,20 @@ class AdminsController < ApplicationController
       end
     end
 
-    send_file file_path, filename: "#{@form.id}_#{@form.name}_results.csv", type: 'text/csv'
+    send_file file_path, filename: "#{@form.id}_#{@form.name}.csv".gsub(" ", "_").downcase, type: "text/csv"
   end
 
   def export_to_png
     graph = generate_graph
 
-    filename = @form.name + '.png'
-    file_path = File.join('export', filename)
+    filename = @form.name + ".png"
+    file_path = File.join("export", filename)
     graph.render_png(file_path)
-    send_file file_path, filename:, type: 'image/png'
+    send_file file_path, filename: "#{@form.id}_#{@form.name}.png".gsub(" ", "_").downcase, type: "image/png"
   end
 
   def generate_graph
-    if @form.role == 'discente'
+    if @form.role == "discente"
       enrollments = Enrollment.where(subject_class_id: @form.subject_class_id)
       number_of_students = enrollments.distinct.count(:student_id)
       num_answers = StudentAnswer.where(student_id: enrollments.distinct.pluck(:student_id)).count
@@ -334,6 +328,7 @@ class AdminsController < ApplicationController
 
       ch = Rchart.new(300, 200)
       ch.set_font_properties('tahoma.ttf', 8)
+
       ch.draw_filled_rounded_rectangle(7, 7, 293, 193, 5, 240, 240, 240)
       ch.draw_rounded_rectangle(5, 5, 295, 195, 5, 230, 230, 230)
 
@@ -346,6 +341,7 @@ class AdminsController < ApplicationController
       ch.draw_pie_legend(210, 35, p.get_data, p.get_data_description, 250, 250, 250)
 
     elsif @form.role == 'docente'
+
       form_questions = FormQuestion.where(form_id: @form.id)
       text_questions = form_questions.where(question_type: 'text').count
       multiple_choice_questions = form_questions.where(question_type: 'multiple_choice').count
@@ -353,11 +349,12 @@ class AdminsController < ApplicationController
       p = Rdata.new
       p.add_point([text_questions, multiple_choice_questions], 'Serie1')
       p.add_point(%w[Texto Múltipla-Escolha], 'Serie2')
+
       p.add_all_series
-      p.set_abscise_label_serie('Serie2')
+      p.set_abscise_label_serie("Serie2")
 
       ch = Rchart.new(300, 200)
-      ch.set_font_properties('tahoma.ttf', 8)
+      ch.set_font_properties("tahoma.ttf", 8)
       ch.draw_filled_rounded_rectangle(7, 7, 293, 193, 5, 240, 240, 240)
       ch.draw_rounded_rectangle(5, 5, 295, 195, 5, 230, 230, 230)
 
