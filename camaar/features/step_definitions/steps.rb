@@ -183,6 +183,10 @@ When(/I press on "Importar"/) do
   click_button("Importar")
 end
 
+Given "I am not enrolled in any class" do
+  Enrollment.destroy_all
+end
+
 Given(/that I am a registered User/) do # if user or admin
   User.create!({
                  email: "mholanda@unb.br",
@@ -298,6 +302,29 @@ Given("that I have not answered any form") do
   pending
 end
 
+Given (/that I answered the "([^"]*)" form/) do |form|
+  step 'I expect to be on the "Forms" page'
+  step 'I follow "Pendentes"'
+
+  step %'I expect to see "#{form}"'
+  step %'I follow "#{form}"'
+  step %'I expect to be on the "#{form}" page'
+
+  step "I expect to see the following:", table(%(
+            | name                       |
+            | #{form}         |
+            | Classifique seu rendimento |
+            | Dê uma sugestão            |))
+
+  step 'I choose "Question 1 Option 1"'
+  step 'I fill in "Question 2" with "Resposta"'
+  step 'I press "Submit"'
+
+  step 'I follow "Respondidos"'
+  step 'I expect to be on the "Forms" page'
+  step %'I expect to see "#{form}"'
+end
+
 Given(/that a form assigned to the (students|teachers) of the following classes were answered:/) do |role, table|
   classes = table.hashes
   if role == "students"
@@ -310,26 +337,7 @@ Given(/that a form assigned to the (students|teachers) of the following classes 
             | subject | semester | code |
             | #{data["subject"]} | #{data["semester"]}   | #{data["code"]}   |))
 
-      step 'I expect to be on the "Forms" page'
-      step 'I follow "Pendentes"'
-
-      step 'I expect to see "Formulário Aluno"'
-      step 'I follow "Formulário Aluno"'
-      step 'I expect to be on the "Formulário Aluno" page'
-
-      step "I expect to see the following:", table(%(
-            | name                       |
-            | Formulário Aluno           |
-            | Classifique seu rendimento |
-            | Dê uma sugestão            |))
-
-      step 'I choose "Question 1 Option 1"'
-      step 'I fill in "Question 2" with "Resposta"'
-      step 'I press "Submit"'
-
-      step 'I follow "Respondidos"'
-      step 'I expect to be on the "Forms" page'
-      step 'I expect to see "Formulário Aluno"'
+      step 'that I answered the "Formulário Aluno" form'
       step "I ended my session"
     end
   else
@@ -339,10 +347,6 @@ end
 Then(/I expect to see a download window with the file "([^"]*)"/) do |expected_filename|
   actual_filename = page.response_headers["Content-Disposition"]
   actual_filename.should include(normalize_filename(expected_filename))
-end
-
-Given(/that the "([^"]*)" form has been answered/) do |_form_name|
-  pending
 end
 
 Given(/that the student "([^"]*)" has left the following classes:/) do |name, table|
@@ -437,16 +441,6 @@ Then(/^(?:|I )expect to see the following:$/) do |fields|
   end
 end
 
-Then(%r{^(?:|I )should see /([^/]*)/$}) do |regexp|
-  regexp = Regexp.new(regexp)
-
-  if page.respond_to? :should
-    page.should have_xpath("//*", text: regexp)
-  else
-    assert page.has_xpath?("//*", text: regexp)
-  end
-end
-
 Then(/^(?:|I )expect to not see "([^"]*)"$/) do |text|
   if page.respond_to? :should
     page.should have_no_content(text)
@@ -455,14 +449,9 @@ Then(/^(?:|I )expect to not see "([^"]*)"$/) do |text|
   end
 end
 
-Then(%r{^(?:|I )should not see /([^/]*)/$}) do |regexp|
-  regexp = Regexp.new(regexp)
-
-  if page.respond_to? :should
-    page.should have_no_xpath("//*", text: regexp)
-  else
-    assert page.has_no_xpath?("//*", text: regexp)
-  end
+Then(/^(?:|I )expect "([^"]*)" to be checked$/) do |field|
+  input_id = field.downcase.gsub(" ", "_")
+  expect(find("##{input_id}", visible: :all)).to be_checked
 end
 
 Then(/I expect to only see classes starting with "([^"]*)"/) do |initials|

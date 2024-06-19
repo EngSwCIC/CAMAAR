@@ -16,6 +16,9 @@ module NavigationHelpers
       "/"
     when "Forms"
       "/users/forms"
+    when /Respostas Formulário (Aluno|Professor)/
+      form = Form.last
+      "/users/forms/#{form.id}"
     when /Formulário (Aluno|Professor)/
       form = Form.last
       "/users/forms/#{form.id}/edit"

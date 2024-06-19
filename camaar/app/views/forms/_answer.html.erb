@@ -8,11 +8,13 @@
         <% if value.present? %>
           <% checked = JSON.parse(answer.answers)["answers"][option] %>
           <div class="formbold-radio-group">
-            <label for="<%= "#{form_question.id}_#{option}" %>" class="formbold-radio-label">
+            <label for="<%= "#{question_number}_#{option}" %>" class="formbold-radio-label">
+              <% option_id = "question_#{question_number}_option_#{option}" %>
               <% if checked %>
-                <input type="radio"  checked disabled/>
+              
+                <input type="radio"  checked disabled id="<%= option_id%>"/>
               <% else %>
-                <input type="radio"  disabled />
+                <input type="radio"  disabled id="<%=option_id%>"/>
               <% end %>
               <%= value %>
             </label>
@@ -24,10 +26,10 @@
 <% elsif form_question.question_type == "text" %>
   <div class="formbold-input-flex">
     <div>
-      <label for="<%= form_question.id %>" class="formbold-form-label">
+      <label for="<%= question_number %>" class="formbold-form-label">
         <%= form_question.title %>
       </label>
-      <span class="formbold-form-input" id="<%= answer.id %>">
+      <span class="formbold-form-input" id="<%= question_number %>">
         <%= JSON.parse(answer.answers)["answers"] %>
       </span>
     </div>
