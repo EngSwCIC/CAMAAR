@@ -21,5 +21,23 @@ FactoryBot.define do
       form_question_id { 1 }
       student_id { 3 }
     end
+
+    trait :student_answers4 do
+      id { 3 }
+      form_question_id { 3 }
+      student_id { 1 }
+    end
+
+    trait :student_answers5 do
+      id { 4 }
+      form_question_id { 3 }
+      student_id { 2 }
+    end
+
+    trait :student_answers6 do
+      id { 5 }
+      form_question_id { 3 }
+      student_id { 3 }
+    end
   end
 end

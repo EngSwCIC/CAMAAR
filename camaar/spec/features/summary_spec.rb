@@ -1,6 +1,4 @@
 require 'rails_helper'
-require 'csv'
-require 'rchart'
 
 RSpec.feature 'Results in graph and csv', type: :feature do
   before do
@@ -35,66 +33,55 @@ RSpec.feature 'Results in graph and csv', type: :feature do
     fill_in 'password', with: admin.password
     click_button 'Confirmar'
   end
-  describe 'admin can export a graph with stats ' do
+  describe 'admin can see summary of students forms' do
     before do
       form = create(:form, :form1)
+      form2 = create(:form, :form3)
       form_question = create(:form_question, :form_question1)
+      form_question2 = create(:form_question, :form_question3)
 
       answ1 = create(:student_answer, :student_answers1)
       answ2 = create(:student_answer, :student_answers2)
       answ3 = create(:student_answer, :student_answers3)
+      answ4 = create(:student_answer, :student_answers4)
+      answ5 = create(:student_answer, :student_answers5)
+      answ6 = create(:student_answer, :student_answers6)
     end
-    it 'should export a graph with stats of students answers' do
+    it 'should see summary of text forms that were answered by students' do
       click_link 'Resultados'
       expect(page).to have_content 'Resultados'
       form = build(:form, :form1)
+      form_question = build(:form_question, :form_question1)
       expect(page).to have_content form.name
-      click_link 'export-graph'
+      click_link form.name
+      expect(page).to have_content form.name
+      expect(page).to have_content form_question.title
     end
-  end
-  describe 'admin can export a csv with answers ' do
-    before do
-      form = create(:form, :form1)
-      form_question = create(:form_question, :form_question1)
 
-      answ1 = create(:student_answer, :student_answers1)
-      answ2 = create(:student_answer, :student_answers2)
-      answ3 = create(:student_answer, :student_answers3)
-    end
-    it 'should export a csv with answers of questions' do
+    it 'should see summary of multiple_choice forms that were answered by students' do
       click_link 'Resultados'
       expect(page).to have_content 'Resultados'
-      form = build(:form, :form1)
+      form = build(:form, :form3)
+      form_question = build(:form_question, :form_question3)
       expect(page).to have_content form.name
-      click_link 'export-csv'
+      click_link form.name
+      expect(page).to have_content form.name
+      expect(page).to have_content form_question.title
     end
   end
-  describe 'admin can export a csv of teacher answers ' do
+  describe 'admin can see summary of teachers forms' do
     before do
       form = create(:form, :form2)
       form_question = create(:form_question, :form_question2)
       teacher_answer = create(:teacher_answer, :teacher_answers1)
     end
-    it 'should export a csv with answers of questions' do
+    it 'should see summary of forms that were answered by teachers' do
       click_link 'Resultados'
       expect(page).to have_content 'Resultados'
       form = build(:form, :form2)
       expect(page).to have_content form.name
-      click_link 'export-csv'
-    end
-  end
-  describe 'admin can export a graph of teacher answers ' do
-    before do
-      form = create(:form, :form2)
-      form_question = create(:form_question, :form_question2)
-      teacher_answer = create(:teacher_answer, :teacher_answers1)
-    end
-    it 'should export a graph with stats of questions' do
-      click_link 'Resultados'
-      expect(page).to have_content 'Resultados'
-      form = build(:form, :form2)
+      click_link form.name
       expect(page).to have_content form.name
-      click_link 'export-graph'
     end
   end
 end
