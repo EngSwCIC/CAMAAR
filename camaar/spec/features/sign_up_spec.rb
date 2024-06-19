@@ -31,6 +31,6 @@ feature 'Register User' do
     click_button 'Confirmar'
     expect(page).to have_content 'Fernando'
     expect(page).to have_content 'Docente'
-    expect(page).to have_content 'Pendências'
+    expect(page).to have_content 'Pendentes'
   end
 end

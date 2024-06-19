@@ -16,7 +16,7 @@ FactoryBot.define do
 
     trait :teacher2 do
       id { 6 }
-      registration { 27_612_295_172 }
+      registration { 83_807_519_491 }
       name { 'MARISTELA HOLANDA' }
       formation { 'DOUTORADO' }
       occupation { 'docente' }

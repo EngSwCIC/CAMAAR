@@ -3,7 +3,7 @@ require 'rails_helper'
 require 'rchart'
 RSpec.feature 'Export Graph', type: :feature do
   describe 'exporting answers as graph' do
-    it 'should export a graph containing answers % by students' do
+    before do
       department = create(:department, :departament1)
 
       admin = create(:admin, :admin1)
@@ -32,7 +32,10 @@ RSpec.feature 'Export Graph', type: :feature do
       answ1 = create(:student_answer, :student_answers1)
       answ2 = create(:student_answer, :student_answers2)
       answ3 = create(:student_answer, :student_answers3)
-
+    end
+    it 'should export a graph containing answers % by students' do
+      form_question = build(:form_question, :form_question1)
+      form = build(:form, :form1)
       num_students = Student.count
       num_answers = StudentAnswer.where(form_question_id: form_question.id).count
       num_absents = num_students - num_answers
