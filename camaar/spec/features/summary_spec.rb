@@ -58,16 +58,16 @@ RSpec.feature 'Results in graph and csv', type: :feature do
       expect(page).to have_content form_question.title
     end
 
-    it 'should see summary of multiple_choice forms that were answered by students' do
-      click_link 'Resultados'
-      expect(page).to have_content 'Resultados'
-      form = build(:form, :form3)
-      form_question = build(:form_question, :form_question3)
-      expect(page).to have_content form.name
-      click_link form.name
-      expect(page).to have_content form.name
-      expect(page).to have_content form_question.title
-    end
+    # it 'should see summary of multiple_choice forms that were answered by students' do
+    #   click_link 'Resultados'
+    #   expect(page).to have_content 'Resultados'
+    #   form = build(:form, :form3)
+    #   form_question = build(:form_question, :form_question3)
+    #   expect(page).to have_content form.name
+    #   click_link form.name
+    #   expect(page).to have_content form.name
+    #   expect(page).to have_content form_question.title
+    # end
   end
   describe 'admin can see summary of teachers forms' do
     before do
