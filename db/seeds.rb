@@ -32,3 +32,30 @@ Template.find_each do |template|
                     input: Faker::Lorem.words(number: rand(1..3)).join(' ')
   end
 end
+
+user_attributes = {
+  email: 'coordenador@gmail.com',
+  password: '$2a$12$9sauXRcV/alggmsRweudU.oQv2grJQH/lq7M97PTlO7TB/2RVKNzu', #TOKEN_587
+  salt: "$2a$12$9sauXRcV/alggmsRweudU.",
+  created_at: Time.now,
+  is_admin: true
+}
+
+user = User.find(user_attributes[:email])
+
+if user.nil?
+  user = User.new
+  user.email = user_attributes[:email]
+  user.salt = user_attributes[:salt]
+  user.password = user_attributes[:password]
+  user.created_at = user_attributes[:created_at]
+  user.is_admin = user_attributes[:is_admin]
+  
+  if user.save
+    puts "Usuário criado com sucesso!"
+  else
+    puts "Erro ao criar usuário: #{user.errors.full_messages.join(", ")}"
+  end
+else
+  puts "Usuário já existe."
+end
