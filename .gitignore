@@ -67,3 +67,6 @@ yarn-debug.log*
 
 /config/credentials.yml.enc
 tmp/cache/bootsnap/load-path-cache
+
+# personal tmux setup script
+/tmux.sh
