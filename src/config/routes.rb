@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources :resposta
   resources :turmas
   resources :imports, only: [:create]
-  devise_for :users  
+  devise_for :users, controllers: { passwords: 'users/passwords', confirmations: 'users/confirmations'}
   resources :templates
 end
