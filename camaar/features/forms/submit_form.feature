@@ -7,43 +7,44 @@ Feature: Submit form answers
         Given that a form has been assigned to the students of the following classes:
             | subject | semester | code |
             | CIC0097 | 2021.2   | TA   |
-        Given I am an authenticated User from class "BANCOS DE DADOS"
+        Given I am an authenticated Student associated with the following classes:
+            | subject | semester | code |
+            | CIC0097 | 2021.2   | TA   |
 
     Scenario: User tries to submit a form
 
-        When I follow "Formulários"
-        Then I should be on the "Formulários" page
-        Then I expect to see the following forms as pending:
-            | CIC0097 | 2021.2 | TA |
-        When I follow "Formulário 1"
-        Then I should be on the "Formulário 1" page
+        Then I expect to be on the "Forms" page
+        When I follow "Pendentes"
 
-        Then I expect to see the following:
-            | Formulário 1 |
-            | Questão 1    |
-            | Questão 2    |
-        And I fill in "Questão 1" with "Resposta"
-        And I select "option 1" from "Questão 2"
-        When I press "Enviar"
-        And I confirm a popup
-        Then I should be on the "Formulários" page
-        And I expect to see the following forms as answered:
-            | CIC0097 | 2021.2 | TA |
+        Then I expect to see "Formulário Aluno"
+        When I follow "Formulário Aluno"
+        Then I expect to be on the "Formulário Aluno" page
 
-    Scenario: User can't submit a form
+        And I expect to see the following:
+            | name                       |
+            | Formulário Aluno           |
+            | Classifique seu rendimento |
+            | Dê uma sugestão            |
 
-        When I follow "Formulários"
-        Then I should be on the "Formulários" page
-        Then I should no forms as pending
-        And I should not be able to submit a form
+        And I choose "Question 1 Option 1"
+        And I fill in "Question 2" with "Resposta"
+        When I press "Submit"
 
-    Scenario: Student views forms questions
-        Given I am enrolled in a class "<TP1>"
-        When I click on the associated form with ID "<TP1>"
-        Then I should be on the page for form "<TP1>"
-        And I expect to see all the questions to be answered.
+        And I follow "Respondidos"
+        Then I expect to be on the "Forms" page
+        And I expect to see "Formulário Aluno"
 
-        Examples:
-            | TP1     |
-            | CIC0197 |
+
+    Scenario: User tries to submit a form with no answer
+        Then I expect to be on the "Forms" page
+        When I follow "Pendentes"
+
+        Then I expect to see "Formulário Aluno"
+        When I follow "Formulário Aluno"
+        Then I expect to be on the "Formulário Aluno" page
+        When I press "Submit"
+        Then I expect to be on the "Formulário Aluno" page
+        And I expect to see "Responda todas questões."
+
+
 

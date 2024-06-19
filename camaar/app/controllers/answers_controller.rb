@@ -7,36 +7,56 @@ class AnswersController < ApplicationController
   def create
     occupation = current_user.occupation
 
-    case occupation
-    when "discente"
-      answers_params = params[:answers]
+    @form = Form.find_by_id(params[:form_id])
+    answers_params = params[:answers]
 
-      answers_params.each do |question_id, answer|
-        @form_question = FormQuestion.find(question_id.to_i)
-        next unless @form_question
-
-        StudentAnswer.create(
-          answers: create_answer_body(answer),
-          form_question_id: question_id,
-          student_id: @student.id,
-        )
-      end
-    when "docente"
-      answers_params = params[:answers]
-
-      answers_params.each do |question_id, answer|
-        @form_question = FormQuestion.find(question_id.to_i)
-        next unless @form_question
-
-        TeacherAnswer.create(
-          answers: create_answer_body(answer),
-          form_question_id: question_id,
-          teacher_id: current_user.id,
-        )
+    if answers_params.present?
+      answers_params.each do |id, answ|
+        if answ.empty?
+          flash[:error] = "Responda todas questões."
+          redirect_to edit_form_path(@form) and return
+        end
       end
     end
 
-    redirect_to forms_path
+    @errors = []
+
+
+    if params[:commit] and params[:commit] == "Enviar"
+      case occupation
+      when "discente"
+        answers_params.each do |question_id, answer|
+          @form_question = FormQuestion.find(question_id.to_i)
+          next unless @form_question
+
+          StudentAnswer.create(
+            answers: create_answer_body(answer),
+            form_question_id: question_id,
+            student_id: @student.id,
+          )
+        end
+      when "docente"
+        answers_params = params[:answers]
+
+        answers_params.each do |question_id, answer|
+          @form_question = FormQuestion.find(question_id.to_i)
+          next unless @form_question
+
+          TeacherAnswer.create(
+            answers: create_answer_body(answer),
+            form_question_id: question_id,
+            teacher_id: current_user.id,
+          )
+        end
+      end
+
+      redirect_to forms_path
+    else
+      flash[:warning] = @errors
+      puts answers_params
+      redirect_to edit_form_path(id: @form.id)
+      # redirect_to "/users/forms/#{}/edit/"
+    end
   end
 
   def create_answer_body(answer)

@@ -14,10 +14,10 @@ module NavigationHelpers
     case page_name
     when "Root"
       "/"
-    when "Formulários"
-      "/admins/forms"
-    when /Formulário (\d+)/
-      "/forms/#{::Regexp.last_match(1)}"
+    when "Forms"
+      "/users/forms"
+    when /Formulário (Aluno|Professor)/
+      "/users/forms/#{1}/edit"
     when "Templates"
       "/admins/templates"
     when "Redefina sua Senha"

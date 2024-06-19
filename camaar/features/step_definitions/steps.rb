@@ -94,7 +94,7 @@ When(/^(?:|I )uncheck "([^"]*)"$/) do |field|
 end
 
 When(/^(?:|I )choose "([^"]*)"$/) do |field|
-  choose(field)
+  choose(field.downcase.gsub(" ","_"))
 end
 
 When(/^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/) do |path, field|
@@ -110,12 +110,45 @@ Given('I am an authenticated User from class "BANCOS DE DADOS"') do
   FactoryBot.create(:user, :user4)
 end
 
+Given(/I ended my session/) do
+  click_link_or_button("Sair")
+end
+
+Given(/I am an authenticated (Teacher|Student) associated with the following classes:$/) do |role, fields|
+  visit("/users/login")
+  classes = fields.hashes
+
+  if role == "Student"
+    User.create!(id: 8, email: "peluticaio@gmail.com", password: "abc123", password_confirmation: "abc123", created_at: Time.now.utc, updated_at: Time.now.utc, confirmed_at: Time.now.utc)
+    student = Student.find_by(email: "peluticaio@gmail.com")
+    classes.each do |sbj|
+      sbj_class = SubjectClass.find_by({ subject: sbj["subject"], code: sbj["code"], semester: sbj["semester"] })
+      Enrollment.create(student_id: student.id, subject_class_id: sbj_class.id)
+    end
+
+    fill_in("email", with: "peluticaio@gmail.com")
+    fill_in("password", with: "abc123")
+    click_button("Confirmar")
+  else
+    teacher = Teacher.find_by(email: "mholanda@unb.br")
+    User.create(id: 1, email: "mholanda@unb.br", password: "abc123", password_confirmation: "abc123", created_at: Time.now.utc, updated_at: Time.now.utc, confirmed_at: Time.now.utc)
+    classes.each do |sbj|
+      sbj_class = SubjectClass.find_by(subject: sbj["subject"], code: sbj["code"], semester: sbj["semester"])
+      sbj_class.update(teacher_id: teacher.id)
+    end
+
+    fill_in("email", with: "mholanda@unb.br")
+    fill_in("password", with: "abc123")
+    click_button("Confirmar")
+  end
+end
+
 Given(/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|
   department = Department.find_by({ name: dpt_name })
   coordinator = Coordinator.find_by({ department_id: department.id })
 
   visit("/admins/login")
-
+  # puts page.body
   fill_in("email", with: coordinator.email)
   fill_in("password", with: "admin123")
   click_button("Confirmar")
@@ -193,28 +226,29 @@ Given(/that the department "([^"]*)" has no classes$/) do |dpt_name|
 end
 
 Given(/^that a form has been assigned to the (students|teachers) of the following classes:$/) do |role, fields|
+  step 'I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"'
   fields.hashes.each do |form|
-    step 'I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"'
-
-    step 'that I created the teacher template "Template 1"'
-    step 'that I created the student template "Template 2"'
+    step 'that I created the teacher template "Formulário Professor"'
+    step 'that I created the student template "Formulário Aluno"'
 
     step 'I follow "Envio"'
     step 'I expect to be on the "Dispatch" page'
     step 'I expect to see "Opções para Envio"'
 
     if role == "teachers"
-      step 'I select "Template 1" from "Teacher template"'
-      step 'I expect to see "Template 1"'
+      step 'I select "Formulário Professor" from "Teacher template"'
+      step 'I expect to see "Formulário Professor"'
     else
-      step 'I select "Template 2" from "Student template"'
-      step 'I expect to see "Template 2"'
+      step 'I select "Formulário Aluno" from "Student template"'
+      step 'I expect to see "Formulário Aluno"'
     end
 
     step %'I check "#{form["semester"]}_#{form["subject"]}_#{form["code"]}"'
     step 'I press "Confirm"'
     step 'I expect to see "O formulário para os alunos da turma BANCOS DE DADOS foi criado com sucesso."'
   end
+
+  step "I ended my session"
 end
 
 Given("that I am an User associated with the following classes:") do |_table|
@@ -260,7 +294,7 @@ When(/^(?:|I )create a "([^"]*)" question with the following:$/) do |question_ty
 
   case question_type
   when "Múltipla escolha"
-    options_count = fields.rows.size - 1
+    options_count = fields.rows.size
     step %(I select "#{options_count}" from "options number")
   end
 
@@ -273,13 +307,21 @@ When(/^(?:|I )create a "([^"]*)" question with the following:$/) do |question_ty
 end
 
 Given(/^that I created the (teacher|student) template "([^"]*)"$/) do |template_type, template_name|
-  step 'I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"'
   step 'I am on the "Templates" page'
   step 'I press "Add template"'
   step 'I expect to be on the "New Template" page'
+
+  step 'I create a "Múltipla escolha" question with the following:', table(%(
+            | title   | Classifique seu rendimento |
+            | option1 | Ótimo                      |
+            | option2 | Bom                        |
+            | option3 | Médio                      |
+            | option4 | Ruim                       |
+            | option5 | Péssimo                    |))
   step 'I create a "Texto" question with the following:', table(%(
     | title | Dê uma sugestão |
   ))
+
   step "I fill in \"Name\" with \"#{template_name}\""
   if template_type == "teacher"
     step 'I select "Docente" from "Template role"'
