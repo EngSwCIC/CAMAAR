@@ -73,13 +73,17 @@ RSpec.describe User, type: :model do
       end
 
       it 'returns nil' do
-        result = User.criarUser("", "", "")
-        expect(result).to be_nil
+        expect {
+          result = User.criarUser("", "", "")
+          expect(result).to be_nil
+        }.not_to change(User, :count)
       end
 
       it 'returns nil if passwords do not match' do
-        result = User.criarUser("newuser@example.com", "password123", "differentpassword")
-        expect(result).to be_nil
+        expect {
+          result = User.criarUser("newuser@example.com", "password123", "differentpassword")
+          expect(result).to be_nil
+        }.not_to change(User, :count)
       end
     end
   end
