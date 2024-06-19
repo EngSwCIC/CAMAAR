@@ -49,7 +49,7 @@ RSpec.feature 'Results in graph and csv', type: :feature do
       expect(page).to have_content 'Resultados'
       form = build(:form, :form1)
       expect(page).to have_content form.name
-      click_link 'export-graph'
+      click_link 'export_graph'
     end
   end
   describe 'admin can export a csv with answers ' do
@@ -66,7 +66,7 @@ RSpec.feature 'Results in graph and csv', type: :feature do
       expect(page).to have_content 'Resultados'
       form = build(:form, :form1)
       expect(page).to have_content form.name
-      click_link 'export-csv'
+      click_link 'export_csv'
     end
   end
   describe 'admin can export a csv of teacher answers ' do
@@ -80,7 +80,7 @@ RSpec.feature 'Results in graph and csv', type: :feature do
       expect(page).to have_content 'Resultados'
       form = build(:form, :form2)
       expect(page).to have_content form.name
-      click_link 'export-csv'
+      click_link 'export_csv'
     end
   end
   describe 'admin can export a graph of teacher answers ' do
@@ -94,7 +94,7 @@ RSpec.feature 'Results in graph and csv', type: :feature do
       expect(page).to have_content 'Resultados'
       form = build(:form, :form2)
       expect(page).to have_content form.name
-      click_link 'export-graph'
+      click_link 'export_graph'
     end
   end
 end

@@ -2,6 +2,8 @@ FactoryBot.define do
   factory :template do
     created_at { Time.now.utc }
     updated_at { Time.now.utc }
+    draft { false }
+
     trait :template1 do
       id { 1 }
       name { 'Template1' }

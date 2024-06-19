@@ -22,14 +22,15 @@ feature 'Answer forms' do
     teacher = create(:teacher, :teacher2)
     subject_class1 = create(:subject_class, :subject_class2)
     enrollment = create(:enrollment, :enrollment5)
+
     visit '/admins/login'
     fill_in 'email', with: admin.email
     fill_in 'password', with: admin.password
     click_button 'Confirmar'
     click_link 'Envio'
-    select 'Template1', from: 'aluno_template_id'
-    select 'Template2', from: 'professor_template_id'
-    page.check('BANCOS DE DADOS')
+    select 'Template1', from: 'student_template'
+    select 'Template2', from: 'teacher_template'
+    page.check('2021.2 - BANCOS DE DADOS - TA')
     click_button 'Enviar'
     click_link 'Sair'
   end
@@ -50,11 +51,8 @@ feature 'Answer forms' do
     expect(page).to have_content template.name
     expect(page).to have_content template_question.title
 
-    classid = build(:subject_class, :subject_class2)
-    form = Form.find_by(role: 'discente', subject_class_id: classid.id)
-    form_question = FormQuestion.find_by(form_id: form.id, title: template_question.title)
-
-    fill_in "questao_#{form_question.id}", with: 'fine'
+    # assuming it is just one question
+    fill_in 'question_1', with: 'fine'
     click_button 'Enviar'
     expect(page).to have_content 'Formulários Pendentes'
     expect(page).to_not have_content template.name
@@ -83,10 +81,9 @@ feature 'Answer forms' do
     expect(page).to have_content template_question.title
 
     classid = build(:subject_class, :subject_class2)
-    form = Form.find_by(role: 'docente', subject_class_id: classid.id)
-    form_question = FormQuestion.find_by(form_id: form.id, title: template_question.title)
-
-    fill_in "questao_#{form_question.id}", with: 'fine'
+    form = Form.find_by(role: 'docente', subject_class_id: classid.id, name: template.name)
+    form_question = FormQuestion.find_by(body: template_question.body, form_id: form.id, title: template_question.title)
+    fill_in "question_#{form_question.id}", with: 'fine'
     click_button 'Enviar'
     expect(page).to have_content 'Formulários Pendentes'
     expect(page).to_not have_content template.name

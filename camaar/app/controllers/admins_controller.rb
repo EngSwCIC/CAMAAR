@@ -1,7 +1,6 @@
-
-require "json"
-require "rchart"
-require "csv"
+require 'json'
+require 'rchart'
+require 'csv'
 
 class AdminsController < ApplicationController
   layout 'admin'
@@ -15,9 +14,8 @@ class AdminsController < ApplicationController
   end
 
   def envio
-
-    @student_templates = Template.where({ coordinator_id: @coordinator.id, draft: false, role: "discente" })
-    @teacher_templates = Template.where({ coordinator_id: @coordinator.id, draft: false, role: "docente" })
+    @student_templates = Template.where({ coordinator_id: @coordinator.id, draft: false, role: 'discente' })
+    @teacher_templates = Template.where({ coordinator_id: @coordinator.id, draft: false, role: 'docente' })
 
     flash.clear
     teacher_template_id = params[:teacher_template]
@@ -25,66 +23,67 @@ class AdminsController < ApplicationController
     classes_ids = params[:classes_ids]
 
     commit = params[:commit]
-    if classes_ids.present? && commit == "confirm"
+    if classes_ids.present? && commit == 'confirm'
       classes_ids.each do |subject_class_id|
-        if teacher_template_id.present? and student_template_id.present?
-          flash[:warning] = "Selecione pelo menos um template para envio."
+        if !(teacher_template_id.present? or student_template_id.present?)
+          flash[:warning] = 'Selecione pelo menos um template para envio.'
         else
           if teacher_template_id.present?
-            puts "professor"
+            puts 'professor'
 
             teacher_template = Template.find_by(id: teacher_template_id, draft: false)
             teacher_form = Form.new(
               role: teacher_template.role,
               name: teacher_template.name,
               coordinator_id: teacher_template.coordinator_id,
-
-              subject_class_id: subject_class_id,
+              subject_class_id:
             )
 
             if teacher_form.save
               teacher_template_questions = TemplateQuestion.where({ template_id: teacher_template.id })
               teacher_template_questions.each do |question|
                 FormQuestion.create({
-                  title: question.title,
-                  body: question.body,
-                  question_type: question.question_type,
-                  form_id: teacher_form.id,
-                })
+                                      title: question.title,
+                                      body: question.body,
+                                      question_type: question.question_type,
+                                      form_id: teacher_form.id
+                                    })
               end
 
-              flash[:success] = "O formulário para o professor da turma #{SubjectClass.find_by(id: subject_class_id).name} foi criado com sucesso."
+              flash[:success] =
+                "O formulário para o professor da turma #{SubjectClass.find_by(id: subject_class_id).name} foi criado com sucesso."
             end
           end
 
           if student_template_id.present?
-            puts "alunos"
+            puts 'alunos'
 
             student_template = Template.find_by(id: student_template_id)
             student_form = Form.new(
               name: student_template.name,
               coordinator_id: student_template.coordinator_id,
-              subject_class_id: subject_class_id,
+              subject_class_id:
             )
 
             if student_form.save
               student_template_questions = TemplateQuestion.where({ template_id: student_template.id })
               student_template_questions.each do |question|
                 FormQuestion.create({
-                  title: question.title,
-                  body: question.body,
-                  question_type: question.question_type,
-                  form_id: student_form.id,
-                })
+                                      title: question.title,
+                                      body: question.body,
+                                      question_type: question.question_type,
+                                      form_id: student_form.id
+                                    })
               end
 
-              flash[:success] = "O formulário para os alunos da turma #{SubjectClass.find_by(id: subject_class_id).name} foi criado com sucesso."
+              flash[:success] =
+                "O formulário para os alunos da turma #{SubjectClass.find_by(id: subject_class_id).name} foi criado com sucesso."
             end
           end
         end
       end
     else
-      flash[:warning] = "Selecione as turmas para envio."
+      flash[:warning] = 'Selecione as turmas para envio.'
     end
   end
 
@@ -302,20 +301,20 @@ class AdminsController < ApplicationController
       end
     end
 
-    send_file file_path, filename: "#{@form.id}_#{@form.name}.csv".gsub(" ", "_").downcase, type: "text/csv"
+    send_file file_path, filename: "#{@form.id}_#{@form.name}.csv".gsub(' ', '_').downcase, type: 'text/csv'
   end
 
   def export_to_png
     graph = generate_graph
 
-    filename = @form.name + ".png"
-    file_path = File.join("export", filename)
+    filename = @form.name + '.png'
+    file_path = File.join('export', filename)
     graph.render_png(file_path)
-    send_file file_path, filename: "#{@form.id}_#{@form.name}.png".gsub(" ", "_").downcase, type: "image/png"
+    send_file file_path, filename: "#{@form.id}_#{@form.name}.png".gsub(' ', '_').downcase, type: 'image/png'
   end
 
   def generate_graph
-    if @form.role == "discente"
+    if @form.role == 'discente'
       enrollments = Enrollment.where(subject_class_id: @form.subject_class_id)
       number_of_students = enrollments.distinct.count(:student_id)
       num_answers = StudentAnswer.where(student_id: enrollments.distinct.pluck(:student_id)).count
@@ -351,10 +350,10 @@ class AdminsController < ApplicationController
       p.add_point(%w[Texto Múltipla-Escolha], 'Serie2')
 
       p.add_all_series
-      p.set_abscise_label_serie("Serie2")
+      p.set_abscise_label_serie('Serie2')
 
       ch = Rchart.new(300, 200)
-      ch.set_font_properties("tahoma.ttf", 8)
+      ch.set_font_properties('tahoma.ttf', 8)
       ch.draw_filled_rounded_rectangle(7, 7, 293, 193, 5, 240, 240, 240)
       ch.draw_rounded_rectangle(5, 5, 295, 195, 5, 230, 230, 230)
 

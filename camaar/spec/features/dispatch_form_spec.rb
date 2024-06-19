@@ -17,6 +17,7 @@ feature 'Dispatch forms' do
       user = create(:user, :user6)
       teacher = create(:teacher, :teacher2)
       subject_class1 = create(:subject_class, :subject_class2)
+      enrollment = create(:enrollment, :enrollment5)
     end
     scenario 'admin can sends forms to students' do
       admin = build(:admin, :admin1)
@@ -33,11 +34,11 @@ feature 'Dispatch forms' do
 
       click_link 'Envio'
       expect(page).to have_content('Opções para Envio')
-      select 'Template1', from: 'aluno_template_id'
-      page.check('BANCOS DE DADOS')
+      select 'Template1', from: 'student_template'
+      page.check('2021.2 - BANCOS DE DADOS - TA')
       click_button 'Enviar'
-      expect(page).to_not have_content 'Selecione os templates.'
-      expect(page).to have_content "Os formulários para a turma #{SubjectClass.find_by(id: subject_class1).name} foram criados com sucesso."
+      expect(page).to_not have_content 'Selecione pelo menos um template para envio.'
+      expect(page).to have_content 'O formulário para os alunos da turma BANCOS DE DADOS foi criado com sucesso.'
       expect(Form.where(name: template.name).count).to eq(1)
     end
   end
@@ -70,7 +71,7 @@ feature 'Dispatch forms' do
 
       click_link 'Envio'
       expect(page).to have_content('Opções para Envio')
-      select 'Template1', from: 'aluno_template_id'
+      select 'Template1', from: 'student_template'
       click_button 'Enviar'
       expect(page).to_not have_content 'Selecione os templates.'
       expect(page).to have_content 'Nenhum template disponível'

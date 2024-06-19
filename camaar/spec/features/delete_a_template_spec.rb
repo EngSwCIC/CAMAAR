@@ -41,7 +41,7 @@ RSpec.feature 'Delete a template', type: :feature, js: true do
       click_button 'Salvar'
 
       expect(Template.where(name: 'test_temp2').count).to eq(1)
-      click_button 'delete-template-button'
+      click_button 'delete_test_temp2'
       expect(Template.where(name: 'test_temp2').count).to eq(0)
     end
   end
