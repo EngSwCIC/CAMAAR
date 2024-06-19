@@ -1,4 +1,4 @@
-class SessionsController < Devise::SessionsController
+class User::SessionsController < Devise::SessionsController
   def new
     # rota que leva para a root do programa
     render 'devise/sessions/new.html.erb'
@@ -20,12 +20,16 @@ class SessionsController < Devise::SessionsController
   protected
 
   def after_sign_in_path_for(resource)
-    if resource.is_a?(Dicente)
-      home_dicente_path
-    elsif resource.is_a?(Docente)
-      home_docente_path
+    if current_user.sign_in_count == 1
+      edit_passwords_path
     else
-      super
+      if resource.dicente?
+        home_dicente_path
+      elsif resource.docente?
+        home_docente_path
+      else
+        super
+      end
     end
   end
 

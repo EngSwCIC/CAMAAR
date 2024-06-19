@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pages/home'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -8,7 +9,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
 
   #cria rotas para os métodos nos controllers de formulários, templates, alunos e turmas
   resources :formularios
@@ -20,6 +24,7 @@ Rails.application.routes.draw do
   # Define a rota para a página de login como a root
   devise_scope :user do
     root to: "devise/sessions#new"
+    get 'users/change_password', to: 'devise/passwords#edit', as: :change_password
   end
 
   # Define a rota para a homepage de users do tipo aluno e adm
