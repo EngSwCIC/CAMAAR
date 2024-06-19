@@ -1,5 +1,8 @@
 require 'rails_helper'
 
+require 'simplecov'
+SimpleCov.start
+
 RSpec.describe IndexController, type: :controller do
   describe "GET #index" do
     context "when user is authenticated" do

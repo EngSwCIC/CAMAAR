@@ -1,4 +1,5 @@
-# spec/controllers/registrations_controller_spec.rb
+require 'simplecov'
+SimpleCov.start
 
 require 'rails_helper'
 

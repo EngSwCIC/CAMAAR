@@ -1,5 +1,8 @@
 require 'rails_helper'
 
+require 'simplecov'
+SimpleCov.start
+
 RSpec.describe AuthenticationController, type: :controller do
   describe "GET #login" do
     it "renders the login template" do

@@ -1,6 +1,7 @@
-# spec/controllers/authentication_concern_spec.rb
-
 require 'rails_helper'
+
+require 'simplecov'
+SimpleCov.start
 
 class DummyController < ApplicationController
   include AuthenticationConcern

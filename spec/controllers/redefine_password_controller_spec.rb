@@ -1,4 +1,5 @@
-# spec/controllers/redefine_password_controller_spec.rb
+require 'simplecov'
+SimpleCov.start
 
 require 'rails_helper'
 

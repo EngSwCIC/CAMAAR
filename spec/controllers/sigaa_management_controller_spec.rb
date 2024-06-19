@@ -1,5 +1,8 @@
 require 'rails_helper'
 
+require 'simplecov'
+SimpleCov.start
+
 RSpec.describe SigaaManagementController, type: :controller do
   describe "POST #import_sigaa_data" do
     it "imports data successfully and redirects to manager_path" do

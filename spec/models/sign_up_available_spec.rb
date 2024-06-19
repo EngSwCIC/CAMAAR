@@ -1,5 +1,8 @@
 require 'rails_helper'
 
+require 'simplecov'
+SimpleCov.start
+
 RSpec.describe SignUpAvailable, type: :model do
   describe '.check_availability' do
     context 'when email and key exist' do
