@@ -10,6 +10,19 @@ RSpec.describe SignUpAvailable, type: :model do
       end
     end
 
+    context 'when email is correct but key is not' do
+      let!(:sign_up_available) { SignUpAvailable.create(email: "test@example.com", key: "abc123") }
+      it 'returns false' do
+        expect(SignUpAvailable.check_availability("test@example.com", "invalidkey")).to be false
+      end
+    end
+
+    context 'when email is wrong but not key is wrong' do
+      let!(:sign_up_available) { SignUpAvailable.create(email: "test@example.com", key: "abc123") }
+      it 'returns false' do
+        expect(SignUpAvailable.check_availability("nonexistent@example.com", "abc123")).to be false
+      end
+    end
     context 'when email and key do not exist' do
       it 'returns false' do
         expect(SignUpAvailable.check_availability("nonexistent@example.com", "invalidkey")).to be false

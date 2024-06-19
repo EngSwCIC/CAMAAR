@@ -19,7 +19,7 @@ RSpec.describe Semester, type: :model do
         Semester.create(year: 2023, half: 1)
       end
 
-      it 'creates a new semester in the second half of the next year' do
+      it 'creates a new semester in the next year' do
         expect {
           Semester.next_semester_id
         }.to change(Semester, :count).by(1)
@@ -35,7 +35,7 @@ RSpec.describe Semester, type: :model do
         Semester.create(year: 2023, half: 0)
       end
 
-      it 'creates a new semester in the first half of the same year' do
+      it 'creates a new semester in the same year that is half' do
         expect {
           Semester.next_semester_id
         }.to change(Semester, :count).by(1)
