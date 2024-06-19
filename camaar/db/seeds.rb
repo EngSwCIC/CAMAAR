@@ -3,7 +3,21 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 # Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+
+# Criando um novo user
+user = User.find_or_create_by!(
+  nome: 'ciclano',
+  email: 'ciclano@egmail.com',
+  password: 'senha12346',
+  usuario: 'usuario1234',
+  formacao: 'graduação'
+)
+
+# Criando um novo Dicente
+Dicente.find_or_create_by!(
+  user_id: user.id,
+  matricula: '00001',
+  curso: 'Ciência da Computação'
+)
+
+puts "Seed de Dicente criada com sucesso!"
