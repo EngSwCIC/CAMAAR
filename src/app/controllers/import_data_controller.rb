@@ -4,7 +4,7 @@ require 'json'
 require 'digest'
 
 
-class DataImportController < ApplicationController
+class ImportDataController < ApplicationController
   ##
   # Lê informações de um arquivo JSON enviado pelo usuário e cadastra no banco de dados
   #
@@ -13,7 +13,7 @@ class DataImportController < ApplicationController
   def create
 
     # verifica se o arquivo foi enviado, cc. retorna erro
-    if params[:file].nil?
+    if params.nil?
       return render json: { message: 'Arquivo não enviado' }, status: :bad_request
     end
 
@@ -42,13 +42,15 @@ class DataImportController < ApplicationController
   def cadastraParticipantes(participantes, turma)
 
     # encontra ou cria a matéria
-    subject = Subject.where(
+    materia = Materia.where(
       code: turma['codigo'],
       name: turma['nome']
     ).first_or_create
 
+
+
     # encontra ou cria a turma (cclass)
-    turma = Cclass.where(
+    turma = Turma.where(
       code: turma['turma'],
       semester: turma['semestre'],
       time: turma['horario'],
@@ -70,26 +72,9 @@ class DataImportController < ApplicationController
   def cadastraParticipante(discente, turma)
     role = Role.find_or_create_by(name: :discente)
 
-    # encontra ou cria um membro (member)
-    member = Member.find_or_create_by(
-      name: discente['nome'],
-      course: discente['curso'],
-      registration: discente['matricula'],
-      username: discente['usuario'],
-      degree: discente['formacao'],
-      role: role,
-      email: discente['email'],
-      redefinition_link: Digest::SHA256.hexdigest(discente['email'])
-    )
-
-    # cria senha automatica
-    random_password = "senha_automatica"
-    user = User.find_or_create_by(
-      email: discente['email'],
-      password: random_password,
-      password_confirmation: random_password,
-      member_id: member.id
-    )
+    # Cadastra o usuário no Banco de Dados se ainda não cadastrado 
+    # envia confirmação e link para definir senha por e-mail
+    cadastraUsuario(discente)
 
     # encontra ou cria a inscrição
     Enrollment.find_or_create_by(
@@ -100,6 +85,31 @@ class DataImportController < ApplicationController
     # TODO: generate redefinition link and attach to the member object
     mail = ApplicationMailer.redefine_password(member, random_password)
     # mail.deliver_now
+  end
+  def cadastraUsuario(discente)
+    # Cria a conta com uma senha arbitrária.
+    # Depende da confirmação do usuário, que definirá a senha
+    password = 'senha_arbitraria'
+    # Pesquisa se o usuário já se encontra no Banco de Dados
+    user_pesquisa = User.find_by_email(discente[:email])
+    if user_pesquisa.nil? && !(discente[:email].nil?)
+      @user = User.new(
+        nome: discente[:nome], 
+        email: discente[:email], 
+        curso: discente[:curso], 
+        matricula: discente[:matricula], 
+        usuario: discente[:usuario], 
+        formacao: discente[:formacao], 
+        ocupacao: discente[:ocupacao], 
+        password: password, 
+        password_confirmation: password
+        )
+
+      @user.skip_confirmation_notification! 
+      @user.save
+      @user.send_reset_password_instructions
+
+    end
   end
 end
 
