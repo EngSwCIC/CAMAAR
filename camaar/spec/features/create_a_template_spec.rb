@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Create a template', type: :feature do
+RSpec.feature 'Create a template', type: :feature, js: true do
   before do
     department = create(:department, :departament1)
     admin = create(:admin, :admin1)
