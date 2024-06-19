@@ -28,6 +28,7 @@ Template.find_each do |template|
   rand(1..15).times do
     Question.create template:,
                     label: Faker::Lorem.words(number: rand(3..7)).join(' '),
-                    description: Faker::Lorem.paragraphs(number: rand(1..3)).join(' ')
+                    description: Faker::Lorem.paragraphs(number: rand(1..3)).join(' '),
+                    input: Faker::Lorem.words(number: rand(1..3)).join(' ')
   end
 end

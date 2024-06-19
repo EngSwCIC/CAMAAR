@@ -8,9 +8,14 @@ class TemplatesController < ApplicationController
     return unless user_authenticated
 
     @templates = Template.all
+
+    respond_to do |format|
+      format.html
+      format.csv {send_data @templates.to_csv}
+    end
   end
 
   def show
     @template = Template.find(params[:id])
-  end
+  end 
 end
