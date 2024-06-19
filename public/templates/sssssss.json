@@ -1,11 +1,13 @@
 {
-  "templateName": "pequeno",
+  "templateName": "sssssss",
   "questions": [
     {
       "type": "checkbox",
       "options": [
         "Opção 1",
-        "Opção 2"
+        "Opção 2",
+        "Opção 3",
+        "Opção 4"
       ]
     }
   ]

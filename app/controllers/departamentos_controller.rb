@@ -8,6 +8,7 @@ class DepartamentosController < ApplicationController
 
   # GET /departamentos/1 or /departamentos/1.json
   def show
+    @departamento = Departamento.find(params[:id])
   end
 
   # GET /departamentos/new
@@ -17,6 +18,7 @@ class DepartamentosController < ApplicationController
 
   # GET /departamentos/1/edit
   def edit
+    @departamento = Departamento.find(params[:id])
   end
 
   # POST /departamentos or /departamentos.json
