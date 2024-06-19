@@ -17,5 +17,5 @@ Feature: Edit and delete templates
         When I click on the edit icon
         And I delete the name of the template
         And I click on "Criar" button
-        Them I should see an alert saying that it is not possible to create a form without a name
+        Then I should see an alert saying that it is not possible to create a form without a name
         And the form should not be edited
