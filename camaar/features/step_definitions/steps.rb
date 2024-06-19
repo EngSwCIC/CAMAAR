@@ -94,7 +94,7 @@ When(/^(?:|I )uncheck "([^"]*)"$/) do |field|
 end
 
 When(/^(?:|I )choose "([^"]*)"$/) do |field|
-  choose(field.downcase.gsub(" ","_"))
+  choose(field.downcase.gsub(" ", "_"))
 end
 
 When(/^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/) do |path, field|
@@ -278,13 +278,24 @@ Given(/that the "([^"]*)" form has been answered/) do |_form_name|
   pending
 end
 
-Given("that the student {string} has left the class {string}") do |_string, _string2|
-  pending
+Given(/that the student "([^"]*)" has left the following classes:/) do |name, table|
+  data = table.hashes
+
+  student = Student.find_by(name: name)
+  data.each do |sbj|
+    subject_class = SubjectClass.find_by(subject: sbj["subject"], code: sbj["code"], semester: sbj["semester"])
+
+    Enrollment.find_by(subject_class_id: subject_class.id, student_id: student.id).destroy
+  end
 end
 
-Given("that the class {string} was updated with:") do |_string, _table|
-  # table is a Cucumber::MultilineArgument::DataTable
-  pending
+Given("that the classes were updated with the following:") do |table|
+  data = table.hashes
+  data.each do |sbj|
+    new_data = { name: sbj["name"], schedule: sbj["schedule"] }
+    class_key = { subject: sbj["subject"], code: sbj["code"], semester: sbj["semester"] }
+    SubjectClass.find_by(class_key).update(new_data)
+  end
 end
 
 When(/^(?:|I )create a "([^"]*)" question with the following:$/) do |question_type, fields|
@@ -334,7 +345,7 @@ Given(/^that I created the (teacher|student) template "([^"]*)"$/) do |template_
 end
 
 Given(/^that "([^"]*)" was deleted$/) do |template_name|
-  Template.destroy!(template_name.scan(/\d+/).first.to_i)
+  Template.destroy(template_name.scan(/\d+/).first.to_i)
 end
 
 # Visualization
@@ -417,14 +428,16 @@ Then("I expect to see the following templates:") do |_table|
   pending
 end
 
-Then("I should see the following on Turmas:") do |table|
-  table.hashes.each do |fields|
-    page.should have_content(fields["Nome"])
-    page.should have_content(fields["Semestre"])
-    page.should have_content(fields["Código"])
-    page.should have_content(fields["Turma"])
-    page.should have_content(fields["Horário"])
+Then("I expect to see the following table:") do |table|
+  expected_table = table.raw
+
+  actual_table = find("table")
+
+  actual_table_data = actual_table.all("tr").map do |row|
+    row.all("th, td").map(&:text)
   end
+
+  expect(actual_table_data).to eq(expected_table)
 end
 
 Then("I expect to see the following results:") do |_table|
