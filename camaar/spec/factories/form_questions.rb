@@ -10,5 +10,12 @@ FactoryBot.define do
       question_type { 'text' }
       form_id { 1 }
     end
+
+    trait :form_question2 do
+      id { 2 }
+      title { 'How are you' }
+      question_type { 'text' }
+      form_id { 2 }
+    end
   end
 end

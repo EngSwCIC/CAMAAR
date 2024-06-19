@@ -28,7 +28,7 @@ feature 'Answer forms' do
     click_button 'Enviar'
     click_link 'Sair'
   end
-  scenario 'admin can sends forms to students' do
+  scenario 'students can answer forms and view their answers' do
     visit '/users/login'
     user = build(:user, :user4)
     template = build(:template, :template1)
@@ -48,5 +48,10 @@ feature 'Answer forms' do
     click_button 'Enviar'
     expect(page).to have_content 'Formulários Pendentes'
     expect(page).to_not have_content template.name
+    click_link 'Respondidos'
+    expect(page).to have_content template.name
+    click_link template.name
+    expect(page).to have_content template_question.title
+    expect(page).to have_content 'fine'
   end
 end

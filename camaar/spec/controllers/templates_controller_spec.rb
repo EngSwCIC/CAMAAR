@@ -18,6 +18,16 @@ RSpec.describe TemplatesController, type: :controller do
     expect(response).to redirect_to(edit_template_path(template))
   end
 
+  it 'allows to access :show template route' do
+    departament = create(:department, :departament1)
+    coordinator = create(:coordinator, :coordinator1)
+    sign_in admin
+    template = create(:template, :template1)
+
+    get :show, params: { id: template.id }
+    expect(response).to have_http_status(:ok)
+  end
+
   # it 'allows to access :update template route' do
   #   departament = create(:department, :departament1)
   #   coordinator = create(:coordinator, :coordinator1)

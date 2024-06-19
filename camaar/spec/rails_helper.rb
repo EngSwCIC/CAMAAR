@@ -1,5 +1,6 @@
 require 'simplecov'
 SimpleCov.start 'rails' do
+  add_filter 'lib/custom_failure.rb'
   # add_filter 'controllers'
 end
 require 'spec_helper'

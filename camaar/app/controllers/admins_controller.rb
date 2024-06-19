@@ -347,14 +347,11 @@ class AdminsController < ApplicationController
 
     elsif @form.role == 'docente'
       form_questions = FormQuestion.where(form_id: @form.id)
-      form_question_ids = form_questions.pluck(:id)
-      teacher_answers = TeacherAnswer.where(form_question_id: form_question_ids)
-
-      text_answers = teacher_answers.where(question_type: 'text')
-      multiple_choice_answers = teacher_answers.where(question_type: 'multiple_question')
+      text_questions = form_questions.where(question_type: 'text').count
+      multiple_choice_questions = form_questions.where(question_type: 'multiple_choice').count
 
       p = Rdata.new
-      p.add_point([text_answers, multiple_choice_answers], 'Serie1')
+      p.add_point([text_questions, multiple_choice_questions], 'Serie1')
       p.add_point(%w[Texto Múltipla-Escolha], 'Serie2')
       p.add_all_series
       p.set_abscise_label_serie('Serie2')

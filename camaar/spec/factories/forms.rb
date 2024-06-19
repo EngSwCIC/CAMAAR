@@ -12,5 +12,14 @@ FactoryBot.define do
       coordinator_id { 100 }
       subject_class_id { 1 }
     end
+
+    trait :form2 do
+      id { 2 }
+      name { 'Avaliação de Turmas' }
+      role { 'docente' }
+      open { true }
+      coordinator_id { 100 }
+      subject_class_id { 1 }
+    end
   end
 end
