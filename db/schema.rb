@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_18_190551) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_19_145815) do
   create_table "disciplines", force: :cascade do |t|
     t.string "name"
     t.string "code"
@@ -18,6 +18,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_18_190551) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "semester_id"
+  end
+
+  create_table "forms", force: :cascade do |t|
+    t.integer "template_id"
+    t.integer "questions_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "semester_id", null: false
+    t.index ["questions_id"], name: "index_forms_on_questions_id"
+    t.index ["semester_id"], name: "index_forms_on_semester_id"
+    t.index ["template_id"], name: "index_forms_on_template_id"
   end
 
   create_table "professors", force: :cascade do |t|
@@ -35,11 +46,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_18_190551) do
     t.string "label", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "template_id"
     t.string "answer"
     t.string "input"
     t.string "format"
-    t.index ["template_id"], name: "index_questions_on_template_id"
+    t.string "formlike_type", null: false
+    t.integer "formlike_id", null: false
+    t.index ["formlike_type", "formlike_id"], name: "index_questions_on_formlike"
   end
 
   create_table "semesters", force: :cascade do |t|
@@ -47,6 +59,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_18_190551) do
     t.integer "year", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "templates_id"
+    t.integer "forms_id"
+    t.index ["forms_id"], name: "index_semesters_on_forms_id"
+    t.index ["templates_id"], name: "index_semesters_on_templates_id"
   end
 
   create_table "sign_up_availables", force: :cascade do |t|
@@ -76,6 +92,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_18_190551) do
     t.boolean "is_admin", default: false
   end
 
-  add_foreign_key "questions", "templates"
+  add_foreign_key "forms", "questions", column: "questions_id"
+  add_foreign_key "forms", "semesters"
+  add_foreign_key "forms", "templates"
+  add_foreign_key "semesters", "forms", column: "forms_id"
+  add_foreign_key "semesters", "templates", column: "templates_id"
   add_foreign_key "templates", "semesters"
 end

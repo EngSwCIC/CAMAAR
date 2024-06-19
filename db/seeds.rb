@@ -30,16 +30,16 @@ Template.find_each do |template|
     types = %w[MultipleChoiceQuestion TextInputQuestion Question].sample
     case types
     when 'MultipleChoiceQuestion'
-      MultipleChoiceQuestion.create template:,
+      MultipleChoiceQuestion.create formlike: template,
                                     label: Faker::Lorem.words(number: rand(3..7)).join(' '),
                                     description: Faker::Lorem.paragraphs(number: rand(1..3)).join(' '),
                                     format: Faker::Lorem.words(number: 4).join('|')
     when 'TextInputQuestion'
-      TextInputQuestion.create template:,
+      TextInputQuestion.create formlike: template,
                                label: Faker::Lorem.words(number: rand(3..7)).join(' '),
                                description: Faker::Lorem.paragraphs(number: rand(1..3)).join(' ')
     else
-      Question.create template:,
+      Question.create formlike: template,
                       label: Faker::Lorem.words(number: rand(3..7)).join(' '),
                       description: Faker::Lorem.paragraphs(number: rand(1..3)).join(' ')
     end

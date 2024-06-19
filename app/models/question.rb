@@ -1,9 +1,5 @@
-# frozen_string_literal: true
-
-# Basic question type. Has no input.
-#
 class Question < ApplicationRecord
-  belongs_to :template # TODO: Use `{ polymorphic: true }` once we create the forms table
+  belongs_to :formlike, polymorphic: true
 
   def input?
     false

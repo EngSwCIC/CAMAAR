@@ -2,6 +2,7 @@
 
 class Semester < ApplicationRecord
   validates :half, uniqueness: { scope: :year }
+  has_many :forms
   has_many :templates
 
   def to_s
