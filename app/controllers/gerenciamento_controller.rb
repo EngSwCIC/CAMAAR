@@ -10,9 +10,12 @@ class GerenciamentoController < ApplicationController
     if !(check_class_json hash_class) or !(check_class_members_json hash_members)
       flash[:alert] = "Dados inválidos"
     else
+      new_data = false
+
       hash_class.each do |materia|
         if StudyClass.find_by(code: materia["code"], classCode: materia["class"]["classCode"], semester: materia["class"]["semester"]) == nil
           StudyClass.create(code: materia["code"], name: materia["name"], classCode: materia["class"]["classCode"], semester: materia["class"]["semester"], time: materia["class"]["time"])
+          new_data = true
         end
       end
 
@@ -26,6 +29,7 @@ class GerenciamentoController < ApplicationController
             pessoa = User.new nome: aluno["nome"], curso: aluno["curso"], matricula: aluno["matricula"], usuario: aluno["usuario"], formacao: aluno["formacao"], ocupacao: aluno["ocupacao"], email: aluno["email"]
             pessoa.skip_password_validation = true
             pessoa.save
+            new_data = true
           end
 
           pessoa.study_classes << turma
@@ -38,15 +42,20 @@ class GerenciamentoController < ApplicationController
           pessoa = User.new nome: professor["nome"], departamento: professor["departamento"], formacao: professor["formacao"], matricula: professor["usuario"], usuario: professor["usuario"], email: professor["email"], ocupacao: professor["ocupacao"]
           pessoa.skip_password_validation = true
           pessoa.save
+          new_data = true
         end
         turma.docente_id = pessoa.id
         pessoa.study_classes << turma
       end
 
-      flash[:notice] = "Data imported successfully"
+      if new_data
+        flash[:notice] = "Data imported successfully"
+      else
+        flash[:notice] = "Não há novos dados para importar"
+      end
     end
 
-    render 'gerenciamento/index'
+    redirect_back_or_to "/gerenciamento"
   end
 
   def check_class_members_json(json)

@@ -2,11 +2,6 @@ require 'rails_helper'
 
 RSpec.describe GerenciamentoController, type: :controller do
   describe 'import data' do
-    it 'renders the gerenciamento page' do
-      put :import
-      expect(response).to render_template('gerenciamento/index')
-    end
-
     describe 'invalid JSON' do
       it "warns because it's missing fields (classes.json)" do
         # fazendo um mock da leitura do arquivo pra eu conseguir testar com jsons especificos

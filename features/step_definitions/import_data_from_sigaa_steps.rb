@@ -1,19 +1,57 @@
+require 'cucumber/rspec/doubles'
+
 Then(/^the classes, subjects, and participants should be added to the database if they do not already exist$/) do
-  expect(Class.count).to be > 0
-  expect(Subject.count).to be > 0
-  expect(Participant.count).to be > 0
+  expect(StudyClass.find_by code: "CIC0000", classCode: "TA", semester: "2024.1").not_to be nil
+  expect(User.find_by matricula: "54321").not_to be nil
 end
 
 Given(/^there are existing classes, subjects, and participants in the database$/) do
-  @existing_class = Class.create(name: 'Existing Class')
-  @existing_subject = Subject.create(name: 'Existing Subject')
-  @existing_participant = Participant.create(name: 'Existing Participant')
+  @existing_class = StudyClass.create(code: "CIC0000", classCode: "TA", semester: "2024.1")
+
+  aluno = User.new(nome: "Silva", matricula: "54321", email: "silva@email.com")
+  aluno.skip_password_validation = true
+  @existing_participant1 = aluno.save
+
+  professor = User.new(nome: "FULANO DE CICLANO", matricula: "12345", email: "fulano@email.com")
+  professor.skip_password_validation = true
+  @existing_participant2 = professor.save
 end
 
 Then(/^the existing data should not be duplicated$/) do
   # Check that there are no duplicates in the database
-  expect(Class.where(name: 'Existing Class').count).to eq(1)
-  expect(Subject.where(name: 'Existing Subject').count).to eq(1)
-  expect(Participant.where(name: 'Existing Participant').count).to eq(1)
+  expect(StudyClass.where(code: "CIC0000", classCode: "TA", semester: "2024.1").count).to eq(1)
+  expect(User.where(matricula: "54321").count).to eq(1)
 end
 
+When(/^I press Importar dados$/) do
+  RSpec::Mocks.with_temporary_scope do
+    allow(File).to receive(:read).with("classes.json").and_return(@data_classes)
+    allow(File).to receive(:read).with("class_members.json").and_return(@data_members)
+
+    steps %{When I press "Importar Dados do Sigaa"}
+  end
+end
+
+Given(/^I have a valid JSON$/) do
+  @data_classes = <<-EOF
+        [ {"code": "CIC0000", "name": "TESTE", "class": { "classCode": "TA", "semester": "2024.1", "time": "25M34"} } ]
+  EOF
+
+  @data_members = <<-EOF
+    [ { "code": "CIC0000", "classCode": "TA", "semester": "2024.1", 
+        "dicente": [{
+          "nome": "Silva",
+          "curso": "CIÊNCIA DA COMPUTAÇÃO/CIC",
+          "matricula": "54321",
+          "usuario": "54321",
+          "formacao": "graduando",
+          "ocupacao": "dicente",
+          "email": "silva@email.com"
+        }],
+        "docente": { 
+          "nome": "FULANO DE CICLANO", "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO", "formacao": "DOUTORADO", "usuario": "12345", "email": "fulano@email.com", "ocupacao": "docente" 
+        } 
+      } 
+    ]
+  EOF
+end
