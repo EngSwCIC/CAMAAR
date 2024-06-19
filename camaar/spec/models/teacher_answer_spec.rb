@@ -19,8 +19,8 @@ RSpec.describe TeacherAnswer, type: :model do
 
     subject_class1 = create(:subject_class, :subject_class1)
 
-    form = create(:form, :form1)
-    form_question = create(:form_question, :form_question1)
+    form = create(:form, :form2)
+    form_question = create(:form_question, :form_question2)
 
     answer = create(:teacher_answer, :teacher_answers1)
 
