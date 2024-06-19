@@ -1,30 +1,31 @@
-# frozen_string_literal: true
-
-class Users::ConfirmationsController < Devise::ConfirmationsController
+class Users::ConfirmationsController < DeviseController
   # GET /resource/confirmation/new
-  # def new
-  #   super
-  # end
+  def new
+    self.resource = resource_class.new
+  end
 
   # POST /resource/confirmation
-  # def create
-  #   super
-  # end
+  def create
+    # Outra modificação no código padrão do DEVISE
+    # Manda as instruções de definição de senha, visto que lá confima-se a conta
+    self.resource = resource_class.send_reset_password_instructions(resource_params)
+    yield resource if block_given?
 
-  # GET /resource/confirmation?confirmation_token=abcdef
-  # def show
-  #   super
-  # end
+    if successfully_sent?(resource)
+      respond_with({}, location: after_resending_confirmation_instructions_path_for(resource_name))
+    else
+      respond_with(resource)
+    end
+  end
 
-  # protected
+  protected
 
-  # The path used after resending confirmation instructions.
-  # def after_resending_confirmation_instructions_path_for(resource_name)
-  #   super(resource_name)
-  # end
+    # The path used after resending confirmation instructions.
+    def after_resending_confirmation_instructions_path_for(resource_name)
+      is_navigational_format? ? new_session_path(resource_name) : '/'
+    end
 
-  # The path used after confirmation.
-  # def after_confirmation_path_for(resource_name, resource)
-  #   super(resource_name, resource)
-  # end
+    def translation_scope
+      'devise.confirmations'
+    end
 end
