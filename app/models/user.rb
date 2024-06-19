@@ -21,4 +21,14 @@ class User < ApplicationRecord
       where(conditions.to_h).first
     end
   end
+
+  # para permitir a criacao de usuarios sem preencher o campo de senha
+  attr_accessor :skip_password_validation
+
+  protected
+
+  def password_required?
+    return false if skip_password_validation
+    super
+  end
 end

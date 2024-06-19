@@ -123,6 +123,21 @@ RSpec.describe GerenciamentoController, type: :controller do
 
       expect(person.study_classes.include?(turma)).to be true
     end
+
+    it 'links the class to the student' do
+      json_classes, filepath_classes = valid_classes
+      allow(File).to receive(:read).with(filepath_classes).and_return(json_classes)
+
+      json_members, filepath_members = valid_members
+      allow(File).to receive(:read).with(filepath_members).and_return(json_members)
+
+      put :import
+
+      person = User.find_by matricula: "54321"
+      turma = StudyClass.find_by code: "CIC0000", classCode: "TA", semester: "2024.1"
+
+      expect(turma.users.include?(person)).to be true
+    end
   end
 end
 

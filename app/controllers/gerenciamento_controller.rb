@@ -23,18 +23,24 @@ class GerenciamentoController < ApplicationController
           pessoa = User.find_by matricula: aluno["matricula"]
 
           if pessoa == nil
-            pessoa = User.create nome: aluno["nome"], curso: aluno["curso"], matricula: aluno["matricula"], usuario: aluno["usuario"], formacao: aluno["formacao"], ocupacao: aluno["ocupacao"], email: aluno["email"]
+            pessoa = User.new nome: aluno["nome"], curso: aluno["curso"], matricula: aluno["matricula"], usuario: aluno["usuario"], formacao: aluno["formacao"], ocupacao: aluno["ocupacao"], email: aluno["email"]
+            pessoa.skip_password_validation = true
+            pessoa.save
           end
 
-          turma.users << [pessoa]
+          pessoa.study_classes << turma
+          turma.users << pessoa
         end
 
         professor = materia["docente"]
         pessoa = User.find_by email: professor["email"]
         if pessoa == nil
-          pessoa = User.create nome: professor["nome"], departamento: professor["departamento"], formacao: professor["formacao"], matricula: professor["usuario"], usuario: professor["usuario"], email: professor["email"], ocupacao: professor["ocupacao"]
+          pessoa = User.new nome: professor["nome"], departamento: professor["departamento"], formacao: professor["formacao"], matricula: professor["usuario"], usuario: professor["usuario"], email: professor["email"], ocupacao: professor["ocupacao"]
+          pessoa.skip_password_validation = true
+          pessoa.save
         end
         turma.docente_id = pessoa.id
+        pessoa.study_classes << turma
       end
 
       flash[:notice] = "Data imported successfully"
