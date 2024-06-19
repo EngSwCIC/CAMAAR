@@ -32,7 +32,7 @@ class SigaaManagementController < ApplicationController
   private
 
   def import_professors
-    json_file_path = '/home/eduardomarciano/Documents/GitHub/QuickClassEvalFork/db/data/professors.json'
+    json_file_path = Rails.root.join('db', 'data', 'professors.json')
     json_data = JSON.parse(File.read(json_file_path))
 
     json_data.each do |professor_data|
@@ -41,7 +41,7 @@ class SigaaManagementController < ApplicationController
   end
 
   def import_disciplines(semester_id)
-    json_file_path = '/home/eduardomarciano/Documents/GitHub/QuickClassEvalFork/db/data/discipline.json'
+    json_file_path =  Rails.root.join('db', 'data', 'discipline.json')
     json_data = JSON.parse(File.read(json_file_path))
 
     json_data.each do |discipline_data|
@@ -50,7 +50,7 @@ class SigaaManagementController < ApplicationController
   end
 
   def import_class_members
-    json_file_path = '/home/eduardomarciano/Documents/GitHub/QuickClassEvalFork/db/data/class_members.json'
+    json_file_path = Rails.root.join('db', 'data', 'class_members.json')
     json_data = JSON.parse(File.read(json_file_path))
 
     json_data.each do |student_data|
