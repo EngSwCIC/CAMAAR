@@ -29,7 +29,7 @@ class AdminsController < ApplicationController
           subject_class_forms = Form.where(subject_class_id:)
 
           if subject_class_forms.empty?
-            teacher_template = Template.find_by(id: professor_template_id, draft: false)
+            teacher_template = Template.find_by(id: professor_template_id)
             teacher_form = Form.new(
               role: teacher_template.role,
               name: teacher_template.name,

@@ -22,7 +22,7 @@
       <label for="<%= form_question.id %>" class="formbold-form-label">
         <%= form_question.title %>
       </label>
-      <%= text_field_tag "answers[#{form_question.id}]", nil, id: form_question.id,placeholder: "Digite...", class: "formbold-form-input" %>
+      <%= text_field_tag "answers[#{form_question.id}]", nil, id: "questao_#{form_question.id}",placeholder: "Digite...", class: "formbold-form-input" %>
     </div>
   </div>
 <% end %>

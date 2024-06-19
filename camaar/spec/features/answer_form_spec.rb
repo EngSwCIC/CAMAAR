@@ -14,8 +14,10 @@ feature 'Answer forms' do
     student4 = create(:student, :student4)
     template = create(:template, :template1)
     template_questions = create(:template_question, :template_question1)
+
     template2 = create(:template, :template2)
     template_question2 = create(:template_question, :template_question3)
+
     user = create(:user, :user6)
     teacher = create(:teacher, :teacher2)
     subject_class1 = create(:subject_class, :subject_class2)
@@ -47,7 +49,12 @@ feature 'Answer forms' do
     click_link template.name
     expect(page).to have_content template.name
     expect(page).to have_content template_question.title
-    fill_in template_question.id, with: 'fine'
+
+    classid = build(:subject_class, :subject_class2)
+    form = Form.find_by(role: 'discente', subject_class_id: classid.id)
+    form_question = FormQuestion.find_by(form_id: form.id, title: template_question.title)
+
+    fill_in "questao_#{form_question.id}", with: 'fine'
     click_button 'Enviar'
     expect(page).to have_content 'Formulários Pendentes'
     expect(page).to_not have_content template.name
@@ -74,7 +81,12 @@ feature 'Answer forms' do
     click_link template.name
     expect(page).to have_content template.name
     expect(page).to have_content template_question.title
-    fill_in template_question.id, with: 'fine'
+
+    classid = build(:subject_class, :subject_class2)
+    form = Form.find_by(role: 'docente', subject_class_id: classid.id)
+    form_question = FormQuestion.find_by(form_id: form.id, title: template_question.title)
+
+    fill_in "questao_#{form_question.id}", with: 'fine'
     click_button 'Enviar'
     expect(page).to have_content 'Formulários Pendentes'
     expect(page).to_not have_content template.name

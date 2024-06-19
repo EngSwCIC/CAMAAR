@@ -71,7 +71,7 @@ class FormsController < ApplicationController
         answer = StudentAnswer.find_by({ student_id: @student.id, form_question_id: question.id })
         @questions_and_answers << [question, answer]
       else
-        answer = StudentAnswer.find_by({ teacher_id: @teacher.id, form_question_id: question.id })
+        answer = TeacherAnswer.find_by({ teacher_id: @teacher.id, form_question_id: question.id })
         @questions_and_answers << [question, answer]
       end
     end
