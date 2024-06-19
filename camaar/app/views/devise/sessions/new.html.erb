@@ -3,23 +3,25 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap">
 
 <body>
-    <div class="container">
-        <div class="white-section">
-            <h1>LOGIN</h1>
-            <form>
-                <div class="input-container">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" class="input-field" placeholder="email@aluno.unb.br">
-                </div>
-                <div class="input-container">
-                    <label for="password">Senha</label>
-                    <input type="password" placeholder="Password" class="input-field">
-                </div>
-                <button type="submit" class="button">Entrar</button>
-            </form>
+  <div class="container">
+    <div class="white-section">
+      <h1>LOGIN</h1>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="input-container">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: "input-field", placeholder: "email@aluno.unb.br" %>
         </div>
-        <div class="purple-section">
-            <p>Bem vindo ao Camaar</p>
+        <div class="input-container">
+          <%= f.label :password, "Senha" %>
+          <%= f.password_field :password, class: "input-field", placeholder: "Password" %>
         </div>
+        <div class="actions">
+          <%= f.submit "Entrar", class: "button" %>
+        </div>
+      <% end %>
     </div>
+    <div class="purple-section">
+      <p>Bem vindo ao Camaar</p>
+    </div>
+  </div>
 </body>
