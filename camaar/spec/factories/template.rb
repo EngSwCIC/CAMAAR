@@ -10,7 +10,7 @@ FactoryBot.define do
     end
     trait :template2 do
       id { 2 }
-      name { 'B' }
+      name { 'Template2' }
       role { 'docente' }
       coordinator_id { 100 }
     end

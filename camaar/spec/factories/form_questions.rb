@@ -24,7 +24,7 @@ FactoryBot.define do
       question_type { 'multiple_choice' }
       form_id { 3 }
       # body { '{"options":{"1":"messi","2":"cr7","3":" ","4":" ","5":" "}}' }
-      body { '{"options":{"1\":"messi\","2\":"cr7\","3\":"\","4\":"\","5\":"\"}}' }
+      body { JSON.generate(options: { '1' => 'messi', '2' => 'cr7', '3' => '', '4' => '', '5' => '' }) }
     end
   end
 end

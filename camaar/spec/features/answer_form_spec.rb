@@ -14,6 +14,8 @@ feature 'Answer forms' do
     student4 = create(:student, :student4)
     template = create(:template, :template1)
     template_questions = create(:template_question, :template_question1)
+    template2 = create(:template, :template2)
+    template_question2 = create(:template_question, :template_question3)
     user = create(:user, :user6)
     teacher = create(:teacher, :teacher2)
     subject_class1 = create(:subject_class, :subject_class2)
@@ -24,6 +26,7 @@ feature 'Answer forms' do
     click_button 'Confirmar'
     click_link 'Envio'
     select 'Template1', from: 'aluno_template_id'
+    select 'Template2', from: 'professor_template_id'
     page.check('BANCOS DE DADOS')
     click_button 'Enviar'
     click_link 'Sair'
@@ -33,6 +36,33 @@ feature 'Answer forms' do
     user = build(:user, :user4)
     template = build(:template, :template1)
     template_question = build(:template_question, :template_question1)
+    expect(page).to have_content 'Bem vindo ao'
+    expect(page).to have_content 'CAMAAR'
+    fill_in 'email', with: user.email
+    fill_in 'password', with: user.password
+    click_button 'Confirmar'
+
+    expect(page).to have_content('Formulários Pendentes')
+
+    click_link template.name
+    expect(page).to have_content template.name
+    expect(page).to have_content template_question.title
+    fill_in template_question.id, with: 'fine'
+    click_button 'Enviar'
+    expect(page).to have_content 'Formulários Pendentes'
+    expect(page).to_not have_content template.name
+    click_link 'Respondidos'
+    expect(page).to have_content template.name
+    click_link template.name
+    expect(page).to have_content template_question.title
+    expect(page).to have_content 'fine'
+  end
+
+  scenario 'teachers can answer forms and view their answers' do
+    visit '/users/login'
+    user = build(:user, :user6)
+    template = build(:template, :template2)
+    template_question = build(:template_question, :template_question3)
     expect(page).to have_content 'Bem vindo ao'
     expect(page).to have_content 'CAMAAR'
     fill_in 'email', with: user.email
