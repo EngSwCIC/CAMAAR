@@ -51,8 +51,6 @@ RSpec.describe Materium, type: :model do
   describe 'retrieving data from SIGAA' do
     context 'when calling the method get_data_from_SIGAA' do
       it 'calls the SIGAA API wrapper' do
-        @sigaa_data = File.read('classes.json')
-
         expect(SIGAA::Client).to receive(:fetch_classes)
         Materium.get_sigaa_classes
       end
@@ -61,7 +59,7 @@ RSpec.describe Materium, type: :model do
     context 'when te class informed does not exist' do
       it 'raises an "NotFoundError"' do
         allow(SIGAA::Client).to receive(:find_class).and_raise(SIGAA::Client::NotFound)
-        expect {Materium.get_sigaa_classes}.to raise_error(Materium::NotFound)
+        expect {Materium.update_with_sigaa_classes}.to raise_error(Materium::NotFoundError)
       end
     end
   end

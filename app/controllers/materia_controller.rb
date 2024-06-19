@@ -59,20 +59,27 @@ class MateriaController < ApplicationController
 
   # POST
   def search_in_sigaa
-    sigaa_materiums = Materium.get_sigaa_classes
+    begin
+      sigaa_materiums = Materium.get_sigaa_classes
 
-    for sigaa_materium in sigaa_materiums
-      if Materium.find_by_codigo(sigaa_materium.code).nil?
-        Materium.create(sigaa_materium)
-      else
-        Materium.find_by_codigo(sigaa_materium.code).update(sigaa_materium)
+      for sigaa_materium in sigaa_materiums
+        data = {
+          codigo: sigaa_materium['code'],
+          nome: sigaa_materium['name'],
+          semestre: sigaa_materium['semester'],
+          departamento_id: 1
+        }
+        if Materium.find_by_codigo(sigaa_materium['code']).nil?
+          Materium.create(data)
+        else
+          Materium.find_by_codigo(sigaa_materium['code']).update(data)
+        end
       end
+
+      flash[:warning] = "Turmas importadas com sucesso do SIGAA"
+    rescue Materium::ConnectionTimeoutError
+      flash[:warning] = "Erro, não foi possível concluir a operação"
     end
-
-  rescue Materium::ConnectionTimeoutError
-    flash[:warning] = "Erro, não foi possível concluir a operação"
-
-    flash[:warning] = "Turmas importadas com sucesso do SIGAA"
   end
 
   private
