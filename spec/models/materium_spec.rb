@@ -49,17 +49,17 @@ RSpec.describe Materium, type: :model do
   end
 
   describe 'retrieving data from SIGAA' do
-    context 'when calling the method get_data_from_SIGAA' do
+    context 'when calling the method get_sigaa_classes' do
       it 'calls the SIGAA API wrapper' do
         expect(SIGAA::Client).to receive(:fetch_classes)
         Materium.get_sigaa_classes
       end
     end
 
-    context 'when te class informed does not exist' do
-      it 'raises an "NotFoundError"' do
-        allow(SIGAA::Client).to receive(:find_class).and_raise(SIGAA::Client::NotFound)
-        expect {Materium.update_with_sigaa_classes}.to raise_error(Materium::NotFoundError)
+    context 'when SIGAA is unaccessible' do
+      it 'throws the ConnectionTimeoutError' do
+        allow(SIGAA::Client).to receive(:fetch_classes).and_raise(SIGAA::Client::ConnectionTimeoutError)
+        expect {Materium.get_sigaa_classes}.to raise_error(Materium::ConnectionTimeoutError)
       end
     end
   end

@@ -10,8 +10,26 @@ describe MateriaController do
     end
   end
 
-  describe 'updating CAMAAR DB with updated SIGAA data' do
-    it 'calls the model PUT (UPDATE) method' do
+  describe 'updating SIGAA data to the database' do
+    context 'when calling the method update_with_sigaa_data after fetching from SIGAA' do
+      it 'updates the database' do
+        @sigaa_classes = JSON.parse(File.read("#{Rails.public_path}/classes.json"))
+
+        allow(Materium).to receive(:get_sigaa_classes).and_return(@sigaa_classes)
+
+        expect(Materium).to receive(:find_by_codigo).with(@sigaa_classes[0]['code'])
+
+        post :search_in_sigaa
+        post :update_with_sigaa_data
+      end
+    end
+
+    context 'when calling the method update_with_sigaa_data withoui having the latest SIGAA data' do
+      it 'wont apply any changes to the original database' do
+        expect(Materium).to_not receive(:find_by_codigo)
+
+        post :update_with_sigaa_data
+      end
     end
   end
 end
