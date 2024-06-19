@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   attr_writer :login
 
-  has_many :study_classes, through: :study_classes_users
+  has_and_belongs_to_many :study_classes
 
   def login
     @login || self.matricula || self.email

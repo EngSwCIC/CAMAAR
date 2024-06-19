@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_19_190558) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_19_201424) do
   create_table "study_classes", force: :cascade do |t|
     t.string "code"
     t.string "name"
@@ -39,6 +39,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_190558) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "matricula", default: "", null: false
+    t.string "nome"
+    t.string "usuario"
+    t.string "formacao"
+    t.string "ocupacao"
+    t.string "curso"
+    t.string "departamento"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["matricula"], name: "index_users_on_matricula", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -121,7 +121,7 @@ RSpec.describe GerenciamentoController, type: :controller do
       person = User.find_by matricula: "54321"
       turma = StudyClass.find_by code: "CIC0000", classCode: "TA", semester: "2024.1"
 
-      expect(person.turma.include?(turma)).to be true
+      expect(person.study_classes.include?(turma)).to be true
     end
   end
 end

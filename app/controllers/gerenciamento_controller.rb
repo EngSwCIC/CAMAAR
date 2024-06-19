@@ -10,6 +10,33 @@ class GerenciamentoController < ApplicationController
     if !(check_class_json hash_class) or !(check_class_members_json hash_members)
       flash[:alert] = "Dados inválidos"
     else
+      hash_class.each do |materia|
+        if StudyClass.find_by(code: materia["code"], classCode: materia["class"]["classCode"], semester: materia["class"]["semester"]) == nil
+          StudyClass.create(code: materia["code"], name: materia["name"], classCode: materia["class"]["classCode"], semester: materia["class"]["semester"], time: materia["class"]["time"])
+        end
+      end
+
+      hash_members.each do |materia|
+        turma = StudyClass.find_by code: materia["code"], classCode: materia["classCode"], semester: materia["semester"]
+
+        materia["dicente"].each do |aluno|
+          pessoa = User.find_by matricula: aluno["matricula"]
+
+          if pessoa == nil
+            pessoa = User.create nome: aluno["nome"], curso: aluno["curso"], matricula: aluno["matricula"], usuario: aluno["usuario"], formacao: aluno["formacao"], ocupacao: aluno["ocupacao"], email: aluno["email"]
+          end
+
+          turma.users << [pessoa]
+        end
+
+        professor = materia["docente"]
+        pessoa = User.find_by email: professor["email"]
+        if pessoa == nil
+          pessoa = User.create nome: professor["nome"], departamento: professor["departamento"], formacao: professor["formacao"], matricula: professor["usuario"], usuario: professor["usuario"], email: professor["email"], ocupacao: professor["ocupacao"]
+        end
+        turma.docente_id = pessoa.id
+      end
+
       flash[:notice] = "Data imported successfully"
     end
 

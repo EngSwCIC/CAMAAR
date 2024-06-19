@@ -1,5 +1,5 @@
 class StudyClass < ActiveRecord::Base
-  has_many :users, through: :study_classes_users
+  has_and_belongs_to_many :users
 
   def docente
     # retorna uma instancia de user em vez de ser so o id
