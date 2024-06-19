@@ -19,7 +19,7 @@ end
 # Generate $TEMPLATES_PER_SEMESTER templates
 Semester.find_each do |semester|
   TEMPLATES_PER_SEMESTER.times do
-    Template.create semester:
+    Template.create
   end
 end
 
@@ -48,8 +48,8 @@ end
 
 user_attributes = {
   email: 'coordenador@gmail.com',
-  password: '$2a$12$9sauXRcV/alggmsRweudU.oQv2grJQH/lq7M97PTlO7TB/2RVKNzu', #TOKEN_587
-  salt: "$2a$12$9sauXRcV/alggmsRweudU.",
+  password: '$2a$12$9sauXRcV/alggmsRweudU.oQv2grJQH/lq7M97PTlO7TB/2RVKNzu', # TOKEN_587
+  salt: '$2a$12$9sauXRcV/alggmsRweudU.',
   created_at: Time.now,
   is_admin: true
 }
@@ -63,12 +63,12 @@ if user.nil?
   user.password = user_attributes[:password]
   user.created_at = user_attributes[:created_at]
   user.is_admin = user_attributes[:is_admin]
-  
+
   if user.save
-    puts "Usuário criado com sucesso!"
+    puts 'Usuário criado com sucesso!'
   else
-    puts "Erro ao criar usuário: #{user.errors.full_messages.join(", ")}"
+    puts "Erro ao criar usuário: #{user.errors.full_messages.join(', ')}"
   end
 else
-  puts "Usuário já existe."
+  puts 'Usuário já existe.'
 end

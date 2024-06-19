@@ -1,9 +1,6 @@
 <% method = 'post' unless !method.nil? %>
 
 <h2>Modelo #<%= template.id %></h2>
-<p>
-    <em>Semestre:</em> <%= template.semester.to_s %>
-</p>
 
 <%= form_with method:, scope: :questions do |form| %>
     <% template.questions.each do |question| %>

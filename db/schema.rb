@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_19_145815) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_19_192715) do
+  create_table "answers", force: :cascade do |t|
+    t.string "answer", null: false
+    t.integer "user_id", null: false
+    t.integer "question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
   create_table "disciplines", force: :cascade do |t|
     t.string "name"
     t.string "code"
@@ -25,9 +35,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_145815) do
     t.integer "questions_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "semester_id", null: false
     t.index ["questions_id"], name: "index_forms_on_questions_id"
-    t.index ["semester_id"], name: "index_forms_on_semester_id"
     t.index ["template_id"], name: "index_forms_on_template_id"
   end
 
@@ -46,7 +54,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_145815) do
     t.string "label", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "answer"
     t.string "input"
     t.string "format"
     t.string "formlike_type", null: false
@@ -77,8 +84,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_145815) do
   create_table "templates", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "semester_id", null: false
-    t.index ["semester_id"], name: "index_templates_on_semester_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -92,10 +97,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_145815) do
     t.boolean "is_admin", default: false
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "users"
   add_foreign_key "forms", "questions", column: "questions_id"
-  add_foreign_key "forms", "semesters"
   add_foreign_key "forms", "templates"
   add_foreign_key "semesters", "forms", column: "forms_id"
   add_foreign_key "semesters", "templates", column: "templates_id"
-  add_foreign_key "templates", "semesters"
 end
