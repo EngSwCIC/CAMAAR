@@ -23,6 +23,7 @@ gem 'cucumber'
 group :development, :test do
   gem 'debug', platforms: %i[ mri windows ]
   gem 'faker'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -31,6 +32,6 @@ group :development do
 end
 
 group :test do
-  gem "capybara"
-  gem "selenium-webdriver"
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
