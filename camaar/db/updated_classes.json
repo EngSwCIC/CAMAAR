@@ -1,7 +1,7 @@
 [
   {
     "code": "CIC0097",
-    "name": "BANCOS DE DADOS",
+    "name": "BD",
     "class": {
       "classCode": "TA",
       "semester": "2021.2",
@@ -10,7 +10,7 @@
   },
   {
     "code": "CIC0105",
-    "name": "ENGENHARIA DE SOFTWARE",
+    "name": "ES",
     "class": {
       "classCode": "TA",
       "semester": "2021.2",
@@ -19,7 +19,7 @@
   },
   {
     "code": "CIC0202",
-    "name": "PROGRAMAÇÃO CONCORRENTE",
+    "name": "PC",
     "class": {
       "classCode": "TA",
       "semester": "2021.2",

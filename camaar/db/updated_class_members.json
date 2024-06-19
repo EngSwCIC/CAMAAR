@@ -390,16 +390,8 @@
         "formacao": "graduando",
         "ocupacao": "discente",
         "email": "viniciuslimapassos@gmail.com"
-      },
-      {
-        "nome": "William Xavier dos Santos",
-        "curso": "CIÊNCIA DA COMPUTAÇÃO/CIC",
-        "matricula": "190075384",
-        "usuario": "190075384",
-        "formacao": "graduando",
-        "ocupacao": "discente",
-        "email": "wilxavier@me.com"
       }
+   
     ],
     "docente": {
       "nome": "MARISTELA TERTO DE HOLANDA",

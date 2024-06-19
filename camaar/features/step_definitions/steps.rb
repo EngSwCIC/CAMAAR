@@ -1,8 +1,13 @@
 require "uri"
 require "cgi"
-
+require "i18n"
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
+I18n.config.available_locales = :en
+
+def normalize_filename(filename)
+  I18n.transliterate(filename).gsub(" ", "_").downcase
+end
 
 module WithinHelpers
   def with_scope(locator, &block)
@@ -227,33 +232,57 @@ end
 
 Given(/^that a form has been assigned to the (students|teachers) of the following classes:$/) do |role, fields|
   step 'I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"'
-  fields.hashes.each do |form|
-    step 'that I created the teacher template "Formulário Professor"'
-    step 'that I created the student template "Formulário Aluno"'
 
-    step 'I follow "Envio"'
-    step 'I expect to be on the "Dispatch" page'
-    step 'I expect to see "Opções para Envio"'
+  if role == "teachers"
+    fields.hashes.each do |form|
+      step 'that I created the teacher template "Formulário Professor"'
 
-    if role == "teachers"
+      step 'I follow "Envio"'
+      step 'I expect to be on the "Dispatch" page'
+      step 'I expect to see "Opções para Envio"'
+
       step 'I select "Formulário Professor" from "Teacher template"'
       step 'I expect to see "Formulário Professor"'
-    else
+
+      step %'I check "#{form["semester"]}_#{form["subject"]}_#{form["code"]}"'
+      step 'I press "Confirm"'
+      step 'I expect to see "O formulário para o professor da turma BANCOS DE DADOS foi criado com sucesso."'
+
+      step "I ended my session"
+    end
+  else
+    fields.hashes.each do |form|
+      step 'that I created the student template "Formulário Aluno"'
+
+      step 'I follow "Envio"'
+      step 'I expect to be on the "Dispatch" page'
+      step 'I expect to see "Opções para Envio"'
+
       step 'I select "Formulário Aluno" from "Student template"'
       step 'I expect to see "Formulário Aluno"'
+
+      step %'I check "#{form["semester"]}_#{form["subject"]}_#{form["code"]}"'
+      step 'I press "Confirm"'
+      step 'I expect to see "O formulário para os alunos da turma BANCOS DE DADOS foi criado com sucesso."'
+
+      step "I ended my session"
     end
-
-    step %'I check "#{form["semester"]}_#{form["subject"]}_#{form["code"]}"'
-    step 'I press "Confirm"'
-    step 'I expect to see "O formulário para os alunos da turma BANCOS DE DADOS foi criado com sucesso."'
   end
-
-  step "I ended my session"
 end
 
 Given("that I am an User associated with the following classes:") do |_table|
   # table is a Cucumber::MultilineArgument::DataTable
   pending
+end
+
+Then (/I expect the student "([^"]*)" to not be associated with following classes:/) do |name, table|
+  classes = table.hashes
+  student = Student.find_by(name: name)
+  classes.each do |data|
+    subject_class = SubjectClass.find_by(semester: data["semester"], code: data["code"], subject: data["subject"])
+    enrollment = Enrollment.find_by(student_id: student.id, subject_class_id: subject_class.id)
+    expect(enrollment).to be_nil
+  end
 end
 
 Then("I expect to see the following classes:") do |table|
@@ -269,9 +298,47 @@ Given("that I have not answered any form") do
   pending
 end
 
-Given(/that I have answered the following forms:$/) do |_table|
-  # table is a Cucumber::MultilineArgument::DataTable
-  pending
+Given(/that a form assigned to the (students|teachers) of the following classes were answered:/) do |role, table|
+  classes = table.hashes
+  if role == "students"
+    classes.each do |data|
+      step "that a form has been assigned to the students of the following classes:", table(%(
+            | subject | semester | code |
+            | #{data["subject"]} | #{data["semester"]}   | #{data["code"]}   |))
+
+      step "I am an authenticated Student associated with the following classes:", table(%(
+            | subject | semester | code |
+            | #{data["subject"]} | #{data["semester"]}   | #{data["code"]}   |))
+
+      step 'I expect to be on the "Forms" page'
+      step 'I follow "Pendentes"'
+
+      step 'I expect to see "Formulário Aluno"'
+      step 'I follow "Formulário Aluno"'
+      step 'I expect to be on the "Formulário Aluno" page'
+
+      step "I expect to see the following:", table(%(
+            | name                       |
+            | Formulário Aluno           |
+            | Classifique seu rendimento |
+            | Dê uma sugestão            |))
+
+      step 'I choose "Question 1 Option 1"'
+      step 'I fill in "Question 2" with "Resposta"'
+      step 'I press "Submit"'
+
+      step 'I follow "Respondidos"'
+      step 'I expect to be on the "Forms" page'
+      step 'I expect to see "Formulário Aluno"'
+      step "I ended my session"
+    end
+  else
+  end
+end
+
+Then(/I expect to see a download window with the file "([^"]*)"/) do |expected_filename|
+  actual_filename = page.response_headers["Content-Disposition"]
+  actual_filename.should include(normalize_filename(expected_filename))
 end
 
 Given(/that the "([^"]*)" form has been answered/) do |_form_name|

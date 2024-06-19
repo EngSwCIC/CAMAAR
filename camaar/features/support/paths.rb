@@ -17,7 +17,8 @@ module NavigationHelpers
     when "Forms"
       "/users/forms"
     when /Formulário (Aluno|Professor)/
-      "/users/forms/#{1}/edit"
+      form = Form.last
+      "/users/forms/#{form.id}/edit"
     when "Templates"
       "/admins/templates"
     when "Redefina sua Senha"

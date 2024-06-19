@@ -29,11 +29,11 @@ Feature: Registers students data on the system
 
         Then I expect to see "Turmas"
         When I go to the "Meu Departamento" page
-        Then I should see the following on Turmas:
-        | Nome                    | Semestre | Código  | Turma     | Horário  |
-        | BANCOS DE DADOS         | 2021.2   | CIC0097 | TA        | 35T45    |
-        | ENGENHARIA DE SOFTWARE  | 2021.2   | CIC0105 | TA        | 35M12    |
-        | PROGRAMAÇÃO CONCORRENTE | 2021.2   | CIC0202 | TA        | 35M34    |
+        Then I expect to see the following table:
+            | Nome                    | Semestre | Código  | Turma | Horário |
+            | BANCOS DE DADOS         | 2021.2   | CIC0097 | TA    | 35T45   |
+            | ENGENHARIA DE SOFTWARE  | 2021.2   | CIC0105 | TA    | 35M12   |
+            | PROGRAMAÇÃO CONCORRENTE | 2021.2   | CIC0202 | TA    | 35M34   |
 
     Scenario: Coordinator is not Root admin
         When I select "Departamentos" from "admin_import_select_data"

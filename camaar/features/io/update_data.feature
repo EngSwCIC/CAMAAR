@@ -22,6 +22,10 @@ Feature: Update database data
         When I press on "Importar"
         Then I expect to be on the "Importar dados" page
         And I expect to see "Membros importados com sucesso"
+        Then I expect the student "William Xavier dos Santos" to not be associated with following classes:
+            | semester | subject | code |
+            | 2021.2   | CIC0097 | TA   |
+
 
 
     Scenario: Coordinator imports updated classes data
@@ -34,7 +38,7 @@ Feature: Update database data
         Then I expect to see "Turmas"
         When I go to the "Meu Departamento" page
         Then I expect to see the following table:
-            | Nome                    | Semestre | Código  | Turma | Horário |
-            | BANCOS DE DADOS         | 2021.2   | CIC0097 | TA    | 35M34   |
-            | ENGENHARIA DE SOFTWARE  | 2021.2   | CIC0105 | TA    | 35T45   |
-            | PROGRAMAÇÃO CONCORRENTE | 2021.2   | CIC0202 | TA    | 35M12   |
+            | Nome | Semestre | Código  | Turma | Horário |
+            | BD   | 2021.2   | CIC0097 | TA    | 35M34   |
+            | ES   | 2021.2   | CIC0105 | TA    | 35T45   |
+            | PC   | 2021.2   | CIC0202 | TA    | 35M12   |
