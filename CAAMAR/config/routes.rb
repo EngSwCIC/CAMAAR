@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   resources :usuarios
 
   root 'auth#login'
-  get 'main/index'
   get 'gerenciamento', to: 'gerenciamento#show'
-  get '/definir-senha/:id', to: 'auth#define_password'
+  get 'gerenciamento/templates', to: 'gerenciamento#show_templates'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
