@@ -31,13 +31,15 @@ Rails.application.routes.draw do
 
   resources :formulario
   scope "/formularios" do
+    get "/responder", to: "formularios#show_pending"
+    get "/responder/:id", to: "formularios#responder"
+    post "/responder/:id", to: "formularios#resposta"
+  
     get "/", to: "formularios#index"
     get "/:id", to: "formularios#show"
     post "/", to: "formularios#create"
     patch "/:id", to: "formularios#update"
     delete "/:id", to: "formularios#delete"
-    get "/responder/:id", to: "formularios#responder"
-    post "/responder/:id", to: "formularios#resposta"
   end
 
   scope "/questoes" do

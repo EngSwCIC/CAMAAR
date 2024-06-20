@@ -35,6 +35,10 @@ class FormulariosController < ApplicationController
         render json: e, status: :not_found
     end
 
+    def show_pending
+        @formularios = Formulario.all #alterar isso
+    end
+
     def responder
         @formulario = Formulario.find(params[:id])
     end
