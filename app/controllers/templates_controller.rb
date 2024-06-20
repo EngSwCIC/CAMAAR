@@ -32,7 +32,7 @@ class TemplatesController < ApplicationController
     render 'templates/send/index'
   end
 
-  # TODO: Move this route to /templates instead of /templates/:id so that we don't get the template id twice
+  # FIXME: Move this route to /templates instead of /templates/:id so that we don't get the template id twice
   # POST: Gives students of disciplines access to a form copied from the given template
   def send_out_forms
     params.permit(:authenticity_token, :commit, :id, :template_id, discipline_ids: [])
