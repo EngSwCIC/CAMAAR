@@ -38,9 +38,8 @@ class TemplatesController < ApplicationController
     params.permit(:authenticity_token, :commit, :id, :template_id, discipline_ids: [])
     return unless user_authenticated && admin_user?
 
-    form = Form.create template: Template.find(params[:template_id])
     params[:discipline_ids].each do |discipline_id|
-      FormDiscipline.create form:, discipline: Discipline.find(discipline_id)
+      Form.create! template: Template.find(params[:template_id]), discipline: Discipline.find(discipline_id)
     end
   end
 end
