@@ -46,4 +46,18 @@ class Semester < ApplicationRecord
 
     latest_semester
   end
+
+  def self.to_csv
+    CSV.generate(headers: true) do |csv|
+      all.each do |semester|
+        csv << [semester.to_s]
+      end
+    end
+  end
+
+  def to_csv
+    CSV.generate(headers: true) do |csv|
+      csv << [self.to_s]
+    end
+  end
 end

@@ -24,8 +24,8 @@
     <br>
     <%= button_to "Enviar Formulários para Semestre Atual", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
     <br>
-    <%= button_to "Gerar CSV de Resultados deste Semestre", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <%= button_to "Gerar CSV de Resultados deste Semestre", semesters_current_path(format: :csv), method: :get, class: "btn btn-outline-primary btn-block" %>
     <br>
-     <%= button_to "Gerar CSV de Resultados de todos os Semestres", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <%= button_to "Gerar CSV de Resultados de todos os Semestres", semesters_path(format: :csv), method: :get, class: "btn btn-outline-primary btn-block" %>
   </div>
 </div>
