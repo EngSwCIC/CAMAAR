@@ -1,5 +1,6 @@
 class MateriaController < ApplicationController
   before_action :set_materium, only: %i[ show edit update destroy ]
+  @sigaa_classes = nil
 
   # GET /materia or /materia.json
   def index
@@ -57,6 +58,61 @@ class MateriaController < ApplicationController
     end
   end
 
+  # GET
+  def search_in_sigaa
+    begin
+      sigaa_materiums = Materium.get_sigaa_classes
+      is_outdated = false
+
+      sigaa_materiums.each do |sigaa_materium|
+        if Materium.find_by_codigo(sigaa_materium['code']).nil?
+          is_outdated = true
+          break
+        else
+          next
+        end
+      end
+
+      if is_outdated
+        save_sigaa_classes(sigaa_materiums)
+        flash[:notice] = "Importação realizada com sucesso"
+      else
+        flash[:notice] = "Turmas já se encontram atualizadas"
+      end
+
+    rescue Materium::ConnectionTimeoutError
+      flash[:warning] = "Erro ao conectar com o banco de dados. Tente novamente mais tarde."
+    end
+  end
+
+  # POST
+  def update_with_sigaa_data
+    begin
+      if @sigaa_classes == nil
+        flash[:warning] = "Primeiro verifique se há atualizações do SIGAA"
+      else
+        @sigaa_classes.each do |sigaa_materium|
+          data = {
+            codigo: sigaa_materium['code'],
+            nome: sigaa_materium['name'],
+            semestre: sigaa_materium['semester'],
+            horario: sigaa_materium['class']['time'],
+            departamento_id: 1
+          }
+          if Materium.find_by_codigo(sigaa_materium['code']).nil?
+            Materium.create(data)
+          else
+            Materium.find_by_codigo(sigaa_materium['code']).update(data)
+          end
+        end
+
+        flash[:notice] = "Turmas importadas com sucesso do SIGAA"
+      end
+    rescue
+      flash[:warning] = "Erro, não foi possível concluir a operação"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_materium
@@ -66,5 +122,9 @@ class MateriaController < ApplicationController
     # Only allow a list of trusted parameters through.
     def materium_params
       params.require(:materium).permit(:codigo, :semestre, :nome, :departamento, :professor_id, :aluno_id, :forms_materia)
+    end
+
+    def save_sigaa_classes(classes)
+      @sigaa_classes = classes
     end
 end
