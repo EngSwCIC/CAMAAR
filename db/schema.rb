@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_19_201424) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_20_143837) do
   create_table "study_classes", force: :cascade do |t|
     t.string "code"
     t.string "name"
@@ -28,6 +28,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_201424) do
     t.integer "user_id", null: false
     t.index ["study_class_id"], name: "index_study_classes_users_on_study_class_id"
     t.index ["user_id"], name: "index_study_classes_users_on_user_id"
+  end
+
+  create_table "template_questions", force: :cascade do |t|
+    t.string "title"
+    t.string "type"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "template_id", null: false
+    t.index ["template_id"], name: "index_template_questions_on_template_id"
+  end
+
+  create_table "templates", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,4 +67,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_201424) do
   end
 
   add_foreign_key "study_classes", "users", column: "docente_id"
+  add_foreign_key "template_questions", "templates"
 end
