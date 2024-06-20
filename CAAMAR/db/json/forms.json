@@ -3,14 +3,14 @@
     "id": 1,
     "template_id": 1,
     "class": {
-      "subject_code": "CIC0105",
+      "subject_code": "CIC0097",
       "semester": "2021.2",
       "code": "TA"
     },
     "solvers": [
       {
         "id": 1,
-        "is_solved": true
+        "is_solved": false
       },
       {
         "id": 2,
@@ -18,7 +18,7 @@
       },
       {
         "id": 3,
-        "is_solved": false
+        "is_solved": true
       }
     ]
   }
