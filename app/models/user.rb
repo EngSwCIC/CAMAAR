@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   attr_writer :login
 
+  has_and_belongs_to_many :study_classes
+
   def login
     @login || self.matricula || self.email
   end
@@ -18,5 +20,15 @@ class User < ApplicationRecord
     elsif conditions.has_key?(:matricula) || conditions.has_key?(:email)
       where(conditions.to_h).first
     end
+  end
+
+  # para permitir a criacao de usuarios sem preencher o campo de senha
+  attr_accessor :skip_password_validation
+
+  protected
+
+  def password_required?
+    return false if skip_password_validation
+    super
   end
 end
