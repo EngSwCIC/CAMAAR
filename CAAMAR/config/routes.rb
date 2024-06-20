@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   root 'auth#login'
   get 'main/index'
   get 'gerenciamento', to: 'gerenciamento#show'
+  get 'gerenciamento/results_popup'
 
   get 'turmas', to: 'turmas#index'
 

@@ -13,5 +13,9 @@ class GerenciamentoController < ApplicationController
         data = File.read(path)
         @templates = JSON.parse(data)
     end
+
+    def results_popup
+        render partial: 'results_popup', layout: false
+    end
   end
   
