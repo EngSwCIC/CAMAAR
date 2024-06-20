@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   # Sigaa Management Path
   post '/import_sigaa_data', to: 'sigaa_management#import_sigaa_data', as: 'import_from_sigaa'
   post '/update_sigaa_data', to: 'sigaa_management#update_sigaa_data', as: 'update_sigaa_data'
-  post '/send_email_availables_sign_up', to: 'sigaa_management#send_email_availables_sign_up', as: 'send_email_availables_sign_up'
+  post '/send_email_availables_sign_up', to: 'sigaa_management#send_email_availables_sign_up',
+                                         as: 'send_email_availables_sign_up'
   # Semesters Path
   get '/semesters', to: 'semesters#index'
   get '/semesters/current', to: 'semesters#show'
@@ -25,12 +26,19 @@ Rails.application.routes.draw do
   get '/evaluations', to: 'evaluations#index', as: 'evaluations'
   get '/evaluations/:id', to: 'evaluations#show'
 
+  # Templates/forms
+  resources :templates do
+    get 'send', to: 'templates#edit_send', on: :collection, as: :to_send
+    member do
+      post 'send', to: 'templates#send_out_forms', as: :send_forms_from
+    end
+  end
+  resources :forms
+
   resources :questions, only: [], param: :index do
     member do
       delete '(:id)' => 'questions#destroy', as: ''
       post '/' => 'questions#create'
     end
   end
-
-  resources :templates
 end
