@@ -55,3 +55,15 @@ Given(/^I have a valid JSON$/) do
     ]
   EOF
 end
+
+Given /^I don't have a valid JSON$/ do
+  @data_classes = <<-EOF
+    [ {"code": "CIC0000", "class": { "classCode": "TA", "semester": "2024.1", "time": "25M34"} } ]
+  EOF
+
+  @data_members = <<-EOF
+    [ { "code": "CIC0000", "classCode": "TA", "semester": "2024.1", "docente": { 
+      "nome": "FULANO DE CICLANO", "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO", "formacao": "DOUTORADO", "usuario": "12345", "email": "fulano@email.com", "ocupacao": "docente" } 
+    } ]
+  EOF
+end

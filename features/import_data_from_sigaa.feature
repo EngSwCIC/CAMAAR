@@ -5,9 +5,9 @@ Feature: Import Data from SIGAA
 
   Background: Starting on the data import page
     Given I am on the Gerenciamento page
-    And I have a valid JSON
 
   Scenario: Successful import (happy path)
+    Given I have a valid JSON
     When I press Importar dados
     Then I should be on the Gerenciamento page
     And I should see "Data imported successfully"
@@ -15,7 +15,14 @@ Feature: Import Data from SIGAA
 
   Scenario: Import with existing data (sad path)
     Given there are existing classes, subjects, and participants in the database
+    And I have a valid JSON
     When I press Importar dados
     Then I should be on the Gerenciamento page
     And I should see "Não há novos dados para importar"
     And the existing data should not be duplicated
+
+  Scenario: Try to import invalid JSON (sad path)
+    Given I don't have a valid JSON
+    When I press Importar dados
+    Then I should be on the Gerenciamento page
+    And I should see "Dados inválidos"
