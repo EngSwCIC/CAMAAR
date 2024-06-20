@@ -1,3 +1,4 @@
+require 'json'
 FactoryBot.define do
   factory :form_question do
     body { '{"options":{}}' }
@@ -21,10 +22,8 @@ FactoryBot.define do
     trait :form_question3 do
       id { 3 }
       title { 'Messi or CR7?' }
-      question_type { 'multiple_choice' }
+      question_type { 'text' }
       form_id { 3 }
-      # body { '{"options":{"1":"messi","2":"cr7","3":" ","4":" ","5":" "}}' }
-      body { JSON.generate(options: { '1' => 'messi', '2' => 'cr7', '3' => '', '4' => '', '5' => '' }) }
     end
 
     trait :form_question4 do
@@ -39,6 +38,14 @@ FactoryBot.define do
       title { 'Do you love UnB?' }
       question_type { 'text' }
       form_id { 4 }
+    end
+
+    trait :form_question6 do
+      id { 6 }
+      title { 'Messi or CR7?' }
+      question_type { 'multiple_choice' }
+      form_id { 4 }
+      body { '{"options":{"1":"messi","2":"cr7","3":"","4":"","5":""}}' }
     end
   end
 end
