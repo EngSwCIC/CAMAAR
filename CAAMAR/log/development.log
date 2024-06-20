@@ -5906,3 +5906,1801 @@ ha .<br>
 Completed 201 Created in 2025ms (Views: 0.4ms | ActiveRecord: 2.6ms | Allocations: 13694)
 
 
+Started GET "/" for ::1 at 2024-06-19 18:22:56 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.2ms | Allocations: 227)
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.7ms | Allocations: 629)
+  Rendered layout layouts/application.html.erb (Duration: 44.1ms | Allocations: 41683)
+Completed 200 OK in 50ms (Views: 46.0ms | ActiveRecord: 0.0ms | Allocations: 45785)
+
+
+Started GET "//user/15" for ::1 at 2024-06-19 18:24:19 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/user/15"):
+  
+Started GET "/" for ::1 at 2024-06-19 18:24:21 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.5ms | Allocations: 204)
+  Rendered auth/login.html.erb within layouts/application (Duration: 1.6ms | Allocations: 452)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 19289)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.0ms | Allocations: 20164)
+
+
+Started GET "/definir-senha" for ::1 at 2024-06-19 18:24:21 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/definir-senha"):
+  
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 18:24:24 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.8ms | Allocations: 194)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 1950)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 2270)
+
+
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 18:27:15 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.2ms | Allocations: 204)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.8ms | Allocations: 452)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 19263)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms | Allocations: 20187)
+
+
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 18:53:27 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1312)
+
+
+  
+NameError (uninitialized constant AuthController::User):
+  
+app/controllers/auth_controller.rb:6:in `define_password'
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 18:53:53 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:6:in `define_password'
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.9ms | Allocations: 20457)
+
+
+  
+NameError (undefined local variable or method `user' for #<AuthController:0x0000000000f000>):
+  
+app/controllers/auth_controller.rb:7:in `define_password'
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 18:54:11 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:6:in `define_password'
+[31mUnpermitted parameter: :id. Context: { controller: AuthController, action: define_password, request: #<ActionDispatch::Request:0x000000010726b4b8>, params: {"controller"=>"auth", "action"=>"define_password", "id"=>"3"} }[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms | Allocations: 6085)
+
+
+Started GET "/" for ::1 at 2024-06-19 18:54:11 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.2ms | Allocations: 212)
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.8ms | Allocations: 482)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 40473)
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.0ms | Allocations: 41490)
+
+
+Started GET "/" for ::1 at 2024-06-19 19:12:02 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.5ms | Allocations: 15)
+  Rendered auth/login.html.erb within layouts/application (Duration: 2.1ms | Allocations: 84)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 1841)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.0ms | Allocations: 2092)
+
+
+Started GET "//usuarios/1/edit" for ::1 at 2024-06-19 19:12:03 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (8.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 6.8ms | Allocations: 2462)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 8.8ms | Allocations: 2817)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4348)
+Completed 200 OK in 25ms (Views: 11.5ms | ActiveRecord: 14.0ms | Allocations: 5530)
+
+
+Started PATCH "/usuarios/1" for ::1 at 2024-06-19 19:12:09 -0300
+Processing by UsuariosController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "usuario"=>{"matricula"=>"211036052", "nome"=>"Henrique de Oliveira Ramos", "email"=>"henriqueramos.qs@gmail.com", "formacao"=>"Graduando"}, "commit"=>"Update Usuario", "id"=>"1"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+Redirected to http://localhost:3000/usuarios/1
+Completed 302 Found in 6ms (ActiveRecord: 0.1ms | Allocations: 1161)
+
+
+Started GET "/usuarios/1" for ::1 at 2024-06-19 19:12:09 -0300
+Processing by UsuariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/show.html.erb within layouts/application
+  Rendered usuarios/_usuario.html.erb (Duration: 1.0ms | Allocations: 234)
+  Rendered usuarios/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1237)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 2765)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.1ms | Allocations: 3470)
+
+
+Started GET "/usuarios/1/edit" for ::1 at 2024-06-19 19:12:10 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 2.5ms | Allocations: 1108)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1212)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 2740)
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 0.2ms | Allocations: 3371)
+
+
+Started GET "/usuarios/1/edit" for ::1 at 2024-06-19 19:14:47 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 5.4ms | Allocations: 1630)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1964)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 20547)
+Completed 200 OK in 22ms (Views: 16.9ms | ActiveRecord: 1.4ms | Allocations: 26535)
+
+
+Started GET "/usuarios/1/edit" for ::1 at 2024-06-19 19:14:48 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 2.5ms | Allocations: 1096)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1200)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 2728)
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.2ms | Allocations: 3359)
+
+
+Started GET "/usuarios/1/edit" for ::1 at 2024-06-19 19:14:49 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 3.0ms | Allocations: 1105)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1209)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 2737)
+Completed 200 OK in 10ms (Views: 7.2ms | ActiveRecord: 0.1ms | Allocations: 3354)
+
+
+Started GET "/usuarios/1/edit" for ::1 at 2024-06-19 19:14:50 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 2.4ms | Allocations: 1132)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1236)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 2764)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.1ms | Allocations: 3381)
+
+
+Started GET "/usuarios/1" for ::1 at 2024-06-19 19:14:53 -0300
+Processing by UsuariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/show.html.erb within layouts/application
+  Rendered usuarios/_usuario.html.erb (Duration: 2.7ms | Allocations: 1627)
+  Rendered usuarios/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2212)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 2303)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms | Allocations: 2997)
+
+
+  
+ActionView::Template::Error (undefined method `senha' for #<Usuario id: 1, matricula: "211036052", nome: "Henrique de Oliveira Ramos", email: "henriqueramos.qs@gmail.com", formacao: "Graduando", created_at: "2024-06-12 19:54:02.360452000 +0000", updated_at: "2024-06-12 19:54:02.360452000 +0000">):
+    22: 
+    23:   <p>
+    24:     <strong>Senha:</strong>
+    25:     <%= usuario.senha %>
+    26:   </p>
+    27: 
+    28: 
+  
+app/views/usuarios/_usuario.html.erb:25
+app/views/usuarios/show.html.erb:3
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPasswordToUsuarios (20240619234942)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "usuarios" ADD "senha" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240619234942') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/usuarios/1" for ::1 at 2024-06-19 20:52:04 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsuariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/show.html.erb within layouts/application
+  Rendered usuarios/_usuario.html.erb (Duration: 1.5ms | Allocations: 300)
+  Rendered usuarios/show.html.erb within layouts/application (Duration: 11.8ms | Allocations: 2755)
+  Rendered layout layouts/application.html.erb (Duration: 47.0ms | Allocations: 42412)
+Completed 200 OK in 69ms (Views: 49.0ms | ActiveRecord: 1.0ms | Allocations: 67462)
+
+
+Started GET "/usuarios/1" for ::1 at 2024-06-19 20:52:12 -0300
+Processing by UsuariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/show.html.erb within layouts/application
+  Rendered usuarios/_usuario.html.erb (Duration: 0.2ms | Allocations: 24)
+  Rendered usuarios/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 474)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 2002)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.2ms | Allocations: 2636)
+
+
+Started GET "/usuarios/1" for ::1 at 2024-06-19 20:52:13 -0300
+Processing by UsuariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/show.html.erb within layouts/application
+  Rendered usuarios/_usuario.html.erb (Duration: 0.2ms | Allocations: 24)
+  Rendered usuarios/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 457)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 1985)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 2616)
+
+
+Started GET "/usuarios/1/edit" for ::1 at 2024-06-19 20:52:14 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 14.7ms | Allocations: 5347)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 16.8ms | Allocations: 5680)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 7208)
+Completed 200 OK in 24ms (Views: 19.6ms | ActiveRecord: 0.2ms | Allocations: 7901)
+
+
+Started GET "/usuarios/1/edit" for ::1 at 2024-06-19 20:52:31 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 1.1ms | Allocations: 1630)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1966)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 20588)
+Completed 200 OK in 15ms (Views: 10.0ms | ActiveRecord: 1.0ms | Allocations: 26984)
+
+
+Started GET "/usuarios/1/edit" for ::1 at 2024-06-19 20:52:32 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 2.7ms | Allocations: 1102)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1206)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 2734)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.1ms | Allocations: 3351)
+
+
+Started GET "/usuarios/1/edit" for ::1 at 2024-06-19 20:52:55 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 3.1ms | Allocations: 1117)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1221)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 2749)
+Completed 200 OK in 10ms (Views: 7.5ms | ActiveRecord: 0.1ms | Allocations: 3366)
+
+
+Started POST "/usuarios.json" for ::1 at 2024-06-19 20:53:07 -0300
+Processing by UsuariosController#create as JSON
+  Parameters: {"usuario"=>{"matricula"=>"211036052", "nome"=>"Henrique de Oliveira Ramos", "formacao"=>"Graduando", "email"=>"henriqueramos.qs@gmail.com", "senha"=>"123enzopeitudo"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/usuarios_controller.rb:28:in `block in create'
+  [1m[36mUsuario Create (1.0ms)[0m  [1m[32mINSERT INTO "usuarios" ("matricula", "nome", "email", "formacao", "created_at", "updated_at", "senha") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["matricula", "211036052"], ["nome", "Henrique de Oliveira Ramos"], ["email", "henriqueramos.qs@gmail.com"], ["formacao", "Graduando"], ["created_at", "2024-06-19 23:53:07.087878"], ["updated_at", "2024-06-19 23:53:07.087878"], ["senha", "123enzopeitudo"]]
+  ↳ app/controllers/usuarios_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/usuarios_controller.rb:28:in `block in create'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/gen_password.html.erb within layouts/mailer
+  Rendered user_mailer/gen_password.html.erb within layouts/mailer (Duration: 0.3ms | Allocations: 128)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.6ms | Allocations: 346)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/gen_password.text.erb within layouts/mailer
+  Rendered user_mailer/gen_password.text.erb within layouts/mailer (Duration: 0.2ms | Allocations: 97)
+  Rendered layout layouts/mailer.text.erb (Duration: 0.4ms | Allocations: 291)
+UserMailer#gen_password: processed outbound mail in 7.3ms
+Delivered mail 66736f632246f_5d3537f08286f@MacBook-Air-de-Henrique-3.local.mail (2131.5ms)
+Date: Wed, 19 Jun 2024 20:53:07 -0300
+From: henriqueramos.qs@gmail.com
+Message-ID: <66736f632246f_5d3537f08286f@MacBook-Air-de-Henrique-3.local.mail>
+Subject: Gere sua senha do CAAMAR!
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_66736f6321705_5d3537f082718";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_66736f6321705_5d3537f082718
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+ Bom dia, corno!
+ =
+
+ Voc=C3=AA foi convidado a se registrar no CAAMAR, platadorma de avalia=C3=
+=A7=C3=A3o de disciplinas da UnB.
+ Para prosseguir, registre sua senha em: localhost:3000//definir-senha .<=
+br>
+
+ Conte conosco!
+
+
+----==_mimepart_66736f6321705_5d3537f082718
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />
+  </head>
+  <body>
+    <h1>Bom dia, corno!</h1>
+    <p>
+      Voc=C3=AA foi convidado a se registrar no CAAMAR, platadorma de ava=
+lia=C3=A7=C3=A3o de disciplinas da UnB.
+      Para prosseguir, registre sua senha em: localhost:3000//definir-sen=
+ha .<br>
+    </p>
+    =
+
+    <p>Conte conosco!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_66736f6321705_5d3537f082718--
+
+Completed 201 Created in 2188ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 33839)
+
+
+Started GET "/usuarios.json" for ::1 at 2024-06-19 20:53:17 -0300
+Processing by UsuariosController#index as JSON
+  Parameters: {"usuario"=>{"matricula"=>"211036052", "nome"=>"Henrique de Oliveira Ramos", "formacao"=>"Graduando", "email"=>"henriqueramos.qs@gmail.com", "senha"=>"123enzopeitudo"}}
+  Rendering usuarios/index.json.jbuilder
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  ↳ app/views/usuarios/index.json.jbuilder:1
+  Rendered collection of usuarios/_usuario.json.jbuilder [31 times] (Duration: 5.1ms | Allocations: 3210)
+  Rendered usuarios/index.json.jbuilder (Duration: 9.4ms | Allocations: 5042)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.3ms | Allocations: 5603)
+
+
+Started GET "/usuarios.json" for ::1 at 2024-06-19 20:53:58 -0300
+Processing by UsuariosController#index as JSON
+  Parameters: {"usuario"=>{"matricula"=>"211036052", "nome"=>"Henriqueeeee de Oliveira Ramos", "formacao"=>"Graduando", "email"=>"henriqueramos.qs@gmail.com", "senha"=>"123enzopeitudo"}}
+  Rendering usuarios/index.json.jbuilder
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  ↳ app/views/usuarios/index.json.jbuilder:1
+  Rendered collection of usuarios/_usuario.json.jbuilder [31 times] (Duration: 4.6ms | Allocations: 2976)
+  Rendered usuarios/index.json.jbuilder (Duration: 8.0ms | Allocations: 4428)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.2ms | Allocations: 4719)
+
+
+Started POST "/usuarios.json" for ::1 at 2024-06-19 20:54:02 -0300
+Processing by UsuariosController#create as JSON
+  Parameters: {"usuario"=>{"matricula"=>"211036052", "nome"=>"Henriqueeeee de Oliveira Ramos", "formacao"=>"Graduando", "email"=>"henriqueramos.qs@gmail.com", "senha"=>"123enzopeitudo"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/usuarios_controller.rb:28:in `block in create'
+  [1m[36mUsuario Create (3.3ms)[0m  [1m[32mINSERT INTO "usuarios" ("matricula", "nome", "email", "formacao", "created_at", "updated_at", "senha") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["matricula", "211036052"], ["nome", "Henriqueeeee de Oliveira Ramos"], ["email", "henriqueramos.qs@gmail.com"], ["formacao", "Graduando"], ["created_at", "2024-06-19 23:54:02.054652"], ["updated_at", "2024-06-19 23:54:02.054652"], ["senha", "123enzopeitudo"]]
+  ↳ app/controllers/usuarios_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/usuarios_controller.rb:28:in `block in create'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/gen_password.html.erb within layouts/mailer
+  Rendered user_mailer/gen_password.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.3ms | Allocations: 102)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/gen_password.text.erb within layouts/mailer
+  Rendered user_mailer/gen_password.text.erb within layouts/mailer (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/mailer.text.erb (Duration: 0.2ms | Allocations: 102)
+UserMailer#gen_password: processed outbound mail in 4.9ms
+Delivered mail 66736f9a107aa_5d3537dc83043@MacBook-Air-de-Henrique-3.local.mail (1986.0ms)
+Date: Wed, 19 Jun 2024 20:54:02 -0300
+From: henriqueramos.qs@gmail.com
+Message-ID: <66736f9a107aa_5d3537dc83043@MacBook-Air-de-Henrique-3.local.mail>
+Subject: Gere sua senha do CAAMAR!
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_66736f9afdb0_5d3537dc829b5";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_66736f9afdb0_5d3537dc829b5
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+ Bom dia, corno!
+ =
+
+ Voc=C3=AA foi convidado a se registrar no CAAMAR, platadorma de avalia=C3=
+=A7=C3=A3o de disciplinas da UnB.
+ Para prosseguir, registre sua senha em: localhost:3000//definir-senha .<=
+br>
+
+ Conte conosco!
+
+
+----==_mimepart_66736f9afdb0_5d3537dc829b5
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />
+  </head>
+  <body>
+    <h1>Bom dia, corno!</h1>
+    <p>
+      Voc=C3=AA foi convidado a se registrar no CAAMAR, platadorma de ava=
+lia=C3=A7=C3=A3o de disciplinas da UnB.
+      Para prosseguir, registre sua senha em: localhost:3000//definir-sen=
+ha .<br>
+    </p>
+    =
+
+    <p>Conte conosco!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_66736f9afdb0_5d3537dc829b5--
+
+Completed 201 Created in 2001ms (Views: 0.5ms | ActiveRecord: 4.2ms | Allocations: 13449)
+
+
+Started GET "/usuarios.json" for ::1 at 2024-06-19 20:54:08 -0300
+Processing by UsuariosController#index as JSON
+  Parameters: {"usuario"=>{"matricula"=>"211036052", "nome"=>"Henriqueeeee de Oliveira Ramos", "formacao"=>"Graduando", "email"=>"henriqueramos.qs@gmail.com", "senha"=>"123enzopeitudo"}}
+  Rendering usuarios/index.json.jbuilder
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  ↳ app/views/usuarios/index.json.jbuilder:1
+  Rendered collection of usuarios/_usuario.json.jbuilder [32 times] (Duration: 3.9ms | Allocations: 3071)
+  Rendered usuarios/index.json.jbuilder (Duration: 6.6ms | Allocations: 4554)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.2ms | Allocations: 4845)
+
+
+Started GET "/usuarios/32/edit" for ::1 at 2024-06-19 20:54:26 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 3.9ms | Allocations: 1110)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1215)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 2759)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.1ms | Allocations: 3375)
+
+
+Started GET "/usuarios/31/edit" for ::1 at 2024-06-19 20:54:31 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 2.2ms | Allocations: 1108)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1212)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 2740)
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.1ms | Allocations: 3354)
+
+
+Started GET "/usuarios/31/edit" for ::1 at 2024-06-19 20:56:13 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 1.4ms | Allocations: 1875)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 2.2ms | Allocations: 2211)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 20831)
+Completed 200 OK in 17ms (Views: 12.0ms | ActiveRecord: 1.0ms | Allocations: 27166)
+
+
+Started PATCH "/usuarios/31" for ::1 at 2024-06-19 20:56:21 -0300
+Processing by UsuariosController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "usuario"=>{"matricula"=>"211036052", "nome"=>"Henrique de Oliveira Ramos", "email"=>"henriqueramos.qs@gmail.com", "formacao"=>"Graduando", "senha"=>"123enzopeitudaço"}, "commit"=>"Update Usuario", "id"=>"31"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/usuarios_controller.rb:47:in `block in update'
+  [1m[36mUsuario Update (1.0ms)[0m  [1m[33mUPDATE "usuarios" SET "updated_at" = ?, "senha" = ? WHERE "usuarios"."id" = ?[0m  [["updated_at", "2024-06-19 23:56:21.213619"], ["senha", "123enzopeitudaço"], ["id", 31]]
+  ↳ app/controllers/usuarios_controller.rb:47:in `block in update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/usuarios_controller.rb:47:in `block in update'
+Redirected to http://localhost:3000/usuarios/31
+Completed 302 Found in 9ms (ActiveRecord: 1.5ms | Allocations: 2746)
+
+
+Started GET "/usuarios/31" for ::1 at 2024-06-19 20:56:21 -0300
+Processing by UsuariosController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/show.html.erb within layouts/application
+  Rendered usuarios/_usuario.html.erb (Duration: 0.5ms | Allocations: 245)
+  Rendered usuarios/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1025)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 2553)
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 0.1ms | Allocations: 3253)
+
+
+Started GET "/usuarios/31" for ::1 at 2024-06-19 20:57:17 -0300
+Processing by UsuariosController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/show.html.erb within layouts/application
+  Rendered usuarios/_usuario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered usuarios/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 469)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 1997)
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.2ms | Allocations: 2611)
+
+
+Started GET "/usuarios/1/edit" for ::1 at 2024-06-19 20:57:18 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 2.1ms | Allocations: 1276)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1380)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 2923)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.1ms | Allocations: 3538)
+
+
+Started GET "/gerenciamento" for ::1 at 2024-06-19 20:57:19 -0300
+Processing by GerenciamentoController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gerenciamento/show.html.erb within layouts/application
+  Rendered navbar/_navbar.html.erb (Duration: 0.3ms | Allocations: 111)
+  Rendered gerenciamento/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 355)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2113)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 2619)
+
+
+Started GET "/" for ::1 at 2024-06-19 20:57:20 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.6ms | Allocations: 211)
+  Rendered auth/login.html.erb within layouts/application (Duration: 2.1ms | Allocations: 467)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 2209)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.0ms | Allocations: 2665)
+
+
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 20:57:21 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:6:in `define_password'
+[31mUnpermitted parameter: :id. Context: { controller: AuthController, action: define_password, request: #<ActionDispatch::Request:0x0000000106850aa0>, params: {"controller"=>"auth", "action"=>"define_password", "id"=>"3"} }[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 946)
+
+
+Started GET "/" for ::1 at 2024-06-19 20:57:21 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.2ms | Allocations: 84)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1836)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 2082)
+
+
+Started GET "/" for ::1 at 2024-06-19 20:57:51 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.3ms | Allocations: 84)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 1826)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 2072)
+
+
+Started GET "/definir-senha/:4" for ::1 at 2024-06-19 20:57:58 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>":4"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:6:in `define_password'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.1ms | Allocations: 864)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Usuario with 'id'=:4):
+  
+app/controllers/auth_controller.rb:6:in `define_password'
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 20:58:28 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+[31mUnpermitted parameter: :id. Context: { controller: AuthController, action: define_password, request: #<ActionDispatch::Request:0x00000001069132a8>, params: {"controller"=>"auth", "action"=>"define_password", "id"=>"3"} }[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms | Allocations: 5980)
+
+
+Started GET "/" for ::1 at 2024-06-19 20:58:28 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.2ms | Allocations: 204)
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.8ms | Allocations: 454)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 19297)
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 20174)
+
+
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 20:58:29 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+[31mUnpermitted parameter: :id. Context: { controller: AuthController, action: define_password, request: #<ActionDispatch::Request:0x0000000106091b98>, params: {"controller"=>"auth", "action"=>"define_password", "id"=>"3"} }[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 894)
+
+
+Started GET "/" for ::1 at 2024-06-19 20:58:29 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.2ms | Allocations: 84)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1820)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 2066)
+
+
+Started GET "/definir-senha/31" for ::1 at 2024-06-19 20:58:29 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+[31mUnpermitted parameter: :id. Context: { controller: AuthController, action: define_password, request: #<ActionDispatch::Request:0x0000000106019e40>, params: {"controller"=>"auth", "action"=>"define_password", "id"=>"31"} }[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 912)
+
+
+Started GET "/" for ::1 at 2024-06-19 20:58:29 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.2ms | Allocations: 84)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1820)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 2066)
+
+
+Started GET "/" for ::1 at 2024-06-19 20:58:37 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.3ms | Allocations: 84)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 1835)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 2081)
+
+
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 20:58:38 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+[31mUnpermitted parameter: :id. Context: { controller: AuthController, action: define_password, request: #<ActionDispatch::Request:0x0000000104d0f3e0>, params: {"controller"=>"auth", "action"=>"define_password", "id"=>"3"} }[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 908)
+
+
+Started GET "/" for ::1 at 2024-06-19 20:58:38 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.2ms | Allocations: 84)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1829)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 2075)
+
+
+Started GET "/definir-senha/4" for ::1 at 2024-06-19 20:58:40 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+[31mUnpermitted parameter: :id. Context: { controller: AuthController, action: define_password, request: #<ActionDispatch::Request:0x00000001060b9260>, params: {"controller"=>"auth", "action"=>"define_password", "id"=>"4"} }[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 917)
+
+
+Started GET "/" for ::1 at 2024-06-19 20:58:40 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.2ms | Allocations: 84)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 1830)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 2077)
+
+
+Started GET "/" for ::1 at 2024-06-19 20:59:31 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.3ms | Allocations: 204)
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.9ms | Allocations: 454)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 19298)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 20210)
+
+
+Started GET "//usuarios/1/edit" for ::1 at 2024-06-19 20:59:31 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 1.6ms | Allocations: 1832)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 2.2ms | Allocations: 2159)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 3690)
+Completed 200 OK in 27ms (Views: 3.7ms | ActiveRecord: 35.0ms | Allocations: 9598)
+
+
+Started GET "/" for ::1 at 2024-06-19 20:59:32 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered auth/login.html.erb within layouts/application (Duration: 0.2ms | Allocations: 84)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1832)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 2078)
+
+
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 20:59:32 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.6ms | Allocations: 193)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1922)
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.1ms | Allocations: 2594)
+
+
+Started GET "/definir-senha/5" for ::1 at 2024-06-19 20:59:34 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.2ms | Allocations: 84)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1816)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.1ms | Allocations: 2423)
+
+
+Started GET "/definir-senha/5" for ::1 at 2024-06-19 21:06:35 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUsuario Load (1.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.3ms | Allocations: 309)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.6ms | Allocations: 561)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 19411)
+Completed 200 OK in 16ms (Views: 10.6ms | ActiveRecord: 1.5ms | Allocations: 25077)
+
+
+Started GET "/definir-senha/5" for ::1 at 2024-06-19 21:07:34 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 2.3ms | Allocations: 1327)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1575)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 20216)
+Completed 200 OK in 21ms (Views: 16.3ms | ActiveRecord: 1.1ms | Allocations: 26380)
+
+
+Started GET "/definir-senha/5" for ::1 at 2024-06-19 21:08:10 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.8ms | Allocations: 1209)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1461)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 19942)
+Completed 200 OK in 11ms (Views: 6.8ms | ActiveRecord: 1.1ms | Allocations: 26167)
+
+
+Started GET "/definir-senha/5" for ::1 at 2024-06-19 21:08:20 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 2.4ms | Allocations: 520)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 2.7ms | Allocations: 589)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 2117)
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 0.2ms | Allocations: 2724)
+
+
+Started GET "/definir-senha/5" for ::1 at 2024-06-19 21:08:25 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.2ms | Allocations: 207)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.4ms | Allocations: 457)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 19309)
+Completed 200 OK in 12ms (Views: 7.8ms | ActiveRecord: 1.1ms | Allocations: 25497)
+
+
+Started GET "/" for ::1 at 2024-06-19 21:09:51 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 1.0ms | Allocations: 1635)
+  Rendered auth/login.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1885)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1977)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2871)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    27: 
+    28: <h1>Change Password</h1>
+    29: 
+    30: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    31:   <% if @user.errors.any? %>
+    32:     <div style="color: red">
+    33:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:30
+app/views/auth/login.html.erb:1
+Started GET "/" for ::1 at 2024-06-19 21:09:52 -0300
+Processing by AuthController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering auth/login.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 1.8ms | Allocations: 1207)
+  Rendered auth/login.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1367)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1597)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    27: 
+    28: <h1>Change Password</h1>
+    29: 
+    30: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    31:   <% if @user.errors.any? %>
+    32:     <div style="color: red">
+    33:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:30
+app/views/auth/login.html.erb:1
+Started GET "/usuarios/1/edit" for ::1 at 2024-06-19 21:09:54 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 3.2ms | Allocations: 1844)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2171)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 20784)
+Completed 200 OK in 35ms (Views: 21.6ms | ActiveRecord: 3.8ms | Allocations: 26693)
+
+
+Started GET "/user/12" for ::1 at 2024-06-19 21:09:54 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/user/12"):
+  
+Started GET "/usuario/12" for ::1 at 2024-06-19 21:10:00 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/usuario/12"):
+  
+Started GET "/usuarios/12" for ::1 at 2024-06-19 21:10:08 -0300
+Processing by UsuariosController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/show.html.erb within layouts/application
+  Rendered usuarios/_usuario.html.erb (Duration: 2.5ms | Allocations: 242)
+  Rendered usuarios/show.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1031)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 2574)
+Completed 200 OK in 18ms (Views: 13.2ms | ActiveRecord: 0.2ms | Allocations: 3272)
+
+
+Started GET "/usuarios/32/edit" for ::1 at 2024-06-19 21:10:11 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 5.9ms | Allocations: 1272)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1376)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 2909)
+Completed 200 OK in 13ms (Views: 10.0ms | ActiveRecord: 0.4ms | Allocations: 3524)
+
+
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:10:22 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.9ms | Allocations: 1208)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1384)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1475)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms | Allocations: 2131)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    27: 
+    28: <h1>Change Password</h1>
+    29: 
+    30: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    31:   <% if @user.errors.any? %>
+    32:     <div style="color: red">
+    33:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:30
+app/views/auth/define_password.html.erb:1
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:12:19 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.6ms | Allocations: 1582)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 1.5ms | Allocations: 2095)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 2187)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.0ms | Allocations: 8391)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    27: 
+    28: <h1>Change Password</h1>
+    29: 
+    30: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    31:   <% if @user.errors.any? %>
+    32:     <div style="color: red">
+    33:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:30
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:12:20 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.8ms | Allocations: 1207)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1367)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 1959)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    27: 
+    28: <h1>Change Password</h1>
+    29: 
+    30: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    31:   <% if @user.errors.any? %>
+    32:     <div style="color: red">
+    33:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:30
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:12:21 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.6ms | Allocations: 1207)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 1367)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 1959)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    27: 
+    28: <h1>Change Password</h1>
+    29: 
+    30: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    31:   <% if @user.errors.any? %>
+    32:     <div style="color: red">
+    33:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:30
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:12:31 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 1.2ms | Allocations: 1207)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1367)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 1959)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    27: 
+    28: <h1>Change Password</h1>
+    29: 
+    30: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    31:   <% if @user.errors.any? %>
+    32:     <div style="color: red">
+    33:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:30
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:12:50 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.4ms | Allocations: 1582)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.8ms | Allocations: 2093)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 2185)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.0ms | Allocations: 8389)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    27: 
+    28: <h1>Change Password</h1>
+    29: 
+    30: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    31:   <% if @user.errors.any? %>
+    32:     <div style="color: red">
+    33:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:30
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:12:51 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.9ms | Allocations: 1207)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1367)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 1959)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    27: 
+    28: <h1>Change Password</h1>
+    29: 
+    30: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    31:   <% if @user.errors.any? %>
+    32:     <div style="color: red">
+    33:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:30
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:12:51 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 1.0ms | Allocations: 1207)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1367)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 1959)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    27: 
+    28: <h1>Change Password</h1>
+    29: 
+    30: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    31:   <% if @user.errors.any? %>
+    32:     <div style="color: red">
+    33:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:30
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:12:54 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.8ms | Allocations: 1207)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1367)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms | Allocations: 1959)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    27: 
+    28: <h1>Change Password</h1>
+    29: 
+    30: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    31:   <% if @user.errors.any? %>
+    32:     <div style="color: red">
+    33:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:30
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:12:54 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.9ms | Allocations: 1207)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1367)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 1959)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    27: 
+    28: <h1>Change Password</h1>
+    29: 
+    30: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    31:   <% if @user.errors.any? %>
+    32:     <div style="color: red">
+    33:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:30
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:12:55 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 1.2ms | Allocations: 1207)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1367)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 1959)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    27: 
+    28: <h1>Change Password</h1>
+    29: 
+    30: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    31:   <% if @user.errors.any? %>
+    32:     <div style="color: red">
+    33:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:30
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:12:56 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 1.0ms | Allocations: 1207)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1367)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 1959)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    27: 
+    28: <h1>Change Password</h1>
+    29: 
+    30: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    31:   <% if @user.errors.any? %>
+    32:     <div style="color: red">
+    33:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:30
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:12:57 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 1.1ms | Allocations: 1207)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1367)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 1959)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    27: 
+    28: <h1>Change Password</h1>
+    29: 
+    30: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    31:   <% if @user.errors.any? %>
+    32:     <div style="color: red">
+    33:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:30
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:13:22 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.4ms | Allocations: 1594)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.9ms | Allocations: 2105)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 2197)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.0ms | Allocations: 8401)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    29: <!-- 
+    30: <h1>Change Password</h1>
+    31: 
+    32: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    33:   <% if @user.errors.any? %>
+    34:     <div style="color: red">
+    35:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:32
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:13:23 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 1.0ms | Allocations: 1207)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1367)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 1959)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    29: <!-- 
+    30: <h1>Change Password</h1>
+    31: 
+    32: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    33:   <% if @user.errors.any? %>
+    34:     <div style="color: red">
+    35:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:32
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:13:24 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 1.0ms | Allocations: 1207)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1367)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 1959)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    29: <!-- 
+    30: <h1>Change Password</h1>
+    31: 
+    32: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    33:   <% if @user.errors.any? %>
+    34:     <div style="color: red">
+    35:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:32
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:13:25 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.8ms | Allocations: 1207)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 1367)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 1959)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    29: <!-- 
+    30: <h1>Change Password</h1>
+    31: 
+    32: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    33:   <% if @user.errors.any? %>
+    34:     <div style="color: red">
+    35:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:32
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:13:25 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.4ms | Allocations: 1205)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.5ms | Allocations: 1274)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1365)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 1957)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    29: <!-- 
+    30: <h1>Change Password</h1>
+    31: 
+    32: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    33:   <% if @user.errors.any? %>
+    34:     <div style="color: red">
+    35:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:32
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:13:26 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.5ms | Allocations: 1207)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.7ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 1367)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 1959)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    29: <!-- 
+    30: <h1>Change Password</h1>
+    31: 
+    32: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    33:   <% if @user.errors.any? %>
+    34:     <div style="color: red">
+    35:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:32
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/5" for ::1 at 2024-06-19 21:13:45 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 11.4ms | Allocations: 2035)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 12.7ms | Allocations: 2724)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 2841)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 1.1ms | Allocations: 27704)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+    29: <!-- 
+    30: <h1>Change Password</h1>
+    31: 
+    32: <%= form_with(model: @usuario, url: usuario_path(@usuario), method: :patch) do |form| %>
+    33:   <% if @user.errors.any? %>
+    34:     <div style="color: red">
+    35:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:32
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/5" for ::1 at 2024-06-19 21:14:37 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.4ms | Allocations: 1511)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.9ms | Allocations: 2022)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 2114)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.1ms | Allocations: 8344)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `url' for #<ActionView::Base:0x0000000000f050>):
+    29: <!-- 
+    30: <h1>Change Password</h1>
+    31: 
+    32: <%= form_with(model: @usuario, url: , method: :patch) do |form| %>
+    33:   <% if @user.errors.any? %>
+    34:     <div style="color: red">
+    35:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/_form.html.erb:32
+app/views/auth/define_password.html.erb:2
+Started GET "/definir-senha/5" for ::1 at 2024-06-19 21:15:20 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.1ms | Allocations: 88)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 3.2ms | Allocations: 3908)
+  Rendered layout layouts/application.html.erb (Duration: 28.7ms | Allocations: 43210)
+Completed 200 OK in 35ms (Views: 29.7ms | ActiveRecord: 1.1ms | Allocations: 49485)
+
+
+Started PATCH "/definir-senha/5" for ::1 at 2024-06-19 21:15:29 -0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/definir-senha/5"):
+  
+Started PATCH "/definir-senha/5" for ::1 at 2024-06-19 21:16:13 -0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/definir-senha/5"):
+  
+Started PATCH "/definir-senha/5" for ::1 at 2024-06-19 21:16:18 -0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/definir-senha/5"):
+  
+Started PATCH "/definir-senha/5" for ::1 at 2024-06-19 21:18:10 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [PATCH] "/definir-senha/5"):
+  
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 21:18:14 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.1ms | Allocations: 89)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1713)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1808)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.5ms | Allocations: 24426)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+     5: 
+     6: <h1>Change Password</h1>
+     7: 
+     8: <%= form_with(model: @usuario, url:usuario_path(@usuario), method: :patch) do |form| %>
+     9:   <% if @user.errors.any? %>
+    10:     <div style="color: red">
+    11:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/define_password.html.erb:8
+Started GET "/definir-senha/" for ::1 at 2024-06-19 21:18:15 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/definir-senha"):
+  
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 21:18:17 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1138)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1229)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 1836)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+     5: 
+     6: <h1>Change Password</h1>
+     7: 
+     8: <%= form_with(model: @usuario, url:usuario_path(@usuario), method: :patch) do |form| %>
+     9:   <% if @user.errors.any? %>
+    10:     <div style="color: red">
+    11:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/define_password.html.erb:8
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 21:18:18 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 1.2ms | Allocations: 2096)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2850)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.5ms | Allocations: 7273)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"usuarios", :id=>nil}, missing required keys: [:id]):
+     5: 
+     6: <h1>Change Password</h1>
+     7: 
+     8: <%= form_with(model: @usuario, url:usuario_path(@usuario), method: :patch) do |form| %>
+     9:   <% if @user.errors.any? %>
+    10:     <div style="color: red">
+    11:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/define_password.html.erb:8
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 21:19:54 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.1ms | Allocations: 88)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.7ms | Allocations: 1507)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 1599)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.2ms | Allocations: 7826)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `id' for #<ActionView::Base:0x0000000000fbe0>):
+     5: 
+     6: <h1>Change Password</h1>
+     7: 
+     8: <%= form_with(model: @usuario, url:usuario_path(@usuario[id]), method: :patch) do |form| %>
+     9:   <% if @user.errors.any? %>
+    10:     <div style="color: red">
+    11:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+  
+app/views/auth/define_password.html.erb:8
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 21:20:25 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.1ms | Allocations: 88)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1658)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1750)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.2ms | Allocations: 7959)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+     6: <h1>Change Password</h1>
+     7: 
+     8: <%= form_with(model: @usuario, url:usuario_path(@usuario), method: :patch) do |form| %>
+     9:   <% if @user.errors.any? %>
+    10:     <div style="color: red">
+    11:       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+    12: 
+  
+app/views/auth/define_password.html.erb:9
+app/views/auth/define_password.html.erb:8
+Started GET "/definir-senha/3" for ::1 at 2024-06-19 21:20:33 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.1ms | Allocations: 88)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1520)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 41207)
+Completed 200 OK in 27ms (Views: 21.3ms | ActiveRecord: 1.1ms | Allocations: 47478)
+
+
+Started GET "//usuarios/1/edit" for ::1 at 2024-06-19 21:20:43 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 5.0ms | Allocations: 2306)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2652)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 4183)
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.1ms | Allocations: 5087)
+
+
+Started GET "/usuarios/1/edit" for ::1 at 2024-06-19 21:20:45 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_form.html.erb (Duration: 2.5ms | Allocations: 1276)
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1380)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 2908)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 3525)
+
+
+Started GET "/usuarios/32" for ::1 at 2024-06-19 21:20:46 -0300
+Processing by UsuariosController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/show.html.erb within layouts/application
+  Rendered usuarios/_usuario.html.erb (Duration: 0.7ms | Allocations: 261)
+  Rendered usuarios/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1160)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 2688)
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 0.4ms | Allocations: 3393)
+
+
+Started GET "/definir-senha/32" for ::1 at 2024-06-19 21:20:51 -0300
+Processing by AuthController#define_password as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:7:in `define_password'
+  Rendering layout layouts/application.html.erb
+  Rendering auth/define_password.html.erb within layouts/application
+  Rendered auth/_form.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered auth/define_password.html.erb within layouts/application (Duration: 2.1ms | Allocations: 591)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2119)
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.2ms | Allocations: 2731)
+
+
+Started PATCH "/usuarios/32" for ::1 at 2024-06-19 21:20:56 -0300
+Processing by UsuariosController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "usuario"=>{"senha"=>"peitao", "senha_confirmation"=>"peitao"}, "commit"=>"Change Password", "id"=>"32"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+[31mUnpermitted parameter: :senha_confirmation. Context: { controller: UsuariosController, action: update, request: #<ActionDispatch::Request:0x0000000109263ae0>, params: {"_method"=>"patch", "authenticity_token"=>"[FILTERED]", "usuario"=>{"senha"=>"peitao", "senha_confirmation"=>"peitao"}, "commit"=>"Change Password", "controller"=>"usuarios", "action"=>"update", "id"=>"32"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/usuarios_controller.rb:47:in `block in update'
+  [1m[36mUsuario Update (3.3ms)[0m  [1m[33mUPDATE "usuarios" SET "updated_at" = ?, "senha" = ? WHERE "usuarios"."id" = ?[0m  [["updated_at", "2024-06-20 00:20:56.513009"], ["senha", "peitao"], ["id", 32]]
+  ↳ app/controllers/usuarios_controller.rb:47:in `block in update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/usuarios_controller.rb:47:in `block in update'
+Redirected to http://localhost:3000/usuarios/32
+Completed 302 Found in 11ms (ActiveRecord: 4.0ms | Allocations: 3896)
+
+
+Started GET "/usuarios/32" for ::1 at 2024-06-19 21:20:56 -0300
+Processing by UsuariosController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUsuario Load (0.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/usuarios_controller.rb:70:in `set_usuario'
+  Rendering layout layouts/application.html.erb
+  Rendering usuarios/show.html.erb within layouts/application
+  Rendered usuarios/_usuario.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered usuarios/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 503)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2031)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.1ms | Allocations: 2650)
+
+
