@@ -1,6 +1,5 @@
 FactoryBot.define do
-    factory :reports_aluno do
-      formularios_id { FactoryBot.create(:formulario).id }
-    end
+  factory :reports_aluno do
+    association :formulario
   end
-  
+end

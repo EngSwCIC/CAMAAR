@@ -1,4 +1,4 @@
-class Materium < ApplicationRecord
+class Materia < ApplicationRecord
   validates :codigo, presence: true
   validates :nome, presence: true
   validates :semestre, presence: true

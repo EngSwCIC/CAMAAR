@@ -1,9 +1,9 @@
 class MateriaController < ApplicationController
-  before_action :set_materium, only: %i[ show edit update destroy ]
+  before_action :set_materia, only: %i[show edit update destroy]
 
   # GET /materia or /materia.json
   def index
-    @materia = Materium.all
+    @materia = Materia.all
   end
 
   # GET /materia/1 or /materia/1.json
@@ -12,7 +12,7 @@ class MateriaController < ApplicationController
 
   # GET /materia/new
   def new
-    @materium = Materium.new
+    @materia = Materia.new
   end
 
   # GET /materia/1/edit
@@ -21,15 +21,15 @@ class MateriaController < ApplicationController
 
   # POST /materia or /materia.json
   def create
-    @materium = Materium.new(materium_params)
+    @materia = Materia.new(materia_params)
 
     respond_to do |format|
-      if @materium.save
-        format.html { redirect_to materium_url(@materium), notice: "Materium was successfully created." }
-        format.json { render :show, status: :created, location: @materium }
+      if @materia.save
+        format.html { redirect_to materia_url(@materia), notice: "Materia was successfully created." }
+        format.json { render :show, status: :created, location: @materia }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @materium.errors, status: :unprocessable_entity }
+        format.json { render json: @materia.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -37,34 +37,34 @@ class MateriaController < ApplicationController
   # PATCH/PUT /materia/1 or /materia/1.json
   def update
     respond_to do |format|
-      if @materium.update(materium_params)
-        format.html { redirect_to materium_url(@materium), notice: "Materium was successfully updated." }
-        format.json { render :show, status: :ok, location: @materium }
+      if @materia.update(materia_params)
+        format.html { redirect_to materia_url(@materia), notice: "Materia was successfully updated." }
+        format.json { render :show, status: :ok, location: @materia }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @materium.errors, status: :unprocessable_entity }
+        format.json { render json: @materia.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /materia/1 or /materia/1.json
   def destroy
-    @materium.destroy!
+    @materia.destroy
 
     respond_to do |format|
-      format.html { redirect_to materia_url, notice: "Materium was successfully destroyed." }
+      format.html { redirect_to materias_url, notice: "Materia was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_materium
-      @materium = Materium.find(params[:id])
+    def set_materia
+      @materia = Materia.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
-    def materium_params
-      params.require(:materium).permit(:codigo, :semestre, :nome, :departamento, :professor_id, :aluno_id, :forms_materia)
+    def materia_params
+      params.require(:materia).permit(:codigo, :semestre, :nome, :departamento, :professor_id, :aluno_id, :forms_materia)
     end
 end
