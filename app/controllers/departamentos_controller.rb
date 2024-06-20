@@ -8,6 +8,7 @@ class DepartamentosController < ApplicationController
 
   # GET /departamentos/1 or /departamentos/1.json
   def show
+    @departamento = Departamento.find(params[:id])
   end
 
   # GET /departamentos/new
@@ -17,6 +18,7 @@ class DepartamentosController < ApplicationController
 
   # GET /departamentos/1/edit
   def edit
+    @departamento = Departamento.find(params[:id])
   end
 
   # POST /departamentos or /departamentos.json
@@ -49,7 +51,7 @@ class DepartamentosController < ApplicationController
 
   # DELETE /departamentos/1 or /departamentos/1.json
   def destroy
-    @departamento.destroy!
+    @departamento.destroy
 
     respond_to do |format|
       format.html { redirect_to departamentos_url, notice: "Departamento was successfully destroyed." }
