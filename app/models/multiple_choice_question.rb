@@ -13,4 +13,9 @@ class MultipleChoiceQuestion < Question
 
     format.split '|'
   end
+
+  # Valid is not the same as 'correct'. This just checks if the answer is possible.
+  def valid_answer?(input)
+    options.include?(input)
+  end
 end

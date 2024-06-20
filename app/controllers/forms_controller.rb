@@ -27,9 +27,10 @@ class FormsController < ApplicationController
       next if answer.empty?
 
       # TODO: Get logged in user for creating answer
-      # TODO: Validate answer if MultipleChoiceQuestion
+      question = Question.find(question_id)
+      next unless question.valid_answer?(answer)
+
       Answer.create! answer:, user: User.first, question: Question.find(question_id)
-      Rails.logger.debug "#{question_id}: #{answer}"
     end
   end
 end
