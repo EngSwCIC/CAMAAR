@@ -35,7 +35,7 @@ pt-BR:
       no_token: "Você só pode acessar essa página através de um e-mail de troca de senha. Se já estiver acessando por um e-mail, verifique se a URL fornecida está completa."
       send_instructions: "Dentro de minutos, você receberá um e-mail com instruções para a troca da sua senha."
       send_paranoid_instructions: "Se o seu endereço de e-mail estiver cadastrado, você receberá um link de recuperação da senha via e-mail."
-      updated: "Sua senha foi alterada com sucesso. Você está logado."
+      updated: "Senha registrada com sucesso"
       updated_not_active: "Sua senha foi alterada com sucesso."
     registrations:
       destroyed: "Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
@@ -62,6 +62,9 @@ pt-BR:
       expired: "expirou, por favor, solicite uma nova"
       not_found: "não encontrado"
       not_locked: "não foi bloqueado"
+      blank: "A senha registrada é inválida"
+      too_short: "A senha registrada é inválida"
+      confirmation: "As senhas devem ser iguais"
       not_saved:
         one: "Não foi possível salvar %{resource}: 1 erro"
         other: "Não foi possível salvar %{resource}: %{count} erros."

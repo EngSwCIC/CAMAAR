@@ -12,4 +12,9 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     "/avaliacoes"
   end
+
+  def after_resetting_password_path_for(resource)
+    flash[:notice] = "Senha registrada com sucesso"
+    "/avaliacoes"
+  end
 end
