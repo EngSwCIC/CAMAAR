@@ -1,4 +1,4 @@
-Given('I am logged in as a student from class {string}') do |class_code|
+Given('I am logged in as a student from class {string}') do |class_name|
   @user = User.create(
     :email => "teste@email.com",
     :matricula => "123456",
@@ -8,8 +8,8 @@ Given('I am logged in as a student from class {string}') do |class_code|
 
   @study_class = StudyClass.create(
     :code => "cic01",
-    :name => "ES",
-    :classCode => class_code,
+    :name => class_name,
+    :classCode => "es123",
     :semester => "2024.1",
     :time => "Time"
   )
