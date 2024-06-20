@@ -1,12 +1,12 @@
-require "uri"
-require "cgi"
-require "i18n"
-require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
-require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
+require 'uri'
+require 'cgi'
+require 'i18n'
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'paths'))
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'selectors'))
 I18n.config.available_locales = :en
 
 def normalize_filename(filename)
-  I18n.transliterate(filename).gsub(" ", "_").downcase
+  I18n.transliterate(filename).gsub(' ', '_').downcase
 end
 
 module WithinHelpers
@@ -44,7 +44,7 @@ end
 
 When(/I click on registration link at "([^"]*)"$/) do |email|
   UsersMailer.register_user(email).deliver_now
-  open_email(email).click_link "Registrar"
+  open_email(email).click_link 'Registrar'
 end
 
 Then(/^(?:|I )expect to be on the "([^"]*)" page$/) do |page_name|
@@ -63,17 +63,17 @@ end
 # Buttons and clicks
 
 When(/^(?:|I )press "([^"]*)"$/) do |button|
-  click_link_or_button(button.downcase.gsub(" ", "_"))
+  click_link_or_button(button.downcase.gsub(' ', '_'))
 end
 
 When(/I click on "Confirmar"/) do
-  click_button("Confirmar")
+  click_button('Confirmar')
 end
 
 # Forms and templates
 
 And(/^(?:|I )fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
-  fill_in(field.downcase.gsub(" ", "_"), with: value, match: :prefer_exact, visible: :all)
+  fill_in(field.downcase.gsub(' ', '_'), with: value, match: :prefer_exact, visible: :all)
 end
 
 And(/^(?:|I )fill in "([^"]*)" for "([^"]*)"$/) do |value, field|
@@ -82,12 +82,12 @@ end
 
 When(/^(?:|I )fill in the following:$/) do |fields|
   fields.rows_hash.each do |field, value|
-    fill_in(field.downcase.gsub(" ", "_"), with: value, match: :prefer_exact, visible: :all)
+    fill_in(field.downcase.gsub(' ', '_'), with: value, match: :prefer_exact, visible: :all)
   end
 end
 
 When(/^(?:|I )select "([^"]*)" from "([^"]*)"$/) do |value, field|
-  select(value, from: field.gsub(" ", "_").downcase, visible: :all)
+  select(value, from: field.gsub(' ', '_').downcase, visible: :all)
 end
 
 When(/^(?:|I )check "([^"]*)"$/) do |field|
@@ -99,7 +99,7 @@ When(/^(?:|I )uncheck "([^"]*)"$/) do |field|
 end
 
 When(/^(?:|I )choose "([^"]*)"$/) do |field|
-  choose(field.downcase.gsub(" ", "_"))
+  choose(field.downcase.gsub(' ', '_'))
 end
 
 When(/^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/) do |path, field|
@@ -107,7 +107,7 @@ When(/^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/) do |path, field|
 end
 
 # Database and examples
-Given("I am an authenticated User") do
+Given('I am an authenticated User') do
   FactoryBot.create(:user, :user1)
 end
 
@@ -116,35 +116,37 @@ Given('I am an authenticated User from class "BANCOS DE DADOS"') do
 end
 
 Given(/I ended my session/) do
-  click_link_or_button("Sair")
+  click_link_or_button('Sair')
 end
 
 Given(/I am an authenticated (Teacher|Student) associated with the following classes:$/) do |role, fields|
-  visit("/users/login")
+  visit('/users/login')
   classes = fields.hashes
 
-  if role == "Student"
-    User.create!(id: 8, email: "peluticaio@gmail.com", password: "abc123", password_confirmation: "abc123", created_at: Time.now.utc, updated_at: Time.now.utc, confirmed_at: Time.now.utc)
-    student = Student.find_by(email: "peluticaio@gmail.com")
+  if role == 'Student'
+    User.create!(id: 8, email: 'peluticaio@gmail.com', password: 'abc123', password_confirmation: 'abc123',
+                 created_at: Time.now.utc, updated_at: Time.now.utc, confirmed_at: Time.now.utc)
+    student = Student.find_by(email: 'peluticaio@gmail.com')
     classes.each do |sbj|
-      sbj_class = SubjectClass.find_by({ subject: sbj["subject"], code: sbj["code"], semester: sbj["semester"] })
+      sbj_class = SubjectClass.find_by({ subject: sbj['subject'], code: sbj['code'], semester: sbj['semester'] })
       Enrollment.create(student_id: student.id, subject_class_id: sbj_class.id)
     end
 
-    fill_in("email", with: "peluticaio@gmail.com")
-    fill_in("password", with: "abc123")
-    click_button("Confirmar")
+    fill_in('email', with: 'peluticaio@gmail.com')
+    fill_in('password', with: 'abc123')
+    click_button('Confirmar')
   else
-    teacher = Teacher.find_by(email: "mholanda@unb.br")
-    User.create(id: 1, email: "mholanda@unb.br", password: "abc123", password_confirmation: "abc123", created_at: Time.now.utc, updated_at: Time.now.utc, confirmed_at: Time.now.utc)
+    teacher = Teacher.find_by(email: 'mholanda@unb.br')
+    User.create(id: 1, email: 'mholanda@unb.br', password: 'abc123', password_confirmation: 'abc123',
+                created_at: Time.now.utc, updated_at: Time.now.utc, confirmed_at: Time.now.utc)
     classes.each do |sbj|
-      sbj_class = SubjectClass.find_by(subject: sbj["subject"], code: sbj["code"], semester: sbj["semester"])
+      sbj_class = SubjectClass.find_by(subject: sbj['subject'], code: sbj['code'], semester: sbj['semester'])
       sbj_class.update(teacher_id: teacher.id)
     end
 
-    fill_in("email", with: "mholanda@unb.br")
-    fill_in("password", with: "abc123")
-    click_button("Confirmar")
+    fill_in('email', with: 'mholanda@unb.br')
+    fill_in('password', with: 'abc123')
+    click_button('Confirmar')
   end
 end
 
@@ -152,27 +154,27 @@ Given(/I am an authenticated Coordinator from the "([^"]*)"$/) do |dpt_name|
   department = Department.find_by({ name: dpt_name })
   coordinator = Coordinator.find_by({ department_id: department.id })
 
-  visit("/admins/login")
+  visit('/admins/login')
   # puts page.body
-  fill_in("email", with: coordinator.email)
-  fill_in("password", with: "admin123")
-  click_button("Confirmar")
+  fill_in('email', with: coordinator.email)
+  fill_in('password', with: 'admin123')
+  click_button('Confirmar')
 end
 
 Given(/that I imported classes for "DEPTO CIÊNCIAS DA COMPUTAÇÃO"/) do
   classes = SubjectClass.find_by({ department_id: 508 })
   unless classes
-    classes = JSON.parse(File.read("./db/classes.json"))
+    classes = JSON.parse(File.read('./db/classes.json'))
     classes.each do |subject_class|
-      initials = subject_class["code"].gsub(/[^a-zA-Z]/, "")
+      initials = subject_class['code'].gsub(/[^a-zA-Z]/, '')
       SubjectClass.create!(
         {
-          subject: subject_class["code"],
-          name: subject_class["name"],
-          code: subject_class["class"]["classCode"],
-          semester: subject_class["class"]["semester"],
-          schedule: subject_class["class"]["time"],
-          department_id: Department.find_by(initials:).id,
+          subject: subject_class['code'],
+          name: subject_class['name'],
+          code: subject_class['class']['classCode'],
+          semester: subject_class['class']['semester'],
+          schedule: subject_class['class']['time'],
+          department_id: Department.find_by(initials:).id
         }
       )
     end
@@ -180,24 +182,24 @@ Given(/that I imported classes for "DEPTO CIÊNCIAS DA COMPUTAÇÃO"/) do
 end
 
 When(/I press on "Importar"/) do
-  click_button("Importar")
+  click_button('Importar')
 end
 
-Given "I am not enrolled in any class" do
+Given 'I am not enrolled in any class' do
   Enrollment.destroy_all
 end
 
 Given(/that I am a registered User/) do # if user or admin
   User.create!({
-                 email: "mholanda@unb.br",
-                 password: "professor123",
-                 password_confirmation: "professor123",
-                 confirmed_at: Time.now.utc,
+                 email: 'mholanda@unb.br',
+                 password: 'professor123',
+                 password_confirmation: 'professor123',
+                 confirmed_at: Time.now.utc
                })
 end
 
 Given(/that I am a registered Admin/) do # if user or admin
-  admin = Admin.find_by({ email: "admin.dex@gmail.com" })
+  admin = Admin.find_by({ email: 'admin.dex@gmail.com' })
   # visit('/admins/login')
   # fill_in('email', with: admin.email)
   # fill_in('password', with: 'admin123')
@@ -205,7 +207,7 @@ Given(/that I am a registered Admin/) do # if user or admin
 end
 
 Given(/that I am an unregistered ([^"]*)$/) do |_role|
-  User.find_by({ email: "noexists@gmail.com" }) == 0
+  User.find_by({ email: 'noexists@gmail.com' }) == 0
 end
 
 And(/there are no emails/) do
@@ -237,7 +239,7 @@ end
 Given(/^that a form has been assigned to the (students|teachers) of the following classes:$/) do |role, fields|
   step 'I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"'
 
-  if role == "teachers"
+  if role == 'teachers'
     fields.hashes.each do |form|
       step 'that I created the teacher template "Formulário Professor"'
 
@@ -248,11 +250,11 @@ Given(/^that a form has been assigned to the (students|teachers) of the followin
       step 'I select "Formulário Professor" from "Teacher template"'
       step 'I expect to see "Formulário Professor"'
 
-      step %'I check "#{form["semester"]}_#{form["subject"]}_#{form["code"]}"'
+      step %(I check "#{form['semester']}_#{form['subject']}_#{form['code']}")
       step 'I press "Confirm"'
       step 'I expect to see "O formulário para o professor da turma BANCOS DE DADOS foi criado com sucesso."'
 
-      step "I ended my session"
+      step 'I ended my session'
     end
   else
     fields.hashes.each do |form|
@@ -265,16 +267,16 @@ Given(/^that a form has been assigned to the (students|teachers) of the followin
       step 'I select "Formulário Aluno" from "Student template"'
       step 'I expect to see "Formulário Aluno"'
 
-      step %'I check "#{form["semester"]}_#{form["subject"]}_#{form["code"]}"'
+      step %(I check "#{form['semester']}_#{form['subject']}_#{form['code']}")
       step 'I press "Confirm"'
       step 'I expect to see "O formulário para os alunos da turma BANCOS DE DADOS foi criado com sucesso."'
 
-      step "I ended my session"
+      step 'I ended my session'
     end
   end
 end
 
-Given("that I am an User associated with the following classes:") do |_table|
+Given('that I am an User associated with the following classes:') do |_table|
   # table is a Cucumber::MultilineArgument::DataTable
   pending
 end
@@ -292,31 +294,32 @@ Then (/I expect the (student|teacher) "([^"]*)" to not be associated with follow
     else
       expect(subject_class.teacher_id).to be teacher.id
     end
+
   end
 end
 
-Then("I expect to see the following classes:") do |table|
+Then('I expect to see the following classes:') do |table|
   expected_classes = table.hashes
 
   expected_classes.each do |subject_class|
-    text = "#{subject_class["semester"]} - #{subject_class["name"]} - #{subject_class["code"]}"
+    text = "#{subject_class['semester']} - #{subject_class['name']} - #{subject_class['code']}"
     expect(page).to have_text(text)
   end
 end
 
-Given("that I have not answered any form") do
+Given('that I have not answered any form') do
   pending
 end
 
-Given (/that I answered the "([^"]*)" form/) do |form|
+Given(/that I answered the "([^"]*)" form/) do |form|
   step 'I expect to be on the "Forms" page'
   step 'I follow "Pendentes"'
 
-  step %'I expect to see "#{form}"'
-  step %'I follow "#{form}"'
-  step %'I expect to be on the "#{form}" page'
+  step %(I expect to see "#{form}")
+  step %(I follow "#{form}")
+  step %(I expect to be on the "#{form}" page)
 
-  step "I expect to see the following:", table(%(
+  step 'I expect to see the following:', table(%(
             | name                       |
             | #{form}         |
             | Classifique seu rendimento |
@@ -328,49 +331,48 @@ Given (/that I answered the "([^"]*)" form/) do |form|
 
   step 'I follow "Respondidos"'
   step 'I expect to be on the "Forms" page'
-  step %'I expect to see "#{form}"'
+  step %(I expect to see "#{form}")
 end
 
 Given(/that a form assigned to the (students|teachers) of the following classes were answered:/) do |role, table|
   classes = table.hashes
-  if role == "students"
+  if role == 'students'
     classes.each do |data|
-      step "that a form has been assigned to the students of the following classes:", table(%(
+      step 'that a form has been assigned to the students of the following classes:', table(%(
             | subject | semester | code |
-            | #{data["subject"]} | #{data["semester"]}   | #{data["code"]}   |))
+            | #{data['subject']} | #{data['semester']}   | #{data['code']}   |))
 
-      step "I am an authenticated Student associated with the following classes:", table(%(
+      step 'I am an authenticated Student associated with the following classes:', table(%(
             | subject | semester | code |
-            | #{data["subject"]} | #{data["semester"]}   | #{data["code"]}   |))
+            | #{data['subject']} | #{data['semester']}   | #{data['code']}   |))
 
       step 'that I answered the "Formulário Aluno" form'
-      step "I ended my session"
+      step 'I ended my session'
     end
-  else
   end
 end
 
 Then(/I expect to see a download window with the file "([^"]*)"/) do |expected_filename|
-  actual_filename = page.response_headers["Content-Disposition"]
+  actual_filename = page.response_headers['Content-Disposition']
   actual_filename.should include(normalize_filename(expected_filename))
 end
 
 Given(/that the student "([^"]*)" has left the following classes:/) do |name, table|
   data = table.hashes
 
-  student = Student.find_by(name: name)
+  student = Student.find_by(name:)
   data.each do |sbj|
-    subject_class = SubjectClass.find_by(subject: sbj["subject"], code: sbj["code"], semester: sbj["semester"])
+    subject_class = SubjectClass.find_by(subject: sbj['subject'], code: sbj['code'], semester: sbj['semester'])
 
     Enrollment.find_by(subject_class_id: subject_class.id, student_id: student.id).destroy
   end
 end
 
-Given("that the classes were updated with the following:") do |table|
+Given('that the classes were updated with the following:') do |table|
   data = table.hashes
   data.each do |sbj|
-    new_data = { name: sbj["name"], schedule: sbj["schedule"] }
-    class_key = { subject: sbj["subject"], code: sbj["code"], semester: sbj["semester"] }
+    new_data = { name: sbj['name'], schedule: sbj['schedule'] }
+    class_key = { subject: sbj['subject'], code: sbj['code'], semester: sbj['semester'] }
     SubjectClass.find_by(class_key).update(new_data)
   end
 end
@@ -381,7 +383,7 @@ When(/^(?:|I )create a "([^"]*)" question with the following:$/) do |question_ty
   step %(I select "#{question_type}" from "question type")
 
   case question_type
-  when "Múltipla escolha"
+  when 'Múltipla escolha'
     options_count = fields.rows.size
     step %(I select "#{options_count}" from "options number")
   end
@@ -411,7 +413,7 @@ Given(/^that I created the (teacher|student) template "([^"]*)"$/) do |template_
   ))
 
   step "I fill in \"Name\" with \"#{template_name}\""
-  if template_type == "teacher"
+  if template_type == 'teacher'
     step 'I select "Docente" from "Template role"'
   else
     step 'I select "Discente" from "Template role"'
@@ -456,23 +458,27 @@ Then(/^(?:|I )expect to not see "([^"]*)"$/) do |text|
 end
 
 Then(/^(?:|I )expect "([^"]*)" to be checked$/) do |field|
-  input_id = field.downcase.gsub(" ", "_")
+  input_id = field.downcase.gsub(' ', '_')
   expect(find("##{input_id}", visible: :all)).to be_checked
 end
 
 Then(/I expect to only see classes starting with "([^"]*)"/) do |initials|
   # Locate the table rows
-  rows = find("table.table.table-borderless.table-data3 tbody").all("tr")
+  rows = find('table.table.table-borderless.table-data3 tbody').all('tr')
 
   # Iterate through the rows and check if the class names start with the initials
   rows.each do |row|
-    class_name = row.find("td:nth-child(3)").text
+    class_name = row.find('td:nth-child(3)').text
     expect(class_name).to start_with(initials)
   end
 end
 
 Then(/I expect to see the button "([^"]*)"$/) do |button|
-  expect(page).to have_button(id: button.gsub(" ", "_").downcase)
+  expect(page).to have_button(id: button.gsub(' ', '_').downcase)
+end
+
+Then(/I expect to see the link "([^"]*)"$/) do |link|
+  expect(page).to have_link(id: link.gsub(' ', '_').downcase)
 end
 
 Then(/I expect to see the following forms as ([^"]*):$/) do |_status, _table|
@@ -480,29 +486,29 @@ Then(/I expect to see the following forms as ([^"]*):$/) do |_status, _table|
   pending
 end
 
-Given ("that no templates have been created") do
+Given('that no templates have been created') do
   Template.destroy_all
   visit templates_path
 end
 
-Then("I expect to see the following templates:") do |_table|
+Then('I expect to see the following templates:') do |_table|
   # table is a Cucumber::MultilineArgument::DataTable
   pending
 end
 
-Then("I expect to see the following table:") do |table|
+Then('I expect to see the following table:') do |table|
   expected_table = table.raw
 
-  actual_table = find("table")
+  actual_table = find('table')
 
-  actual_table_data = actual_table.all("tr").map do |row|
-    row.all("th, td").map(&:text)
+  actual_table_data = actual_table.all('tr').map do |row|
+    row.all('th, td').map(&:text)
   end
 
   expect(actual_table_data).to eq(expected_table)
 end
 
-Then("I expect to see the following results:") do |_table|
+Then('I expect to see the following results:') do |_table|
   pending
 end
 
@@ -510,7 +516,7 @@ end
 Then(/^the "([^"]*)" field(?: within (.*))? should contain "([^"]*)"$/) do |field, parent, value|
   with_scope(parent) do
     field = find_field(field)
-    field_value = field.tag_name == "textarea" ? field.text : field.value
+    field_value = field.tag_name == 'textarea' ? field.text : field.value
     if field_value.respond_to? :should
       field_value.should =~ /#{value}/
     else
@@ -522,7 +528,7 @@ end
 Then(/^the "([^"]*)" field(?: within (.*))? should not contain "([^"]*)"$/) do |field, parent, value|
   with_scope(parent) do
     field = find_field(field)
-    field_value = field.tag_name == "textarea" ? field.text : field.value
+    field_value = field.tag_name == 'textarea' ? field.text : field.value
     if field_value.respond_to? :should_not
       field_value.should_not =~ /#{value}/
     else
@@ -533,11 +539,11 @@ end
 
 Then(/^the "([^"]*)" field should have the error "([^"]*)"$/) do |field, error_message|
   element = find_field(field)
-  classes = element.find(:xpath, "..")[:class].split(" ")
+  classes = element.find(:xpath, '..')[:class].split(' ')
 
-  form_for_input = element.find(:xpath, "ancestor::form[1]")
-  using_formtastic = form_for_input[:class].include?("formtastic")
-  error_class = using_formtastic ? "error" : "field_with_errors"
+  form_for_input = element.find(:xpath, 'ancestor::form[1]')
+  using_formtastic = form_for_input[:class].include?('formtastic')
+  error_class = using_formtastic ? 'error' : 'field_with_errors'
 
   if classes.respond_to? :should
     classes.should include(error_class)
@@ -562,19 +568,19 @@ end
 
 Then(/^the "([^"]*)" field should have no error$/) do |field|
   element = find_field(field)
-  classes = element.find(:xpath, "..")[:class].split(" ")
+  classes = element.find(:xpath, '..')[:class].split(' ')
   if classes.respond_to? :should
-    classes.should_not include("field_with_errors")
-    classes.should_not include("error")
+    classes.should_not include('field_with_errors')
+    classes.should_not include('error')
   else
-    assert !classes.include?("field_with_errors")
-    assert !classes.include?("error")
+    assert !classes.include?('field_with_errors')
+    assert !classes.include?('error')
   end
 end
 
 Then(/^the "([^"]*)" checkbox(?: within (.*))? should be checked$/) do |label, parent|
   with_scope(parent) do
-    field_checked = find_field(label)["checked"]
+    field_checked = find_field(label)['checked']
     if field_checked.respond_to? :should
       field_checked.should be_true
     else
@@ -585,7 +591,7 @@ end
 
 Then(/^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/) do |label, parent|
   with_scope(parent) do
-    field_checked = find_field(label)["checked"]
+    field_checked = find_field(label)['checked']
     if field_checked.respond_to? :should
       field_checked.should be_false
     else
@@ -598,7 +604,7 @@ Then(/^(?:|I )should have the following query string:$/) do |expected_pairs|
   query = URI.parse(current_url).query
   actual_params = query ? CGI.parse(query) : {}
   expected_params = {}
-  expected_pairs.rows_hash.each_pair { |k, v| expected_params[k] = v.split(",") }
+  expected_pairs.rows_hash.each_pair { |k, v| expected_params[k] = v.split(',') }
 
   if actual_params.respond_to? :should
     actual_params.should == expected_params
@@ -608,11 +614,11 @@ Then(/^(?:|I )should have the following query string:$/) do |expected_pairs|
 end
 
 # Import and export
-Then("I should download be able to export a {string} file with all the answers") do |_string|
+Then('I should download be able to export a {string} file with all the answers') do |_string|
   pending
 end
 
-Then("I should be able to see the answered form as a chart") do
+Then('I should be able to see the answered form as a chart') do
   pending
 end
 

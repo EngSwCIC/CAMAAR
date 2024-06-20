@@ -17,9 +17,9 @@ Feature: View Templates
             | Template 2 |
 
         Then I expect to see the button "delete Template 1"
-        Then I expect to see the button "edit Template 1"
+        Then I expect to see the link "edit Template 1"
         Then I expect to see the button "delete Template 2"
-        Then I expect to see the button "edit Template 2"
+        Then I expect to see the link "edit Template 2"
 
 
 
