@@ -1,3 +1,4 @@
+require "sigaa_api"
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
@@ -11,6 +12,9 @@ require 'shoulda/matchers'
 Rails.application.config.active_support.deprecation = :raise
 
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
+
+Rails.root.glob('spec/support/**/*.rb').sort.each { |f| require f }
+puts {SIGAA::Client.fetch_classes}
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
@@ -28,11 +32,11 @@ RSpec.configure do |config|
     driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
     DatabaseCleaner.strategy = :truncation
   end
-
-  config.include FactoryBot::Syntax::Methods
   
-  Shoulda::Matchers.configure do |shoulda_config|
-    shoulda_config.integrate do |with|
+  config.include FactoryBot::Syntax::Methods
+
+  Shoulda::Matchers.configure do |config|
+    config.integrate do |with|
       with.test_framework :rspec
       with.library :rails
     end

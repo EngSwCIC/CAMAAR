@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   # Adicione a rota para criação de novos formulários se necessário
   get 'new_formulario', to: 'formularios#new'
   get 'formularios', to: 'formularios#index'
-  
+
   resources :formularios
   post 'save_formulario', to: 'formularios#save_formulario'
 
@@ -58,6 +58,9 @@ Rails.application.routes.draw do
   get 'view_file', to: 'formulario_templates#view_file'
 
   get 'templates/check_name', to: 'templates#check_name'
+
+  post 'materia/search_in_sigaa'
+  post 'materia/update_with_sigaa_data'
 
   resources :reports_professors
   resources :reports_alunos
