@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   # Sigaa Management Path
   post '/import_sigaa_data', to: 'sigaa_management#import_sigaa_data', as: 'import_from_sigaa'
   post '/update_sigaa_data', to: 'sigaa_management#update_sigaa_data', as: 'update_sigaa_data'
-  post '/send_email_availables_sign_up', to: 'sigaa_management#send_email_availables_sign_up', as: 'send_email_availables_sign_up'
+  post '/send_email_availables_sign_up', to: 'sigaa_management#send_email_availables_sign_up',
+                                         as: 'send_email_availables_sign_up'
   # Semesters Path
   get '/semesters', to: 'semesters#index'
   get '/semesters/current', to: 'semesters#show'
@@ -32,4 +33,5 @@ Rails.application.routes.draw do
   end
 
   resources :templates
+  resources :forms
 end
