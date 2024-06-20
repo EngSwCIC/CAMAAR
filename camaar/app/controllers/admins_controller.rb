@@ -29,7 +29,6 @@ class AdminsController < ApplicationController
           flash[:warning] = 'Selecione pelo menos um template para envio.'
         else
           if teacher_template_id.present?
-            puts 'professor'
 
             teacher_template = Template.find_by(id: teacher_template_id, draft: false)
             teacher_form = Form.new(
@@ -56,7 +55,6 @@ class AdminsController < ApplicationController
           end
 
           if student_template_id.present?
-            puts 'alunos'
 
             student_template = Template.find_by(id: student_template_id)
             student_form = Form.new(
