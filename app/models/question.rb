@@ -9,4 +9,8 @@ class Question < ApplicationRecord
   def objective?
     !input? && !self[:answer].nil?
   end
+
+  def valid_answer?(_)
+    true
+  end
 end
