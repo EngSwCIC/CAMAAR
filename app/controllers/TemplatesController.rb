@@ -21,5 +21,4 @@ class TemplatesController < ApplicationController
     template_exists = Template.exists?(name: template_name)
     render json: { exists: template_exists }
   end
-  
 end

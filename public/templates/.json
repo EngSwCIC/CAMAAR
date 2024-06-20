@@ -1,0 +1,15 @@
+{
+  "templateName": "",
+  "questions": [
+    {
+      "type": "text"
+    },
+    {
+      "type": "checkbox",
+      "options": [
+        "teste1",
+        "teste2"
+      ]
+    }
+  ]
+}

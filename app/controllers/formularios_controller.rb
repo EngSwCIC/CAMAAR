@@ -141,8 +141,6 @@ class FormulariosController < ApplicationController
   render json: { responses: responses }
 end
 
-
-
   def count_responses
   form_name = params[:form_name]
   professor = params[:professor]
@@ -155,12 +153,6 @@ end
 
   render json: { totalResponses: total_responses }
 end
-
-
-
-
-
-
 
   private
 
