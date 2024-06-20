@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :sessions
 
   root 'sessions#new'
-  get 'gerenciamento', to: 'gerenciamento#show'
+  get 'gerenciamento', to: 'gerenciamento#index'
   get 'gerenciamento/templates', to: 'gerenciamento#show_templates'
   get '/definir-senha/:id', to: 'auth#define_password'
   get '/runner/add', to: 'runner#add'
