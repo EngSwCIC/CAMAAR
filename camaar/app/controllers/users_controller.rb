@@ -74,9 +74,9 @@ class UsersController < ApplicationController
 
   def import_users(class_members_data_array)
     class_members_data_array.each do |materia_data|
-      materia = Materia.find_by(codigo: materia_data[:code])  # Search by code only
+      materia = Materia.find_or_create_by(codigo: materia_data[:code])  # Search by code only
 
-      turma = materia.turmas.find_or_create_by(codigo: turma_data[:classCode], semestre: turma_data[:semester], horario: turma_data[:time])
+      turma = materia.turmas.find_or_create_by(codigo: materia_data[:classCode], semestre: materia_data[:semester], horario: materia_data[:time])
 
       # Import dicentes (students)
       dicente_data_array = materia_data[:dicente]

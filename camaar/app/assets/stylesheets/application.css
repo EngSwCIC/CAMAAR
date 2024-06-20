@@ -41,7 +41,6 @@ body {
 }
 
 main {
-  display: flex; /* Enable flexbox for centering */
   justify-content: center; /* Horizontally center content */
   align-items: center; /* Vertically center content */
   min-height: 100vh; /* Set minimum height for full viewport */
