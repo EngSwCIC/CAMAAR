@@ -46,29 +46,36 @@ class Semester < ApplicationRecord
   end
 
   def self.to_csv
-    CSV.generate(headers: true) do |csv|
+    CSV.generate(headers: true)  do|csv|
       all.each do |semester|
+        disciplines = Discipline.where(semester_id: semester.id) 
+
         csv << [semester.to_s]
+        csv << ["Sem disciplinas."] if disciplines.empty?
         csv << [nil]
 
-        disciplines = Discipline.where(semester_id: semester.id)
-
         disciplines.each do |discipline|
-          csv << [discipline.name]
-          csv << [nil] if !discipline.forms.empty?
+
+          csv << ["#{discipline.code} - #{discipline.name}"]
+          csv << ["Sem formulários."] if discipline.forms.empty?
+          csv << [nil]
 
           discipline.forms.each do |form|
-            csv << ["Formulário #{form.id}"]
-            csv << [nil] if !form.questions.empty?
 
-            form.questions.each do |question|
-              csv << [question.label]
-              csv << [nil] if !question.answers.empty?
+            csv << ["Formulário #{form.id}"]
+            csv << [nil]
+
+            form.questions.each_with_index do |question, index|
+              
+              csv << ["#{index + 1}. #{question.label}"]
+              csv << ["Sem respostas fornecidas."] if question.answers.empty?
+              csv << [nil]
 
               question.answers.each do |answer|
                 csv << [User.find(answer.user_id), answer.answer]
               end
-              csv << [nil]
+              csv << [nil] if !question.answers.empty?
+
             end
           end
         end
@@ -80,22 +87,30 @@ class Semester < ApplicationRecord
     CSV.generate(headers: true) do |csv|
       disciplines = Discipline.where(semester_id: self.id)
 
+      csv << ["Sem disciplinas."] if disciplines.empty?
+
       disciplines.each do |discipline|
-        csv << [discipline.name]
-        csv << [nil] if !discipline.forms.empty?
+
+        csv << ["#{discipline.code} - #{discipline.name}"]
+        csv << ["Sem formulários."] if discipline.forms.empty?
+        csv << [nil]
 
         discipline.forms.each do |form|
-          csv << ["Formulário #{form.id}"]
-          csv << [nil] if !form.questions.empty?
 
-          form.questions.each do |question|
-            csv << [question.label]
-            csv << [nil] if !question.answers.empty?
+          csv << ["Formulário #{form.id}"]
+          csv << [nil]
+
+          form.questions.each_with_index do |question, index|
+
+            csv << ["#{index + 1}. #{question.label}"]
+            csv << ["Sem respostas fornecidas."] if question.answers.empty?
+            csv << [nil]
 
             question.answers.each do |answer|
               csv << [User.find(answer.user_id), answer.answer]
             end
-            csv << [nil]
+            csv << [nil] if !question.answers.empty?
+
           end
         end
       end
@@ -105,4 +120,5 @@ class Semester < ApplicationRecord
   def self.find_by_id(id)
     find(id)
   end
+
 end
