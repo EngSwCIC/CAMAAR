@@ -1,25 +1,29 @@
-<%= form_with url: "/gerenciamento/generate_csv", method: :get, data: { turbo: false } do |form| %>
-  <table>
-    <tr>
-      <th></th>
-      <th>Código</th>
-      <th>Nome</th>
-      <th>Semestre</th>
-      <th>Turma</th>
-    </tr>
-
-    <% forms.each do |entry| %>
+<% if forms.empty? %>
+  <h3 style="margin-left: auto; margin-right: auto; width: fit-content; margin-top: 1rem">Não existem resultados para baixar</h3>
+<% else %>
+  <%= form_with url: "/gerenciamento/generate_csv", method: :get, data: { turbo: false }, html: { style: "display: flex; flex-direction: column" } do |form| %>
+    <table>
       <tr>
-        <td><%= form.check_box :"form_id-#{entry["id"]}" %></td>
-        <td><%= entry["class_data"]["name"] %></td>
-        <td><%= entry["class_data"]["code"] %></td>
-        <td><%= entry["class_data"]["class"]["semester"] %></td>
-        <td><%= entry["class_data"]["class"]["classCode"] %></td>
+        <th></th>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Semestre</th>
+        <th>Turma</th>
       </tr>
-    <% end %>
-  </table>
 
-  <%= form.submit "Gerar CSVs" %>
+      <% forms.each do |entry| %>
+        <tr>
+          <td><%= form.check_box :"form_id-#{entry["id"]}" %></td>
+          <td><%= entry["class_data"]["name"] %></td>
+          <td><%= entry["class_data"]["code"] %></td>
+          <td><%= entry["class_data"]["class"]["semester"] %></td>
+          <td><%= entry["class_data"]["class"]["classCode"] %></td>
+        </tr>
+      <% end %>
+    </table>
+
+    <%= form.submit "Gerar CSVs", style: "margin-left: auto; margin-top: 16px" %>
+  <% end %>
 <% end %>
 
 <style>

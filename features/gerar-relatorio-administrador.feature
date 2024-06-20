@@ -6,17 +6,15 @@ Funcionalidade: Visualizar os templates criados
     A fim de avaliar o desempenho das turmas
 
     # Happy Path
-    Cenário: Baixar CSV de formulários selecionados
+    Cenário: Baixar CSVs de formulários selecionados
         Dado que eu estou logado no sistema com um usuário do tipo admin
         E estou na janela sobreposta de resultados
-        E há uma turma selecionada
-        Quando eu clico em "Gerar resultado"
-        Então deve ser baixado um arquivo CSV com os resultados do formulário
+        Quando eu clico em "Gerar CSVs"
+        Então deve ser baixado um arquivo ZIP contendo os resultados dos formulários selecionados
 
     # Sad Path
-    Cenário: Nenhum formulário selecionado
+    Cenário: Nenhum formulário disponível
         Dado que eu estou logado no sistema com um usuário do tipo admin
         E estou na janela sobreposta de resultados
-        E não há uma turma selecionada
-        Quando eu clico em "Gerar resultado"
-        Então deve aparecer uma mensagem dizendo "Não existe formulário selecionado"
+        E não há nenhuma turma disponível
+        Então deve aparecer uma mensagem dizendo "Não existem resultados para baixar"

@@ -33,6 +33,7 @@ class GerenciamentoController < ApplicationController
         end
 
         all_answers = JSON.parse(File.read('db/json/answers.json'))
+        all_forms = JSON.parse(File.read('db/json/forms.json'))
 
         csvs = {}
         selected_form_ids.each do |form_id|
@@ -54,21 +55,24 @@ class GerenciamentoController < ApplicationController
                 rows.each { |row| csv << row.values_at(*headers) }
             end
     
-            csvs[form_id] = csv_string
+            form = all_forms.find { |f| f["id"] == form_id }
+            file_name = "#{form["class"]["subject_code"]} #{form["class"]["semester"]} #{form["class"]["code"]}.csv"
+            file_name = file_name.gsub(/[^0-9A-Za-z.\-]/, '_')
+            csvs[file_name] = csv_string
         end
 
         temp_dir = Rails.root.join('tmp', 'csvs')
         FileUtils.mkdir_p(temp_dir) unless File.directory?(temp_dir)
 
-        csvs.each do |form_id, csv_data|
-            File.open(temp_dir.join("form_#{form_id}.csv"), 'w') { |file| file.write(csv_data) }
+        csvs.each do |file_name, csv_data|
+            File.open(temp_dir.join(file_name), 'w') { |file| file.write(csv_data) }
         end
 
         zip_file = Rails.root.join('tmp', 'CSVs.zip')
         File.delete(zip_file) if File.exist?(zip_file)
         Zip::File.open(zip_file, Zip::File::CREATE) do |zip|
-            csvs.each do |form_id, _|
-                zip.add("form_#{form_id}.csv", temp_dir.join("form_#{form_id}.csv"))
+            csvs.each do |file_name, _|
+                zip.add(file_name, temp_dir.join(file_name))
             end
         end
 
