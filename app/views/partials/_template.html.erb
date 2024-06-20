@@ -1,16 +1,15 @@
 <% method = 'post' unless !method.nil? %>
-
-<h2>Modelo #<%= template.id %></h2>
+<% disabled = false if disabled.nil? %>
 
 <%= form_with method:, scope: :questions do |form| %>
-    <% template.questions.each do |question| %>
+    <% templatelike.questions.each do |question| %>
         <h3><%= question.label %></h3>
         <%= question.description %>
         <br>
         <% if question.input? %>
-            <%= render partial: 'partials/question_input', locals: { question:, form:, disabled: true} %>
+            <%= render partial: 'partials/question_input', locals: { question:, form:, disabled: } %>
         <% end %>
     <% end %>
     <br>
-    <%= form.submit %>
+    <%= form.submit disabled: %>
 <% end %>
