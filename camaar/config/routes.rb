@@ -29,7 +29,13 @@ Rails.application.routes.draw do
     # patch "/:id", to: "matriculas#update"
   end
 
+
+  resources :formulario
   scope "/formularios" do
+    get "/responder", to: "formularios#show_pending"
+    get "/responder/:id", to: "formularios#responder"
+    post "/responder/:id", to: "formularios#resposta"
+  
     get "/", to: "formularios#index"
     get "/:id", to: "formularios#show"
     post "/", to: "formularios#create"
@@ -62,4 +68,5 @@ Rails.application.routes.draw do
   end
 
   resources :templates
+  resources :materias
 end
