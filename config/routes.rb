@@ -3,5 +3,8 @@ Rails.application.routes.draw do
 
   get '/avaliacoes', to: 'avaliacoes#index'
 
+  get '/gerenciamento', to: 'gerenciamento#index'
+  put '/gerenciamento/import', :as => 'gerenciamento_import'
+
   root to: "avaliacoes#index"
 end
