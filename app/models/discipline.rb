@@ -18,7 +18,7 @@ class Discipline < ApplicationRecord
       semester = Semester.find_by_id(discipline.semester_id)
   
       info = discipline.professor_and_semester_info(discipline, professor, semester)
-      disciplines_info << info.merge(discipline_name: discipline.name)
+      disciplines_info << info.merge(discipline_name: discipline.name, id: discipline.id)
     end
     disciplines_info
   end
@@ -38,5 +38,11 @@ class Discipline < ApplicationRecord
       professor_department_code: professor_department_code,
       semester_name: semester_name
     }
-  end 
+  end
+  
+  def to_csv
+    CSV.generate(headers: true) do |csv|
+      csv << [self.name]
+    end
+  end
 end
