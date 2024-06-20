@@ -17,16 +17,16 @@ module NavigationHelpers
       '/users/sign_in'
 
     when /^the Avaliacoes\s?page$/
-      '/shared/avaliacoes'
+      '/avaliacoes'
 
     when /^the Gerenciamento\s?page$/
-      '/shared/gerenciamento'
+      '/gerenciamento'
 
     when /^the Resultados\s?page$/
-      '/shared/gerenciamento/resultados'
+      '/gerenciamento/resultados'
 
     when /^the Templates\s?page$/
-      '/shared/gerenciamento/templates'
+      '/gerenciamento/templates'
 
     when /^the Definir Senha\s?page$/
       '/users/senha'
