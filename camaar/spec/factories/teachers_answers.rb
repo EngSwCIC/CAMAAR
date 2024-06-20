@@ -6,7 +6,7 @@ FactoryBot.define do
 
     trait :teacher_answers1 do
       id { 1 }
-      form_question_id { 1 }
+      form_question_id { 2 }
       teacher_id { 100 }
     end
   end

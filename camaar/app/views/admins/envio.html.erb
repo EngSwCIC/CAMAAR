@@ -14,11 +14,11 @@
 
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <%= f.label :professor_template_id, "Professores", class: "form-control-label" %>
+                    <%= f.label :teacher_template, "Professores", class: "form-control-label" %>
                   </div>
                   <div class="col-12 col-md-9">
                     <% if @teacher_templates.present? %>
-                     <%= f.select :professor_template_id, options_from_collection_for_select(@teacher_templates, :id, :name), { prompt: "Selecione um Template" }, class: "form-control" %>              
+                     <%= f.select :teacher_template, options_from_collection_for_select(@teacher_templates, :id, :name), { prompt: "Selecione um Template" }, class: "form-control" %>              
                     <% else %>
                       <select disabled class="form-control">
                         <option value="" disabled selected>Nenhum template disponível</option>
@@ -29,11 +29,11 @@
 
                 <div class="row form-group">
                   <div class="col col-md-3">
-                    <%= f.label :aluno_template_id, "Alunos", class: "form-control-label" %>
+                    <%= f.label :student_template, "Alunos", class: "form-control-label" %>
                   </div>
                   <div class="col-12 col-md-9">
                     <% if @student_templates.present? %>
-                      <%= f.select :aluno_template_id, options_from_collection_for_select(@student_templates, :id, :name), { prompt: "Selecione um Template" }, class: "form-control" %>
+                      <%= f.select :student_template, options_from_collection_for_select(@student_templates, :id, :name), { prompt: "Selecione um Template" }, class: "form-control" %>
                     <% else %>
                       <select disabled class="form-control">
                         <option value="" disabled selected>Nenhum template disponível</option>
@@ -48,10 +48,10 @@
                   </div>
                   <div class="col-12 col-md-9">
                     <% if @classes.present? %>
-                      <% @classes.each do |classe| %>
+                      <% @classes.each do |subject_class| %>
                         <div class="form-check">
-                          <%= f.check_box :turma_ids, { multiple: true, class: "form-check-input", id: "turma_#{classe.id}" }, classe.id, nil %>
-                          <%= f.label "turma_#{classe.id}", classe.name, class: "form-check-label" %>
+                          <%= f.check_box :classes_ids, { multiple: true, class: "form-check-input", id: "#{subject_class.semester}_#{subject_class.subject}_#{subject_class.code}" }, subject_class.id, nil %>
+                          <%= f.label "#{subject_class.semester}_#{subject_class.subject}_#{subject_class.code}", "#{subject_class.semester} - #{subject_class.name} - #{subject_class.code}", class: "form-check-label" %>
                         </div>
                       <% end %>
                     <% else %>

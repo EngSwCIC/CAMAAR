@@ -5,26 +5,29 @@ Feature: Export form results
     So that I can evaluate the performance of the classes
 
     Background: Form has already been answered
+
+        Given that a form assigned to the students of the following classes were answered:
+            | subject | semester | code |
+            | CIC0097 | 2021.2   | TA   |
+        Given that a form has been assigned to the teachers of the following classes:
+            | subject | semester | code |
+            | CIC0097 | 2021.2   | TA   |
+            
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
-        Given that a form has been assigned to the following classes:
-            | name         | role    | subject | semester | classCode |
-            | Formulário 1 | teacher | CIC0097 | 2021.2   | TA        |
-            | Formulário 2 | student | CIC0105 | 2021.2   | TA        |
-        And I am on the "Resultados" page
-        Given that the "Formulário 1" form has been answered
+        When I follow "Resultados"
+        
+        Then I expect to see "Formulário Aluno"
+        Then I expect to see "Formulário Professor"
 
 
     Scenario: Export the responses of a answered form
-        When I press "Exportar Respostas"
-        Then I should download be able to export a "csv" file with all the answers
+        When I press "export csv 1"
+        Then I expect to see a download window with the file "1_Formulário_Aluno.csv"
 
     Scenario: Generate a report from the responses of a answered form
-        When I press "Converter para gráfico"
-        Then I should be able to see the answered form as a chart
+        When I press "export graph 1"
+        Then I expect to see a download window with the file "1_Formulário_Aluno.png"
 
-    Scenarios: Export the responses of a deleted form
-        Given I am at "Formulários page"
-        And I delete "<Formulário 1>"
-        Then I should not see "<Formulário 1>"
-        When I visit "Resultados" page
-        Then I should not be able to export the responses from "<Formulário 1>"
+    Scenario: Tries to export graph of a with no responses
+        When I press "export graph 2"
+        Then I expect to see "O formulário não possui respostas"

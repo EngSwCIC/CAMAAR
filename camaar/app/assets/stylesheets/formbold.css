@@ -92,6 +92,7 @@ body {
 .formbold-form-question-title {
   color: #536387;
   font-weight: 500;
+  font-family: "Inter", sans-serif;
   font-size: 25px;
   line-height: 24px;
   display: block;
@@ -99,7 +100,7 @@ body {
 }
 
 .formbold-form-question-answer {
-  color: #333333;
+  color: #536387;
   font-weight: 700;
   font-size: 20px;
   font-family: "Inter", sans-serif;

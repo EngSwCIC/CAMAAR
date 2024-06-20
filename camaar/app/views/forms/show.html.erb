@@ -3,8 +3,8 @@
     <div class="container-fluid">
       <div class="formbold-form-wrapper">
         <h1><%= @form.name %></h1>
-        <% @questions_and_answers.each do |form_question,answer| %>
-          <%= render partial: 'answer', locals: { form_question: form_question, answer: answer } %>
+        <% @questions_and_answers.each_with_index do |(form_question,answer), question_number| %>
+          <%= render partial: 'answer', locals: { form_question: form_question, answer: answer,question_number:question_number+1 } %>
         <% end %>
         <div class="row">
           <div class="col">

@@ -5,6 +5,7 @@ FactoryBot.define do
     occupation { 'discente' }
 
     trait :student1 do
+      id {1}
       name { 'test1' }
       registration { 1 }
       email { 'test1@gmail.com' }
@@ -12,6 +13,7 @@ FactoryBot.define do
     end
 
     trait :student2 do
+      id {2}
       name { 'test2' }
       registration { 2 }
       email { 'test2@gmail.com' }
@@ -19,6 +21,7 @@ FactoryBot.define do
     end
 
     trait :student3 do
+      id {3}
       name { 'test3' }
       registration { 3 }
       email { 'test3@gmail.com' }
@@ -26,6 +29,7 @@ FactoryBot.define do
     end
 
     trait :student4 do
+      id {8}
       name { 'Caio Otávio Peluti Alencar' }
       registration { 190_085_312 }
       email { 'peluticaio@gmail.com' }

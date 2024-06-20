@@ -4,19 +4,22 @@
       <div class="formbold-form-wrapper">
         <h1><%= @form.name %></h1>
         <%= form_with(url: form_answers_path(@form), method: :post) do |form| %>        
-          <% @form_questions.each do |form_question| %>
-            <%= render partial: 'question', locals: { form_question: form_question, form: form } %>
+          <% @form_questions.each_with_index do |form_question, index| %>
+            <%= render partial: 'question', locals: { form_question: form_question, form: form, question_nummber: index+1 } %>
           <% end %>
           <%= form.hidden_field :form_id, value: @form.id %>
           <div class="row">
             <div class="col">
-              <%= link_to "Cancelar", forms_path, class: "btn btn-danger btn-block", style: "height: 38px;" %>
+              <%= link_to "Cancelar", forms_path,id:"cancel", class: "btn btn-danger btn-block", style: "height: 38px;" %>
             </div>
             <div class="col">
-              <%= form.submit "Enviar", class: "btn btn-primary btn-block", style: "height: 38px;" %>
+              <%= form.submit "Enviar",id:"submit", class: "btn btn-primary btn-block", style: "height: 38px;" %>
             </div>
           </div>
+
         <% end %>
+        <br>
+                <%= render '/layouts/flashes' %>
       </div>
     </div>
   </div>

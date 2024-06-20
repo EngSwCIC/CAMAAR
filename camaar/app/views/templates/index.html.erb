@@ -20,11 +20,7 @@
             <% end %>
           </div>
         <% end %>
-        <% flash.each do |key, value| %>
-          <div class="alert alert-<%= key %>">
-            <%= value %>
-          </div>
-        <% end %>
+        <%= render '/layouts/flashes' %>
       </div>
       <div class="row m-t-25">
         <% @templates.each do |template| %>
@@ -41,13 +37,12 @@
                       <%= link_to edit_template_path(template), class: "template-link" do %>
                         <h1 class="template-name"><%= template.name %></h1>
                       <% end %>
-
                     <% end %>
                     <div class="icons-container">
-                      <%= button_to template_path(template), id: "delete-template-button",class: "icon-button",method: :delete do%>
+                      <%= button_to template_path(template), id: "delete_#{template.name.gsub(" ","_").downcase}",class: "icon-button",method: :delete do%>
                         <i class="fas fa-trash "></i>
                       <% end %>
-                      <%= link_to edit_template_path(template),id: "edit-template-button",class: "icon-button" do%>
+                      <%= button_to edit_template_path(template),id: "edit_#{template.name.gsub(" ","_").downcase}",class: "icon-button" do%>
                         <i class="fas fa-edit "></i>
                       <% end %>
                   </div>
