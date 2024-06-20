@@ -1,8 +1,7 @@
 class Form < ApplicationRecord
   belongs_to :template, optional: true
   has_many :questions, as: :formlike
-  has_many :form_disciplines
-  has_many :disciplines, through: :form_disciplines
+  belongs_to :discipline
 
   before_create :import_template_data
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_20_104216) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_20_175553) do
   create_table "answers", force: :cascade do |t|
     t.string "answer", null: false
     t.integer "user_id", null: false
@@ -31,21 +31,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_20_104216) do
     t.integer "semester_id"
   end
 
-  create_table "form_disciplines", force: :cascade do |t|
-    t.integer "form_id", null: false
-    t.integer "discipline_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["discipline_id"], name: "index_form_disciplines_on_discipline_id"
-    t.index ["form_id", "discipline_id"], name: "index_form_disciplines_on_form_id_and_discipline_id", unique: true
-    t.index ["form_id"], name: "index_form_disciplines_on_form_id"
-  end
-
   create_table "forms", force: :cascade do |t|
     t.integer "template_id"
     t.integer "questions_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "discipline_id", null: false
+    t.index ["discipline_id"], name: "index_forms_on_discipline_id"
     t.index ["questions_id"], name: "index_forms_on_questions_id"
     t.index ["template_id"], name: "index_forms_on_template_id"
   end
@@ -110,8 +102,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_20_104216) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
-  add_foreign_key "form_disciplines", "disciplines"
-  add_foreign_key "form_disciplines", "forms"
+  add_foreign_key "forms", "disciplines"
   add_foreign_key "forms", "questions", column: "questions_id"
   add_foreign_key "forms", "templates"
   add_foreign_key "semesters", "forms", column: "forms_id"
