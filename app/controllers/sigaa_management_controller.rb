@@ -4,6 +4,7 @@ class SigaaManagementController < ApplicationController
     import_professors
     import_class_members
     import_disciplines(semester_id)
+    import_class_members_disciplines(semester_id)
     flash[:success] = "Dados importados com sucesso!"
     redirect_to manager_path
     return
@@ -15,6 +16,7 @@ class SigaaManagementController < ApplicationController
       import_professors
       import_class_members
       import_disciplines(semester_id)
+      import_class_members_disciplines(semester_id)
       flash[:success] = "Dados atualizados com sucesso!"
     else
       flash[:error] = "Não é possível atualizar os dados sem um semestre cadastrado, importe os dados do sistema."
@@ -55,6 +57,20 @@ class SigaaManagementController < ApplicationController
 
     json_data.each do |student_data|
       SignUpAvailable.create_by_json(student_data["email"])
+    end
+  end
+  
+  def import_class_members_disciplines(semester_id)
+    json_file_path = Rails.root.join('db', 'data', 'students_class.json')
+    json_data = JSON.parse(File.read(json_file_path))
+  
+    json_data.each do |class_member_data|
+      email = class_member_data['email']
+      code = class_member_data['code']
+  
+      unless StudentDiscipline.exists?(student_email: email, discipline_code: code, semester_id: semester_id)
+        StudentDiscipline.create!(student_email: email, discipline_code: code, semester_id: semester_id)
+      end      
     end
   end
 end

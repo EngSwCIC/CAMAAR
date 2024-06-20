@@ -13,21 +13,37 @@ class Discipline < ApplicationRecord
     )
   end
 
-  def self.all_disciplines_info
+  def self.all_disciplines_info(email, admin_user)
     disciplines_info = []
-    all.each do |discipline|
+    
+    if admin_user
+      disciplines = Discipline.all
+    else
+      discipline_codes = StudentDiscipline.where(student_email: email).pluck(:discipline_code)
+      disciplines = Discipline.where(code: discipline_codes)
+    end
+
+    disciplines.each do |discipline|
       professor = Professor.find_by_registration(discipline.professor_registration)
       semester = Semester.find_by_id(discipline.semester_id)
-
+  
       info = discipline.professor_and_semester_info(discipline, professor, semester)
       disciplines_info << info.merge(discipline_name: discipline.name, id: discipline.id)
     end
     disciplines_info
-  end
+  end  
 
-  def self.all_disciplines_with_eval_info
+  def self.all_disciplines_with_eval_info(email, admin_user)
     disciplines_info = []
-    where(id: Form.select(:discipline_id).distinct).each do |discipline|
+
+    if admin_user
+      disciplines = Discipline.all
+    else
+      discipline_codes = StudentDiscipline.where(student_email: email).pluck(:discipline_code)
+      disciplines = Discipline.where(code: discipline_codes)
+    end
+
+    disciplines.where(id: Form.distinct.pluck(:discipline_id)).each do |discipline|
       professor = Professor.find_by_registration(discipline.professor_registration)
       semester = Semester.find_by_id(discipline.semester_id)
 
