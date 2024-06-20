@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-
   # root "posts#index"
+
   get "/formularios", to: "formularios#index"
 
   root to: "home#index"
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     # get "/:id", to: "matriculas#show"
     # patch "/:id", to: "matriculas#update"
   end
+
 
   resources :formulario
   scope "/formularios" do
@@ -68,5 +69,4 @@ Rails.application.routes.draw do
 
   resources :templates
   resources :materias
-
 end

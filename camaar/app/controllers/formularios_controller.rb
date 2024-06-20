@@ -57,6 +57,7 @@ class FormulariosController < ApplicationController
         redirect_to '/'
     end
 
+
     private
 
     def formulario_params

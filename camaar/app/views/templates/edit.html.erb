@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edição de templates</title>
+</head>
+<body>
+  <main>
+    <% if current_user %>
+      <h1>Escolha um nome para atualizar o template.</h1>
+      <%= form_with(model: @template, local: true) do |form| %>
+        <div class="form-group">
+          <%= form.label :nome, 'Nome', class: 'form-control' %>
+          <%= form.text_field :nome, class: 'form-control' %>
+        </div>
+        <%= form.submit 'Salvar mudanças' %>
+      <% end %>
+      <%= button_to 'Excluir template', template_path(@template), method: :delete, data: { confirm: 'Tem certeza que deseja excluir este template?' }, class: 'btn btn-danger', style: 'margin-top: 10px;' %>
+      <p><%= link_to 'Voltar para página anterior', templates_path %></p>
+    <% else %>
+      <p>Você não está logado.</p>
+      <%= link_to "Sign Up!", new_user_registration_path %>
+      <br/>
+      <%= link_to "Login", new_user_session_path %>
+    <% end %>
+  </main>
+</body>
+</html>
