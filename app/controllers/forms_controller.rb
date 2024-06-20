@@ -3,13 +3,15 @@ class FormsController < ApplicationController
   include AuthenticationConcern
 
   def index
-    return unless user_authenticated && admin_user?
+    # TODO: If student, only return forms they can answer
+    return redirect_to root_path unless user_authenticated && admin_user?
 
     @forms = Form.all
   end
 
   def show
-    redirect_to root_path unless user_authenticated && admin_user?
+    # TODO: Authenticate: user is admin or has access to this form
+    return redirect_to root_path unless user_authenticated
 
     @form = Form.find(params[:id])
   end
@@ -19,6 +21,15 @@ class FormsController < ApplicationController
   end
 
   def update
-    Rails.logger.debug("Received: #{params[:questions].inspect}")
+    return unless params.permit(:authenticity_token, :commit, :id, :_method, questions: {})
+
+    params[:questions].each do |question_id, answer|
+      next if answer.empty?
+
+      # TODO: Get logged in user for creating answer
+      # TODO: Validate answer if MultipleChoiceQuestion
+      Answer.create! answer:, user: User.first, question: Question.find(question_id)
+      Rails.logger.debug "#{question_id}: #{answer}"
+    end
   end
 end
