@@ -63,6 +63,32 @@ feature 'Answer forms' do
     expect(page).to have_content 'fine'
   end
 
+  scenario 'sad path - students need to answer all questions' do
+    visit '/users/login'
+    user = build(:user, :user4)
+    subject_class1 = build(:subject_class, :subject_class2)
+
+    form = create(:form, :form4)
+    form_question = create(:form_question, :form_question4)
+    form_question2 = create(:form_question, :form_question5)
+
+    expect(page).to have_content 'Bem vindo ao'
+    expect(page).to have_content 'CAMAAR'
+    fill_in 'email', with: user.email
+    fill_in 'password', with: user.password
+    click_button 'Confirmar'
+
+    expect(page).to have_content('Formulários Pendentes')
+
+    click_link form.name
+    expect(page).to have_content form.name
+    expect(page).to have_content form_question.title
+
+    fill_in 'question_1', with: 'TP2'
+    click_button 'Enviar'
+    expect(page).to have_content 'Responda todas questões.'
+  end
+
   scenario 'teachers can answer forms and view their answers' do
     visit '/users/login'
     user = build(:user, :user6)

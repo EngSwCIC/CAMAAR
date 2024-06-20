@@ -30,5 +30,14 @@ FactoryBot.define do
       coordinator_id { 100 }
       subject_class_id { 1 }
     end
+
+    trait :form4 do
+      id { 4 }
+      name { 'sad-path' }
+      role { 'discente' }
+      open { true }
+      coordinator_id { 100 }
+      subject_class_id { 2 }
+    end
   end
 end
