@@ -1,63 +1,102 @@
- <h1 align="center">CAMAAR</h1>
- 
- <p align="center">O projeto CAMAAR (Criação e Automação de Modelos de Avaliação e Relatórios) é uma aplicação web desenvolvida para automatizar formulários de avaliação na Universidade de Brasília. Este projeto tem como objetivo principal facilitar o trabalho dos coordenadores, permitindo a criação de relatórios baseados em questionários e auxiliando na análise dos dados coletados. Além disso, os coordenadores poderão criar questionários personalizados a partir de templates, otimizando o processo de avaliação e garantindo maior eficiência e precisão nas análises. </p>
- 
-<p align="center"><a href="#status">Status</a> • <a href="#Requisitos">Requisitos</a>  • <a href="#tecnologias">Tecnologias</a>  • <a href="#licenc-a">Licença</a> • <a href="#autor">Autor</a>  </p>
+### CAMAAR
 
-<h4 align="center"> 🚧CAMAAR  em construção... 🚧 </h4>
+O projeto **CAMAAR** (Criação e Automação de Modelos de Avaliação e Relatórios) é uma aplicação web desenvolvida para automatizar formulários de avaliação na Universidade de Brasília. O objetivo principal do CAMAAR é facilitar o trabalho dos coordenadores, permitindo a criação de relatórios baseados em questionários e auxiliando na análise dos dados coletados. Além disso, os coordenadores poderão criar questionários personalizados a partir de templates, otimizando o processo de avaliação e garantindo maior eficiência e precisão nas análises.
 
-## Pré-requisitos
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: [Git](https://git-scm.com), [Ruby on Rails](https://rubyonrails.org). O passo a passo da instalação em ambiente linux e windows está na documentação delas.
+---
 
-```bash
+### Status
 
-# Clone este repositório
-$ https://github.com/LuisBFlexa/CAMAAR_grupo_3.git
+🚧 **CAMAAR em construção...** 🚧
 
-# Acesse a pasta do projeto no terminal/cmd
-$ cd CAMAAR_grupo_3
+---
 
-# Instale as dependências
-$ bundle install
+### Pré-requisitos
 
-# Execute a aplicação em modo de desenvolvimento
-$ rails server
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 
-# O servidor inciará na porta:3000 - acesse http://localhost:3000
+- **Git**: [Git](https://git-scm.com)
+- **Ruby on Rails**: [Ruby on Rails](https://rubyonrails.org)
 
-```
+O passo a passo da instalação em ambiente Linux e Windows está na documentação delas.
 
+### Instruções de instalação
 
-##  Tecnologias
+1. Clone este repositório:
+
+    ```bash
+    git clone https://github.com/LuisBFlexa/CAMAAR_grupo_3.git
+    ```
+
+2. Acesse a pasta do projeto no terminal/cmd:
+
+    ```bash
+    cd CAMAAR_grupo_3
+    ```
+
+3. Instale as dependências:
+
+    ```bash
+    bundle install
+    ```
+
+4. Rode as migrations e o banco de dados:
+
+    ```bash
+   rails db:create
+   rails db:migrate
+   rails db:seed
+    ```
+
+3. Instale as dependências:
+
+    ```bash
+    bundle install
+    ```
+
+4. Execute a aplicação em modo de desenvolvimento:
+
+    ```bash
+    rails server
+    ```
+
+5. O servidor inciará na porta:3000 - acesse [http://localhost:3000](http://localhost:3000)
+
+---
+
+### Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-#### **Aplicação em geral**  ( [Ruby on Rails](https://rubyonrails.org))
+#### **Aplicação em geral**
 
-#### Backend
-- **Ruby on Rails**: Framework principal para desenvolvimento web. Utilizado para construção do backend, gerenciamento de banco de dados e renderização de views.
+- **[Ruby on Rails](https://rubyonrails.org)**: Framework principal para desenvolvimento web. Utilizado para construção do backend, gerenciamento de banco de dados e renderização de views.
+
+#### **Backend**
+
+- **Ruby on Rails**: Framework principal para desenvolvimento web.
 - **Devise**: Gem para autenticação de usuários.
 - **FactoryBot**: Biblioteca para configurar e criar objetos de teste.
 - **RSpec**: Framework de testes para Ruby e Rails.
 - **Cucumber**: Ferramenta para testes de aceitação baseados em comportamento.
 
-#### Frontend
+#### **Frontend**
+
 - **HTML/CSS/JavaScript**: Tecnologias padrão para desenvolvimento frontend.
 - **Webpacker**: Gem que integra Webpack ao Rails para empacotamento de ativos JavaScript.
 - **Bootstrap**: Framework CSS para design responsivo e componentes pré-estilizados.
 
-#### Banco de Dados
-- SQLite3: Sistemas de gerenciamento de banco de dados. O exemplo utiliza SQLite para desenvolvimento, mas pode ser configurado para PostgreSQL ou MySQL.
+#### **Banco de Dados**
 
+- **SQLite3**: Sistema de gerenciamento de banco de dados. O exemplo utiliza SQLite para desenvolvimento, mas pode ser configurado para PostgreSQL ou MySQL.
 
+---
 
+### Licença
 
+Licença **MIT**
 
-## Licença
-
-Licença MIT
-
-Copyright (c) 2024 [CAMAAR GRUPO-3]
+```
+Copyright (c) 2024 CAMAAR GRUPO-3
 
 A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cópia
 deste software e dos arquivos de documentação associados (o "CAMAAR GRUPO-3"), para lidar
@@ -76,8 +115,15 @@ AUTORES OU DETENTORES DOS DIREITOS AUTORAIS SERÃO RESPONSÁVEIS POR QUALQUER RE
 RESPONSABILIDADES, SEJA EM UMA AÇÃO DE CONTRATO, ATO ILÍCITO OU DE OUTRA FORMA, DECORRENTE DE,
 FORA DE OU EM CONEXÃO COM O SOFTWARE OU O USO OU OUTRAS NEGOCIAÇÕES NO
 SOFTWARE.
-
+```
 
 ---
 
+### Autor
 
+Desenvolvido por:
+LUIS ANTONIO BENJAMIM FLEXA
+THIAGO FERNANDES CARVALHO DE SOUZA 
+GABRIEL ROBERTO DE QUEIROZ
+CARLOS EDUARDO DE SOUSA ARNAUD
+GUSTAVO VIEIRA DE ARAUJO 
