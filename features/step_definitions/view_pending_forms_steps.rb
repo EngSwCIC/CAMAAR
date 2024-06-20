@@ -30,15 +30,10 @@ Given('I am logged in as a student from class {string}') do |class_name|
 end
 
 Given('a form has been sent to this user') do
-  puts(@user)
-  puts(@study_class)
-
   @form_request = FormRequest.new
   @form_request.user = @user
   @form_request.study_class = @study_class
   @form_request.save!
-
-  puts(@form_request)
 end
 
 Given('There are no forms registered') do
