@@ -5,26 +5,65 @@ Features que envolvem login, registro, redefinição de senha, proteção de rot
 ## login
 
 **Model**
+User
+Admin
 
 **View**
+- /admins/sessions/new.html.erb
+- /users/sessions/new.html.erb
 
 **Controller**
+
+- /users/sessions_controller.rb
+- /admins/sessions_controller.rb
+
+**Explicação**
+A autenticação/login de usuário e admin é feito por meio de métodos herdados por controllers nativas do Devise,uma gem de autenticação de email e senha.
+
+Um usuário (aluno e professor) cadastrado pode se logar ao sistema por meio do fornecimento de email e senha corretos.
+
+Um administrador (coordenador) cadastrado pode se logar ao sistema por meio do fornecimento de email e senha corretos.
+
 
 ## password_reset
 
 **Model**
-
+User
+Admin
 **View**
-
+- /admins/passwords/new.html.erb
+- /admins/passwords/edit.html.erb
+- /users/passwords/new.html.erb
+- /users/passwords/edit.html.erb
 **Controller**
+- /users/passwords_controller.rb
+- /admins/passwords_controller.rb
+
+**Explicação**
+A troca de senha de usuário e admin é feito por meio de métodos herdados por controllers nativas do Devise,uma gem de autenticação de email e senha.
+
+Um usuário (aluno e professor) cadastrado pode trocar de senha por meio do fornecimento de email válido. Ao abrir o seu email, encontrará um email de Camaar solicitando-o para trocar de senha, o que guiará para uma página em que o solicitante pode trocar de senha.
+
+Um administrador (coordenador) cadastrado pode trocar de senha por meio do fornecimento de email válido. Ao abrir o seu email, encontrará um email de Camaar solicitando-o para trocar de senha, o que guiará para uma página em que o administrador solicitante pode trocar de senha.
 
 ## signup_user
 
 **Model**
-
+User
+Admin
 **View**
-
+- /admins/registrations/new.html.erb
+- /users/registrations/new.html.erb
 **Controller**
+- /users/registrations_controller.rb
+- /admins/registrations_controller.rb
+
+**Explicação**
+O registro de usuário e admin é feito por meio de métodos herdados por controllers nativas do Devise,uma gem de autenticação de email e senha.
+
+Um administrador (coordenador) pode ser cadastrado ao acessar a view de registro de administrador. Nela, fornecerá email e senha, de modo a fornecer um pré-registro ao sistema. Ao submeter o registro, será enviado um email de confirmação ao administrador/coordenador, e este só será criado se confirmar este email e seu registro respeitar as regras de integridade do banco de dados.
+
+Um usuário (aluno ou professor) só pode ser cadastradoao se um administrador/coordenador importar os dados de email de membros da turma (formato json). Após a importação, será enviado um email individual solicitando que o usuário se registre no sistema Camaar, e este fornecerá somente a senha, de modo a concluir seu respectivo registro.
 
 # Forms
 
