@@ -96,8 +96,8 @@ RSpec.feature 'Create a template', type: :feature, js: true do
       expect(TemplateQuestion.find_by(template_id: template.id).question_type).to eq('text')
     end
   end
-  describe 'sad path admin cant create a template with no answers' do
-    it 'should not create a template with no answers' do
+  describe 'sad path admin cant create a template with no options' do
+    it 'should not create a template with no options' do
       expect(page).to have_content 'ADICIONAR TEMPLATE'
       click_button 'ADICIONAR TEMPLATE'
       expect(page).to have_content 'Nome do template:'
@@ -106,6 +106,22 @@ RSpec.feature 'Create a template', type: :feature, js: true do
 
       expect(page).to have_content 'O template precisa conter pelo menos uma pergunta'
       expect(Template.where(name: 'test_temp').count).to eq(0)
+    end
+  end
+  describe 'sad path admin cant create a template question with no options' do
+    it 'should not create a template question with no options' do
+      expect(page).to have_content 'ADICIONAR TEMPLATE'
+      click_button 'ADICIONAR TEMPLATE'
+      expect(page).to have_content 'Nome do template:'
+      click_link 'add_question'
+      expect(page).to have_content 'Título'
+      expect(page).to have_content 'Tipo de questão:'
+      expect(page).to have_content 'Cancelar'
+
+      select('Texto', from: 'question_type')
+
+      click_button 'Adicionar'
+      expect(page).to have_content 'Questão precisa de um título'
     end
   end
 end
