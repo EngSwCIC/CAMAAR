@@ -25,13 +25,19 @@ Rails.application.routes.draw do
   get '/semesters', to: 'semesters#index'
   get '/semesters/current', to: 'semesters#show'
 
+  # Templates/forms
+  resources :templates do
+    get 'send', to: 'templates#edit_send', on: :collection, as: :to_send
+    member do
+      post 'send', to: 'templates#send_forms', as: :send_forms_from
+    end
+  end
+  resources :forms
+
   resources :questions, only: [], param: :index do
     member do
       delete '(:id)' => 'questions#destroy', as: ''
       post '/' => 'questions#create'
     end
   end
-
-  resources :templates
-  resources :forms
 end

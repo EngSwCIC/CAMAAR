@@ -2,8 +2,14 @@ class FormsController < ApplicationController
   include ManagerHelper
   include AuthenticationConcern
 
+  def index
+    return unless user_authenticated && admin_user?
+
+    @forms = Form.all
+  end
+
   def show
-    return unless user_authenticated && admin_user? # TODO: || is student with access (belong to form discipline)
+    redirect_to root_path unless user_authenticated && admin_user?
 
     @form = Form.find(params[:id])
   end
