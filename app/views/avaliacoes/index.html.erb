@@ -1,3 +1,11 @@
-<span>Avaliacoes</span>
-
-<%= button_to "Sair", destroy_user_session_path, method: :delete  %>
+<div>
+  <% @forms.each do |form| %>
+    <div>
+      <div>
+        <span><%= form.study_class.name %></span>
+        <span><%= form.study_class.semester %></span>
+      </div>
+      <span><%= form.study_class.docente.nome %></span>
+    </div>
+  <% end %>
+</div>
