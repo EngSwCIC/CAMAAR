@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'import_materia_and_turma/create'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -60,6 +62,9 @@ Rails.application.routes.draw do
     patch "/:id", to: "users#update"
     delete "/:id", to: "users#delete"
   end
+
+  post '/import_materias_turmas', to: 'import_materias_turmas#create'
+  post '/import_users', to: 'import_users#create'
 
   resources :templates
 end

@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+body {
+  margin: 0; /* Reset default margin */
+}
+
+.sidebar {
+  width: 200px; /* Adjust width as needed */
+  height: 100vh; /* Set height to cover the entire viewport */
+  position: fixed; /* Fix the sidebar to the left side */
+  top: 0; /* Position to top of the viewport */
+  left: 0; /* Position to the left edge */
+  background-color: #f0f0f0; /* Set background color */
+  padding: 10px; /* Add padding for content */
+}
+
+.sidebar-button {
+  display: block; /* Display each button on a new line */
+  padding: 10px;
+  text-decoration: none; /* Remove underline */
+  color: #333; /* Set button text color */
+  border: 1px solid #ddd; /* Add a border */
+  margin-bottom: 5px; /* Add spacing between buttons */
+}
+
+.sidebar-button:hover {
+  background-color: #eee; /* Add hover effect */
+}
+
+main {
+  display: flex; /* Enable flexbox for centering */
+  justify-content: center; /* Horizontally center content */
+  align-items: center; /* Vertically center content */
+  min-height: 100vh; /* Set minimum height for full viewport */
+  text-align: center; /* Center text within main element */
+}

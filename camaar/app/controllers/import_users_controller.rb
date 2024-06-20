@@ -3,7 +3,7 @@ class ImportUserController < ApplicationController
     class_members = JSON.parse(params[:data], symbolize_names: true) rescue nil
     if class_members.present?
       begin
-        import_materias(class_members)
+        import_users(class_members)
         render json: { message: "Data imported successfully!" }, status: :created
       rescue StandardError => e
         render json: { message: "Error importing data: #{e.message}" }, status: :bad_request
@@ -15,7 +15,7 @@ class ImportUserController < ApplicationController
 
   private
 
-  def import_materias(class_members_data_array)
+  def import_users(class_members_data_array)
     class_members_data_array.each do |materia_data|
       materia = Materia.find_by(codigo: materia_data[:code])  # Search by code only
 

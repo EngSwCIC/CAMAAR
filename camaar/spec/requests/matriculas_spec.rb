@@ -56,8 +56,8 @@ RSpec.describe "Matriculas", type: :request do
 
   # get "/", to: "matriculas#index"
   describe "GET /" do
-    let (:user1) { create(:user, nome:"Ana Clara Jordao Perna", email:"acjpjvjp@gmail.com", password:"123456", curso:"CIÊNCIA DA COMPUTAÇÃO/CIC", matricula:"190084006", formacao:"graduando", ocupacao:"dicente", admin:false) }
-    let (:user2) { create(:user, nome:"Joao Oajo Aooj", email:"jooj@gmail.com", password:"789012", curso:"CIÊNCIA DA COMPUTAÇÃO/CIC", matricula:"190085007", formacao:"graduando", ocupacao:"dicente", admin:false) }
+    let (:user1) { create(:user, nome:"Ana Clara Jordao Perna", email:"acjpjvjp@gmail.com", password:"123456", curso:"CIÊNCIA DA COMPUTAÇÃO/CIC", matricula:"190084006", formacao:"graduando", ocupacao:"dicente", role: :user) }
+    let (:user2) { create(:user, nome:"Joao Oajo Aooj", email:"jooj@gmail.com", password:"789012", curso:"CIÊNCIA DA COMPUTAÇÃO/CIC", matricula:"190085007", formacao:"graduando", ocupacao:"dicente", role: :user) }
     let (:materia) { create(:materia, codigo:"TST0097", nome:"BANCOS DE TESTES") }
     let (:turma) { create(:turma, codigo:"TA", semestre:"2021.1", horario:"35T45", materia:materia) }
     before do
