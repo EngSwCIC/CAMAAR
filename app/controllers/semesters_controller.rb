@@ -8,7 +8,7 @@ class SemestersController < ApplicationController
       end
 
       format.csv do 
-        send_data @semesters.to_csv, filename: "semesters_results.csv"
+        send_data @semesters.to_csv, filename: "resultados_semestres.csv"
       end
 
     end
@@ -23,7 +23,7 @@ class SemestersController < ApplicationController
       end
 
       format.csv do 
-        send_data @semester.to_csv, filename: "#{@semester.to_s}_results.csv"
+        send_data @semester.to_csv, filename: "resultados_#{@semester.to_s}.csv"
       end
 
     end

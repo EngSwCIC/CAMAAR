@@ -49,18 +49,60 @@ class Semester < ApplicationRecord
     CSV.generate(headers: true) do |csv|
       all.each do |semester|
         csv << [semester.to_s]
+        csv << [nil]
+
+        disciplines = Discipline.where(semester_id: semester.id)
+
+        disciplines.each do |discipline|
+          csv << [discipline.name]
+          csv << [nil] if !discipline.forms.empty?
+
+          discipline.forms.each do |form|
+            csv << ["Formulário #{form.id}"]
+            csv << [nil] if !form.questions.empty?
+
+            form.questions.each do |question|
+              csv << [question.label]
+              csv << [nil] if !question.answers.empty?
+
+              question.answers.each do |answer|
+                csv << [User.find(answer.user_id), answer.answer]
+              end
+              csv << [nil]
+            end
+          end
+        end
       end
     end
   end
 
   def to_csv
     CSV.generate(headers: true) do |csv|
-      csv << [self.to_s]
+      disciplines = Discipline.where(semester_id: self.id)
+
+      disciplines.each do |discipline|
+        csv << [discipline.name]
+        csv << [nil] if !discipline.forms.empty?
+
+        discipline.forms.each do |form|
+          csv << ["Formulário #{form.id}"]
+          csv << [nil] if !form.questions.empty?
+
+          form.questions.each do |question|
+            csv << [question.label]
+            csv << [nil] if !question.answers.empty?
+
+            question.answers.each do |answer|
+              csv << [User.find(answer.user_id), answer.answer]
+            end
+            csv << [nil]
+          end
+        end
+      end
     end
   end
 
   def self.find_by_id(id)
     find(id)
   end
-
 end

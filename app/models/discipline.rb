@@ -43,6 +43,22 @@ class Discipline < ApplicationRecord
   def to_csv
     CSV.generate(headers: true) do |csv|
       csv << [self.name]
+      csv << [nil] if !self.forms.empty?
+
+      self.forms.each do |form|
+        csv << ["Formulário #{form.id}"]
+        csv << [nil] if !form.questions.empty?
+
+        form.questions.each do |question|
+          csv << [question.label]
+          csv << [nil] if !question.answers.empty?
+
+          question.answers.each do |answer|
+            csv << [User.find(answer.user_id), answer.answer]
+          end
+          csv << [nil]
+        end
+      end
     end
   end
 end
