@@ -1,13 +1,13 @@
 <!-- Expects to be inside a form helper tag -->
-<% question_html_id = "question-#{question.id}" %>
+<% answer = @answers[question.id].answer unless @answers.nil? || @answers[question.id].nil? %>
 
 <% case question.type %>
 <% when 'TextInputQuestion'%>
     <%= form.label question.id, "Resposta: " %>
-    <%= form.text_field question.id, disabled: %>
+    <%= form.text_field question.id, disabled:, value: answer || "" %>
 <% when 'MultipleChoiceQuestion'%>
     <% question.options.each do |option| %>
-        <%= form.radio_button question.id, option, disabled: %>
+        <%= form.radio_button question.id, option, disabled:, checked: option == answer %>
         <%= form.label question.id, option %>
         <br>
     <% end %>

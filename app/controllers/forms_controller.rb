@@ -13,7 +13,12 @@ class FormsController < ApplicationController
     # TODO: Authenticate: user is admin or has access to this form
     return redirect_to root_path unless user_authenticated
 
+    @answers = {}
     @form = Form.find(params[:id])
+    @form.questions.each do |question|
+      # TODO: Get logged in user for passing answer
+      @answers[question.id] = (Answer.where user_id: 1, question_id: question.id).first
+    end
   end
 
   def create
