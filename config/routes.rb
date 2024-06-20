@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get '/semesters/current', to: 'semesters#show'
   # Evaluations Path
   get '/evaluations', to: 'evaluations#index', as: 'evaluations'
+  get '/evaluations/:id', to: 'evaluations#show'
 
   # Templates/forms
   resources :templates do

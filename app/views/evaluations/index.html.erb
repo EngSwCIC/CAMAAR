@@ -33,7 +33,7 @@
           <% if !admin_user? %>
             <a href="#" class="btn btn-primary">Avaliar Disciplina</a>
           <% else %>
-            <a href="#" class="btn btn-primary">Baixar Resultados</a>
+            <a href="/evaluations/<%= discipline_info[:id] %>.csv" class="btn btn-primary">Baixar Resultados</a>
           <% end %>
         </div>
       </div>

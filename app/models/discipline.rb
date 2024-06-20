@@ -20,7 +20,7 @@ class Discipline < ApplicationRecord
       semester = Semester.find_by_id(discipline.semester_id)
 
       info = discipline.professor_and_semester_info(discipline, professor, semester)
-      disciplines_info << info.merge(discipline_name: discipline.name)
+      disciplines_info << info.merge(discipline_name: discipline.name, id: discipline.id)
     end
     disciplines_info
   end
@@ -40,5 +40,27 @@ class Discipline < ApplicationRecord
       professor_department_code:,
       semester_name:
     }
+  end
+
+  def to_csv
+    CSV.generate(headers: true) do |csv|
+      csv << [name]
+      csv << [nil] unless forms.empty?
+
+      forms.each do |form|
+        csv << ["Formulário #{form.id}"]
+        csv << [nil] unless form.questions.empty?
+
+        form.questions.each do |question|
+          csv << [question.label]
+          csv << [nil] unless question.answers.empty?
+
+          question.answers.each do |answer|
+            csv << [User.find(answer.user_id), answer.answer]
+          end
+          csv << [nil]
+        end
+      end
+    end
   end
 end
