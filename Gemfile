@@ -72,6 +72,9 @@ group :test do
   gem 'cucumber', '~> 8.0'
   gem 'database_cleaner'
   gem "rspec-rails"
+  gem 'rails-controller-testing'
 end
+
+gem 'json', '~> 2.7', '>= 2.7.2'
 
 gem "tailwindcss-rails", "~> 2.6"
