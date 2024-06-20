@@ -67,7 +67,7 @@ class Discipline < ApplicationRecord
       professor_name:,
       professor_department_code:,
       semester_name:,
-      form_url: "/forms/#{Form.where(discipline:).first.id}"
+      form_id: Form.where(discipline:).first.id
     }
   end
 
