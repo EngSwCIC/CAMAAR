@@ -3,12 +3,15 @@ class Discipline < ApplicationRecord
   has_many :forms, through: :form_disciplines
 
   def self.create_by_json(data, semester_id)
-    create!(
-      name: data['name'],
-      code: data['code'],
-      professor_registration: data['professor_registration'],
-      semester_id:
-    )
+    existing_discipline = find_by(code: data['code'], semester_id: semester_id)
+    unless existing_discipline
+      create!(
+        name: data['name'],
+        code: data['code'],
+        professor_registration: data['professor_registration'],
+        semester_id: semester_id
+      )
+    end
   end
 
   def self.all_disciplines_info
