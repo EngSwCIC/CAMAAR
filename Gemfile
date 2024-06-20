@@ -46,6 +46,8 @@ gem "bootsnap", require: false
 
 gem "devise"
 
+gem "tailwindcss-rails", "~> 2.6"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
@@ -73,5 +75,3 @@ group :test do
   gem 'database_cleaner'
   gem "rspec-rails"
 end
-
-gem "tailwindcss-rails", "~> 2.6"
