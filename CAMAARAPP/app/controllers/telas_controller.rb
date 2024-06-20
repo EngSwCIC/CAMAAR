@@ -3,6 +3,12 @@ class TelasController < ApplicationController
     
   end
 
+  def user_home
+    @alunos = Aluno.all
+    @user = current_user
+  end
+
+
   def tela_alunos
     @alunos = Aluno.all
   end
@@ -38,7 +44,7 @@ class TelasController < ApplicationController
     puts @senha
     puts @id
 
-    usuario = User.new(matricula:Aluno.find(@id).matricula, email:Aluno.find(@id).email, password:@senha, password_confirmation:@senha)
+    usuario = User.new(matricula:Aluno.find(@id).matricula, email:Aluno.find(@id).email, password:@senha, password_confirmation:@senha, nome:Aluno.find(@id).nome, adm:"false")
     usuario.save!
   end
 end
