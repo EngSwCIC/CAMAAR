@@ -3,3 +3,45 @@
     <%= flash[:alert] %>
   </div>
 <% end %>
+
+<% if flash[:success] %>
+  <div class="alert alert-success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+<h1 class="text-center"><i>Avaliações por Disciplina</i></h1>
+<br>
+<br>
+
+<div class="row">
+  <% @disciplines_info.each do |discipline_info| %>
+    <div class="col-lg-3 col-md-6 mb-3">
+      <div class="card border-primary">
+        <div class="card-body">
+          <h5 class="card-title"><%= discipline_info[:discipline_name] %></h5>
+          <p class="card-text">
+            <strong>Professor:</strong> <%= discipline_info[:professor_name] %><br>
+            <strong>Departamento do Professor:</strong> <%= discipline_info[:professor_department_code] %><br>
+            <strong>Semestre:</strong> <%= discipline_info[:semester_name] %>
+          </p>
+          <% if !admin_user? %>
+            <a href="#" class="btn btn-primary">Avaliar Disciplina</a>
+          <% else %>
+            <a href="#" class="btn btn-primary">Baixar Resultados</a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% if @disciplines_info.empty? %>
+  <p>Nenhuma disciplina encontrada.</p>
+<% end %>

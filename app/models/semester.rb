@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Semester < ApplicationRecord
   validates :half, uniqueness: { scope: :year }
   has_many :forms
@@ -60,4 +58,9 @@ class Semester < ApplicationRecord
       csv << [self.to_s]
     end
   end
+
+  def self.find_by_id(id)
+    find(id)
+  end
+
 end
