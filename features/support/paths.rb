@@ -17,19 +17,19 @@ module NavigationHelpers
       '/users/sign_in'
 
     when /^the Avaliacoes\s?page$/
-      '/avaliacoes'
+      '/shared/avaliacoes'
 
     when /^the Gerenciamento\s?page$/
-      '/gerenciamento'
+      '/shared/gerenciamento'
 
     when /^the Resultados\s?page$/
-      '/gerenciamento/resultados'
+      '/shared/gerenciamento/resultados'
 
     when /^the Templates\s?page$/
-      '/gerenciamento/templates'
+      '/shared/gerenciamento/templates'
 
     when /^the Definir Senha\s?page$/
-      '/senha'
+      '/users/senha'
 
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:

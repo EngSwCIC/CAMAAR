@@ -85,6 +85,7 @@
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v3.5.2, rbenv: 2.7.8) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types-data (v3.2024.0604, rbenv: 2.7.8) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.1.5, rbenv: 2.7.8) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mini_portile2 (v2.8.7, rbenv: 2.7.8) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.24.0, rbenv: 2.7.8) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="msgpack (v1.7.2, rbenv: 2.7.8) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_test (v1.1.0, rbenv: 2.7.8) [gem]" level="application" />
@@ -123,7 +124,7 @@
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v4.9.0, rbenv: 2.7.8) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v4.2.1, rbenv: 2.7.8) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.5.1, rbenv: 2.7.8) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v1.6.9, rbenv: 2.7.8) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v1.7.3, rbenv: 2.7.8) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stimulus-rails (v1.3.3, rbenv: 2.7.8) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stringio (v3.1.1, rbenv: 2.7.8) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="strscan (v3.1.0, rbenv: 2.7.8) [gem]" level="application" />

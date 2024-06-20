@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   get '/avaliacoes', to: 'avaliacoes#index'
 
-  root to: "home#index"
+  root to: "avaliacoes#index"
 end
