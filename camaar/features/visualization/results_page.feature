@@ -25,7 +25,7 @@ Feature: Forms Results Page
             | 1 - Classifique seu rendimento | Ótimo    |
             | 2 - Dê uma sugestão            | Resposta |
 
-        Then I expect to see "Número de respostas: 1/45"
+        Then I expect to see "Número de respostas: 1/44"
 
 
     Scenario: Coordinator tries to see empty form
