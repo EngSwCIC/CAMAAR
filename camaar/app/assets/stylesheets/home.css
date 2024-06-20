@@ -140,7 +140,7 @@ header {
     background-color: #218838;
 }
 
-/* Estilos para o popup */
+/* Popup styles */
 .popup {
     display: none;
     position: fixed;
@@ -167,6 +167,7 @@ header {
     align-items: center;
     border-radius: 10px;
 }
+
 
 .close-popup {
     color: #aaa;

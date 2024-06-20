@@ -1432,3 +1432,785 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 123ms (Views: 104.8ms | ActiveRecord: 0.0ms | Allocations: 50016)
 
 
+Started GET "/home" for ::1 at 2024-06-20 16:29:49 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2359.8ms | Allocations: 51818)
+  Rendered layout layouts/application.html.erb (Duration: 2468.5ms | Allocations: 71535)
+Completed 200 OK in 2552ms (Views: 2497.2ms | ActiveRecord: 0.0ms | Allocations: 76214)
+
+
+Started GET "/criar_templete" for ::1 at 2024-06-20 16:30:00 -0300
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html within layouts/application
+  Rendered pages/criar_templete.html within layouts/application (Duration: 5.9ms | Allocations: 82)
+  Rendered layout layouts/application.html.erb (Duration: 261.4ms | Allocations: 3162)
+Completed 200 OK in 279ms (Views: 264.8ms | ActiveRecord: 0.0ms | Allocations: 3437)
+
+
+Started GET "/style.css" for ::1 at 2024-06-20 16:30:00 -0300
+Started GET "/criar_templete.js" for ::1 at 2024-06-20 16:30:00 -0300
+Processing by PagesController#criar_templete as JS
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+  Rendering pages/criar_templete.html
+  Rendered pages/criar_templete.html (Duration: 0.1ms | Allocations: 10)
+Security warning: an embedded <script> tag on another site requested protected JavaScript. If you know what you're doing, go ahead and disable forgery protection on this action to permit cross-origin JavaScript embedding.
+Completed 422 Unprocessable Entity in 139ms (Views: 26.3ms | ActiveRecord: 0.0ms | Allocations: 30312)
+
+
+  
+ActionController::InvalidCrossOriginRequest (Security warning: an embedded <script> tag on another site requested protected JavaScript. If you know what you're doing, go ahead and disable forgery protection on this action to permit cross-origin JavaScript embedding.):
+  
+actionpack (7.1.3.3) lib/action_controller/metal/request_forgery_protection.rb:415:in `verify_same_origin_request'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:403:in `block in make_lambda'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:250:in `block in halting'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:602:in `block in invoke_after'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:602:in `each'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:602:in `invoke_after'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:135:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/criar_templete" for ::1 at 2024-06-20 16:30:32 -0300
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html within layouts/application
+  Rendered pages/criar_templete.html within layouts/application (Duration: 0.1ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 1952)
+Completed 200 OK in 36ms (Views: 21.8ms | ActiveRecord: 0.0ms | Allocations: 2228)
+
+
+Started GET "/home" for ::1 at 2024-06-20 16:30:38 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 22.7ms | Allocations: 3411)
+  Rendered layout layouts/application.html.erb (Duration: 34.1ms | Allocations: 4907)
+Completed 200 OK in 44ms (Views: 36.0ms | ActiveRecord: 0.0ms | Allocations: 5181)
+
+
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-20 16:31:57 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started GET "/home" for ::1 at 2024-06-20 16:32:28 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 10.2ms | Allocations: 3419)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 4932)
+Completed 200 OK in 28ms (Views: 24.0ms | ActiveRecord: 0.0ms | Allocations: 5207)
+
+
+Started GET "/criar_templete" for ::1 at 2024-06-20 16:32:30 -0300
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html within layouts/application
+  Rendered pages/criar_templete.html within layouts/application (Duration: 0.1ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 1931)
+Completed 200 OK in 14ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 2205)
+
+
+Started GET "/style.css" for ::1 at 2024-06-20 16:32:31 -0300
+Started GET "/criar_templete.js" for ::1 at 2024-06-20 16:32:31 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+Processing by PagesController#criar_templete as JS
+  Rendering pages/criar_templete.html
+  Rendered pages/criar_templete.html (Duration: 0.2ms | Allocations: 10)
+Security warning: an embedded <script> tag on another site requested protected JavaScript. If you know what you're doing, go ahead and disable forgery protection on this action to permit cross-origin JavaScript embedding.
+Completed 422 Unprocessable Entity in 7ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 4124)
+
+
+  
+ActionController::InvalidCrossOriginRequest (Security warning: an embedded <script> tag on another site requested protected JavaScript. If you know what you're doing, go ahead and disable forgery protection on this action to permit cross-origin JavaScript embedding.):
+  
+actionpack (7.1.3.3) lib/action_controller/metal/request_forgery_protection.rb:415:in `verify_same_origin_request'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:403:in `block in make_lambda'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:250:in `block in halting'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:602:in `block in invoke_after'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:602:in `each'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:602:in `invoke_after'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:135:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/home" for ::1 at 2024-06-20 16:38:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 455.1ms | Allocations: 46580)
+  Rendered layout layouts/application.html.erb (Duration: 476.6ms | Allocations: 63623)
+Completed 200 OK in 505ms (Views: 485.5ms | ActiveRecord: 0.0ms | Allocations: 68302)
+
+
+Started GET "/criar_templete" for ::1 at 2024-06-20 16:38:14 -0300
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html within layouts/application
+  Rendered pages/criar_templete.html within layouts/application (Duration: 0.6ms | Allocations: 82)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 1979)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 2254)
+
+
+Started GET "/criar_tempelete" for ::1 at 2024-06-20 16:38:14 -0300
+Started GET "/criar_templete.js" for ::1 at 2024-06-20 16:38:14 -0300
+Processing by PagesController#criar_templete as JS
+  Rendering pages/criar_templete.html
+  Rendered pages/criar_templete.html (Duration: 0.0ms | Allocations: 10)
+Security warning: an embedded <script> tag on another site requested protected JavaScript. If you know what you're doing, go ahead and disable forgery protection on this action to permit cross-origin JavaScript embedding.
+Completed 422 Unprocessable Entity in 10ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 1058)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/criar_tempelete"):
+  
+  
+ActionController::InvalidCrossOriginRequest (Security warning: an embedded <script> tag on another site requested protected JavaScript. If you know what you're doing, go ahead and disable forgery protection on this action to permit cross-origin JavaScript embedding.):
+  
+actionpack (7.1.3.3) lib/action_controller/metal/request_forgery_protection.rb:415:in `verify_same_origin_request'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:403:in `block in make_lambda'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:250:in `block in halting'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:602:in `block in invoke_after'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:602:in `each'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:602:in `invoke_after'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:135:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/home" for ::1 at 2024-06-20 16:43:18 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 32.4ms | Allocations: 4946)
+  Rendered layout layouts/application.html.erb (Duration: 63.9ms | Allocations: 12209)
+Completed 200 OK in 69ms (Views: 65.1ms | ActiveRecord: 0.0ms | Allocations: 12489)
+
+
+Started GET "/home" for ::1 at 2024-06-20 16:43:30 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 387.4ms | Allocations: 44991)
+  Rendered layout layouts/application.html.erb (Duration: 415.0ms | Allocations: 62030)
+Completed 200 OK in 451ms (Views: 425.5ms | ActiveRecord: 0.0ms | Allocations: 66709)
+
+
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-20 16:44:55 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started GET "/home" for ::1 at 2024-06-20 16:51:24 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.1ms | Allocations: 4313)
+  Rendered layout layouts/application.html.erb (Duration: 37.5ms | Allocations: 21313)
+Completed 200 OK in 47ms (Views: 43.2ms | ActiveRecord: 0.0ms | Allocations: 22236)
+
+
+Started GET "/criar_templete" for ::1 at 2024-06-20 16:51:26 -0300
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html within layouts/application
+  Rendered pages/criar_templete.html within layouts/application (Duration: 0.7ms | Allocations: 82)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 1978)
+Completed 200 OK in 10ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 2253)
+
+
+Started GET "/criar_templete.js" for ::1 at 2024-06-20 16:51:26 -0300
+Started GET "/criar_tempelete" for ::1 at 2024-06-20 16:51:26 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/criar_tempelete"):
+  
+Processing by PagesController#criar_templete as JS
+  Rendering pages/criar_templete.html
+  Rendered pages/criar_templete.html (Duration: 0.0ms | Allocations: 10)
+Security warning: an embedded <script> tag on another site requested protected JavaScript. If you know what you're doing, go ahead and disable forgery protection on this action to permit cross-origin JavaScript embedding.
+Completed 422 Unprocessable Entity in 10ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 4360)
+
+
+  
+ActionController::InvalidCrossOriginRequest (Security warning: an embedded <script> tag on another site requested protected JavaScript. If you know what you're doing, go ahead and disable forgery protection on this action to permit cross-origin JavaScript embedding.):
+  
+actionpack (7.1.3.3) lib/action_controller/metal/request_forgery_protection.rb:415:in `verify_same_origin_request'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:403:in `block in make_lambda'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:250:in `block in halting'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:602:in `block in invoke_after'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:602:in `each'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:602:in `invoke_after'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:135:in `block in run_callbacks'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.3) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.3) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.3) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.3) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.3) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.3) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.3) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.3) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/criar_tempelete" for ::1 at 2024-06-20 16:51:34 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/criar_tempelete"):
+  
+Started GET "/home" for ::1 at 2024-06-20 17:00:41 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 92.2ms | Allocations: 29935)
+  Rendered layout layouts/application.html.erb (Duration: 115.2ms | Allocations: 47076)
+Completed 200 OK in 143ms (Views: 124.4ms | ActiveRecord: 0.0ms | Allocations: 51755)
+
+
+Started GET "/criar_templete" for ::1 at 2024-06-20 17:00:48 -0300
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html.erb within layouts/application
+  Rendered pages/criar_templete.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2694)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 2779)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 3060)
+
+
+  
+ActionView::Template::Error (The asset "criar_tempelete.css" is not present in the asset pipeline.
+):
+    4:     <meta charset="UTF-8">
+    5:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    6:     <title>Criador de Listas de Perguntas</title>
+    7:     <%= stylesheet_link_tag 'criar_tempelete' %>
+    8: </head>
+    9: <body>
+   10: <section class="container" id="criacao-container" aria-labelledby="formulario-titulo">
+  
+app/views/pages/criar_templete.html.erb:7
+Started GET "/criar_templete" for ::1 at 2024-06-20 17:04:38 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html.erb within layouts/application
+  Rendered pages/criar_templete.html.erb within layouts/application (Duration: 7.9ms | Allocations: 3024)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3144)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms | Allocations: 5797)
+
+
+  
+ActionView::Template::Error (The asset "criar_tempelete.css" is not present in the asset pipeline.
+):
+    4:     <meta charset="UTF-8">
+    5:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    6:     <title>Criador de Listas de Perguntas</title>
+    7:     <%= stylesheet_link_tag 'criar_tempelete', media: 'all' %>
+    8: </head>
+    9: <body>
+   10: <section class="container" id="criacao-container" aria-labelledby="formulario-titulo">
+  
+app/views/pages/criar_templete.html.erb:7
+Started GET "/criar_templete" for ::1 at 2024-06-20 17:04:41 -0300
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html.erb within layouts/application
+  Rendered pages/criar_templete.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2093)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 2178)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2436)
+
+
+  
+ActionView::Template::Error (The asset "criar_tempelete.css" is not present in the asset pipeline.
+):
+    4:     <meta charset="UTF-8">
+    5:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    6:     <title>Criador de Listas de Perguntas</title>
+    7:     <%= stylesheet_link_tag 'criar_tempelete', media: 'all' %>
+    8: </head>
+    9: <body>
+   10: <section class="container" id="criacao-container" aria-labelledby="formulario-titulo">
+  
+app/views/pages/criar_templete.html.erb:7
+Started GET "/home" for ::1 at 2024-06-20 17:04:48 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 81.2ms | Allocations: 28401)
+  Rendered layout layouts/application.html.erb (Duration: 111.1ms | Allocations: 45536)
+Completed 200 OK in 116ms (Views: 112.2ms | ActiveRecord: 0.0ms | Allocations: 45927)
+
+
+Started GET "/criar_templete" for ::1 at 2024-06-20 17:04:50 -0300
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html.erb within layouts/application
+  Rendered pages/criar_templete.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2085)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2170)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2427)
+
+
+  
+ActionView::Template::Error (The asset "criar_tempelete.css" is not present in the asset pipeline.
+):
+    4:     <meta charset="UTF-8">
+    5:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    6:     <title>Criador de Listas de Perguntas</title>
+    7:     <%= stylesheet_link_tag 'criar_tempelete', media: 'all' %>
+    8: </head>
+    9: <body>
+   10: <section class="container" id="criacao-container" aria-labelledby="formulario-titulo">
+  
+app/views/pages/criar_templete.html.erb:7
+Started GET "/home" for ::1 at 2024-06-20 17:05:41 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 104.5ms | Allocations: 29914)
+  Rendered layout layouts/application.html.erb (Duration: 133.1ms | Allocations: 47055)
+Completed 200 OK in 162ms (Views: 142.6ms | ActiveRecord: 0.0ms | Allocations: 51734)
+
+
+Started GET "/criar_templete" for ::1 at 2024-06-20 17:05:43 -0300
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html.erb within layouts/application
+  Rendered pages/criar_templete.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2701)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 2786)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 3067)
+
+
+  
+ActionView::Template::Error (The asset "criar_tempelete.css" is not present in the asset pipeline.
+):
+    4:     <meta charset="UTF-8">
+    5:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    6:     <title>Criador de Listas de Perguntas</title>
+    7:     <%= stylesheet_link_tag 'criar_tempelete', media: 'all' %>
+    8: </head>
+    9: <body>
+   10: <section class="container" id="criacao-container" aria-labelledby="formulario-titulo">
+  
+app/views/pages/criar_templete.html.erb:7
+Started GET "/criar_templete" for ::1 at 2024-06-20 17:08:03 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html.erb within layouts/application
+  Rendered pages/criar_templete.html.erb within layouts/application (Duration: 411.0ms | Allocations: 49139)
+  Rendered layout layouts/application.html.erb (Duration: 439.7ms | Allocations: 67619)
+Completed 200 OK in 462ms (Views: 449.3ms | ActiveRecord: 0.0ms | Allocations: 70325)
+
+
+Started GET "/home" for ::1 at 2024-06-20 17:08:09 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 15.9ms | Allocations: 4542)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 6038)
+Completed 200 OK in 25ms (Views: 21.2ms | ActiveRecord: 0.0ms | Allocations: 6378)
+
+
+Started GET "/criar_templete" for ::1 at 2024-06-20 17:08:10 -0300
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html.erb within layouts/application
+  Rendered pages/criar_templete.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2343)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4011)
+Completed 200 OK in 14ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 4289)
+
+
+Started GET "/home" for ::1 at 2024-06-20 17:08:32 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.1ms | Allocations: 3372)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 4848)
+Completed 200 OK in 16ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 5126)
+
+
+Started GET "/criar_templete" for ::1 at 2024-06-20 17:08:55 -0300
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html.erb within layouts/application
+  Rendered pages/criar_templete.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2288)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 3962)
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 4239)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOptions (20240620203040)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "options" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar, "question_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_919a0dabf9"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_options_on_question_id" ON "options" ("question_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240620203040') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateQuestions (20240620203140)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "questions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "question_type" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240620203140') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/criar_templete" for ::1 at 2024-06-20 17:41:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html.erb within layouts/application
+  Rendered pages/criar_templete.html.erb within layouts/application (Duration: 386.8ms | Allocations: 43697)
+  Rendered layout layouts/application.html.erb (Duration: 415.3ms | Allocations: 62199)
+Completed 200 OK in 433ms (Views: 425.3ms | ActiveRecord: 0.0ms | Allocations: 64905)
+
+
+Started POST "/surveys" for ::1 at 2024-06-20 17:41:53 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/surveys"):
+  
+Started GET "/criar_templete" for ::1 at 2024-06-20 17:50:39 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html.erb within layouts/application
+  Rendered pages/criar_templete.html.erb within layouts/application (Duration: 397.3ms | Allocations: 43763)
+  Rendered layout layouts/application.html.erb (Duration: 427.7ms | Allocations: 62250)
+Completed 200 OK in 445ms (Views: 437.4ms | ActiveRecord: 0.0ms | Allocations: 64956)
+
+
+Started GET "/criar_templete" for ::1 at 2024-06-20 17:54:51 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html.erb within layouts/application
+  Rendered pages/criar_templete.html.erb within layouts/application (Duration: 414.4ms | Allocations: 43436)
+  Rendered layout layouts/application.html.erb (Duration: 444.9ms | Allocations: 61939)
+Completed 200 OK in 464ms (Views: 455.7ms | ActiveRecord: 0.0ms | Allocations: 64645)
+
+
+Started GET "/home" for ::1 at 2024-06-20 17:55:04 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.9ms | Allocations: 4545)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 6021)
+Completed 200 OK in 19ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 6361)
+
+
+Started GET "/home" for ::1 at 2024-06-20 18:00:21 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 407.0ms | Allocations: 47367)
+  Rendered layout layouts/application.html.erb (Duration: 427.4ms | Allocations: 64407)
+Completed 200 OK in 463ms (Views: 437.8ms | ActiveRecord: 0.0ms | Allocations: 69087)
+
+
+Started GET "/home" for ::1 at 2024-06-20 18:00:33 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 21.5ms | Allocations: 3368)
+  Rendered layout layouts/application.html.erb (Duration: 92.7ms | Allocations: 4844)
+Completed 200 OK in 198ms (Views: 193.8ms | ActiveRecord: 0.0ms | Allocations: 5123)
+
+
+Started GET "/criar_templete" for ::1 at 2024-06-20 18:00:40 -0300
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html.erb within layouts/application
+  Rendered pages/criar_templete.html.erb within layouts/application (Duration: 7.9ms | Allocations: 2533)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 4184)
+Completed 200 OK in 19ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 4460)
+
+
+Started GET "/surveys" for ::1 at 2024-06-20 18:00:44 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/surveys"):
+  
+Started GET "/criar_templete" for ::1 at 2024-06-20 18:03:09 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#criar_templete as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/criar_templete.html.erb within layouts/application
+  Rendered pages/criar_templete.html.erb within layouts/application (Duration: 404.9ms | Allocations: 43781)
+  Rendered layout layouts/application.html.erb (Duration: 434.1ms | Allocations: 62284)
+Completed 200 OK in 451ms (Views: 443.8ms | ActiveRecord: 0.0ms | Allocations: 64990)
+
+
+Started GET "/surveys" for ::1 at 2024-06-20 18:03:34 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/surveys"):
+  

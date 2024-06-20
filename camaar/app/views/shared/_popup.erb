@@ -1,0 +1,9 @@
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close-popup" id="close-popup">&times;</span>
+    <%= button_to "Importar Dados", method: :post, class: "popup-btn", remote: true %>
+    <%= button_to "Editar Templates", method: :get, class: "popup-btn", disabled: true %>
+    <%= button_to "Enviar Formulários", method: :post, class: "popup-btn", disabled: true %>
+    <%= button_to "Resultados", method: :get, class: "popup-btn", disabled: true %>
+  </div>
+</div>
