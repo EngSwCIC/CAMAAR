@@ -1,4 +1,5 @@
 <% method = 'post' unless !method.nil? %>
+<% disabled = false if disabled.nil? %>
 
 <%= form_with method:, scope: :questions do |form| %>
     <% templatelike.questions.each do |question| %>
@@ -6,9 +7,9 @@
         <%= question.description %>
         <br>
         <% if question.input? %>
-            <%= render partial: 'partials/question_input', locals: { question:, form:, disabled: true} %>
+            <%= render partial: 'partials/question_input', locals: { question:, form:, disabled: } %>
         <% end %>
     <% end %>
     <br>
-    <%= form.submit %>
+    <%= form.submit disabled: %>
 <% end %>
