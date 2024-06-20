@@ -24,6 +24,4 @@ class OmniauthCallbacks::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-
-  allow_other_host: true
 end

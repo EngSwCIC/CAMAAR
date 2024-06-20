@@ -8,7 +8,6 @@ class TelasController < ApplicationController
   end
 
   def importar
-    
 
     Aluno.all.each do |aluno|
       aluno.destroy
@@ -25,8 +24,6 @@ class TelasController < ApplicationController
     end
   end
 
-<<<<<<< Updated upstream
-=======
   def mail
     Aluno.all.each do |aluno|
       AlunoMailer.email_cadastro(aluno).deliver_now
@@ -44,8 +41,4 @@ class TelasController < ApplicationController
     usuario = User.new(matricula:Aluno.find(@id).matricula, email:Aluno.find(@id).email, password:@senha, password_confirmation:@senha)
     usuario.save!
   end
-
-
-
->>>>>>> Stashed changes
 end
