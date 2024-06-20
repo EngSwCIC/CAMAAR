@@ -32,7 +32,7 @@ When(/^I press Importar dados$/) do
   end
 end
 
-Given(/^I have a valid JSON$/) do
+Given(/^I have valid JSONs$/) do
   @data_classes = <<-EOF
         [ {"code": "CIC0000", "name": "TESTE", "class": { "classCode": "TA", "semester": "2024.1", "time": "25M34"} } ]
   EOF
@@ -56,7 +56,7 @@ Given(/^I have a valid JSON$/) do
   EOF
 end
 
-Given /^I don't have a valid JSON$/ do
+Given /^I don't have valid JSONs$/ do
   @data_classes = <<-EOF
     [ {"code": "CIC0000", "class": { "classCode": "TA", "semester": "2024.1", "time": "25M34"} } ]
   EOF
