@@ -5,7 +5,8 @@ RSpec.feature 'Create a template', type: :feature, js: true do
     department = create(:department, :departament1)
     admin = create(:admin, :admin1)
     coordinator = create(:coordinator, :coordinator1)
-
+    template = create(:template, :template1)
+    template_questions = create(:template_question, :template_question1)
     visit '/admins/login'
 
     expect(page).to have_content 'Bem vindo ao'
@@ -62,6 +63,28 @@ RSpec.feature 'Create a template', type: :feature, js: true do
       select('Texto', from: 'question_type')
 
       click_button 'Adicionar'
+      expect(page).to have_content 'Questão 1'
+      fill_in 'template[name]', with: 'test_temp'
+      click_button 'Salvar'
+
+      expect(Template.where(name: 'test_temp').count).to eq(1)
+
+      template = Template.find_by(name: 'test_temp')
+
+      expect(TemplateQuestion.find_by(template_id: template.id).question_type).to eq('text')
+    end
+  end
+
+  describe 'admin can update a template question' do
+    it 'should update a question' do
+      template = build(:template, :template1)
+      template_questions = build(:template_question, :template_question1)
+      expect(page).to have_content template.name
+      click_link template.name
+      expect(page).to have_content template_questions.title
+      click_link 'Editar'
+      fill_in 'template_question_title', with: 'Você torce pro maior do sul? (Grêmio)?'
+      click_button 'Salvar'
       expect(page).to have_content 'Questão 1'
       fill_in 'template[name]', with: 'test_temp'
       click_button 'Salvar'
