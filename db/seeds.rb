@@ -5,44 +5,104 @@ require 'faker'
 # Constants/settings
 CURRENT_YEAR = Time.now.year
 YEARS = 5
-TEMPLATES_PER_SEMESTER = 3
 
-# Generate semesters for the next $YEAR years
-(0..YEARS).each do |year_offset|
-  year = CURRENT_YEAR + year_offset
-  (1..2).each do |semester_number|
-    half = semester_number == 2
-    Semester.create half:, year:
-  end
-end
+# Default template questions
+DEFAULT_TEMPLATES = {
+  template1: [
+    {
+      type: 'MultipleChoiceQuestion',
+      label: 'Como você avalia a clareza das explicações do professor durante as aulas?',
+      format: 'Muito clara|Clara|Nem clara, nem confusa|Pouco clara|Nada clara'
+    },
+    {
+      type: 'MultipleChoiceQuestion',
+      label: 'Em sua opinião, as atividades práticas realizadas em sala de aula contribuíram para o seu aprendizado?',
+      format: 'Sim, muito|Sim, um pouco|Não fizeram diferença|Não contribuíram|Não sei/não lembro'
+    },
+    {
+      type: 'TextInputQuestion',
+      label: 'O que você sugere para melhorar a clareza das explicações em sala de aula?'
+    }
+  ],
+  template2: [
+    {
+      type: 'MultipleChoiceQuestion',
+      label: 'Qual a sua opinião sobre a interação do professor com os alunos durante as aulas?',
+      format: 'Muito interativa|Interativa|Nem interativa, nem distante|Pouco interativa|Muito distante'
+    },
+    {
+      type: 'MultipleChoiceQuestion',
+      label: 'As atividades em grupo foram úteis para o seu aprendizado?',
+      format: 'Sim, muito|Sim, um pouco|Não fizeram diferença|Não foram úteis|Não sei/não lembro'
+    },
+    {
+      type: 'TextInputQuestion',
+      label: 'Como você se sente incentivado a participar das discussões em sala de aula?'
+    }
+  ],
+  template3: [
+    {
+      type: 'MultipleChoiceQuestion',
+      label: 'Como você avalia a organização do conteúdo programático da disciplina?',
+      format: 'Muito organizado|Organizado|Nem organizado, nem desorganizado|Pouco organizado|Muito desorganizado'
+    },
+    {
+      type: 'MultipleChoiceQuestion',
+      label: 'As leituras complementares indicadas foram relevantes para o seu entendimento do tema?',
+      format: 'Sim, muito|Sim, um pouco|Não fizeram diferença|Não foram relevantes|Não sei/não lembro'
+    },
+    {
+      type: 'TextInputQuestion',
+      label: 'O que você sugere para melhorar a organização do conteúdo programático da disciplina?'
+    }
+  ],
+  template4: [
+    {
+      type: 'MultipleChoiceQuestion',
+      label: 'Qual a sua opinião sobre a utilização de recursos tecnológicos nas aulas?',
+      format: 'Muito útil|Útil|Nem útil, nem prejudicial|Prejudicial|Muito prejudicial'
+    },
+    {
+      type: 'MultipleChoiceQuestion',
+      label: 'As atividades práticas realizadas fora da sala de aula contribuíram para o seu aprendizado?',
+      format: 'Sim, muito|Sim, um pouco|Não fizeram diferença|Não foram úteis|Não sei/não lembro'
+    },
+    {
+      type: 'TextInputQuestion',
+      label: 'O que você sugere para melhorar a integração de atividades práticas fora da sala de aula?'
+    }
+  ],
+  template5: [
+    {
+      type: 'MultipleChoiceQuestion',
+      label: 'Como você avalia a disponibilidade do professor para esclarecer dúvidas fora do horário de aula?',
+      format: 'Muito disponível|Disponível|Nem disponível, nem indisponível|Indisponível|Muito indisponível'
+    },
+    {
+      type: 'MultipleChoiceQuestion',
+      label: 'As atividades extracurriculares propostas contribuíram para o seu desenvolvimento acadêmico?',
+      format: 'Sim, muito|Sim, um pouco|Não fizeram diferença|Não foram úteis|Não sei/não lembro'
+    },
+    {
+      type: 'TextInputQuestion',
+      label: 'O que você sugere para melhorar a oferta de atividades extracurriculares?'
+    }
+  ]
+}.freeze
 
-# Generate $TEMPLATES_PER_SEMESTER templates
-Semester.find_each do |semester|
-  TEMPLATES_PER_SEMESTER.times do
-    Template.create
-  end
-end
-
-# Generate 1-15 questions per template
-Template.find_each do |template|
-  rand(1..15).times do
-    # Create questions
-    types = %w[MultipleChoiceQuestion TextInputQuestion Question].sample
-    case types
+DEFAULT_TEMPLATES.each_value do |questions|
+  puts 'Creating template...'
+  template = Template.create
+  questions.each do |question|
+    case question[:type]
     when 'MultipleChoiceQuestion'
-      MultipleChoiceQuestion.create formlike: template,
-                                    label: Faker::Lorem.words(number: rand(3..7)).join(' '),
-                                    description: Faker::Lorem.paragraphs(number: rand(1..3)).join(' '),
-                                    format: Faker::Lorem.words(number: 4).join('|')
+      MultipleChoiceQuestion.create formlike: template, label: question[:label], format: question[:format]
     when 'TextInputQuestion'
-      TextInputQuestion.create formlike: template,
-                               label: Faker::Lorem.words(number: rand(3..7)).join(' '),
-                               description: Faker::Lorem.paragraphs(number: rand(1..3)).join(' ')
+      TextInputQuestion.create formlike: template, label: question[:label]
     else
-      Question.create formlike: template,
-                      label: Faker::Lorem.words(number: rand(3..7)).join(' '),
-                      description: Faker::Lorem.paragraphs(number: rand(1..3)).join(' ')
+      puts 'Invalid question type. Skipping...'
     end
+    puts "Pergunta \"#{question[:label]}\" (#{question[:type]}) criada com sucesso"
   end
 end
 
@@ -54,6 +114,7 @@ user_attributes = {
   is_admin: true
 }
 
+# Default user
 user = User.find(user_attributes[:email])
 
 if user.nil?
