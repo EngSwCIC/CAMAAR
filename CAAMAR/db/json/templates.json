@@ -1,10 +1,6 @@
 [
   {
     "id": 1,
-    
-    "subject": "Subject Test",
-    "semester": 6,
-    "professor": "Maicon Douglas",
 
     "questions": [
       {
