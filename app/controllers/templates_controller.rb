@@ -32,15 +32,13 @@ class TemplatesController < ApplicationController
     render 'templates/send/index'
   end
 
+  # TODO: Move this route to /templates instead of /templates/:id so that we don't get the template id twice
   # POST: Gives students of disciplines access to a form copied from the given template
   def send_out_forms
-    Rails.logger.debug("Received: #{params[:questions].inspect}")
-    return
+    params.permit(:authenticity_token, :commit, :id, :template_id, discipline_ids: [])
+    return unless user_authenticated && admin_user?
 
-    params.permit(:id, discipline_ids: %i[id])
-    return unless user_authenticated && admin_user? && params.key?(:discipline_ids)
-
-    form = Form.create template: Template.find(params[:id])
+    form = Form.create template: Template.find(params[:template_id])
     params[:discipline_ids].each do |discipline_id|
       FormDiscipline.create form:, discipline: Discipline.find(discipline_id)
     end
