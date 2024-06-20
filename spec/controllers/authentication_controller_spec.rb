@@ -28,9 +28,9 @@ RSpec.describe AuthenticationController, type: :controller do
         allow(user).to receive(:generate_session_key).and_return("valid_session_key")
       end
 
-      it "creates a session cookie and redirects to home_path" do
+      it "creates a session cookie and redirects to evaluations_path" do
         post :process_login, params: { email: "test@example.com", password: "password" }
-        expect(response).to redirect_to(home_path)
+        expect(response).to redirect_to(root_path)
         expect(cookies.signed[:user_info]).to be_present
       end
     end

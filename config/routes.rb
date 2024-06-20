@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   # Registrations Paths
   get '/create', to: 'registrations#index', as: 'create'
   post '/create', to: 'registrations#create', as: 'register'
-  # Home Paths
-  get '/home', to: 'home#index', as: 'home'
   # Root Path
   root 'index#index'
   # Redifine Password Path
@@ -23,6 +21,8 @@ Rails.application.routes.draw do
   # Semesters Path
   get '/semesters', to: 'semesters#index'
   get '/semesters/current', to: 'semesters#show'
+  # Evaluations Path
+  get '/evaluations', to: 'evaluations#index', as: 'evaluations'
 
   resources :questions, only: [], param: :index do
     member do

@@ -10,4 +10,9 @@ class Professor < ApplicationRecord
       )
     end
   end
+
+  def self.find_by_registration(registration_number)
+    find_by(registration_number: registration_number)
+  end
+
 end
