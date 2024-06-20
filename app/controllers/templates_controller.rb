@@ -25,7 +25,7 @@ class TemplatesController < ApplicationController
 
   # GET: Page for sending a form to students of a discipline
   def edit_send
-    redirect_to root_path unless user_authenticated && admin_user?
+    return redirect_to root_path unless user_authenticated && admin_user?
 
     @disciplines = Discipline.all
     @templates = Template.all
