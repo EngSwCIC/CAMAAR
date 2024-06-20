@@ -4,16 +4,12 @@ Feature: Visualize created templates
     I want to visualize the created templates 
     So that I can edit and/or delete a template that I have created
 
-    Background:
-        Given I am on the Templates page
-
     Scenario: Visualizing an already created template
+        Given I am on the Templates page
         When I click on the card of an already created template
         Then I should see the questions created for that template and its name
 
-    Scenario: Removing all the questions of a form
-        When I click on the edit icon
-        And I delete all questions
-        And I click on "Criar" button
-        Them I should see an alert saying that it is not possible to create an empty form
-        And the form should not be edited
+    Scenario: There are no templates created 
+        Given that there are no created templates
+        When I go to the Templates page
+        Then I should see an empty page

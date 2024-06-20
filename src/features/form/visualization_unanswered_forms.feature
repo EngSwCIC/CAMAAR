@@ -4,7 +4,7 @@ Feature: Viewing unanswered forms for enrolled courses
   So that I can choose which one to answer
 
 Background:
-    Given I logged as an User
+    Given I am logged as an User
     And I am on the evaluations webpage
 
  Scenario: User views the list of unanswered forms and selects one
