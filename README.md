@@ -1,43 +1,189 @@
-# Grupo - Camaar - G1
-## Participantes: 
-- Willyan Marques - 221020940
-- Marcos Paulo - 221020889
-- Arthur Delpino - 221002094
-- Caio Yuri - 221002011
-- João Pedro Gomes - 221006351
+# Auth
 
-## Scrum Master: Willyan Marques
-## Serão desenvolvidas as 16 issues, com base no nossa estilização presente em [Figma - Willyan Marques](https://www.figma.com/design/kIW8LmzqajgAQVigrLX21y/Camaar-G01?node-id=0-1&t=H1Mo40dyNMOK5nv3-0) e no nosso modelo entidade-relacionamento.
+Features que envolvem login, registro, redefinição de senha, proteção de rotas e demais processos relacionados aos usuários e à segurança do sistema
 
-## Divisão das Features:
-- Features de Autenticação (Auth): João Pedro Gomes
-- Features de Exportação e Importação (Io): Marcos Paulo
-- Features de Formulários: Willyan Marques e Arthur Delpino
-- Features de Templates: Willyan Marques e Caio Yuri
-- A política de branch se baseou em criar branches a partir de sprint-1 para desenvolvimento de cada feature, e, ao final do desenvolvimento, promover um pull request para a branch sprint-1
+## login
 
-# Features
-## Auth
-### Sistema de Login #104 - login.feature - 
-### Redefinição de senha #107 - password_reset.feature
-### Sistema de definição de senha #105 - signup.feature
-## Forms
-### Responder formulário #99 - submit_form.feature
-## Io
-### Gerar relatório do administrador #101 - exports_results.feature
-### Importar dados do SIGAA #98 - import_data.feature
-### Cadastrar usuários do sistema #100 - import_data.feature
-### Atualizar base de dados com os dados do SIGAA #108 - update_data.feature
-## Templates
-### Criar template de formulário #102 - create_template.feature
-### Edição e deleção de templates #112 - delete_template.feature e edit_template.feature
-### Criar formulário de avaliação #103 - share_template.feature
-### Criação de formulário para docentes ou dicentes #113 - select_template.feature
-### Sistema de gerenciamento por departamento #106 - departments.feature
-## Visualizations
-### Visualização de formularios para responder #109 - forms_page.feature
-### Visualização de resultados dos formulários #110 - results_page.feature
-### Visualização dos templates criados #111 - templates_page.feature
+**Model**
 
-# Figma (base do Frontend):
-[Figma - Willyan Marques](https://www.figma.com/design/kIW8LmzqajgAQVigrLX21y/Camaar-G01?node-id=0-1&t=H1Mo40dyNMOK5nv3-0)
+**View**
+
+**Controller**
+
+## password_reset
+
+**Model**
+
+**View**
+
+**Controller**
+
+## signup_user
+
+**Model**
+
+**View**
+
+**Controller**
+
+# Forms
+
+Features que envolvem criação, submissão e envio de formulários
+
+## create_form
+
+**Model**
+
+**View**
+
+**Controller**
+
+## student_submit_form
+
+**Model**
+
+**View**
+
+**Controller**
+
+## teacher_submit_form
+
+**Model**
+
+**View**
+
+**Controller**
+
+# IO
+
+Features relacionadas à importação de dados para o sistema e à exportação de arquivos (xlms, gráficos, pdf, etc)
+
+## export_results
+
+**Model**
+
+**View**
+
+**Controller**
+
+## import_data
+
+**Model**
+
+**View**
+
+**Controller**
+
+## update_data
+
+**Model**
+
+**View**
+
+**Controller**
+
+# Templates
+
+Features realacionadas ao CRUD de templates e questões
+
+## create_edit_template
+
+**Model**
+
+- Coordinator
+- Template
+- TemplateQuestion
+
+**View**
+
+- /templates/edit.html.erb
+- /templates/index.html.erb
+- /template_questions/edit.html.erb
+- /template_questions/new.html.erb
+
+**Controller**
+
+- /templates_controller.rb
+- /templates_questions_controller.rb
+
+**Explicação**
+
+Para criar um template, um coordenador precisa seguir a opção "Templates" na sidebar, ir pra página de templates e precionar "Adicionar Template". Quando você adiciona um template, você cria um template marcado como "draft" na database.
+
+Você irá ser redirecionado para página de editar template, onde você poderá adicionar questões a ele e modificar seu nome e tipo ("discente" ou "docente").
+
+Para salvar os dados você precisa ter criado pelo menos uma questão.
+
+**Bugs**
+
+Por conta da relação entre as models de template e questões, seria necessário a criação de um formulário aninhado para registrar os dados em ambas models. Como isso é algo relativamente complexo e o tempo era extremamente curto, optamos por tentar refatorar a criação de templates futuramente.
+Na implementação atual, embora funcional, precisamos primeiro CRIAR um template para só então criar suas perguntas. Adicionamos o atributo "draft" como uma forma de saber se ele possui ou não perguntas e se pode ser usado na criação de formulários.
+
+## delete_template
+
+**Model**
+
+Coordinator
+Template
+TemplateQuestion
+
+**View**
+
+- /templates/edit.html.erb
+- /templates/index.html.erb
+
+**Controller**
+
+- /templates_controller.rb
+
+**Explicação**
+
+Um template pode ser deletado a partir o botão de delete presente no seu card na página de "templates", ou pode ser deletado pelo botão de delete da página de edição do template.
+
+Deletar um template também deleta as questões relacionadas a ele, mas mantém os forms criados a partir dele.
+
+# Visualization
+
+Features que descrevem as páginas do site com foco na visualização, e não necessariamente nas funcionalidades das páginas
+
+## classes_page
+
+**Model**
+
+**View**
+
+**Controller**
+
+Lista todas
+
+## departments_page
+
+**Model**
+
+**View**
+
+**Controller**
+
+## forms_page
+
+**Model**
+
+**View**
+
+**Controller**
+
+## results_page
+
+**Model**
+
+**View**
+
+**Controller**
+
+## templaes_page
+
+**Model**
+
+**View**
+
+**Controller**
