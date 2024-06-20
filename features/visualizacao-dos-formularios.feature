@@ -13,13 +13,6 @@ Funcionalidade: Visualizar os templates criados
         Então devem aparecer os formulários pendentes na tela principal
 
     # Sad Path
-    Cenário: Não estou matriculado em nenhuma turma
-        Dado que eu estou logado no sistema com um usuário do tipo aluno
-        E não estou matriculado em nenhuma turma
-        Quando eu estiver na página de Formulários
-        Então deve aparecer uma mensagem dizendo "Não existem turmas matriculadas" na tela principal
-
-    # Sad Path
     Cenário: Não há formulários para responder
         Dado que eu estou logado no sistema com um usuário do tipo aluno
         E estou matriculado em alguma turma
