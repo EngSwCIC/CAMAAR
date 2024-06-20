@@ -1,9 +1,7 @@
 <% method = 'post' unless !method.nil? %>
 
-<h2>Modelo #<%= template.id %></h2>
-
 <%= form_with method:, scope: :questions do |form| %>
-    <% template.questions.each do |question| %>
+    <% templatelike.questions.each do |question| %>
         <h3><%= question.label %></h3>
         <%= question.description %>
         <br>
