@@ -52,14 +52,14 @@ RSpec.describe Materia, type: :model do
     context 'when calling the method get_sigaa_classes' do
       it 'calls the SIGAA API wrapper' do
         expect(SIGAA::Client).to receive(:fetch_classes)
-        Materium.get_sigaa_classes
+        Materia.get_sigaa_classes
       end
     end
 
     context 'when SIGAA is unaccessible' do
       it 'throws the ConnectionTimeoutError' do
         allow(SIGAA::Client).to receive(:fetch_classes).and_raise(SIGAA::Client::ConnectionTimeoutError)
-        expect {Materium.get_sigaa_classes}.to raise_error(Materium::ConnectionTimeoutError)
+        expect {Materia.get_sigaa_classes}.to raise_error(Materia::ConnectionTimeoutError)
       end
     end
   end
