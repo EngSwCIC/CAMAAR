@@ -26,7 +26,7 @@
             <div class="overview-item overview-item--sform">
               <div class="overview__inner">
                   <div class="overview-box clearfix">
-                      <%= link_to form.name, edit_form_path(form) ,class:"template-link" do %>
+                      <%= link_to form.name, edit_form_path(form) ,id: form.name, class:"template-link" do %>
                         <h1 class="template-name"><%= form.name %></h1>
                       <% end %>
                     <div class="icons-container">

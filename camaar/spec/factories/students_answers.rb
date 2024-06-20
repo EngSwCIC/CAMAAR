@@ -1,3 +1,4 @@
+require 'json'
 FactoryBot.define do
   factory :student_answer do
     answers { '{"answers":"abcd"}' }
@@ -20,6 +21,25 @@ FactoryBot.define do
       id { 2 }
       form_question_id { 1 }
       student_id { 3 }
+    end
+
+    trait :student_answers4 do
+      id { 3 }
+      form_question_id { 1 }
+      student_id { 3 }
+    end
+
+    trait :student_answers5 do
+      id { 4 }
+      form_question_id { 1 }
+      student_id { 2 }
+    end
+
+    trait :student_answers6 do
+      id { 5 }
+      form_question_id { 6 }
+      student_id { 8 }
+      answers { '{"answers":{"1":true,"2":false,"3":false,"4":false,"5":false}}' }
     end
   end
 end

@@ -7,11 +7,13 @@ feature 'Visualize classes from classes page' do
   end
 
   describe 'when there are classes' do
-    scenario 'admin can visualize classes' do
+    before do
       admin = create(:admin, :admin1)
       coordinator = create(:coordinator, :coordinator1)
       user = create(:user, :user5)
+      user = create(:user, :user6)
       teacher = create(:teacher, :teacher1)
+      teacher = create(:teacher, :teacher2)
       class1 = create(:subject_class, :subject_class1)
       class2 = create(:subject_class, :subject_class2)
       class3 = create(:subject_class, :subject_class3)
@@ -25,7 +27,8 @@ feature 'Visualize classes from classes page' do
       click_button 'Confirmar'
       expect(page).to have_content 'Turmas'
       click_link 'Turmas'
-
+    end
+    scenario 'admin can visualize classes' do
       expect(page).to have_content 'DEPTO CIÊNCIAS DA COMPUTAÇÃO'
       expect(page).to have_content 'BANCOS DE DADOS'
       expect(page).to have_content 'ENGENHARIA DE SOFTWARE'
@@ -41,7 +44,7 @@ feature 'Visualize classes from classes page' do
     end
   end
   describe 'when there are no classes' do
-    scenario 'admin can not visualize classes if there are no classes' do
+    before do
       admin = create(:admin, :admin1)
       coordinator = create(:coordinator, :coordinator1)
       user = create(:user, :user5)
@@ -56,7 +59,8 @@ feature 'Visualize classes from classes page' do
       click_button 'Confirmar'
       expect(page).to have_content 'Turmas'
       click_link 'Turmas'
-
+    end
+    scenario 'admin can not visualize classes if there are no classes' do
       expect(page).to have_content 'O departamento não possui turmas'
     end
   end

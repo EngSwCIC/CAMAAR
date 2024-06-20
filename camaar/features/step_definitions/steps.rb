@@ -234,6 +234,7 @@ Given(/that the department "([^"]*)" has no classes$/) do |dpt_name|
   end
 end
 
+
 Given(/^that a form has been assigned to the (students|teachers) of the following classes:$/) do |role, fields|
   step 'I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"'
 

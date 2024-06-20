@@ -9,10 +9,10 @@ class CustomFailure < Devise::FailureApp
 
   def redirect
     store_location!
-    if request.format == :json
-      render json: { error: 'Unauthorized' }, status: :forbidden
-    else
-      redirect_to root_path
-    end
+    # if request.format == :json
+    #   render json: { error: 'Unauthorized' }, status: :forbidden
+    # else
+    redirect_to root_path
+    # end
   end
 end
