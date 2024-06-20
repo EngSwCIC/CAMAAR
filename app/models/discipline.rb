@@ -25,6 +25,18 @@ class Discipline < ApplicationRecord
     disciplines_info
   end
 
+  def self.all_disciplines_with_eval_info
+    disciplines_info = []
+    where(id: Form.select(:discipline_id).distinct).each do |discipline|
+      professor = Professor.find_by_registration(discipline.professor_registration)
+      semester = Semester.find_by_id(discipline.semester_id)
+
+      info = discipline.professor_and_semester_info(discipline, professor, semester)
+      disciplines_info << info.merge(discipline_name: discipline.name, id: discipline.id)
+    end
+    disciplines_info
+  end
+
   def professor_and_semester_info(discipline, professor, semester)
     professor_name = professor&.name
     professor_department_code = professor&.department_code

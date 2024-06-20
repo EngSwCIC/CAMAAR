@@ -16,7 +16,7 @@
   </div>
 <% end %>
 
-<h1 class="text-center"><i>Avaliações por Disciplina</i></h1>
+<h1 class="text-center"><i>Disciplinas</i></h1>
 <br>
 <br>
 
@@ -30,11 +30,6 @@
             <strong>Professor:</strong> <%= discipline_info[:professor_name] %><br>
             <strong>Semestre:</strong> <%= discipline_info[:semester_name] %>
           </p>
-          <% if !admin_user? %>
-            <a href="#" class="btn btn-primary">Avaliar Disciplina</a>
-          <% else %>
-            <a href="/evaluations/<%= discipline_info[:id] %>.csv" class="btn btn-primary">Baixar Resultados</a>
-          <% end %>
         </div>
       </div>
     </div>
@@ -42,5 +37,5 @@
 </div>
 
 <% if @disciplines_info.empty? %>
-  <p>Nenhuma avaliação foi encontrada encontrada.</p>
+  <p>Nenhuma disciplina encontrada.</p>
 <% end %>
