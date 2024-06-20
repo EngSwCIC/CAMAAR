@@ -162,7 +162,7 @@ class AdminsController < ApplicationController
 
         db_enrollments.each do |enr|
           if !new_enrollments.include?(enr)
-            enr.destroy
+            enr.update(active: false)
           end
         end
 

@@ -234,7 +234,6 @@ Given(/that the department "([^"]*)" has no classes$/) do |dpt_name|
   end
 end
 
-
 Given(/^that a form has been assigned to the (students|teachers) of the following classes:$/) do |role, fields|
   step 'I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"'
 
@@ -280,13 +279,19 @@ Given("that I am an User associated with the following classes:") do |_table|
   pending
 end
 
-Then (/I expect the student "([^"]*)" to not be associated with following classes:/) do |name, table|
-  classes = table.hashes
+Then (/I expect the (student|teacher) "([^"]*)" to not be associated with following classes:/) do |role, name, table|
   student = Student.find_by(name: name)
+  teacher = Teacher.find_by(name: name)
+  classes = table.hashes
   classes.each do |data|
     subject_class = SubjectClass.find_by(semester: data["semester"], code: data["code"], subject: data["subject"])
-    enrollment = Enrollment.find_by(student_id: student.id, subject_class_id: subject_class.id)
-    expect(enrollment).to be_nil
+
+    if role == "student"
+      enrollment = Enrollment.find_by(student_id: student.id, subject_class_id: subject_class.id)
+      expect(enrollment.active).to be false
+    else
+      expect(subject_class.teacher_id).to be teacher.id
+    end
   end
 end
 

@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_06_181536) do
   create_table "enrollments", force: :cascade do |t|
     t.integer "student_id"
     t.integer "subject_class_id"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["student_id"], name: "index_enrollments_on_student_id"
