@@ -1,8 +1,64 @@
 [
   {
     "id": 1,
+    
     "subject": "Subject Test",
     "semester": 6,
-    "professor": "Maicon Douglas"
+    "professor": "Maicon Douglas",
+
+    "questions": [
+      {
+        "id": 1,
+        "question": "Question Test",
+        "alternatives": [
+          {
+            "id": 1,
+            "alternative": "Alternative Test",
+            "correct": true
+          },
+          {
+            "id": 2,
+            "alternative": "Alternative Test",
+            "correct": false
+          },
+          {
+            "id": 3,
+            "alternative": "Alternative Test",
+            "correct": false
+          },
+          {
+            "id": 4,
+            "alternative": "Alternative Test",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "question": "Question Test",
+        "alternatives": [
+          {
+            "id": 1,
+            "alternative": "Alternative Test",
+            "correct": true
+          },
+          {
+            "id": 2,
+            "alternative": "Alternative Test",
+            "correct": false
+          },
+          {
+            "id": 3,
+            "alternative": "Alternative Test",
+            "correct": false
+          },
+          {
+            "id": 4,
+            "alternative": "Alternative Test",
+            "correct": false
+          }
+        ]
+      }
+    ]
   }
 ]
