@@ -401,13 +401,23 @@
                 "email": "wilxavier@me.com"
             }
         ],
-        "docente": {
-            "nome": "MARISTELA TERTO DE HOLANDA",
-            "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO",
-            "formacao": "DOUTORADO",
-            "usuario": "83807519491",
-            "email": "mholanda@unb.br",
-            "ocupacao": "docente"
-        }
+        "docente": [
+            {
+                "nome": "MARISTELA TERTO DE HOLANDA",
+                "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO",
+                "formacao": "DOUTORADO",
+                "usuario": "83807519491",
+                "email": "mholanda@unb.br",
+                "ocupacao": "docente"
+            },
+            {
+                "nome": "JOSÉ DA SILVA",
+                "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO",
+                "formacao": "DOUTORADO",
+                "usuario": "92736482719",
+                "email": "jose.silva@unb.br",
+                "ocupacao": "coordenador"
+            }
+        ]
     }
 ]
