@@ -1,42 +1,24 @@
-<button id="resultados">Resultados</button>
+<button id="resultados_btn"
+  hx-get="/gerenciamento/results_popup"
+  hx-target="#resultados_html"
+  hx-trigger="click"
+  onClick="resultados_modal.style.display = 'block'">
+  Resultados
+</button>
 
 <div id="resultados_modal" class="modal">
   <div class="modal-content">
-    <span class="close">&times;</span>
+    <span class="close" onClick="resultados_modal.style.display = 'none'">&times;</span>
     <div id="resultados_html"></div>
   </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/htmx.org@1.7.0/dist/htmx.min.js"></script>
 <script>
-  var modal = document.getElementById("resultados_modal");
-  var btn = document.getElementById("resultados");
-  var span = document.getElementsByClassName("close")[0];
-
-  span.onclick = function() {
-    modal.style.display = "none";
+  window.onclick = (event) => {
+    if (event.target != resultados_modal) return;
+    resultados_modal.style.display = "none";
   }
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-
-  // Example JavaScript (using jQuery)
-  $('#resultados').click(function() {
-    $.ajax({
-      url: '/gerenciamento/results_popup',
-      type: 'GET',
-      data: { },  // Pass any necessary parameters
-      success: function(response) {
-        $('#resultados_html').html(response);
-        modal.style.display = "block";
-      },
-      error: function(xhr, status, error) {
-        // Handle error
-      }
-    });
-  });
 </script>
 
 <style>
