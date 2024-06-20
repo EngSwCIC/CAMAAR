@@ -34,6 +34,9 @@ class TemplatesController < ApplicationController
 
   # POST: Gives students of disciplines access to a form copied from the given template
   def send_out_forms
+    Rails.logger.debug("Received: #{params[:questions].inspect}")
+    return
+
     params.permit(:id, discipline_ids: %i[id])
     return unless user_authenticated && admin_user? && params.key?(:discipline_ids)
 
