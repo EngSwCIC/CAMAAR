@@ -4,9 +4,9 @@ Feature: View pending forms
     So that I can choose which one I will fill in
 
     Scenario: A form has been sent to the class (happy path)
-        Given I am logged in as a Student
+        Given I am logged in as a student from class "ES123"
         And I am on the Avaliacoes page
-        And a form has been sent to the class "Turma1"
+        And a form has been sent to this user
         Then I should see form "Turma1"
 
     Scenario: No form has been sent to the class (sad path)

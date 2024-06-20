@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_20_143837) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_20_144949) do
+  create_table "form_requests", force: :cascade do |t|
+    t.integer "study_class_id", null: false
+    t.integer "user_id", null: false
+    t.boolean "answered", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["study_class_id"], name: "index_form_requests_on_study_class_id"
+    t.index ["user_id"], name: "index_form_requests_on_user_id"
+  end
+
+  create_table "form_responses", force: :cascade do |t|
+    t.integer "study_class_id", null: false
+    t.integer "template_id", null: false
+    t.string "response"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["study_class_id"], name: "index_form_responses_on_study_class_id"
+    t.index ["template_id"], name: "index_form_responses_on_template_id"
+  end
+
   create_table "study_classes", force: :cascade do |t|
     t.string "code"
     t.string "name"
@@ -66,6 +86,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_20_143837) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "form_requests", "study_classes"
+  add_foreign_key "form_requests", "users"
+  add_foreign_key "form_responses", "study_classes"
+  add_foreign_key "form_responses", "templates"
   add_foreign_key "study_classes", "users", column: "docente_id"
   add_foreign_key "template_questions", "templates"
 end
