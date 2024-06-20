@@ -1,5 +1,5 @@
 <!-- Expects to be inside a form helper tag -->
-<% answer = @answers[question.id].answer %>
+<% answer = @answers[question.id].answer unless @answers[question.id].nil? %>
 
 <% case question.type %>
 <% when 'TextInputQuestion'%>
