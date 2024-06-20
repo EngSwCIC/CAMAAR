@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "template_id": 1,
+    "class": {
+      "subject_code": "CIC0105",
+      "semester": "2021.2",
+      "code": "TA"
+    },
+    "solvers": [
+      {
+        "id": 1,
+        "is_solved": true
+      },
+      {
+        "id": 2,
+        "is_solved": true
+      },
+      {
+        "id": 3,
+        "is_solved": false
+      }
+    ]
+  }
+]

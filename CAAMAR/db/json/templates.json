@@ -1,59 +1,17 @@
 [
   {
     "id": 1,
-
+    "name": "Template 1",
     "questions": [
       {
         "id": 1,
-        "question": "Question Test",
-        "alternatives": [
-          {
-            "id": 1,
-            "alternative": "Alternative Test",
-            "correct": true
-          },
-          {
-            "id": 2,
-            "alternative": "Alternative Test",
-            "correct": false
-          },
-          {
-            "id": 3,
-            "alternative": "Alternative Test",
-            "correct": false
-          },
-          {
-            "id": 4,
-            "alternative": "Alternative Test",
-            "correct": false
-          }
-        ]
+        "prompt": "Question Test Prompt - Open-ended Question",
+        "type": "open" 
       },
       {
         "id": 2,
-        "question": "Question Test",
-        "alternatives": [
-          {
-            "id": 1,
-            "alternative": "Alternative Test",
-            "correct": true
-          },
-          {
-            "id": 2,
-            "alternative": "Alternative Test",
-            "correct": false
-          },
-          {
-            "id": 3,
-            "alternative": "Alternative Test",
-            "correct": false
-          },
-          {
-            "id": 4,
-            "alternative": "Alternative Test",
-            "correct": false
-          }
-        ]
+        "prompt": "Question Test Prompt - Likert Question",
+        "type": "likert" 
       }
     ]
   }
