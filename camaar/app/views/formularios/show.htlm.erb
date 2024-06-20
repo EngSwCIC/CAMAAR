@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página Gerenciar Formulários</title>
+</head>
+<body>
+    <h1>Detalhes do Formulário</h1>
+
+        <p>
+            <strong>Nome:</strong>
+            <%= @formulario.nome %>
+        </p>
+        
+        <p>
+            <strong>Descrição:</strong>
+            <%= @formulario.descricao %>
+        </p>
+    
+            <%= link_to 'Editar', edit_formulario_path(@formulario) %> |
+            <%= link_to 'Voltar', formularios_path %>
+</body>
+</html>

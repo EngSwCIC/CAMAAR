@@ -1,9 +1,35 @@
-<h1>Formularios</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página Gerenciar Formulários</title>
+</head>
+<body>
+  <h1>Formulários</h1>
 
-<ul>
-  <% @formularios.each do |formulario| %>
-    <li>
-      <%= formulario.nome %>
-    </li>
-  <% end %>
-</ul>
+  <main>
+    <% if current_user %>
+      <% if current_user.admin? %>
+        <%= link_to "gerenciamento", new_formulario_path %>
+        <h1>Você é admin!</h1>
+      <% end %>
+
+      <% if @formularios.any? %>
+        <ul>
+          <% @formularios.each do |formulario| %>
+            <li>
+              <b>Disciplina:</b> <%= formulario[:nome] %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>Nenhum formulário disponível.</p>
+      <% end %>
+
+      <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete %>
+      <%= link_to "Pagina inicial", root_path %>
+    <% else %>
+      <p>Você não está logado.</p>
+    <% end %>
+  </main>
+</body>
+</html>
