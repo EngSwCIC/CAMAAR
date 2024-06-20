@@ -15,7 +15,7 @@ class Discipline < ApplicationRecord
 
   def self.all_disciplines_info(email, admin_user)
     disciplines_info = []
-    
+
     if admin_user
       disciplines = Discipline.all
     else
@@ -26,12 +26,12 @@ class Discipline < ApplicationRecord
     disciplines.each do |discipline|
       professor = Professor.find_by_registration(discipline.professor_registration)
       semester = Semester.find_by_id(discipline.semester_id)
-  
+
       info = discipline.professor_and_semester_info(discipline, professor, semester)
       disciplines_info << info.merge(discipline_name: discipline.name, id: discipline.id)
     end
     disciplines_info
-  end  
+  end
 
   def self.all_disciplines_with_eval_info(email, admin_user)
     disciplines_info = []
@@ -66,33 +66,30 @@ class Discipline < ApplicationRecord
       discipline_name: discipline.name,
       professor_name:,
       professor_department_code:,
-      semester_name:
+      semester_name:,
+      form_url: "/forms/#{Form.where(discipline:).first.id}"
     }
   end
 
   def to_csv
     CSV.generate(headers: true) do |csv|
-
       csv << ["#{code} - #{name}"]
-      csv << ["Sem formulários."] if forms.empty?
+      csv << ['Sem formulários.'] if forms.empty?
       csv << [nil]
 
       forms.each do |form|
-
         csv << ["Formulário #{form.id}"]
         csv << [nil]
 
         form.questions.each_with_index do |question, index|
-
           csv << ["#{index + 1}. #{question.label}"]
-          csv << ["Sem respostas fornecidas."] if question.answers.empty?
+          csv << ['Sem respostas fornecidas.'] if question.answers.empty?
           csv << [nil]
 
           question.answers.each do |answer|
             csv << [User.find(answer.user_id), answer.answer]
           end
-          csv << [nil] if !question.answers.empty?
-
+          csv << [nil] unless question.answers.empty?
         end
       end
     end
