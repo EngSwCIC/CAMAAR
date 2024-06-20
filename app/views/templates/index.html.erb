@@ -2,6 +2,6 @@
 
 <% @templates.each do |template| %>
     <h2><%= template %></h2>
-    <%= render partial: 'partials/template', locals: { templatelike: template } %>
+    <%= render partial: 'partials/template', locals: { templatelike: template, disabled: true } %>
     <hr>
 <% end %>
