@@ -6,9 +6,7 @@
     <div class="grid-container" style="padding: 1rem">
         <% @templates.each do |template| %>
             <div class="card">
-                <h2><%= template["subject"] %></h2>
-                <p>Semestre: <%= template["semester"] %></p>
-                <p>Professor: <%= template["professor"] %></p>
+                <h2><%= template["name"] %></h2>
             </div>
         <% end %>
     </div>
