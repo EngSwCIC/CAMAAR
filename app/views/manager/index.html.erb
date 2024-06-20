@@ -20,9 +20,9 @@
     <br>
     <%= button_to "Atualziar Dados do Semestre Atual", update_sigaa_data_path, method: :post, class: "btn btn-outline-primary btn-block" %>
     <br>
-    <%= button_to "Editar Templates", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <%= button_to "Editar Templates", root_path, method: :get, class: "btn btn-outline-primary btn-block" %>
     <br>
-    <%= button_to "Enviar Formulários para Semestre Atual", home_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <%= button_to "Enviar Formulários para Semestre Atual", root_path, method: :get, class: "btn btn-outline-primary btn-block" %>
     <br>
     <%= button_to "Gerar CSV de Resultados deste Semestre", semesters_current_path(format: :csv), method: :get, class: "btn btn-outline-primary btn-block" %>
     <br>

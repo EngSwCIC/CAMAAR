@@ -14,7 +14,7 @@ class AuthenticationController < ApplicationController
     elsif user && User.authenticate(user.id, params[:password])
       key = user.generate_session_key
       create_cookie(user, key)
-      redirect_to home_path
+      redirect_to root_path
   
     else
       flash[:error] = "Email ou Senha estão errados."

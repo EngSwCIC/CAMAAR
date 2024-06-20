@@ -10,9 +10,9 @@ RSpec.describe IndexController, type: :controller do
         allow(controller).to receive(:user_authenticated).and_return(true)
       end
 
-      it "redirects to home_path" do
+      it "redirects to evaluations_path" do
         get :index
-        expect(response).to redirect_to(home_path)
+        expect(response).to redirect_to(evaluations_path)
       end
     end
 

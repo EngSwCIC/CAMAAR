@@ -11,7 +11,7 @@
   <% unless controller_name == 'authentication' || controller_name == 'registrations' %>
   
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="home">Quick Class Evall</a>
+      <a class="navbar-brand" href="/evaluations">Quick Class Evall</a>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -21,7 +21,7 @@
             </li>
           <% end %>
           <li class="nav-item active">
-            <%= link_to "Área de Avaliações", home_path, class: "nav-link" %>
+            <%= link_to "Área de Avaliações", evaluations_path, class: "nav-link" %>
           </li>
         </ul>
         <div class="custom-button-container d-flex justify-content-start">
