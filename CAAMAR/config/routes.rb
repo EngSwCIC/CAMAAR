@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'main/index'
   get 'gerenciamento', to: 'gerenciamento#show'
   get 'gerenciamento/results_popup'
+  get 'gerenciamento/generate_csv'
 
   get 'turmas', to: 'turmas#index'
 
