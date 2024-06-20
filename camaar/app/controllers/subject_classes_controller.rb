@@ -19,10 +19,10 @@ class SubjectClassesController < ApplicationController
     end
 
     @department = Department.find_by(id: @coordinator.department_id)
-    unless @department
-      @errors << 'Departamento não encontrado'
-      return
-    end
+    # unless @department
+    #   @errors << 'Departamento não encontrado'
+    #   return
+    # end
 
     @subject_classes = SubjectClass.where(department_id: @department.id)
 
