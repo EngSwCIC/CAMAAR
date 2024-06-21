@@ -10,3 +10,7 @@ Given(/^I am on the(?: main)? (.*) page$/) do |page_name|
     raise "Unknown page: #{page_name}"
   end
 end
+
+When(/^(?:I )?move to the(?: main)? (.*) page$/) do |page_name|
+  step "I am on the #{page_name} page"
+end
