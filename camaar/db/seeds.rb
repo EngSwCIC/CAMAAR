@@ -40,7 +40,7 @@ create_list(:template, 2)
 
 # Create formularios with associations
 create_list(:formulario, 5) do |formulario|
-  # Assign random turma and template
+  # Assign  random turma and template
   formulario.turma = Turma.all.sample
   formulario.template = Template.all.sample
 end
