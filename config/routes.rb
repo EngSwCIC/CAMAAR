@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   get '/gerenciamento', to: 'gerenciamento#index'
   put '/gerenciamento/import', :as => 'gerenciamento_import'
 
+  get '/send_forms', to: 'send_forms#index'
+
   root to: "avaliacoes#index"
 end
