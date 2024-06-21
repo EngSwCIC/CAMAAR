@@ -21,11 +21,11 @@ end
 Given(/^there are existing classes, subjects, and participants in the database$/) do
   @existing_class = StudyClass.create(code: "CIC0000", classCode: "TA", semester: "2024.1")
 
-  aluno = User.new(nome: "Silva", matricula: "54321", email: "silva@email.com")
+  aluno = User.new(nome: "Silva", matricula: "54321", email: "teste1@email.com")
   aluno.skip_password_validation = true
   @existing_participant1 = aluno.save
 
-  professor = User.new(nome: "FULANO DE CICLANO", matricula: "12345", email: "fulano@email.com")
+  professor = User.new(nome: "FULANO DE CICLANO", matricula: "12345", email: "teste2@email.com")
   professor.skip_password_validation = true
   @existing_participant2 = professor.save
 end
@@ -59,10 +59,10 @@ Given(/^I have valid JSONs$/) do
           "usuario": "54321",
           "formacao": "graduando",
           "ocupacao": "dicente",
-          "email": "silva@email.com"
+          "email": "teste1@email.com"
         }],
         "docente": { 
-          "nome": "FULANO DE CICLANO", "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO", "formacao": "DOUTORADO", "usuario": "12345", "email": "fulano@email.com", "ocupacao": "docente" 
+          "nome": "FULANO DE CICLANO", "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO", "formacao": "DOUTORADO", "usuario": "12345", "email": "teste2@email.com", "ocupacao": "docente" 
         } 
       } 
     ]

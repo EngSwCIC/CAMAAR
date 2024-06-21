@@ -133,6 +133,39 @@ RSpec.describe GerenciamentoController, type: :controller do
 
       expect(turma.users.include?(person)).to be true
     end
+
+    it 'calls the devise mailer to send an email to all new users that are created' do
+      json_classes, filepath_classes = valid_classes
+      allow(File).to receive(:read).with(filepath_classes).and_return(json_classes)
+
+      json_members, filepath_members = valid_members
+      allow(File).to receive(:read).with(filepath_members).and_return(json_members)
+
+      # esperar que o mailer receba o metodo para enviar
+      # so que se nao colocar retorno da ruim, tem que retornar um objeto Mailer tbm
+      # sao 2 novos usuarios no JSON que eu fiz
+      expect(Devise.mailer).to receive(:send).and_return(double("Devise::Mailer", :deliver => true)).twice
+
+      # nao funcionou, tava querendo saber quantas vezes foi chamada
+      # expect(User).to receive(:send_reset_password_instructions).and_call_original
+
+      put :import
+    end
+
+    it 'does not send an email when all users on the JSON already exist' do
+      json_classes, filepath_classes = valid_classes
+      allow(File).to receive(:read).with(filepath_classes).and_return(json_classes)
+
+      json_members, filepath_members = valid_members
+      allow(File).to receive(:read).with(filepath_members).and_return(json_members)
+
+      FactoryBot.build(:user, nome: "Silva", matricula: "54321", usuario: "54321", email: "teste1@email.com").save
+      FactoryBot.build(:user, nome: "FULANO DE CICLANO", matricula: "12345", usuario: "12345", email: "teste2@email.com").save
+
+      expect(Devise.mailer).not_to receive(:send)
+
+      put :import
+    end
   end
 end
 
@@ -156,10 +189,10 @@ def valid_members
           "usuario": "54321",
           "formacao": "graduando",
           "ocupacao": "dicente",
-          "email": "silva@email.com"
+          "email": "teste1@email.com"
         }],
         "docente": { 
-          "nome": "FULANO DE CICLANO", "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO", "formacao": "DOUTORADO", "usuario": "12345", "email": "fulano@email.com", "ocupacao": "docente" 
+          "nome": "FULANO DE CICLANO", "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO", "formacao": "DOUTORADO", "usuario": "12345", "email": "teste2@email.com", "ocupacao": "docente" 
         } 
       } 
     ]
