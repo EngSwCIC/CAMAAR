@@ -9,18 +9,18 @@ RSpec.describe AvaliacoesController, type: :controller do
         @user = FactoryBot.create(:user)
         sign_in @user
       end
+
       it "renders index" do
-        get :index
         expect(response).to have_http_status(:ok)
+        get :index
       end
 
       it "gets user from current session" do
 
       end
       it "calls the model method to get forms" do
-        # fake_user = double("user")
-        # expect(User).to receive(:find_pending_forms)
-        # get :avaliacoes_path
+        expect(@user).to receive(:find_pending_forms)
+        get :index
       end
     end
   end
