@@ -1,0 +1,78 @@
+<div class="main-content">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-7">
+          <%= render "/layouts/flashes" %>
+
+          <%= form_with url: admins_envio_post_path, method: :post, class: "form-horizontal" do |f| %>
+            <div class="card">
+              <div class="card-header text-center">
+                <strong>Opções para Envio</strong>
+              </div>
+              <div class="card-body card-block">
+
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <%= f.label :teacher_template, "Professores", class: "form-control-label" %>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <% if @teacher_templates.present? %>
+                     <%= f.select :teacher_template, options_from_collection_for_select(@teacher_templates, :id, :name), { prompt: "Selecione um Template" }, class: "form-control" %>              
+                    <% else %>
+                      <select disabled class="form-control">
+                        <option value="" disabled selected>Nenhum template disponível</option>
+                      </select>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <%= f.label :student_template, "Alunos", class: "form-control-label" %>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <% if @student_templates.present? %>
+                      <%= f.select :student_template, options_from_collection_for_select(@student_templates, :id, :name), { prompt: "Selecione um Template" }, class: "form-control" %>
+                    <% else %>
+                      <select disabled class="form-control">
+                        <option value="" disabled selected>Nenhum template disponível</option>
+                      </select>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label class="form-control-label">Turmas</label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <% if @classes.present? %>
+                      <% @classes.each do |subject_class| %>
+                        <div class="form-check">
+                          <%= f.check_box :classes_ids, { multiple: true, class: "form-check-input", id: "#{subject_class.semester}_#{subject_class.subject}_#{subject_class.code}" }, subject_class.id, nil %>
+                          <%= f.label "#{subject_class.semester}_#{subject_class.subject}_#{subject_class.code}", "#{subject_class.semester} - #{subject_class.name} - #{subject_class.code}", class: "form-check-label" %>
+                        </div>
+                      <% end %>
+                    <% else %>
+                      <p>Nenhuma turma disponível</p>
+                    <% end %>
+                  </div>
+                </div>
+
+              </div>
+              <div class="card-footer justify-content-center align-items-center text-center">
+                <%= link_to templates_path, class: "btn btn-danger btn-sm" do %>
+                  <i class="fa fa-ban"></i> Cancelar
+                <% end %>
+                <button type="submit" class="btn btn-success btn-sm" name="commit" value="confirm">
+                  <i class="fa fa-dot-circle-o"></i> Enviar
+                </button>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

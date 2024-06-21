@@ -1,0 +1,52 @@
+<div class="main-content">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="formbold-form-wrapper">
+        <div class="formbold-form-wrapper">
+          <%= form_with url: template_template_questions_path(@template), method: :post do |f| %>
+            <div class="form-group form-inline">
+              <%= f.label :title, "Título:" , class: "mr-2"%>
+              <%= f.text_field :title, id: "question_title", class:"form-control form-control-sm",value: @title %>
+            </div>
+            <div>
+              <%= f.label :question_type, "Tipo de questão:" %>
+              <%= f.select :question_type, options_for_select([['Selecione', nil], ['Múltipla escolha', 'multiple_choice'], ['Texto', 'text']], selected: @question_type), {}, id: "question_type" %>
+            </div>
+            <div id="choices_field" style="display: none;">
+              <span>
+                <%= f.label :options_number, "Número de opções:" %>
+                <%= f.select :options_number, options_for_select(1..5, selected: @options_number), {}, id: "options_number" %>
+              </span>
+              <div id="options_fields">
+                <% 5.times do |i| %>
+                  <div style="displayW: none;" id="option<%= i %>_field">
+                    <%= f.label "option#{i+1}", "Opção #{i+1}" %>
+                    <%= f.text_field :options, class:"form-control",id: "option#{i+1}", name: "options[]", value: @options[i] %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <br>
+            <div>
+              <%= link_to "Cancelar",edit_template_path(@template), class:"btn btn-danger btn-sm", id: 'cancel' %>
+              <%= f.submit "Adicionar", class:"btn btn-success btn-sm", id:'add' %>
+            </div>
+          <% end %>
+          <br>
+          <% flash.each do |type, messages| %>
+            <% css_class = case type.to_sym
+                when :notice then 'alert alert-success'
+                when :alert then 'alert alert-danger'
+                when :error then 'alert alert-danger'
+                else 'alert alert-warning'
+                end %>
+            <% messages.each do |m| %>
+              <p class="<%= css_class %>">
+                <%= m %>
+              </p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

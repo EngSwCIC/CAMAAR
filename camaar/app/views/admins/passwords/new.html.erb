@@ -1,0 +1,20 @@
+<%= stylesheet_link_tag "login.css" %>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo",width: 300, height: 150) %>
+    <br>
+    <h1> Insira seu email para redefinição<h1>
+<%= simple_form_for(resource, as: resource_name, url: new_admin_password_path) do |form| %>
+
+  <%= form.text_field :email, id: "email", class: "email", placeholder: "Email", required: true, autofocus: true, autocomplete: "off" %>
+  <div id="formFooter">
+    </div> 
+  <%= form.submit "Confirmar", class: "submit-login" %>
+  </div>
+
+<% end %>
+  </div>
+</div>
+

@@ -1,0 +1,53 @@
+<%= stylesheet_link_tag "login.css" %>
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <%= image_tag("logo-unb.png",alt: 'Avaliacao', class: "logo",width: 300, height: 150) %>
+    <br>
+    <h1> Olá, Coordenador! <h1>
+    <h1> Defina sua senha</h1>
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |form| %>
+  <%= form.error_notification %>
+  <%= form.input :reset_password_token, as: :hidden %>
+  <%= form.full_error :reset_password_token %>
+  <%= form.text_field :password, type: "password", id: "password", class: "password", placeholder: "Senha", required: true, autofocus: true, autocomplete: "off" %>
+  <%= form.text_field :password, type: "password", id: "password2", class: "password", placeholder: "Confirme sua Senha", required: true, autofocus: true, autocomplete: "off" %>
+<div class="form-actions">
+    <%= form.button :submit, "Confirmar", class:"submit-register" %>
+  </div>  
+  </div>
+<% end %>
+  </div>
+</div>
+
+<%= render "users/shared/links"%>
+
+
+
+<%# <h2>Change your password</h2> %>
+<%#  %>
+<%# <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %> 
+  <%# <%= f.error_notification %> 
+<%#  %>
+  <%# <%= f.input :reset_password_token, as: :hidden %> 
+  <%# <%= f.full_error :reset_password_token %> 
+<%#  %>
+  <%# <div class="form-inputs"> %>
+    <%# <%= f.input :password, %>
+                <%# label: "New password", %>
+                <%# required: true, %>
+                <%# autofocus: true, %>
+                <%# hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), %>
+                <%# input_html: { autocomplete: "new-password" } %> 
+    <%# <%= f.input :password_confirmation, %>
+                <%# label: "Confirm your new password", %>
+                <%# required: true, %>
+                <%# input_html: { autocomplete: "new-password" } %> 
+  <%# </div> %>
+<%#  %>
+  <%# <div class="form-actions"> %>
+    <%# <%= f.button :submit, "Change my password" %> 
+  <%# </div> %>
+<%# <% end %> 
+
+<%= render "admins/shared/links" %>

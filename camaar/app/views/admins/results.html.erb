@@ -1,0 +1,41 @@
+<div class="main-content">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <%= render '/layouts/flashes' %>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="overview-wrap">
+            <h2 class="title-1">Resultados</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row m-t-25">
+      <% @forms.each do |form| %>
+          <div class="col-sm-6 col-lg-3">
+            <div class="overview-item overview-item--sform">
+              <div class="overview__inner">
+                <div class="overview-box clearfix">
+                  <div class="text">
+                  <%= link_to form_summary_path(form), class: "template-link" do %>
+                    <h1 class="template-name"><%= form.name %></h1>
+                        <% end %>
+                    <div class="icons-container">
+                      <%= link_to results_path(export: :graph, form_id: form.id ), id:%'export_graph_#{form.id}'  do%>
+                        <i class="fas fa-chart-pie"></i>
+                      <% end %>
+                      <%= link_to results_path(export: :csv,form_id: form.id), id:%'export_csv_#{form.id}'  do%>
+                        <i class="fas fa-download"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      <div>
+      </div>
+    </div>
+  </div>
+</div>

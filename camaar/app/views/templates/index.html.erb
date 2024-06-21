@@ -1,0 +1,60 @@
+<div class="main-content">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="overview-wrap">
+            <h2 class="title-1">Templates Criados</h2>
+            <%= button_to "ADICIONAR TEMPLATE", "templates/new", method: :get, id: "add_template", class: "au-btn au-btn-icon au-btn--blue" %>
+          </div>
+        </div>
+      </div>
+      <div>
+        <br>
+        <% if @errors.any? %>
+          <div>
+            <% @errors.each do |e| %>
+              <p class="alert alert-warning">
+                <%= e %>
+              </p>
+            <% end %>
+          </div>
+        <% end %>
+        <%= render '/layouts/flashes' %>
+      </div>
+      <div class="row m-t-25">
+        <% @templates.each do |template| %>
+          <div class="col-sm-6 col-lg-3">
+            <div class="overview-item overview-item--template">
+              <div class="overview__inner">
+                <div class="overview-box clearfix">
+                  <div class="text">
+                    <% if template.draft %>
+                      <%= link_to edit_template_path(template), class: "template-link" do %>
+                        <h1 class="template-name"><%= template.name %></h1>
+                      <% end %>
+                    <% else %>
+                      <%= link_to edit_template_path(template), class: "template-link" do %>
+                        <h1 class="template-name"><%= template.name %></h1>
+                      <% end %>
+                    <% end %>
+                    <div class="icons-container">
+                      <%= button_to template_path(template), id: "delete_#{template.name.gsub(" ","_").downcase}",class: "icon-button",method: :delete do%>
+                        <i class="fas fa-trash "></i>
+                      <% end %>
+                      <%= link_to edit_template_path(template),id: "edit_#{template.name.gsub(" ","_").downcase}",class: "icon-button" do%>
+                        <i class="fas fa-edit "></i>
+                      <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        </div>
+
+    </div>
+  </div>
+</div>
+</div>

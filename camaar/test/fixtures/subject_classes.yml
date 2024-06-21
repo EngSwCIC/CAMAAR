@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  semester: MyString
+  subject: MyString
+  code: MyString
+  name: MyString
+  schedule: MyString
+
+two:
+  id: 1
+  semester: MyString
+  subject: MyString
+  code: MyString
+  name: MyString
+  schedule: MyString
