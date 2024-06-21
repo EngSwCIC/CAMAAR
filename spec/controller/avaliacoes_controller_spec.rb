@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe AvaliacoesController, type: :controller do
-  # include Devise::Test::IntegrationHelpers
-
   describe "avaliacoes view" do
     describe "correct forms" do
       let(:user) { FactoryBot.create(:user) }
