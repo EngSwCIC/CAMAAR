@@ -52,5 +52,10 @@ Rails.application.routes.draw do
   end
 
   resources :templates
-  resources :formularios
+  resources :formularios do
+    collection do
+      get :export_csv
+    end
+  end
 end
+

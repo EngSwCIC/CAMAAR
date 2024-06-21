@@ -38,9 +38,31 @@ class FormulariosController < ApplicationController
         # render json: e, status: :not_found
     end
 
+    def new 
+        @formularios = Formulario.new
+    end
+
+    def export_csv
+        @formularios = Formulario.all
+    
+        respond_to do |format|
+          format.csv { send_data generate_csv(@formularios), filename: "formularios-#{Date.today}.csv" }
+        end
+      end
+
     private
 
     def formulario_params
         params.require(:formulario).permit(:nome, :turma_id, :template_id)
     end
+
+    def generate_csv(formularios)
+        CSV.generate(headers: true) do |csv|
+          csv << ['ID', 'Nome', 'Descrição', 'Criado em', 'Atualizado em'] # Ajuste os cabeçalhos conforme os atributos do seu modelo
+    
+          formularios.each do |formulario|
+            csv << [formulario.id, formulario.nome, formulario.descricao, formulario.created_at, formulario.updated_at]
+          end
+    end
+end
 end
