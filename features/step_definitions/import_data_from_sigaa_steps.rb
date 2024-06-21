@@ -36,12 +36,12 @@ Then(/^the existing data should not be duplicated$/) do
   expect(User.where(matricula: "54321").count).to eq(1)
 end
 
-When(/^I press Importar dados$/) do
+When(/^I press Importar dados do sigaa$/) do
   RSpec::Mocks.with_temporary_scope do
     allow(File).to receive(:read).with("classes.json").and_return(@data_classes)
     allow(File).to receive(:read).with("class_members.json").and_return(@data_members)
 
-    steps %{When I press "Importar Dados do Sigaa"}
+    steps %{When I press "Importar Dados"}
   end
 end
 
