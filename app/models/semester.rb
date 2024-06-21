@@ -46,36 +46,25 @@ class Semester < ApplicationRecord
   end
 
   def self.to_csv
-    CSV.generate(headers: true)  do|csv|
+    CSV.generate(headers: true, col_sep: ";")  do|csv|
       all.each do |semester|
-        disciplines = Discipline.where(semester_id: semester.id) 
+        disciplines = Discipline.where(semester_id: semester.id)
+        disciplines_empty = disciplines.empty? ? ["Sem disciplinas."] : []
 
-        csv << [semester.to_s]
-        csv << ["Sem disciplinas."] if disciplines.empty?
-        csv << [nil]
+        csv << [semester.to_s] + disciplines_empty
 
         disciplines.each do |discipline|
-
-          csv << ["#{discipline.code} - #{discipline.name}"]
-          csv << ["Sem formulários."] if discipline.forms.empty?
-          csv << [nil]
+          forms_empty = discipline.forms.empty? ? ['Sem formulários.'] : []
+          csv << ["#{discipline.code} - #{discipline.name}"] + forms_empty
 
           discipline.forms.each do |form|
 
             csv << ["Formulário #{form.id}"]
-            csv << [nil]
 
             form.questions.each_with_index do |question, index|
-              
-              csv << ["#{index + 1}. #{question.label}"]
-              csv << ["Sem respostas fornecidas."] if question.answers.empty?
-              csv << [nil]
-
-              question.answers.each do |answer|
-                csv << [User.find(answer.user_id), answer.answer]
-              end
-              csv << [nil] if !question.answers.empty?
-
+              answers_empty = question.answers.empty? ? ['Sem respostas fornecidas.'] : []
+              answers = question.answers.pluck(:answer)
+              csv << ["#{index + 1}. #{question.label}"] + answers_empty + answers
             end
           end
         end
@@ -84,33 +73,24 @@ class Semester < ApplicationRecord
   end
 
   def to_csv
-    CSV.generate(headers: true) do |csv|
+    CSV.generate(headers: true, col_sep: ";") do |csv|
       disciplines = Discipline.where(semester_id: self.id)
+      disciplines_empty = disciplines.empty? ? ["Sem disciplinas."] : []
 
-      csv << ["Sem disciplinas."] if disciplines.empty?
+      csv << [self.to_s] + disciplines_empty
 
       disciplines.each do |discipline|
-
-        csv << ["#{discipline.code} - #{discipline.name}"]
-        csv << ["Sem formulários."] if discipline.forms.empty?
-        csv << [nil]
+        forms_empty = discipline.forms.empty? ? ['Sem formulários.'] : []
+        csv << ["#{discipline.code} - #{discipline.name}"] + forms_empty
 
         discipline.forms.each do |form|
 
           csv << ["Formulário #{form.id}"]
-          csv << [nil]
 
           form.questions.each_with_index do |question, index|
-
-            csv << ["#{index + 1}. #{question.label}"]
-            csv << ["Sem respostas fornecidas."] if question.answers.empty?
-            csv << [nil]
-
-            question.answers.each do |answer|
-              csv << [User.find(answer.user_id), answer.answer]
-            end
-            csv << [nil] if !question.answers.empty?
-
+            answers_empty = question.answers.empty? ? ['Sem respostas fornecidas.'] : []
+            answers = question.answers.pluck(:answer)
+            csv << ["#{index + 1}. #{question.label}"] + answers_empty + answers
           end
         end
       end
