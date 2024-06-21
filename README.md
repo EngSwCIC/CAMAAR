@@ -27,7 +27,7 @@ Lucas da Costa Rodrigues - 221017079
 ### branch por funcionalidade
 
 
-##Uso:
+## Uso:
 adm deve ser definido no cmd
 ex: User.create(nome:"adm1",password:"teste1",password_confirmation:"teste1",adm:"true",email:"teste1@gmail.com")
 
