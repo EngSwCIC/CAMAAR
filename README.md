@@ -12,6 +12,7 @@ Sistema para avaliação de atividades acadêmicas remotas do CIC
 - Tailwind CSS Rails 2.6
   - Um problema comum que acontece é o desaparecimento do arquivo `./app/assets/builds/tailwind.css` ao copiar o repositório a um ambiente local
   - No caso dele ocorrer, execute `./bin/dev` que o arquivo deve ser gerado automaticamente
+- SQLite3 1.4 (versão da gema)
 
 ## Como executar o servidor
 
