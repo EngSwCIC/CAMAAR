@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento resultados</title>
+  </head>
+  <body>
+    <header>
+      <div class="menu">
+        <span class="menu-icon" id="menu-icon">&#9776;</span>
+        <span class="title" id="title"></span>
+      </div>
+
+      <div class="pesquisar-profile">
+        <%= image_tag 'lupa_pesquisa.svg', class: 'lupa', id: 'Pesquisar' %>
+        <input type="text" id="campo_pesquisar" name="campo_de_pesquisar">
+      </div>
+
+      <div class="user-icon">
+        <%= image_tag 'user_img.svg', class: 'img_user', id: 'Img_user' %>
+      </div>
+    </header>
+
+    <div id="sidebar" class="sidebar">
+      <a href="#" class="closebtn" id="closebtn">&times;</a>
+      <%= link_to "Avaliações", "#", id: "avaliacoes-btn" %>
+      <%= link_to "Gerenciamento", "#", id: "gerenciamento-btn" %>
+    </div>
+
+    <%# TODO: POPULAR CADA ELEMENTO BASEADO NOS DADOS DA TABELA (AGUARDANDO DEFINIÇÃO DE UM SCHEMA PARA DADOS DE UM TEMPLATE NOME DA MATÉRIA SEMESTRE ETC.) %>
+    <div class="cards-container">
+      <% @valor.each do %>
+        <div class="card-template">
+          <div class="info-materia">
+            <h3>Nome da matéria</h3>
+            <p>semestre</p>
+          </div>
+          <div class="info-professor">
+            <h3>Professor</h3>
+          </div>
+        </div>
+      <% end %>
+      <div class="modal" id="modal">
+        <div class="modal-content">
+          <p>Conteúdo do resultado do formulário</p>
+          <button id='popup-button'>Fechar pop up</button>
+        </div>
+      </div>
+    </div>
+
+
+
+  </body>
+</html>
+<%= javascript_include_tag('resultados.js') %>

@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.cards-container {
+    width: 95%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-content: center;
+}
+
+.card-template:hover {
+    cursor: pointer;
+}
+
+.card-template {
+    padding-left: 24px;
+    margin-top: 32px;
+    margin-left: 32px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.card-template div {
+    padding-top: 12px;
+}
+
+.info-professor {
+    margin-bottom: 20px;
+}
+
+.modal {
+    z-index: -1;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    position: fixed;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.modal.open {
+    z-index: 999;
+    visibility: visible;
+}
+

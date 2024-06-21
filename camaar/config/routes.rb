@@ -23,4 +23,6 @@ Rails.application.routes.draw do
 
   # Rotas para sessões (login/logout)
   delete '/logout', to: 'sessions#destroy'
+
+  get '/resultados', to: 'pages#resultados', as: 'page_resultados'
 end

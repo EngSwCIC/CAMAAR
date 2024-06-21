@@ -42,4 +42,8 @@ class PagesController < ApplicationController
   def criar_templete
     # Renderiza a view de criação de templete
   end
+
+  def resultados
+    @valor = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  end
 end
