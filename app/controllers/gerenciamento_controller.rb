@@ -1,5 +1,6 @@
 class GerenciamentoController < ApplicationController
-
+  before_action :authenticate_user!
+  before_action :enforce_admin!
   def index
     render layout: "home"
   end
@@ -127,6 +128,15 @@ class GerenciamentoController < ApplicationController
       end
 
       true
+    end
+  end
+
+  protected
+
+  def enforce_admin!
+    unless current_user.admin?
+      flash[:alert] = "Usuário não tem permissão para acessar!"
+      redirect_to root_path
     end
   end
 

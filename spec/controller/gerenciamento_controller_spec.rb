@@ -76,7 +76,7 @@ RSpec.describe GerenciamentoController, type: :controller do
       expect(flash[:notice]).to be_present
     end
 
-    it 'saves show classes into the database' do
+    it 'saves new classes into the database' do
       json_classes, filepath_classes = valid_classes
       allow(File).to receive(:read).with(filepath_classes).and_return(json_classes)
 
@@ -90,7 +90,7 @@ RSpec.describe GerenciamentoController, type: :controller do
       expect(turma).not_to be(nil)
     end
 
-    it 'adds show users that are not registered in the DB' do
+    it 'adds new users that are not registered in the DB' do
       json_classes, filepath_classes = valid_classes
       allow(File).to receive(:read).with(filepath_classes).and_return(json_classes)
 
