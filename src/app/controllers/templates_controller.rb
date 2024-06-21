@@ -1,71 +1,71 @@
 class TemplatesController < ApplicationController
   before_action :set_template, only: %i[ show edit update destroy ]
 
-  # GET /templates or /templates.json
   def index
     @templates = Template.all
   end
 
-  # GET /templates/1 or /templates/1.json
   def show
     @template = Template.find_by(id: params[:id])
   end
 
-  # GET /templates/new
-  def new
-    @template = Template.new
-  end
-
-  # GET /templates/1/edit
   def edit
   end
 
-  # POST /templates or /templates.json
-  def create
-    @template = Template.new(template_params)
+  def create  
+    # recupera os elementos passados pela rota  
+    template = params[:template]
 
-    respond_to do |format|
-      if @template.save
-        format.html { redirect_to template_url(@template), notice: "Template criado com sucesso." }
-        format.json { render :show, status: :created, location: @template }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @template.errors, status: :unprocessable_entity }
+    user = User.find_by(template['user_id'])
+    semestre = template['semestre']
+    nome = template['nome']
+    questoes = []
+
+    if !template['questoes_id'].nil?
+      template['questoes_id'].each do |questao_id|
+        questoes << Questao.find_by(questao_id)
       end
     end
-  end
 
-  # PATCH/PUT /templates/1 or /templates/1.json
-  def update
-    respond_to do |format|
-      if @template.update(template_params)
-        format.html { redirect_to template_url(@template), notice: "Template was successfully updated." }
-        format.json { render :show, status: :ok, location: @template }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @template.errors, status: :unprocessable_entity }
-      end
+    @template = Template.new(user: user, semestre: semestre, nome: nome, questoes: questoes)
+
+    if @template.questoes.any? && @template.save
+      redirect_to templates_url, notice: "Template was successfully created.", status: 302
+    elsif !@template.questoes.any?
+      render :new, notice: "Você deve adicionar alguma questão ao template antes de criá-lo.", status: 400
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # DELETE /templates/1 or /templates/1.json
-  def destroy
-    @template.destroy!
+  # def update
+  #   respond_to do |format|
+  #     if @template.update(template_params)
+  #       format.html { redirect_to template_url(@template), notice: "Template atualizado!" }
+  #       format.json { render :show, status: :ok, location: @template }
+  #     else
+  #       format.html { render :edit, status: :unprocessable_entity }
+  #       format.json { render json: @template.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
-    respond_to do |format|
-      format.html { redirect_to templates_url, notice: "Template was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @template.destroy!
+
+  #   respond_to do |format|
+  #     format.html { redirect_to templates_url, notice: "Template was successfully destroyed." }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_template
       @template = Template.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def template_params
-      params.require(:template).permit(:nome, :semestre, :usuario, :users_id)
+      params.require(:template).permit(:user, :semestre, :nome, :questoes)
     end
 end

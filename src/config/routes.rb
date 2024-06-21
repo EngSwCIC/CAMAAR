@@ -1,3 +1,6 @@
+# evita o erro 406
+Rails.application.routes.default_url_options[:host] = 'http://localhost:3000'
+
 Rails.application.routes.draw do
   root 'home#index'
   resources :respostas
