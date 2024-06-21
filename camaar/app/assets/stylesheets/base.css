@@ -23,6 +23,7 @@ body {
 .left-frame {
     display: flex;
     align-items: center;
+    position: relative; /*mudança para que a side-bar seja um menu suspenso*/
 }
 
 .menu-button {
@@ -68,6 +69,16 @@ body {
     cursor: pointer;
 }
 
+.sign-out {
+    position: absolute;
+    top: 50px; /* Ajuste conforme necessário para a posição correta */
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px;
+    display: none; /* Inicialmente oculto */
+  }
+
 .user-button {
     width: 43.48px;
     height: 43.84px;
@@ -78,7 +89,22 @@ body {
     font-size: 18px;
     cursor: pointer;
     margin-right: 6.16px; /* Adjusted for spacing */
+    position: relative;
 }
+
+.user-button:hover + .sign-out {
+    display: block; /* Mostra sign-out ao passar o mouse sobre user-button */
+  }
+  
+  .sign-out a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .sign-out a:hover {
+    text-decoration: underline;
+    color: #555;
+  }
 
 .content-frame {
     display: flex;
@@ -95,6 +121,14 @@ body {
     height: 772px;
     top: 60px;
     background-color: #FFFFFF;
+    display: none; /*inicialmente oculto*/
+    position: absolute;
+    z-index:1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/*mostrar o side-bar no hover*/
+.left-frame:hover .side-bar{
+    display:block
 }
 
 .select-button {

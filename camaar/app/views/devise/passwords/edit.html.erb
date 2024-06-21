@@ -1,0 +1,39 @@
+<%= stylesheet_link_tag "login" %>
+
+<body>
+<div class="container">
+  <div class="white-section">
+    <h1>LOGIN</h1>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="input-container">
+        <%= f.label :password, "Senha" %>
+        <% if @minimum_password_length %>
+          <p><em>(<%= @minimum_password_length %> caracteres mínimo)</em></p>
+        <% end %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "input-field" %>
+      </div>
+
+      <div class="input-container">
+        <%= f.label :password, "Confirme a Senha" %>
+        <% if @minimum_password_length %>
+          <p><em>(<%= @minimum_password_length %> caracteres mínimo)</em></p>
+        <% end %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "input-field" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Alterar senha", id: "botão-alterar-senha",class: "button" %>
+      </div>
+    <% end %>
+    </div>
+    <div class="purple-section">
+      <p>Bem vindo ao Camaar</p>
+    </div>
+  </div>
+  <%= javascript_pack_tag 'redirecionar-pos-alterar-senha'%>
+</body>
+
+<%= stylesheet_link_tag "login" %>
