@@ -18,7 +18,10 @@ Feature: Respond to Questionnaire
     And my responses should be saved in the database
 
   Scenario: Submitting an incomplete questionnaire (sad path)
+    When I visit the RespondForm page
+    Then I should see "O que você achou da turma?"
+    And I should see "O que você achou do professor?"
     When I press "Enviar"
     Then I should see "Por favor, responda todas as perguntas obrigatórias"
-    And I should be on the Form page
+    And I should stay at the RespondForm page
     And my responses should not be saved in the database

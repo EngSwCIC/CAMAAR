@@ -1,30 +1,32 @@
-class ResponseController < ApplicationController
-  def show
-    puts "beep"
-    @form_request = FormRequest.find(params[:id])
-    render layout: "home"
-  end
+class ResponseController < AvaliacoesController
 
-  def update
-    puts "create"
-    puts @form_request
-    puts params
+  def create
+    @form_request = FormRequest.find(params[:avaliaco_id])
 
     answers = []
     params.each do |name, value|
       if name.start_with?("answer_")
+        if value == ""
+          flash[:alert] = "Por favor, responda todas as perguntas obrigatórias"
+          redirect_to "/avaliacoes/#{@form_request.id}"
+
+          return
+        end
+
         answers << value
       end
     end
 
-    response = FormResponse.new(
-      study_class: @form_request.study_class,
-      template: @form_request.template,
-      response: answers.to_json
-    )
-    response.save!
+    @form_response = FormResponse.new
+    @form_response.study_class = @form_request.study_class
+    @form_response.template = @form_request.template
+    @form_response.response = answers.to_json
+    @form_response.save!
 
     @form_request.answered = true
     @form_request.save!
+
+    flash[:notice] = "Obrigado pelas respostas"
+    redirect_to "/avaliacoes"
   end
 end

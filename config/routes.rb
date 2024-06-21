@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  get '/avaliacoes', to: 'avaliacoes#index'
+  # get '/avaliacoes', to: 'avaliacoes#index'
 
-  scope :avaliacoes do
+  resources :avaliacoes, only: [:index, :show] do
     resources :response, only: [:show, :create, :update, :destroy]
   end
 

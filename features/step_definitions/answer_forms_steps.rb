@@ -24,14 +24,18 @@ Given("There is a form request") do
 end
 
 Given("I visit the RespondForm page") do
-  visit "/avaliacoes/response/#{@form_request.id}"
+  visit "/avaliacoes/#{@form_request.id}"
 end
 
 Then(/^my responses should be saved in the database$/) do
   response = FormResponse.last
-  expect(response.response).to eq(["Great class", "Very helpful instructor"].to_json)
+  expect(response.response).to eq(["Ótima turma", "Ótimo professor"].to_json)
 end
 
 Then(/^my responses should not be saved in the database$/) do
   expect(FormResponse.count).to eq(0)
+end
+
+Then("I should stay at the RespondForm page") do
+  assert_equal URI.parse(current_url).path, "/avaliacoes/#{@form_request.id}"
 end
