@@ -1,5 +1,5 @@
 class Template < ApplicationRecord
-    belongs_to :user, foreign_key: "usuario"
+    belongs_to :user
     has_many :formularios
 
     has_many :questoes_templates
