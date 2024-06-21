@@ -19,11 +19,11 @@ Além disso, para a execução dos testes com rspec, é necessário que o navega
 
 As versões do ruby testadas com êxito foram ruby 3.3.0 e ruby 3.3.1.
 ## Divisão do desenvolvimento
-- João Pedro Gomes: autenticação com o Devise, frontend, testes em rspec e cucumber e correção e revisão de código.
-- Willyan Marques: renderização dinâmica de templates, frontend, backend, gráfico com kickchart e exportação em csv, testes em cucumber e correção e revisão de código.
-- Marcos Paulo: MVC das páginas de envio e import, bem como seus respectivos testes.
-- Arthur Delpino: MVC das páginas de turmas e de formulários a serem respondidos, bem como seus respectivos testes.
-- Caio: Yuri
+- Willyan Marques: renderização dinâmica de templates, frontend, backend e modelo entidade relacionamento, gráfico com kickchart e exportação em csv, testes em cucumber e correção e revisão de código; pair programming com os demais membros.
+- João Pedro Gomes: autenticação com o Devise, frontend, gestão de configuração de css, javascript e bibliotecas externas em ambiente rails,testes em rspec e cucumber e correção e revisão de código; pair programming com os demais membros.
+- Marcos Paulo: MVC das páginas de envio e import, bem como seus respectivos testes; pair programming com os demais membros.
+- Arthur Delpino: MVC das páginas de turmas-user e de formulários-user a serem respondidos, bem como seus respectivos testes; pair programming com os demais membros.
+- Caio Yuri: MVC das páginas de resultados-admin e pair programming com os demais membros.
 
 # Guia para o usuário
 
