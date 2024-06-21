@@ -39,3 +39,5 @@ group :test do
   gem 'cucumber-rails'
   gem 'database_cleaner'
 end
+
+gem "factory_bot", "~> 6.4"

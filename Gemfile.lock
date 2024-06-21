@@ -180,6 +180,8 @@ GEM
       dry-logic (~> 1.4)
       zeitwerk (~> 2.6)
     erubi (1.12.0)
+    factory_bot (6.4.6)
+      activesupport (>= 5.0.0)
     faker (3.4.1)
       i18n (>= 1.8.11, < 2)
     ffi (1.16.3)
@@ -425,6 +427,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   debug
+  factory_bot (~> 6.4)
   faker
   importmap-rails
   jbuilder
