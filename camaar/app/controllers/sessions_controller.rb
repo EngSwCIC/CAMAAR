@@ -1,3 +1,4 @@
+=begin
 class SessionsController < ApplicationController
   def create
     username = params[:username]
@@ -13,3 +14,35 @@ class SessionsController < ApplicationController
     end
   end
 end
+=end
+
+class SessionsController < ApplicationController
+  def new
+    # Ação para renderizar a página de login (login.html.erb)
+  end
+
+  def create
+    user = User.find_by(usuario: params[:username])
+
+    if user.nil?
+      flash[:alert] = "Usuário não encontrado. Por favor, verifique o usuário informado."
+      redirect_to login_path
+    elsif params[:password].blank? && user.senha == nil
+      redirect_to recuperar_senha_path
+    elsif user.senha == params[:password]
+      flash[:notice] = "Login realizado com sucesso!"
+      session[:user_id] = user.id # Armazenar o ID do usuário na sessão
+      redirect_to home_path
+    else
+      flash[:alert] = "Senha incorreta. Por favor, verifique sua senha."
+      redirect_to login_path
+    end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_path
+  end
+end
+
+

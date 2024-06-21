@@ -104,36 +104,5 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 });
 
-document.getElementById('carregar-surveys').addEventListener('click', () => {
-    fetch('/surveys')
-        .then(response => response.json())
-        .then(data => {
-            const surveysList = document.getElementById('surveys-list');
-            surveysList.innerHTML = '';
 
-            data.forEach(survey => {
-                const surveyDiv = document.createElement('div');
-                surveyDiv.innerHTML = `<h3>${survey.title}</h3>`;
-
-                survey.questions.forEach(question => {
-                    const questionDiv = document.createElement('div');
-                    questionDiv.innerHTML = `<p>${question.title} (${question.question_type})</p>`;
-
-                    if (question.question_type === 'multipla-escolha') {
-                        question.options.forEach(option => {
-                            questionDiv.innerHTML += `<p>${option.text}</p>`;
-                        });
-                    }
-
-                    surveyDiv.appendChild(questionDiv);
-                });
-
-                surveysList.appendChild(surveyDiv);
-            });
-        })
-        .catch(error => {
-            console.error('Erro ao carregar surveys:', error);
-            alert('Ocorreu um erro ao carregar as surveys.');
-        });
-});
 

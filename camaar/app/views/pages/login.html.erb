@@ -1,3 +1,4 @@
+<!-- app/views/sessions/login.html.erb -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -25,11 +26,11 @@
       <h1>LOGIN</h1>
       <div>
         <label for="username">Email</label> <br />
-        <%= text_field_tag :username, nil, id: 'username', placeholder: 'email@aluno.unb.br', required: true %>
+        <%= text_field_tag :username, nil, id: 'username', placeholder: 'Nº de matricula', required: true %>
       </div>
       <div class="senha_input">
-        <label for="password">Confirme a senha</label> <br />
-        <%= password_field_tag :password, nil, id: 'senha_pass', placeholder: 'Senha', required: true %>
+        <label for="password">Senha</label> <br />
+        <%= password_field_tag :password, nil, id: 'senha_pass', placeholder: 'Senha' %>
         <%= image_tag 'olho_aberto.svg', class: 'olho_aberto', id: 'olho_senha', onclick: 'mostrar_ocultar()' %>
       </div>
       <div>
@@ -41,11 +42,11 @@
     </div>
     <div id="mensagen_login">
       <div class="text_mesage">
-        <p>Bem vindo </br> ao </br> Camaar</p>
+        <p>Bem vindo ao Camaar</p>
       </div>
     </div>
   <% end %>
 </div>
-<%= javascript_include_tag 'main' %>
+#<%= javascript_include_tag 'main' %>
 </body>
 </html>

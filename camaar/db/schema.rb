@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_20_203140) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_21_023152) do
   create_table "options", force: :cascade do |t|
     t.string "text"
     t.integer "question_id", null: false
@@ -29,6 +29,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_20_203140) do
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "senha"
+    t.string "nome"
+    t.string "curso"
+    t.string "matricula"
+    t.string "usuario"
+    t.string "formacao"
+    t.string "ocupacao"
+    t.string "departamento"
+    t.string "password_digest"
   end
 
   add_foreign_key "options", "questions"
