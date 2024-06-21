@@ -30,5 +30,21 @@
         "type": "likert" 
       }
     ]
+  },
+  {
+    "id": 3,
+    "name": "Template mágico",
+    "questions": [
+      {
+        "id": 1,
+        "prompt": "Question Test Prompt - Open-ended Question",
+        "type": "open" 
+      },
+      {
+        "id": 2,
+        "prompt": "Question Test Prompt - Likert Question",
+        "type": "likert" 
+      }
+    ]
   }
 ]

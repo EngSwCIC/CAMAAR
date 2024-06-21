@@ -1,11 +1,5 @@
 <%= render '/navbar/navbar' %>
 
-<h2> Lista de Templates </h2>
-
-<% @json_templates.each do |t| %>
-    <p> <%= t["name"] %> (id = <%= t["id"] %>) </p>
-<% end %>
-
 <h1>Turmas</h1>
 
 <div class="grid-container">
@@ -32,6 +26,8 @@
                 <%= f.label "Horário:" %>
                 <%= f.text_field :horario, value: e["class"]["time"], readonly: true %>
             </div>
+
+            <h4> Escolha o destinatário: </h4>
             <div class="field">
                 <%= f.radio_button :tipo, "discente", required: true %>
                 <%= f.label "discente" %>
@@ -39,9 +35,14 @@
                 <%= f.label "docente" %>
             </div>
 
+            <h4> Escolha o template: </h4>
             <div class="field">
-            <%= f.label "id do template escolhido" %>
-            <%= f.number_field :id, required: true %>
+                <% @json_templates.each do |t| %>
+                    <p>
+                    <%= f.radio_button :id, t["id"], required: true %>
+                    <%= f.label t["name"] %>
+                    </p>
+                <% end %>
             </div>
 
             <%= f.submit "Enviar formulário", class: "btn btn-primary" %>
