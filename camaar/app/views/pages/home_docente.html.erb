@@ -14,8 +14,10 @@
     </div>
     <span class="header-text">Gerenciamento - Templates</span>
     <div class="search-bar">
-      <input type="text">
-      <button class="search-icon">&#128269;</button>
+      <%= form_tag(templates_path, method: "get", class: "search-form") do %>
+        <%= text_field_tag :nome, params[:nome], placeholder: "Buscar por nome do template" %>
+        <%= submit_tag "&#128269;".html_safe, class: "search-icon btn btn-link" %>
+      <% end %>
     </div>
     <button class="user-button" id="userButton"><%=current_user.nome[0].upcase%></button>
     <div class="sign-out" id="signOut">
@@ -25,20 +27,28 @@
   <div class="content-frame">
     <div class="templates-container" id="templatesContainer">
       <div class="templates-box">
-        <%@templates.each do |template|%>
-          <div class="templates-textbox">
-            <div class="templates-name">template.nome.capitalize</div>
-            <div class="semester">semestre</div>
-            <div class="professor">template.docente</div>
-          </div>
-          <div class="templates-buttonbox">
-            <%= link_to edit_model_controllers_template_path(template), class: 'edit-button'%>
-            <%= link_to model_controllers_template_path(template), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'trash-button'%>
-          </div>
-        <%end%>
+        <% if @templates.any? %>
+          <% @templates.each do |template| %>
+            <div class="templates-textbox">
+              <div class="templates-name"><%= template.nome.capitalize %></div>
+              <div class="semester">Semestre</div> <!-- Substitua com o semestre do template -->
+              <div class="professor"><%= template.docente.nome %></div> <!-- Substitua com o nome do docente -->
+            </div>
+            <div class="templates-buttonbox">
+              <div class="edit-button">
+                <%= link_to "Editar", edit_template_path(template), class: 'edit-button' %>
+              </div>
+              <div class="trash-button">
+                <%= link_to "Excluir", template_path(template), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'trash-button' %>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <p>Nenhum template encontrado.</p>
+        <% end %>
       </div>
       <div class="add-templates-box">
-       <%= link_to 'Criar templates', new_model_controllers_template_path, class: 'add-button'%>
+       <%= link_to '', new_template_path, class: 'add-button'%>
       </div>
     </div>
 

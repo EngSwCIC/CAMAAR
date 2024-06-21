@@ -1,78 +1,24 @@
-<%= stylesheet_link_tag "base" %>
-<%= stylesheet_link_tag "assessment_id" %>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+<%= form_with model: @resultado, local: true do |f| %>
+  <% @formulario.questaos.each do |questao| %>
+    <div class="questao">
+      <h3><%= questao.pergunta %></h3>
+      
+      <%= f.fields_for :respostas, questao.build_resposta do |resp| %>
+        <% if questao.tipo.discursiva? %>
+          <%= resp.text_area :conteudo, class: "form-control", placeholder: "Digite sua resposta aqui" %>
+        <% else %>
+          <% questao.alternativas.each do |alternativa| %>
+            <div class="form-check">
+              <%= resp.radio_button :conteudo, alternativa.id, class: "form-check-input" %>
+              <%= resp.label :conteudo, alternativa.texto, class: "form-check-label" %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 
-<body>
-<div class="header-bar">
-  <div class="left-frame">
-    <button class="menu-button">&#9776;</button>
-    <span class="header-text">Avaliação - Nome da matéria - Semestre</span>
+  <div class="actions">
+    <%= f.submit "Enviar Respostas", class: "btn btn-primary" %>
   </div>
-  <button class="user-button">U</button>
-</div>
-<form class="assessment-container">
-
-  <div class="assessment-box">
-
-    <div class="question">
-      <div class="statement">Pergunta</div>
-      <form class="choices">
-        <label class="choice">
-          <input class="choice" type="radio" name="answer">
-          Muito bom
-        </label>
-        <label class="choice">
-          <input class="choice" type="radio" name="answer">
-          Bom
-        </label><label class="choice">
-        <input class="choice" type="radio" name="answer">
-        Satisfatório
-      </label><label class="choice">
-        <input class="choice" type="radio" name="answer">
-        Ruim
-      </label>
-        <label class="choice">
-          <input class="choice" type="radio" name="answer">
-          Péssimo
-        </label>
-      </form>
-    </div>
-
-    <div class="question">
-      <div class="statement">Pergunta</div>
-      <input class="answer" >
-    </div>
-
-    <div class="question">
-      <div class="statement">Pergunta</div>
-      <input class="answer" >
-    </div>
-
-    <div class="question">
-      <div class="statement">Pergunta</div>
-      <form class="choices">
-        <label class="choice">
-          <input class="choice" type="radio" name="answer">
-          Muito bom
-        </label>
-        <label class="choice">
-          <input class="choice" type="radio" name="answer">
-          Bom
-        </label><label class="choice">
-        <input class="choice" type="radio" name="answer">
-          Satisfatório
-        </label><label class="choice">
-          <input class="choice" type="radio" name="answer">
-          Ruim
-        </label>
-        <label class="choice">
-          <input class="choice" type="radio" name="answer">
-          Péssimo
-        </label>
-      </form>
-    </div>
-
-    <button type="submit" class="submit-button"></button>
-  </div>
-</form>
-</body>
+<% end %>

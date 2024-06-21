@@ -1,6 +1,10 @@
 class TemplatesController < ApplicationController
   def index
-    @templates = Template.all
+    if params[:nome].present?
+      @templates = Template.where("nome LIKE ?", "%#{params[:nome]}%")
+    else
+      @templates = Template.all
+    end
   end
 
   def show
@@ -14,7 +18,7 @@ class TemplatesController < ApplicationController
 
   def create
     @template = Template.new(template_params)
-    @template.docente = current_user
+    @template.docente = current_user.docente
     if @template.save
       redirect_to @template
     else

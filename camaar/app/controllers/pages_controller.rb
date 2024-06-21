@@ -7,12 +7,8 @@ class PagesController < ApplicationController
       if !@classes.present?
         @classes = []
       end
-
-      #classes_dicentes = ClassesDicente.where(dicente_id: dicente.id)
-      #@classes = Classe.where(id: classes_dicentes.pluck(:classe_id)).includes(:formularios)
     else
       @classes = []
-      # Tratar o caso onde o dicente não foi encontrado para o current_user.id
     end
   end
 
