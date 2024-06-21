@@ -3,7 +3,7 @@ class AuthController < ApplicationController
   end
 
   def define_password
-    
+
     @usuario = Usuario.find(params[:id])
     # print(@user)
     # if @user.update(user_params)
@@ -12,6 +12,11 @@ class AuthController < ApplicationController
     #   render :define_password
     # end
   end
+
+  def user_params
+    params.permit(:password, :password_confirmation)
+  end
+  
 
   def user_params
     params.permit(:password, :password_confirmation)

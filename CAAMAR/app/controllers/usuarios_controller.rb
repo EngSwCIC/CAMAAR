@@ -27,8 +27,8 @@ class UsuariosController < ApplicationController
     respond_to do |format|
       if @usuario.save
         UserMailer.with(user: @usuario).gen_password.deliver
-        print("deu bom", @user)
-        format.html { redirect_to(@user, notice: 'User was successfully created.') }
+        print("deu bom", @usuario)
+        format.html { redirect_to(@usuario, notice: 'User was successfully created.') }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,8 +41,13 @@ class UsuariosController < ApplicationController
     params.require(:usuario).permit({:usuario =>[:matricula, :nome, :formacao, :email, :senha]})
   end
 
+  def usuario_params2
+    params.require(:usuario).permit({:usuario =>[:matricula, :nome, :formacao, :email, :senha,:senha_confirmation]})
+  end
+
   # PATCH/PUT /usuarios/1 or /usuarios/1.json
   def update
+
     respond_to do |format|
       if @usuario.update(usuario_params)
         format.html { redirect_to usuario_url(@usuario), notice: "Usuario was successfully updated." }
