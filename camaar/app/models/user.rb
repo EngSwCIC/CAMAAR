@@ -15,6 +15,7 @@ class User < ApplicationRecord
 
   validates :nome, presence: true
   validates :email, presence: true
+  #validates :password, presence: true    ->teste
   validates :usuario, presence: true
   validates :formacao, presence: true
 end

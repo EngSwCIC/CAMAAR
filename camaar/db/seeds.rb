@@ -8,11 +8,13 @@
 user = User.find_or_create_by!(
   nome: "Ana Clara Jordao Perna",
   email: "acjpjvjp@gmail.com",
-  password: '',
+  password: "teste123",
+  #reset_password_token: Devise.token_generator.generate(User, :reset_password_token),
   usuario: "190084006",
   formacao: "graduando",
   role: :dicente
 )
+#user.save!(validate: false)
 
 # Criando um novo Dicente
 Dicente.find_or_create_by!(
