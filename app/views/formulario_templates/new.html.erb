@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criação de Templates de Formulário</title>
-    <link rel="stylesheet" href="app/assets/stylesheets/Criacao_de_template.css">
+    <title>Criação de Templates de Formulário</title>   
 </head>
 <body>
     <style>
@@ -31,7 +30,7 @@
                 </div>
                 <div id="questions-container"></div>
                 <br>
-                <button id="add-question" class="add-button" type="button">Adicionar Questão</button>
+                <button id="add-question" class="add-buttonT" type="button">Adicionar Questão</button>
                 <br><br>
                 <button id="create-template" class="create-button" type="button">Criar</button>
             </fieldset>
@@ -156,6 +155,11 @@
             const templateName = document.getElementById('template-name').value;
             const questions = [];
             const questionContainers = document.getElementById('questions-container').children;
+
+            if (templateName.trim() === "") {
+                alert('O nome do template não pode estar em branco.');
+                return;
+            }
 
             if (questionContainers.length === 0) {
                 alert('O template deve ter pelo menos uma questão.');

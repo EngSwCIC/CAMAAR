@@ -1,0 +1,19 @@
+{
+  "templateName": "Testing Name",
+  "questions": [
+    {
+      "type": "checkbox",
+      "options": [
+        "Opção 1",
+        "Opção 2",
+        "Opção 3"
+      ]
+    },
+    {
+      "type": "text",
+      "options": [
+        "Opção 1"
+      ]
+    }
+  ]
+}

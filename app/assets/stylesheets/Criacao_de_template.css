@@ -33,7 +33,7 @@
     box-sizing: border-box;
 }
 
-.add-button, .create-button {
+.add-buttonT, .create-button {
     display: block;
     width: 100%;
     padding: 10px;
@@ -44,14 +44,14 @@
     cursor: pointer;
 }
 
-.add-button {
+.add-buttonT {
     max-width: 200px;
     border-radius: 5px;
     margin:auto;
     background-color: blueviolet;
     transition: all 0.5s;
 }
-.add-button:hover{
+.add-buttonT:hover{
     max-width: 250px;
     background-color: rgb(78, 24, 129);
     border-radius: 30px;
