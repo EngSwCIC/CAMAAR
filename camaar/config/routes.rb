@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     match 'results/:id', to: 'admins#summary', via: 'get', as: 'form_summary'
     match '/results', to: 'admins#results', via: 'get', as: 'results'
 
-    resources :subject_classes, only: [:index]
+    # resources :subject_classes, only: [:index]
     match '/classes', to: 'subject_classes#index', via: 'get'
 
     match '/import', to: 'admins#importdata', via: 'get', as: 'admins_import'
