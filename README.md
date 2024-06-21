@@ -2,7 +2,7 @@
 
 Sistema para avaliação de atividades acadêmicas remotas do CIC
 
-Baixe a versão do Ruby on Rails 3.3.3
+Baixe a versão do Ruby on Rails 3.3.3 - https://guides.rubyonrails.org/index.html
 
 Faça o clone do projeto
 ``` https://github.com/Projeto-Final-ES-Grupo09/CAMAAR.git ```
