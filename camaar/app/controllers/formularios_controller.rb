@@ -7,6 +7,13 @@ class FormulariosController < ApplicationController
   # GET /formularios/1
   def show
     @formulario = Formulario.find(params[:id])
+    @resultados = @formulario.resultados
+  end
+
+  def responder
+    @formulario = Formulario.find(params[:id])
+    @template = @formulario.template
+    @questoes = @template.questoes
   end
 
   # GET /formularios/new

@@ -10,34 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_19_210943) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_21_092341) do
   create_table "alternativas", force: :cascade do |t|
     t.integer "questao_id", null: false
     t.string "texto", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["questao_id"], name: "index_alternativas_on_questao_id"
-  end
-
-  create_table "classes", force: :cascade do |t|
-    t.string "class_code", null: false
-    t.string "semestre", null: false
-    t.string "horario", null: false
-    t.integer "disciplina_id", null: false
-    t.integer "docente_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["disciplina_id"], name: "index_classes_on_disciplina_id"
-    t.index ["docente_id"], name: "index_classes_on_docente_id"
-  end
-
-  create_table "classes_dicentes", force: :cascade do |t|
-    t.integer "classe_id", null: false
-    t.integer "dicente_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["classe_id"], name: "index_classes_dicentes_on_classe_id"
-    t.index ["dicente_id"], name: "index_classes_dicentes_on_dicente_id"
   end
 
   create_table "dicentes", force: :cascade do |t|
@@ -70,26 +49,25 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_210943) do
     t.string "nome", null: false
     t.integer "docente_id", null: false
     t.integer "template_id", null: false
+    t.integer "turma_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["docente_id"], name: "index_formularios_on_docente_id"
     t.index ["template_id"], name: "index_formularios_on_template_id"
+    t.index ["turma_id"], name: "index_formularios_on_turma_id"
   end
 
-  create_table "formularios_classes", force: :cascade do |t|
+  create_table "formularios_turmas", force: :cascade do |t|
     t.integer "formulario_id", null: false
-    t.integer "classe_id", null: false
+    t.integer "turma_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["classe_id"], name: "index_formularios_classes_on_classe_id"
-    t.index ["formulario_id"], name: "index_formularios_classes_on_formulario_id"
+    t.index ["formulario_id"], name: "index_formularios_turmas_on_formulario_id"
+    t.index ["turma_id"], name: "index_formularios_turmas_on_turma_id"
   end
 
   create_table "questaos", force: :cascade do |t|
     t.string "pergunta", null: false
-    t.decimal "pontos", precision: 10, scale: 2, null: false
-    t.decimal "fatorDeCorrecao", precision: 10, scale: 2, default: "0.0", null: false
-    t.string "alternativaCorreta", null: false
     t.integer "tipo_id", null: false
     t.integer "template_id", null: false
     t.datetime "created_at", null: false
@@ -98,14 +76,27 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_210943) do
     t.index ["tipo_id"], name: "index_questaos_on_tipo_id"
   end
 
+  create_table "respostas", force: :cascade do |t|
+    t.integer "resultado_id", null: false
+    t.integer "questao_id", null: false
+    t.text "conteudo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["questao_id"], name: "index_respostas_on_questao_id"
+    t.index ["resultado_id"], name: "index_respostas_on_resultado_id"
+  end
+
   create_table "resultados", force: :cascade do |t|
     t.integer "dicente_id", null: false
     t.integer "formulario_id", null: false
-    t.float "nota", null: false
+    t.integer "resposta_id", null: false
+    t.integer "questao_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["dicente_id"], name: "index_resultados_on_dicente_id"
     t.index ["formulario_id"], name: "index_resultados_on_formulario_id"
+    t.index ["questao_id"], name: "index_resultados_on_questao_id"
+    t.index ["resposta_id"], name: "index_resultados_on_resposta_id"
   end
 
   create_table "templates", force: :cascade do |t|
@@ -120,11 +111,30 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_210943) do
     t.string "nome", null: false
     t.integer "numeroDeAlternativas", null: false
     t.boolean "discursiva?", null: false
-    t.boolean "fatorDeCorrecao?", null: false
-    t.integer "docente_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["docente_id"], name: "index_tipos_on_docente_id"
+  end
+
+  create_table "turmas", force: :cascade do |t|
+    t.string "class_code", null: false
+    t.string "semestre", null: false
+    t.string "horario", null: false
+    t.string "codigo", null: false
+    t.integer "disciplina_id", null: false
+    t.integer "docente_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["disciplina_id"], name: "index_turmas_on_disciplina_id"
+    t.index ["docente_id"], name: "index_turmas_on_docente_id"
+  end
+
+  create_table "turmas_dicentes", force: :cascade do |t|
+    t.integer "turma_id", null: false
+    t.integer "dicente_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dicente_id"], name: "index_turmas_dicentes_on_dicente_id"
+    t.index ["turma_id"], name: "index_turmas_dicentes_on_turma_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -149,20 +159,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_210943) do
   end
 
   add_foreign_key "alternativas", "questaos"
-  add_foreign_key "classes", "disciplinas"
-  add_foreign_key "classes", "docentes"
-  add_foreign_key "classes_dicentes", "classes", column: "classe_id"
-  add_foreign_key "classes_dicentes", "dicentes"
   add_foreign_key "dicentes", "users"
   add_foreign_key "docentes", "users"
   add_foreign_key "formularios", "docentes"
   add_foreign_key "formularios", "templates"
-  add_foreign_key "formularios_classes", "classes", column: "classe_id"
-  add_foreign_key "formularios_classes", "formularios"
+  add_foreign_key "formularios", "turmas"
+  add_foreign_key "formularios_turmas", "formularios"
+  add_foreign_key "formularios_turmas", "turmas"
   add_foreign_key "questaos", "templates"
   add_foreign_key "questaos", "tipos"
+  add_foreign_key "respostas", "questaos"
+  add_foreign_key "respostas", "resultados"
   add_foreign_key "resultados", "dicentes"
   add_foreign_key "resultados", "formularios"
+  add_foreign_key "resultados", "questaos"
+  add_foreign_key "resultados", "resposta", column: "resposta_id"
   add_foreign_key "templates", "docentes"
-  add_foreign_key "tipos", "docentes"
+  add_foreign_key "turmas", "disciplinas"
+  add_foreign_key "turmas", "docentes"
+  add_foreign_key "turmas_dicentes", "dicentes"
+  add_foreign_key "turmas_dicentes", "turmas"
 end

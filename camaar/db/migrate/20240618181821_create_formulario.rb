@@ -6,6 +6,7 @@ class CreateFormulario < ActiveRecord::Migration[7.1]
 
       t.references :docente, null: false, foreign_key: true
       t.references :template, null: false, foreign_key: true
+      t.references :turma, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -92,20 +92,6 @@ body {
     position: relative;
 }
 
-.user-button:hover + .sign-out {
-    display: block; /* Mostra sign-out ao passar o mouse sobre user-button */
-  }
-  
-  .sign-out a {
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .sign-out a:hover {
-    text-decoration: underline;
-    color: #555;
-  }
-
 .content-frame {
     display: flex;
     width: 1280px;
@@ -125,10 +111,6 @@ body {
     position: absolute;
     z-index:1;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-/*mostrar o side-bar no hover*/
-.left-frame:hover .side-bar{
-    display:block
 }
 
 .select-button {
