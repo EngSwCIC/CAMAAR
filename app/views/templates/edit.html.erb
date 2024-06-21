@@ -32,8 +32,8 @@
                            alternatives_hash = JSON.parse(question_form.object.alternatives)
                            alternatives_hash.each_with_index do |(alt_index, alt), index| %>
                         <div class="flex items-center gap-4 alternative-field">
-                          <%= question_form.label :content, "Alternative", for: "template_template_questions_attributes_#{question_form.index}_alternatives_#{alt_index}_content" %>
-                          <%= question_form.text_field :content, name: "template[template_questions_attributes][#{question_form.index}][alternatives_attributes][#{index}][content]", id: "template_template_questions_attributes_#{question_form.index}_alternatives_#{alt_index}_content", value: alt["content"], class: 'form-control alternative-input' %>
+                          <%= question_form.label "template_questions_attributes_#{question_form.index}_alternatives_#{alt_index}_content", "Alternative" %>
+                          <%= question_form.text_field :alternatives, name: "template[template_questions_attributes][#{question_form.index}][alternatives][#{alt_index}][content]", id: "template_template_questions_attributes_#{question_form.index}_alternatives_#{alt_index}_content", value: alt["content"], class: 'form-control alternative-input' %>
                         </div>
                       <% end
                       rescue JSON::ParserError
