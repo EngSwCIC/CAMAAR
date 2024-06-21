@@ -5,7 +5,7 @@
     </div>
     <div id="profile" class="profile">
       <% if user_signed_in? %>
-        <p><%= current_user.email.first %></p>
+        <p><%= current_user.email.first.upcase %></p>
       <% end %>
     </div>
   </div>

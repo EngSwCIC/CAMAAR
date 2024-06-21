@@ -4,9 +4,12 @@
   <%= csrf_meta_tags %> 
   <%= stylesheet_link_tag 'resetcss', media: 'all' %>
   <%= stylesheet_link_tag 'form', media: 'all' %>
+  <%= stylesheet_link_tag 'error', media: 'all' %>
+
 </head>
 <body>
   <%= render "devise/shared/error_messages", resource: resource %>
+  
   <div class="container-form">
     <div class="form-infos">
       <h2>login</h2>
