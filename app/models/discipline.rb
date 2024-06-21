@@ -62,12 +62,13 @@ class Discipline < ApplicationRecord
                     else
                       'Sem semestre cadastrado.'
                     end
+    form = Form.where(discipline:).first
     {
       discipline_name: discipline.name,
       professor_name:,
       professor_department_code:,
       semester_name:,
-      form_id: Form.where(discipline:).first.id
+      form_id: form.nil? ? '' : form.id
     }
   end
 
