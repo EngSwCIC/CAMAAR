@@ -17,6 +17,7 @@ O projeto foi desenvolvido sumariamente em ambiente linux, tendo sido testados o
 
 Além disso, para a execução dos testes com rspec, é necessário que o navegador Firefox esteja devidamente instalado, dado ao fato de que o webdriver utilizado - selenium - utiliza o browser firefox em nosso ambiente de testes.
 
+As versões do ruby testadas com êxito foram ruby 3.3.0 e ruby 3.3.1.
 ## Divisão do desenvolvimento
 - João Pedro Gomes: autenticação com o Devise, frontend, testes em rspec e cucumber e correção e revisão de código.
 - Willyan Marques: renderização dinâmica de templates, frontend, backend, gráfico com kickchart e exportação em csv, testes em cucumber e correção e revisão de código.
