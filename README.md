@@ -10,8 +10,6 @@ Sistema para avaliação de atividades acadêmicas remotas do CIC
   - `gem update -system 3.3.3`
 - Cucumber 8.0.0
 - Tailwind CSS Rails 2.6
-  - Um problema comum que acontece é o desaparecimento do arquivo `./app/assets/builds/tailwind.css` ao copiar o repositório a um ambiente local
-  - No caso dele ocorrer, execute `./bin/dev` que o arquivo deve ser gerado automaticamente
 - SQLite3 1.4 (versão da gema)
 
 ## Como executar o servidor
@@ -41,3 +39,13 @@ Para que os testes que passaram sejam exibidos no prompt de comando também, exe
 ```shell
 rspec -fd spec/
 ```
+
+## Erros Comuns
+
+- Tailwind
+  - Um problema comum que acontece é o desaparecimento do arquivo `./app/assets/builds/tailwind.css` ao copiar o repositório a um ambiente local
+  - No caso dele ocorrer, execute `./bin/dev` que o arquivo deve ser gerado automaticamente
+- Gemfile.lock
+  - Como o sistema foi desenvolvido em varios sistemas operacionais, caso apareça algum erro nesse arquivo, apenas delete-o e rode `bundle install` de novo
+- Gem
+  - Quando fizer o `bundle install`, pode ocorrer um erro em que a versão do Gem não suporta aquela gema. Nesse caso, rode o comando `gem update -system 3.3.3`.
