@@ -1,3 +1,3 @@
 class Questao < ApplicationRecord
-    has_many :templates, through :questoes_templates
+    has_many :templates, through: :questoes_templates
 end

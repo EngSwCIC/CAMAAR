@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_19_001022) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_19_095354) do
   create_table "formularios", force: :cascade do |t|
     t.integer "id_turma"
     t.integer "id_template"
@@ -68,10 +68,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_001022) do
   create_table "turmas", force: :cascade do |t|
     t.string "classCode"
     t.string "semestre"
-    t.integer "id_professor", null: false
     t.integer "materia_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "horario"
     t.index ["materia_id"], name: "index_turmas_on_materia_id"
   end
 
@@ -95,6 +95,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_001022) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.string "departamento", default: "", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
