@@ -1,9 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe AvaliacoesController, type: :controller do
+  # include Devise::Test::IntegrationHelpers
+
   describe "avaliacoes view" do
     describe "correct forms" do
-      it "calls the model method to get forms"
+      before :each do
+        @user = FactoryBot.create(:user)
+        sign_in @user
+      end
+      it "renders index" do
+        get :index
+        expect(response).to have_http_status(:ok)
+      end
+
+      it "gets user from current session" do
+
+      end
+      it "calls the model method to get forms" do
+        # fake_user = double("user")
+        # expect(User).to receive(:find_pending_forms)
+        # get :avaliacoes_path
+      end
     end
   end
 
