@@ -11,7 +11,7 @@ class ResponseController < AvaliacoesController
       if name.start_with?("answer_")
         if value == ""
           flash[:alert] = "Por favor, responda todas as perguntas obrigatórias"
-          redirect_to :back
+          redirect_to "/avaliacoes/#{@form_request.id}/response"
           return
         end
 
