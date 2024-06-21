@@ -1,5 +1,8 @@
 class ResponseController < AvaliacoesController
-
+  def index
+    @form_request = FormRequest.find(params[:avaliaco_id])
+    render layout: "home"
+  end
   def create
     @form_request = FormRequest.find(params[:avaliaco_id])
 
@@ -8,8 +11,7 @@ class ResponseController < AvaliacoesController
       if name.start_with?("answer_")
         if value == ""
           flash[:alert] = "Por favor, responda todas as perguntas obrigatórias"
-          redirect_to "/avaliacoes/#{@form_request.id}"
-
+          redirect_to :back
           return
         end
 

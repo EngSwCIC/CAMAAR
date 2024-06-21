@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   # get '/avaliacoes', to: 'avaliacoes#index'
 
-  resources :avaliacoes, only: [:index, :show] do
-    resources :response, only: [:show, :create, :update, :destroy]
+  resources :avaliacoes, only: [:index] do
+    resources :response, only: [:index, :create, :update, :destroy]
   end
 
   get '/gerenciamento', to: 'gerenciamento#index'

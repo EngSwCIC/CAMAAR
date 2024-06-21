@@ -24,7 +24,7 @@ Given("There is a form request") do
 end
 
 Given("I visit the RespondForm page") do
-  visit "/avaliacoes/#{@form_request.id}"
+  visit "/avaliacoes/#{@form_request.id}/response"
 end
 
 Then(/^my responses should be saved in the database$/) do
@@ -37,5 +37,5 @@ Then(/^my responses should not be saved in the database$/) do
 end
 
 Then("I should stay at the RespondForm page") do
-  assert_equal URI.parse(current_url).path, "/avaliacoes/#{@form_request.id}"
+  assert_equal URI.parse(current_url).path, "/avaliacoes/#{@form_request.id}/response"
 end
