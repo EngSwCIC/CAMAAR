@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
     
     def create
         user = Usuario.find_by(email: params[:email],senha:params[:senha])
-        Rails.logger.info("usuario: #{user.inspect}")
         if user
             login user
             redirect_to root_path(alert_message_happy: "Parabéns princeso vc está logado")
+            Rails.logger.info("usuario aqui oh: #{current_user[:senha]}")
         else
             Rails.logger.info("Falhou bruxo: #{params[:email]}")
     
