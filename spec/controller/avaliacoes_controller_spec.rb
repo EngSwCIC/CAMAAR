@@ -5,9 +5,10 @@ RSpec.describe AvaliacoesController, type: :controller do
 
   describe "avaliacoes view" do
     describe "correct forms" do
+      let(:user) { FactoryBot.create(:user) }
+
       before :each do
-        @user = FactoryBot.create(:user)
-        sign_in @user
+        sign_in user
       end
 
       it "renders index" do
@@ -15,11 +16,8 @@ RSpec.describe AvaliacoesController, type: :controller do
         get :index
       end
 
-      it "gets user from current session" do
-
-      end
       it "calls the model method to get forms" do
-        expect(@user).to receive(:find_pending_forms)
+        expect_any_instance_of(User).to receive(:find_pending_forms)
         get :index
       end
     end
