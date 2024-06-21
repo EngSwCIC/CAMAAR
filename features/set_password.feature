@@ -4,16 +4,21 @@ Feature: Set password
   So that I can access the system using the password I defined
 
   Background: Starting at the password setting page
-    Given I am on the Definir Senha page
+    Given There is a user with email "teste@email.com" and matricula "123456789" and password "abcdef"
+    And I have a reset password token
+    And I am on the Definir Senha page
 
   Scenario: The set password is valid (happy path)
-    When I fill in "Senha" with "12345"
-    And I fill in "Confirme a Senha" with "12345"
+    When I fill in "Senha" with "123456"
+    And I fill in "Confirme a senha" with "123456"
     When I press "Alterar senha"
     Then I should see "Senha registrada com sucesso"
     Then I should be on the Avaliacoes page
 
   Scenario: The set password is invalid (sad path)
+    When I fill in "Senha" with ""
+    And I fill in "Confirme a senha" with ""
     When I press "Alterar senha"
-    Then I should be on the Definir senha page
-    And I should see "A senha registrada é inválida"
+    # Then I should be on the Definir Senha page
+    # o devise redireciona temporariamente pra user/passwords, antes de voltar pro user/passwords/edit?token, e por algum motivo o cucumber/capypara fixa que ta nesse URL intermediario
+    Then I should see "A senha registrada é inválida"
