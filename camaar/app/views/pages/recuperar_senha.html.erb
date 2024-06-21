@@ -16,10 +16,7 @@
           <%= flash[:alert] %>
         </div>
       <% end %>
-      <div>
-        <label for="username">Email</label> <br />
-        <%= text_field_tag :username, params[:username], id: 'username', placeholder: 'Nº de matrícula', required: true %>
-      </div>
+      <%= hidden_field_tag :username, @username %>
       <div class="senha_input">
         <label for="new_password">Nova senha</label> <br />
         <%= password_field_tag :new_password, nil, id: 'redefinir_senha', placeholder: 'Senha', required: true %>

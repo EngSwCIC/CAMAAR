@@ -8,14 +8,15 @@ class PagesController < ApplicationController
   end
 
   def recuperar_senha
-
+    @username = params[:username]
   end
+
 
   def update_password
     @user = User.find_by(usuario: params[:username])
 
     if @user.present? && params[:new_password] == params[:new_password_confirmation]
-      if @user.update(password: params[:new_password])
+      if @user.update(senha: params[:new_password])
         redirect_to login_path, notice: 'Senha alterada com sucesso.'
       else
         flash.now[:alert] = 'Houve um problema ao alterar sua senha. Por favor, tente novamente.'
