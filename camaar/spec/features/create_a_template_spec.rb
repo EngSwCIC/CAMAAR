@@ -95,6 +95,35 @@ RSpec.feature 'Create a template', type: :feature, js: true do
 
       expect(TemplateQuestion.find_by(template_id: template.id).question_type).to eq('text')
     end
+    it 'should let user to cancel a update' do
+      template = build(:template, :template1)
+      template_questions = build(:template_question, :template_question1)
+      expect(page).to have_content template.name
+      click_link template.name
+      expect(page).to have_content template_questions.title
+      click_link 'Editar'
+      click_button 'Cancelar'
+      expect(page).to have_content 'Questão 1'
+      fill_in 'template[name]', with: 'test_temp'
+      click_button 'Salvar'
+
+      expect(Template.where(name: 'test_temp').count).to eq(1)
+
+      template = Template.find_by(name: 'test_temp')
+
+      expect(TemplateQuestion.find_by(template_id: template.id).question_type).to eq('text')
+    end
+    it 'sad path - should not update a question with empty fields' do
+      template = build(:template, :template1)
+      template_questions = build(:template_question, :template_question1)
+      expect(page).to have_content template.name
+      click_link template.name
+      expect(page).to have_content template_questions.title
+      click_link 'Editar'
+      fill_in 'template_question_title', with: ''
+      click_button 'Salvar'
+      expect(page).to have_content 'Questão precisa de um título'
+    end
   end
   describe 'sad path admin cant create a template with no options' do
     it 'should not create a template with no options' do
