@@ -4,7 +4,8 @@ Feature: Import Data from SIGAA
   So that I can populate the system's database
 
   Background: Starting on the data import page
-    Given I am on the Gerenciamento page
+    Given I am logged in
+    And I am on the Gerenciamento page
 
   Scenario: Successful import (happy path)
     Given I have valid JSONs

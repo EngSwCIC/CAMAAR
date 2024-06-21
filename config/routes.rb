@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get '/gerenciamento', to: 'gerenciamento#index'
   put '/gerenciamento/import', :as => 'gerenciamento_import'
 
-  root to: "home#index"
+  root to: "avaliacoes#index"
 end

@@ -29,7 +29,7 @@ module NavigationHelpers
       '/gerenciamento/templates'
 
     when /^the Definir Senha\s?page$/
-      '/senha'
+      '/users/senha'
 
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
