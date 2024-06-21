@@ -84,3 +84,6 @@ Formulários enviados podem ser visualizados na página "Resultados". Quando alg
 Se você for simular um usuário registrado no json, acesse o servidor de emails `localhost:3000/mails` (fictício) e procure seu endereço de do usuário. Nele, ao clickar no link de "Registrar", você será submetido a uma página de cadastro onde você pode informar uma senha para sua conta. Após a submissão do registro, você precisará confirmar o cadastro a partir de outro email enviado.
 
 Você pode responder formulários enviados acessando a página "Pendentes" e pode visualizar suas respostas a partir da página "Respondidos" 
+
+# Uso e testes
+- [Link do Vídeo](https://www.youtube.com/watch?v=bIlr8v9HpNo)
