@@ -1,17 +1,25 @@
+@report
 Feature: Generating CSV report
-    Scenario: Successfully downloading CSV report
-        Given I am an administrator
-        And I am in the management flow screen
-	And There is valid response data for the current class and semester
+    @discipline
+    Scenario: Downloading discipline CSV report
+        Given I am logged in as an administrator
+        And I am in the evaluations screen
+        And I have a form for discipline "Estrutura de Dados", with professor "DANIEL DE PAULA PORTO" and semester "2020.1"
+        When I click Baixar Resultados
+        Then I should download a CSV file for that discipline
 
-        When I click the "Results" button
-    
-        Then I should get a link to a valid results CSV file
-        And I should see a toast saying "data downloaded"
+    @semester
+    Scenario: Downloading semester CSV report
+        Given I am logged in as an administrator
+        And I am in the management screen
+        And I have a form for discipline "Estrutura de Dados", with professor "DANIEL DE PAULA PORTO" and semester "2020.1"
+        When I click Gerar CSV de Resultados deste Semestre
+        Then I should download a CSV file for the disciplines of that semester
 
-    Scenario: Class+Semester has no results
-        Given I am an administrator
-        And I am in the management flow screen
-	And There are no results for the current class and semester 
-
-	Then the "Results" button should be greyed out
+    @semester_nil
+    Scenario: No semester registered
+        Given I am logged in as an administrator
+        And I am in the management screen
+        And I have no semesters registered
+        When I click Gerar CSV de Resultados deste Semestre
+        Then I should see "Não é possível exportar resultados sem um semestre cadastrado, importe os dados do sistema."
