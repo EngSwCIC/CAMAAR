@@ -22,7 +22,8 @@ end
 Then(/^(?:I )?should be on the (\w+) page$/) do |page_name|
   case page_name.downcase
   when 'management'
-    raise "Unhandled page (how do I know i'm here?): #{page_name}"
+    expect(page).to have_text('Gerenciamento')
+    expect(page).to have_text('Semestre Atual')
   when 'home'
     raise "Unhandled page (how do I know i'm here?): #{page_name}"
   when 'evaluations'
