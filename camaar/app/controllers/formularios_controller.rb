@@ -35,6 +35,29 @@ class FormulariosController < ApplicationController
         render json: e, status: :not_found
     end
 
+    def show_pending
+        @formularios = Formulario.all #alterar isso
+    end
+
+    def responder
+        @formulario = Formulario.find(params[:id])
+    end
+
+    def resposta
+        formulario = Formulario.find(params[:id])
+      
+        params[:formulario][:questaos_attributes].each do |key, resposta|
+            questao = Questao.find(resposta[:id])
+            resposta = Resposta.new({ "formulario_id": formulario.id, "questao_id": questao.id, "texto": resposta[:resposta][:value]})
+            resposta.save!
+        end
+        
+      
+        # Handle successful form submission (e.g., redirect)
+        redirect_to '/'
+    end
+
+
     private
 
     def formulario_params
