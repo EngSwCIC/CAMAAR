@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     # patch "/:id", to: "matriculas#update"
   end
   scope "/formularios" do
+    get "/new", to: "formularios#new"
     get "/", to: "formularios#index"
     get "/:id", to: "formularios#show"
     post "/", to: "formularios#create"

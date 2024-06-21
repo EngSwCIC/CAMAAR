@@ -1,4 +1,8 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página Gerenciar Formulários</title>
+</head>
 <body>
     <main>
         <h1>Formulários</h1>
@@ -7,10 +11,9 @@
         <div class="gerenciamento-menu">
             <h2>Menu de Gerenciamento</h2>
             <ul>
-                <li><%= link_to 'Exportar Dados (CSV)', export_csv_formularios_path(format: :csv) %></li>
-                <li><%= link_to 'Editar Templates', edit_template_path %></li> <!-- Substitua pelo path correto -->
-                <li><%= link_to 'Enviar Formulários', new_formulario_path %></li>
-                <li><%= link_to 'Visualizar Resultados', formularios_path %></li>
+                <li><%= link_to 'Importar Dados', new_formulario_path %></li>
+                <li><%= link_to 'Enviar formulários', formularios_path %></li>
+                <li><%= link_to 'Resultados', export_csv_formularios_path(format: :csv) %></li>
             </ul>
         </div>
     </main>

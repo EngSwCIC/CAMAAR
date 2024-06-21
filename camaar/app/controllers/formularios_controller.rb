@@ -1,3 +1,5 @@
+require 'csv'
+
 class FormulariosController < ApplicationController
     def index
         @formularios = Formulario.all
@@ -58,7 +60,7 @@ class FormulariosController < ApplicationController
 
     def generate_csv(formularios)
         CSV.generate(headers: true) do |csv|
-          csv << ['ID', 'Nome', 'Descrição', 'Criado em', 'Atualizado em'] # Ajuste os cabeçalhos conforme os atributos do seu modelo
+          csv << ['ID', 'Nome', 'Descrição', 'Criado em', 'Atualizado em']
     
           formularios.each do |formulario|
             csv << [formulario.id, formulario.nome, formulario.descricao, formulario.created_at, formulario.updated_at]
