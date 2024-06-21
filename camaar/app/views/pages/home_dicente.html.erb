@@ -1,0 +1,42 @@
+<%= stylesheet_link_tag "base" %>
+<%= stylesheet_link_tag "assessments" %>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+
+<body>
+  <div class="header-bar">
+    <div class="left-frame">
+      <button class="menu-button">&#9776;</button>
+      <div class="side-bar">
+        <div class="select-button">Avaliações</div>
+        <div class="select-button">Gerenciamento</div>
+      </div>
+    </div>
+    <span class="header-text">Avaliações</span>
+    <div class="search-bar">
+      <input type="text">
+      <button class="search-icon">&#128269;</button>
+    </div>
+    <button class="user-button"><%=current_user.nome[0]%></button>
+    <div class="sign-out">
+      <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+    </div>
+  </div>
+  <div class="content-frame">
+
+    <div class="assessments-container">
+      <% @classes.each do |classe| %>
+        <% classe.formularios.each do |formulario| %>
+          <% if Date.today < formulario.dataDeTermino && !formulario.resultados.key?(current_user.nome)%>
+            <%= link_to formulario_path(formulario) do %>
+              <div class="assessments-box">
+                <div class="subject-name"><%= classe.materia %></div>
+                <div class="semester"><%= classe.semestre %></div>
+                <div class="professor"><%= classe.docente %></div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</body>
