@@ -1,66 +1,17 @@
-function mostrar_ocultar() {
-    var input_senha = document.getElementById('senha_pass');
-    var btn_olho_senha = document.getElementById('olho_senha');
-
-    if (input_senha.type === 'password') {
-        input_senha.setAttribute('type', 'text');
-        btn_olho_senha.classList.replace('olho_aberto', 'olho_fechado');
-        btn_olho_senha.setAttribute('src', '../icons/olho_fechado.svg');
-    } else {
-        input_senha.setAttribute('type', 'password');
-        btn_olho_senha.classList.replace('olho_fechado', 'olho_aberto');
-        btn_olho_senha.setAttribute('src', '../icons/olho_aberto.svg');
-    }
-}
-
-function mostrar_ocultar_r() {
-    var input_senha = document.getElementById('redefinir_senha');
-    var btn_olho_senha = document.getElementById('olho_senha');
-
-    if (input_senha.type === 'password') {
-        input_senha.setAttribute('type', 'text');
-        btn_olho_senha.classList.replace('olho_aberto', 'olho_fechado');
-        btn_olho_senha.setAttribute('src', '../icons/olho_fechado.svg');
-    } else {
-        input_senha.setAttribute('type', 'password');
-        btn_olho_senha.classList.replace('olho_fechado', 'olho_aberto');
-        btn_olho_senha.setAttribute('src', '../icons/olho_aberto.svg');
-    }
-}
-
-function mostrar_ocultar_r1() {
-    var input_senha1 = document.getElementById('confir_redefinir_senha');
-    var btn_olho_senha = document.getElementById('olho_senha1');
-
-    if (input_senha1.type === 'password') {
-        input_senha1.setAttribute('type', 'text');
-        btn_olho_senha.classList.replace('olho_aberto', 'olho_fechado');
-        btn_olho_senha.setAttribute('src', '../icons/olho_fechado.svg');
-    } else {
-        input_senha1.setAttribute('type', 'password');
-        btn_olho_senha.classList.replace('olho_fechado', 'olho_aberto');
-        btn_olho_senha.setAttribute('src', '../icons/olho_aberto.svg');
-    }
-}
-
-// essa função não é fixa
-function redirecionarPagina() {
-    window.location.href = "home.html";
-}
-
 document.addEventListener('DOMContentLoaded', () => {
 
     const popup = document.getElementById('popup');
     const closePopup = document.getElementById('close-popup');
+    const popupUpload = document.getElementById('popup-upload'); // Novo popup de upload
+    const closePopupUpload = document.getElementById('close-popup-upload'); // Botão de fechar do novo popup
 
     // Botões do Popup
-    const btnImportar = document.getElementById('importar_dados');
+    const btnImportar = document.getElementById('importar_dados_btn');
     const btnEditar = document.getElementById('editar_templates');
     const btnEnviar = document.getElementById('enviar_formularios');
     const btnResultados = document.getElementById('resultados');
 
     document.getElementById("menu-icon").onclick = function() {
-
         const sidebar = document.getElementById("sidebar");
         if (sidebar.style.width === "0px" || sidebar.style.width === "") {
             sidebar.style.width = "250px";
@@ -81,6 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ação do X de fechar o popup
     closePopup.onclick = function() {
         popup.style.display = "none";
+        popup.classList.remove('popup-color'); // Remove a classe de cor do popup principal
+    };
+
+    // Ação do X de fechar o popup de upload
+    closePopupUpload.onclick = function() {
+        popupUpload.style.display = "none";
     };
 
     // Se clicar fora do popup ele fecha
@@ -88,13 +45,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target == popup) {
             popup.style.display = "none";
         }
+        if (event.target == popupUpload) {
+            popupUpload.style.display = "none";
+        }
+    };
+
+    // Evento para abrir o popup de upload ao clicar em "Importar Dados"
+    btnImportar.onclick = function() {
+        event.preventDefault(); // Impede o comportamento padrão do link/button
+        popup.classList.add('popup-color'); // Adiciona a classe de cor ao popup principal
+        popup.style.display = "none"; // Fecha o popup atual, se estiver aberto
+        console.log("fechou o popup")
+        popupUpload.style.display = "block"; // Abre o popup de upload
     };
 
     // Condições para habilitar botões
-    btnImportar.onclick = function() {
-        btnEditar.disabled = false;
-    };
-
     btnEditar.onclick = function() {
         btnEnviar.disabled = false;
     };
@@ -103,6 +68,3 @@ document.addEventListener('DOMContentLoaded', () => {
         btnResultados.disabled = false;
     };
 });
-
-
-

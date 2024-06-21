@@ -12,6 +12,21 @@ body{
 }
 
 
+.bottom-alert {
+    position: fixed;
+    bottom: 20px; /* Distância do rodapé da tela */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Certifique-se de que este valor seja maior que outros componentes */
+    background-color: rgba(0, 0, 0, 0.8); /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    border-radius: 5px; /* Borda arredondada */
+    text-align: center; /* Centraliza o texto */
+}
+
+
+
 #login_user{
     position: absolute;
     background: #FFFFFF;
@@ -19,12 +34,12 @@ body{
     height: 525px;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
 
 }
 .fonte{
@@ -36,14 +51,14 @@ body{
     position: absolute;
     width: 500px;
     height: 525px;
-    left: 398px;   
+    left: 398px;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     color: #FFFFFF;
-    font-family: 'Roboto';    
+    font-family: 'Roboto';
     display: flex;
     align-items: center;
-    
+
 
 }
 .text_mesage{
@@ -54,8 +69,8 @@ body{
     width: 417px;
     height: 373px;
     left: 46px;
-    
-       
+
+
 }
 
 #login_user h1:first-child{
@@ -66,16 +81,17 @@ body{
     text-align: left;
 }
 
-#login_user label { 
+#login_user label {
     font-family: Poppins;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
-    text-align: left;    
-}  
+    text-align: left;
+    margin-bottom: 6px; /* Ajuste a distância conforme necessário */
+}
+
 
 #login_user input{
-    
     margin: 2px;
     font-family: "Poppins";
     width: 320px;
@@ -112,7 +128,7 @@ body{
     border-radius: 6px;
     background: #22C55E;
     font-family: "Poppins";
-   
+
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -122,6 +138,6 @@ body{
 }
 
 #login_user a {
-    color: #007BFF; 
-    text-decoration: none; 
+    color: #007BFF;
+    text-decoration: none;
 }

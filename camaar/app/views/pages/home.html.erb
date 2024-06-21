@@ -34,12 +34,27 @@
 <div id="popup" class="popup">
   <div class="popup-content">
     <span class="close-popup" id="close-popup">&times;</span>
-    <%= button_to "Importar Dados", method: :post, class: "popup-btn", remote: true %>
+    <%= button_to "Importar Dados", "#", id: "importar_dados_btn", class: "popup-btn", remote: true,disabled: false %>
+
+
     <%= button_to "Editar Templates", method: :get, class: "popup-btn", disabled: true %>
+
     <%= button_to "Enviar Formulários", method: :post, class: "popup-btn", disabled: true %>
+
     <%= button_to "Resultados", method: :get, class: "popup-btn", disabled: true %>
   </div>
 </div>
+
+<div id="popup-upload" class="popup">
+  <div class="popup-content">
+    <span class="close-popup" id="close-popup-upload">&times;</span>
+    <%= form_tag importar_dados_path, multipart: true, remote: true do %>
+      <%= file_field_tag :file, multiple: true %>
+      <%= submit_tag "Enviar Arquivo", class: "popup-btn" %>
+    <% end %>
+  </div>
+</div>
+
 
 <button href="<%= criar_templete_path %>" class="botao-criar-templete">Criar Template</button>
 

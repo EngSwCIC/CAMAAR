@@ -11,6 +11,16 @@ class PagesController < ApplicationController
     @username = params[:username]
   end
 
+  def importar_dados
+    # Lógica para lidar com o arquivo importado
+    if params[:file].present?  # Assumindo que você está enviando um arquivo com o nome 'file'
+      uploaded_file = params[:file]
+      # Aqui você pode fazer o que for necessário com o arquivo, como salvar no servidor, processar, etc.
+      render plain: "Arquivo '#{uploaded_file.original_filename}' importado com sucesso!"
+    else
+      render plain: "Nenhum arquivo selecionado para importar."
+    end
+  end
 
   def update_password
     @user = User.find_by(usuario: params[:username])

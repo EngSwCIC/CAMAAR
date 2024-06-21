@@ -10,13 +10,13 @@
 <body>
 <div id="container">
   <% if flash[:notice].present? %>
-    <div class="notice">
+    <div class="bottom-alert notice">
       <%= flash[:notice] %>
     </div>
   <% end %>
 
   <% if flash[:alert].present? %>
-    <div class="alert">
+    <div class="bottom-alert alert">
       <%= flash[:alert] %>
     </div>
   <% end %>
@@ -25,7 +25,7 @@
     <div id="login_user">
       <h1>LOGIN</h1>
       <div>
-        <label for="username">Email</label> <br />
+        <label for="username">Usuário</label> <br />
         <%= text_field_tag :username, nil, id: 'username', placeholder: 'Nº de matricula', required: true %>
       </div>
       <div class="senha_input">

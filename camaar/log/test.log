@@ -2953,3 +2953,155 @@ Processing by PagesController#login as HTML
   Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2164)
 Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 2392)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 14:09:13 -0300
+  
+ActionController::RoutingError (uninitialized constant TestController):
+  
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 14:09:13 -0300
+  
+ActionController::RoutingError (uninitialized constant TestController):
+  
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 14:09:57 -0300
+Processing by TesteController#teste_create as HTML
+  Parameters: {"username"=>"test_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 53ms (ActiveRecord: 0.4ms | Allocations: 21332)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 14:09:57 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 68.2ms | Allocations: 27787)
+  Rendered layout layouts/application.html.erb (Duration: 84.0ms | Allocations: 43633)
+Completed 200 OK in 103ms (Views: 92.8ms | ActiveRecord: 0.0ms | Allocations: 47241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 14:09:57 -0300
+Processing by TesteController#teste_create as HTML
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 322)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 14:09:57 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1434)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 2146)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 2374)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_definir_senha" for 127.0.0.1 at 2024-06-21 14:39:07 -0300
+Processing by TesteController#definir_senha as HTML
+  Parameters: {"username"=>"test_user", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1130)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_definir_senha" for 127.0.0.1 at 2024-06-21 14:40:39 -0300
+Processing by TesteController#definir_senha as HTML
+  Parameters: {"username"=>"test_user", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1130)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_definir_senha" for 127.0.0.1 at 2024-06-21 14:45:39 -0300
+Processing by TesteController#definir_senha as HTML
+  Parameters: {"username"=>"test_user", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 0.4ms | Allocations: 21017)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_definir_senha" for 127.0.0.1 at 2024-06-21 14:46:44 -0300
+Processing by TesteController#definir_senha as HTML
+  Parameters: {"username"=>"test_user", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 0.5ms | Allocations: 21028)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_definir_senha" for 127.0.0.1 at 2024-06-21 14:50:10 -0300
+Processing by TesteController#definir_senha as HTML
+  Parameters: {"username"=>"test_user", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."usuario" = ? AND "users"."id" != ? LIMIT ?[0m  [["usuario", "test_user"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = ? WHERE "users"."id" = ?[0m  [["password_digest", "$2a$04$I5rJu0kCjUpYhODtyJFrouTQbdRltqSXATuhQeQVpY7IgtZvDQICW"], ["id", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed 302 Found in 59ms (ActiveRecord: 1.0ms | Allocations: 22929)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 14:50:10 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 69.7ms | Allocations: 27706)
+  Rendered layout layouts/application.html.erb (Duration: 84.9ms | Allocations: 43552)
+Completed 200 OK in 104ms (Views: 93.4ms | ActiveRecord: 0.0ms | Allocations: 47159)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_definir_senha" for 127.0.0.1 at 2024-06-21 15:01:58 -0300
+Processing by TesteController#definir_senha as HTML
+  Parameters: {"username"=>"test_user", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."usuario" = ? AND "users"."id" != ? LIMIT ?[0m  [["usuario", "test_user"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = ? WHERE "users"."id" = ?[0m  [["password_digest", "$2a$04$63v8ohtlqZx6of3vzZCu8OGr/El0Qlejnmipij9iszvmC883TxPy."], ["id", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed 302 Found in 60ms (ActiveRecord: 1.2ms | Allocations: 22912)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 15:01:58 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 68.1ms | Allocations: 27735)
+  Rendered layout layouts/application.html.erb (Duration: 85.7ms | Allocations: 43581)
+Completed 200 OK in 105ms (Views: 94.1ms | ActiveRecord: 0.0ms | Allocations: 47188)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_definir_senha" for 127.0.0.1 at 2024-06-21 15:01:58 -0300
+Processing by TesteController#definir_senha as HTML
+  Parameters: {"username"=>"test_user", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+Redirected to http://www.example.com/recuperar_senha
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 335)
+Started GET "/recuperar_senha" for 127.0.0.1 at 2024-06-21 15:01:58 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 12.4ms | Allocations: 1785)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 2497)
+Completed 200 OK in 35ms (Views: 13.4ms | ActiveRecord: 0.0ms | Allocations: 2794)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_definir_senha" for 127.0.0.1 at 2024-06-21 15:01:58 -0300
+Processing by TesteController#definir_senha as HTML
+  Parameters: {"username"=>"test_user", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+Redirected to http://www.example.com/recuperar_senha
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 324)
+Started GET "/recuperar_senha" for 127.0.0.1 at 2024-06-21 15:01:58 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1194)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1902)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 2130)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m

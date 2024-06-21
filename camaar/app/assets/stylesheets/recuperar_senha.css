@@ -11,6 +11,18 @@ body{
     top: calc(50% - 525px/2 - 0.5px);
 }
 
+.bottom-alert {
+    position: fixed;
+    bottom: 20px; /* Distância do rodapé da tela */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Certifique-se de que este valor seja maior que outros componentes */
+    background-color: rgba(0, 0, 0, 0.8); /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    border-radius: 5px; /* Borda arredondada */
+    text-align: center; /* Centraliza o texto */
+}
 
 #login_user{
     position: absolute;

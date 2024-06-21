@@ -10000,3 +10000,1135 @@ Completed 200 OK in 15ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 411
   ↳ (irb):5:in `<top (required)>'
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
   ↳ (irb):5:in `<top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (irb):8:in `<top (required)>'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+  ↳ (irb):8:in `<top (required)>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ (irb):8:in `<top (required)>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (irb):10:in `<top (required)>'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+  ↳ (irb):10:in `<top (required)>'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "senha", "nome", "curso", "matricula", "usuario", "formacao", "ocupacao", "departamento", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "test_user@example.com"], ["senha", nil], ["nome", nil], ["curso", nil], ["matricula", nil], ["usuario", "test_user"], ["formacao", nil], ["ocupacao", nil], ["departamento", nil], ["password_digest", "[FILTERED]"]]
+  ↳ (irb):10:in `<top (required)>'
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ (irb):10:in `<top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+  ↳ (irb):11:in `<top (required)>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (irb):12:in `<top (required)>'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."usuario" = ? AND "users"."id" != ? LIMIT ?[0m  [["usuario", "test_user"], ["id", 2], ["LIMIT", 1]]
+  ↳ (irb):12:in `<top (required)>'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = ? WHERE "users"."id" = ?[0m  [["password_digest", "[FILTERED]"], ["id", 2]]
+  ↳ (irb):12:in `<top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ (irb):12:in `<top (required)>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (irb):13:in `<top (required)>'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."usuario" = ? AND "users"."id" != ? LIMIT ?[0m  [["usuario", "test_user"], ["id", 2], ["LIMIT", 1]]
+  ↳ (irb):13:in `<top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ (irb):13:in `<top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+  ↳ (irb):14:in `<top (required)>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (irb):15:in `<top (required)>'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."usuario" = ? AND "users"."id" != ? LIMIT ?[0m  [["usuario", "test_user"], ["id", 2], ["LIMIT", 1]]
+  ↳ (irb):15:in `<top (required)>'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = ? WHERE "users"."id" = ?[0m  [["password_digest", "[FILTERED]"], ["id", 2]]
+  ↳ (irb):15:in `<top (required)>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ (irb):15:in `<top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+  ↳ (irb):16:in `<top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+  ↳ (irb):19:in `<top (required)>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (irb):21:in `<top (required)>'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."usuario" = ? AND "users"."id" != ? LIMIT ?[0m  [["usuario", "test_user"], ["id", 2], ["LIMIT", 1]]
+  ↳ (irb):21:in `<top (required)>'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = ? WHERE "users"."id" = ?[0m  [["password_digest", "[FILTERED]"], ["id", 2]]
+  ↳ (irb):21:in `<top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ (irb):21:in `<top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+  ↳ (irb):22:in `<top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+  ↳ (irb):24:in `<top (required)>'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = ? WHERE "users"."id" = ?[0m  [["password_digest", "[FILTERED]"], ["id", 2]]
+  ↳ (irb):26:in `<top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+  ↳ (irb):28:in `<top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+  ↳ (irb):30:in `<top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (irb):31:in `<top (required)>'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."usuario" = ? AND "users"."id" != ? LIMIT ?[0m  [["usuario", "test_user"], ["id", 2], ["LIMIT", 1]]
+  ↳ (irb):31:in `<top (required)>'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "senha" = ? WHERE "users"."id" = ?[0m  [["senha", "testepassword"], ["id", 2]]
+  ↳ (irb):31:in `<top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ (irb):31:in `<top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/home" for ::1 at 2024-06-21 15:41:10 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 335.1ms | Allocations: 29925)
+  Rendered layout layouts/application.html.erb (Duration: 385.9ms | Allocations: 47064)
+Completed 200 OK in 418ms (Views: 394.8ms | ActiveRecord: 0.0ms | Allocations: 51744)
+
+
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 15:41:37 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started GET "/home" for ::1 at 2024-06-21 15:43:27 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.5ms | Allocations: 4334)
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | Allocations: 21319)
+Completed 200 OK in 37ms (Views: 34.0ms | ActiveRecord: 0.0ms | Allocations: 22242)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:43:30 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3332)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4836)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 5116)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:43:34 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.7ms | Allocations: 3321)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 4807)
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 5085)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:43:36 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.2ms | Allocations: 3299)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4775)
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 5052)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:43:39 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.3ms | Allocations: 3288)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 4764)
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 5038)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:43:41 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.2ms | Allocations: 3293)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4769)
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 5043)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:43:59 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 112.3ms | Allocations: 29958)
+  Rendered layout layouts/application.html.erb (Duration: 135.3ms | Allocations: 47100)
+Completed 200 OK in 166ms (Views: 146.0ms | ActiveRecord: 0.0ms | Allocations: 51779)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:44:02 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3293)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 4769)
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 5048)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:45:08 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.2ms | Allocations: 4238)
+  Rendered layout layouts/application.html.erb (Duration: 34.2ms | Allocations: 21094)
+Completed 200 OK in 42ms (Views: 39.0ms | ActiveRecord: 0.0ms | Allocations: 22020)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:45:11 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3333)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4823)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 5101)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:45:15 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.6ms | Allocations: 3288)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 4764)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 5042)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:45:41 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.5ms | Allocations: 4318)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 21102)
+Completed 200 OK in 37ms (Views: 32.6ms | ActiveRecord: 0.0ms | Allocations: 22024)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:45:43 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.8ms | Allocations: 3366)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 4842)
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 5118)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:47:13 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.8ms | Allocations: 4374)
+  Rendered layout layouts/application.html.erb (Duration: 31.0ms | Allocations: 21321)
+Completed 200 OK in 42ms (Views: 35.3ms | ActiveRecord: 0.0ms | Allocations: 22244)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:47:15 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.8ms | Allocations: 3380)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 4857)
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 5134)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:47:21 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.4ms | Allocations: 3375)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4851)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 5125)
+
+
+Started GET "/login" for ::1 at 2024-06-21 15:50:46 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 748.4ms | Allocations: 53973)
+  Rendered layout layouts/application.html.erb (Duration: 771.9ms | Allocations: 71011)
+Completed 200 OK in 800ms (Views: 781.2ms | ActiveRecord: 0.0ms | Allocations: 75691)
+
+
+Started POST "/login" for ::1 at 2024-06-21 15:50:56 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:18:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 103ms (ActiveRecord: 3.5ms | Allocations: 25425)
+
+
+Started GET "/login" for ::1 at 2024-06-21 15:50:56 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2422)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 3914)
+Completed 200 OK in 14ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4233)
+
+
+Started POST "/verify_user" for ::1 at 2024-06-21 15:51:28 -0300
+Processing by SessionsController#verify_user as */*
+  Parameters: {"username"=>"joao_user", "session"=>{"username"=>"joao_user"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8:in `verify_user'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 829)
+
+
+Started GET "/recuperar_senha?username=joao_user" for ::1 at 2024-06-21 15:51:28 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"username"=>"joao_user"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2297)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 3772)
+Completed 200 OK in 14ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 4116)
+
+
+Started POST "/login" for ::1 at 2024-06-21 15:51:37 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:18:in `create'
+Redirected to http://localhost:3000/home
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 755)
+
+
+Started GET "/home" for ::1 at 2024-06-21 15:51:37 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.9ms | Allocations: 4319)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 5794)
+Completed 200 OK in 18ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 6134)
+
+
+Started GET "/login" for ::1 at 2024-06-21 15:51:39 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2406)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 3881)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 4157)
+
+
+Started GET "/login" for ::1 at 2024-06-21 15:56:02 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 459.4ms | Allocations: 53479)
+  Rendered layout layouts/application.html.erb (Duration: 480.0ms | Allocations: 70511)
+Completed 200 OK in 516ms (Views: 489.6ms | ActiveRecord: 0.0ms | Allocations: 75192)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 15:56:17 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2309)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 3805)
+Completed 200 OK in 14ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 4154)
+
+
+Started GET "/login" for ::1 at 2024-06-21 16:02:02 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 20.6ms | Allocations: 3822)
+  Rendered layout layouts/application.html.erb (Duration: 48.2ms | Allocations: 10634)
+Completed 200 OK in 52ms (Views: 49.2ms | ActiveRecord: 0.0ms | Allocations: 10912)
+
+
+Started GET "/login" for ::1 at 2024-06-21 16:06:01 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 467.5ms | Allocations: 52692)
+  Rendered layout layouts/application.html.erb (Duration: 490.2ms | Allocations: 69728)
+Completed 200 OK in 521ms (Views: 502.2ms | ActiveRecord: 0.0ms | Allocations: 74408)
+
+
+Started GET "/login" for ::1 at 2024-06-21 16:07:16 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 536.8ms | Allocations: 52689)
+  Rendered layout layouts/application.html.erb (Duration: 565.1ms | Allocations: 69725)
+Completed 200 OK in 595ms (Views: 575.0ms | ActiveRecord: 0.0ms | Allocations: 74405)
+
+
+Started POST "/login" for ::1 at 2024-06-21 16:07:35 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:18:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 68ms (ActiveRecord: 8.0ms | Allocations: 25421)
+
+
+Started GET "/login" for ::1 at 2024-06-21 16:07:36 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2428)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 3920)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 4239)
+
+
+Started GET "/login" for ::1 at 2024-06-21 16:08:45 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 30.3ms | Allocations: 3802)
+  Rendered layout layouts/application.html.erb (Duration: 55.3ms | Allocations: 10600)
+Completed 200 OK in 59ms (Views: 56.3ms | ActiveRecord: 0.0ms | Allocations: 10879)
+
+
+Started GET "/login" for ::1 at 2024-06-21 16:08:48 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2368)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 3843)
+Completed 200 OK in 14ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 4117)
+
+
+Started GET "/login" for ::1 at 2024-06-21 16:08:48 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2371)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3846)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4123)
+
+
+Started GET "/login" for ::1 at 2024-06-21 16:09:03 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 472.0ms | Allocations: 45758)
+  Rendered layout layouts/application.html.erb (Duration: 497.0ms | Allocations: 62795)
+Completed 200 OK in 530ms (Views: 510.3ms | ActiveRecord: 0.0ms | Allocations: 67475)
+
+
+Started GET "/login" for ::1 at 2024-06-21 16:09:09 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2369)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 3844)
+Completed 200 OK in 13ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 4123)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:09:42 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.8ms | Allocations: 4334)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 5809)
+Completed 200 OK in 16ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 6147)
+
+
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:09:52 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:09:54 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:09:55 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:09:56 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:09:56 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:09:57 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started GET "/home" for ::1 at 2024-06-21 16:16:39 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 464.4ms | Allocations: 48591)
+  Rendered layout layouts/application.html.erb (Duration: 485.0ms | Allocations: 65634)
+Completed 200 OK in 512ms (Views: 493.9ms | ActiveRecord: 0.0ms | Allocations: 70313)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:16:42 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3397)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 4872)
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 5151)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:16:48 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 10.0ms | Allocations: 3373)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 4848)
+Completed 200 OK in 20ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 5126)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:16:54 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.6ms | Allocations: 3385)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4860)
+Completed 200 OK in 15ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 5138)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:21:28 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 517.2ms | Allocations: 48607)
+  Rendered layout layouts/application.html.erb (Duration: 544.1ms | Allocations: 65650)
+Completed 200 OK in 575ms (Views: 554.3ms | ActiveRecord: 0.0ms | Allocations: 70329)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:21:32 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.4ms | Allocations: 3378)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 4853)
+Completed 200 OK in 16ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 5132)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:21:38 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.4ms | Allocations: 3367)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 4842)
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 5120)
+
+
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:21:44 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:21:48 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&disabled=true&method=get" for ::1 at 2024-06-21 16:21:48 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:21:49 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:22:08 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&disabled=true&method=get" for ::1 at 2024-06-21 16:22:09 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&disabled=true&method=post" for ::1 at 2024-06-21 16:22:09 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&disabled=true&method=get" for ::1 at 2024-06-21 16:22:09 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:22:10 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:22:10 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:22:10 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:22:11 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:22:11 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:22:17 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:22:17 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&method=post&remote=true" for ::1 at 2024-06-21 16:22:17 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started GET "/home" for ::1 at 2024-06-21 16:29:19 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 442.0ms | Allocations: 48659)
+  Rendered layout layouts/application.html.erb (Duration: 463.0ms | Allocations: 65698)
+Completed 200 OK in 498ms (Views: 473.0ms | ActiveRecord: 0.0ms | Allocations: 70378)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:29:22 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3392)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 4867)
+Completed 200 OK in 15ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 5146)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:29:27 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.7ms | Allocations: 3393)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 4873)
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 0.0ms | Allocations: 5151)
+
+
+Started POST "/home?class=popup-btn&id=importar_dados_btn&method=post&remote=true" for ::1 at 2024-06-21 16:29:30 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&disabled=true&method=get" for ::1 at 2024-06-21 16:29:32 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&id=importar_dados_btn&method=post&remote=true" for ::1 at 2024-06-21 16:29:35 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&id=importar_dados_btn&method=post&remote=true" for ::1 at 2024-06-21 16:29:35 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&id=importar_dados_btn&method=post&remote=true" for ::1 at 2024-06-21 16:29:35 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&id=importar_dados_btn&method=post&remote=true" for ::1 at 2024-06-21 16:29:36 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&id=importar_dados_btn&method=post&remote=true" for ::1 at 2024-06-21 16:29:36 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started GET "/home" for ::1 at 2024-06-21 16:34:40 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 77.5ms | Allocations: 30000)
+  Rendered layout layouts/application.html.erb (Duration: 101.6ms | Allocations: 47137)
+Completed 200 OK in 131ms (Views: 111.4ms | ActiveRecord: 0.0ms | Allocations: 51817)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:34:42 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.9ms | Allocations: 3289)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 4764)
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 5043)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:34:46 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.6ms | Allocations: 3287)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 4762)
+Completed 200 OK in 16ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 5040)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:34:49 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.0ms | Allocations: 3299)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 4774)
+Completed 200 OK in 15ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 5052)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:34:51 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 11.9ms | Allocations: 3290)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 4792)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 5070)
+
+
+Started POST "/importar_dados" for ::1 at 2024-06-21 16:34:55 -0300
+Processing by PagesController#importar_dados as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 3)
+Completed 200 OK in 23ms (Views: 20.3ms | ActiveRecord: 0.0ms | Allocations: 686)
+
+
+Started POST "/importar_dados" for ::1 at 2024-06-21 16:35:17 -0300
+Processing by PagesController#importar_dados as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 1)
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 407)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:36:43 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 10.8ms | Allocations: 4278)
+  Rendered layout layouts/application.html.erb (Duration: 32.5ms | Allocations: 21257)
+Completed 200 OK in 43ms (Views: 39.2ms | ActiveRecord: 0.0ms | Allocations: 22179)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:36:46 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.8ms | Allocations: 3277)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 4752)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 5026)
+
+
+Started POST "/importar_dados" for ::1 at 2024-06-21 16:36:49 -0300
+Processing by PagesController#importar_dados as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 1)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 415)
+
+
+Started POST "/importar_dados" for ::1 at 2024-06-21 16:36:50 -0300
+Processing by PagesController#importar_dados as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 1)
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 407)
+
+
+Started POST "/home?class=popup-btn&disabled=true&method=get" for ::1 at 2024-06-21 16:36:51 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started GET "/home" for ::1 at 2024-06-21 16:52:43 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 80.9ms | Allocations: 29855)
+  Rendered layout layouts/application.html.erb (Duration: 107.2ms | Allocations: 46992)
+Completed 200 OK in 136ms (Views: 116.9ms | ActiveRecord: 0.0ms | Allocations: 51672)
+
+
+Started POST "/importar_dados" for ::1 at 2024-06-21 16:52:46 -0300
+Processing by PagesController#importar_dados as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 3)
+Completed 200 OK in 5ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 584)
+
+
+Started POST "/importar_dados" for ::1 at 2024-06-21 16:52:48 -0300
+Processing by PagesController#importar_dados as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 1)
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 407)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:54:50 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.9ms | Allocations: 3303)
+  Rendered layout layouts/application.html.erb (Duration: 35.8ms | Allocations: 19865)
+Completed 200 OK in 39ms (Views: 37.1ms | ActiveRecord: 0.0ms | Allocations: 20146)
+
+
+Started POST "/importar_dados" for ::1 at 2024-06-21 16:54:53 -0300
+Processing by PagesController#importar_dados as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 1)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 401)
+
+
+Started POST "/importar_dados" for ::1 at 2024-06-21 16:54:56 -0300
+Processing by PagesController#importar_dados as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 1)
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 422)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:57:00 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 539.2ms | Allocations: 48830)
+  Rendered layout layouts/application.html.erb (Duration: 559.2ms | Allocations: 65873)
+Completed 200 OK in 588ms (Views: 569.0ms | ActiveRecord: 0.0ms | Allocations: 70552)
+
+
+Started GET "/home" for ::1 at 2024-06-21 16:57:02 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3298)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4773)
+Completed 200 OK in 14ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 5052)
+
+
+Started POST "/home" for ::1 at 2024-06-21 16:57:06 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started GET "/home" for ::1 at 2024-06-21 17:03:27 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 432.7ms | Allocations: 49071)
+  Rendered layout layouts/application.html.erb (Duration: 453.9ms | Allocations: 66109)
+Completed 200 OK in 482ms (Views: 462.8ms | ActiveRecord: 0.0ms | Allocations: 70790)
+
+
+Started GET "/home" for ::1 at 2024-06-21 17:03:30 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.7ms | Allocations: 3444)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 4919)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 5198)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:03:32 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home?class=popup-btn&disabled=true&method=get" for ::1 at 2024-06-21 17:03:42 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started POST "/home" for ::1 at 2024-06-21 17:03:42 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/home"):
+  
+Started GET "/home" for ::1 at 2024-06-21 17:07:21 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 92.6ms | Allocations: 29959)
+  Rendered layout layouts/application.html.erb (Duration: 119.4ms | Allocations: 47097)
+Completed 200 OK in 148ms (Views: 129.4ms | ActiveRecord: 0.0ms | Allocations: 51777)
+
+
+Started GET "/home" for ::1 at 2024-06-21 17:07:24 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3432)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 4907)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 5186)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:07:27 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.2ms | Allocations: 3230)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4705)
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 5319)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:07:38 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.5ms | Allocations: 3229)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 4704)
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 5231)
+
+
+Started GET "/home" for ::1 at 2024-06-21 17:10:43 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 12.2ms | Allocations: 3431)
+  Rendered layout layouts/application.html.erb (Duration: 34.8ms | Allocations: 20185)
+Completed 200 OK in 39ms (Views: 36.3ms | ActiveRecord: 0.0ms | Allocations: 20465)
+
+
+Started GET "/home" for ::1 at 2024-06-21 17:10:45 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3430)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 4917)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 5193)
+
+
+Started GET "/home" for ::1 at 2024-06-21 17:10:49 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.7ms | Allocations: 3429)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 4904)
+Completed 200 OK in 14ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 5178)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:10:52 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 14.6ms | Allocations: 3228)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 4703)
+Completed 200 OK in 23ms (Views: 18.9ms | ActiveRecord: 0.0ms | Allocations: 5225)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:10:55 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3228)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4703)
+Completed 200 OK in 14ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 5237)
+
+
+Started GET "/home" for ::1 at 2024-06-21 17:11:47 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 482.4ms | Allocations: 49295)
+  Rendered layout layouts/application.html.erb (Duration: 503.6ms | Allocations: 66337)
+Completed 200 OK in 536ms (Views: 518.0ms | ActiveRecord: 0.0ms | Allocations: 71016)
+
+
+Started GET "/home" for ::1 at 2024-06-21 17:11:50 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.5ms | Allocations: 3417)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 4892)
+Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 5171)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:11:53 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.0ms | Allocations: 3227)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4702)
+Completed 200 OK in 14ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 5328)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:11:57 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.0ms | Allocations: 3226)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 4708)
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.0ms | Allocations: 5220)
+
+
+Started GET "/home" for ::1 at 2024-06-21 17:13:58 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 502.3ms | Allocations: 55220)
+  Rendered layout layouts/application.html.erb (Duration: 524.0ms | Allocations: 72261)
+Completed 200 OK in 553ms (Views: 535.5ms | ActiveRecord: 0.0ms | Allocations: 76940)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:14:01 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.5ms | Allocations: 3225)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 4700)
+Completed 200 OK in 18ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 5301)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:14:02 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3240)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 4719)
+Completed 200 OK in 15ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 5247)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:14:02 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3230)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4705)
+Completed 200 OK in 15ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 5221)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:14:29 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.9ms | Allocations: 3224)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 4699)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 5217)
+
+
+Started POST "/home?class=popup-btn&disabled=true&method=get" for ::1 at 2024-06-21 17:14:31 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "class"=>"popup-btn", "disabled"=>"true", "method"=>"get"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3223)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4698)
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 5197)
+
+
+Started POST "/home?class=popup-btn&disabled=true&method=get" for ::1 at 2024-06-21 17:14:32 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "class"=>"popup-btn", "disabled"=>"true", "method"=>"get"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3223)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 4698)
+Completed 200 OK in 15ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 5205)
+
+
+Started POST "/home?class=popup-btn&disabled=true&method=post" for ::1 at 2024-06-21 17:14:33 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "class"=>"popup-btn", "disabled"=>"true", "method"=>"post"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.1ms | Allocations: 3224)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 4699)
+Completed 200 OK in 15ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 5192)
+
+
+Started POST "/home?class=popup-btn&disabled=true&method=get" for ::1 at 2024-06-21 17:14:33 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "class"=>"popup-btn", "disabled"=>"true", "method"=>"get"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.2ms | Allocations: 3223)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4698)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 5188)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:14:34 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3223)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 4698)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 5229)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:14:34 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3223)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 4698)
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 5208)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:14:37 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.5ms | Allocations: 3223)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4698)
+Completed 200 OK in 13ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 5211)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:14:37 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3235)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 4727)
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 5267)
+
+
+Started GET "/home" for ::1 at 2024-06-21 17:17:49 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.0ms | Allocations: 3428)
+  Rendered layout layouts/application.html.erb (Duration: 30.2ms | Allocations: 20159)
+Completed 200 OK in 34ms (Views: 31.4ms | ActiveRecord: 0.0ms | Allocations: 20435)
+
+
+Started GET "/home" for ::1 at 2024-06-21 17:17:51 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.1ms | Allocations: 3409)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 4884)
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 5158)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:17:55 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.1ms | Allocations: 3224)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 4699)
+Completed 200 OK in 16ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 5212)
+
+
+Started POST "/home" for ::1 at 2024-06-21 17:21:52 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.4ms | Allocations: 3223)
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | Allocations: 19749)
+Completed 200 OK in 33ms (Views: 30.3ms | ActiveRecord: 0.0ms | Allocations: 20268)
+
+

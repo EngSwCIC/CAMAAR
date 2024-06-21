@@ -202,3 +202,79 @@ header {
 .popup-btn:hover:not(:disabled) {
     background-color: #218838;
 }
+
+.popup-color {
+    background-color: #f0f0f0; /* Exemplo de cor de fundo */
+    /* Adicione outros estilos desejados */
+}
+
+/* Estilo para o popup de upload de arquivos */
+#popup-upload {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 800px; /* Ajuste conforme necessário */
+    height: 800px;
+    padding: 20px;
+}
+
+#popup-upload .popup-content {
+    position: relative;
+}
+
+#popup-upload .close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+}
+
+.popup-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.popup-btn:hover {
+    background-color: #0056b3;
+}
+
+.file-input {
+    margin-top: 10px;
+}
+
+.file-input input[type=file] {
+    display: none;
+}
+
+.file-input label {
+    display: block;
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.file-input label:hover {
+    background-color: #218838;
+}
