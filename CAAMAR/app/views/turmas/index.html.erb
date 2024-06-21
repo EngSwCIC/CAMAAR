@@ -1,5 +1,11 @@
 <%= render '/navbar/navbar' %>
 
+<h2> Lista de Templates </h2>
+
+<% @json_templates.each do |t| %>
+    <p> <%= t["name"] %> (id = <%= t["id"] %>) </p>
+<% end %>
+
 <h1>Turmas</h1>
 
 <div class="grid-container">
@@ -7,12 +13,32 @@
     <% @json_classes.each do |e| %>
         <div class="card">
             <h2> <%= e["name"] %> </h2>
-            <h4> <%= e["code"] %> </h4>
-            <p>Turma: <%= e["class"]["classCode"] %> </p>
-            <p>Semestre: <%= e["class"]["semester"] %> </p>
-            <p>Horário: <%= e["class"]["time"] %> </p>
+
+            <%= form_with url: import_formcreates_path, method: :post do |f| %>
             
-            <button> Enviar </button>
+            <div class="field">
+                <%= f.label "Código:" %>
+                <%= f.text_field :codigo, value: e["code"], readonly: true %>
+            </div>
+            <div class="field">
+                <%= f.label "Semestre:" %>
+                <%= f.text_field :semestre, value: e["class"]["semester"], readonly: true %>
+            </div>
+            <div class="field">
+                <%= f.label "Turma:" %>
+                <%= f.text_field :turma, value: e["class"]["classCode"], readonly: true %>
+            </div>
+            <div class="field">
+                <%= f.label "Horário:" %>
+                <%= f.text_field :horario, value: e["class"]["time"], readonly: true %>
+            </div>
+            <div class="field">
+            <%= f.label "id do template escolhido" %>
+            <%= f.number_field :id, required: true %>
+            </div>
+
+            <%= f.submit "Enviar formulário", class: "btn btn-primary" %>
+            <% end %>
         </div>
     <% end %>
 
