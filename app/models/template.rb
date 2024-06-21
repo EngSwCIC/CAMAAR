@@ -1,3 +1,3 @@
 class Template < ApplicationRecord
-  has_many :template_question, dependent: :destroy
+  has_many :template_questions, dependent: :destroy
 end

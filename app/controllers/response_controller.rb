@@ -1,6 +1,6 @@
 class ResponseController < ApplicationController
   def show
-    # @form = User.find(params[:id])
+    @form_request = FormRequest.find(params[:id])
     render layout: "home"
   end
 end
