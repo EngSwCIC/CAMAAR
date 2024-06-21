@@ -11,14 +11,21 @@ class GerenciamentoController < ApplicationController
             return
         end
         
-        path = 'db/json/templates.json'
-        data = File.read(path)
-        @templates = JSON.parse(data)
+        if File.file?('db/json/templates.json')
+            path = 'db/json/templates.json'
+            data = File.read(path)
+            @templates = JSON.parse(data)
+        else
+            @templates = []
+        end
     end
 
     def results_popup
-        all_forms = JSON.parse(File.read('db/json/forms.json'))
-        forms = helpers.get_forms_info(all_forms)
+        forms = []
+        if File.file?('db/json/forms.json')
+            all_forms = JSON.parse(File.read('db/json/forms.json'))
+            forms = helpers.get_forms_info(all_forms)
+        end
 
         render partial: 'results_popup', layout: false, locals: { forms: forms }
     end
@@ -32,8 +39,14 @@ class GerenciamentoController < ApplicationController
           end
         end
 
-        all_answers = JSON.parse(File.read('db/json/answers.json'))
-        all_forms = JSON.parse(File.read('db/json/forms.json'))
+        all_answers = []
+        if File.file?('db/json/answers.json')
+            all_answers = JSON.parse(File.read('db/json/answers.json'))
+        end
+        all_forms = []
+        if File.file?('db/json/forms.json')
+            all_forms = JSON.parse(File.read('db/json/forms.json'))
+        end
 
         csvs = {}
         selected_form_ids.each do |form_id|
@@ -55,7 +68,7 @@ class GerenciamentoController < ApplicationController
                 rows.each { |row| csv << row.values_at(*headers) }
             end
     
-            form = all_forms.find { |f| f["id"] == form_id }
+            form = all_forms.find { |f| f["id"] == form_id } # If it gets here, the form is guaranteed to exist
             file_name = "#{form["class"]["subject_code"]} #{form["class"]["semester"]} #{form["class"]["code"]}.csv"
             file_name = file_name.gsub(/[^0-9A-Za-z.\-]/, '_')
             csvs[file_name] = csv_string
