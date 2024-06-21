@@ -1,6 +1,6 @@
 <div class="flex flex-wrap w-full p-8">
-  <%= link_to('/avaliacoes/response') do %>
-    <% @forms.each do |form| %>
+  <% @forms.each do |form| %>
+    <%= link_to("/avaliacoes/response/#{form.id}") do %>
       <div class="hover:cursor-pointer flex flex-col gap-4 w-64 bg-white rounded-lg p-4">
         <div class="flex flex-col gap-2">
           <span class="text-2xl font-bold"><%= form.study_class.name %></span>
@@ -9,5 +9,6 @@
         <span class="font-semibold text-slate-600 text-end"><%= form.study_class.docente.nome %></span>
       </div>
     <% end %>
+
   <% end %>
 </div>

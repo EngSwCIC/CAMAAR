@@ -3,21 +3,23 @@
 # incrementally modify your database, and then regenerate this schema definition.
 #
 # This file is the source Rails uses to define your schema when running `bin/rails
-# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# db:schema:load`. When creating a show database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_20_144949) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_20_220325) do
   create_table "form_requests", force: :cascade do |t|
     t.integer "study_class_id", null: false
     t.integer "user_id", null: false
     t.boolean "answered", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "template_id"
     t.index ["study_class_id"], name: "index_form_requests_on_study_class_id"
+    t.index ["template_id"], name: "index_form_requests_on_template_id"
     t.index ["user_id"], name: "index_form_requests_on_user_id"
   end
 
