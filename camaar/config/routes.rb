@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'home', to: 'pages#home', as: 'home'
   get 'login', to: 'pages#login', as: 'login'
   post 'login', to: 'sessions#create'
+  post 'teste_create', to: 'sessions#teste_create'
 
   post 'verify_user', to: 'sessions#verify_user', as: 'verify_user'
 

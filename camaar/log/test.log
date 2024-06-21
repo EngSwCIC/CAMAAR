@@ -2258,3 +2258,698 @@ Processing by PagesController#login as TURBO_STREAM
   Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 2145)
 Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms | Allocations: 2372)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOptions (20240620203040)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "options" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar, "question_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_919a0dabf9"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_options_on_question_id" ON "options" ("question_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240620203040') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateQuestions (20240620203140)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "questions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "question_type" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240620203140') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddMoreAttributesToUsers (20240621001500)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "nome" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "curso" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "matricula" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "usuario" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "formacao" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "ocupacao" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "departamento" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240621001500') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPasswordDigestToUsers (20240621023152)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240621023152') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-21 11:47:09 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1156.3ms | Allocations: 57890)
+  Rendered layout layouts/application.html.erb (Duration: 1175.9ms | Allocations: 72552)
+Completed 200 OK in 1203ms (Views: 1185.5ms | ActiveRecord: 0.0ms | Allocations: 77089)
+Started GET "/assets/login-eebd3e06e578f670c59ea15f43ef9f956d18325a555ae8f970b0f1dcbc74c702.css" for 127.0.0.1 at 2024-06-21 11:47:10 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-21 11:47:10 -0300
+Started GET "/assets/main-694b3e6bd818e99c4d5f77e108813b99aad9ba0399173ea9df4022e6e31aa7fc.js" for 127.0.0.1 at 2024-06-21 11:47:10 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-21 11:47:10 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-21 11:47:10 -0300
+Started GET "/assets/application-e1a3cac32697186c9d1a80373b857d37951f72f84f543f18367bacbfc298df20.css" for 127.0.0.1 at 2024-06-21 11:47:10 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-21 11:47:10 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-21 11:47:10 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-21 11:47:11 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-21 11:47:11 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-21 11:47:11 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-21 11:47:11 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:53179/login
+Completed 302 Found in 30ms (ActiveRecord: 0.4ms | Allocations: 7071)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 11:47:11 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1461)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 2169)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 2430)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-21 11:47:14 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1316)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2024)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 2252)
+Started POST "/login" for 127.0.0.1 at 2024-06-21 11:47:14 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:53179/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 448)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 11:47:14 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1469)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 2177)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 2400)
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-21 11:54:39 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 66.4ms | Allocations: 26665)
+  Rendered layout layouts/application.html.erb (Duration: 83.2ms | Allocations: 42517)
+Completed 200 OK in 110ms (Views: 92.7ms | ActiveRecord: 0.0ms | Allocations: 47054)
+Started GET "/assets/login-eebd3e06e578f670c59ea15f43ef9f956d18325a555ae8f970b0f1dcbc74c702.css" for 127.0.0.1 at 2024-06-21 11:54:39 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-21 11:54:39 -0300
+Started GET "/assets/main-694b3e6bd818e99c4d5f77e108813b99aad9ba0399173ea9df4022e6e31aa7fc.js" for 127.0.0.1 at 2024-06-21 11:54:39 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-21 11:54:39 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-21 11:54:39 -0300
+Started GET "/assets/application-e1a3cac32697186c9d1a80373b857d37951f72f84f543f18367bacbfc298df20.css" for 127.0.0.1 at 2024-06-21 11:54:39 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-21 11:54:39 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-21 11:54:39 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-21 11:54:39 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-21 11:54:39 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-21 11:54:39 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-21 11:54:40 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:53229/login
+Completed 302 Found in 27ms (ActiveRecord: 0.4ms | Allocations: 7062)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 11:54:40 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1481)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2189)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 2451)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-21 11:54:42 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1316)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2024)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 2249)
+Started POST "/login" for 127.0.0.1 at 2024-06-21 11:54:42 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:53229/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 446)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 11:54:42 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1475)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 2183)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 2407)
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-21 11:57:49 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 69.6ms | Allocations: 26712)
+  Rendered layout layouts/application.html.erb (Duration: 86.0ms | Allocations: 42564)
+Completed 200 OK in 113ms (Views: 95.3ms | ActiveRecord: 0.0ms | Allocations: 47101)
+Started GET "/assets/login-eebd3e06e578f670c59ea15f43ef9f956d18325a555ae8f970b0f1dcbc74c702.css" for 127.0.0.1 at 2024-06-21 11:57:49 -0300
+Started GET "/assets/main-694b3e6bd818e99c4d5f77e108813b99aad9ba0399173ea9df4022e6e31aa7fc.js" for 127.0.0.1 at 2024-06-21 11:57:49 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-21 11:57:49 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-21 11:57:49 -0300
+Started GET "/assets/application-e1a3cac32697186c9d1a80373b857d37951f72f84f543f18367bacbfc298df20.css" for 127.0.0.1 at 2024-06-21 11:57:49 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-21 11:57:49 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-21 11:57:49 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-21 11:57:49 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-21 11:57:49 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-21 11:57:49 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-21 11:57:49 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-21 11:57:50 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:53260/login
+Completed 302 Found in 30ms (ActiveRecord: 0.5ms | Allocations: 7077)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 11:57:50 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1478)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 2186)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 2448)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-21 11:57:52 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1316)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2024)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 2252)
+Started POST "/login" for 127.0.0.1 at 2024-06-21 11:57:52 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:53260/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 463)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 11:57:52 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1427)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 2135)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 2358)
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-21 12:06:52 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 65.2ms | Allocations: 26717)
+  Rendered layout layouts/application.html.erb (Duration: 81.4ms | Allocations: 42569)
+Completed 200 OK in 110ms (Views: 90.9ms | ActiveRecord: 0.0ms | Allocations: 47124)
+Started GET "/assets/login-eebd3e06e578f670c59ea15f43ef9f956d18325a555ae8f970b0f1dcbc74c702.css" for 127.0.0.1 at 2024-06-21 12:06:52 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-21 12:06:52 -0300
+Started GET "/assets/main-694b3e6bd818e99c4d5f77e108813b99aad9ba0399173ea9df4022e6e31aa7fc.js" for 127.0.0.1 at 2024-06-21 12:06:52 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-21 12:06:52 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-21 12:06:52 -0300
+Started GET "/assets/application-e1a3cac32697186c9d1a80373b857d37951f72f84f543f18367bacbfc298df20.css" for 127.0.0.1 at 2024-06-21 12:06:52 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-21 12:06:52 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-21 12:06:52 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-21 12:06:52 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-21 12:06:52 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-21 12:06:52 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-21 12:06:53 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:53331/login
+Completed 302 Found in 27ms (ActiveRecord: 0.4ms | Allocations: 7099)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 12:06:53 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1462)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 2170)
+Completed 200 OK in 2ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 2432)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-21 12:06:55 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1316)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 2024)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 2252)
+Started POST "/login" for 127.0.0.1 at 2024-06-21 12:06:55 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:53331/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 443)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 12:06:55 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1447)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 2155)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 2379)
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-21 12:08:55 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 66.9ms | Allocations: 26809)
+  Rendered layout layouts/application.html.erb (Duration: 83.5ms | Allocations: 42661)
+Completed 200 OK in 118ms (Views: 93.7ms | ActiveRecord: 0.0ms | Allocations: 47216)
+Started GET "/assets/main-694b3e6bd818e99c4d5f77e108813b99aad9ba0399173ea9df4022e6e31aa7fc.js" for 127.0.0.1 at 2024-06-21 12:08:56 -0300
+Started GET "/assets/login-eebd3e06e578f670c59ea15f43ef9f956d18325a555ae8f970b0f1dcbc74c702.css" for 127.0.0.1 at 2024-06-21 12:08:56 -0300
+Started GET "/assets/application-e1a3cac32697186c9d1a80373b857d37951f72f84f543f18367bacbfc298df20.css" for 127.0.0.1 at 2024-06-21 12:08:56 -0300
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2024-06-21 12:08:56 -0300
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2024-06-21 12:08:56 -0300
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2024-06-21 12:08:56 -0300
+Started GET "/assets/olho_aberto-43ec3692a7c502c86046abb24beb8a2700df9465038487e6cdfdc4b9f61d0c05.svg" for 127.0.0.1 at 2024-06-21 12:08:56 -0300
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2024-06-21 12:08:56 -0300
+Started GET "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js" for 127.0.0.1 at 2024-06-21 12:08:56 -0300
+Started GET "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js" for 127.0.0.1 at 2024-06-21 12:08:56 -0300
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2024-06-21 12:08:56 -0300
+Started POST "/login" for 127.0.0.1 at 2024-06-21 12:08:56 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:53355/login
+Completed 302 Found in 29ms (ActiveRecord: 0.3ms | Allocations: 7105)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 12:08:56 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1448)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 2156)
+Completed 200 OK in 2ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 2418)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2024-06-21 12:08:59 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1316)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 2024)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 2249)
+Started POST "/login" for 127.0.0.1 at 2024-06-21 12:08:59 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:53355/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 458)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 12:08:59 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1438)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 2146)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 2370)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/sessions_controller/teste_create" for 127.0.0.1 at 2024-06-21 12:24:58 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/sessions_controller/teste_create"):
+  
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/sessions_controller/teste_create" for 127.0.0.1 at 2024-06-21 12:24:59 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/sessions_controller/teste_create"):
+  
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/sessions_controller/teste_create" for 127.0.0.1 at 2024-06-21 12:33:03 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/sessions_controller/teste_create"):
+  
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/sessions_controller/create" for 127.0.0.1 at 2024-06-21 12:33:03 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/sessions_controller/create"):
+  
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/sessions_controller/create" for 127.0.0.1 at 2024-06-21 12:33:24 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/sessions_controller/create"):
+  
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/sessions_controller/create" for 127.0.0.1 at 2024-06-21 12:33:24 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/sessions_controller/create"):
+  
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/sessions_controller/teste_create" for 127.0.0.1 at 2024-06-21 12:36:39 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/sessions_controller/teste_create"):
+  
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/sessions_controller/teste_create" for 127.0.0.1 at 2024-06-21 12:36:39 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/sessions_controller/teste_create"):
+  
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 12:45:15 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 190ms (ActiveRecord: 0.4ms | Allocations: 6211)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 12:45:15 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 328)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 12:45:15 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 691.5ms | Allocations: 27698)
+  Rendered layout layouts/application.html.erb (Duration: 765.1ms | Allocations: 43544)
+Completed 200 OK in 826ms (Views: 783.1ms | ActiveRecord: 0.0ms | Allocations: 47151)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:12:25 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 23ms (ActiveRecord: 0.4ms | Allocations: 6211)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 13:12:25 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 72.8ms | Allocations: 27770)
+  Rendered layout layouts/application.html.erb (Duration: 90.4ms | Allocations: 43617)
+Completed 200 OK in 110ms (Views: 99.1ms | ActiveRecord: 0.0ms | Allocations: 47226)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:12:25 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 328)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 13:12:25 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1433)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 2141)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 2368)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:13:38 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 24ms (ActiveRecord: 0.4ms | Allocations: 6211)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:13:38 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 328)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 13:13:38 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 69.5ms | Allocations: 27782)
+  Rendered layout layouts/application.html.erb (Duration: 85.3ms | Allocations: 43628)
+Completed 200 OK in 105ms (Views: 94.0ms | ActiveRecord: 0.0ms | Allocations: 47235)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:15:46 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 24ms (ActiveRecord: 0.3ms | Allocations: 6211)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:15:46 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 328)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 13:15:46 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 68.6ms | Allocations: 27796)
+  Rendered layout layouts/application.html.erb (Duration: 83.8ms | Allocations: 43642)
+Completed 200 OK in 106ms (Views: 92.9ms | ActiveRecord: 0.0ms | Allocations: 47249)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:18:27 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 25ms (ActiveRecord: 0.4ms | Allocations: 6176)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:18:28 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 320)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 13:18:28 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 70.1ms | Allocations: 27780)
+  Rendered layout layouts/application.html.erb (Duration: 86.5ms | Allocations: 43626)
+Completed 200 OK in 107ms (Views: 95.9ms | ActiveRecord: 0.0ms | Allocations: 47233)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:35:59 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"test_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 71ms (ActiveRecord: 0.5ms | Allocations: 21392)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:36:00 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 320)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 13:36:00 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 70.7ms | Allocations: 27777)
+  Rendered layout layouts/application.html.erb (Duration: 94.4ms | Allocations: 43698)
+Completed 200 OK in 113ms (Views: 102.6ms | ActiveRecord: 0.0ms | Allocations: 47306)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:38:07 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"test_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 255ms (ActiveRecord: 0.4ms | Allocations: 21463)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:38:07 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 322)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 13:38:07 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 68.5ms | Allocations: 27800)
+  Rendered layout layouts/application.html.erb (Duration: 91.6ms | Allocations: 43723)
+Completed 200 OK in 111ms (Views: 100.2ms | ActiveRecord: 0.0ms | Allocations: 47330)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:40:00 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"test_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 54ms (ActiveRecord: 0.4ms | Allocations: 21419)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:40:00 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 322)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 13:40:00 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 65.9ms | Allocations: 27759)
+  Rendered layout layouts/application.html.erb (Duration: 89.4ms | Allocations: 43678)
+Completed 200 OK in 110ms (Views: 98.1ms | ActiveRecord: 0.0ms | Allocations: 47285)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:49:52 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"test_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+Redirected to http://www.example.com/home
+Completed 302 Found in 53ms (ActiveRecord: 0.4ms | Allocations: 21421)
+Started GET "/home" for 127.0.0.1 at 2024-06-21 13:49:53 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 92.9ms | Allocations: 27410)
+  Rendered layout layouts/application.html.erb (Duration: 108.6ms | Allocations: 43256)
+Completed 200 OK in 168ms (Views: 119.3ms | ActiveRecord: 0.0ms | Allocations: 46863)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:49:53 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 325)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 13:49:53 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 12.4ms | Allocations: 3708)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 4420)
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 4709)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:52:51 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"test_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 53ms (ActiveRecord: 0.4ms | Allocations: 21421)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 13:52:51 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 69.3ms | Allocations: 27824)
+  Rendered layout layouts/application.html.erb (Duration: 84.8ms | Allocations: 43670)
+Completed 200 OK in 104ms (Views: 94.1ms | ActiveRecord: 0.0ms | Allocations: 47278)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:52:51 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 324)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 13:52:51 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1437)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 2149)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 2377)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:53:54 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"test_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "test_user"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 55ms (ActiveRecord: 0.6ms | Allocations: 21332)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 13:53:55 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 67.7ms | Allocations: 27775)
+  Rendered layout layouts/application.html.erb (Duration: 83.2ms | Allocations: 43621)
+Completed 200 OK in 102ms (Views: 91.6ms | ActiveRecord: 0.0ms | Allocations: 47229)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/teste_create" for 127.0.0.1 at 2024-06-21 13:53:55 -0300
+Processing by SessionsController#teste_create as HTML
+  Parameters: {"username"=>"wrong@aluno.unb.br", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "wrong@aluno.unb.br"], ["LIMIT", 1]]
+Redirected to http://www.example.com/login
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 322)
+Started GET "/login" for 127.0.0.1 at 2024-06-21 13:53:55 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1452)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2164)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 2392)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m

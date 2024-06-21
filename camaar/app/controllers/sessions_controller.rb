@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     username = params[:username]
     password = params[:password]
 
-    user = User.find_by(email: username)
+    user = User.find_by(usuario: username)
 
     if user && user.senha == password
       redirect_to root_path, notice: 'Welcome, user!'
@@ -17,6 +17,22 @@ end
 =end
 
 class SessionsController < ApplicationController
+
+  def teste_create
+    username = params[:username]
+    password = params[:password]
+
+    user = User.find_by(usuario: username)
+
+    if user && user.senha == password
+      redirect_to login_path, notice: 'Login realizado com sucesso!'
+    else
+      flash[:alert] = 'Invalid username or password'
+      redirect_to login_path
+    end
+  end
+
+
   def new
     # Ação para renderizar a página de login (login.html.erb)
   end
