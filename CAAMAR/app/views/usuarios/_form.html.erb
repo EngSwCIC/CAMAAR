@@ -1,53 +1,58 @@
-<%= form_with(model: usuario) do |form| %>
+<!-- app/views/usuarios/_form.html.erb -->
+<%= form_with(model: usuario, local: true) do |form| %>
   <% if usuario.errors.any? %>
-    <div style="color: red">
+    <div id="error_explanation">
       <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
 
       <ul>
-        <% usuario.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% usuario.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :matricula, style: "display: block" %>
+  <div class="field">
+    <%= form.label :matricula %>
     <%= form.text_field :matricula %>
   </div>
 
-  <div>
-    <%= form.label :nome, style: "display: block" %>
+  <div class="field">
+    <%= form.label :nome %>
     <%= form.text_field :nome %>
   </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email %>
   </div>
 
-  <div>
-    <%= form.label :formacao, style: "display: block" %>
+  <div class="field">
+    <%= form.label :formacao %>
     <%= form.text_field :formacao %>
   </div>
 
-  <div>
-    <%= form.label :senha, style: "display: block" %>
-    <%= form.text_field :senha %>
+  <div class="field">
+    <%= form.label :senha %>
+    <%= form.password_field :senha %>
   </div>
 
-  <div>
-    <%= form.label :curso, style: "display: block" %>
-    <%= form.text_field :Curso   %>
+  <div class="field">
+    <%= form.label :curso %>
+    <%= form.text_field :curso %>
   </div>
 
-  <div>
-    <%= form.label :isProf, style: "display: block" %>
-    <%= form.text_field :isProf   %>
+  <div class="field">
+    <%= form.label :isAdmin %>
+    <%= form.check_box :isAdmin %>
   </div>
 
+  <div class="field">
+    <%= form.label :isProf %>
+    <%= form.check_box :isProf %>
+  </div>
 
-  <div>
+  <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>

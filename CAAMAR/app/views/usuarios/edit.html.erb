@@ -1,10 +1,7 @@
-<h1>Editing usuario</h1>
+<!-- app/views/usuarios/edit.html.erb -->
+<h1>Edit Usuario</h1>
 
-<%= render "form", usuario: @usuario %>
+<%= render 'form', usuario: @usuario %>
 
-<br>
-
-<div>
-  <%= link_to "Show this usuario", @usuario %> |
-  <%= link_to "Back to usuarios", usuarios_path %>
-</div>
+<%= link_to 'Show', @usuario %> |
+<%= link_to 'Back', usuarios_path %>

@@ -1,14 +1,32 @@
-<p style="color: green"><%= notice %></p>
+<!-- app/views/usuarios/index.html.erb -->
+<h1>Listing Usuarios</h1>
 
-<h1>Usuarios</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Matricula</th>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Formacao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<div id="usuarios">
-  <% @usuarios.each do |usuario| %>
-    <%= render usuario %>
-    <p>
-      <%= link_to "Show this usuario", usuario %>
-    </p>
-  <% end %>
-</div>
+  <tbody>
+    <% @usuarios.each do |usuario| %>
+      <tr>
+        <td><%= usuario.matricula %></td>
+        <td><%= usuario.nome %></td>
+        <td><%= usuario.email %></td>
+        <td><%= usuario.formacao %></td>
+        <td><%= link_to 'Show', usuario %></td>
+        <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
+        <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to "New usuario", new_usuario_path %>
+<br>
+
+<%= link_to 'New Usuario', new_usuario_path %>

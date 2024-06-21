@@ -1,10 +1,23 @@
-<p style="color: green"><%= notice %></p>
+<!-- app/views/usuarios/show.html.erb -->
+<p>
+  <strong>Matricula:</strong>
+  <%= @usuario.matricula %>
+</p>
 
-<%= render @usuario %>
+<p>
+  <strong>Nome:</strong>
+  <%= @usuario.nome %>
+</p>
 
-<div>
-  <%= link_to "Edit this usuario", edit_usuario_path(@usuario) %> |
-  <%= link_to "Back to usuarios", usuarios_path %>
+<p>
+  <strong>Email:</strong>
+  <%= @usuario.email %>
+</p>
 
-  <%= button_to "Destroy this usuario", @usuario, method: :delete %>
-</div>
+<p>
+  <strong>Formacao:</strong>
+  <%= @usuario.formacao %>
+</p>
+
+<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
+<%= link_to 'Back', usuarios_path %>

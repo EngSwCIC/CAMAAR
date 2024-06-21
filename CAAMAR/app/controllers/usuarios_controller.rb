@@ -21,6 +21,7 @@ class UsuariosController < ApplicationController
 
   # POST /usuarios or /usuarios.json
   def create
+    Rails.logger.info("esse aluno: #{usuario_params}")
     @usuario = Usuario.new(usuario_params)
 
     respond_to do |format|
@@ -36,7 +37,7 @@ class UsuariosController < ApplicationController
   end
     
   def usuario_params
-    params.require(:usuario).permit({:usuario =>[:matricula, :nome, :formacao, :email, :senha]})
+    params.require(:usuario).permit({:usuario =>[:matricula, :nome, :formacao, :email, :senha,:curso,:isAdmin,:isAluno,:isProf]})
   end
 
   def usuario_params2
@@ -75,6 +76,21 @@ class UsuariosController < ApplicationController
 
     alunos.each do |aluno|
       Rails.logger.info("esse aluno: #{aluno}")
+      @usuario = Usuario.new(
+        matricula: aluno["matricula"],
+        nome: aluno["nome"],
+        formacao: aluno["formacao"],
+        curso: aluno["curso"],
+        email: aluno["email"],  
+        senha: aluno["senha"]
+      )
+
+      if @usuario.save
+        Rails.logger.info("deu bom")
+      else
+        Rails.logger.info("deu ruim")
+      end
+      
     end
   end
 
@@ -86,6 +102,6 @@ class UsuariosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def usuario_params
-      params.require(:usuario).permit(:matricula, :nome, :email, :formacao,:senha,:curso, :isAdmin,:isProf)
+      params.require(:usuario).permit(:matricula, :nome, :email, :formacao,:senha,:curso, :isAdmin,:isProf,:isAluno)
     end
 end
