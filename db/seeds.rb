@@ -8,6 +8,7 @@ begin
   # Lê o arquivo JSON e converte em um hash
   file = File.read('class_members.json')
   data_hash = JSON.parse(file)
+  print(data_hash)
 rescue => e
   logger.error("Erro ao ler ou parsear o arquivo JSON: #{e.message}")
   exit

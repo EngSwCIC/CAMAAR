@@ -5,6 +5,7 @@ require File.expand_path('../config/environment', __dir__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 
 require 'rspec/rails'
+require 'capybara/rails'
 require 'capybara/rspec'
 require 'selenium/webdriver'
 require 'shoulda/matchers'
@@ -23,6 +24,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 RSpec.configure do |config|
+  config.include Capybara::DSL
 
   config.fixture_path = ["#{::Rails.root}/spec/fixtures"]
 
@@ -66,6 +68,13 @@ RSpec.configure do |config|
   config.append_after(:each) do
     DatabaseCleaner.clean
   end
-
+  
   config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+  
+  Capybara.configure do |config|
+    config.default_driver = :selenium_chrome
+    config.app_host = 'http://localhost:3000'
+    config.server_port = 3000
+  end
 end
