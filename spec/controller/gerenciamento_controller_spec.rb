@@ -134,7 +134,7 @@ RSpec.describe GerenciamentoController, type: :controller do
       expect(turma.users.include?(person)).to be true
     end
 
-    it 'calls the devise_mailer to send an email when a new user is created' do
+    it 'calls the devise mailer to send an email when a new user is created' do
       json_classes, filepath_classes = valid_classes
       allow(File).to receive(:read).with(filepath_classes).and_return(json_classes)
 
@@ -142,7 +142,11 @@ RSpec.describe GerenciamentoController, type: :controller do
       allow(File).to receive(:read).with(filepath_members).and_return(json_members)
 
       # esperar que o mailer receba o metodo para enviar
-      expect(Devise.mailer).to receive(:send)
+      # so que se nao colocar retorno da ruim, tem que retornar um objeto Mailer tbm
+      expect(Devise.mailer).to receive(:send).and_call_original.at_least(:once)
+
+      # nao funcionou, tava querendo saber quantas vezes foi chamada
+      # expect(User).to receive(:send_reset_password_instructions).and_call_original
 
       put :import
     end
@@ -154,8 +158,8 @@ RSpec.describe GerenciamentoController, type: :controller do
       json_members, filepath_members = valid_members
       allow(File).to receive(:read).with(filepath_members).and_return(json_members)
 
-      FactoryBot.build(:user, nome: "Silva", matricula: "54321", usuario: "54321", email: "teste1@email.com")
-      FactoryBot.build(:user, nome: "FULANO DE CICLANO", matricula: "12345", usuario: "12345", email: "teste2@email.com")
+      FactoryBot.build(:user, nome: "Silva", matricula: "54321", usuario: "54321", email: "teste1@email.com").save
+      FactoryBot.build(:user, nome: "FULANO DE CICLANO", matricula: "12345", usuario: "12345", email: "teste2@email.com").save
 
       expect(Devise.mailer).not_to receive(:send)
 

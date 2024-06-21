@@ -30,6 +30,8 @@ class GerenciamentoController < ApplicationController
             pessoa.skip_password_validation = true
             pessoa.save
             new_data = true
+
+            pessoa.send_reset_password_instructions
           end
 
           pessoa.study_classes << turma
@@ -43,6 +45,8 @@ class GerenciamentoController < ApplicationController
           pessoa.skip_password_validation = true
           pessoa.save
           new_data = true
+
+          pessoa.send_reset_password_instructions
         end
         turma.docente_id = pessoa.id
         pessoa.study_classes << turma
