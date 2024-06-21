@@ -1,6 +1,7 @@
 Given('I am logged in as the admin') do
   @user = FactoryBot.build(:user)
   @user.email = "admin@email.com"
+  @user.admin = true
   @user.save!
 
   login_as(@user, scope: :user)
