@@ -1,5 +1,5 @@
 class Dicente < ApplicationRecord
-  has_many :classes
+  has_many :classes, class_name: 'Classe'
   belongs_to :user
 
   validates :matricula, presence: true

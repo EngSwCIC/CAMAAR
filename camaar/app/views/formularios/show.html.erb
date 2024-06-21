@@ -1,0 +1,78 @@
+<%= stylesheet_link_tag "base" %>
+<%= stylesheet_link_tag "assessment_id" %>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+
+<body>
+<div class="header-bar">
+  <div class="left-frame">
+    <button class="menu-button">&#9776;</button>
+    <span class="header-text">Avaliação - Nome da matéria - Semestre</span>
+  </div>
+  <button class="user-button">U</button>
+</div>
+<form class="assessment-container">
+
+  <div class="assessment-box">
+
+    <div class="question">
+      <div class="statement">Pergunta</div>
+      <form class="choices">
+        <label class="choice">
+          <input class="choice" type="radio" name="answer">
+          Muito bom
+        </label>
+        <label class="choice">
+          <input class="choice" type="radio" name="answer">
+          Bom
+        </label><label class="choice">
+        <input class="choice" type="radio" name="answer">
+        Satisfatório
+      </label><label class="choice">
+        <input class="choice" type="radio" name="answer">
+        Ruim
+      </label>
+        <label class="choice">
+          <input class="choice" type="radio" name="answer">
+          Péssimo
+        </label>
+      </form>
+    </div>
+
+    <div class="question">
+      <div class="statement">Pergunta</div>
+      <input class="answer" >
+    </div>
+
+    <div class="question">
+      <div class="statement">Pergunta</div>
+      <input class="answer" >
+    </div>
+
+    <div class="question">
+      <div class="statement">Pergunta</div>
+      <form class="choices">
+        <label class="choice">
+          <input class="choice" type="radio" name="answer">
+          Muito bom
+        </label>
+        <label class="choice">
+          <input class="choice" type="radio" name="answer">
+          Bom
+        </label><label class="choice">
+        <input class="choice" type="radio" name="answer">
+          Satisfatório
+        </label><label class="choice">
+          <input class="choice" type="radio" name="answer">
+          Ruim
+        </label>
+        <label class="choice">
+          <input class="choice" type="radio" name="answer">
+          Péssimo
+        </label>
+      </form>
+    </div>
+
+    <button type="submit" class="submit-button"></button>
+  </div>
+</form>
+</body>

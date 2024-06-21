@@ -5,20 +5,45 @@
 # Example:
 
 # Criando um novo user
-user = User.find_or_create_by!(
-  nome: "Ana Clara Jordao Perna",
-  email: "acjpjvjp@gmail.com",
-  password: '',
-  usuario: "190084006",
+
+usuarios = [
+  {nome: "MARISTELA TERTO DE HOLANDA",
+  email: "mholanda@unb.br",
+  password: 'banco_de_dados_1234?',
+  usuario: "83807519491",
+  formacao: "DOUTORADO",
+  role: :docente},
+
+  {nome: "fulano",
+  email: "exemplo@unb.br",
+  password: 'senha123',
+  usuario: "000001",
   formacao: "graduando",
-  role: :dicente
-)
+  role: :dicente}
+]
 
-# Criando um novo Dicente
-Dicente.find_or_create_by!(
-  user_id: user.id,
-  matricula:  "190084006",
-  curso:  "CIÊNCIA DA COMPUTAÇÃO/CIC"
-)
+usuarios.each do |user_data|
+  user = User.create!(
+    nome: user_data[:nome],
+    email: user_data[:email],
+    password: user_data[:password],
+    usuario: user_data[:usuario],
+    formacao: user_data[:formacao],
+    role: user_data[:role]
+  )
 
-puts "Seed de Dicente criada com sucesso!"
+  if user.role == 'docente'
+    Docente.create!(
+      user_id: user.id,
+      departamento: "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+    )
+  elsif user.role == 'dicente'
+    Dicente.create!(
+      user_id: user.id,
+      curso: "CIÊNCIAS DA COMPUTAÇÃO",
+      matricula: "00001"
+    )
+  end
+end
+
+puts "Seed de Docente criada com sucesso!"

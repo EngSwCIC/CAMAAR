@@ -7,16 +7,19 @@
     <div class="white-section">
       <h1>LOGIN</h1>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        
         <div class="input-container">
-          <%= f.label :email %>
-          <%= f.email_field :email, class: "input-field", placeholder: "email@aluno.unb.br" %>
+          <p><%= f.label :email %></p>
+          <p><%= f.email_field :email, class: "input-field", placeholder: "email@aluno.unb.br" %></p>
         </div>
+
         <div class="input-container">
-          <%= f.label :password, "Senha" %>
-          <%= f.password_field :password, class: "input-field", placeholder: "Password" %>
+          <p><%= f.label :password, "Senha" %></p>
+          <p><%= f.password_field :password, class: "input-field", placeholder: "Password" %></p>
         </div>
+
         <div class="actions">
-          <%= f.submit "Entrar", class: "button" %>
+          <p><%= f.submit "Entrar", class: "button" %></P>
         </div>
       <% end %>
     </div>

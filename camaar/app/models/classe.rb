@@ -1,6 +1,6 @@
 class Classe < ApplicationRecord
   belongs_to :disciplina
-  has_one :docente
+  belongs_to :docente
 
   has_many :dicentes
   has_many :formularios_classes, dependent: :destroy

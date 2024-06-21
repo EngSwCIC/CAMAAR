@@ -3,12 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :trackable
 
-  enum role: [:dicente, :docente]
-  after_initialize :set_default_role, if: :new_record?
-
- def set_default_role
-   self.role ||= :user
- end
+  enum role: {dicente: 0, docente: 1}
 
   has_one :docente
   has_one :dicente
