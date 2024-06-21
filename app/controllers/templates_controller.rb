@@ -3,6 +3,8 @@ class TemplatesController < ApplicationController
 
   def index 
     @templates = Template.all
+
+    render layout: "home"
   end
 
   def show
@@ -11,6 +13,8 @@ class TemplatesController < ApplicationController
   def new
     @template = Template.new
     @template.template_questions.build
+
+    render layout: "home"
   end
 
   def create 
