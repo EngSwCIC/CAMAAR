@@ -4,14 +4,20 @@ class FormResponse < ApplicationRecord
   belongs_to :study_class
   belongs_to :template
 
-  def to_csv
-    attributes = %w{turma semestre pergunta resposta data}
+  def self.find_with_study_class(study_class)
+    self.where(study_class: study_class)
+  end
+
+  def self.to_csv(forms)
+    attributes = %w{form_id, turma semestre pergunta resposta data}
     CSV.generate(headers: true) do |csv|
       csv << attributes
 
-      answers = JSON.parse response
-      template.template_questions.each_with_index do |q, idx|
-        csv << [study_class.classCode, study_class.semester, q.title, answers[idx], created_at]
+      forms.each do |form|
+        answers = JSON.parse form.response
+        form.template.template_questions.each_with_index do |q, idx|
+          csv << [form.id, form.study_class.classCode, form.study_class.semester, q.title, answers[idx], form.created_at]
+        end
       end
     end
   end

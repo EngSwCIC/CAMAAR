@@ -1,6 +1,6 @@
 class ResultadosController < ApplicationController
   def index
-    @forms = FormResponse.all
+    @study_classes = StudyClass.all
     render layout: "home"
   end
 
@@ -9,12 +9,19 @@ class ResultadosController < ApplicationController
   end
 
   def export
-    form = FormResponse.find(params[:id])
+    study_class = StudyClass.find(params[:id])
+    forms = FormResponse.find_with_study_class(study_class)
 
-    puts "beep"
-    send_data form.to_csv, filename: "respostas-camaar-#{Date.today}.csv"
-    # puts "hello"
+    if forms.length == 0
+      flash[:notice] = "Nenhum formulário respondido."
+      redirect_to "/gerenciamento/resultados"
+      return
+    end
 
-    # redirect_to "/gerenciamento/resultados"
+    csv = FormResponse.to_csv(forms)
+
+    send_data csv, filename: "respostas-#{study_class.name}-#{Date.today}.csv"
+
+    flash[:notice] = "Relatório baixado com sucesso."
   end
 end
