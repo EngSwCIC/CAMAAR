@@ -10,6 +10,7 @@ RSpec.feature 'Results in graph and csv', type: :feature do
     user3 = create(:user, :user3)
     user4 = create(:user, :user4)
     user5 = create(:user, :user5)
+    user6 = create(:user, :user6)
     student1 = create(:student, :student1)
     student2 = create(:student, :student2)
     student3 = create(:student, :student3)
@@ -18,12 +19,19 @@ RSpec.feature 'Results in graph and csv', type: :feature do
     template_questions = create(:template_question, :template_question1)
 
     teacher = create(:teacher, :teacher1)
+    teacher = create(:teacher, :teacher2)
     subject_class1 = create(:subject_class, :subject_class1)
+    subject_class2 = create(:subject_class, :subject_class2)
 
     enrollment1 = create(:enrollment, :enrollment1)
     enrollment2 = create(:enrollment, :enrollment2)
     enrollment3 = create(:enrollment, :enrollment3)
     enrollment4 = create(:enrollment, :enrollment4)
+    enrollment5 = create(:enrollment, :enrollment5)
+
+    form = create(:form, :form4)
+    form_question = create(:form_question, :form_question6)
+    answer = create(:student_answer, :student_answers6)
 
     visit '/admins/login'
 
@@ -38,14 +46,12 @@ RSpec.feature 'Results in graph and csv', type: :feature do
       form = create(:form, :form1)
       form2 = create(:form, :form3)
       form_question = create(:form_question, :form_question1)
-      form_question2 = create(:form_question, :form_question3)
 
       answ1 = create(:student_answer, :student_answers1)
       answ2 = create(:student_answer, :student_answers2)
       answ3 = create(:student_answer, :student_answers3)
       answ4 = create(:student_answer, :student_answers4)
       answ5 = create(:student_answer, :student_answers5)
-      answ6 = create(:student_answer, :student_answers6)
     end
     it 'should see summary of text forms that were answered by students' do
       click_link 'Resultados'
@@ -58,16 +64,16 @@ RSpec.feature 'Results in graph and csv', type: :feature do
       expect(page).to have_content form_question.title
     end
 
-    # it 'should see summary of multiple_choice forms that were answered by students' do
-    #   click_link 'Resultados'
-    #   expect(page).to have_content 'Resultados'
-    #   form = build(:form, :form3)
-    #   form_question = build(:form_question, :form_question3)
-    #   expect(page).to have_content form.name
-    #   click_link form.name
-    #   expect(page).to have_content form.name
-    #   expect(page).to have_content form_question.title
-    # end
+    it 'should see summary of multiple_choice forms that were answered by students' do
+      click_link 'Resultados'
+      expect(page).to have_content 'Resultados'
+      form = build(:form, :form4)
+      form_question = build(:form_question, :form_question6)
+      expect(page).to have_content form.name
+      click_link form.name
+      expect(page).to have_content form.name
+      expect(page).to have_content form_question.title
+    end
   end
   describe 'admin can see summary of teachers forms' do
     before do

@@ -1,9 +1,7 @@
 Feature: View department classes
-
     As a Coordinator
     I want to view the department classes
     So that I know which subject classes exists for the current semester
-
 
     Background: Coodinator goes to the department page
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"

@@ -6,14 +6,7 @@ Feature: Update database data
 
     Background: Data has already been imported before
         Given I am an authenticated Coordinator from the "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
-
-
-        Given that the student "William Xavier dos Santos" has left the following classes:
-            | semester | subject | code |
-            | 2021.2   | CIC0097 | TA   |
-
-
-
+      
         And I am on the "Importar dados" page
 
     Scenario: Coordinator imports updated members data
@@ -25,8 +18,6 @@ Feature: Update database data
         Then I expect the student "William Xavier dos Santos" to not be associated with following classes:
             | semester | subject | code |
             | 2021.2   | CIC0097 | TA   |
-
-
 
     Scenario: Coordinator imports updated classes data
         When I select "Turmas" from "admin_import_select_data"

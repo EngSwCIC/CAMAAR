@@ -26,8 +26,9 @@ FactoryBot.define do
       student_id { 8 }
       subject_class_id { 1 }
     end
+
     trait :enrollment5 do
-      id { 4 }
+      id { 5 }
       student_id { 8 }
       subject_class_id { 2 }
     end

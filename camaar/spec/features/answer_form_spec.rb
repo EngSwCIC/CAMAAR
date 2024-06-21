@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Answer forms' do
+feature 'Answer forms', js: true do
   background do
     # will clear the message queue
     clear_emails
@@ -118,5 +118,32 @@ feature 'Answer forms' do
     click_link template.name
     expect(page).to have_content template_question.title
     expect(page).to have_content 'fine'
+  end
+
+  scenario 'students/teachers can answer multiple_question forms' do
+    visit '/users/login'
+    user = build(:user, :user4)
+    form = create(:form, :form4)
+    form_question = create(:form_question, :form_question6)
+
+    expect(page).to have_content 'Bem vindo ao'
+    expect(page).to have_content 'CAMAAR'
+    fill_in 'email', with: user.email
+    fill_in 'password', with: user.password
+    click_button 'Confirmar'
+
+    expect(page).to have_content('Formulários Pendentes')
+    click_link form.name
+    expect(page).to have_content form.name
+    expect(page).to have_content form_question.title
+    choose('question_1_option_1')
+    click_button 'Enviar'
+    expect(page).to have_content 'Formulários Pendentes'
+    expect(page).to_not have_content form.name
+    click_link 'Respondidos'
+    expect(page).to have_content form.name
+    click_link form.name
+    expect(page).to have_content form_question.title
+    expect(page).to have_content 'messi'
   end
 end

@@ -42,7 +42,7 @@
                       <%= button_to template_path(template), id: "delete_#{template.name.gsub(" ","_").downcase}",class: "icon-button",method: :delete do%>
                         <i class="fas fa-trash "></i>
                       <% end %>
-                      <%= button_to edit_template_path(template),id: "edit_#{template.name.gsub(" ","_").downcase}",class: "icon-button" do%>
+                      <%= link_to edit_template_path(template),id: "edit_#{template.name.gsub(" ","_").downcase}",class: "icon-button" do%>
                         <i class="fas fa-edit "></i>
                       <% end %>
                   </div>

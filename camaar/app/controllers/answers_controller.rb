@@ -53,7 +53,6 @@ class AnswersController < ApplicationController
       redirect_to forms_path
     else
       flash[:warning] = @errors
-      puts answers_params
       redirect_to edit_form_path(id: @form.id)
       # redirect_to "/users/forms/#{}/edit/"
     end

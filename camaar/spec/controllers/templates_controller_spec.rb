@@ -23,6 +23,7 @@ RSpec.describe TemplatesController, type: :controller do
     coordinator = create(:coordinator, :coordinator1)
     sign_in admin
     template = create(:template, :template1)
+    tq = create(:template_question, :template_question1)
 
     get :show, params: { id: template.id }
     expect(response).to have_http_status(:ok)
