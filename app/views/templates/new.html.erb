@@ -1,90 +1,91 @@
-<div class="flex flex-col gap-4 justify-center">
-  <div class="flex w-full justify-center">
-    <span class="text-2xl font-bold">Criar novo template</span>
-  </div>
-  <div>
-    <%= form_with(model: @template, url: templates_path, method: :post, local: true) do |form| %>
-      <div class="grid grid-cols-1 gap-4">
-        <div class="flex items-center gap-4">
-          <%= form.label :name %>
-          <%= form.text_field :name, class: 'form-control' %>
-        </div>
+<div class="flex w-full h-full justify-center items-center">
+  <div class="flex flex-col w-[600px] max-h-[600px] overflow-y-auto gap-8 bg-white p-8 rounded-lg">
+    <div>
+      <%= form_with(model: @template, url: templates_path, method: :post, local: true) do |form| %>
+        <div class="grid grid-cols-1 gap-4">
+          <div class="flex items-center gap-4">
+            <%= form.label :name, "Nome do template:" %>
+            <%= form.text_field :name, class: 'form-control w-full rounded-lg p-4' %>
+          </div>
 
-        <div id="questions">
-          <!-- Existing questions will be dynamically added here -->
-        </div>
+          <div id="questions">
+            <!-- Existing questions will be dynamically added here -->
+          </div>
 
-        <div class="flex w-full justify-center">
-          <button type="button" id="add-question" class="btn btn-secondary">Add Question</button>
+          <div class="flex w-full justify-center">
+            <button type="button" id="add-question" class="btn p-4 bg-green-400 rounded-lg text-white text-4xl font-bold px-8">+</button>
+          </div>
+
+          <div class="flex w-full justify-center">
+            <%= form.submit 'Create Template', class: 'btn text-center px-8 py-4 hover:cursor-pointer hover:opacity-75 text-2xl text-white font-semibold rounded-lg bg-[#6C2365]' %>
+          </div>
         </div>
-        
-        <div class="flex w-full justify-center">
-          <%= form.submit 'Create Template', class: 'btn btn-primary' %>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
+
+
 <%= javascript_tag do %>
   document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('add-question').addEventListener('click', function() {
-      var questionsDiv = document.getElementById('questions');
-      var newQuestionIndex = questionsDiv.children.length;
-      var newQuestionFields = `
-        <div class="bg-white rounded-md p-4 question-fields" data-question-index="${newQuestionIndex}">
-          <div class="grid grid-cols-1 gap-4">
-            <div class="flex items-center gap-4">
-              <label for="template_template_questions_attributes_${newQuestionIndex}_title">Title</label>
-              <input type="text" name="template[template_questions_attributes][${newQuestionIndex}][title]" id="template_template_questions_attributes_${newQuestionIndex}_title" class="form-control">
-            </div>
-            <div class="flex items-center gap-4">
-              <label for="template_template_questions_attributes_${newQuestionIndex}_question_type">Question Type</label>
-              <select name="template[template_questions_attributes][${newQuestionIndex}][question_type]" id="template_template_questions_attributes_${newQuestionIndex}_question_type" class="form-control" data-role="type-select">
-                <option value="radio">Radio</option>
-                <option value="checkbox">Checkbox</option>
-                <option value="text">Text</option>
-              </select>
-            </div>
-            <div class="alternatives-container hidden" data-role="alternatives-container">
-              <div class="flex items-center gap-4">
-                <button type="button" class="btn btn-secondary" data-role="add-alternative">Add Alternative</button>
-              </div>
-              <div class="alternatives-list" data-role="alternatives-list">
-              </div>
-            </div>
-          </div>
-        </div>`;
-      questionsDiv.insertAdjacentHTML('beforeend', newQuestionFields);
-    });
+  document.getElementById('add-question').addEventListener('click', function() {
+  var questionsDiv = document.getElementById('questions');
+  var newQuestionIndex = questionsDiv.children.length;
+  var newQuestionFields = `
+  <div class="bg-white rounded-md p-4 question-fields" data-question-index="${newQuestionIndex}">
+    <div class="grid grid-cols-1 gap-4">
+      <div class="flex items-center gap-4">
+        <label for="template_template_questions_attributes_${newQuestionIndex}_title">Title</label>
+        <input type="text" name="template[template_questions_attributes][${newQuestionIndex}][title]" id="template_template_questions_attributes_${newQuestionIndex}_title" class="form-control">
+      </div>
+      <div class="flex items-center gap-4">
+        <label for="template_template_questions_attributes_${newQuestionIndex}_question_type">Question Type</label>
+        <select name="template[template_questions_attributes][${newQuestionIndex}][question_type]" id="template_template_questions_attributes_${newQuestionIndex}_question_type" class="form-control" data-role="type-select">
+          <option value="radio">Radio</option>
+          <option value="checkbox">Checkbox</option>
+          <option value="text">Text</option>
+        </select>
+      </div>
+      <div class="alternatives-container hidden" data-role="alternatives-container">
+        <div class="flex items-center gap-4">
+          <button type="button" class="btn btn-secondary" data-role="add-alternative">Add Alternative</button>
+        </div>
+        <div class="alternatives-list" data-role="alternatives-list">
+        </div>
+      </div>
+    </div>
+  </div>`;
+  questionsDiv.insertAdjacentHTML('beforeend', newQuestionFields);
+  });
 
-    document.addEventListener('change', function(e) {
-      if (e.target.matches('[data-role="type-select"]')) {
-        var questionFields = e.target.closest('.question-fields');
-        var alternativesContainer = questionFields.querySelector('[data-role="alternatives-container"]');
-        
-        if (e.target.value === 'radio' || e.target.value === 'checkbox') {
-          alternativesContainer.classList.remove('hidden');
-        } else {
-          alternativesContainer.classList.add('hidden');
-          alternativesContainer.querySelector('[data-role="alternatives-list"]').innerHTML = '';
-        }
-      }
-    });
+  document.addEventListener('change', function(e) {
+  if (e.target.matches('[data-role="type-select"]')) {
+  var questionFields = e.target.closest('.question-fields');
+  var alternativesContainer = questionFields.querySelector('[data-role="alternatives-container"]');
 
-    document.addEventListener('click', function(e) {
-      if (e.target.matches('[data-role="add-alternative"]')) {
-        var questionFields = e.target.closest('.question-fields');
-        var alternativesList = questionFields.querySelector('[data-role="alternatives-list"]');
-        var newAlternativeIndex = alternativesList.children.length;
-        var questionIndex = questionFields.getAttribute('data-question-index');
-        var newAlternativeFields = `
-          <div class="flex items-center gap-4 alternative-field">
-            <label for="alternative_${questionIndex}_${newAlternativeIndex}">Alternative</label>
-            <input type="text" class="form-control alternative-input" name="template[template_questions_attributes][${questionIndex}][alternatives][${newAlternativeIndex}][content]">
-          </div>`;
-        alternativesList.insertAdjacentHTML('beforeend', newAlternativeFields);
-      }
-    });
+  if (e.target.value === 'radio' || e.target.value === 'checkbox') {
+  alternativesContainer.classList.remove('hidden');
+  } else {
+  alternativesContainer.classList.add('hidden');
+  alternativesContainer.querySelector('[data-role="alternatives-list"]').innerHTML = '';
+  }
+  }
+  });
+
+  document.addEventListener('click', function(e) {
+  if (e.target.matches('[data-role="add-alternative"]')) {
+  var questionFields = e.target.closest('.question-fields');
+  var alternativesList = questionFields.querySelector('[data-role="alternatives-list"]');
+  var newAlternativeIndex = alternativesList.children.length;
+  var questionIndex = questionFields.getAttribute('data-question-index');
+  var newAlternativeFields = `
+  <div class="flex items-center gap-4 alternative-field">
+    <label for="alternative_${questionIndex}_${newAlternativeIndex}">Alternative</label>
+    <input type="text" class="form-control alternative-input" name="template[template_questions_attributes][${questionIndex}][alternatives][${newAlternativeIndex}][content]">
+  </div>`;
+  alternativesList.insertAdjacentHTML('beforeend', newAlternativeFields);
+  }
+  });
   });
 <% end %>
