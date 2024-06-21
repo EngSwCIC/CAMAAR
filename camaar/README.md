@@ -36,10 +36,13 @@ Além disso, para a execução dos testes com rspec, é necessário que o navega
 - localhost:3000/mails (para acessar o servidor de emails fictício)
 
 ## Guia de uso ##
-Ao acessar o sistema como administrador, utilize a seed pré-existente a partir de algum administrador conhecido (ex: email:admin.cic@gmail.com, password:admin123)· Em seguida, vá para a página de importar dados, e importe o arquivo json "class_members.json", para enviar um email solicitando que os usuários se registrem.Ao efetuar a operação de importar dados com sucesso, os usuários já podem se registrar.
+Ao acessar o sistema como administrador/coordenador, utilize a seed pré-existente a partir de algum administrador conhecido (ex: email:admin.cic@gmail.com, password:admin123)· Em seguida, vá para a página de importar dados, e importe o arquivo json "class_members.json", para enviar um email solicitando que os usuários se registrem.Ao efetuar a operação de importar dados com sucesso, os usuários já podem se registrar.Se for necessário, podem ser adicionados departamentos e turmas por departamento, bastando importar o respectivo aquivo json, e respeitando as regras de integridade pré-existentes.
 
 Se você for um usuário registrado no json, acesse o servidor de emails localhost:3000/mails (fictício) e procure seu endereço de email. Nele, ao clickar no link de "Registrar", você será submetido a uma página de cadastro de usuário, que só será finalizado se, após a submissão do registro, você confirmar o cadastro por meio de confirmação de link através de um novo email enviado.
 
+Sendo um coodenador/administrador, você pode criar templates com questões em texto e em múltipla escolha. Se quiser enviar um template como um formulário, acesse a página de envio e selecione a turma desejada, selecione a opção de formulário para aluno e/ou professor e efetue a operação.Após receber alguma resposta de algum aluno, a página de respostas conterá o formulário, com as respostas em csv e um gráfico de setores. Ao clickar no nome do formulário, poderá visualizar as respostas também.
+
+Sendo um aluno ou professor cadastrado como usuário no sistema, você pode visualizar os formulários pendentes e respondidos, bem como verificar suas respostas. 
 
 # Features
 ## Auth
