@@ -13,10 +13,17 @@ class JsonfilesController < ApplicationController
             path = "db/json/classes.json"
         end
 
-        @file_content = JSON.parse(File.read(file_tmp))
+        file_content = JSON.parse(File.read(file_tmp))
         
+        # file already exists, append new content
+        if File.file?(path)
+            old_file = JSON.parse(File.read(path))
+            old_file << file_content
+            file_content = old_file
+        end
+
         File.open(path, 'w') do |f|
-            f.write(JSON.pretty_generate(@file_content))
+            f.write(JSON.pretty_generate(file_content))
         end
 
         redirect_to uploader_path, notice: 'Arquivo importado!'
