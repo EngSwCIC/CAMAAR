@@ -120,11 +120,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_210943) do
     t.string "nome", null: false
     t.integer "numeroDeAlternativas", null: false
     t.boolean "discursiva?", null: false
-    t.boolean "fatorDeCorrecao?", null: false
-    t.integer "docente_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["docente_id"], name: "index_tipos_on_docente_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -164,5 +161,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_210943) do
   add_foreign_key "resultados", "dicentes"
   add_foreign_key "resultados", "formularios"
   add_foreign_key "templates", "docentes"
-  add_foreign_key "tipos", "docentes"
 end

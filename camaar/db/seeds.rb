@@ -4,7 +4,14 @@
 #
 # Example:
 
-# Criando um novo user
+# Criando um novo user e tipos
+
+Tipo.create([
+  { nome: 'Confirmação', numeroDeAlternativas: 1, discursiva?: false},
+  { nome: 'Verdadeiro ou Falso', numeroDeAlternativas: 2, discursiva?: false },
+  { nome: 'Múltipla Escolha', numeroDeAlternativas: 4, discursiva?: false },
+  { nome: 'Discursiva', numeroDeAlternativas: 0, discursiva?: true}
+])
 
 usuarios = [
   {nome: "MARISTELA TERTO DE HOLANDA",

@@ -1,0 +1,89 @@
+.editor-box {
+    position: fixed;
+    top: 0;
+    right: 150px;
+
+    max-width: 763px;
+    background-color: #FFFFFF;
+    display: flex;
+    margin: 75px auto auto auto;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 10px;
+    z-index: 2;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 545px;
+}
+
+.template-selector-form {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.template-selector {
+    width: 163px;
+    height: 25px;
+    background-color: #FFFFFF;
+    color: gray;
+    border-width: 1px;
+    border-color: #E0E0E0;
+    border-radius: 8px;
+}
+
+th {
+    color: #828282;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 1px solid #ddd;
+}
+
+tr {
+    height: 48px;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+}
+
+table {
+    margin-top: 74px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 530px;
+}
+
+
+td:nth-child(1), th:nth-child(1) {
+    width: 32px;
+    padding-right: 6px;
+}
+
+td:nth-child(2), th:nth-child(2) {
+    text-align: left;
+}
+
+td:nth-child(3), td:nth-child(4),
+th:nth-child(3), th:nth-child(4) {
+    text-align: right;
+    width: 75px;
+    white-space: nowrap;
+}
+
+input[type='checkbox'] {
+    accent-color: #22C55E;
+}
+
+.send-template-button {
+    width: 125px;
+    height: 29px;
+    border-radius: 6px;
+    background-color: #22C55E;
+    color: #F0FDF4;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    align-self: flex-end;
+    margin: auto auto 33px;
+    border: none;
+}

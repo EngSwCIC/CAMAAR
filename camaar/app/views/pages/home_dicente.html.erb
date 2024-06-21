@@ -5,8 +5,8 @@
 <body>
   <div class="header-bar">
     <div class="left-frame">
-      <button class="menu-button">&#9776;</button>
-      <div class="side-bar">
+      <button class="menu-button" id="menuButton" >&#9776;</button>
+      <div class="side-bar" id="sideBar">
         <div class="select-button">Avaliações</div>
         <div class="select-button">Gerenciamento</div>
       </div>
@@ -16,8 +16,8 @@
       <input type="text">
       <button class="search-icon">&#128269;</button>
     </div>
-    <button class="user-button"><%=current_user.nome[0]%></button>
-    <div class="sign-out">
+    <button class="user-button" id="userButton"><%=current_user.nome[0].upcase%></button>
+    <div class="sign-out" id="signOut">
       <%= link_to "Sair", destroy_user_session_path, method: :delete %>
     </div>
   </div>
@@ -27,7 +27,7 @@
       <% @classes.each do |classe| %>
         <% classe.formularios.each do |formulario| %>
           <% if Date.today < formulario.dataDeTermino && !formulario.resultados.key?(current_user.nome)%>
-            <%= link_to formulario_path(formulario) do %>
+            <%= link_to responder_formulario_path(formulario) do %>
               <div class="assessments-box">
                 <div class="subject-name"><%= classe.materia %></div>
                 <div class="semester"><%= classe.semestre %></div>
@@ -39,4 +39,30 @@
       <% end %>
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var menuButton = document.getElementById('menuButton');
+      var sideBar = document.getElementById('sideBar');
+      var userButton = document.getElementById('userButton');
+      var signOut = document.getElementById('signOut');
+      
+      menuButton.addEventListener('click', function() {
+        sideBar.style.display = (sideBar.style.display === 'block') ? 'none' : 'block';
+      });
+      
+      userButton.addEventListener('click', function() {
+        signOut.style.display = (signOut.style.display === 'block') ? 'none' : 'block';
+      });
+      
+      document.addEventListener('click', function(event) {
+        if (!menuButton.contains(event.target) && !sideBar.contains(event.target)) {
+          sideBar.style.display = 'none';
+        }
+        if (!userButton.contains(event.target) && !signOut.contains(event.target)) {
+          signOut.style.display = 'none';
+        }
+      });
+    });
+  </script>
 </body>

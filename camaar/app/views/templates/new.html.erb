@@ -1,0 +1,59 @@
+<h1>Criar Novo Template</h1>
+
+<%= form_with model: @template, local: true do |f| %>
+  <div>
+    <%= f.label :nome, "Nome do Template:" %>
+    <%= f.text_field :nome, required: true %>
+  </div>
+  
+  <h2>Questões</h2>
+
+  <div id="questoes-container">
+    <%= f.fields_for :questaos do |questao_form| %>
+      <div class="questao-fields">
+        <div>
+          <%= questao_form.label :tipo_id, "Tipos:" %>
+          <%= questao_form.collection_select :tipo_id, @tipos, :id, :nome, include_blank: "Selecione um tipo" %>
+        </div>
+
+        <div>
+          <%= questao_form.label :pergunta, "Título da Questão:" %>
+          <%= questao_form.text_field :pergunta, required: true %>
+        </div>
+
+        <div>
+          <%= questao_form.label :pontos, "Pontos:" %>
+          <%= questao_form.number_field :pontos, required: true %>
+        </div>
+
+        <div class="fator-correcao">
+          <%= questao_form.label :fatorDeCorrecao, "Fator de Correção:" %>
+          <%= questao_form.number_field :fatorDeCorrecao %>
+        </div>
+
+        <div class="alternativas">
+          <%= questao_form.fields_for :alternativas do |alternativa_form| %>
+            <div class="alternativa-fields">
+              <%= alternativa_form.label :texto, "Alternativa:" %>
+              <%= alternativa_form.text_field :texto, required: true %>
+              <%= alternativa_form.hidden_field :_destroy %>
+              <%= link_to "Remover Alternativa", '#', class: "remove-alternativa" %>
+            </div>
+          <% end %>
+        </div>
+        <%= link_to "Adicionar Alternativa", '#', class: "add-alternativa" %>
+
+        <%= questao_form.hidden_field :_destroy %>
+        <%= link_to "Remover Questão", '#', class: "remove-questao" %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "Adicionar Questão", '#', id: "add-questao" %>
+
+  <div>
+    <%= f.submit "Criar Template", class: "button" %>
+  </div>
+<% end %>
+
+<%= javascript_include_tag 'new_template.js' %>
