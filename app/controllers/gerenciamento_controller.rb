@@ -1,6 +1,7 @@
 class GerenciamentoController < ApplicationController
 
   def index
+    render layout: "home"
   end
 
   def import
