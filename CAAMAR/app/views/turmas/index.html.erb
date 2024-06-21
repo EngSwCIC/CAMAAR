@@ -33,6 +33,13 @@
                 <%= f.text_field :horario, value: e["class"]["time"], readonly: true %>
             </div>
             <div class="field">
+                <%= f.radio_button :tipo, "discente", required: true %>
+                <%= f.label "discente" %>
+                <%= f.radio_button :tipo, "docente", required: true %>
+                <%= f.label "docente" %>
+            </div>
+
+            <div class="field">
             <%= f.label "id do template escolhido" %>
             <%= f.number_field :id, required: true %>
             </div>

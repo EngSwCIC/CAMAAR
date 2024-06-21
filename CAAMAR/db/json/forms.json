@@ -3,22 +3,76 @@
     "id": 1,
     "template_id": 1,
     "class": {
-      "subject_code": "CIC0097",
-      "semester": "2021.2",
-      "code": "TA"
+      "subject_code": "CIC0105",
+      "semester": "2024.1",
+      "code": "T02"
     },
     "solvers": [
       {
-        "id": 1,
+        "id": "78334926120",
+        "is_solved": false
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "template_id": 3,
+    "class": {
+      "subject_code": "CIC0105",
+      "semester": "2024.1",
+      "code": "T02"
+    },
+    "solvers": [
+      {
+        "id": "200016750",
         "is_solved": false
       },
       {
-        "id": 2,
-        "is_solved": true
+        "id": "190027304",
+        "is_solved": false
       },
       {
-        "id": 3,
-        "is_solved": true
+        "id": "211036052",
+        "is_solved": false
+      },
+      {
+        "id": "212007153",
+        "is_solved": false
+      },
+      {
+        "id": "200028880",
+        "is_solved": false
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "template_id": 6,
+    "class": {
+      "subject_code": "CIC0105",
+      "semester": "2024.1",
+      "code": "T02"
+    },
+    "solvers": [
+      {
+        "id": "200016750",
+        "is_solved": false
+      },
+      {
+        "id": "190027304",
+        "is_solved": false
+      },
+      {
+        "id": "211036052",
+        "is_solved": false
+      },
+      {
+        "id": "212007153",
+        "is_solved": false
+      },
+      {
+        "id": "200028880",
+        "is_solved": false
       }
     ]
   }
