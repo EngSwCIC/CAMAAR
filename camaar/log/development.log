@@ -5499,3 +5499,354 @@ Started GET "/users/sign_in" for ::1 at 2024-06-20 22:38:08 -0300
   
 ActionController::RoutingError (uninitialized constant Users):
   
+Started GET "/users/sign_in" for ::1 at 2024-06-20 23:52:35 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant Users):
+  
+Started GET "/users/sign_in" for ::1 at 2024-06-20 23:53:03 -0300
+  
+ActionController::RoutingError (uninitialized constant Users):
+  
+Started GET "/users/sign_in" for ::1 at 2024-06-20 23:55:35 -0300
+  
+Zeitwerk::NameError (expected file /home/gui/Arquivos_ruby/Projeto_ES/CAMAAR_edit/camaar/app/controllers/users/sessions_controller.rb to define constant Users::SessionsController, but didn't):
+  
+zeitwerk (2.6.15) lib/zeitwerk/loader/callbacks.rb:33:in `on_file_autoloaded'
+zeitwerk (2.6.15) lib/zeitwerk/kernel.rb:27:in `require'
+activesupport (7.1.3.3) lib/active_support/inflector/methods.rb:290:in `const_get'
+activesupport (7.1.3.3) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (7.1.3.3) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (7.1.3.3) lib/action_dispatch/http/request.rb:90:in `controller_class_for'
+actionpack (7.1.3.3) lib/action_dispatch/request/utils.rb:100:in `action_encoding_template'
+actionpack (7.1.3.3) lib/action_dispatch/request/utils.rb:85:in `encode'
+actionpack (7.1.3.3) lib/action_dispatch/request/utils.rb:45:in `set_binary_encoding'
+actionpack (7.1.3.3) lib/action_dispatch/http/parameters.rb:68:in `path_parameters='
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:48:in `block in serve'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.3) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.11) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.11) lib/rack/etag.rb:29:in `call'
+rack (3.0.11) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.11) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.3) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.11) lib/rack/method_override.rb:28:in `call'
+rack (3.0.11) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.11) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/users/sign_in" for ::1 at 2024-06-21 00:07:57 -0300
+Processing by Users::SessionsController#new as HTML
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 2332)
+
+
+  
+ActionView::MissingTemplate (Missing template devise/sessions/new.html.erb with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/gui/Arquivos_ruby/Projeto_ES/CAMAAR_edit/camaar/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/turbo-rails-2.0.5/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/actiontext-7.1.3.3/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/actionmailbox-7.1.3.3/app/views"
+):
+  
+app/controllers/users/sessions_controller.rb:5:in `new'
+Started GET "/users/sign_in" for ::1 at 2024-06-21 00:08:15 -0300
+Processing by Users::SessionsController#new as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1384)
+
+
+  
+ActionView::MissingTemplate (Missing template devise/sessions/new.html.erb with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/gui/Arquivos_ruby/Projeto_ES/CAMAAR_edit/camaar/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/turbo-rails-2.0.5/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/actiontext-7.1.3.3/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/actionmailbox-7.1.3.3/app/views"
+):
+  
+app/controllers/users/sessions_controller.rb:5:in `new'
+Started GET "/users/sign_in" for ::1 at 2024-06-21 00:09:31 -0300
+Processing by Users::SessionsController#new as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1384)
+
+
+  
+ActionView::MissingTemplate (Missing template devise/sessions/new.html.erb with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/gui/Arquivos_ruby/Projeto_ES/CAMAAR_edit/camaar/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/turbo-rails-2.0.5/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/actiontext-7.1.3.3/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/actionmailbox-7.1.3.3/app/views"
+):
+  
+app/controllers/users/sessions_controller.rb:4:in `new'
+Started GET "/change_password" for ::1 at 2024-06-21 00:09:37 -0300
+Processing by Devise::PasswordsController#edit as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :assert_reset_token_passed rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms | Allocations: 1250)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-06-21 00:09:37 -0300
+Processing by Users::SessionsController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 983)
+
+
+  
+ActionView::MissingTemplate (Missing template devise/sessions/new.html.erb with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/gui/Arquivos_ruby/Projeto_ES/CAMAAR_edit/camaar/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/turbo-rails-2.0.5/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/actiontext-7.1.3.3/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/actionmailbox-7.1.3.3/app/views"
+):
+  
+app/controllers/users/sessions_controller.rb:4:in `new'
+Started GET "/change_password" for ::1 at 2024-06-21 00:09:37 -0300
+Processing by Devise::PasswordsController#edit as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :assert_reset_token_passed rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 493)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-06-21 00:09:37 -0300
+Processing by Users::SessionsController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 951)
+
+
+  
+ActionView::MissingTemplate (Missing template devise/sessions/new.html.erb with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/gui/Arquivos_ruby/Projeto_ES/CAMAAR_edit/camaar/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/turbo-rails-2.0.5/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/actiontext-7.1.3.3/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/actionmailbox-7.1.3.3/app/views"
+):
+  
+app/controllers/users/sessions_controller.rb:4:in `new'
+Started GET "/users/sign_in" for ::1 at 2024-06-21 00:26:25 -0300
+Processing by Users::SessionsController#new as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 953)
+
+
+  
+ActionView::MissingTemplate (Missing template devise/sessions/new.html.erb with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/gui/Arquivos_ruby/Projeto_ES/CAMAAR_edit/camaar/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/turbo-rails-2.0.5/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/devise-4.9.4/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/actiontext-7.1.3.3/app/views"
+  * "/home/gui/.rvm/gems/ruby-3.3.0/gems/actionmailbox-7.1.3.3/app/views"
+):
+  
+app/controllers/users/sessions_controller.rb:4:in `new'
+Started GET "/users/sign_in" for ::1 at 2024-06-21 00:27:16 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 117.7ms | Allocations: 21876)
+  Rendered layout layouts/application.html.erb (Duration: 141.4ms | Allocations: 37645)
+Completed 200 OK in 219ms (Views: 146.9ms | ActiveRecord: 6.0ms | Allocations: 61975)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-06-21 00:30:23 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 1197)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 2347)
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 0.0ms | Allocations: 2985)
+
+
+Started GET "/change_password" for ::1 at 2024-06-21 00:30:30 -0300
+Processing by Devise::PasswordsController#edit as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :assert_reset_token_passed rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 604)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-06-21 00:30:30 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1197)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2347)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 3014)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+Started GET "/change_password" for ::1 at 2024-06-21 18:38:16 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::PasswordsController#edit as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :assert_reset_token_passed rendered or redirected
+Completed 302 Found in 29ms (ActiveRecord: 0.0ms | Allocations: 4158)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-06-21 18:38:16 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 82.6ms | Allocations: 22096)
+  Rendered layout layouts/application.html.erb (Duration: 103.0ms | Allocations: 37901)
+Completed 200 OK in 217ms (Views: 120.4ms | ActiveRecord: 3.4ms | Allocations: 63929)
+
+
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "acjpjvjp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "acjpjvjp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "190084006"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "acjpjvjp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."encrypted_password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["encrypted_password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "acjpjvjp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."encrypted_password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["encrypted_password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "acjpjvjp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."encrypted_password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["encrypted_password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "acjpjvjp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."encrypted_password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["encrypted_password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "acjpjvjp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."encrypted_password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["encrypted_password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "acjpjvjp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "acjpjvjp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "acjpjvjp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "acjpjvjp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "acjpjvjp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "acjpjvjp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."encrypted_password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["encrypted_password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "acjpjvjp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["reset_password_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."reset_password_token" IN (?, ?) AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["reset_password_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."reset_password_token" IN (?, ?) AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["reset_password_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."reset_password_token" IN (?, ?) AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["reset_password_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."reset_password_token" IN (?, ?) AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["reset_password_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."reset_password_token" IN (?, ?) AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["reset_password_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."reset_password_token" IN (?, ?) AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? AND "users"."email" = ? AND "users"."password" = ? AND "users"."usuario" = ? AND "users"."formacao" = ? AND "users"."role" = ? LIMIT ?[0m  [["nome", "Ana Clara Jordao Perna"], ["email", "acjpjvjp@gmail.com"], ["password", "[FILTERED]"], ["usuario", "190084006"], ["formacao", "graduando"], ["role", 0], ["LIMIT", 1]]

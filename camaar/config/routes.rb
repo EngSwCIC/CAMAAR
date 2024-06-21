@@ -32,6 +32,6 @@ Rails.application.routes.draw do
   get 'home_dicente', to: 'pages#home_dicente'
   get 'home_docente', to: 'pages#home_docente'
 
-  # Define a rota para definição de senha pelo discente
-  
+  # Define a rota para edição de senha
+  #get 'password', to: ''
 end
