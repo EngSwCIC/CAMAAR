@@ -1,6 +1,6 @@
-class Materia < ApplicationRecord
-  class Materia::NotFoundError < StandardError; end
-  class Materia::ConnectionTimeoutError < StandardError; end
+class Materium < ApplicationRecord
+  class Materium::NotFoundError < StandardError; end
+  class Materium::ConnectionTimeoutError < StandardError; end
 
   def self.get_sigaa_classes
     begin
