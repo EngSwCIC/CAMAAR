@@ -12,9 +12,11 @@
 </head>
 
 <body class="bg-[#DBDBDB]">
-<div>
+<div class="">
   <%= render 'shared/navbar' %>
-  <div class="home fixed left-[300px]">
+  <div class="home pl-[300px] pt-16 flex w-full h-screen">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </div>
 </div>

@@ -1,6 +1,8 @@
 class GerenciamentoController < ApplicationController
-
+  before_action :authenticate_user!
+  before_action :enforce_admin!
   def index
+    render layout: "home"
   end
 
   def import
@@ -11,6 +13,7 @@ class GerenciamentoController < ApplicationController
       flash[:alert] = "Dados inválidos"
     else
       new_data = false
+      new_users = false
 
       hash_class.each do |materia|
         if StudyClass.find_by(code: materia["code"], classCode: materia["class"]["classCode"], semester: materia["class"]["semester"]) == nil
@@ -30,6 +33,9 @@ class GerenciamentoController < ApplicationController
             pessoa.skip_password_validation = true
             pessoa.save
             new_data = true
+
+            pessoa.send_reset_password_instructions
+            new_users = true
           end
 
           pessoa.study_classes << turma
@@ -43,16 +49,28 @@ class GerenciamentoController < ApplicationController
           pessoa.skip_password_validation = true
           pessoa.save
           new_data = true
+
+          pessoa.send_reset_password_instructions
+          new_users = true
         end
         turma.docente_id = pessoa.id
         pessoa.study_classes << turma
       end
 
+      message = ""
       if new_data
-        flash[:notice] = "Data imported successfully"
+        message += "Data imported successfully"
       else
-        flash[:notice] = "Não há novos dados para importar"
+        message += "Não há novos dados para importar"
       end
+
+      if new_users
+        message += "\nUsuários cadastrados com sucesso."
+      else
+        message += "\nSem novos usuários."
+      end
+
+      flash[:notice] = message
     end
 
     redirect_back_or_to "/gerenciamento"
@@ -110,6 +128,15 @@ class GerenciamentoController < ApplicationController
       end
 
       true
+    end
+  end
+
+  protected
+
+  def enforce_admin!
+    unless current_user.admin?
+      flash[:alert] = "Usuário não tem permissão para acessar!"
+      redirect_to root_path
     end
   end
 

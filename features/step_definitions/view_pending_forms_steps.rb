@@ -1,27 +1,32 @@
 Given('I am logged in as a student from class {string}') do |class_name|
-  @user = User.create(
-    :email => "teste@email.com",
-    :matricula => "123456",
-    :password => "senha123",
-    :password_confirmation => "senha123"
-  )
+  @user = FactoryBot.build(:user)
+  @user.email = "teste@email.com"
 
-  @study_class = StudyClass.create(
-    :code => "cic01",
-    :name => class_name,
-    :classCode => "es123",
-    :semester => "2024.1",
-    :time => "Time"
-  )
+  @docente = FactoryBot.build(:user)
+  @docente.email = "docente@email.com"
+  @docente.save!
+
+  @study_class = FactoryBot.build(:study_class)
+  @study_class.name = class_name
+  @study_class.docente = @docente
+  @study_class.save!
 
   @user.study_classes << @study_class
+  @user.save!
 
   login_as(@user, scope: :user)
 end
 
 Given('a form has been sent to this user') do
-  @form_request = FormRequest.new({})
+  @template = FactoryBot.build(:template)
+
+  @form_request = FormRequest.new
   @form_request.user = @user
   @form_request.study_class = @study_class
+  @form_request.template = @template
   @form_request.save!
+end
+
+Given('There are no forms registered') do
+  FormRequest.destroy_all
 end

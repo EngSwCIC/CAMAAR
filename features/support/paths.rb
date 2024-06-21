@@ -29,7 +29,7 @@ module NavigationHelpers
       '/gerenciamento/templates'
 
     when /^the Definir Senha\s?page$/
-      '/users/senha'
+      "/users/password/edit?reset_password_token=#{@token}"
 
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:

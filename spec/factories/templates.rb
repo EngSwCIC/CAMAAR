@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :template do
-    name { "MyString" }
-    template_question { nil }
+    sequence(:name) { |n| "Template #{n}" }
   end
 end

@@ -1,0 +1,2 @@
+module ResultadosHelper
+end
