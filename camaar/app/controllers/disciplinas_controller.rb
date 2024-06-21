@@ -46,6 +46,37 @@ class DisciplinasController < ApplicationController
     redirect_to disciplinas_url, notice: 'Disciplina foi excluída com sucesso.'
   end
 
+  def import
+    if request.post?
+      file = params[:file]
+
+      if file
+        data = JSON.parse(file.read)
+        data.each do |course_data|
+          disciplina = Disciplina.create!(
+            codigo: course_data['code'],
+            nome: course_data['name']
+          )
+
+          class_data = course_data['class']
+          Turma.create!(
+            disciplina_id: disciplina.id,
+            class_code: class_data['classCode'],
+            semestre: class_data['semester'],
+            horario: class_data['time'],
+            codigo: disciplina.codigo
+          )
+        end
+
+        render json: { message: 'Courses imported successfully' }, status: :ok
+      else
+        render json: { error: 'No file provided' }, status: :unprocessable_entity
+      end
+    else
+      render :import
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_disciplina

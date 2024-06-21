@@ -3,12 +3,12 @@ class PagesController < ApplicationController
   def home_dicente
     @dicente = Dicente.find_by(user_id: current_user.id)
     if @dicente.present?
-      @classes = ClassesDicente.where(dicente_id: @dicente.id).includes(:formularios)
-      if !@classes.present?
-        @classes = []
+      @turmas = TurmasDicente.where(dicente_id: @dicente.id).includes(:formularios)
+      if !@turmas.present?
+        @turmas = []
       end
     else
-      @classes = []
+      @turmas = []
     end
   end
 
@@ -16,8 +16,8 @@ class PagesController < ApplicationController
     @docente = Docente.find_by(user_id: current_user.id)
     if @docente.present?
       # Busca todas as classes do docente incluindo os formulários associados
-      @classes = Classe.where(docente_id: @docente.id).includes(:formularios)
-      @classes = [] unless @classes.present?
+      @turmas = Turma.where(docente_id: @docente.id).includes(:formularios)
+      @turmas = [] unless @turmas.present?
 
       # Busca os templates, tipos e qualquer outra informação necessária
       @templates = Template.where(docente_id: @docente.id)
@@ -27,7 +27,7 @@ class PagesController < ApplicationController
       # Exemplo de como acessar os formulários de cada classe:
       @formularios = @classes.flat_map { |classe| classe.formularios }
     else
-      @classes = []
+      @turmas = []
       @templates = []
       @tipos = []
       @formularios = []
