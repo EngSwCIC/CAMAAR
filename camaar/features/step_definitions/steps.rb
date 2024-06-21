@@ -129,7 +129,7 @@ Given(/I am an authenticated (Teacher|Student) associated with the following cla
     student = Student.find_by(email: 'peluticaio@gmail.com')
     classes.each do |sbj|
       sbj_class = SubjectClass.find_by({ subject: sbj['subject'], code: sbj['code'], semester: sbj['semester'] })
-      Enrollment.create(student_id: student.id, subject_class_id: sbj_class.id)
+      # Enrollment.create(student_id: student.id, subject_class_id: sbj_class.id)
     end
 
     fill_in('email', with: 'peluticaio@gmail.com')
@@ -281,20 +281,19 @@ Given('that I am an User associated with the following classes:') do |_table|
   pending
 end
 
-Then (/I expect the (student|teacher) "([^"]*)" to not be associated with following classes:/) do |role, name, table|
-  student = Student.find_by(name: name)
-  teacher = Teacher.find_by(name: name)
+Then(/I expect the (student|teacher) "([^"]*)" to not be associated with following classes:/) do |role, name, table|
+  student = Student.find_by(name:)
+  teacher = Teacher.find_by(name:)
   classes = table.hashes
   classes.each do |data|
-    subject_class = SubjectClass.find_by(semester: data["semester"], code: data["code"], subject: data["subject"])
+    subject_class = SubjectClass.find_by(semester: data['semester'], code: data['code'], subject: data['subject'])
 
-    if role == "student"
+    if role == 'student'
       enrollment = Enrollment.find_by(student_id: student.id, subject_class_id: subject_class.id)
       expect(enrollment.active).to be false
     else
       expect(subject_class.teacher_id).to be teacher.id
     end
-
   end
 end
 
