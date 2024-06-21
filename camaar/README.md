@@ -25,6 +25,7 @@ Além disso, para a execução dos testes com rspec, é necessário que o navega
 - Caio: Yuri
 
 # Guia para o usuário
+
 ## Setup de ambiente ##
 - bundle install (para instalar as gems necessárias)
 - bundle exec cucumber features/ (para executar os testes das features em cucumber)
@@ -33,6 +34,7 @@ Além disso, para a execução dos testes com rspec, é necessário que o navega
 - bundle exec rails s (para ativar o servidor)
 - localhost:3000 (para acessar a página root do sistema)
 - localhost:3000/mails (para acessar o servidor de emails fictício)
+
 ## Guia de uso ##
 Ao acessar o sistema como administrador, utilize a seed pré-existente a partir de algum administrador conhecido (ex: email:admin.cic@gmail.com, password:admin123)· Em seguida, vá para a página de importar dados, e importe o arquivo json "class_members.json", para enviar um email solicitando que os usuários se registrem.Ao efetuar a operação de importar dados com sucesso, os usuários já podem se registrar.
 
