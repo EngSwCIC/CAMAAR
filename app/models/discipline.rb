@@ -1,6 +1,10 @@
 class Discipline < ApplicationRecord
   has_many :forms
 
+  def name_detailed
+    "#{self[:code]} - #{self[:name]} #{Semester.find(self[:semester_id])}"
+  end
+
   def self.create_by_json(data, semester_id)
     existing_discipline = find_by(code: data['code'], semester_id:)
     return if existing_discipline
