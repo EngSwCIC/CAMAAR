@@ -1,5 +1,18 @@
 require 'cucumber/rspec/doubles'
 
+Given("I am logged in") do
+  @user = User.new(
+    :email => "teste@email.com",
+    :matricula => "abc123",
+    :password => "senha123",
+    :password_confirmation => "senha123"
+  )
+
+  @user.save!
+
+  login_as(@user, scope: :user)
+end
+
 Then(/^the classes, subjects, and participants should be added to the database if they do not already exist$/) do
   expect(StudyClass.find_by code: "CIC0000", classCode: "TA", semester: "2024.1").not_to be nil
   expect(User.find_by matricula: "54321").not_to be nil
@@ -23,12 +36,12 @@ Then(/^the existing data should not be duplicated$/) do
   expect(User.where(matricula: "54321").count).to eq(1)
 end
 
-When(/^I press Importar dados$/) do
+When(/^I press Importar dados do sigaa$/) do
   RSpec::Mocks.with_temporary_scope do
     allow(File).to receive(:read).with("classes.json").and_return(@data_classes)
     allow(File).to receive(:read).with("class_members.json").and_return(@data_members)
 
-    steps %{When I press "Importar Dados do Sigaa"}
+    steps %{When I press "Importar Dados"}
   end
 end
 

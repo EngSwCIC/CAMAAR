@@ -1,6 +1,7 @@
 class GerenciamentoController < ApplicationController
 
   def index
+    render layout: "home"
   end
 
   def import
@@ -19,6 +20,8 @@ class GerenciamentoController < ApplicationController
         end
       end
 
+      puts StudyClass.all.count
+
       hash_members.each do |materia|
         turma = StudyClass.find_by code: materia["code"], classCode: materia["classCode"], semester: materia["semester"]
 
@@ -32,6 +35,8 @@ class GerenciamentoController < ApplicationController
             new_data = true
           end
 
+          puts pessoa
+          puts turma
           pessoa.study_classes << turma
           turma.users << pessoa
         end

@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_in, keys: [:login, :password]
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
+  
   def after_sign_in_path_for(resource)
     "/avaliacoes"
   end
@@ -16,5 +17,9 @@ class ApplicationController < ActionController::Base
   def after_resetting_password_path_for(resource)
     flash[:notice] = "Senha registrada com sucesso"
     "/avaliacoes"
+  end
+
+  def after_sign_out_path_for(resource)
+    "/users/sign_in"
   end
 end

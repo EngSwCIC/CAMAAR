@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Avaliacoes", type: :request do
-  describe "GET /index" do
-    pending "add some examples (or delete) #{__FILE__}"
+  describe "GET /show" do
+    it "should have a show view" do
+      pending
+    end
   end
 end

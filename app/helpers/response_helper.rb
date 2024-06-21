@@ -1,0 +1,2 @@
+module ResponseHelper
+end
