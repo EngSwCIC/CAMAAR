@@ -13,6 +13,15 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="container">
+      <% unless devise_controller?%>
+      <div class="sidebar">
+        <%= link_to "Home", root_path, class: "sidebar-button" %>
+      </div>
+      <% end %>
+      <div class="main-content">
+        <%= yield %> </div>
+      </div>
+
   </body>
 </html>
