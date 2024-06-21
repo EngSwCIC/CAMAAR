@@ -1,0 +1,69 @@
+{
+    "code": "CIC0105",
+    "classCode": "T02",
+    "semester": "2024.1",
+    "dicente": [
+        {
+            "nome": "Elaina Lynn de Moura Amaral",
+            "curso": "CIÊNCIA DA COMPUTAÇÃO/CIC",
+            "matricula": "200016750",
+            "usuario": "200016750",
+            "formacao": "graduando",
+            "ocupacao": "dicente",
+            "email": "17bestradiol@proton.me"
+        },
+        {
+            "nome": "Enzo Yoshio Niho",
+            "curso": "CIÊNCIA DA COMPUTAÇÃO/CIC",
+            "matricula": "190027304",
+            "usuario": "190027304",
+            "formacao": "graduando",
+            "ocupacao": "dicente",
+            "email": "enzoyn@hotmail.com"
+        },
+        {
+            "nome": "Elaina Lynn de Moura Amaral",
+            "curso": "CIÊNCIA DA COMPUTAÇÃO/CIC",
+            "matricula": "200016750",
+            "usuario": "200016750",
+            "formacao": "graduando",
+            "ocupacao": "dicente",
+            "email": "17bestradiol@proton.me"
+        },
+        {
+            "nome": "HENRIQUE DE OLIVEIRA RAMOS",
+            "curso": "CIÊNCIA DA COMPUTAÇÃO/CIC",
+            "matricula": "211036052",
+            "usuario": "211036052",
+            "formacao": "graduando",
+            "ocupacao": "dicente",
+            "email": "henriqueramos.qs@gmail.com"
+        },
+        {
+            "nome": "LUIS FELIPE HILARIO CARMONA",
+            "curso": "ENGENHARIA DE COMPUTAÇÃO/CIC",
+            "matricula": "212007153",
+            "usuario": "212007153",
+            "formacao": "graduando",
+            "ocupacao": "dicente",
+            "email": "luisfelipehcarmona@gmail.com"
+        },
+        {
+            "nome": "Wallace Ben Teng Lin Wu",
+            "curso": "ENGENHARIA DE COMPUTAÇÃO/CIC",
+            "matricula": "200028880",
+            "usuario": "200028880",
+            "formacao": "graduando",
+            "ocupacao": "dicente",
+            "email": "Wallace419@gmail.com"
+        }
+    ],
+    "docente": {
+        "nome": "GENAINA NUNES RODRIGUES",
+        "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO",
+        "formacao": "DOUTORADO",
+        "usuario": "78334926120",
+        "email": "genaina@unb.br",
+        "ocupacao": "docente"
+    }
+}
