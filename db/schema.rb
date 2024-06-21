@@ -59,6 +59,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_21_195032) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "template_id", null: false
+    t.text "alternatives"
     t.index ["template_id"], name: "index_template_questions_on_template_id"
   end
 

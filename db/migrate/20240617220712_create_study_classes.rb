@@ -8,7 +8,7 @@ class CreateStudyClasses < ActiveRecord::Migration[7.1]
       t.string 'time'
 
       # relacao de docente, a de dicente vai ser por meio de uma join_table
-      t.references :docente, show: true, foreign_key: { to_table: :users}
+      t.references :docente, index: true, foreign_key: {to_table: :users}
 
       t.timestamps
     end
