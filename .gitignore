@@ -70,3 +70,5 @@ tmp/cache/bootsnap/load-path-cache
 
 # personal tmux setup script
 /tmux.sh
+
+/.rake_tasks~

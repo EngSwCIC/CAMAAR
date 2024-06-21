@@ -16,13 +16,15 @@
   <div class="custom-button-container">
     <%= button_to "Enviar Email de Cadastro para Alunos", send_email_availables_sign_up_path, method: :post, class: "btn btn-outline-primary btn-block" %>
     <br>
-   <%= button_to "Importar Dados e Iniciar um Novo Semestre", import_from_sigaa_path, method: :post, class: "btn btn-outline-primary btn-block" %>
+   <%= button_to "Importar Dados e Iniciar um Novo Semestre", import_from_sigaa_path, method: :post, class: "btn btn-outline-primary btn-block", id: 'flow-first-import-button' %>
     <br>
-    <%= button_to "Atualziar Dados do Semestre Atual", update_sigaa_data_path, method: :post, class: "btn btn-outline-primary btn-block" %>
+    <%= button_to "Atualizar Dados do Semestre Atual", update_sigaa_data_path, method: :post, class: "btn btn-outline-primary btn-block" %>
     <br>
-    <%= button_to "Editar Templates", root_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <%= button_to "Modelos", templates_path, method: :get, class: "btn btn-outline-primary btn-block" %>
     <br>
-    <%= button_to "Enviar Formulários", to_send_templates_path, method: :get, class: "btn btn-outline-primary btn-block" %>
+    <%= button_to "Editar Modelos", root_path, method: :get, class: "btn btn-outline-primary btn-block", disabled: true %>
+    <br>
+    <%= button_to "Enviar Formulários", to_send_templates_path, method: :get, class: "btn btn-outline-primary btn-block", id: 'flow-send-forms-button' %>
     <br>
     <%= button_to "Gerar CSV de Resultados deste Semestre", semesters_current_path(format: :csv), method: :get, class: "btn btn-outline-primary btn-block" %>
     <br>

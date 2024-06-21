@@ -17,7 +17,6 @@ gem 'jbuilder'
 gem 'redis', '>= 4.0.1'
 gem 'tzinfo-data', platforms: %i[ windows jruby ]
 gem 'bootsnap', require: false
-gem 'haml'
 gem 'cucumber'
 
 group :development, :test do
@@ -37,4 +36,8 @@ end
 group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
 end
+
+gem "factory_bot", "~> 6.4"

@@ -2,7 +2,7 @@
     <%= form.collection_select :template_id, @templates, :id, :to_s %>
     <br>
     <div class='list-group'>
-    <%= form.collection_check_boxes :discipline_ids, @disciplines, :id, :name, class: 'list-group-item', include_hidden: false %>
+    <%= form.collection_check_boxes :discipline_ids, @disciplines, :id, :name_detailed, class: 'list-group-item', include_hidden: false %>
     </div>
     <%= form.submit "Enviar" %>
 <% end %>
