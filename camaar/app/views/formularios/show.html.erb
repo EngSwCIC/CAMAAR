@@ -1,78 +1,30 @@
-<%= stylesheet_link_tag "base" %>
-<%= stylesheet_link_tag "assessment_id" %>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+<h1>Resultados do Formulário <%= @formulario.nome %></h1>
 
-<body>
-<div class="header-bar">
-  <div class="left-frame">
-    <button class="menu-button">&#9776;</button>
-    <span class="header-text">Avaliação - Nome da matéria - Semestre</span>
-  </div>
-  <button class="user-button">U</button>
-</div>
-<form class="assessment-container">
+<table>
+  <thead>
+    <tr>
+      <th>Dicente</th>
+      <th>Classe</th>
+      <th>Nota</th>
+    </tr>
+  </thead>
 
-  <div class="assessment-box">
+  <tbody>
+    <% total_notas = 0 %>
+    <% @resultados.each do |resultado| %>
+      <% total_notas += resultado.nota %>
+      <tr>
+        <td><%= resultado.dicente.nome %></td>
+        <td><%= resultado.classe.materia %></td>
+        <td><%= resultado.nota %></td>
+      </tr>
+    <% end %>
 
-    <div class="question">
-      <div class="statement">Pergunta</div>
-      <form class="choices">
-        <label class="choice">
-          <input class="choice" type="radio" name="answer">
-          Muito bom
-        </label>
-        <label class="choice">
-          <input class="choice" type="radio" name="answer">
-          Bom
-        </label><label class="choice">
-        <input class="choice" type="radio" name="answer">
-        Satisfatório
-      </label><label class="choice">
-        <input class="choice" type="radio" name="answer">
-        Ruim
-      </label>
-        <label class="choice">
-          <input class="choice" type="radio" name="answer">
-          Péssimo
-        </label>
-      </form>
-    </div>
-
-    <div class="question">
-      <div class="statement">Pergunta</div>
-      <input class="answer" >
-    </div>
-
-    <div class="question">
-      <div class="statement">Pergunta</div>
-      <input class="answer" >
-    </div>
-
-    <div class="question">
-      <div class="statement">Pergunta</div>
-      <form class="choices">
-        <label class="choice">
-          <input class="choice" type="radio" name="answer">
-          Muito bom
-        </label>
-        <label class="choice">
-          <input class="choice" type="radio" name="answer">
-          Bom
-        </label><label class="choice">
-        <input class="choice" type="radio" name="answer">
-          Satisfatório
-        </label><label class="choice">
-          <input class="choice" type="radio" name="answer">
-          Ruim
-        </label>
-        <label class="choice">
-          <input class="choice" type="radio" name="answer">
-          Péssimo
-        </label>
-      </form>
-    </div>
-
-    <button type="submit" class="submit-button"></button>
-  </div>
-</form>
-</body>
+    <% if @resultados.present? %>
+      <tr>
+        <td colspan="2"><strong>Média das Notas:</strong></td>
+        <td><%= (total_notas / @resultados.size) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -14,17 +14,26 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  # Rota para visualizar os resultados de um formulário
+  get '/formularios/:id', to: 'formularios#show', as: 'resultados_formulario'
+
+  # Rota para responder um formulário
+  get '/formularios/:id/responder', to: 'formularios#responder', as: 'responder_formulario'
+
   #cria rotas para os métodos nos controllers de formulários, templates, alunos e turmas
-  resources :formularios
   resources :templates
-  resources :alunos
-  resources :turmas
+  resources :formularios
+  resources :disciplinas
+  resources :docentes
+  resources :dicentes
+  resources :classes
   resources :tipos
 
   # Define a rota para a página de login como a root
   devise_scope :user do
     root to: "devise/sessions#new"
     get 'users/change_password', to: 'devise/passwords#edit', as: :change_password
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
   # Define a rota para a homepage de users do tipo aluno e adm

@@ -1,6 +1,10 @@
 class TemplatesController < ApplicationController
   def index
-    @templates = Template.all
+    if params[:nome].present?
+      @templates = Template.where("nome LIKE ?", "%#{params[:nome]}%")
+    else
+      @templates = Template.all
+    end
   end
 
   def show
@@ -14,7 +18,7 @@ class TemplatesController < ApplicationController
 
   def create
     @template = Template.new(template_params)
-    @template.docente = current_user
+    @template.docente = current_user.docente
     if @template.save
       redirect_to @template
     else
@@ -42,59 +46,9 @@ class TemplatesController < ApplicationController
     redirect_to templates_path
   end
 
-  #A criação de questões será feita dentro da view de criação de template, portanto, acho uma boa desição de design
-  # usar o mesmo controller para os 2
-  def add_questao
-    @questao = @template.questaos.build
-  end
-
-  def update_questao
-    @questao = @template.questaos.find(params[:questao_id])
-    if @questao.update(questao_params)
-      redirect_to @template, notice: 'Questão atualizada com sucesso.'
-    else
-      render edit
-    end
-  end
-
-  def destroy_questao
-    @questao = @template.questaos.find(params[:questao_id])
-    @questao.destroy
-    redirect_to @template
-  end
-
-   #A criação de questões será feita dentro da view de criação de template, portanto, acho uma boa desição de design
-   # usar o mesmo controller para os 2
-
-  def add_alternativa
-    @alternativa = @template.questaos.alternativas.build
-  end
-
-  def update_alternativa
-    @alternativa = @template.questaos.alternativas.find(params[:alternativa_id])
-    if @alternativa.update(alternativa_params)
-      redirect_to @template, notice: 'alternativa atualizada'
-    end
-    render edit
-  end
-
-  def destroy_alternativa
-    @alternativa = @template.questaos.alternativas.find(params[:alternativa_id])
-    @alternativa.destroy
-    redirect_to @template
-  end
-
   private
 
   def template_params
-    params.require(:template).permit(:nome, questaos_attributes: [:id, :pergunta, :alternativas, :pontos, :fatorDeCorrecao, :alternativaCorreta, :tipo, :_destroy])
-  end
-
-  def questao_params
-    params.require(:questao).permit(:pergunta, :pontos, :fatorDeCorrecao, :alternativaCorreta, :tipo, alternativa_attributes:[:id, :texto])
-  end
-
-  def alternativa_params
-    params.require(:alternativa).permit(:texto)
+    params.require(:template).permit(:nome, questaos_attributes: [:id, :pergunta, :pontos, :fatorDeCorrecao, :tipo_id, :_destroy, alternativas_attributes: [:id, :texto, :_destroy]])
   end
 end

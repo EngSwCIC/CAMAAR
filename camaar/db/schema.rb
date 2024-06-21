@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_19_210943) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_21_092341) do
   create_table "alternativas", force: :cascade do |t|
     t.integer "questao_id", null: false
     t.string "texto", null: false
@@ -98,6 +98,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_210943) do
     t.index ["tipo_id"], name: "index_questaos_on_tipo_id"
   end
 
+  create_table "respostas", force: :cascade do |t|
+    t.integer "resultado_id", null: false
+    t.integer "questao_id", null: false
+    t.text "conteudo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["questao_id"], name: "index_respostas_on_questao_id"
+    t.index ["resultado_id"], name: "index_respostas_on_resultado_id"
+  end
+
   create_table "resultados", force: :cascade do |t|
     t.integer "dicente_id", null: false
     t.integer "formulario_id", null: false
@@ -120,11 +130,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_210943) do
     t.string "nome", null: false
     t.integer "numeroDeAlternativas", null: false
     t.boolean "discursiva?", null: false
-    t.boolean "fatorDeCorrecao?", null: false
-    t.integer "docente_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["docente_id"], name: "index_tipos_on_docente_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -161,8 +168,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_210943) do
   add_foreign_key "formularios_classes", "formularios"
   add_foreign_key "questaos", "templates"
   add_foreign_key "questaos", "tipos"
+  add_foreign_key "respostas", "questaos"
+  add_foreign_key "respostas", "resultados"
   add_foreign_key "resultados", "dicentes"
   add_foreign_key "resultados", "formularios"
   add_foreign_key "templates", "docentes"
-  add_foreign_key "tipos", "docentes"
 end
