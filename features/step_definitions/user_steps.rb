@@ -14,11 +14,19 @@ Given(/^(?:I am |There is )?a valid administrator(?: on the system)?$/) do
   @user.save!
 end
 
-Given(/^(?: I am )?logged in as an administrator$/) do
+Given(/^(?:I )?login with @credentials$/) do
+  visit login_path
+  fill_in :email, with: @credentials[:email]
+  fill_in :password, with: @credentials[:password]
+  click_button 'Entrar'
+end
+
+Given(/^(?:I am )?logged in as an administrator$/) do
   step 'a valid administrator'
 
-  visit login_path
-  fill_in :email, with: 'coordenador@gmail.com'
-  fill_in :password, with: 'TOKEN_587'
-  click_button 'Entrar'
+  @credentials = {
+    email: 'coordenador@gmail.com',
+    password: 'TOKEN_587'
+  }
+  step 'I login with @credentials'
 end
