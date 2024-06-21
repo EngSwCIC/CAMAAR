@@ -3,5 +3,7 @@ class Questao < ApplicationRecord
 
   belongs_to :formulario
   belongs_to :template
-  has_one :resposta
+  has_many :respostas
+
+  accepts_nested_attributes_for :respostas
 end
