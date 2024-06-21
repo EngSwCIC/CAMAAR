@@ -7,6 +7,7 @@ class CreateUsuarios < ActiveRecord::Migration[7.1]
       t.string :formacao
 
       t.timestamps
+
     end
   end
 end

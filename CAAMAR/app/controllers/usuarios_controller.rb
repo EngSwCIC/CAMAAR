@@ -21,13 +21,11 @@ class UsuariosController < ApplicationController
 
   # POST /usuarios or /usuarios.json
   def create
-    print("oh o params ai carai",usuario_params)
     @usuario = Usuario.new(usuario_params)
 
     respond_to do |format|
       if @usuario.save
         UserMailer.with(user: @usuario).gen_password.deliver
-        print("deu bom", @usuario)
         format.html { redirect_to(@usuario, notice: 'User was successfully created.') }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -69,6 +67,17 @@ class UsuariosController < ApplicationController
     end
   end
 
+
+  def getJson
+    file = File.read('../class_members.json')
+    data_hash = JSON.parse(file)
+    alunos = data_hash[0]['dicente']
+
+    alunos.each do |aluno|
+      Rails.logger.info("esse aluno: #{aluno}")
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_usuario
@@ -77,6 +86,6 @@ class UsuariosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def usuario_params
-      params.require(:usuario).permit(:matricula, :nome, :email, :formacao,:senha)
+      params.require(:usuario).permit(:matricula, :nome, :email, :formacao,:senha,:curso, :isAdmin,:isProf)
     end
 end
