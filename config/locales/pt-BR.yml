@@ -110,7 +110,7 @@ pt-BR:
     format: "%{attribute} %{message}"
     messages:
       accepted: deve ser aceito
-      blank: não pode ficar em branco
+      #blank: não pode ficar em branco
       confirmation: não é igual a %{attribute}
       empty: não pode ficar vazio
       equal_to: deve ser igual a %{count}
