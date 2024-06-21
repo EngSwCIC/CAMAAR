@@ -1,12 +1,12 @@
 <div class="flex flex-wrap w-full p-8">
-  <% @forms.each do |form| %>
-    <%= link_to("todo") do %>
+  <% @study_classes.each do |study_class| %>
+    <%= link_to "/gerenciamento/resultados/#{study_class.id}/export", method: :get do %>
       <div class="hover:cursor-pointer flex flex-col gap-4 w-64 bg-white rounded-lg p-4">
         <div class="flex flex-col gap-2">
-          <span class="text-2xl font-bold"><%= form.study_class.name %></span>
-          <span class="text-sm text-slate-400"><%= form.study_class.semester %></span>
+          <span class="text-2xl font-bold"><%= study_class.name %></span>
+          <span class="text-sm text-slate-400"><%= study_class.semester %></span>
         </div>
-        <span class="font-semibold text-slate-600 text-end"><%= form.study_class.docente.nome %></span>
+        <span class="font-semibold text-slate-600 text-end"><%= study_class.docente.nome %></span>
       </div>
     <% end %>
 

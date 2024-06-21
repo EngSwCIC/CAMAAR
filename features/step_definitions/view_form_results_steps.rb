@@ -1,5 +1,5 @@
 Given('I am logged in as the admin') do
-  @user = FactoryBot.build(:user)
+  @user = FactoryBot.build(:user, admin: true)
   @user.email = "admin@email.com"
   @user.admin = true
   @user.save!
