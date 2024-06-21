@@ -5,13 +5,12 @@ Feature: View form results
 
   Scenario: No forms created (sad path)
     Given I am logged in as the admin
-    And a form has been answered
-    And I am on the Form Results page
-    Then I should see form "Turma1"
+    And no form has been answered
+    And I am on the Resultados page
+    Then I should not see "Turma 1"
 
   Scenario: A form was sent (happy path)
-    Given I have sent a form to "Turma"
-    And I am on the Gerenciamento page
-    When I press "Resultados"
-    Then I should be on the Resultados page
-    And I should see "Turma"
+    Given I am logged in as the admin
+    And a form has been answered
+    And I am on the Resultados page
+    Then I should see "Turma 1"
