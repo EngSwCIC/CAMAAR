@@ -1,5 +1,5 @@
 module HomeHelper
   def is_gerenciamento(controller)
-    controller == 'gerenciamento'
+    ['gerenciamento', 'resultados'].include? controller
   end
 end
