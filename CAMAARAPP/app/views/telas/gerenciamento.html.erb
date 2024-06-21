@@ -1,16 +1,13 @@
-<h1>GERENCIAMENTO <br>  <%= current_user.nome %> </h1>
-
 <body>
-<%= button_to "importar", "/telas/importar", method: :post %>
+    <div class="outer-container">
+      <div class="inner-container text-center">
+        <h1>Gerenciamento <br> <%= current_user.nome %> </h1>
 
-</body>
-
-<body>
-<%= button_to "mail", "/telas/mail", method: :post %>
-<body>
-
-<%= button_to(
-        "Log Out",
-        destroy_user_session_path,
-        method: :delete
-      ) %>
+        <div class="buttons">
+          <%= button_to "Import", "/telas/importar", method: :post, class: 'btn-custom' %>
+          <%= button_to "Mail", "/telas/mail", method: :post, class: 'btn-custom' %>
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn-custom' %>
+        </div>
+      </div>
+    </div>
+  </body>

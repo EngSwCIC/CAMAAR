@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get "/users/sign_up/:id_aluno", to: "telas#cadastro", as:"id_aluno"
 
   devise_for :users 
-
+  
   devise_scope :user do
     root to: "devise/sessions#new"
   end
@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   resources :alunos
   resource :senha
   resources :users
-
 
 
   get "/confirmar_senha", to: 'telas#cadastro_aluno'

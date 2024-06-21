@@ -1,18 +1,19 @@
-<h1>Cadastro</h1>
-
-
-<%= Aluno.find(params["id_aluno"]).nome %>
-
-<br>
-
-
-
-<%= form_for :senha, url: "/telas/cadastro_aluno", method: :post do |form| %>
-
-  <%= form.hidden_field :id, value: Aluno.find(params["id_aluno"]).id %>
-  <br>
-  <br>
-  <%= form.label :senha, "Senha:" %>
-  <%= form.text_field :senha %>
-  <%= form.submit "confirmar" %>
-<% end %>
+<body>
+  <div class="outer-container">
+    <div class="login-container">
+      <h1>Cadastro</h1>
+    <p><strong>Usuario: </strong> <%= Aluno.find(params["id_aluno"]).nome %></p>
+    
+    <%= form_for :senha, url: "/telas/cadastro_aluno", method: :post, html: { class: "custom-form" } do |form| %>
+      <%= form.hidden_field :id, value: Aluno.find(params["id_aluno"]).id %>
+      
+      <div class="field">
+        <%= form.label :senha, "Senha" %><br>
+        <%= form.text_field :senha, class: "form-control" %>
+      </div>
+      
+      <%= form.submit "Confirmar", class: "btn-custom" %>
+    <% end %>
+    </div>
+  </div>
+</body>

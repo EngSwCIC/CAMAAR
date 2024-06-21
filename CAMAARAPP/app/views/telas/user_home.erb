@@ -1,7 +1,11 @@
-<h1>Bem vindo  <%= current_user.nome %> </h1>
+<body>
+  <div class="outer-container">
+    <div class="inner-container text-center">    
+      <h1>Bem vindo  <%= current_user.nome %>!</h1>
 
-<%= button_to(
-        "Log Out",
-        destroy_user_session_path,
-        method: :delete
-      ) %>
+      <div class="buttons">
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn-custom' %>
+        </div>
+    </div>
+  </div>
+</body>

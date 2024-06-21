@@ -1,0 +1,159 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap";
+
+ body {
+    background-color: #020202;
+
+    color: white; 
+  }
+
+  .login-container {
+    max-width: 400px; 
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .login-form {
+    text-align: left; 
+  }
+  
+  .field {
+    text-align: center; 
+    margin-bottom: 10px; 
+  }
+  
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="password"] {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #fff; 
+    border-radius: 5px;
+    background-color: #000; 
+    color: #fff; 
+    box-sizing: border-box; 
+  }
+  
+  .remember-me {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+  }
+  
+  .actions {
+    text-align: center; 
+  }
+  
+  .actions {
+    text-align: center; 
+  }
+  
+  .actions input[type="submit"] {
+    background-color: #00ff4c; 
+    color: rgb(0, 0, 0); 
+    border-color:#00a531; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border: none; 
+    border-radius: 20px;
+    outline: none; 
+    cursor: pointer;
+    transition: background-color 0.1s ease; 
+
+  }
+  
+  .actions input[type="submit"]:hover {
+    background-color: #085c00; 
+
+  }
+
+  .login-links {
+    display: flex; 
+    justify-content: space-between;
+    margin-top: 10px; 
+  }
+  
+  .login-links a {
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+  }
+  
+  .login-links a:hover {
+    text-decoration: underline;
+    color:  #00ff4c; 
+  }
+
+  .notice,
+  .alert {
+    position: fixed; 
+    bottom: 20px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    background-color: #fff; 
+    color: #000; 
+    font-weight: bold;
+    padding: 15px 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000; 
+    width: auto;
+    max-width: 90%;
+    text-align: center; 
+    font-size: 20px; 
+  }
+
+  @keyframes slideIn {
+    from {
+      bottom: -50px; 
+      opacity: 0;
+    }
+    to {
+      bottom: 20px; 
+      opacity: 1; 
+    }
+  }
+  
+  .notice,
+  .alert {
+    animation: slideIn 0.5s ease-out;
+  }
+
+  .btn-custom {
+    background-color: #00ff4c; 
+    color: rgb(0, 0, 0); 
+    border-color: #00a531; 
+    padding: 10px 30px; 
+    font-size: 20px; 
+    border: none; 
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+    width: 45%;
+    height: 50px; 
+    margin: 7px 0;
+  }
+  
+  .btn-custom:hover {
+    background-color: #085c00; 
+  }
+  
