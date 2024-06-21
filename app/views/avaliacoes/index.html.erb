@@ -1,0 +1,11 @@
+<div>
+  <% @forms.each do |form| %>
+    <div>
+      <div>
+        <span><%= form.study_class.name %></span>
+        <span><%= form.study_class.semester %></span>
+      </div>
+      <span><%= form.study_class.docente.nome %></span>
+    </div>
+  <% end %>
+</div>

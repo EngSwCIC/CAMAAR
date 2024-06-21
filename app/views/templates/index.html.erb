@@ -1,0 +1,12 @@
+<div>
+  <h1>Templates</h1>
+
+  <div class="grid grid-cols-3 gap-8">
+    <% @templates.each do |template| %>
+      <div class="bg-white rounded-md p-4">
+        <h2>Template name: <%= template.name %></h2>
+        <%= button_to 'Delete', template_path(template), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </div>
+    <% end %>
+  </div>
+</div>
