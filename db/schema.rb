@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_21_171120) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_21_195032) do
   create_table "form_requests", force: :cascade do |t|
     t.integer "study_class_id", null: false
     t.integer "user_id", null: false
@@ -83,6 +83,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_21_171120) do
     t.string "ocupacao"
     t.string "curso"
     t.string "departamento"
+    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["matricula"], name: "index_users_on_matricula", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
