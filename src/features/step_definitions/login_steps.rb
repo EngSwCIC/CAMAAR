@@ -1,8 +1,22 @@
+module UserStepHelper
+    def create_user(params)
+      user = User.new(params)
+      user.skip_confirmation_notification!
+      user.save
+    end
+end
+
+World(UserStepHelper)
 
     Given(/^"([^"]*)" with login "([^"]*)" and password "([^"]*)" exists$/) do |nome, email, password|
     # Cria um usuário com email, senha e nome
-    RegistrationsController.create
-    
+    create_user({
+        :nome => nome, 
+        :email => email, 
+        :password => password, 
+        :password_confirmation => password,
+        :usuario => email
+    })
     end
 
     Given(/^I am logged out$/) do
@@ -12,7 +26,7 @@
 
     Given(/^I am on the login page$/) do
     # Visita a página
-    visit new_session_path
+    visit root_path
     end
 
     When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|

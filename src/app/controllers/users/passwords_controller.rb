@@ -34,7 +34,7 @@ class Users::PasswordsController < DeviseController
     yield resource if block_given?
 
     if resource.errors.empty?
-      # Única adição ao código do Devise -> consegue confirmar o usuário
+      # Única adição ao código do Devise -> consegue confirmar o usuário se ele ainda não está confirmado
       # Dessa forma a conta ainda não está confirmada sem redefinir a senha a primeira vez
       resource.confirm if !resource.confirmed?
       if resource_class.sign_in_after_reset_password
