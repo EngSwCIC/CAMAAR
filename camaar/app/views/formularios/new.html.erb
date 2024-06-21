@@ -2,19 +2,123 @@
 <html>
 <head>
   <title>Página Gerenciar Formulários</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    .sidebar {
+      width: 200px;
+      background-color: #343a40;
+      color: white;
+      padding: 20px;
+      height: 100vh;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      position: fixed;
+    }
+    .sidebar h2 {
+      color: #f8f9fa;
+      border-bottom: 1px solid #495057;
+      padding-bottom: 10px;
+    }
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+    .sidebar ul li {
+      margin: 10px 0;
+    }
+    .sidebar ul li a {
+      color: #adb5bd;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .sidebar ul li a:hover {
+      background-color: #495057;
+      color: white;
+    }
+    .sidebar a.back {
+      color: white;
+      display: block;
+      margin-top: 20px;
+      text-decoration: none;
+      padding: 10px;
+      background-color: #007BFF;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .sidebar a.back:hover {
+      background-color: #0056b3;
+    }
+    .content {
+      margin-left: 220px;
+      padding: 20px;
+      background-color: #fff;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .gerenciamento-menu {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 500px;
+    }
+    .gerenciamento-menu h2 {
+      margin-top: 0;
+    }
+    .gerenciamento-menu ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .gerenciamento-menu ul li {
+      margin: 10px 0;
+    }
+    .gerenciamento-menu ul li a {
+      text-decoration: none;
+      color: #007BFF;
+      padding: 10px 15px;
+      display: block;
+      border: 1px solid #007BFF;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .gerenciamento-menu ul li a:hover {
+      background-color: #007BFF;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-    <main>
-        <h1>Formulários</h1>
+    <!-- Menu Lateral -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+        <a class="back" href="<%= root_path %>">Voltar</a>
+        </ul>
+>
+    </div>
 
-        <!-- Menu de Gerenciamento -->
+    <!-- Conteúdo Principal -->
+    <div class="content">
         <div class="gerenciamento-menu">
             <h2>Menu de Gerenciamento</h2>
             <ul>
                 <li><%= link_to 'Importar Dados', new_formulario_path %></li>
-                <li><%= link_to 'Enviar formulários', formularios_path %></li>
+                <li><%= link_to 'Editar Templates', templates_path %></li>
+                <li><%= link_to 'Enviar Formulários', formularios_path %></li>
                 <li><%= link_to 'Resultados', export_csv_formularios_path(format: :csv) %></li>
             </ul>
         </div>
-    </main>
+    </div>
 </body>
+</html>
