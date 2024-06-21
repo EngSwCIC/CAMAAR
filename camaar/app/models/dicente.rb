@@ -1,6 +1,5 @@
 class Dicente < ApplicationRecord
-  has_many :classes, class_name: 'Classe'
-  belongs_to :user
+  has_and_belongs_to_many :turmas, join_table: 'turmas_dicentes'
 
   validates :matricula, presence: true
   validates :curso, presence: true

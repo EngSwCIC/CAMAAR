@@ -55,13 +55,35 @@
     <div class="management-contents" id="managementContents"  style="display: none;">
       <div class="button-box">
         <button type="button" class="button" id="btnImportarDados">Importar dados</button>
-        
+
         <button type="button" class="button" id="btnCriarFormularios">Criar Formulários</button>
         <button type="button" class="button" id="btnVerResultados">Resultados</button>
       </div>
 
       <div class="editor-box" id="ImportarDados" style="display: none;">
-        
+        <h1>Importar Disciplinas</h1>
+
+        <%= form_with url: import_disciplinas_path, local: true, method: :post, multipart: true do |form| %>
+          <div>
+            <%= form.label :file, "JSON File" %>
+            <%= form.file_field :file %>
+          </div>
+          <div>
+            <%= form.submit "Upload" %>
+          </div>
+        <% end %>
+
+        <h1>Importar Turmas</h1>
+
+        <%= form_with url: import_turmas_path, local: true, method: :post, multipart: true do |form| %>
+          <div>
+            <%= form.label :file, "JSON File" %>
+            <%= form.file_field :file %>
+          </div>
+          <div>
+            <%= form.submit "Upload" %>
+          </div>
+        <% end %>
       </div>
 
       <div class="editor-box" id="CriarFormularios" style="display: none;">
@@ -77,22 +99,22 @@
 
         <table>
           <tr>
-            <th style="width: 25%; padding: 10px;">Classe</th>
+            <th style="width: 25%; padding: 10px;">Turma</th>
             <th style="width: 25%; padding: 10px;">Data de Término</th>
             <th style="width: 25%; padding: 10px;">Semestre</th>
             <th style="width: 25%; padding: 10px;">Código</th>
           </tr>
 
-          <%@classes.each do |classe|%>
+          <%@turmas.each do |turma|%>
             <tr>
               <td>
                 <form><input type="checkbox" name="checked"></form>
               </td>
 
-              <td>classe.nome</td>
+              <td>turma.nome</td>
               <td><input type="date" name="data_termino"></td>
-              <td>classe.semestre</td>
-              <td>classe.class_code</td>
+              <td>turma.semestre</td>
+              <td>turma.class_code</td>
             </tr>
           <%end%>
         </table>
@@ -104,8 +126,8 @@
         <form class="template-selector-form">
           <label>Classes:
             <select class="template-selector" name="template">
-              <%@classes.each do |classe|%>
-                <option value="<%= classe.id %>"> classe.nome</option>
+              <%@turmas.each do |turma|%>
+                <option value="<%= turma.id %>"> turma.nome</option>
               <%end%>
             </select>
           </label>

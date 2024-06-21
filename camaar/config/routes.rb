@@ -23,11 +23,23 @@ Rails.application.routes.draw do
   #cria rotas para os métodos nos controllers de formulários, templates, alunos e turmas
   resources :templates
   resources :formularios
-  resources :disciplinas
   resources :docentes
   resources :dicentes
-  resources :classes
   resources :tipos
+
+  resources :turmas do
+    collection do
+      get :import
+      post :import
+    end
+  end
+
+  resources :disciplinas do
+    collection do
+      get :import
+      post :import
+    end
+  end
 
   # Define a rota para a página de login como a root
   devise_scope :user do

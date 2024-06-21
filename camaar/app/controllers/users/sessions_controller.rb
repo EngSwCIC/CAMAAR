@@ -1,7 +1,7 @@
 class Users::SessionsController < Devise::SessionsController
   def new
     # rota que leva para a root do programa
-    render 'devise/sessions/new.html.erb'
+    render 'devise/sessions/new'
   end
 
   def create

@@ -21,6 +21,6 @@ class ResultadosController < ApplicationController
   private
 
   def resultado_params
-    params.require(:resultado).permit(:nota, :dicente_id, :formulario_id, respostas_attributes: [:id, :questao_id, :conteudo])
+    params.require(:resultado).permit(:dicente_id, :formulario_id, respostas_attributes: [:id, :questao_id, :conteudo])
   end
 end

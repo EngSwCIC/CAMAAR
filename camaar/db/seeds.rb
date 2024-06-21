@@ -4,29 +4,32 @@
 #
 # Example:
 
-# Criando um novo user e tipos
-
 Tipo.create([
-  { nome: 'Confirmação', numeroDeAlternativas: 1, discursiva?: false},
-  { nome: 'Verdadeiro ou Falso', numeroDeAlternativas: 2, discursiva?: false },
-  { nome: 'Múltipla Escolha', numeroDeAlternativas: 4, discursiva?: false },
-  { nome: 'Discursiva', numeroDeAlternativas: 0, discursiva?: true}
+  { nome: 'confirmação', numeroDeAlternativas: 1, discursiva?: false},
+  { nome: 'satisfação', numeroDeAlternativas: 5, discursiva?: false},
+  { nome: 'múltipla escolha', numeroDeAlternativas: 4, discursiva?: false },
+  { nome: 'discursiva', numeroDeAlternativas: 0, discursiva?: true}
 ])
 
-usuarios = [
-  {nome: "MARISTELA TERTO DE HOLANDA",
-  email: "mholanda@unb.br",
-  password: 'banco_de_dados_1234?',
-  usuario: "83807519491",
-  formacao: "DOUTORADO",
-  role: :docente},
+Disciplina.create!(
+  nome: 'Introdução ao Cálculo',
+  codigo: 'MAT001'
+)
 
+usuarios = [
   {nome: "fulano",
   email: "exemplo@unb.br",
   password: 'senha123',
   usuario: "000001",
   formacao: "graduando",
-  role: :dicente}
+  role: :dicente},
+
+  {nome: "administrador",
+  email: "adm@unb.br",
+  password: 'o_pai_ta_on_123',
+  usuario: "83807519491",
+  formacao: "DOUTORADO",
+  role: :docente}
 ]
 
 usuarios.each do |user_data|
@@ -39,18 +42,75 @@ usuarios.each do |user_data|
     role: user_data[:role]
   )
 
-  if user.role == 'docente'
+  if user.docente?
     Docente.create!(
       user_id: user.id,
       departamento: "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
     )
-  elsif user.role == 'dicente'
+  elsif user.dicente?
     Dicente.create!(
       user_id: user.id,
       curso: "CIÊNCIAS DA COMPUTAÇÃO",
-      matricula: "00001"
+      matricula: "000001"
     )
   end
 end
 
-puts "Seed de Docente criada com sucesso!"
+  Dicente.find_by(user_id: User.find_by(nome: "fulano"))
+
+  turma1 = Turma.create!(
+    semestre: '2024.2',
+    horario: '24M12',
+    class_code: 'TA',
+    codigo: 'MAT001',
+    disciplina: Disciplina.find_by(nome: "Introdução ao Cálculo"),
+    docente: Docente.find_by(user_id: User.find_by(nome: "administrador").id)
+  )
+
+  fulano = Dicente.find_by(user_id: User.find_by(nome: "fulano").id)
+
+  fulano.turmas << turma1
+  turma1.dicentes << fulano
+
+  template1 = Template.create!(
+  nome: 'Satisfação de Calculo 1',
+  docente_id: Docente.find_by(user_id: User.find_by(nome: "administrador").id).id,
+  questaos_attributes: [
+    {
+      pergunta: 'O que achou da matéria de Calculo 1?',
+      tipo: Tipo.find_by(nome: 'satisfação'),
+      alternativas_attributes: [
+        { texto: 'Muito ruim' },
+        { texto: 'Ruim' },
+        { texto: 'Médio' },
+        { texto: 'Bom' },
+        { texto: 'Muito bom'}
+      ]
+    },
+    {
+      pergunta: 'Qual é a derivada de x elevado ao quadrado?',
+      tipo: Tipo.find_by(nome: 'múltipla escolha'),
+      alternativas_attributes: [
+        { texto: '2x' },
+        { texto: 'x' },
+        { texto: '2x elevado ao quadrado' },
+        { texto: '2 + x' }
+      ]
+    },
+    {
+      pergunta: 'O que acha que poderia melhorar no curso?',
+      tipo: Tipo.find_by(nome: 'discursiva')
+    }
+    ]
+  )
+
+  provasDerivadas = Formulario.find_or_create_by(
+    nome: 'Prova de Derivadas',
+    docente_id: Docente.find_by(nome: "administrador").id,
+    turma_id: formularios_classe.classe_id,
+    template_id: template1.id,
+    dataDeTermino: Date.new(2024, 7, 1)
+)
+  provaDerivadas.classes << Calculo1
+
+  post 'Seed percorrida com sucesso'
