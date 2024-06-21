@@ -1,0 +1,11 @@
+{
+  "templateName": "Meu Novo Template",
+  "questions": [
+    {
+      "type": "text",
+      "options": [
+        "Opção 1"
+      ]
+    }
+  ]
+}
