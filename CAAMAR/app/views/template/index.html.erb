@@ -1,0 +1,46 @@
+<%= render '/navbar/navbar' %>
+
+<h1>Criar Template</h1>
+
+<div class="grid-container">
+    <%= form_with url: import_templatecreates_path, method: :post do |f| %>
+    <div class="field">
+        <%= f.label "Nome:" %>
+        <%= f.text_field :name%>
+    </div>
+
+    <div id="qs">
+
+    </div>
+
+    <div>
+        <button class="btn btn-secondary" onclick="haveFun()">Adicionar questão discursiva</button>
+        <!-- <button class="btn btn-secondary" onclick="radioButtonAdd()">Adicionar questão de múltipla escolha</button> -->
+    </div>
+    
+    <%= f.submit "Criar template", class: "btn btn-primary" %>
+    <% end %>
+</div>
+
+<script>
+
+  haveFun = () => {
+    pai = document.getElementById("qs");
+
+    filho = document.createElement("div");
+    
+    tipo = document.createElement("label");
+    tipo.text = "teste";
+    
+    filho.appendChild(tipo);
+
+    filho.id = pai.childElementCount;
+
+    pai.appendChild(filho);
+  }
+
+  radionButtonAdd = () => {
+    alert("vou fazer ainda");
+  }
+
+</script>

@@ -22,6 +22,11 @@ Rails.application.routes.draw do
   # resource to read json files
   get 'uploader', to: 'uploader#index'
 
+  get 'template', to: 'template#index'
+  get 'getemps', to: 'gerenciamento#show_templates'
+
+  post 'delete_template', to: 'template#delete_template', as: 'delete_template'
+
   resources :jsonfiles do
     collection do
       post :import
@@ -35,6 +40,18 @@ Rails.application.routes.draw do
     end
   end
 
+  # resource to suposebly create template
+  resource :templatecreates do
+    collection do
+      post :import
+    end
+  end
+
+  resource :template do
+    collection do
+      post :delete
+    end
+  end
 
   #
   get 'forms_answer/index'
