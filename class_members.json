@@ -401,13 +401,27 @@
         "email": "wilxavier@me.com"
       }
     ],
-    "docente": {
+
+    "docente": [
+      {
       "nome": "MARISTELA TERTO DE HOLANDA",
       "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO",
       "formacao": "DOUTORADO",
       "usuario": "83807519491",
       "email": "mholanda@unb.br",
       "ocupacao": "docente"
-    }
+      },
+
+      {
+        "nome": "JOSÉ JOÃO MARIA SILVA",
+        "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO",
+        "formacao": "DOUTORADO",
+        "usuario": "83807519491",
+        "email": "jjmsilva@unb.br",
+        "ocupacao": "coordenador"
+        }
+
+      
+    ]
   }
 ]
