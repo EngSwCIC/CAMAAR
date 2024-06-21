@@ -3,13 +3,7 @@ class TemplatecreatesController < ApplicationController
 
       name = params[:name]
 
-      q1 = {
-        "id": 1,
-        "prompt": "for a greater cause",
-        "type": "open" 
-      }
-
-      qs = [q1]
+      qs = JSON.parse(params[:stringq])
 
       path = 'db/json/templates.json'
 

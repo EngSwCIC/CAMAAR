@@ -4,19 +4,15 @@
 
 <div class="grid-container">
     <%= form_with url: import_templatecreates_path, method: :post do |f| %>
-    <div class="field">
+      <div class="field">
         <%= f.label "Nome:" %>
-        <%= f.text_field :name%>
-    </div>
+        <%= f.text_field :name, required: true %>
+      </div>
 
-    <div id="qs">
-
-    </div>
-
-    <div>
-        <button class="btn btn-secondary" onclick="haveFun()">Adicionar questão discursiva</button>
-        <!-- <button class="btn btn-secondary" onclick="radioButtonAdd()">Adicionar questão de múltipla escolha</button> -->
-    </div>
+      <div id="qs">
+        <%= f.label "Questoes:" %>
+        <%= f.text_area :stringq, required: true %>
+      </div>
     
     <%= f.submit "Criar template", class: "btn btn-primary" %>
     <% end %>
