@@ -1,7 +1,7 @@
 <div class="flex flex-col p-4">
   <% options.each_with_index do |op, idx| %>
     <div class="flex flex-row gap-2 items-center">
-      <%= form.radio_button(question_id, idx) %>
+      <%= form.radio_button("answer_#{question_id}", idx) %>
       <%= form.label("#{question_id}_#{idx}", op) %>
     </div>
   <% end %>

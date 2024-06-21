@@ -4,11 +4,15 @@ Feature: Respond to Questionnaire
   So that I can submit my evaluation of the class
 
   Background: Starting on the questionnaire page
-    Given I am on the Avaliacoes page
+    Given I am logged in as a student
+    And There is a form request
 
   Scenario: Successfully submitting the questionnaire (happy path)
-    When I fill in "O que você achou da turma?" with "Ótima turma"
-    And I fill in "O que você achou do professor?" with "Ótimo professor"
+    When I visit the RespondForm page
+    Then I should see "O que você achou da turma?"
+    And I should see "O que você achou do professor?"
+    When I fill in "answer_0" with "Ótima turma"
+    And I fill in "answer_1" with "Ótimo professor"
     And I press "Enviar"
     Then I should see "Obrigado pelas respostas"
     And my responses should be saved in the database

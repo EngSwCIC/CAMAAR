@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/avaliacoes', to: 'avaliacoes#index'
 
   scope :avaliacoes do
-    resources :response, only: [:show, :show, :create, :destroy]
+    resources :response, only: [:show, :create, :update, :destroy]
   end
 
   get '/gerenciamento', to: 'gerenciamento#index'

@@ -2,7 +2,7 @@
   <span><%= question[:index] + 1 %>. <%= question[:title] %></span>
   <% if question[:type] == "text" %>
     <div class="flex w-full p-4">
-      <%= form.text_field(question[:index], class: "w-full p-2 rounded-lg")  %>
+      <%= form.text_field("answer_#{question[:index]}", class: "w-full p-2 rounded-lg")  %>
     </div>
   <% elsif question[:type] == "radio" %>
     <%= render partial: 'radio_answer', :locals => {
