@@ -35,11 +35,14 @@ class TemplatesController < ApplicationController
   # FIXME: Move this route to /templates instead of /templates/:id so that we don't get the template id twice
   # POST: Gives students of disciplines access to a form copied from the given template
   def send_out_forms
+    return redirect_to root_path unless user_authenticated && admin_user?
     params.permit(:authenticity_token, :commit, :id, :template_id, discipline_ids: [])
-    return unless user_authenticated && admin_user?
 
     params[:discipline_ids].each do |discipline_id|
       Form.create! template: Template.find(params[:template_id]), discipline: Discipline.find(discipline_id)
     end
+
+    flash[:success] = 'Formulários enviados com sucesso'
+    redirect_to manager_path
   end
 end
