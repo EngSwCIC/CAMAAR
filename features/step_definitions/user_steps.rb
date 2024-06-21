@@ -1,4 +1,4 @@
-Given('I am an administrator') do
+Given(/^(?:I am |There is )?a valid administrator(?: on the system)?$/) do
   email = 'coordenador@gmail.com'
   password = '$2a$12$9sauXRcV/alggmsRweudU.oQv2grJQH/lq7M97PTlO7TB/2RVKNzu' # TOKEN_587
   salt = '$2a$12$9sauXRcV/alggmsRweudU.'
@@ -12,4 +12,13 @@ Given('I am an administrator') do
   @user.created_at = created_at
   @user.is_admin = is_admin
   @user.save!
+end
+
+Given(/^(?: I am )?logged in as an administrator$/) do
+  step 'a valid administrator'
+
+  visit login_path
+  fill_in :email, with: 'coordenador@gmail.com'
+  fill_in :password, with: 'TOKEN_587'
+  click_button 'Entrar'
 end

@@ -1,10 +1,8 @@
 Feature: User login
 
   Scenario: Logging in with valid admin credentials
-    Given I am an administrator
-    When I login with the following credentials:
-      | email    | coordenador@gmail.com |
-      | password | TOKEN_587             |
+    Given There is a valid administrator
+    When I login with default administrator credentials
     Then I should be logged in to the system as an administrator
   #   Given I am on the login page
   #   When I enter my registration number
