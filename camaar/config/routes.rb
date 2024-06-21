@@ -24,10 +24,14 @@ Rails.application.routes.draw do
   # Define a rota para a página de login como a root
   devise_scope :user do
     root to: "devise/sessions#new"
-    get 'users/change_password', to: 'devise/passwords#edit', as: :change_password
+    get 'change_password', to: 'devise/passwords#edit', as: :change_password
+    # get 'users/change_password', to: 'devise/passwords#edit', as: :change_password
   end
 
   # Define a rota para a homepage de users do tipo aluno e adm
   get 'home_dicente', to: 'pages#home_dicente'
   get 'home_docente', to: 'pages#home_docente'
+
+  # Define a rota para definição de senha pelo discente
+  
 end
