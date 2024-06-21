@@ -1,11 +1,11 @@
-<!-- app/views/sessions/login.html.erb -->
+<!-- app/views/pages/login.html.erb -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <%= stylesheet_link_tag 'recuperar_senha', media: 'all' %>
+  <%= stylesheet_link_tag 'login', media: 'all' %>
 </head>
 <body>
 <div id="container">
@@ -34,7 +34,7 @@
         <%= image_tag 'olho_aberto.svg', class: 'olho_aberto', id: 'olho_senha', onclick: 'mostrar_ocultar()' %>
       </div>
       <div>
-        <a href="<%= url_for(controller: :pages, action: :recuperar_senha) %>">Esqueci a senha</a>
+        <a id="esqueci_senha_link" href="#">Esqueci a senha</a>
       </div>
       <div>
         <button class="bnt_enviar" type="submit">Entrar</button>
@@ -47,6 +47,37 @@
     </div>
   <% end %>
 </div>
-#<%= javascript_include_tag 'main' %>
+<%= javascript_include_tag 'main' %>
+
+<script>
+    document.getElementById('esqueci_senha_link').addEventListener('click', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        if (username) {
+            fetch('<%= verify_user_path %>', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': '<%= form_authenticity_token %>'
+                },
+                body: JSON.stringify({ username: username })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.found) {
+                        window.location.href = data.url;
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+        } else {
+            alert('Por favor, insira o usuário.');
+        }
+    });
+</script>
+
 </body>
 </html>
