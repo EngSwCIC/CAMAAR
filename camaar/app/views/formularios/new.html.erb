@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página Gerenciar Formulários</title>
+</head>
+<body>
+    <main>
+        <h1>Formulários</h1>
+
+        <!-- Menu de Gerenciamento -->
+        <div class="gerenciamento-menu">
+            <h2>Menu de Gerenciamento</h2>
+            <ul>
+                <li><%= link_to 'Importar Dados', new_formulario_path %></li>
+                <li><%= link_to 'Enviar formulários', formularios_path %></li>
+                <li><%= link_to 'Resultados', export_csv_formularios_path(format: :csv) %></li>
+            </ul>
+        </div>
+    </main>
+</body>

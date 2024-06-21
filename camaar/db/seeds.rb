@@ -11,7 +11,7 @@ require 'factory_bot_rails'
 
 include FactoryBot::Syntax::Methods
 
-=begin dá erro de repetição de email
+
 create(:user, nome: "Admin User", email: "admin@example.com",
 curso: "CIÊNCIA DA COMPUTAÇÃO/CIC",matricula: "190084006", formacao: "doutorado", ocupacao: "docente",
 password: "123456789", role: :admin, password_confirmation: "123456789",
@@ -20,10 +20,10 @@ reset_password_sent_at: nil, remember_created_at: nil)
 create(:user, nome: "User", email: "user@example.com",
 curso: "CIÊNCIA DA COMPUTAÇÃO/CIC",
 matricula: "190085006", formacao: "graduando", ocupacao: "dicente",
-password: "123456789",role: :user,
-password_confirmation: "123456789", reset_password_token: nil,
+password: "123456",role: :user,
+password_confirmation: "123456", reset_password_token: nil,
 reset_password_sent_at: nil, remember_created_at: nil)
-=end
+
 
 create_list(:user, 5)
 
@@ -40,7 +40,7 @@ create_list(:template, 2)
 
 # Create formularios with associations
 create_list(:formulario, 5) do |formulario|
-  # Assign  random turma and template
+  # Assign random turma and template
   formulario.turma = Turma.all.sample
   formulario.template = Template.all.sample
 end
