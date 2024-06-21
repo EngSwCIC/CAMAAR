@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
 
   get 'recuperar_senha', to: 'pages#recuperar_senha', as: 'recuperar_senha'
+  post 'update_password', to: 'pages#update_password', as: 'update_password'
 
   get 'criar_templete', to: 'pages#criar_templete', as: 'criar_templete'
 

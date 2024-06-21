@@ -11,32 +11,22 @@ class PagesController < ApplicationController
 
   end
 
+  def update_password
+    @user = User.find_by(usuario: params[:username])
 
-  def redefinir_senha
-    @usuario = params[:usuario]
-    # Renderiza a view de redefinição de senha
-  end
-
-  def atualizar_senha
-    usuario = params[:usuario]
-    new_password = params[:new_password]
-    new_password_confirmation = params[:new_password_confirmation]
-
-    if new_password == new_password_confirmation
-      user = User.find_by(usuario: usuario)
-      if user
-        user.update(password: new_password)
-        flash[:notice] = "Senha atualizada com sucesso."
-        redirect_to login_path
+    if @user.present? && params[:new_password] == params[:new_password_confirmation]
+      if @user.update(password: params[:new_password])
+        redirect_to login_path, notice: 'Senha alterada com sucesso.'
       else
-        flash[:alert] = "Usuário não encontrado."
-        redirect_to redefinir_senha_path(usuario: usuario)
+        flash.now[:alert] = 'Houve um problema ao alterar sua senha. Por favor, tente novamente.'
+        render :recuperar_senha
       end
     else
-      flash[:alert] = "As senhas não coincidem."
-      redirect_to redefinir_senha_path(usuario: usuario)
+      flash.now[:alert] = 'As senhas não coincidem ou usuário não encontrado.'
+      render :recuperar_senha
     end
   end
+
 
   def criar_templete
     # Renderiza a view de criação de templete

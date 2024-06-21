@@ -8323,3 +8323,1274 @@ Processing by PagesController#recuperar_senha as HTML
 Completed 200 OK in 39ms (Views: 35.0ms | ActiveRecord: 0.0ms | Allocations: 22135)
 
 
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 08:45:43 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 111.1ms | Allocations: 29927)
+  Rendered layout layouts/application.html.erb (Duration: 138.3ms | Allocations: 47068)
+Completed 200 OK in 182ms (Views: 154.8ms | ActiveRecord: 0.0ms | Allocations: 51749)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:45:48 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 7.5ms | Allocations: 2885)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 4361)
+Completed 200 OK in 15ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 4701)
+
+
+Started GET "/recuperar_senha?username=joao_user" for ::1 at 2024-06-21 08:45:52 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"username"=>"joao_user"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 6.3ms | Allocations: 3337)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 4813)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 5090)
+
+
+Started GET "/recuperar_senha?username=joao_user" for ::1 at 2024-06-21 08:47:22 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"username"=>"joao_user"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 6.3ms | Allocations: 3855)
+  Rendered layout layouts/application.html.erb (Duration: 33.9ms | Allocations: 20787)
+Completed 200 OK in 43ms (Views: 38.7ms | ActiveRecord: 0.0ms | Allocations: 21713)
+
+
+Started GET "/" for ::1 at 2024-06-21 08:47:29 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2866)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 4352)
+Completed 200 OK in 14ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 4690)
+
+
+Started GET "/" for ::1 at 2024-06-21 08:47:33 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2360)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3836)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 4110)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:47:39 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2349)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 3825)
+Completed 200 OK in 13ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 4099)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 08:47:45 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 6.8ms | Allocations: 3342)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 4818)
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 5092)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 08:48:01 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 5.4ms | Allocations: 3337)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 4813)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 5089)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 08:48:19 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 6.9ms | Allocations: 3881)
+  Rendered layout layouts/application.html.erb (Duration: 31.0ms | Allocations: 20735)
+Completed 200 OK in 39ms (Views: 35.7ms | ActiveRecord: 0.0ms | Allocations: 21659)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 08:48:21 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 5.6ms | Allocations: 3348)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4834)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 5108)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 08:48:24 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 5.1ms | Allocations: 3335)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 4811)
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 5085)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 08:48:29 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 6.1ms | Allocations: 3316)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4792)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 5066)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 08:48:30 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3338)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4814)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.0ms | Allocations: 5088)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 08:48:32 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 5.7ms | Allocations: 3347)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4823)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 5097)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:48:39 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2858)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4334)
+Completed 200 OK in 15ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4668)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:48:40 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2354)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3830)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 4104)
+
+
+Started GET "/home" for ::1 at 2024-06-21 08:48:52 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 11.6ms | Allocations: 4377)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 5853)
+Completed 200 OK in 20ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 6187)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 08:48:55 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 5.6ms | Allocations: 3343)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4819)
+Completed 200 OK in 13ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 5093)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 08:50:52 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2526)
+  Rendered layout layouts/application.html.erb (Duration: 28.4ms | Allocations: 19662)
+Completed 200 OK in 36ms (Views: 32.7ms | ActiveRecord: 0.0ms | Allocations: 20586)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:51:01 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 7.6ms | Allocations: 2867)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4345)
+Completed 200 OK in 15ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 4679)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:51:13 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2348)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3824)
+Completed 200 OK in 14ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4098)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:52:01 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2947)
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | Allocations: 19711)
+Completed 200 OK in 35ms (Views: 31.9ms | ActiveRecord: 0.0ms | Allocations: 20631)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:52:04 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2351)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 3827)
+Completed 200 OK in 12ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 4101)
+
+
+Started GET "/recuperar_senha?username=joao_user" for ::1 at 2024-06-21 08:52:07 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"username"=>"joao_user"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2459)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4150)
+Completed 200 OK in 14ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 4485)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:52:16 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2376)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 3862)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 4136)
+
+
+Started GET "/recuperar_senha?username=joao_user" for ::1 at 2024-06-21 08:52:20 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"username"=>"joao_user"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2205)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 3858)
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 4132)
+
+
+Started POST "/login" for ::1 at 2024-06-21 08:55:55 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:25:in `create'
+Redirected to http://localhost:3000/recuperar_senha
+Completed 302 Found in 64ms (ActiveRecord: 2.8ms | Allocations: 25316)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 08:55:55 -0300
+Processing by PagesController#recuperar_senha as TURBO_STREAM
+Redirected to http://localhost:3000/login
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 411)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:55:55 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2970)
+  Rendered layout layouts/application.html.erb (Duration: 29.3ms | Allocations: 19909)
+Completed 200 OK in 38ms (Views: 34.2ms | ActiveRecord: 0.0ms | Allocations: 20838)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:55:59 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2363)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 3853)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 4127)
+
+
+Started POST "/login" for ::1 at 2024-06-21 08:56:12 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"190075384", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "190075384"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:25:in `create'
+Redirected to http://localhost:3000/home
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms | Allocations: 767)
+
+
+Started GET "/home" for ::1 at 2024-06-21 08:56:12 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.6ms | Allocations: 4280)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 5757)
+Completed 200 OK in 15ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 6095)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:56:13 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2401)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 3877)
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 4153)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:56:15 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2344)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 3820)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 4094)
+
+
+Started POST "/login" for ::1 at 2024-06-21 08:56:18 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:25:in `create'
+Redirected to http://localhost:3000/recuperar_senha
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 742)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 08:56:18 -0300
+Processing by PagesController#recuperar_senha as TURBO_STREAM
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 349)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:56:18 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2390)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 3866)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 4145)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:56:21 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 7.1ms | Allocations: 2357)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 3833)
+Completed 200 OK in 14ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4107)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:57:05 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 7.1ms | Allocations: 2958)
+  Rendered layout layouts/application.html.erb (Duration: 31.1ms | Allocations: 19879)
+Completed 200 OK in 39ms (Views: 35.8ms | ActiveRecord: 0.0ms | Allocations: 20802)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:57:11 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2373)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 3862)
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 4136)
+
+
+Started GET "/login" for ::1 at 2024-06-21 08:57:19 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2353)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 3829)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 4103)
+
+
+Started POST "/login" for ::1 at 2024-06-21 08:57:24 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:25:in `create'
+Redirected to http://localhost:3000/recuperar_senha
+Completed 302 Found in 13ms (ActiveRecord: 2.8ms | Allocations: 6566)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 08:57:24 -0300
+Processing by PagesController#recuperar_senha as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2441)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 4120)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 4497)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:01:13 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2944)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 19779)
+Completed 200 OK in 36ms (Views: 32.2ms | ActiveRecord: 0.0ms | Allocations: 20704)
+
+
+Started POST "/login" for ::1 at 2024-06-21 09:01:23 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:25:in `create'
+Redirected to http://localhost:3000/recuperar_senha?usuario=joao_user
+Completed 302 Found in 13ms (ActiveRecord: 2.5ms | Allocations: 6516)
+
+
+Started GET "/recuperar_senha?usuario=joao_user" for ::1 at 2024-06-21 09:01:23 -0300
+Processing by PagesController#recuperar_senha as TURBO_STREAM
+  Parameters: {"usuario"=>"joao_user"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 8.4ms | Allocations: 2446)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 4151)
+Completed 200 OK in 16ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 4528)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:01:26 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2367)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 3858)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 4134)
+
+
+Started GET "/recuperar_senha?username=joao_user" for ::1 at 2024-06-21 09:01:29 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"username"=>"joao_user"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2216)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 3887)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 4161)
+
+
+Started POST "/login" for ::1 at 2024-06-21 09:01:42 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:25:in `create'
+Redirected to http://localhost:3000/recuperar_senha?usuario=joao_user
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 757)
+
+
+Started GET "/recuperar_senha?usuario=joao_user" for ::1 at 2024-06-21 09:01:42 -0300
+Processing by PagesController#recuperar_senha as TURBO_STREAM
+  Parameters: {"usuario"=>"joao_user"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2205)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3875)
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 4154)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:05:18 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2965)
+  Rendered layout layouts/application.html.erb (Duration: 26.4ms | Allocations: 19890)
+Completed 200 OK in 36ms (Views: 31.6ms | ActiveRecord: 0.0ms | Allocations: 20815)
+
+
+Started GET "/recuperar_senha?username=joao_user" for ::1 at 2024-06-21 09:05:24 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"username"=>"joao_user"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:11:in `recuperar_senha'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 12ms (ActiveRecord: 2.8ms | Allocations: 6464)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:05:24 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2372)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3848)
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 4122)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:05:26 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 8.6ms | Allocations: 2352)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 3849)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 4123)
+
+
+Started GET "/recuperar_senha?username=joao_user" for ::1 at 2024-06-21 09:05:30 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"username"=>"joao_user"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:11:in `recuperar_senha'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 696)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:05:30 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2397)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3889)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 4163)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:05:32 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2363)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3842)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 4116)
+
+
+Started POST "/login" for ::1 at 2024-06-21 09:05:38 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:25:in `create'
+Redirected to http://localhost:3000/recuperar_senha?usuario=joao_user
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 820)
+
+
+Started GET "/recuperar_senha?usuario=joao_user" for ::1 at 2024-06-21 09:05:38 -0300
+Processing by PagesController#recuperar_senha as TURBO_STREAM
+  Parameters: {"usuario"=>"joao_user"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:11:in `recuperar_senha'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 927)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:05:39 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2387)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 3864)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 4180)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:05:40 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2365)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 3841)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4115)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:05:51 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2948)
+  Rendered layout layouts/application.html.erb (Duration: 26.5ms | Allocations: 19872)
+Completed 200 OK in 36ms (Views: 32.2ms | ActiveRecord: 0.0ms | Allocations: 20795)
+
+
+Started GET "/recuperar_senha?username=joao_user" for ::1 at 2024-06-21 09:06:33 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"username"=>"joao_user"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:11:in `recuperar_senha'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 79ms (ActiveRecord: 2.6ms | Allocations: 12853)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:06:33 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2377)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 3872)
+Completed 200 OK in 13ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 4146)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:06:43 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2335)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 3811)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 4085)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:07:00 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2966)
+  Rendered layout layouts/application.html.erb (Duration: 27.4ms | Allocations: 19891)
+Completed 200 OK in 37ms (Views: 32.5ms | ActiveRecord: 0.0ms | Allocations: 20814)
+
+
+Started POST "/login" for ::1 at 2024-06-21 09:07:07 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:25:in `create'
+Redirected to http://localhost:3000/recuperar_senha?usuario=joao_user
+Completed 302 Found in 12ms (ActiveRecord: 2.6ms | Allocations: 6505)
+
+
+Started GET "/recuperar_senha?usuario=joao_user" for ::1 at 2024-06-21 09:07:07 -0300
+Processing by PagesController#recuperar_senha as TURBO_STREAM
+  Parameters: {"usuario"=>"joao_user"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:11:in `recuperar_senha'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 1215)
+
+
+  
+NoMethodError (undefined method `nil' for #<User id: 1, email: "email@unb.com.br", senha: "password", nome: nil, curso: nil, matricula: nil, usuario: nil, formacao: nil, ocupacao: nil, departamento: nil, password_digest: nil>):
+  
+app/controllers/pages_controller.rb:12:in `recuperar_senha'
+Started GET "/login" for ::1 at 2024-06-21 09:07:14 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2389)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 3884)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 4159)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:07:37 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2940)
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 19863)
+Completed 200 OK in 35ms (Views: 31.3ms | ActiveRecord: 0.0ms | Allocations: 20783)
+
+
+Started GET "/recuperar_senha?username=joao_user" for ::1 at 2024-06-21 09:07:45 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"username"=>"joao_user"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:15:in `recuperar_senha'
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 2.5ms | Allocations: 13233)
+
+
+  
+NoMethodError (undefined method `nil' for #<User id: 5, email: "joao@example.com", senha: nil, nome: "João", curso: "Engenharia de Software", matricula: "202300001", usuario: "joao_user", formacao: "graduando", ocupacao: "dicente", departamento: nil, password_digest: [FILTERED]>):
+  
+app/controllers/pages_controller.rb:16:in `recuperar_senha'
+Started POST "/login" for ::1 at 2024-06-21 09:07:58 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:25:in `create'
+Redirected to http://localhost:3000/recuperar_senha?usuario=joao_user
+Completed 302 Found in 13ms (ActiveRecord: 2.2ms | Allocations: 6582)
+
+
+Started GET "/recuperar_senha?usuario=joao_user" for ::1 at 2024-06-21 09:07:58 -0300
+Processing by PagesController#recuperar_senha as TURBO_STREAM
+  Parameters: {"usuario"=>"joao_user"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2518)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 19663)
+Completed 200 OK in 35ms (Views: 30.9ms | ActiveRecord: 0.0ms | Allocations: 20625)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:08:04 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2867)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 4343)
+Completed 200 OK in 15ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 4679)
+
+
+Started GET "/recuperar_senha?username=joao_user" for ::1 at 2024-06-21 09:08:08 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"username"=>"joao_user"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2205)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 3857)
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 4131)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:08:54 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2344)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3820)
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 4094)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:09:30 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2991)
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | Allocations: 19935)
+Completed 200 OK in 40ms (Views: 36.8ms | ActiveRecord: 0.0ms | Allocations: 20858)
+
+
+Started POST "/login" for ::1 at 2024-06-21 09:12:53 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"190075384", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "190075384"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:25:in `create'
+Redirected to http://localhost:3000/home
+Completed 302 Found in 14ms (ActiveRecord: 2.6ms | Allocations: 6570)
+
+
+Started GET "/home" for ::1 at 2024-06-21 09:12:53 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.7ms | Allocations: 4460)
+  Rendered layout layouts/application.html.erb (Duration: 28.5ms | Allocations: 21448)
+Completed 200 OK in 37ms (Views: 33.2ms | ActiveRecord: 0.0ms | Allocations: 22414)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:12:54 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2934)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 4410)
+Completed 200 OK in 15ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 4746)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:12:56 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2344)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 3820)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4094)
+
+
+Started POST "/login" for ::1 at 2024-06-21 09:13:08 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:25:in `create'
+Redirected to http://localhost:3000/recuperar_senha?usuario=joao_user
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 769)
+
+
+Started GET "/recuperar_senha?usuario=joao_user" for ::1 at 2024-06-21 09:13:09 -0300
+Processing by PagesController#recuperar_senha as TURBO_STREAM
+  Parameters: {"usuario"=>"joao_user"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2442)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4103)
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 4443)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:13:11 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2359)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 3835)
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 4111)
+
+
+Started POST "/login" for ::1 at 2024-06-21 09:13:14 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"bla", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "bla"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:25:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms | Allocations: 715)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:13:14 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2382)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 3858)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 4137)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:13:16 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2326)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 3802)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 4076)
+
+
+Started POST "/login" for ::1 at 2024-06-21 09:13:25 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"190075384", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "190075384"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:25:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 756)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:13:25 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2385)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 3861)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4140)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:13:26 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2344)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 3820)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 4094)
+
+
+Started GET "/recuperar_senha?username=190075384" for ::1 at 2024-06-21 09:13:39 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"username"=>"190075384"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2205)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3881)
+Completed 200 OK in 13ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 4155)
+
+
+Started GET "/recuperar_senha?username=190075384" for ::1 at 2024-06-21 09:19:34 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"username"=>"190075384"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2530)
+  Rendered layout layouts/application.html.erb (Duration: 30.6ms | Allocations: 19813)
+Completed 200 OK in 39ms (Views: 35.4ms | ActiveRecord: 0.0ms | Allocations: 20739)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:20:02 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2977)
+  Rendered layout layouts/application.html.erb (Duration: 26.8ms | Allocations: 19863)
+Completed 200 OK in 36ms (Views: 32.0ms | ActiveRecord: 0.0ms | Allocations: 20787)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:20:31 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.8ms | Allocations: 3042)
+  Rendered layout layouts/application.html.erb (Duration: 30.8ms | Allocations: 20005)
+Completed 200 OK in 40ms (Views: 35.7ms | ActiveRecord: 0.0ms | Allocations: 20925)
+
+
+Started POST "/verify_user" for ::1 at 2024-06-21 09:20:36 -0300
+Processing by SessionsController#verify_user as */*
+  Parameters: {"username"=>"joao_user", "session"=>{"username"=>"joao_user"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:26:in `verify_user'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.5ms | Allocations: 3127)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: users.username):
+  
+Started POST "/verify_user" for ::1 at 2024-06-21 09:20:56 -0300
+Processing by SessionsController#verify_user as */*
+  Parameters: {"username"=>"190075384", "session"=>{"username"=>"190075384"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "190075384"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:26:in `verify_user'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.4ms | Allocations: 1709)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: users.username):
+  
+Started POST "/verify_user" for ::1 at 2024-06-21 09:22:29 -0300
+Processing by SessionsController#verify_user as */*
+  Parameters: {"username"=>"190075384", "session"=>{"username"=>"190075384"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "190075384"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:26:in `verify_user'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms | Allocations: 1704)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: users.username):
+  
+Started GET "/login" for ::1 at 2024-06-21 09:24:07 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.5ms | Allocations: 3057)
+  Rendered layout layouts/application.html.erb (Duration: 35.1ms | Allocations: 20136)
+Completed 200 OK in 44ms (Views: 40.9ms | ActiveRecord: 0.0ms | Allocations: 21056)
+
+
+Started POST "/verify_user" for ::1 at 2024-06-21 09:24:14 -0300
+Processing by SessionsController#verify_user as */*
+  Parameters: {"username"=>"190075384", "session"=>{"username"=>"190075384"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "190075384"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:26:in `verify_user'
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 2.5ms | Allocations: 6655)
+
+
+Started GET "/recuperar_senha?username=190075384" for ::1 at 2024-06-21 09:24:14 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"username"=>"190075384"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2471)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4162)
+Completed 200 OK in 15ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4494)
+
+
+Started POST "/login" for ::1 at 2024-06-21 09:24:31 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"190075384", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "190075384"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:36:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms | Allocations: 767)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:24:31 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2422)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 3898)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 4210)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:24:33 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2364)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 3840)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 4110)
+
+
+Started POST "/login" for ::1 at 2024-06-21 09:24:40 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"190075384", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "190075384"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:36:in `create'
+Redirected to http://localhost:3000/home
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 732)
+
+
+Started GET "/home" for ::1 at 2024-06-21 09:24:40 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.6ms | Allocations: 4380)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 5856)
+Completed 200 OK in 15ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 6190)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:24:41 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2384)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 3860)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 4132)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:24:43 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 7.3ms | Allocations: 2358)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 3834)
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 4104)
+
+
+Started POST "/verify_user" for ::1 at 2024-06-21 09:24:46 -0300
+Processing by SessionsController#verify_user as */*
+  Parameters: {"username"=>"asasa", "session"=>{"username"=>"asasa"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "asasa"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:26:in `verify_user'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 680)
+
+
+Started POST "/verify_user" for ::1 at 2024-06-21 09:25:01 -0300
+Processing by SessionsController#verify_user as */*
+  Parameters: {"username"=>"joao_user", "session"=>{"username"=>"joao_user"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:26:in `verify_user'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 745)
+
+
+Started GET "/recuperar_senha?username=joao_user" for ::1 at 2024-06-21 09:25:01 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"username"=>"joao_user"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2205)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 3863)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 4133)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 09:26:30 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2205)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 3863)
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 4133)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 09:28:09 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2205)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3857)
+Completed 200 OK in 12ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 4127)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 09:29:16 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2239)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3931)
+Completed 200 OK in 13ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4202)
+
+
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 09:29:17 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2219)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 3909)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4179)
+
+
+Started POST "/recuperar_senha" for ::1 at 2024-06-21 09:31:20 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/recuperar_senha"):
+  
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 09:31:20 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2239)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 3933)
+Completed 200 OK in 13ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 4204)
+
+
+Started POST "/recuperar_senha" for ::1 at 2024-06-21 09:31:25 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/recuperar_senha"):
+  
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 09:31:25 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2239)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 3933)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 4204)
+
+
+Started POST "/recuperar_senha" for ::1 at 2024-06-21 09:31:42 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/recuperar_senha"):
+  
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 09:31:42 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2239)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 3940)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 4211)
+
+
+Started POST "/recuperar_senha" for ::1 at 2024-06-21 09:36:12 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/recuperar_senha"):
+  
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 09:36:12 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2239)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3918)
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 4189)
+
+
+Started POST "/recuperar_senha" for ::1 at 2024-06-21 09:36:17 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/recuperar_senha"):
+  
+Started GET "/recuperar_senha" for ::1 at 2024-06-21 09:36:17 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2239)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 3936)
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 4207)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:47:34 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3072)
+  Rendered layout layouts/application.html.erb (Duration: 28.8ms | Allocations: 20056)
+Completed 200 OK in 37ms (Views: 33.4ms | ActiveRecord: 0.0ms | Allocations: 20976)
+
+
+Started POST "/login" for ::1 at 2024-06-21 09:47:52 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:36:in `create'
+Redirected to http://localhost:3000/recuperar_senha?usuario=joao_user
+Completed 302 Found in 17ms (ActiveRecord: 2.9ms | Allocations: 6230)
+
+
+Started GET "/recuperar_senha?usuario=joao_user" for ::1 at 2024-06-21 09:47:52 -0300
+Processing by PagesController#recuperar_senha as TURBO_STREAM
+  Parameters: {"usuario"=>"joao_user"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2310)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 3786)
+Completed 200 OK in 12ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 4159)
+
+
+Started POST "/update_password" for ::1 at 2024-06-21 09:49:55 -0300
+Processing by PagesController#update_password as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:15:in `update_password'
+Completed 500 Internal Server Error in 214ms (ActiveRecord: 2.5ms | Allocations: 7739)
+
+
+  
+NoMethodError (undefined method `username' for #<User password_digest: [FILTERED], id: 5, email: "joao@example.com", senha: nil, nome: "João", curso: "Engenharia de Software", matricula: "202300001", usuario: "joao_user", formacao: "graduando", ocupacao: "dicente", departamento: nil>):
+  
+app/controllers/pages_controller.rb:18:in `update_password'
+Started GET "/recuperar_senha?usuario=joao_user" for ::1 at 2024-06-21 09:50:46 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"usuario"=>"joao_user"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2415)
+  Rendered layout layouts/application.html.erb (Duration: 31.0ms | Allocations: 19403)
+Completed 200 OK in 46ms (Views: 39.7ms | ActiveRecord: 0.0ms | Allocations: 20257)
+
+
+Started POST "/update_password" for ::1 at 2024-06-21 09:50:56 -0300
+Processing by PagesController#update_password as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:15:in `update_password'
+Completed 500 Internal Server Error in 206ms (ActiveRecord: 0.1ms | Allocations: 1424)
+
+
+  
+NoMethodError (undefined method `username' for #<User password_digest: [FILTERED], id: 5, email: "joao@example.com", senha: nil, nome: "João", curso: "Engenharia de Software", matricula: "202300001", usuario: "joao_user", formacao: "graduando", ocupacao: "dicente", departamento: nil>):
+  
+app/controllers/pages_controller.rb:18:in `update_password'
+Started GET "/recuperar_senha?usuario=joao_user" for ::1 at 2024-06-21 09:51:44 -0300
+Processing by PagesController#recuperar_senha as HTML
+  Parameters: {"usuario"=>"joao_user"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/recuperar_senha.html.erb within layouts/application
+  Rendered pages/recuperar_senha.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2416)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 19401)
+Completed 200 OK in 34ms (Views: 30.2ms | ActiveRecord: 0.0ms | Allocations: 20319)
+
+
+Started POST "/update_password" for ::1 at 2024-06-21 09:51:53 -0300
+Processing by PagesController#update_password as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:15:in `update_password'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pages_controller.rb:18:in `update_password'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."usuario" = ? AND "users"."id" != ? LIMIT ?[0m  [["usuario", "joao_user"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:18:in `update_password'
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = ? WHERE "users"."id" = ?[0m  [["password_digest", "[FILTERED]"], ["id", 5]]
+  ↳ app/controllers/pages_controller.rb:18:in `update_password'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pages_controller.rb:18:in `update_password'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 229ms (ActiveRecord: 6.6ms | Allocations: 10322)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:51:53 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2990)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4494)
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 4867)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:51:57 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2368)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 3844)
+Completed 200 OK in 15ms (Views: 12.7ms | ActiveRecord: 0.0ms | Allocations: 4114)
+
+
+Started POST "/login" for ::1 at 2024-06-21 09:52:03 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:36:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms | Allocations: 820)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:52:03 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2406)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 3882)
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 4157)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:52:05 -0300
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2364)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 3840)
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 4110)
+
+
+Started POST "/login" for ::1 at 2024-06-21 09:52:12 -0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"joao_user", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."usuario" = ? LIMIT ?[0m  [["usuario", "joao_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:36:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 6ms (ActiveRecord: 0.1ms | Allocations: 743)
+
+
+Started GET "/login" for ::1 at 2024-06-21 09:52:12 -0300
+Processing by PagesController#login as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2393)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 3869)
+Completed 200 OK in 15ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 4144)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]

@@ -8,18 +8,25 @@
 </head>
 <body>
 <div id="container">
-  <form action="#" method="post" id="login_form">
+  <%= form_with(url: update_password_path, method: :post, id: 'redefinir_senha_form') do %>
     <div id="login_user">
       <h1>Redefinir Senha</h1>
+      <% if flash[:alert].present? %>
+        <div class="alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+      <div>
+        <label for="username">Email</label> <br />
+        <%= text_field_tag :username, params[:username], id: 'username', placeholder: 'Nº de matrícula', required: true %>
+      </div>
       <div class="senha_input">
-        <label for="password">Nova senha</label> <br />
-        <input type="text" id="redefinir_senha" name="new_password" placeholder="Senha" required>
-        <%= image_tag 'olho_aberto.svg', class: 'olho_aberto', id: 'olho_senha', onclick: 'mostrar_ocultar_r()' %>
+        <label for="new_password">Nova senha</label> <br />
+        <%= password_field_tag :new_password, nil, id: 'redefinir_senha', placeholder: 'Senha', required: true %>
       </div>
       <div class="senha_input1">
-        <label for="password1">Confirme a senha</label> <br />
-        <input type="password" id="confir_redefinir_senha" name="new_password_1" placeholder="Senha" required>
-        <%= image_tag 'olho_aberto.svg', class: 'olho_aberto', id: 'olho_senha1', onclick: 'mostrar_ocultar_r1()' %>
+        <label for="new_password_confirmation">Confirme a senha</label> <br />
+        <%= password_field_tag :new_password_confirmation, nil, id: 'confir_redefinir_senha', placeholder: 'Senha', required: true %>
       </div>
       <div>
         <button class="bnt_enviar" type="submit">Alterar senha</button>
@@ -30,7 +37,7 @@
         <p>Bem vindo </br> ao </br> Camaar</p>
       </div>
     </div>
-  </form>
+  <% end %>
 </div>
 <%= javascript_include_tag 'main' %>
 </body>
