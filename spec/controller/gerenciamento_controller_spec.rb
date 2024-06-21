@@ -134,7 +134,7 @@ RSpec.describe GerenciamentoController, type: :controller do
       expect(turma.users.include?(person)).to be true
     end
 
-    it 'calls the devise mailer to send an email when a new user is created' do
+    it 'calls the devise mailer to send an email to all new users that are created' do
       json_classes, filepath_classes = valid_classes
       allow(File).to receive(:read).with(filepath_classes).and_return(json_classes)
 
@@ -143,7 +143,8 @@ RSpec.describe GerenciamentoController, type: :controller do
 
       # esperar que o mailer receba o metodo para enviar
       # so que se nao colocar retorno da ruim, tem que retornar um objeto Mailer tbm
-      expect(Devise.mailer).to receive(:send).and_call_original.at_least(:once)
+      # sao 2 novos usuarios no JSON que eu fiz
+      expect(Devise.mailer).to receive(:send).and_return(double("Devise::Mailer", :deliver => true)).twice
 
       # nao funcionou, tava querendo saber quantas vezes foi chamada
       # expect(User).to receive(:send_reset_password_instructions).and_call_original
