@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/gerenciamento/resultados', :to => 'resultados#index'
   get '/gerenciamento/resultados/:id/export', :to => 'resultados#export', :as => "resultados_export"
 
-  get '/send_forms', to: 'send_forms#index'
+  get '/gerenciamento/send_forms', :to => 'send_forms#index'
 
   root to: "avaliacoes#index"
 end
