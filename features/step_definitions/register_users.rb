@@ -1,5 +1,5 @@
 Given('there are no users registed in our system') do
-    User.destroy_all
+    User.destroy_by(admin: false)
 end
 
 Then('I should have a new user in the database') do

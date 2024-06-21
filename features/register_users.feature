@@ -5,6 +5,7 @@ Feature: Register users to the system
 
   Background: I have valid JSON files
     Given I have valid JSONs
+    And I am logged in as the admin
 
   Scenario: Register users (happy path)
     Given I am on the Gerenciamento page

@@ -6,7 +6,9 @@
           <span class="text-2xl font-bold"><%= study_class.name %></span>
           <span class="text-sm text-slate-400"><%= study_class.semester %></span>
         </div>
-        <span class="font-semibold text-slate-600 text-end"><%= study_class.docente.nome %></span>
+        <% if study_class.docente.present? %>
+          <span class="font-semibold text-slate-600 text-end"><%= study_class.docente.nome %></span>
+        <% end %>
       </div>
     <% end %>
 
