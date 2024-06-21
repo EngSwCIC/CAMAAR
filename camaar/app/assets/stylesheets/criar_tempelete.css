@@ -1,0 +1,82 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+select,
+textarea {
+    width: calc(100% - 10px);
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+.lista-perguntas {
+    margin-top: 10px;
+}
+
+.lista-perguntas div {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+#opcoes-dinamicas div {
+    margin-bottom: 5px;
+}
+
+#opcoes-container,
+#opcoes-container-edicao {
+    overflow: auto;
+}
+
+#salvar-lista-container {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.salvar-btn {
+    background-color: green;
+    color: white; /* Opcional: ajuste a cor do texto para melhor visibilidade */
+}

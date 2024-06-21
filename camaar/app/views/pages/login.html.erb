@@ -1,0 +1,83 @@
+<!-- app/views/pages/login.html.erb -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <%= stylesheet_link_tag 'login', media: 'all' %>
+</head>
+<body>
+<div id="container">
+  <% if flash[:notice].present? %>
+    <div class="bottom-alert notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if flash[:alert].present? %>
+    <div class="bottom-alert alert">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <%= form_with(url: login_path, method: :post, id: 'login_form') do %>
+    <div id="login_user">
+      <h1>LOGIN</h1>
+      <div>
+        <label for="username">Usuário</label> <br />
+        <%= text_field_tag :username, nil, id: 'username', placeholder: 'Nº de matricula', required: true %>
+      </div>
+      <div class="senha_input">
+        <label for="password">Senha</label> <br />
+        <%= password_field_tag :password, nil, id: 'senha_pass', placeholder: 'Senha' %>
+        <%= image_tag 'olho_aberto.svg', class: 'olho_aberto', id: 'olho_senha', onclick: 'mostrar_ocultar()' %>
+      </div>
+      <div>
+        <a id="esqueci_senha_link" href="#">Esqueci a senha</a>
+      </div>
+      <div>
+        <button class="bnt_enviar" type="submit">Entrar</button>
+      </div>
+    </div>
+    <div id="mensagen_login">
+      <div class="text_mesage">
+        <p>Bem vindo ao Camaar</p>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= javascript_include_tag 'main' %>
+
+<script>
+    document.getElementById('esqueci_senha_link').addEventListener('click', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        if (username) {
+            fetch('<%= verify_user_path %>', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': '<%= form_authenticity_token %>'
+                },
+                body: JSON.stringify({ username: username })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.found) {
+                        window.location.href = data.url;
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+        } else {
+            alert('Por favor, insira o usuário.');
+        }
+    });
+</script>
+
+</body>
+</html>

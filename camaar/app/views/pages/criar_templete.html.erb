@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criador de Listas de Perguntas</title>
+    <%= stylesheet_link_tag 'criar_tempelete', media: 'all' %>
+</head>
+<body>
+<section class="container" id="criacao-container" aria-labelledby="formulario-titulo">
+    <h2 id="formulario-titulo">Criar Novo Formulário</h2>
+    <form id="nova-lista">
+        <div class="form-group">
+            <label for="nome-lista">Nome do Formulário:</label>
+            <input type="text" id="nome-lista" name="nome-lista" required>
+        </div>
+        <div class="form-group">
+            <label for="pergunta">Texto da pergunta:</label>
+            <input type="text" id="pergunta" name="pergunta" required>
+        </div>
+        <div class="form-group">
+            <label for="tipo-pergunta">Tipo de Pergunta:</label>
+            <select id="tipo-pergunta" name="tipo-pergunta" required>
+                <option value="">Selecione...</option>
+                <option value="multipla-escolha">Múltipla Escolha</option>
+                <option value="paragrafo">Parágrafo</option>
+            </select>
+        </div>
+        <div class="form-group" id="opcoes-container">
+            <div id="opcoes-dinamicas"></div>
+            <button type="button" id="adicionar-pergunta" disabled>Adicionar pergunta</button>
+        </div>
+        <div id="salvar-lista-container">
+            <button type="button" id="salvar-lista">Salvar Lista</button>
+        </div>
+    </form>
+</section>
+
+<section class="container">
+    <h2>Formulário atual</h2>
+    <div id="listas-criadas" class="lista-perguntas"></div>
+</section>
+
+<section class="container hidden" id="edicao-container" aria-labelledby="edicao-titulo">
+    <h2 id="edicao-titulo">Editar Formulário</h2>
+    <form id="edicao-lista">
+        <div class="form-group">
+            <label for="nome-edicao-lista">Nome do Formulário:</label>
+            <input type="text" id="nome-edicao-lista" name="nome-edicao-lista" required disabled>
+        </div>
+        <div class="form-group">
+            <label for="pergunta-edicao">Texto da pergunta:</label>
+            <input type="text" id="pergunta-edicao" name="pergunta-edicao" required disabled>
+        </div>
+        <div class="form-group">
+            <label for="tipo-pergunta-edicao">Tipo de Pergunta:</label>
+            <select id="tipo-pergunta-edicao" name="tipo-pergunta-edicao" required disabled>
+                <option value="">Selecione...</option>
+                <option value="multipla-escolha">Múltipla Escolha</option>
+                <option value="paragrafo">Parágrafo</option>
+            </select>
+        </div>
+        <div class="form-group" id="opcoes-container-edicao">
+            <div id="opcoes-dinamicas-edicao"></div>
+            <button type="button" id="adicionar-pergunta-edicao" disabled>Adicionar pergunta</button>
+        </div>
+        <div class="form-group">
+            <button type="button" id="salvar-edicao" disabled>Salvar Dados</button>
+        </div>
+    </form>
+</section>
+
+<button id="carregar-surveys">Carregar Surveys</button>
+
+
+<%= javascript_include_tag 'criar_templete' %> <!-- Importa o arquivo de script -->
+</body>
+</html>

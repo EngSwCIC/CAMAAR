@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar senha</title>
+  <%= stylesheet_link_tag 'recuperar_senha', media: 'all' %>
+</head>
+<body>
+<div id="container">
+  <%= form_with(url: update_password_path, method: :post, id: 'redefinir_senha_form') do %>
+    <div id="login_user">
+      <h1>Redefinir Senha</h1>
+      <% if flash[:alert].present? %>
+        <div class="bottom-alert alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+      <%= hidden_field_tag :username, @username %>
+      <div class="senha_input">
+        <label for="new_password">Nova senha</label> <br />
+        <%= password_field_tag :new_password, nil, id: 'redefinir_senha', placeholder: 'Senha', required: true %>
+      </div>
+      <div class="senha_input1">
+        <label for="new_password_confirmation">Confirme a senha</label> <br />
+        <%= password_field_tag :new_password_confirmation, nil, id: 'confir_redefinir_senha', placeholder: 'Senha', required: true %>
+      </div>
+      <div>
+        <button class="bnt_enviar" type="submit">Alterar senha</button>
+      </div>
+    </div>
+    <div id="mensagen_login">
+      <div class="text_mesage">
+        <p>Bem vindo </br> ao </br> Camaar</p>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= javascript_include_tag 'main' %>
+</body>
+</html>
