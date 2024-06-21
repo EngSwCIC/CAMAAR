@@ -236,6 +236,8 @@
         <a id="force-reload-linkF" href="<%= formularios_path %>">Formulários</a>
         <br>
         <a id="force-reload-linkT" href="<%= edit_template_path %>">Templates</a>
+        <br>
+        <a href="<%= departamentos_path %>">Departamentos</a>
         <script> document.getElementById("force-reload-linkF").addEventListener("click", function(event) { event.preventDefault(); window.location.href = this.href + "?timestamp=" + new Date().getTime(); }); </script>
         <script> document.getElementById("force-reload-linkT").addEventListener("click", function(event) { event.preventDefault(); window.location.href = this.href + "?timestamp=" + new Date().getTime(); }); </script>
     </div>
