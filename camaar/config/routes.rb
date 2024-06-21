@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "/formularios", to: "formularios#index"
 
   root to: "home#index"
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations', passwords: 'devise/passwords' }
 
   scope "/turmas" do
     get "/", to: "turmas#index"

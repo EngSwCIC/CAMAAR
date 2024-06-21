@@ -150,8 +150,8 @@ RSpec.describe UsersController, type: :controller do
           post :create, params: { data: data }, as: :json
         }.to change { Materia.count }.by(1)
         .and change { Turma.count }.by(1)
-        .and change { User.count }.by(44)
-        .and change { Matricula.count }.by(44)
+        .and change { User.count }.by(45)
+        .and change { Matricula.count }.by(45)
       end
     end
 

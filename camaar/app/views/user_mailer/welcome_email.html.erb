@@ -1,0 +1,12 @@
+<!-- app/views/user_mailer/send_temp_password.html.erb -->
+<p>Hello <%= @user.email %>,</p>
+
+<p>Your temporary password is: <%= @user.password %></p>
+
+<p>Click the link below to reset your password:</p>
+
+<p><%= link_to 'Reset my password', @url %></p>
+
+<p>Thank you!</p>
+
+

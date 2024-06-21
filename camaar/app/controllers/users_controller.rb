@@ -102,6 +102,8 @@ class UsersController < ApplicationController
         matricula: dicente_data[:matricula], password: password,
           curso: dicente_data[:curso],
         formacao: dicente_data[:formacao], ocupacao: dicente_data[:ocupacao], role: :user)
+
+        #UserMailer.welcome_email(user, password).deliver_now!
         else
           user.update!(curso: dicente_data[:curso],
         formacao: dicente_data[:formacao], ocupacao: dicente_data[:ocupacao], role: :user)
@@ -110,25 +112,24 @@ class UsersController < ApplicationController
         # Associate user with turma through matricula
         matricula = Matricula.find_or_create_by!(user: user, turma: turma)
       end
-=begin
+
       # Import docente (teacher)
-      docente_data_array = materia_data[:docente]
-      docente_data_array.each do |docente_data|
-        user = User.find_by(nome: docente_data[:nome], email: docente_data[:email],
+      docente_data = materia_data[:docente]
+      user_docente = User.find_by(nome: docente_data[:nome], email: docente_data[:email],
         matricula: docente_data[:usuario])
-        if user.blank?
+        if user_docente.blank?
           password = generate_random_password
-          user = User.create!(nome: docente_data[:nome], email: docente_data[:email],
+          user_docente = User.create!(nome: docente_data[:nome], email: docente_data[:email],
           matricula: docente_data[:usuario], password:password,
           formacao: docente_data[:formacao], ocupacao: docente_data[:ocupacao], role: :user)
         else
-          user.update!(
+          user_docente.update!(
           formacao: docente_data[:formacao], ocupacao: docente_data[:ocupacao], role: :user)
         end
        # Associate user (docente) with turma through matricula
-        matricula = Matricula.find_or_create_by!(user: user, turma: turma)
-      end
-=end
+        matricula = Matricula.find_or_create_by!(user: user_docente, turma: turma)
+
+
     end
 
   end
