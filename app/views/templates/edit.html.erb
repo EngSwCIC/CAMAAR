@@ -11,29 +11,35 @@
         </div>
 
         <div id="questions">
-          <% @template.template_questions.each_with_index do |question, index| %>
-            <div class="bg-white rounded-md p-4 question-fields" data-question-index="<%= index %>">
+          <%= form.fields_for :template_questions do |question_form| %>
+            <div class="bg-white rounded-md p-4 question-fields">
               <div class="grid grid-cols-1 gap-4">
                 <div class="flex items-center gap-4">
-                  <%= form.label :title, "Title", for: "template_template_questions_attributes_#{index}_title" %>
-                  <%= form.text_field :title, value: question.title, name: "template[template_questions_attributes][#{index}][title]", id: "template_template_questions_attributes_#{index}_title", class: 'form-control' %>
+                  <%= question_form.label :title, "Title", for: "template_template_questions_attributes_#{question_form.index}_title" %>
+                  <%= question_form.text_field :title, id: "template_template_questions_attributes_#{question_form.index}_title", class: 'form-control' %>
                 </div>
                 <div class="flex items-center gap-4">
-                  <%= form.label :question_type, "Question Type", for: "template_template_questions_attributes_#{index}_question_type" %>
-                  <%= form.select :question_type, options_for_select([['Radio', 'radio'], ['Checkbox', 'checkbox'], ['Text', 'text']], question.question_type), name: "template[template_questions_attributes][#{index}][question_type]", id: "template_template_questions_attributes_#{index}_question_type", class: 'form-control', data: { role: "type-select" } %>
+                  <%= question_form.label :question_type, "Question Type", for: "template_template_questions_attributes_#{question_form.index}_question_type" %>
+                  <%= question_form.select :question_type, options_for_select([['Radio', 'radio'], ['Checkbox', 'checkbox'], ['Text', 'text']], question_form.object.question_type), { include_blank: true }, { class: 'form-control', id: "template_template_questions_attributes_#{question_form.index}_question_type", data: { role: "type-select" } } %>
                 </div>
-                <div class="alternatives-container <%= 'hidden' unless ['radio', 'checkbox'].include?(question.question_type) %>" data-role="alternatives-container">
+                <div class="alternatives-container <%= 'hidden' unless ['radio', 'checkbox'].include?(question_form.object.question_type) %>" data-role="alternatives-container">
                   <div class="flex items-center gap-4">
                     <button type="button" class="btn btn-secondary" data-role="add-alternative">Add Alternative</button>
                   </div>
                   <div class="alternatives-list" data-role="alternatives-list">
-                    <% if ['radio', 'checkbox'].include?(question.question_type) %>
-                      <% JSON.parse(question.content).each_with_index do |alt, alt_index| %>
+                    <% if ['radio', 'checkbox'].include?(question_form.object.question_type) %>
+                      <% begin
+                           alternatives_hash = JSON.parse(question_form.object.alternatives)
+                           alternatives_hash.each_with_index do |(alt_index, alt), index| %>
                         <div class="flex items-center gap-4 alternative-field">
-                          <label for="alternative_<%= index %>_<%= alt_index %>">Alternative</label>
-                          <input type="text" class="form-control alternative-input" name="template[template_questions_attributes][<%= index %>][alternatives][<%= alt_index %>][content]" value="<%= alt %>">
+                          <%= question_form.label :content, "Alternative", for: "template_template_questions_attributes_#{question_form.index}_alternatives_#{alt_index}_content" %>
+                          <%= question_form.text_field :content, name: "template[template_questions_attributes][#{question_form.index}][alternatives_attributes][#{index}][content]", id: "template_template_questions_attributes_#{question_form.index}_alternatives_#{alt_index}_content", value: alt["content"], class: 'form-control alternative-input' %>
                         </div>
-                      <% end %>
+                      <% end
+                      rescue JSON::ParserError
+                        # Handle the case where alternatives are not in valid JSON format
+                        # This can be handled with appropriate fallback logic or error handling
+                      end %>
                     <% end %>
                   </div>
                 </div>
@@ -59,7 +65,7 @@
     document.getElementById('add-question').addEventListener('click', function() {
       var questionsDiv = document.getElementById('questions');
       var newQuestionIndex = questionsDiv.children.length;
-      var newQuestionFields = 
+      var newQuestionFields = `
         <div class="bg-white rounded-md p-4 question-fields" data-question-index="${newQuestionIndex}">
           <div class="grid grid-cols-1 gap-4">
             <div class="flex items-center gap-4">
@@ -72,7 +78,6 @@
                 <option value="radio">Radio</option>
                 <option value="checkbox">Checkbox</option>
                 <option value="text">Text</option>
-
               </select>
             </div>
             <div class="alternatives-container hidden" data-role="alternatives-container">
@@ -83,7 +88,7 @@
               </div>
             </div>
           </div>
-        </div>;
+        </div>`;
       questionsDiv.insertAdjacentHTML('beforeend', newQuestionFields);
     });
 
@@ -107,11 +112,11 @@
         var alternativesList = questionFields.querySelector('[data-role="alternatives-list"]');
         var newAlternativeIndex = alternativesList.children.length;
         var questionIndex = questionFields.getAttribute('data-question-index');
-        var newAlternativeFields = 
+        var newAlternativeFields = `
           <div class="flex items-center gap-4 alternative-field">
             <label for="alternative_${questionIndex}_${newAlternativeIndex}">Alternative</label>
             <input type="text" class="form-control alternative-input" name="template[template_questions_attributes][${questionIndex}][alternatives][${newAlternativeIndex}][content]">
-          </div>;
+          </div>`;
         alternativesList.insertAdjacentHTML('beforeend', newAlternativeFields);
       }
     });
