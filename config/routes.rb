@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   put '/gerenciamento/import', :as => 'gerenciamento_import'
 
   get '/gerenciamento/resultados', :to => 'resultados#index'
+  get '/gerenciamento/resultados/:id/export', :to => 'resultados#export', :as => "resultados_export"
 
   root to: "avaliacoes#index"
 end
