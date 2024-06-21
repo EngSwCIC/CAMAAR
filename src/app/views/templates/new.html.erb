@@ -1,9 +1,18 @@
-<h1>New template</h1>
+<div id="modalCriacao" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Criar Template</h2>
+    <form id="formCriacao">
+      <label for="codigo">Código:</label>
+      <input type="text" id="codigo" name="codigo" required>
 
-<%= render "form", template: @template %>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
 
-<br>
+      <label for="semestre">Semestre:</label>
+      <input type="text" id="semestre" name="semestre" required>
 
-<div>
-  <%= link_to "Back to templates", templates_path %>
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
 </div>

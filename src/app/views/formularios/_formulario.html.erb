@@ -2,10 +2,9 @@
   <% @formularios.each do |formulario| %>
     <div class="box-avaliacao">
       <h1><%= formulario.materia_nome %></h1>
-      <p><%= formulario.turma_semestre %></p>
+      <p>Semestre: <%= formulario.turma_semestre %></p>
       <% first_name = formulario.professor_name.split(' ').first %>
-      <h4><%= first_name %></h4>
+      <h4>Professor: <%= first_name %></h4>
     </div>
   <% end %>
-  <div> teste </div>
 </div>

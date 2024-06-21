@@ -1,0 +1,50 @@
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Selecionar Tipo de Questão</h2>
+    <select id="tipoQuestao">
+      <option value="radio">Opção de Radio</option>
+      <option value="texto">Campo de Texto</option>
+    </select>
+    <div id="questaoContainer"></div>
+  </div>
+</div>
+<script>
+  var modal = document.getElementById('modal');
+  var tipoQuestaoDropdown = document.getElementById('tipoQuestao');
+  
+  // Seleciona o botão de fechar (x) no modal
+  var spanClose = modal.querySelector('.close');
+  
+  // Seleciona o container para a questão
+  var questaoContainer = document.getElementById('questaoContainer');
+  
+  // Função para fechar o modal quando o botão de fechar (x) é clicado
+  spanClose.onclick = function() {
+    modal.style.display = 'none';
+  }
+  
+  // Função para fechar o modal se o usuário clicar fora da área do modal
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  }
+  
+  tipoQuestaoDropdown.onchange = function() {
+    var selectedValue = tipoQuestaoDropdown.value;
+  
+    // Limpa o container da questão antes de renderizar
+    questaoContainer.innerHTML = '';
+  
+    // Renderiza a questão de acordo com o tipo selecionado
+    if (selectedValue === 'radio') {
+      questaoContainer.innerHTML = '<label>Questão de Opção de Radio: <input type="radio" name="questao"> Opção 1 <input type="radio" name="questao"> Opção 2</label>';
+    } else if (selectedValue === 'texto') {
+      questaoContainer.innerHTML = '<label>Questão de Campo de Texto: <input type="text" name="questaoTexto"></label>';
+    }
+  
+    // Exibe o modal automaticamente ao selecionar uma opção
+    modal.style.display = 'block';
+  }
+</script>

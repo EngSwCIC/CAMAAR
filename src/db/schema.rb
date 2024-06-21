@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_19_095354) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_21_052602) do
   create_table "formularios", force: :cascade do |t|
     t.integer "id_turma"
     t.integer "id_template"
@@ -61,17 +61,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_095354) do
     t.integer "usuario"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "users_id"
-    t.index ["users_id"], name: "index_templates_on_users_id"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_templates_on_users_id"
   end
 
   create_table "turmas", force: :cascade do |t|
     t.string "classCode"
     t.string "semestre"
+    t.integer "id_professor", null: false
     t.integer "materia_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "horario"
+    t.string "nome"
     t.index ["materia_id"], name: "index_turmas_on_materia_id"
   end
 
@@ -109,6 +111,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_095354) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["turma_id"], name: "index_users_turmas_on_turma_id"
+    t.index ["user_id", "turma_id"], name: "index_users_turmas_on_user_id_and_turma_id", unique: true
     t.index ["user_id"], name: "index_users_turmas_on_user_id"
   end
 
@@ -118,7 +121,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_095354) do
   add_foreign_key "questoes", "respostas", column: "respostas_id"
   add_foreign_key "questoes_templates", "questoes"
   add_foreign_key "questoes_templates", "templates"
-  add_foreign_key "templates", "users", column: "users_id"
+  add_foreign_key "templates", "users"
   add_foreign_key "turmas", "materias"
   add_foreign_key "users", "respostas", column: "respostas_id"
   add_foreign_key "users_turmas", "turmas"

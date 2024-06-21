@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :respostas
   resources :questoes
-  resources :materias  
+  resources :materias
+  get 'gerenciamento', to: 'home#gerenciamento', as: 'gerenciamento'
+  get 'resultados', to: 'home#resultados', as: 'resultados'
+  post 'enviar_formularios', to: 'home#enviar_formularios', as: 'enviar_formularios'
+  resources :materia
+  resources :questaos
   resources :formularios
   resources :turmas
   resources :imports, only: [:create]

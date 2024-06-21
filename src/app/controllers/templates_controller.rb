@@ -2,7 +2,12 @@ class TemplatesController < ApplicationController
   before_action :set_template, only: %i[ show edit update destroy ]
 
   def index
-    @templates = Template.all
+    if current_user
+      @templates = current_user.templates
+      Rails.logger.debug @templates.inspect
+    else
+      redirect_to new_user_session_path, alert: "Você precisa estar logado para acessar esta página."
+    end
   end
 
   def show
@@ -38,26 +43,26 @@ class TemplatesController < ApplicationController
     end
   end
 
-  # def update
-  #   respond_to do |format|
-  #     if @template.update(template_params)
-  #       format.html { redirect_to template_url(@template), notice: "Template atualizado!" }
-  #       format.json { render :show, status: :ok, location: @template }
-  #     else
-  #       format.html { render :edit, status: :unprocessable_entity }
-  #       format.json { render json: @template.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def update
+    respond_to do |format|
+      if @template.update(template_params)
+        format.html { redirect_to template_url(@template), notice: "Template atualizado!" }
+        format.json { render :show, status: :ok, location: @template }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @template.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
-  # def destroy
-  #   @template.destroy!
+  def destroy
+    @template.destroy!
 
-  #   respond_to do |format|
-  #     format.html { redirect_to templates_url, notice: "Template was successfully destroyed." }
-  #     format.json { head :no_content }
-  #   end
-  # end
+    respond_to do |format|
+      format.html { redirect_to templates_url, notice: "Template was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
 
   private
     def set_template

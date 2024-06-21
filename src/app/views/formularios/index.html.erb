@@ -1,1 +1,10 @@
-<%= render partial: 'formularios/formulario', locals: { formularios: @formularios } %>
+<div class="container-formularios">
+  <% @formularios.each do |formulario| %>
+    <div class="box-avaliacao">
+      <h1><%= formulario.materia_nome %></h1>
+      <p>Semestre: <%= formulario.turma_semestre %></p>
+      <% first_name = formulario.professor_name.split(' ').first %>
+      <h4>Professor: <%= first_name %></h4>
+    </div>
+  <% end %>
+</div>

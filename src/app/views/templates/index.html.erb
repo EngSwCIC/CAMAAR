@@ -1,14 +1,70 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Templates</h1>
-
-<div id="templates">
-  <% @templates.each do |template| %>
-    <%= render template %>
-    <p>
-      <%= link_to "Show this template", template %>
-    </p>
+<div class="container-template">
+  <% if @templates.any? %>
+    <% @templates.each do |template| %>
+      <div class="box-template">
+        <div class="info-template">
+          <h1><%= template.nome %></h1>
+          <p>Semestre: <%= template.semestre %></p>
+        </div>
+        <div class="icon-template">
+          <%= image_tag('editarIcon.png', alt: 'Editar', class: 'icon-menu', id: 'openModalEdit') %>
+          <%= image_tag('lixeiraIcon.png', alt: 'Deletar', class: 'icon-menu', id: 'openModalDelete') %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>Nenhum template encontrado.</p>
   <% end %>
+  <div class="adicionar-template" id="openModalAdd">
+    +
+  </div>
 </div>
 
-<%= link_to "New template", new_template_path %>
+<div class="modal-adicionar-template" id="template-add">
+  <div class="modal-content">
+    <label for="tname">Nome do template:</label>
+    <input type="text" id="tname" name="tname"><br><br>
+    <%= render partial: "questaoSelect" %>
+  </div>
+</div>
+
+<div id="modalEdicao" class="modal-adicionar-template">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Editar Template</h2>
+    <form id="formEdicao">
+      <label for="editCodigo">Código:</label>
+      <input type="text" id="editCodigo" name="editCodigo" required>
+
+      <label for="editNome">Nome:</label>
+      <input type="text" id="editNome" name="editNome" required>
+
+      <label for="editSemestre">Semestre:</label>
+      <input type="text" id="editSemestre" name="editSemestre" required>
+
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  var modal = document.getElementById("template-add");
+  var modalEdit = document.getElementById("modalEdicao");
+  var btn = document.getElementById("openModalAdd");
+  var btnEdit = document.getElementById("openModalEdit")
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+    if (event.target == modalEdit) {
+      modalEdit.style.display = "none";
+    }
+  }
+  
+  document.getElementById('openModalEdit').addEventListener('click', function() {
+  modalEdit.style.display = 'block';
+  });
+</script>

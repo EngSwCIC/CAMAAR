@@ -1,7 +1,7 @@
   <div class="header-menu">
     <div style="display: flex; gap: 20px; align-items: center;">
       <%= image_tag('menu.svg', alt: 'Logo SVG', class: 'icon-menu', id: 'openMenu') %>
-      <h1>Avaliações</h1>
+      <h1><%= current_page_title %></h1>
     </div>
     <div id="profile" class="profile">
       <% if user_signed_in? %>
@@ -18,11 +18,10 @@
     <ul>
       <% if user_signed_in? %>
         <% if current_user.isAdmin %>
-          <li><%= link_to 'Avaliações', root_path %></li>
-          <li>Gerenciamento</li>
+          <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Avaliações', root_path %></li>
         <% else %>
-          <li><%= link_to 'Avaliações', root_path %></li>
-          <li><%= link_to 'Gerenciamento', turmas_path %></li>
+          <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Avaliações', root_path %></li>
+          <li class="<%= 'active' if current_page?(gerenciamento_path) || current_page?(resultados_path) %>"><%= link_to 'Gerenciamento', gerenciamento_path %></li>
         <% end %>
       <% end %>
     </ul>

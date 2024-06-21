@@ -1,10 +1,18 @@
-<h1>Editing template</h1>
+<div id="modalEdicao" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Editar Template</h2>
+    <form id="formEdicao">
+      <label for="editCodigo">Código:</label>
+      <input type="text" id="editCodigo" name="editCodigo" required>
 
-<%= render "form", template: @template %>
+      <label for="editNome">Nome:</label>
+      <input type="text" id="editNome" name="editNome" required>
 
-<br>
+      <label for="editSemestre">Semestre:</label>
+      <input type="text" id="editSemestre" name="editSemestre" required>
 
-<div>
-  <%= link_to "Show this template", @template %> |
-  <%= link_to "Back to templates", templates_path %>
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
 </div>

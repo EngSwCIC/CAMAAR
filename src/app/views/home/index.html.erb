@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Caamar</title>
-  <%= csrf_meta_tags %> 
-  <%= csp_meta_tag %>  
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-</head>
-<body>
-  <%= render partial: 'shared/header' %>
-  <div class="container">
-    <%= yield%>
-  </div>
-</body>
-</html>
+<div class="container">
+  <% if @formularios.any? %>
+    <%= render partial: 'formularios/formulario', locals: { formularios: @formularios } %>
+  <% else %>
+    <p>Nenhum formulário encontrado.</p>
+  <% end %>
+</div>

@@ -3,7 +3,7 @@ class TurmasController < ApplicationController
 
   # GET /turmas or /turmas.json
   def index
-    @turmas = Turma.all
+    @turmas = Turma.joins(:users_turmas).where(users_turmas: { user_id: current_user.id })
   end
 
   # GET /turmas/1 or /turmas/1.json
