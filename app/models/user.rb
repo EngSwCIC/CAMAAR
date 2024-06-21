@@ -8,6 +8,7 @@ class User < ApplicationRecord
   attr_writer :login
 
   has_and_belongs_to_many :study_classes
+  has_many :form_requests
 
   def login
     @login || self.matricula || self.email
@@ -20,6 +21,10 @@ class User < ApplicationRecord
     elsif conditions.has_key?(:matricula) || conditions.has_key?(:email)
       where(conditions.to_h).first
     end
+  end
+
+  def find_pending_forms
+    FormRequest.where(user_id: self.id, answered: false)
   end
 
   # para permitir a criacao de usuarios sem preencher o campo de senha

@@ -1,26 +1,29 @@
-<nav class="bg-white">
-  <div class="mx-auto px-8">
-    <div class="relative flex h-16 items-center justify-between">
-      <div class="flex flex-1 h-full items-stretch justify-start">
-        <div class="flex flex-row h-full gap-8 items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-12 hover:cursor-pointer" onclick="toggleSidebar()" viewBox="0 -960 960 960">
-            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
-          </svg>
-          <span class="text-2xl font-200">Avaliações</span>
-        </div>
+<nav class="fixed top-0 left-0 px-8 mx-auto w-full bg-white">
+  <div class="flex h-16 items-center justify-between">
+    <div class="flex flex-1 h-full items-stretch justify-start">
+      <div class="flex flex-row h-full gap-8 items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 hover:cursor-pointer" onclick="toggleSidebar()" viewBox="0 -960 960 960">
+          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+        </svg>
+        <span class="text-2xl font-200">Avaliações</span>
       </div>
-      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "px-4 py-2 bg-[#6C2365] rounded-lg text-xl font-semi-bold text-white"  %>
-<!--        <button class="px-4 py-2 bg-[#6C2365] rounded-lg text-xl font-semi-bold text-white">Logout</button>-->
-      </div>
+    </div>
+    <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+      <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "px-4 py-2 bg-[#6C2365] rounded-lg text-xl font-semi-bold text-white" %>
     </div>
   </div>
 </nav>
+
 <nav class="sidebar fixed top-16 bottom-0 left-0 w-[300px] overflow-y-auto text-center bg-white">
   <div class="flex flex-col w-full">
-    <div class="flex justify-center p-4 hover:cursor-pointer bg-[#6C2365]">
-      <span class="text-white">Avaliações</span></div>
-    <div class="flex justify-center p-4 hover:cursor-pointer"><span>Gerenciamento</span></div>
+    <%= link_to(avaliacoes_path) do %>
+      <div class="flex justify-center p-4 hover:cursor-pointer bg-[#6C2365]">
+        <span class="text-white">Avaliações</span>
+      </div>
+    <% end %>
+    <%= link_to(gerenciamento_path) do %>
+      <div class="flex justify-center p-4 hover:cursor-pointer"><span>Gerenciamento</span></div>
+    <% end %>
   </div>
 </nav>
 
@@ -28,9 +31,9 @@
     function toggleSidebar() {
         const hid = document.querySelector(".sidebar").classList.toggle("hidden");
         if (hid) {
-            document.querySelector(".home").style.left = "0px"
+            document.querySelector(".home").style.paddingLeft = "0px"
         } else {
-            document.querySelector(".home").style.left = "300px"
+            document.querySelector(".home").style.paddingLeft = "300px"
         }
     }
 </script>

@@ -21,9 +21,7 @@
             </div>
           <% end %>
 
-          <div class="actions flex justify-center hover:opacity-75 hover:cursor-pointer bg-green-500 w-full rounded-lg p-8 lg:p-4">
-            <%= f.submit "Entrar", :class => 'text-6xl lg:text-2xl text-white hover:cursor-pointer' %>
-          </div>
+          <%= f.submit "Entrar", :class => 'btn bg-green-500 hover:opacity-75 rounded-lg p-8 lg:p-4 w-full text-6xl lg:text-2xl text-white hover:cursor-pointer' %>
         </div>
       <% end %>
       <%= render "devise/shared/links" %>
