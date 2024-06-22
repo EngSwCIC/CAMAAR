@@ -1,0 +1,118 @@
+.templates-container {
+    display: flex;
+    flex: 1;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: start;
+}
+.templates-box {
+    display: flex;
+    width: 278px;
+    height: 128px;
+    border-radius: 8px;
+    margin: 25px 25px;
+    background-color: #FFFFFF;
+    color: #000000;
+    cursor: pointer;
+    flex-direction: row;
+}
+
+.add-templates-box {
+    display: flex;
+    width: 278px;
+    height: 128px;
+    border-radius: 8px;
+    margin: 25px 25px;
+    background-color: #FFFFFF;
+    color: #000000;
+    cursor: pointer;
+}
+
+.templates-textbox {
+    flex-direction: column;
+}
+
+.templates-name , .professor {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    padding: 12px 0 0 24px;
+}
+
+.semester {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    padding: 0 0 0 24px;
+}
+
+.templates-buttonbox {
+    display: flex;
+    margin-left: auto;
+    margin-right: 15px;
+    margin-top: 15px;
+    align-self: start;
+}
+
+.trash-button {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    align-self: end;
+}
+
+.trash-button::before {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M3 6l3 1v13c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7l3-1V4H3v2zm5 0h8v13H8V6zm5-3V1H7v2H5v2h14V3h-2z"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.edit-button {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    align-self: end;
+}
+
+.edit-button::before {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41L18.37 3.29c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.add-button {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin: auto;
+}
+
+.add-button::before {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+}

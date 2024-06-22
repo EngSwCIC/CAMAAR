@@ -1,0 +1,24 @@
+<%= form_with model: @resultado, local: true do |f| %>
+  <% @formulario.questaos.each do |questao| %>
+    <div class="questao">
+      <h3><%= questao.pergunta %></h3>
+      
+      <%= f.fields_for :respostas, questao.build_resposta do |resp| %>
+        <% if questao.tipo.discursiva? %>
+          <%= resp.text_area :conteudo, class: "form-control", placeholder: "Digite sua resposta aqui" %>
+        <% else %>
+          <% questao.alternativas.each do |alternativa| %>
+            <div class="form-check">
+              <%= resp.radio_button :conteudo, alternativa.id, class: "form-check-input" %>
+              <%= resp.label :conteudo, alternativa.texto, class: "form-check-label" %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Enviar Respostas", class: "btn btn-primary" %>
+  </div>
+<% end %>

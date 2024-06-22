@@ -1,0 +1,30 @@
+<h1>Resultados do Formulário <%= @formulario.nome %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dicente</th>
+      <th>Classe</th>
+      <th>Nota</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% total_notas = 0 %>
+    <% @resultados.each do |resultado| %>
+      <% total_notas += resultado.nota %>
+      <tr>
+        <td><%= resultado.dicente.nome %></td>
+        <td><%= resultado.classe.materia %></td>
+        <td><%= resultado.nota %></td>
+      </tr>
+    <% end %>
+
+    <% if @resultados.present? %>
+      <tr>
+        <td colspan="2"><strong>Média das Notas:</strong></td>
+        <td><%= (total_notas / @resultados.size) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

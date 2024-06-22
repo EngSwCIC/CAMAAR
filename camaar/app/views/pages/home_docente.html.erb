@@ -1,0 +1,159 @@
+<%= stylesheet_link_tag "base" %>
+<%= stylesheet_link_tag "templates" %>
+<%= stylesheet_link_tag "send_template" %>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+
+<body>
+  <div class="header-bar">
+    <div class="left-frame">
+      <button class="menu-button" id="menuButton" >&#9776;</button>
+      <div class="side-bar" id="sideBar">
+        <div class="select-button" id="templatesButton">Avaliações</div>
+        <div class="select-button" id="managementButton">Gerenciamento</div>
+      </div>
+    </div>
+    <span class="header-text">Gerenciamento - Templates</span>
+    <div class="search-bar">
+      <%= form_tag(templates_path, method: "get", class: "search-form") do %>
+        <%= text_field_tag :nome, params[:nome], placeholder: "Buscar por nome do template" %>
+        <%= submit_tag "&#128269;".html_safe, class: "search-icon btn btn-link" %>
+      <% end %>
+    </div>
+    <button class="user-button" id="userButton"><%=current_user.nome[0].upcase%></button>
+    <div class="sign-out" id="signOut">
+      <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+    </div>
+  </div>
+  <div class="content-frame">
+    <div class="templates-container" id="templatesContainer">
+      <div class="templates-box">
+        <% if @templates.any? %>
+          <% @templates.each do |template| %>
+            <div class="templates-textbox">
+              <div class="templates-name"><%= template.nome.capitalize %></div>
+              <div class="semester">Semestre</div> <!-- Substitua com o semestre do template -->
+              <div class="professor"><%= template.docente.nome %></div> <!-- Substitua com o nome do docente -->
+            </div>
+            <div class="templates-buttonbox">
+              <div class="edit-button">
+                <%= link_to "Editar", edit_template_path(template), class: 'edit-button' %>
+              </div>
+              <div class="trash-button">
+                <%= link_to "Excluir", template_path(template), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'trash-button' %>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <p>Nenhum template encontrado.</p>
+        <% end %>
+      </div>
+      <div class="add-templates-box">
+       <%= link_to '', new_template_path, class: 'add-button'%>
+      </div>
+    </div>
+
+    <div class="management-contents" id="managementContents"  style="display: none;">
+      <div class="button-box">
+        <button type="button" class="button" id="btnImportarDados">Importar dados</button>
+
+        <button type="button" class="button" id="btnCriarFormularios">Criar Formulários</button>
+        <button type="button" class="button" id="btnVerResultados">Resultados</button>
+      </div>
+
+      <div class="editor-box" id="ImportarDados" style="display: none;">
+        <h1>Importar Disciplinas</h1>
+
+        <%= form_with url: import_disciplinas_path, local: true, method: :post, multipart: true do |form| %>
+          <div>
+            <%= form.label :file, "JSON File" %>
+            <%= form.file_field :file %>
+          </div>
+          <div>
+            <%= form.submit "Upload" %>
+          </div>
+        <% end %>
+
+        <h1>Importar Turmas</h1>
+
+        <%= form_with url: import_turmas_path, local: true, method: :post, multipart: true do |form| %>
+          <div>
+            <%= form.label :file, "JSON File" %>
+            <%= form.file_field :file %>
+          </div>
+          <div>
+            <%= form.submit "Upload" %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="editor-box" id="CriarFormularios" style="display: none;">
+        <form class="template-selector-form">
+          <label>Template:
+            <select class="template-selector" name="template">
+              <%@templates.each do |template|%>
+                <option value="template"> template.nome</option>
+              <%end%>
+            </select>
+          </label>
+        </form>
+
+        <table>
+          <tr>
+            <th style="width: 25%; padding: 10px;">Turma</th>
+            <th style="width: 25%; padding: 10px;">Data de Término</th>
+            <th style="width: 25%; padding: 10px;">Semestre</th>
+            <th style="width: 25%; padding: 10px;">Código</th>
+          </tr>
+
+          <%@turmas.each do |turma|%>
+            <tr>
+              <td>
+                <form><input type="checkbox" name="checked"></form>
+              </td>
+
+              <td>turma.nome</td>
+              <td><input type="date" name="data_termino"></td>
+              <td>turma.semestre</td>
+              <td>turma.class_code</td>
+            </tr>
+          <%end%>
+        </table>
+
+        <button class="send-template-button">Enviar</button>
+      </div>
+
+      <div class="editor-box" id="VerResultados" style="display: none;">
+        <form class="template-selector-form">
+          <label>Classes:
+            <select class="template-selector" name="template">
+              <%@turmas.each do |turma|%>
+                <option value="<%= turma.id %>"> turma.nome</option>
+              <%end%>
+            </select>
+          </label>
+        </form>
+
+        <table id="resultadosTable">
+          <tr>
+            <th style="width: 33%; padding: 10px;">Formulario</th>
+            <th style="width: 33%; padding: 10px;">Data de Término</th>
+            <th style="width: 33%; padding: 10px;">Template</th>
+          </tr>
+
+          <%@formularios.each do |formulario|%>
+              <td><%= link_to formulario.nome.capitalize, resultados_formulario_path(formulario) %></td>
+              <td>formulario.dataDeTermino</td>
+              <td>formulario.template</td>
+            </tr>
+          <%end%>
+        </table>
+      </div>
+
+      </div>
+    </div>
+  </div>
+  <%= javascript_include_tag 'menu.js' %>
+  <%= javascript_include_tag 'sign-out.js' %>
+  <%= javascript_include_tag 'template-management.js' %>
+  <%= javascript_include_tag 'opcoes-management.js' %>
+</body>

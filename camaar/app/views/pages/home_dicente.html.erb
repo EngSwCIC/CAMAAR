@@ -1,0 +1,70 @@
+<%= stylesheet_link_tag "base" %>
+<%= stylesheet_link_tag "assessments" %>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+
+<body>
+  <div class="header-bar">
+    <div class="left-frame">
+      <button class="menu-button" id="menuButton" >&#9776;</button>
+      <div class="side-bar" id="sideBar">
+        <div class="select-button">Avaliações</div>
+        <div class="select-button">Gerenciamento</div>
+      </div>
+    </div>
+    <span class="header-text">Avaliações</span>
+    <div class="search-bar">
+      <%= form_tag(home_dicente_path, method: :get) do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Pesquisar por nome do formulário" %>
+        <%= submit_tag "Pesquisar", class: "search-icon" %>
+      <% end %>
+    </div>
+    <button class="user-button" id="userButton"><%=current_user.nome[0].upcase%></button>
+    <div class="sign-out" id="signOut">
+      <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+    </div>
+  </div>
+  <div class="content-frame">
+
+    <div class="assessments-container">
+      <% @turmas.each do |turma| %>
+        <% turma.formularios.each do |formulario| %>
+          <% if Date.today < formulario.dataDeTermino && !formulario.resultados.key?(current_user.nome)%>
+            <%= link_to responder_formulario_path(formulario) do %>
+              <div class="assessments-box">
+                <div class="subject-name"><%= turma.materia %></div>
+                <div class="semester"><%= turma.semestre %></div>
+                <div class="professor"><%= turma.docente %></div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var menuButton = document.getElementById('menuButton');
+      var sideBar = document.getElementById('sideBar');
+      var userButton = document.getElementById('userButton');
+      var signOut = document.getElementById('signOut');
+      
+      menuButton.addEventListener('click', function() {
+        sideBar.style.display = (sideBar.style.display === 'block') ? 'none' : 'block';
+      });
+      
+      userButton.addEventListener('click', function() {
+        signOut.style.display = (signOut.style.display === 'block') ? 'none' : 'block';
+      });
+      
+      document.addEventListener('click', function(event) {
+        if (!menuButton.contains(event.target) && !sideBar.contains(event.target)) {
+          sideBar.style.display = 'none';
+        }
+        if (!userButton.contains(event.target) && !signOut.contains(event.target)) {
+          signOut.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
