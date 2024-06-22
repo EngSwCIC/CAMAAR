@@ -52,6 +52,6 @@ class TemplatesController < ApplicationController
   end
 
   def template_params
-    params.require(:template).permit(:nome, questaos_attributes: [:id, :pergunta, :pontos, :fatorDeCorrecao, :tipo_id, :_destroy, alternativas_attributes: [:id, :texto, :_destroy]])
+    params.require(:template).permit(:nome, questaos_attributes: [:id, :pergunta, :tipo_id, :_destroy, alternativas_attributes: [:id, :texto, :_destroy]])
   end
 end
