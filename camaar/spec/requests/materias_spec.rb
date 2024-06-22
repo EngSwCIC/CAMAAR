@@ -55,4 +55,44 @@ RSpec.describe "Materias", type: :request do
       end
     end
   end
+
+  describe "GET #edit" do
+    it "foi bem sucedida" do
+      get edit_materia_path(materia.id)
+      expect(response).to be_successful
+    end
+  end
+
+  describe "PATCH #update" do
+    context "Atualizaçao valida" do
+      it "foi bem sucedida" do
+        patch materia_path(materia.id), params: { materia: materia_params }
+        expect(response).to redirect_to(materias_path)
+      end
+    end
+    context "Atualizaçao invalida" do
+      it "foi mal sucedida" do
+        patch materia_path(materia.id), params: { materia: { nome: "" } }
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
+  end
+  describe "DELETE #destroy" do
+    context "Materia existe" do
+      before do
+        @materia2 = Materia.create({nome: "teste", codigo: "TES3213" })
+      end
+      it "foi bem sucedida" do
+        delete materia_path(@materia2.id)
+        puts response.status
+        expect(response).to redirect_to(materias_path)
+      end
+    end
+    context "Materia nao existe" do
+      it "foi mal sucedida" do
+        delete materia_path(-1)
+        expect(response).to have_http_status(:not_found)
+      end
+    end
+  end  
 end
