@@ -4,11 +4,21 @@ class FormulariosController < ApplicationController
     def index
         @formularios = Formulario.all
         # mudei de render json: formularios, status: :ok para render json: formularios, status: :ok
+        respond_to do |format|
+            format.html
+            format.json { render json: @formularios }
+        end
     end
 
     def show
         @formulario = Formulario.find(params[:id])
          # render json: formulario, status: :ok
+
+        respond_to do |format|
+            format.html
+            format.json { render json: @formulario }
+        end
+
     rescue StandardError => e
         # render json: e, status: :not_found
     end

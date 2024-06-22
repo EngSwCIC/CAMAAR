@@ -12,7 +12,7 @@ RSpec.describe "Formularios", type: :request do
 
     context "quando existem formulários" do
       before do
-        get "/formularios"
+        get "/formularios", as: :json
       end
 
       it "retorna status 200 OK" do
@@ -39,7 +39,7 @@ RSpec.describe "Formularios", type: :request do
 
     context "quando o formulário existe" do
       before do
-        get "/formularios/#{formulario.id}", params: { formulario: formulario_params }
+        get "/formularios/#{formulario.id}", params: { formulario: formulario_params }, as: :json
       end
 
       it "retorna status 200 OK" do
