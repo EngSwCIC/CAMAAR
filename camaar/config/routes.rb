@@ -52,6 +52,7 @@ Rails.application.routes.draw do
     delete "/:id", to: "users#delete"
   end
 
+  resources :materias
   resources :templates
   resources :formularios do
     collection do
