@@ -73,44 +73,20 @@ end
   turma1.dicentes << fulano
 
   template1 = Template.create!(
-  nome: 'Satisfação de Calculo 1',
-  docente_id: Docente.find_by(user_id: User.find_by(nome: "administrador").id).id,
-  questaos_attributes: [
-    {
-      pergunta: 'O que achou da matéria de Calculo 1?',
-      tipo: Tipo.find_by(nome: 'satisfação'),
-      alternativas_attributes: [
-        { texto: 'Muito ruim' },
-        { texto: 'Ruim' },
-        { texto: 'Médio' },
-        { texto: 'Bom' },
-        { texto: 'Muito bom'}
-      ]
-    },
-    {
-      pergunta: 'Qual é a derivada de x elevado ao quadrado?',
-      tipo: Tipo.find_by(nome: 'múltipla escolha'),
-      alternativas_attributes: [
-        { texto: '2x' },
-        { texto: 'x' },
-        { texto: '2x elevado ao quadrado' },
-        { texto: '2 + x' }
-      ]
-    },
-    {
-      pergunta: 'O que acha que poderia melhorar no curso?',
-      tipo: Tipo.find_by(nome: 'discursiva')
-    }
+    nome: 'Satisfação de Calculo 1',
+    docente_id: Docente.find_by(user_id: User.find_by(nome: "administrador").id).id,
+    questaos_attributes: [
+
     ]
   )
 
   provasDerivadas = Formulario.find_or_create_by(
     nome: 'Prova de Derivadas',
-    docente_id: Docente.find_by(nome: "administrador").id,
+    docente_id: Docente.find_by(user_id: User.find_by(nome: "administrador")).id,
     turma_id: formularios_classe.classe_id,
     template_id: template1.id,
     dataDeTermino: Date.new(2024, 7, 1)
-)
+  )
   provaDerivadas.classes << Calculo1
 
   post 'Seed percorrida com sucesso'
