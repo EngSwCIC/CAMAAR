@@ -24,6 +24,10 @@ Rails.application.routes.draw do
 
   get 'template', to: 'template#index'
   get 'getemps', to: 'gerenciamento#show_templates'
+  get 'template/edit', to: 'template#edit'
+  get 'edit_template', to: 'template#edit_template', as: 'edit_template'
+
+  post 'edit_template', to: 'template#edit'
 
   post 'delete_template', to: 'template#delete_template', as: 'delete_template'
 
@@ -49,7 +53,7 @@ Rails.application.routes.draw do
 
   resource :template do
     collection do
-      post :delete
+      post :edit
     end
   end
 

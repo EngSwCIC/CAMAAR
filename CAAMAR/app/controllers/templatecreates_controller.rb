@@ -24,7 +24,6 @@ class TemplatecreatesController < ApplicationController
         end
       end
 
-      return redirect_to '/gerenciamento/templates'
-      redirect_to controller: 'gerenciamento', action: 'show_templates'
+      return redirect_to '/gerenciamento'
     end
 end

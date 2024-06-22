@@ -9,13 +9,12 @@
                 <div class="card">
                     <h2><%= template["name"] %></h2>
                     <div class="svgs">
-                        <a><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 256 256" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M224,128v80a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32h80a8,8,0,0,1,0,16H48V208H208V128a8,8,0,0,1,16,0Zm5.66-58.34-96,96A8,8,0,0,1,128,168H96a8,8,0,0,1-8-8V128a8,8,0,0,1,2.34-5.66l96-96a8,8,0,0,1,11.32,0l32,32A8,8,0,0,1,229.66,69.66Zm-17-5.66L192,43.31,179.31,56,200,76.69Z"></path></svg></a>
+                        <%= link_to "Edit", edit_template_path(id: template["id"]), class: "btn btn-secondary" %>                 
+                        <!-- <a href="../template/edit"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 256 256" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M224,128v80a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32h80a8,8,0,0,1,0,16H48V208H208V128a8,8,0,0,1,16,0Zm5.66-58.34-96,96A8,8,0,0,1,128,168H96a8,8,0,0,1-8-8V128a8,8,0,0,1,2.34-5.66l96-96a8,8,0,0,1,11.32,0l32,32A8,8,0,0,1,229.66,69.66Zm-17-5.66L192,43.31,179.31,56,200,76.69Z"></path></svg></a> -->
                         <%= form_for :template, url: { controller: "template", action: "delete_template" }, remote: true do |form| %>
                             <%= form.hidden_field :delId, value: template["id"] %>
-                            <%= form.submit "Apagar" %>
+                            <%= form.submit "Apagar", class: "btn btn-secondary" %>
                         <% end %>
-                          
-                          
                     </div>    
                 </div>
             <% end %>

@@ -1,0 +1,22 @@
+<%= render '/navbar/navbar' %>
+
+<h1>Editar Template</h1>
+
+<div class="grid-container">
+    <%= form_for :passa, url: { controller: "template", action: "edit_template"}, method: :post do |f| %>
+
+      <%= f.hidden_field :id, value: @temp["id"] %>
+      
+      <div class="field">
+        <%= f.label "Nome:" %>
+        <%= f.text_field :name, value: @temp["name"], required: true %>
+      </div>
+
+      <div id="qs">
+        <%= f.label "Questoes:" %>
+        <%= f.text_area :stringq, value: JSON.pretty_generate(@temp["questions"]), required: true %>
+      </div>
+    
+    <%= f.submit "Salvar template", class: "btn btn-primary" %>
+    <% end %>
+</div>

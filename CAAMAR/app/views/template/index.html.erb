@@ -1,5 +1,7 @@
 <%= render '/navbar/navbar' %>
 
+<!-- por que o redirect pra outra pagina nao funciona? -->
+
 <h1>Criar Template</h1>
 
 <div class="grid-container">
@@ -17,26 +19,3 @@
     <%= f.submit "Criar template", class: "btn btn-primary" %>
     <% end %>
 </div>
-
-<script>
-
-  haveFun = () => {
-    pai = document.getElementById("qs");
-
-    filho = document.createElement("div");
-    
-    tipo = document.createElement("label");
-    tipo.text = "teste";
-    
-    filho.appendChild(tipo);
-
-    filho.id = pai.childElementCount;
-
-    pai.appendChild(filho);
-  }
-
-  radionButtonAdd = () => {
-    alert("vou fazer ainda");
-  }
-
-</script>
