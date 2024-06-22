@@ -16,4 +16,10 @@ Rails.application.routes.draw do
   resources :imports, only: [:create]
   devise_for :users, controllers: { passwords: 'users/passwords', confirmations: 'users/confirmations'}
   resources :templates
+
+  # get '/templates', to: 'templates#index'
+  # get '/templates/:id/edit', to: 'templates#edit' 
+  # patch '/templates/:id', to: 'templates#update'
+  # post '/templates', to: 'templates#create'
+
 end

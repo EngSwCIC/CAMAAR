@@ -13,7 +13,7 @@
   <div class="container-form">
     <div class="form-infos">
       <div style = 'text-align: center;'>
-        <%="Olá, #{User.with_reset_password_token(token).nome}!"%> <br />
+        <%="Olá, #{User.with_reset_password_token(token).nome.split.map(&:capitalize).join(' ')}!"%> <br />
         <br><%="Defina sua senha nos espaços abaixo."%><br />
       </div>
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>

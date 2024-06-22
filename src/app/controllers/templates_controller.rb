@@ -44,29 +44,22 @@ class TemplatesController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @template.update(template_params)
-        format.html { redirect_to template_url(@template), notice: "Template atualizado!" }
-        format.json { render :show, status: :ok, location: @template }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @template.errors, status: :unprocessable_entity }
-      end
+    if @template.update(template_params)
+      redirect_to template_url, notice: "Template atualizado!"
+    else
+      render template_url(@template), status: :unprocessable_entity
     end
   end
 
   def destroy
     @template.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to templates_url, notice: "Template was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to templates_url, notice: "Template excluído com sucesso."
   end
 
   private
     def set_template
-      @template = Template.find(params[:id])
+      @template = Template.find_by(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
