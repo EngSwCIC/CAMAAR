@@ -124,4 +124,13 @@ OBS: Esses são os usuários que você irá conseguir cadastrar no sistema após
     }
 ]
 
-Todos possuem a mesma chave de cadastro: TOKEN_587
+Todos possuem a mesma chave de cadastro: TOKEN_587.
+
+## Testes
+Para executar o cucumber, basta rodar
+### cucumber
+    cucumber features
+
+Para rodar os testes em Rspec, execute o comando:
+### Rspec
+    sudo rspec
