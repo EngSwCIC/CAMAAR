@@ -39,7 +39,6 @@ RSpec.describe User, type: :model do
       @user.destroy
       expect(@user.destroyed?). to be true
       expect(User.find_by_email("teste@email.com")).to be nil
-
     end
   end
 end

@@ -6,26 +6,25 @@ Feature: User defines his password
 
 Scenario: User already registred redefines his password
 
-    Given "Fulano" is already registred with email "fulano@detal.com" and password "ciclano"
-    And solicitates password redefnition
-    Then I should see "Fulano" on password definition page
+    Given "Fulano de Tal" with login "fulano@detal.com" and password "ciclano" solicitates password redefinition
+    Then I should see "Fulano"
     When I fill in "Senha" with "teste123"
-    And I fill in "Confirmar senha" with "teste123"
-    And I press "Definir senha"
-    Then I should see "Senha definida com sucesso."
-    And trying to login with "fulano@detal.com" and "teste123"
-    Then I should see "Bem vindo, Fulano."
+    And I fill in "Confirma senha" with "teste123"
+    And I press "Definir Senha"
+    Then I should see "Deslogar"
+    When login with "fulano@detal.com" and "teste123"
+    Then I should see "Deslogar"
 
 Scenario: User already registred tries his old password
 
-    Given "Fulano" is already registred with email "fulano@detal.com" and password "pass"
+    Given "Fulano de Tal" with login "fulano@detal.com" and password "ciclano" exists
     And solicitates password redefnition
     Then I should see "Fulano" on password definition page
     When I fill in "Senha" with "teste123"
     And I fill in "Confirmar senha" with "teste123"
     And I press "Definir senha"
     Then I should see "Senha definida com sucesso."
-    And trying to login with "fulano@detal.com" and "pass"
+    And trying to login with "fulano@detal.com" and "ciclano"
     Then I should see "E-mail e/ou senha não corresponde a nenhum usuário cadastrado."
 
 Scenario: User not registred defines his password
