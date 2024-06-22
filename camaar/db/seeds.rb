@@ -75,18 +75,15 @@ end
   template1 = Template.create!(
     nome: 'Satisfação de Calculo 1',
     docente_id: Docente.find_by(user_id: User.find_by(nome: "administrador").id).id,
-    questaos_attributes: [
-
-    ]
   )
 
   provasDerivadas = Formulario.find_or_create_by(
     nome: 'Prova de Derivadas',
     docente_id: Docente.find_by(user_id: User.find_by(nome: "administrador")).id,
-    turma_id: formularios_classe.classe_id,
+    turma_id: turma1.id,
     template_id: template1.id,
     dataDeTermino: Date.new(2024, 7, 1)
   )
-  provaDerivadas.classes << Calculo1
+  provasDerivadas.turmas << turma1
 
-  post 'Seed percorrida com sucesso'
+  puts 'Seed percorrida com sucesso'
