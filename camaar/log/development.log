@@ -26329,3 +26329,1425 @@ FOREIGN KEY ("questao_id")
   [1m[36mTemplate Create (0.2ms)[0m  [1m[32mINSERT INTO "templates" ("nome", "docente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["nome", "Satisfação de Calculo 1"], ["docente_id", 1], ["created_at", "2024-06-22 01:57:25.431675"], ["updated_at", "2024-06-22 01:57:25.431675"]]
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mDocente Load (0.3ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-06-22 02:02:46.651602', '2024-06-22 02:02:46.651608') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUser (20240618181536)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "usuario" varchar NOT NULL, "formacao" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181536') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDisciplina (20240618181557)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "disciplinas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "codigo" varchar NOT NULL, "nome" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_disciplinas_on_codigo" ON "disciplinas" ("codigo")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181557') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDocente (20240618181617)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "docentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "departamento" varchar NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_616b0b2ccc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_docentes_on_user_id" ON "docentes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181617') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDicente (20240618181631)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (20.7ms)[0m  [1m[35mCREATE TABLE "dicentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "curso" varchar NOT NULL, "matricula" varchar NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c0834a3e4b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_dicentes_on_user_id" ON "dicentes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181631') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTipo (20240618181812)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "tipos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "numeroDeAlternativas" integer NOT NULL, "discursiva?" boolean NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181812') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTemplate (20240618181816)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "templates" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "docente_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_296de19493"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_templates_on_docente_id" ON "templates" ("docente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181816') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateQuestao (20240618181818)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "questaos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pergunta" varchar NOT NULL, "tipo_id" integer NOT NULL, "template_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_68965b9a43"
+FOREIGN KEY ("tipo_id")
+  REFERENCES "tipos" ("id")
+, CONSTRAINT "fk_rails_be75f99e42"
+FOREIGN KEY ("template_id")
+  REFERENCES "templates" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_questaos_on_tipo_id" ON "questaos" ("tipo_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_questaos_on_template_id" ON "questaos" ("template_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181818') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAlternativa (20240618181820)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "alternativas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "questao_id" integer NOT NULL, "texto" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4b0ac471f6"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_alternativas_on_questao_id" ON "alternativas" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181820') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFormulario (20240618181821)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "formularios" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dataDeTermino" date NOT NULL, "nome" varchar NOT NULL, "docente_id" integer NOT NULL, "template_id" integer NOT NULL, "turma_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_6f0653cb68"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+, CONSTRAINT "fk_rails_93cfa19b36"
+FOREIGN KEY ("template_id")
+  REFERENCES "templates" ("id")
+, CONSTRAINT "fk_rails_5a2be0c3c1"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_docente_id" ON "formularios" ("docente_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_template_id" ON "formularios" ("template_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_turma_id" ON "formularios" ("turma_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181821') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTurma (20240618181918)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "turmas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "class_code" varchar NOT NULL, "semestre" varchar NOT NULL, "horario" varchar NOT NULL, "codigo" varchar NOT NULL, "disciplina_id" integer NOT NULL, "docente_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_76e53910e3"
+FOREIGN KEY ("disciplina_id")
+  REFERENCES "disciplinas" ("id")
+, CONSTRAINT "fk_rails_e9c48d9324"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_turmas_on_disciplina_id" ON "turmas" ("disciplina_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_turmas_on_docente_id" ON "turmas" ("docente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181918') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateResultado (20240618181933)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "resultados" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dicente_id" integer NOT NULL, "formulario_id" integer NOT NULL, "resposta_id" integer NOT NULL, "questao_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_f5f253ae18"
+FOREIGN KEY ("dicente_id")
+  REFERENCES "dicentes" ("id")
+, CONSTRAINT "fk_rails_2d4b80b5de"
+FOREIGN KEY ("formulario_id")
+  REFERENCES "formularios" ("id")
+, CONSTRAINT "fk_rails_d9c8728e2d"
+FOREIGN KEY ("resposta_id")
+  REFERENCES "resposta" ("id")
+, CONSTRAINT "fk_rails_eea07c0640"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_dicente_id" ON "resultados" ("dicente_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_formulario_id" ON "resultados" ("formulario_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_resposta_id" ON "resultados" ("resposta_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_questao_id" ON "resultados" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181933') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFormulariosTurmas (20240618183130)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "formularios_turmas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "formulario_id" integer NOT NULL, "turma_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b488630305"
+FOREIGN KEY ("formulario_id")
+  REFERENCES "formularios" ("id")
+, CONSTRAINT "fk_rails_6f2a1cc9ab"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_formularios_turmas_on_formulario_id" ON "formularios_turmas" ("formulario_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_formularios_turmas_on_turma_id" ON "formularios_turmas" ("turma_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618183130') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTurmasDicentes (20240618185104)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "turmas_dicentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "turma_id" integer NOT NULL, "dicente_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ea8f5ca31b"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+, CONSTRAINT "fk_rails_a459e5c7bd"
+FOREIGN KEY ("dicente_id")
+  REFERENCES "dicentes" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_turmas_dicentes_on_turma_id" ON "turmas_dicentes" ("turma_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_turmas_dicentes_on_dicente_id" ON "turmas_dicentes" ("dicente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618185104') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDeviseToUsers (20240619210943)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime(6)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime(6)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_at" datetime(6)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_at" datetime(6)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_ip" varchar[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "role" integer DEFAULT 0[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240619210943') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRespostas (20240621092341)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "respostas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "resultado_id" integer NOT NULL, "questao_id" integer NOT NULL, "conteudo" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_cf039de8f1"
+FOREIGN KEY ("resultado_id")
+  REFERENCES "resultados" ("id")
+, CONSTRAINT "fk_rails_60de1f13d2"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_respostas_on_resultado_id" ON "respostas" ("resultado_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_respostas_on_questao_id" ON "respostas" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240621092341') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTipo Create (1.4ms)[0m  [1m[32mINSERT INTO "tipos" ("nome", "numeroDeAlternativas", "discursiva?", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "discursiva"], ["numeroDeAlternativas", 0], ["discursiva?", 1], ["created_at", "2024-06-22 02:02:53.256282"], ["updated_at", "2024-06-22 02:02:53.256282"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDisciplina Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "disciplinas" WHERE "disciplinas"."codigo" = ? LIMIT ?[0m  [["codigo", "MAT001"], ["LIMIT", 1]]
+  [1m[36mDisciplina Create (0.1ms)[0m  [1m[32mINSERT INTO "disciplinas" ("codigo", "nome", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["codigo", "MAT001"], ["nome", "Introdução ao Cálculo"], ["created_at", "2024-06-22 02:02:53.280776"], ["updated_at", "2024-06-22 02:02:53.280776"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (3.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "exemplo@unb.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("nome", "usuario", "formacao", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "role") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "fulano"], ["usuario", "000001"], ["formacao", "graduando"], ["created_at", "2024-06-22 02:02:53.651211"], ["updated_at", "2024-06-22 02:02:53.651211"], ["email", "exemplo@unb.br"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["role", 0]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDicente Create (1.6ms)[0m  [1m[32mINSERT INTO "dicentes" ("curso", "matricula", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["curso", "CIÊNCIAS DA COMPUTAÇÃO"], ["matricula", "000001"], ["user_id", 1], ["created_at", "2024-06-22 02:02:53.697708"], ["updated_at", "2024-06-22 02:02:53.697708"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adm@unb.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("nome", "usuario", "formacao", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "role") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "administrador"], ["usuario", "83807519491"], ["formacao", "DOUTORADO"], ["created_at", "2024-06-22 02:02:53.983124"], ["updated_at", "2024-06-22 02:02:53.983124"], ["email", "adm@unb.br"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["role", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDocente Create (0.2ms)[0m  [1m[32mINSERT INTO "docentes" ("departamento", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["departamento", "DEPTO CIÊNCIAS DA COMPUTAÇÃO"], ["user_id", 2], ["created_at", "2024-06-22 02:02:54.027080"], ["updated_at", "2024-06-22 02:02:54.027080"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "fulano"], ["LIMIT", 1]]
+  [1m[36mDicente Load (0.1ms)[0m  [1m[34mSELECT "dicentes".* FROM "dicentes" WHERE "dicentes"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDisciplina Load (0.1ms)[0m  [1m[34mSELECT "disciplinas".* FROM "disciplinas" WHERE "disciplinas"."nome" = ? LIMIT ?[0m  [["nome", "Introdução ao Cálculo"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTurma Create (1.1ms)[0m  [1m[32mINSERT INTO "turmas" ("class_code", "semestre", "horario", "codigo", "disciplina_id", "docente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["class_code", "TA"], ["semestre", "2024.2"], ["horario", "24M12"], ["codigo", "MAT001"], ["disciplina_id", 1], ["docente_id", 1], ["created_at", "2024-06-22 02:02:54.082372"], ["updated_at", "2024-06-22 02:02:54.082372"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "fulano"], ["LIMIT", 1]]
+  [1m[36mDicente Load (0.0ms)[0m  [1m[34mSELECT "dicentes".* FROM "dicentes" WHERE "dicentes"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDicente::HABTM_Turmas Create (0.2ms)[0m  [1m[32mINSERT INTO "turmas_dicentes" ("turma_id", "dicente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["turma_id", 1], ["dicente_id", 1], ["created_at", "2024-06-22 02:02:54.124234"], ["updated_at", "2024-06-22 02:02:54.124234"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTurma::HABTM_Dicentes Create (1.1ms)[0m  [1m[32mINSERT INTO "turmas_dicentes" ("turma_id", "dicente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["turma_id", 1], ["dicente_id", 1], ["created_at", "2024-06-22 02:02:54.131776"], ["updated_at", "2024-06-22 02:02:54.131776"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDocente Load (1.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTemplate Create (0.1ms)[0m  [1m[32mINSERT INTO "templates" ("nome", "docente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["nome", "Satisfação de Calculo 1"], ["docente_id", 1], ["created_at", "2024-06-22 02:02:54.154087"], ["updated_at", "2024-06-22 02:02:54.154087"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-06-22 02:04:28.380568', '2024-06-22 02:04:28.380571') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUser (20240618181536)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "usuario" varchar NOT NULL, "formacao" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181536') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDisciplina (20240618181557)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "disciplinas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "codigo" varchar NOT NULL, "nome" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_disciplinas_on_codigo" ON "disciplinas" ("codigo")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181557') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDocente (20240618181617)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "docentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "departamento" varchar NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_616b0b2ccc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_docentes_on_user_id" ON "docentes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181617') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDicente (20240618181631)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (26.8ms)[0m  [1m[35mCREATE TABLE "dicentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "curso" varchar NOT NULL, "matricula" varchar NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c0834a3e4b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_dicentes_on_user_id" ON "dicentes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181631') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTipo (20240618181812)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "tipos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "numeroDeAlternativas" integer NOT NULL, "discursiva?" boolean NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181812') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTemplate (20240618181816)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "templates" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "docente_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_296de19493"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_templates_on_docente_id" ON "templates" ("docente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181816') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateQuestao (20240618181818)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "questaos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pergunta" varchar NOT NULL, "tipo_id" integer NOT NULL, "template_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_68965b9a43"
+FOREIGN KEY ("tipo_id")
+  REFERENCES "tipos" ("id")
+, CONSTRAINT "fk_rails_be75f99e42"
+FOREIGN KEY ("template_id")
+  REFERENCES "templates" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_questaos_on_tipo_id" ON "questaos" ("tipo_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_questaos_on_template_id" ON "questaos" ("template_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181818') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAlternativa (20240618181820)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "alternativas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "questao_id" integer NOT NULL, "texto" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4b0ac471f6"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_alternativas_on_questao_id" ON "alternativas" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181820') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFormulario (20240618181821)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "formularios" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dataDeTermino" date NOT NULL, "nome" varchar NOT NULL, "docente_id" integer NOT NULL, "template_id" integer NOT NULL, "turma_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_6f0653cb68"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+, CONSTRAINT "fk_rails_93cfa19b36"
+FOREIGN KEY ("template_id")
+  REFERENCES "templates" ("id")
+, CONSTRAINT "fk_rails_5a2be0c3c1"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_docente_id" ON "formularios" ("docente_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_template_id" ON "formularios" ("template_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_turma_id" ON "formularios" ("turma_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181821') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTurma (20240618181918)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "turmas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "class_code" varchar NOT NULL, "semestre" varchar NOT NULL, "horario" varchar NOT NULL, "codigo" varchar NOT NULL, "disciplina_id" integer NOT NULL, "docente_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_76e53910e3"
+FOREIGN KEY ("disciplina_id")
+  REFERENCES "disciplinas" ("id")
+, CONSTRAINT "fk_rails_e9c48d9324"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_turmas_on_disciplina_id" ON "turmas" ("disciplina_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_turmas_on_docente_id" ON "turmas" ("docente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181918') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateResultado (20240618181933)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "resultados" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dicente_id" integer NOT NULL, "formulario_id" integer NOT NULL, "resposta_id" integer NOT NULL, "questao_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_f5f253ae18"
+FOREIGN KEY ("dicente_id")
+  REFERENCES "dicentes" ("id")
+, CONSTRAINT "fk_rails_2d4b80b5de"
+FOREIGN KEY ("formulario_id")
+  REFERENCES "formularios" ("id")
+, CONSTRAINT "fk_rails_d9c8728e2d"
+FOREIGN KEY ("resposta_id")
+  REFERENCES "resposta" ("id")
+, CONSTRAINT "fk_rails_eea07c0640"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_dicente_id" ON "resultados" ("dicente_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_formulario_id" ON "resultados" ("formulario_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_resposta_id" ON "resultados" ("resposta_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_questao_id" ON "resultados" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181933') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFormulariosTurmas (20240618183130)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "formularios_turmas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "formulario_id" integer NOT NULL, "turma_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b488630305"
+FOREIGN KEY ("formulario_id")
+  REFERENCES "formularios" ("id")
+, CONSTRAINT "fk_rails_6f2a1cc9ab"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_formularios_turmas_on_formulario_id" ON "formularios_turmas" ("formulario_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_formularios_turmas_on_turma_id" ON "formularios_turmas" ("turma_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618183130') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTurmasDicentes (20240618185104)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "turmas_dicentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "turma_id" integer NOT NULL, "dicente_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ea8f5ca31b"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+, CONSTRAINT "fk_rails_a459e5c7bd"
+FOREIGN KEY ("dicente_id")
+  REFERENCES "dicentes" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_turmas_dicentes_on_turma_id" ON "turmas_dicentes" ("turma_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_turmas_dicentes_on_dicente_id" ON "turmas_dicentes" ("dicente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618185104') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDeviseToUsers (20240619210943)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime(6)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime(6)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (4.4ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_at" datetime(6)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_at" datetime(6)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_ip" varchar[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "role" integer DEFAULT 0[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240619210943') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRespostas (20240621092341)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "respostas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "resultado_id" integer NOT NULL, "questao_id" integer NOT NULL, "conteudo" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_cf039de8f1"
+FOREIGN KEY ("resultado_id")
+  REFERENCES "resultados" ("id")
+, CONSTRAINT "fk_rails_60de1f13d2"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_respostas_on_resultado_id" ON "respostas" ("resultado_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_respostas_on_questao_id" ON "respostas" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240621092341') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTipo Create (4.2ms)[0m  [1m[32mINSERT INTO "tipos" ("nome", "numeroDeAlternativas", "discursiva?", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "discursiva"], ["numeroDeAlternativas", 0], ["discursiva?", 1], ["created_at", "2024-06-22 02:04:33.985593"], ["updated_at", "2024-06-22 02:04:33.985593"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDisciplina Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "disciplinas" WHERE "disciplinas"."codigo" = ? LIMIT ?[0m  [["codigo", "MAT001"], ["LIMIT", 1]]
+  [1m[36mDisciplina Create (0.1ms)[0m  [1m[32mINSERT INTO "disciplinas" ("codigo", "nome", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["codigo", "MAT001"], ["nome", "Introdução ao Cálculo"], ["created_at", "2024-06-22 02:04:34.010525"], ["updated_at", "2024-06-22 02:04:34.010525"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (4.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "exemplo@unb.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("nome", "usuario", "formacao", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "role") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "fulano"], ["usuario", "000001"], ["formacao", "graduando"], ["created_at", "2024-06-22 02:04:34.406979"], ["updated_at", "2024-06-22 02:04:34.406979"], ["email", "exemplo@unb.br"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["role", 0]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDicente Create (1.5ms)[0m  [1m[32mINSERT INTO "dicentes" ("curso", "matricula", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["curso", "CIÊNCIAS DA COMPUTAÇÃO"], ["matricula", "000001"], ["user_id", 1], ["created_at", "2024-06-22 02:04:34.456329"], ["updated_at", "2024-06-22 02:04:34.456329"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adm@unb.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("nome", "usuario", "formacao", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "role") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "administrador"], ["usuario", "83807519491"], ["formacao", "DOUTORADO"], ["created_at", "2024-06-22 02:04:34.741325"], ["updated_at", "2024-06-22 02:04:34.741325"], ["email", "adm@unb.br"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["role", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDocente Create (0.3ms)[0m  [1m[32mINSERT INTO "docentes" ("departamento", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["departamento", "DEPTO CIÊNCIAS DA COMPUTAÇÃO"], ["user_id", 2], ["created_at", "2024-06-22 02:04:34.780621"], ["updated_at", "2024-06-22 02:04:34.780621"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "fulano"], ["LIMIT", 1]]
+  [1m[36mDicente Load (0.1ms)[0m  [1m[34mSELECT "dicentes".* FROM "dicentes" WHERE "dicentes"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDisciplina Load (0.2ms)[0m  [1m[34mSELECT "disciplinas".* FROM "disciplinas" WHERE "disciplinas"."nome" = ? LIMIT ?[0m  [["nome", "Introdução ao Cálculo"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTurma Create (1.8ms)[0m  [1m[32mINSERT INTO "turmas" ("class_code", "semestre", "horario", "codigo", "disciplina_id", "docente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["class_code", "TA"], ["semestre", "2024.2"], ["horario", "24M12"], ["codigo", "MAT001"], ["disciplina_id", 1], ["docente_id", 1], ["created_at", "2024-06-22 02:04:34.855833"], ["updated_at", "2024-06-22 02:04:34.855833"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "fulano"], ["LIMIT", 1]]
+  [1m[36mDicente Load (0.0ms)[0m  [1m[34mSELECT "dicentes".* FROM "dicentes" WHERE "dicentes"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDicente::HABTM_Turmas Create (0.2ms)[0m  [1m[32mINSERT INTO "turmas_dicentes" ("turma_id", "dicente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["turma_id", 1], ["dicente_id", 1], ["created_at", "2024-06-22 02:04:34.899629"], ["updated_at", "2024-06-22 02:04:34.899629"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTurma::HABTM_Dicentes Create (1.5ms)[0m  [1m[32mINSERT INTO "turmas_dicentes" ("turma_id", "dicente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["turma_id", 1], ["dicente_id", 1], ["created_at", "2024-06-22 02:04:34.906773"], ["updated_at", "2024-06-22 02:04:34.906773"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDocente Load (1.7ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTemplate Create (0.2ms)[0m  [1m[32mINSERT INTO "templates" ("nome", "docente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["nome", "Satisfação de Calculo 1"], ["docente_id", 1], ["created_at", "2024-06-22 02:04:34.934857"], ["updated_at", "2024-06-22 02:04:34.934857"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" WHERE "formularios"."nome" = ? AND "formularios"."docente_id" = ? AND "formularios"."turma_id" = ? AND "formularios"."template_id" = ? AND "formularios"."dataDeTermino" = ? LIMIT ?[0m  [["nome", "Prova de Derivadas"], ["docente_id", 1], ["turma_id", 1], ["template_id", 1], ["dataDeTermino", "2024-07-01"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFormulario Create (0.3ms)[0m  [1m[32mINSERT INTO "formularios" ("dataDeTermino", "nome", "docente_id", "template_id", "turma_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["dataDeTermino", "2024-07-01"], ["nome", "Prova de Derivadas"], ["docente_id", 1], ["template_id", 1], ["turma_id", 1], ["created_at", "2024-06-22 02:04:34.996288"], ["updated_at", "2024-06-22 02:04:34.996288"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-06-22 02:05:01.779299', '2024-06-22 02:05:01.779306') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUser (20240618181536)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "usuario" varchar NOT NULL, "formacao" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181536') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDisciplina (20240618181557)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "disciplinas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "codigo" varchar NOT NULL, "nome" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_disciplinas_on_codigo" ON "disciplinas" ("codigo")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181557') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDocente (20240618181617)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "docentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "departamento" varchar NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_616b0b2ccc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_docentes_on_user_id" ON "docentes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181617') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDicente (20240618181631)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (28.4ms)[0m  [1m[35mCREATE TABLE "dicentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "curso" varchar NOT NULL, "matricula" varchar NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c0834a3e4b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_dicentes_on_user_id" ON "dicentes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181631') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTipo (20240618181812)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "tipos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "numeroDeAlternativas" integer NOT NULL, "discursiva?" boolean NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181812') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTemplate (20240618181816)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "templates" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "docente_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_296de19493"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_templates_on_docente_id" ON "templates" ("docente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181816') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateQuestao (20240618181818)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "questaos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pergunta" varchar NOT NULL, "tipo_id" integer NOT NULL, "template_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_68965b9a43"
+FOREIGN KEY ("tipo_id")
+  REFERENCES "tipos" ("id")
+, CONSTRAINT "fk_rails_be75f99e42"
+FOREIGN KEY ("template_id")
+  REFERENCES "templates" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_questaos_on_tipo_id" ON "questaos" ("tipo_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_questaos_on_template_id" ON "questaos" ("template_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181818') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAlternativa (20240618181820)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "alternativas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "questao_id" integer NOT NULL, "texto" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4b0ac471f6"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_alternativas_on_questao_id" ON "alternativas" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181820') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFormulario (20240618181821)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "formularios" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dataDeTermino" date NOT NULL, "nome" varchar NOT NULL, "docente_id" integer NOT NULL, "template_id" integer NOT NULL, "turma_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_6f0653cb68"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+, CONSTRAINT "fk_rails_93cfa19b36"
+FOREIGN KEY ("template_id")
+  REFERENCES "templates" ("id")
+, CONSTRAINT "fk_rails_5a2be0c3c1"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_docente_id" ON "formularios" ("docente_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_template_id" ON "formularios" ("template_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_turma_id" ON "formularios" ("turma_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181821') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTurma (20240618181918)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "turmas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "class_code" varchar NOT NULL, "semestre" varchar NOT NULL, "horario" varchar NOT NULL, "codigo" varchar NOT NULL, "disciplina_id" integer NOT NULL, "docente_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_76e53910e3"
+FOREIGN KEY ("disciplina_id")
+  REFERENCES "disciplinas" ("id")
+, CONSTRAINT "fk_rails_e9c48d9324"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_turmas_on_disciplina_id" ON "turmas" ("disciplina_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_turmas_on_docente_id" ON "turmas" ("docente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181918') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateResultado (20240618181933)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "resultados" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dicente_id" integer NOT NULL, "formulario_id" integer NOT NULL, "resposta_id" integer NOT NULL, "questao_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_f5f253ae18"
+FOREIGN KEY ("dicente_id")
+  REFERENCES "dicentes" ("id")
+, CONSTRAINT "fk_rails_2d4b80b5de"
+FOREIGN KEY ("formulario_id")
+  REFERENCES "formularios" ("id")
+, CONSTRAINT "fk_rails_d9c8728e2d"
+FOREIGN KEY ("resposta_id")
+  REFERENCES "resposta" ("id")
+, CONSTRAINT "fk_rails_eea07c0640"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_dicente_id" ON "resultados" ("dicente_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_formulario_id" ON "resultados" ("formulario_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_resposta_id" ON "resultados" ("resposta_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_questao_id" ON "resultados" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181933') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFormulariosTurmas (20240618183130)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "formularios_turmas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "formulario_id" integer NOT NULL, "turma_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b488630305"
+FOREIGN KEY ("formulario_id")
+  REFERENCES "formularios" ("id")
+, CONSTRAINT "fk_rails_6f2a1cc9ab"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_formularios_turmas_on_formulario_id" ON "formularios_turmas" ("formulario_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_formularios_turmas_on_turma_id" ON "formularios_turmas" ("turma_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618183130') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTurmasDicentes (20240618185104)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "turmas_dicentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "turma_id" integer NOT NULL, "dicente_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ea8f5ca31b"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+, CONSTRAINT "fk_rails_a459e5c7bd"
+FOREIGN KEY ("dicente_id")
+  REFERENCES "dicentes" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_turmas_dicentes_on_turma_id" ON "turmas_dicentes" ("turma_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_turmas_dicentes_on_dicente_id" ON "turmas_dicentes" ("dicente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618185104') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDeviseToUsers (20240619210943)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime(6)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime(6)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_at" datetime(6)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_at" datetime(6)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_ip" varchar[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "role" integer DEFAULT 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240619210943') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRespostas (20240621092341)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "respostas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "resultado_id" integer NOT NULL, "questao_id" integer NOT NULL, "conteudo" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_cf039de8f1"
+FOREIGN KEY ("resultado_id")
+  REFERENCES "resultados" ("id")
+, CONSTRAINT "fk_rails_60de1f13d2"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_respostas_on_resultado_id" ON "respostas" ("resultado_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_respostas_on_questao_id" ON "respostas" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240621092341') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTipo Create (2.2ms)[0m  [1m[32mINSERT INTO "tipos" ("nome", "numeroDeAlternativas", "discursiva?", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "discursiva"], ["numeroDeAlternativas", 0], ["discursiva?", 1], ["created_at", "2024-06-22 02:05:07.205439"], ["updated_at", "2024-06-22 02:05:07.205439"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDisciplina Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "disciplinas" WHERE "disciplinas"."codigo" = ? LIMIT ?[0m  [["codigo", "MAT001"], ["LIMIT", 1]]
+  [1m[36mDisciplina Create (0.2ms)[0m  [1m[32mINSERT INTO "disciplinas" ("codigo", "nome", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["codigo", "MAT001"], ["nome", "Introdução ao Cálculo"], ["created_at", "2024-06-22 02:05:07.245420"], ["updated_at", "2024-06-22 02:05:07.245420"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (5.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "exemplo@unb.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("nome", "usuario", "formacao", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "role") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "fulano"], ["usuario", "000001"], ["formacao", "graduando"], ["created_at", "2024-06-22 02:05:07.664688"], ["updated_at", "2024-06-22 02:05:07.664688"], ["email", "exemplo@unb.br"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["role", 0]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDicente Create (1.5ms)[0m  [1m[32mINSERT INTO "dicentes" ("curso", "matricula", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["curso", "CIÊNCIAS DA COMPUTAÇÃO"], ["matricula", "000001"], ["user_id", 1], ["created_at", "2024-06-22 02:05:07.701071"], ["updated_at", "2024-06-22 02:05:07.701071"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adm@unb.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("nome", "usuario", "formacao", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "role") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "administrador"], ["usuario", "83807519491"], ["formacao", "DOUTORADO"], ["created_at", "2024-06-22 02:05:07.984102"], ["updated_at", "2024-06-22 02:05:07.984102"], ["email", "adm@unb.br"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["role", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDocente Create (0.2ms)[0m  [1m[32mINSERT INTO "docentes" ("departamento", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["departamento", "DEPTO CIÊNCIAS DA COMPUTAÇÃO"], ["user_id", 2], ["created_at", "2024-06-22 02:05:08.011790"], ["updated_at", "2024-06-22 02:05:08.011790"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "fulano"], ["LIMIT", 1]]
+  [1m[36mDicente Load (0.1ms)[0m  [1m[34mSELECT "dicentes".* FROM "dicentes" WHERE "dicentes"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDisciplina Load (0.1ms)[0m  [1m[34mSELECT "disciplinas".* FROM "disciplinas" WHERE "disciplinas"."nome" = ? LIMIT ?[0m  [["nome", "Introdução ao Cálculo"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTurma Create (9.2ms)[0m  [1m[32mINSERT INTO "turmas" ("class_code", "semestre", "horario", "codigo", "disciplina_id", "docente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["class_code", "TA"], ["semestre", "2024.2"], ["horario", "24M12"], ["codigo", "MAT001"], ["disciplina_id", 1], ["docente_id", 1], ["created_at", "2024-06-22 02:05:08.073232"], ["updated_at", "2024-06-22 02:05:08.073232"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "fulano"], ["LIMIT", 1]]
+  [1m[36mDicente Load (0.0ms)[0m  [1m[34mSELECT "dicentes".* FROM "dicentes" WHERE "dicentes"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDicente::HABTM_Turmas Create (0.2ms)[0m  [1m[32mINSERT INTO "turmas_dicentes" ("turma_id", "dicente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["turma_id", 1], ["dicente_id", 1], ["created_at", "2024-06-22 02:05:08.114820"], ["updated_at", "2024-06-22 02:05:08.114820"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTurma::HABTM_Dicentes Create (1.5ms)[0m  [1m[32mINSERT INTO "turmas_dicentes" ("turma_id", "dicente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["turma_id", 1], ["dicente_id", 1], ["created_at", "2024-06-22 02:05:08.120798"], ["updated_at", "2024-06-22 02:05:08.120798"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDocente Load (1.0ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTemplate Create (0.2ms)[0m  [1m[32mINSERT INTO "templates" ("nome", "docente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["nome", "Satisfação de Calculo 1"], ["docente_id", 1], ["created_at", "2024-06-22 02:05:08.146220"], ["updated_at", "2024-06-22 02:05:08.146220"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mFormulario Load (0.1ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" WHERE "formularios"."nome" = ? AND "formularios"."docente_id" = ? AND "formularios"."turma_id" = ? AND "formularios"."template_id" = ? AND "formularios"."dataDeTermino" = ? LIMIT ?[0m  [["nome", "Prova de Derivadas"], ["docente_id", 1], ["turma_id", 1], ["template_id", 1], ["dataDeTermino", "2024-07-01"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFormulario Create (0.2ms)[0m  [1m[32mINSERT INTO "formularios" ("dataDeTermino", "nome", "docente_id", "template_id", "turma_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["dataDeTermino", "2024-07-01"], ["nome", "Prova de Derivadas"], ["docente_id", 1], ["template_id", 1], ["turma_id", 1], ["created_at", "2024-06-22 02:05:08.195306"], ["updated_at", "2024-06-22 02:05:08.195306"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-06-22 02:05:32.914143', '2024-06-22 02:05:32.914159') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUser (20240618181536)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "usuario" varchar NOT NULL, "formacao" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181536') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDisciplina (20240618181557)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "disciplinas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "codigo" varchar NOT NULL, "nome" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_disciplinas_on_codigo" ON "disciplinas" ("codigo")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181557') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDocente (20240618181617)
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "docentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "departamento" varchar NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_616b0b2ccc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_docentes_on_user_id" ON "docentes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181617') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDicente (20240618181631)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (37.0ms)[0m  [1m[35mCREATE TABLE "dicentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "curso" varchar NOT NULL, "matricula" varchar NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c0834a3e4b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_dicentes_on_user_id" ON "dicentes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181631') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTipo (20240618181812)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "tipos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "numeroDeAlternativas" integer NOT NULL, "discursiva?" boolean NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181812') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTemplate (20240618181816)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "templates" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "docente_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_296de19493"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_templates_on_docente_id" ON "templates" ("docente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181816') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateQuestao (20240618181818)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "questaos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pergunta" varchar NOT NULL, "tipo_id" integer NOT NULL, "template_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_68965b9a43"
+FOREIGN KEY ("tipo_id")
+  REFERENCES "tipos" ("id")
+, CONSTRAINT "fk_rails_be75f99e42"
+FOREIGN KEY ("template_id")
+  REFERENCES "templates" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_questaos_on_tipo_id" ON "questaos" ("tipo_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_questaos_on_template_id" ON "questaos" ("template_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181818') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAlternativa (20240618181820)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "alternativas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "questao_id" integer NOT NULL, "texto" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4b0ac471f6"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_alternativas_on_questao_id" ON "alternativas" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181820') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFormulario (20240618181821)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "formularios" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dataDeTermino" date NOT NULL, "nome" varchar NOT NULL, "docente_id" integer NOT NULL, "template_id" integer NOT NULL, "turma_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_6f0653cb68"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+, CONSTRAINT "fk_rails_93cfa19b36"
+FOREIGN KEY ("template_id")
+  REFERENCES "templates" ("id")
+, CONSTRAINT "fk_rails_5a2be0c3c1"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_docente_id" ON "formularios" ("docente_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_template_id" ON "formularios" ("template_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_turma_id" ON "formularios" ("turma_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181821') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTurma (20240618181918)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "turmas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "class_code" varchar NOT NULL, "semestre" varchar NOT NULL, "horario" varchar NOT NULL, "codigo" varchar NOT NULL, "disciplina_id" integer NOT NULL, "docente_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_76e53910e3"
+FOREIGN KEY ("disciplina_id")
+  REFERENCES "disciplinas" ("id")
+, CONSTRAINT "fk_rails_e9c48d9324"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_turmas_on_disciplina_id" ON "turmas" ("disciplina_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_turmas_on_docente_id" ON "turmas" ("docente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181918') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateResultado (20240618181933)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "resultados" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dicente_id" integer NOT NULL, "formulario_id" integer NOT NULL, "resposta_id" integer NOT NULL, "questao_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_f5f253ae18"
+FOREIGN KEY ("dicente_id")
+  REFERENCES "dicentes" ("id")
+, CONSTRAINT "fk_rails_2d4b80b5de"
+FOREIGN KEY ("formulario_id")
+  REFERENCES "formularios" ("id")
+, CONSTRAINT "fk_rails_d9c8728e2d"
+FOREIGN KEY ("resposta_id")
+  REFERENCES "resposta" ("id")
+, CONSTRAINT "fk_rails_eea07c0640"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_dicente_id" ON "resultados" ("dicente_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_formulario_id" ON "resultados" ("formulario_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_resposta_id" ON "resultados" ("resposta_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_questao_id" ON "resultados" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181933') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFormulariosTurmas (20240618183130)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "formularios_turmas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "formulario_id" integer NOT NULL, "turma_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b488630305"
+FOREIGN KEY ("formulario_id")
+  REFERENCES "formularios" ("id")
+, CONSTRAINT "fk_rails_6f2a1cc9ab"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_formularios_turmas_on_formulario_id" ON "formularios_turmas" ("formulario_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_formularios_turmas_on_turma_id" ON "formularios_turmas" ("turma_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618183130') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTurmasDicentes (20240618185104)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "turmas_dicentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "turma_id" integer NOT NULL, "dicente_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ea8f5ca31b"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+, CONSTRAINT "fk_rails_a459e5c7bd"
+FOREIGN KEY ("dicente_id")
+  REFERENCES "dicentes" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_turmas_dicentes_on_turma_id" ON "turmas_dicentes" ("turma_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_turmas_dicentes_on_dicente_id" ON "turmas_dicentes" ("dicente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618185104') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDeviseToUsers (20240619210943)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime(6)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime(6)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_at" datetime(6)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_at" datetime(6)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_ip" varchar[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "role" integer DEFAULT 0[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240619210943') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRespostas (20240621092341)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "respostas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "resultado_id" integer NOT NULL, "questao_id" integer NOT NULL, "conteudo" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_cf039de8f1"
+FOREIGN KEY ("resultado_id")
+  REFERENCES "resultados" ("id")
+, CONSTRAINT "fk_rails_60de1f13d2"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_respostas_on_resultado_id" ON "respostas" ("resultado_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_respostas_on_questao_id" ON "respostas" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240621092341') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTipo Create (1.2ms)[0m  [1m[32mINSERT INTO "tipos" ("nome", "numeroDeAlternativas", "discursiva?", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "discursiva"], ["numeroDeAlternativas", 0], ["discursiva?", 1], ["created_at", "2024-06-22 02:05:37.318297"], ["updated_at", "2024-06-22 02:05:37.318297"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDisciplina Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "disciplinas" WHERE "disciplinas"."codigo" = ? LIMIT ?[0m  [["codigo", "MAT001"], ["LIMIT", 1]]
+  [1m[36mDisciplina Create (0.2ms)[0m  [1m[32mINSERT INTO "disciplinas" ("codigo", "nome", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["codigo", "MAT001"], ["nome", "Introdução ao Cálculo"], ["created_at", "2024-06-22 02:05:37.347506"], ["updated_at", "2024-06-22 02:05:37.347506"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (7.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "exemplo@unb.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("nome", "usuario", "formacao", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "role") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "fulano"], ["usuario", "000001"], ["formacao", "graduando"], ["created_at", "2024-06-22 02:05:37.776915"], ["updated_at", "2024-06-22 02:05:37.776915"], ["email", "exemplo@unb.br"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["role", 0]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDicente Create (2.2ms)[0m  [1m[32mINSERT INTO "dicentes" ("curso", "matricula", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["curso", "CIÊNCIAS DA COMPUTAÇÃO"], ["matricula", "000001"], ["user_id", 1], ["created_at", "2024-06-22 02:05:37.821637"], ["updated_at", "2024-06-22 02:05:37.821637"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (12.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adm@unb.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("nome", "usuario", "formacao", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "role") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "administrador"], ["usuario", "83807519491"], ["formacao", "DOUTORADO"], ["created_at", "2024-06-22 02:05:38.122049"], ["updated_at", "2024-06-22 02:05:38.122049"], ["email", "adm@unb.br"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["role", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDocente Create (0.3ms)[0m  [1m[32mINSERT INTO "docentes" ("departamento", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["departamento", "DEPTO CIÊNCIAS DA COMPUTAÇÃO"], ["user_id", 2], ["created_at", "2024-06-22 02:05:38.152671"], ["updated_at", "2024-06-22 02:05:38.152671"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "fulano"], ["LIMIT", 1]]
+  [1m[36mDicente Load (0.1ms)[0m  [1m[34mSELECT "dicentes".* FROM "dicentes" WHERE "dicentes"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDisciplina Load (0.1ms)[0m  [1m[34mSELECT "disciplinas".* FROM "disciplinas" WHERE "disciplinas"."nome" = ? LIMIT ?[0m  [["nome", "Introdução ao Cálculo"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTurma Create (1.3ms)[0m  [1m[32mINSERT INTO "turmas" ("class_code", "semestre", "horario", "codigo", "disciplina_id", "docente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["class_code", "TA"], ["semestre", "2024.2"], ["horario", "24M12"], ["codigo", "MAT001"], ["disciplina_id", 1], ["docente_id", 1], ["created_at", "2024-06-22 02:05:38.207383"], ["updated_at", "2024-06-22 02:05:38.207383"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "fulano"], ["LIMIT", 1]]
+  [1m[36mDicente Load (0.0ms)[0m  [1m[34mSELECT "dicentes".* FROM "dicentes" WHERE "dicentes"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDicente::HABTM_Turmas Create (0.2ms)[0m  [1m[32mINSERT INTO "turmas_dicentes" ("turma_id", "dicente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["turma_id", 1], ["dicente_id", 1], ["created_at", "2024-06-22 02:05:38.244611"], ["updated_at", "2024-06-22 02:05:38.244611"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTurma::HABTM_Dicentes Create (1.3ms)[0m  [1m[32mINSERT INTO "turmas_dicentes" ("turma_id", "dicente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["turma_id", 1], ["dicente_id", 1], ["created_at", "2024-06-22 02:05:38.251524"], ["updated_at", "2024-06-22 02:05:38.251524"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDocente Load (1.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTemplate Create (0.1ms)[0m  [1m[32mINSERT INTO "templates" ("nome", "docente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["nome", "Satisfação de Calculo 1"], ["docente_id", 1], ["created_at", "2024-06-22 02:05:38.275397"], ["updated_at", "2024-06-22 02:05:38.275397"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mFormulario Load (0.7ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" WHERE "formularios"."nome" = ? AND "formularios"."docente_id" = ? AND "formularios"."turma_id" = ? AND "formularios"."template_id" = ? AND "formularios"."dataDeTermino" = ? LIMIT ?[0m  [["nome", "Prova de Derivadas"], ["docente_id", 1], ["turma_id", 1], ["template_id", 1], ["dataDeTermino", "2024-07-01"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFormulario Create (0.2ms)[0m  [1m[32mINSERT INTO "formularios" ("dataDeTermino", "nome", "docente_id", "template_id", "turma_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["dataDeTermino", "2024-07-01"], ["nome", "Prova de Derivadas"], ["docente_id", 1], ["template_id", 1], ["turma_id", 1], ["created_at", "2024-06-22 02:05:38.318268"], ["updated_at", "2024-06-22 02:05:38.318268"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-06-22 02:05:56.282635', '2024-06-22 02:05:56.282676') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUser (20240618181536)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "usuario" varchar NOT NULL, "formacao" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181536') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDisciplina (20240618181557)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "disciplinas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "codigo" varchar NOT NULL, "nome" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_disciplinas_on_codigo" ON "disciplinas" ("codigo")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181557') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDocente (20240618181617)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "docentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "departamento" varchar NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_616b0b2ccc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_docentes_on_user_id" ON "docentes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181617') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDicente (20240618181631)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (35.1ms)[0m  [1m[35mCREATE TABLE "dicentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "curso" varchar NOT NULL, "matricula" varchar NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c0834a3e4b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_dicentes_on_user_id" ON "dicentes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181631') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTipo (20240618181812)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "tipos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "numeroDeAlternativas" integer NOT NULL, "discursiva?" boolean NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181812') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTemplate (20240618181816)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "templates" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "docente_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_296de19493"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_templates_on_docente_id" ON "templates" ("docente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181816') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateQuestao (20240618181818)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "questaos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pergunta" varchar NOT NULL, "tipo_id" integer NOT NULL, "template_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_68965b9a43"
+FOREIGN KEY ("tipo_id")
+  REFERENCES "tipos" ("id")
+, CONSTRAINT "fk_rails_be75f99e42"
+FOREIGN KEY ("template_id")
+  REFERENCES "templates" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_questaos_on_tipo_id" ON "questaos" ("tipo_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_questaos_on_template_id" ON "questaos" ("template_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181818') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAlternativa (20240618181820)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "alternativas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "questao_id" integer NOT NULL, "texto" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4b0ac471f6"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_alternativas_on_questao_id" ON "alternativas" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181820') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFormulario (20240618181821)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "formularios" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dataDeTermino" date NOT NULL, "nome" varchar NOT NULL, "docente_id" integer NOT NULL, "template_id" integer NOT NULL, "turma_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_6f0653cb68"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+, CONSTRAINT "fk_rails_93cfa19b36"
+FOREIGN KEY ("template_id")
+  REFERENCES "templates" ("id")
+, CONSTRAINT "fk_rails_5a2be0c3c1"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_docente_id" ON "formularios" ("docente_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_template_id" ON "formularios" ("template_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_turma_id" ON "formularios" ("turma_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181821') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTurma (20240618181918)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "turmas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "class_code" varchar NOT NULL, "semestre" varchar NOT NULL, "horario" varchar NOT NULL, "codigo" varchar NOT NULL, "disciplina_id" integer NOT NULL, "docente_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_76e53910e3"
+FOREIGN KEY ("disciplina_id")
+  REFERENCES "disciplinas" ("id")
+, CONSTRAINT "fk_rails_e9c48d9324"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_turmas_on_disciplina_id" ON "turmas" ("disciplina_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_turmas_on_docente_id" ON "turmas" ("docente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181918') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateResultado (20240618181933)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "resultados" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dicente_id" integer NOT NULL, "formulario_id" integer NOT NULL, "resposta_id" integer NOT NULL, "questao_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_f5f253ae18"
+FOREIGN KEY ("dicente_id")
+  REFERENCES "dicentes" ("id")
+, CONSTRAINT "fk_rails_2d4b80b5de"
+FOREIGN KEY ("formulario_id")
+  REFERENCES "formularios" ("id")
+, CONSTRAINT "fk_rails_d9c8728e2d"
+FOREIGN KEY ("resposta_id")
+  REFERENCES "resposta" ("id")
+, CONSTRAINT "fk_rails_eea07c0640"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_dicente_id" ON "resultados" ("dicente_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_formulario_id" ON "resultados" ("formulario_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_resposta_id" ON "resultados" ("resposta_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_questao_id" ON "resultados" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181933') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFormulariosTurmas (20240618183130)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "formularios_turmas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "formulario_id" integer NOT NULL, "turma_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b488630305"
+FOREIGN KEY ("formulario_id")
+  REFERENCES "formularios" ("id")
+, CONSTRAINT "fk_rails_6f2a1cc9ab"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_formularios_turmas_on_formulario_id" ON "formularios_turmas" ("formulario_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_formularios_turmas_on_turma_id" ON "formularios_turmas" ("turma_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618183130') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTurmasDicentes (20240618185104)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "turmas_dicentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "turma_id" integer NOT NULL, "dicente_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ea8f5ca31b"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+, CONSTRAINT "fk_rails_a459e5c7bd"
+FOREIGN KEY ("dicente_id")
+  REFERENCES "dicentes" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_turmas_dicentes_on_turma_id" ON "turmas_dicentes" ("turma_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_turmas_dicentes_on_dicente_id" ON "turmas_dicentes" ("dicente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618185104') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDeviseToUsers (20240619210943)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.7ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime(6)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime(6)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_at" datetime(6)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_at" datetime(6)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_ip" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "role" integer DEFAULT 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240619210943') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRespostas (20240621092341)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "respostas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "resultado_id" integer NOT NULL, "questao_id" integer NOT NULL, "conteudo" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_cf039de8f1"
+FOREIGN KEY ("resultado_id")
+  REFERENCES "resultados" ("id")
+, CONSTRAINT "fk_rails_60de1f13d2"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_respostas_on_resultado_id" ON "respostas" ("resultado_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_respostas_on_questao_id" ON "respostas" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240621092341') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTipo Create (1.0ms)[0m  [1m[32mINSERT INTO "tipos" ("nome", "numeroDeAlternativas", "discursiva?", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "discursiva"], ["numeroDeAlternativas", 0], ["discursiva?", 1], ["created_at", "2024-06-22 02:06:00.691469"], ["updated_at", "2024-06-22 02:06:00.691469"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDisciplina Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "disciplinas" WHERE "disciplinas"."codigo" = ? LIMIT ?[0m  [["codigo", "MAT001"], ["LIMIT", 1]]
+  [1m[36mDisciplina Create (0.3ms)[0m  [1m[32mINSERT INTO "disciplinas" ("codigo", "nome", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["codigo", "MAT001"], ["nome", "Introdução ao Cálculo"], ["created_at", "2024-06-22 02:06:00.714758"], ["updated_at", "2024-06-22 02:06:00.714758"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (3.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "exemplo@unb.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("nome", "usuario", "formacao", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "role") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "fulano"], ["usuario", "000001"], ["formacao", "graduando"], ["created_at", "2024-06-22 02:06:01.105507"], ["updated_at", "2024-06-22 02:06:01.105507"], ["email", "exemplo@unb.br"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["role", 0]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDicente Create (1.5ms)[0m  [1m[32mINSERT INTO "dicentes" ("curso", "matricula", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["curso", "CIÊNCIAS DA COMPUTAÇÃO"], ["matricula", "000001"], ["user_id", 1], ["created_at", "2024-06-22 02:06:01.156710"], ["updated_at", "2024-06-22 02:06:01.156710"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (17.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adm@unb.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("nome", "usuario", "formacao", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "role") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "administrador"], ["usuario", "83807519491"], ["formacao", "DOUTORADO"], ["created_at", "2024-06-22 02:06:01.460836"], ["updated_at", "2024-06-22 02:06:01.460836"], ["email", "adm@unb.br"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["role", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDocente Create (0.1ms)[0m  [1m[32mINSERT INTO "docentes" ("departamento", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["departamento", "DEPTO CIÊNCIAS DA COMPUTAÇÃO"], ["user_id", 2], ["created_at", "2024-06-22 02:06:01.483642"], ["updated_at", "2024-06-22 02:06:01.483642"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "fulano"], ["LIMIT", 1]]
+  [1m[36mDicente Load (0.1ms)[0m  [1m[34mSELECT "dicentes".* FROM "dicentes" WHERE "dicentes"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDisciplina Load (0.1ms)[0m  [1m[34mSELECT "disciplinas".* FROM "disciplinas" WHERE "disciplinas"."nome" = ? LIMIT ?[0m  [["nome", "Introdução ao Cálculo"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTurma Create (1.2ms)[0m  [1m[32mINSERT INTO "turmas" ("class_code", "semestre", "horario", "codigo", "disciplina_id", "docente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["class_code", "TA"], ["semestre", "2024.2"], ["horario", "24M12"], ["codigo", "MAT001"], ["disciplina_id", 1], ["docente_id", 1], ["created_at", "2024-06-22 02:06:01.530653"], ["updated_at", "2024-06-22 02:06:01.530653"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "fulano"], ["LIMIT", 1]]
+  [1m[36mDicente Load (0.0ms)[0m  [1m[34mSELECT "dicentes".* FROM "dicentes" WHERE "dicentes"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDicente::HABTM_Turmas Create (0.4ms)[0m  [1m[32mINSERT INTO "turmas_dicentes" ("turma_id", "dicente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["turma_id", 1], ["dicente_id", 1], ["created_at", "2024-06-22 02:06:01.566033"], ["updated_at", "2024-06-22 02:06:01.566033"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTurma::HABTM_Dicentes Create (1.0ms)[0m  [1m[32mINSERT INTO "turmas_dicentes" ("turma_id", "dicente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["turma_id", 1], ["dicente_id", 1], ["created_at", "2024-06-22 02:06:01.573041"], ["updated_at", "2024-06-22 02:06:01.573041"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.0ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDocente Load (0.9ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTemplate Create (0.1ms)[0m  [1m[32mINSERT INTO "templates" ("nome", "docente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["nome", "Satisfação de Calculo 1"], ["docente_id", 1], ["created_at", "2024-06-22 02:06:01.594861"], ["updated_at", "2024-06-22 02:06:01.594861"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mFormulario Load (0.1ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" WHERE "formularios"."nome" = ? AND "formularios"."docente_id" = ? AND "formularios"."turma_id" = ? AND "formularios"."template_id" = ? AND "formularios"."dataDeTermino" = ? LIMIT ?[0m  [["nome", "Prova de Derivadas"], ["docente_id", 1], ["turma_id", 1], ["template_id", 1], ["dataDeTermino", "2024-07-01"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFormulario Create (0.1ms)[0m  [1m[32mINSERT INTO "formularios" ("dataDeTermino", "nome", "docente_id", "template_id", "turma_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["dataDeTermino", "2024-07-01"], ["nome", "Prova de Derivadas"], ["docente_id", 1], ["template_id", 1], ["turma_id", 1], ["created_at", "2024-06-22 02:06:01.626006"], ["updated_at", "2024-06-22 02:06:01.626006"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFormulario::HABTM_Turmas Create (0.2ms)[0m  [1m[32mINSERT INTO "formularios_turmas" ("formulario_id", "turma_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["formulario_id", 1], ["turma_id", 1], ["created_at", "2024-06-22 02:06:01.645731"], ["updated_at", "2024-06-22 02:06:01.645731"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-06-22 02:07:46.562506', '2024-06-22 02:07:46.562514') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUser (20240618181536)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "usuario" varchar NOT NULL, "formacao" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181536') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDisciplina (20240618181557)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "disciplinas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "codigo" varchar NOT NULL, "nome" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_disciplinas_on_codigo" ON "disciplinas" ("codigo")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181557') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDocente (20240618181617)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "docentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "departamento" varchar NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_616b0b2ccc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE INDEX "index_docentes_on_user_id" ON "docentes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181617') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDicente (20240618181631)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (47.4ms)[0m  [1m[35mCREATE TABLE "dicentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "curso" varchar NOT NULL, "matricula" varchar NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c0834a3e4b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_dicentes_on_user_id" ON "dicentes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181631') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTipo (20240618181812)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "tipos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "numeroDeAlternativas" integer NOT NULL, "discursiva?" boolean NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181812') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTemplate (20240618181816)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "templates" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar NOT NULL, "docente_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_296de19493"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_templates_on_docente_id" ON "templates" ("docente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181816') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateQuestao (20240618181818)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "questaos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pergunta" varchar NOT NULL, "tipo_id" integer NOT NULL, "template_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_68965b9a43"
+FOREIGN KEY ("tipo_id")
+  REFERENCES "tipos" ("id")
+, CONSTRAINT "fk_rails_be75f99e42"
+FOREIGN KEY ("template_id")
+  REFERENCES "templates" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_questaos_on_tipo_id" ON "questaos" ("tipo_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_questaos_on_template_id" ON "questaos" ("template_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181818') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAlternativa (20240618181820)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "alternativas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "questao_id" integer NOT NULL, "texto" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4b0ac471f6"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_alternativas_on_questao_id" ON "alternativas" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181820') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFormulario (20240618181821)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "formularios" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dataDeTermino" date NOT NULL, "nome" varchar NOT NULL, "docente_id" integer NOT NULL, "template_id" integer NOT NULL, "turma_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_6f0653cb68"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+, CONSTRAINT "fk_rails_93cfa19b36"
+FOREIGN KEY ("template_id")
+  REFERENCES "templates" ("id")
+, CONSTRAINT "fk_rails_5a2be0c3c1"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_docente_id" ON "formularios" ("docente_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_template_id" ON "formularios" ("template_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE INDEX "index_formularios_on_turma_id" ON "formularios" ("turma_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181821') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTurma (20240618181918)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "turmas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "class_code" varchar NOT NULL, "semestre" varchar NOT NULL, "horario" varchar NOT NULL, "codigo" varchar NOT NULL, "disciplina_id" integer NOT NULL, "docente_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_76e53910e3"
+FOREIGN KEY ("disciplina_id")
+  REFERENCES "disciplinas" ("id")
+, CONSTRAINT "fk_rails_e9c48d9324"
+FOREIGN KEY ("docente_id")
+  REFERENCES "docentes" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_turmas_on_disciplina_id" ON "turmas" ("disciplina_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_turmas_on_docente_id" ON "turmas" ("docente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181918') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateResultado (20240618181933)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "resultados" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dicente_id" integer NOT NULL, "formulario_id" integer NOT NULL, "resposta_id" integer NOT NULL, "questao_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_f5f253ae18"
+FOREIGN KEY ("dicente_id")
+  REFERENCES "dicentes" ("id")
+, CONSTRAINT "fk_rails_2d4b80b5de"
+FOREIGN KEY ("formulario_id")
+  REFERENCES "formularios" ("id")
+, CONSTRAINT "fk_rails_d9c8728e2d"
+FOREIGN KEY ("resposta_id")
+  REFERENCES "resposta" ("id")
+, CONSTRAINT "fk_rails_eea07c0640"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_dicente_id" ON "resultados" ("dicente_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_formulario_id" ON "resultados" ("formulario_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_resposta_id" ON "resultados" ("resposta_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_resultados_on_questao_id" ON "resultados" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618181933') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFormulariosTurmas (20240618183130)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "formularios_turmas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "formulario_id" integer NOT NULL, "turma_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b488630305"
+FOREIGN KEY ("formulario_id")
+  REFERENCES "formularios" ("id")
+, CONSTRAINT "fk_rails_6f2a1cc9ab"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_formularios_turmas_on_formulario_id" ON "formularios_turmas" ("formulario_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_formularios_turmas_on_turma_id" ON "formularios_turmas" ("turma_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618183130') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTurmasDicentes (20240618185104)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "turmas_dicentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "turma_id" integer NOT NULL, "dicente_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ea8f5ca31b"
+FOREIGN KEY ("turma_id")
+  REFERENCES "turmas" ("id")
+, CONSTRAINT "fk_rails_a459e5c7bd"
+FOREIGN KEY ("dicente_id")
+  REFERENCES "dicentes" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_turmas_dicentes_on_turma_id" ON "turmas_dicentes" ("turma_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_turmas_dicentes_on_dicente_id" ON "turmas_dicentes" ("dicente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240618185104') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDeviseToUsers (20240619210943)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime(6)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime(6)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_at" datetime(6)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_at" datetime(6)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_ip" varchar[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "role" integer DEFAULT 0[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240619210943') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRespostas (20240621092341)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "respostas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "resultado_id" integer NOT NULL, "questao_id" integer NOT NULL, "conteudo" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_cf039de8f1"
+FOREIGN KEY ("resultado_id")
+  REFERENCES "resultados" ("id")
+, CONSTRAINT "fk_rails_60de1f13d2"
+FOREIGN KEY ("questao_id")
+  REFERENCES "questaos" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_respostas_on_resultado_id" ON "respostas" ("resultado_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_respostas_on_questao_id" ON "respostas" ("questao_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240621092341') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTipo Create (2.7ms)[0m  [1m[32mINSERT INTO "tipos" ("nome", "numeroDeAlternativas", "discursiva?", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "discursiva"], ["numeroDeAlternativas", 0], ["discursiva?", 1], ["created_at", "2024-06-22 02:07:51.053988"], ["updated_at", "2024-06-22 02:07:51.053988"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDisciplina Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "disciplinas" WHERE "disciplinas"."codigo" = ? LIMIT ?[0m  [["codigo", "MAT001"], ["LIMIT", 1]]
+  [1m[36mDisciplina Create (0.2ms)[0m  [1m[32mINSERT INTO "disciplinas" ("codigo", "nome", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["codigo", "MAT001"], ["nome", "Introdução ao Cálculo"], ["created_at", "2024-06-22 02:07:51.085898"], ["updated_at", "2024-06-22 02:07:51.085898"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (7.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "exemplo@unb.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("nome", "usuario", "formacao", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "role") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "fulano"], ["usuario", "000001"], ["formacao", "graduando"], ["created_at", "2024-06-22 02:07:51.559046"], ["updated_at", "2024-06-22 02:07:51.559046"], ["email", "exemplo@unb.br"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["role", 0]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDicente Create (2.3ms)[0m  [1m[32mINSERT INTO "dicentes" ("curso", "matricula", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["curso", "CIÊNCIAS DA COMPUTAÇÃO"], ["matricula", "000001"], ["user_id", 1], ["created_at", "2024-06-22 02:07:51.605659"], ["updated_at", "2024-06-22 02:07:51.605659"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adm@unb.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("nome", "usuario", "formacao", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "role") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["nome", "administrador"], ["usuario", "83807519491"], ["formacao", "DOUTORADO"], ["created_at", "2024-06-22 02:07:51.929456"], ["updated_at", "2024-06-22 02:07:51.929456"], ["email", "adm@unb.br"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["role", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDocente Create (0.1ms)[0m  [1m[32mINSERT INTO "docentes" ("departamento", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["departamento", "DEPTO CIÊNCIAS DA COMPUTAÇÃO"], ["user_id", 2], ["created_at", "2024-06-22 02:07:51.963608"], ["updated_at", "2024-06-22 02:07:51.963608"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "fulano"], ["LIMIT", 1]]
+  [1m[36mDicente Load (0.1ms)[0m  [1m[34mSELECT "dicentes".* FROM "dicentes" WHERE "dicentes"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDisciplina Load (0.1ms)[0m  [1m[34mSELECT "disciplinas".* FROM "disciplinas" WHERE "disciplinas"."nome" = ? LIMIT ?[0m  [["nome", "Introdução ao Cálculo"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTurma Create (1.5ms)[0m  [1m[32mINSERT INTO "turmas" ("class_code", "semestre", "horario", "codigo", "disciplina_id", "docente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["class_code", "TA"], ["semestre", "2024.2"], ["horario", "24M12"], ["codigo", "MAT001"], ["disciplina_id", 1], ["docente_id", 1], ["created_at", "2024-06-22 02:07:52.048473"], ["updated_at", "2024-06-22 02:07:52.048473"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "fulano"], ["LIMIT", 1]]
+  [1m[36mDicente Load (0.1ms)[0m  [1m[34mSELECT "dicentes".* FROM "dicentes" WHERE "dicentes"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDicente::HABTM_Turmas Create (0.2ms)[0m  [1m[32mINSERT INTO "turmas_dicentes" ("turma_id", "dicente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["turma_id", 1], ["dicente_id", 1], ["created_at", "2024-06-22 02:07:52.100972"], ["updated_at", "2024-06-22 02:07:52.100972"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTurma::HABTM_Dicentes Create (4.4ms)[0m  [1m[32mINSERT INTO "turmas_dicentes" ("turma_id", "dicente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["turma_id", 1], ["dicente_id", 1], ["created_at", "2024-06-22 02:07:52.108383"], ["updated_at", "2024-06-22 02:07:52.108383"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDocente Load (2.3ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTemplate Create (0.3ms)[0m  [1m[32mINSERT INTO "templates" ("nome", "docente_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["nome", "Satisfação de Calculo 1"], ["docente_id", 1], ["created_at", "2024-06-22 02:07:52.150509"], ["updated_at", "2024-06-22 02:07:52.150509"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nome" = ? LIMIT ?[0m  [["nome", "administrador"], ["LIMIT", 1]]
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" WHERE "formularios"."nome" = ? AND "formularios"."docente_id" = ? AND "formularios"."turma_id" = ? AND "formularios"."template_id" = ? AND "formularios"."dataDeTermino" = ? LIMIT ?[0m  [["nome", "Prova de Derivadas"], ["docente_id", 1], ["turma_id", 1], ["template_id", 1], ["dataDeTermino", "2024-07-01"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDocente Load (0.1ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFormulario Create (0.2ms)[0m  [1m[32mINSERT INTO "formularios" ("dataDeTermino", "nome", "docente_id", "template_id", "turma_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["dataDeTermino", "2024-07-01"], ["nome", "Prova de Derivadas"], ["docente_id", 1], ["template_id", 1], ["turma_id", 1], ["created_at", "2024-06-22 02:07:52.202596"], ["updated_at", "2024-06-22 02:07:52.202596"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFormulario::HABTM_Turmas Create (0.2ms)[0m  [1m[32mINSERT INTO "formularios_turmas" ("formulario_id", "turma_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["formulario_id", 1], ["turma_id", 1], ["created_at", "2024-06-22 02:07:52.234297"], ["updated_at", "2024-06-22 02:07:52.234297"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
