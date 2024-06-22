@@ -27,6 +27,12 @@ ou
 rake db:migrate
 ```
 
+Depois, popule o banco de dados com
+
+```
+rake db:seed
+```
+
 para rodar o server: 
 ```
 rails s
