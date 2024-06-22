@@ -28,8 +28,7 @@ bundle install
 
 Execute os seguintes comandos para fazer as migrations e setup da database:
 ```
-rails db:drop:all
-rails db:
+rails db:reset
 ```
 
 E em seguida inicie o servidor local com o rails
