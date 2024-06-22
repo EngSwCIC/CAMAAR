@@ -1,0 +1,38 @@
+[
+  {
+    "code": "CIC0097",
+    "name": "BANCOS DE DADOS",
+    "class": {
+      "classCode": "TA",
+      "semester": "2021.2",
+      "time": "35T45"
+    }
+  },
+  {
+    "code": "CIC0105",
+    "name": "ENGENHARIA DE SOFTWARE",
+    "class": {
+      "classCode": "TA",
+      "semester": "2021.2",
+      "time": "35M12"
+    }
+  },
+  {
+    "code": "CIC0202",
+    "name": "PROGRAMAÇÃO CONCORRENTE",
+    "class": {
+      "classCode": "TA",
+      "semester": "2021.2",
+      "time": "35M34"
+    }
+  },
+  {
+    "code": "CIC0105",
+    "name": "ENGENHARIA DE SOFTWARE",
+    "class": {
+      "classCode": "T02",
+      "semester": "2024.1",
+      "time": "24M34"
+    }
+  }
+]

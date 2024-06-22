@@ -1,0 +1,21 @@
+<%= render '/navbar/navbar' %>
+
+<!-- por que o redirect pra outra pagina nao funciona? -->
+
+<h1>Criar Template</h1>
+
+<div class="grid-container">
+    <%= form_with url: import_templatecreates_path, method: :post do |f| %>
+      <div class="field">
+        <%= f.label "Nome:" %>
+        <%= f.text_field :name, required: true %>
+      </div>
+
+      <div id="qs">
+        <%= f.label "Questoes:" %>
+        <%= f.text_area :stringq, required: true %>
+      </div>
+    
+    <%= f.submit "Criar template", class: "btn btn-primary" %>
+    <% end %>
+</div>

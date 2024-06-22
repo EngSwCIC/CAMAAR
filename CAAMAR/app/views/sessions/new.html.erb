@@ -1,0 +1,45 @@
+<div class = "main_block">
+
+    <div class = "left_block">
+      
+                  
+      <% if @alert_message %>
+        <div class="alert alert-danger">
+          <%= @alert_message %>
+        </div>
+      <% end %>
+
+        <% if @alert_message_happy %>
+        <div class="alert-message">
+          <%= @alert_message_happy %>
+        </div>
+      <% end %>
+
+      <div class ='mb-3'>
+        <h2>Fazer login</h2>
+          <%= form_with(model: @usuario, url:sessions_path) do |form| %>
+
+          <div>
+            <%= form.label :email, 'Email', :for=> "exampleFormControlTextarea1",class:"form-label fm",style: "display: block" %>
+            <%= form.text_field :email,:class => "form-control", :id=>"exampleFormControlInput1" %>
+          </div>
+        </div>
+
+
+        <div class="mb-3">
+          <div>
+            <%= form.label :senha, 'Senha', :for=> "exampleFormControlTextarea1",style: "display: block" %>
+            <%= form.password_field :senha,:class => "form-control", :id=>"exampleFormControlInput1"%>
+          </div>
+        </div>
+        <div>
+          <%= form.submit 'Entrar' ,:class => 'btn btn-primary mb-3 subbtn'%>
+        </div>
+      </div>
+      <div class ="right_block">
+          <h1>Bem-vindo ao CAAMAR</h1>
+      </div>
+  <% end %>
+
+
+</div>

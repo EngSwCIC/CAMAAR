@@ -1,0 +1,15 @@
+<%=render '/navbar/navbar'%>
+
+<% if @forms.empty? %>
+  <h1 style="margin-left: auto; margin-right: auto; width: fit-content; margin-top: 1rem">Não existem formulários pendentes</h1>
+<% else %>
+  <div class="grid-container" style="padding: 1rem">
+    <% @forms.each do |form| %>
+      <%= link_to "forms_answer/new/#{form["id"]}/#{current_user["matricula"]}", class: "card" do %>
+        <h2><%= form["class_data"]["name"] %></h2>
+        <h6><%= form["class_data"]["class"]["semester"] %></h6>
+        <h4><%= form["class_data"]["class"]["teacher_name"] %></h4>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

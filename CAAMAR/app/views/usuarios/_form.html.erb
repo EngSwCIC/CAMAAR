@@ -1,0 +1,58 @@
+<!-- app/views/usuarios/_form.html.erb -->
+<%= form_with(model: usuario, local: true) do |form| %>
+  <% if usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+
+      <ul>
+        <% usuario.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :matricula %>
+    <%= form.text_field :matricula %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :formacao %>
+    <%= form.text_field :formacao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :senha %>
+    <%= form.password_field :senha %>
+  </div>
+
+  <div class="field">
+    <%= form.label :curso %>
+    <%= form.text_field :curso %>
+  </div>
+
+  <div class="field">
+    <%= form.label :isAdmin %>
+    <%= form.check_box :isAdmin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :isProf %>
+    <%= form.check_box :isProf %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

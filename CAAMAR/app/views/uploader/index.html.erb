@@ -1,0 +1,18 @@
+<%= render '/navbar/navbar' %>
+
+<h1>Upload de Arquivo: </h1>
+
+<p style="color: green"><%= notice %></p>
+
+<%= form_with url: import_jsonfiles_path, method: :post do |form| %>
+  <%= form.file_field :file %>
+  <%= form.button "Salvar" %>
+<% end %>
+
+<h3> classes.json Atual: </h3>
+
+<%= @json_classes  %>
+
+<h3> class_members.json Atual: </h3>
+
+<%= @json_members  %>

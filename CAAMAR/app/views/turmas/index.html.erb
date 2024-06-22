@@ -1,0 +1,55 @@
+<%= render '/navbar/navbar' %>
+
+<h1>Turmas</h1>
+
+<div class="grid-container">
+
+    <% @json_classes.each do |e| %>
+        <div class="card">
+            <h2> <%= e["name"] %> </h2>
+
+            <%= form_with url: import_formcreates_path, method: :post do |f| %>
+            
+            <div class="field">
+                <%= f.label "Código:" %>
+                <%= f.text_field :codigo, value: e["code"], readonly: true %>
+            </div>
+            <div class="field">
+                <%= f.label "Semestre:" %>
+                <%= f.text_field :semestre, value: e["class"]["semester"], readonly: true %>
+            </div>
+            <div class="field">
+                <%= f.label "Turma:" %>
+                <%= f.text_field :turma, value: e["class"]["classCode"], readonly: true %>
+            </div>
+            <div class="field">
+                <%= f.label "Horário:" %>
+                <%= f.text_field :horario, value: e["class"]["time"], readonly: true %>
+            </div>
+
+            <h4> Escolha o destinatário: </h4>
+            <div class="field">
+                <%= f.radio_button :tipo, "discente", required: true %>
+                <%= f.label "discente" %>
+                <%= f.radio_button :tipo, "docente", required: true %>
+                <%= f.label "docente" %>
+            </div>
+
+            <h4> Escolha o template: </h4>
+            <div class="field">
+                <% @json_templates.each do |t| %>
+                    <% if t["active"] == 1 %>
+                        <p>
+                            <%= f.radio_button :id, t["id"], required: true %>
+                            <%= f.label t["name"] %>
+                        </p>
+                    <% end %>
+                <% end %>
+            </div>
+
+            <%= f.submit "Enviar formulário", class: "btn btn-primary" %>
+            <% end %>
+        </div>
+    <% end %>
+
+</div>
