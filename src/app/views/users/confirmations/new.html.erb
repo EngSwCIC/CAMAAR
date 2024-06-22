@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= csrf_meta_tags %> 
+  <%= stylesheet_link_tag 'resetcss', media: 'all' %>
+  <%= stylesheet_link_tag 'form', media: 'all' %>
+  <%= stylesheet_link_tag 'error', media: 'all' %>
+
+</head>
+<body>
+<%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="container-form">
+    <div class="form-infos">
+
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    
+       <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"email@aluno.unb.br", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)%>
+       </div>
+    
+       <div class="actions">
+        <%= f.submit "Reenvie instruções de Confirmação" %>
+       </div>
+    <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
+    <div class="form-mensagem">
+      <h1>Reenviar</h1>
+      <h1>Instruções</h1>
+      <h1>de Confirmação</h1>
+    </div>
+  </div>
+</body>
+</html>

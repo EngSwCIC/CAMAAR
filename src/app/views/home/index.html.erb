@@ -1,0 +1,7 @@
+<div class="container">
+  <% if @formularios.any? %>
+    <%= render partial: 'formularios/formulario', locals: { formularios: @formularios } %>
+  <% else %>
+    <p>Nenhum formulário encontrado.</p>
+  <% end %>
+</div>

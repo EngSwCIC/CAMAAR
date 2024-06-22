@@ -1,0 +1,59 @@
+<div class="container-gerenciamento">
+    <div class="container-opcoes-gerenciamento">
+        <div class="botao-gerenciamento">
+            <h3><%= link_to 'Importar dados', root_path %></h3>
+        </div>
+        <div class="botao-gerenciamento">
+            <h3><%= link_to 'Editar Templates', templates_path %></h3>
+        </div>
+        <div class="botao-gerenciamento" id="openModalAdd">
+            <h3>Enviar Formulários</h3>
+        </div>
+        <div class="botao-gerenciamento">
+            <h3><%= link_to 'Resultados', resultados_path %></h3>
+        </div>
+    </div>
+</div>
+<div class="modal-adicionar-template" id="modal-enviar-forms">
+  <%= form_tag enviar_formularios_path, method: :post do %>
+    <div class="modal-content-env-forms">
+      <div class="select-templates">
+        <span>Templates:</span>
+        <select name="template_id" class="custom-select">
+          <% @templates.each do |template| %>
+            <option class="custom-option" value="<%= template.id %>"><%= template.nome %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="header-env-forms">
+          <div class="items-form-env">
+              <span>
+                  Nome
+              </span>
+                <span> Semestre </span>
+                <span> Código </span>
+          </div>
+          <div class="linha"></div>
+          <div class="custom-select-checkbox">
+            <div class="select-box">
+              <%= render partial: "turmas/index", locals: { turmas: @turmas } %>
+            </div>
+            <%= submit_tag "Enviar Turmas", class: "botaoEnviarForm" %>
+          </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  var modal = document.getElementById("modal-enviar-forms");
+  var btn = document.getElementById("openModalAdd");
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>

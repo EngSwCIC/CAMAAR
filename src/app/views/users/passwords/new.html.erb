@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= csrf_meta_tags %> 
+  <%= stylesheet_link_tag 'resetcss', media: 'all' %>
+  <%= stylesheet_link_tag 'error', media: 'all' %>
+  <%= stylesheet_link_tag 'form', media: 'all' %>
+</head>
+<body>
+<%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="container-form">
+    <div class="form-infos">
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"email@aluno.unb.br" %>
+      </div>
+    
+      <div class="actions">
+        <%= f.submit "Me mande as instruções de redefinição de senha" %>
+      </div>
+    <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
+    <div class="form-mensagem">
+      <h1>Redefinição</h1>
+      <h1>de</h1>
+      <h1>senha</h1>
+    </div>
+  </div>
+</body>
+</html>

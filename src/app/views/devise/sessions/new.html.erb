@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= csrf_meta_tags %> 
+  <%= stylesheet_link_tag 'resetcss', media: 'all' %>
+  <%= stylesheet_link_tag 'form', media: 'all' %>
+</head>
+<body>
+  <div class="container-form">
+    <div class="form-infos">
+      <h2>login</h2> <br>
+        <% flash.each do |type, msg| %>
+          <div class="login-flashs", style = 'color: red;'>
+            <%= msg %>
+          </div>
+        <% end %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {turbo: false}) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="field">
+          <%= f.label "Email" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"email@aluno.unb.br", id: "E-mail", required: true%>
+        </div>
+
+        <div class="field">
+          <%= f.label "Senha" %><br />
+          <%= f.password_field :password, autocomplete: "current-password", placeholder:"Password", id: "Senha", required: true%>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Entrar" %>
+        </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
+    <div class="form-mensagem">
+      <h1>Bem vindo</h1>
+      <h1>ao</h1>
+      <h1>CAMAAR</h1>
+    </div>
+  </div>
+</body>
+</html>
+

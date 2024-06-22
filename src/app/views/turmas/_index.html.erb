@@ -1,0 +1,12 @@
+<ul class="select-box__list">
+  <% @turmas.each do |turma| %>
+    <li class="item-form-env-tem">
+      <div>
+        <input type="checkbox" name="turma_ids[]" value="<%= turma.id %>">
+        <span><%= turma.classCode %></span>
+      </div>
+      <span><%= turma.semestre %></span>
+      <span><%= turma.classCode %></span>
+    </li>
+  <% end %>
+</ul>
