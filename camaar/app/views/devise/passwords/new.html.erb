@@ -1,97 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recuperação de Senha</title>
-  <style>
-    /* Estilos para o corpo da página */
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f0f4f8;
-      font-family: Arial, sans-serif;
-    }
+<h2>Forgot your password?</h2>
 
-    .container {
-      background-color: F0F0F0;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
-      width: 100%;
-    }
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
-    .field {
-      margin-bottom: 20px;
-    }
-
-    .field-label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-      text-align: left; /* Alinha o texto à esquerda */
-      color: #333;
-    }
-
-    .field-input {
-      width: 100%;
-      padding: 12px;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-      box-sizing: border-box;
-      font-size: 16px;
-      transition: border-color 0.3s ease;
-    }
-
-    .field-input:focus {
-      border-color: #3498db; 
-      outline: none; /* Remove o outline padrão */
-    }
-
-  
-    .submit-button {
-      width: 100%;
-      padding: 12px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-      transition: background-color 0.3s ease; 
-    }
-
-    .submit-button:hover {
-      background-color: #2980b9;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <h2>Recuperação de Senha</h2>
-
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-
-      <div class="field">
-        <%= f.label :email, class: "field-label" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "fulano@aluno.unb.br", class: "field-input" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Enviar instruções de redefinição de senha", class: "submit-button", data: { turbo: false } %>
-      </div>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-</body>
-</html>
+  <div class="actions">
+    <%= f.submit "Send me reset password instructions" %>
+  </div>
+<% end %>
 
+<%= render "devise/shared/links" %>

@@ -28,7 +28,7 @@ RSpec.describe "Materias", type: :request do
     end
     it "obteve o objeto certo" do
       get materia_path(materia), headers: {'Accept' => 'application/json'}
-      
+
       json = JSON.parse(response.body)
       expect(json["id"]).to eq(materia.id)
       expect(json["nome"]).to eq(materia.nome)

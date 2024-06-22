@@ -1,9 +1,113 @@
-<h1>Formularios</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página Gerenciar Formulários</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+    h1 {
+      color: #333;
+      margin-top: 0;
+    }
+    main {
+      flex-grow: 1;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: 0; /* Remover margem */
+      display: flex;
+      flex-direction: column;
+    }
+    nav {
+      width: 200px;
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      margin: 0; /* Remover margem */
+      height: 100%; /* Ajustar altura */
+      box-sizing: border-box; /* Inclui padding na largura */
+    }
+    nav h2 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 10px 0;
+      padding: 10px;
+      display: block;
+      background-color: #444;
+      border-radius: 4px;
+    }
+    nav a:hover {
+      background-color: #555;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>Menu</h2>
+    <%= link_to 'Gerenciamento', new_formulario_path, class: 'btn' %>
+    <%= link_to 'Sign out', destroy_user_session_path, 'data-turbo-method': :delete, class: 'btn' %>
+    <%= link_to 'Página inicial', root_path, class: 'btn' %>
+  </nav>
 
-<ul>
-  <% @formularios.each do |formulario| %>
-    <li>
-      <%= formulario.nome %>
-    </li>
-  <% end %>
-</ul>
+  <main>
+    <h1>Formulários</h1>
+    <% if current_user %>
+      <% if current_user.admin? %>
+        <h1>Você é admin!</h1>
+      <% end %>
+
+      <% if @formularios.any? %>
+        <ul>
+          <% @formularios.each do |formulario| %>
+            <li>
+              <b>Disciplina:</b> <%= formulario[:nome] %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>Nenhum formulário disponível.</p>
+      <% end %>
+    <% else %>
+      <p>Você não está logado.</p>
+    <% end %>
+  </main>
+</body>
+</html>
