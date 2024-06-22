@@ -2,24 +2,25 @@
 
 Sistema para avaliação de atividades acadêmicas remotas do CIC
 
-Baixe a versão do Ruby on Rails 3.3.3 - https://guides.rubyonrails.org/index.html
+# Ambiente
 
-Faça o clone do projeto
-``` https://github.com/Projeto-Final-ES-Grupo09/CAMAAR.git ```
+- Baixe a versão do [Ruby 3.3.3](https://www.ruby-lang.org/en/downloads/)
+
+- Faça o clone do projeto
 
 # Iniciando
 
-Entre na pasta src
-Primeiro, é necessário instalar todas as gemas do projeto
+- Entre na pasta src
+- Primeiro, é necessário instalar todas as gemas do projeto
 
 ```
 bundle install
 ```
 
-Em seguida, deve-se fazer as migrações
+- Em seguida, deve-se criar o banco e fazer as migrações
 
 ```
-rails db:migrate
+rails db:setup
 ```
 ou
 
@@ -27,17 +28,33 @@ ou
 rake db:migrate
 ```
 
-para rodar o server: 
+- Para popular a tabela, execute:
+
+```
+rails db:seed
+```
+
+- Para rodar o server: 
 ```
 rails s
 ```
-se divirta!!!
 
+- Após iniciar o servidor, acesse a rota ```/sign_up``` e insira um endereço de email e uma senha
+
+- Em seguida, acesse o link de cadastramento pelo terminal e defina uma nova senha para o mesmo email
+
+- Caso deseje logar como admin, clique em "Esqueceu a senha?" e use o email "admin@email.com" para redefinição, após isso, basta repetir o passo anterior
 
 # Testes
 
-Para executar o cucumber, basta rodar
+- Para executar o cucumber, basta rodar
 
 ```
-cucumber
+bundle exec cucumber features/
+```
+
+- Para rodar os testes em Rspec, execute o comando:
+
+```
+rspec spec spec/
 ```
