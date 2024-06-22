@@ -18,7 +18,7 @@ Scenario: User changes their password
     Then an email should be sent to "fulano@detal.com" containing a link
     When I click "Definir Senha" email link
     Then I should be on the password definition page
-    And I should see "Fulano de Tal"
+    And I should see "Fulano De Tal"
 
 Scenario: User tries to change their password, but their email is wrong
     When I click "Esqueceu sua senha?" link

@@ -16,11 +16,10 @@ Given('{string} with login {string} and password {string} solicitates password r
         pending # Write code here that turns the phrase above into concrete actions
     end
     
-    When('login with "{string}" and "{string2}"') do |string, string2|
-        Given('I am logged out')
-        Given('I am on the login page')
-        When('I fill in "E-mail" with "{string}"')
-        When('I fill in "Senha" with "{string2}"')
-        When('I press "Entrar"')
-        Then('I should be logged in')
+    When('I login with {string} and {string}') do |string, string2|
+        visit destroy_user_session_path
+        visit root_path
+        fill_in "E-mail", with: string
+        fill_in "Senha", with: string2
+        click_button "Entrar"
     end
