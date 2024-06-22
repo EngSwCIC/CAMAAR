@@ -22,6 +22,8 @@ class JsonfilesController < ApplicationController
             file_content = old_file
         end
 
+        directory_name = "db/json"
+        Dir.mkdir(directory_name) unless File.exist?(directory_name)
         File.open(path, 'w') do |f|
             f.write(JSON.pretty_generate(file_content))
         end

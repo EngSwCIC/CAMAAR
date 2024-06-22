@@ -3,6 +3,10 @@ require 'csv'
 
 class GerenciamentoController < ApplicationController
     def index
+        unless helpers.is_user_admin(nil)
+            redirect_to "/"
+            return
+        end
     end
 
     def show_templates
@@ -55,7 +59,7 @@ class GerenciamentoController < ApplicationController
                 .select { |a| a['form_id'] == form_id }
                 .map do |form_answer|
                     row = {}
-                    form_answer["answers"].each do |answer|
+                    form_answer["questions"].each do |answer|
                         question_id = answer['question_id']
                         headers[question_id - 1] ||= "question_#{question_id}_answer"
                         row["question_#{question_id}_answer"] = answer['answer']

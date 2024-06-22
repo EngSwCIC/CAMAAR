@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         user = Usuario.find_by(email: params[:email],senha:params[:senha])
         if user
             login user
-            redirect_to root_path(alert_message_happy: "Parabéns princeso vc está logado")
+            redirect_to avaliacoes_path(alert_message_happy: "Parabéns princeso vc está logado")
             Rails.logger.info("usuario aqui oh: #{current_user[:senha]}")
         else
             Rails.logger.info("Falhou bruxo: #{params[:email]}")

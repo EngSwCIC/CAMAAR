@@ -38,10 +38,12 @@
             <h4> Escolha o template: </h4>
             <div class="field">
                 <% @json_templates.each do |t| %>
-                    <p>
-                    <%= f.radio_button :id, t["id"], required: true %>
-                    <%= f.label t["name"] %>
-                    </p>
+                    <% if t["active"] == 1 %>
+                        <p>
+                            <%= f.radio_button :id, t["id"], required: true %>
+                            <%= f.label t["name"] %>
+                        </p>
+                    <% end %>
                 <% end %>
             </div>
 

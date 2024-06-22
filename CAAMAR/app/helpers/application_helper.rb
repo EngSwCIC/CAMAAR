@@ -1,12 +1,12 @@
 module ApplicationHelper
     # TODO implement
     def is_user_admin(user)
-        true
+        current_user[:isAdmin]
     end
     
     # TODO implement
     def get_current_user_id()
-        1
+        current_user["matricula"]
     end
 
     def get_forms_info(forms)

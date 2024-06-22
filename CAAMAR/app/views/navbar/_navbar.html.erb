@@ -13,7 +13,9 @@
  
   <div class="offcanvas-body">
     <%= link_to 'Avaliações', controller: 'avaliacoes' %>
-    <%= link_to 'Gerenciamento', controller: 'gerenciamento' %>
-    <%= link_to 'Turmas', controller: 'turmas' %>
+    <% if current_user[:isAdmin] %>
+      <%= link_to 'Gerenciamento', controller: 'gerenciamento' %>
+      <%= link_to 'Turmas', controller: 'turmas' %>
+    <% end %>
   </div>
 </div>

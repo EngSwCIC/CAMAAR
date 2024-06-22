@@ -5,21 +5,19 @@ Rails.application.routes.draw do
   resources :sessions
 
   root 'sessions#new'
-  get 'gerenciamento', to: 'gerenciamento#index'
-  get 'gerenciamento/templates', to: 'gerenciamento#show_templates'
+
   get '/definir-senha/:id', to: 'auth#define_password'
   get '/runner/add', to: 'runner#add'
-  root 'auth#login'
-  get 'main/index'
-  get 'gerenciamento', to: 'gerenciamento#show'
+
+  get 'gerenciamento', to: 'gerenciamento#index'
+  get 'gerenciamento/templates', to: 'gerenciamento#show_templates'
   get 'gerenciamento/results_popup'
   get 'gerenciamento/generate_csv'
 
   get 'turmas', to: 'turmas#index'
 
   get 'avaliacoes', to: 'avaliacoes#index'
-
-  # resource to read json files
+  
   get 'uploader', to: 'uploader#index'
 
   get 'template', to: 'template#index'
@@ -31,6 +29,7 @@ Rails.application.routes.draw do
 
   post 'delete_template', to: 'template#delete_template', as: 'delete_template'
 
+  # resource to read json files
   resources :jsonfiles do
     collection do
       post :import

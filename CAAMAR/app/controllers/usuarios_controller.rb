@@ -70,7 +70,7 @@ class UsuariosController < ApplicationController
 
 
   def getJson
-    file = File.read('../class_members.json')
+    file = File.read('db/json/class_members.json')
     data_hash = JSON.parse(file)
     alunos = data_hash[0]['dicente']
 

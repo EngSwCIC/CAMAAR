@@ -19,7 +19,9 @@ class FormsAnswerController < ApplicationController
     forms_file_path = "db/json/forms.json"
     @forms = JSON.parse(File.read(forms_file_path))
     @form = @forms.find {|form| form["id"] == params[:form_id].to_i}
-    solver = @form["solvers"].find { |solver| solver["id"] == params[:solver_id].to_i }
+    puts "esse é o form"
+    puts @form
+    solver = @form["solvers"].find { |solver| solver["id"] == params[:solver_id] }
     solver["is_solved"] = true
     File.write(forms_file_path, JSON.pretty_generate(@forms))
     if File.file?(answers_file_path)
@@ -27,7 +29,7 @@ class FormsAnswerController < ApplicationController
       answer_id = @answers.map {|answer| answer["id"]}.max || 0
       answer_id += 1
     else
-      @answers = JSON.parse("{}")
+      @answers = []
       answer_id = 1
     end
     answer_hash = {"id" => answer_id}
@@ -55,6 +57,8 @@ class FormsAnswerController < ApplicationController
     @answers << answer_hash
     puts "esse é o hash #{personal_answers}"
     File.write(answers_file_path, JSON.pretty_generate(@answers))
+
+    redirect_to "/avaliacoes"
   end
 
 
