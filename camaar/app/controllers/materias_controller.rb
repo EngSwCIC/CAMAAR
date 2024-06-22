@@ -56,4 +56,3 @@ class MateriasController < ApplicationController
         params.require(:materia).permit(:codigo, :nome)
     end
 end
-

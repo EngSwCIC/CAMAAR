@@ -1,52 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <style>
-    .btn-container {
+  <title>Your Application Name</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 20px;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #343a40;
+      color: white;
+      padding: 20px;
+      height: 100vh;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+    .sidebar h2 {
+      color: #f8f9fa;
+      border-bottom: 1px solid #495057;
+      padding-bottom: 10px;
+    }
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .sidebar ul li {
+      margin: 15px 0;
+    }
+    .sidebar ul li a {
+      color: #adb5bd;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .sidebar ul li a:hover {
+      background-color: #495057;
+      color: white;
+    }
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+      background-color: #fff;
+    }
+    .content h1, .content h2 {
+      color: #333;
+    }
+    .content ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .content ul li {
+      background-color: #fafafa;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .content a.button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px 0;
+      background-color: #007BFF;
+      color: #fff;
+      border-radius: 5px;
+      text-align: center;
+      text-decoration: none;
+    }
+    .content a.button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
-<div class="container">
-<h2>Primeiro acessoooo</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email, class: "field-label" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "fulano@aluno.unb.br", class: "field-input" %>
+  <div class="sidebar">
+    <h2>Menu</h2>
+    <ul>
+      <% if current_user && current_user.admin? %>
+        <li><%= link_to "Gerenciamento", new_formulario_path %></li>
+      <% else %>
+        <li><%= link_to "Avaliações", new_formulario_path %></li>
+      <% end %>
+      <li><%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete %></li>
+      <li><%= link_to "Templates", templates_path %></li>
+    </ul>
   </div>
-
-  <div class="field">
-    <%= f.label :password, class: "field-label" %>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
+  <div class="content">
+    <h1>Bem-vindo ao CAMMAR!</h1>
+    <% if current_user %>
+      <% if current_user.admin? %>
+        <h1>Você é admin!</h1>
+      <% else %>
+        <h1>Você é aluno!</h1>
+      <% end %>
+      <% if @materia.any? %>
+        <h2>Featured Subjects</h2>
+        <ul>
+          <% @materia.each do |materia| %>
+            <li>
+              <b>Disciplina:</b> <%= materia[:codigo] %> - <%= materia[:nome] %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+      <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete, class: "button" %>
+      <%= link_to "Templates", templates_path, class: "button" %>
+    <% else %>
+      <p>Você não está logado.</p>
+      <%= link_to "Sign Up!", new_user_registration_path, class: "button" %>
+      <br/>
+      <%= link_to "Login", new_user_session_path, class: "button" %>
     <% end %>
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Sua senha secreta", class: "field-input" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, class: "field-label" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirme sua senha", class: "field-input" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up", class: "submit-button", data: { turbo: false } %>
-  </div>
-<% end %>
-
-<div class="devise-links">
-  <%= render "devise/shared/links" %>
-</div>
-</div>
 </body>
 </html>
-
-
-
-  
