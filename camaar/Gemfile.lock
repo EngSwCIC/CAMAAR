@@ -154,6 +154,7 @@ GEM
     ffi (1.16.3-x86-mingw32)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    hashie (5.0.0)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
@@ -338,6 +339,7 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   factory_bot_rails
+  hashie
   importmap-rails
   jbuilder
   panko_serializer

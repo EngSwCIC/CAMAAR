@@ -72,3 +72,4 @@ end
 
 gem "devise", "~> 4.9"
 gem "panko_serializer"
+gem "hashie"
