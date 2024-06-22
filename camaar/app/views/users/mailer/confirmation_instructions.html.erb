@@ -1,0 +1,5 @@
+<p>Bem vinde ao Camaar, <%= @email %>!</p>
+
+<p>Você pode confirmar sua conta pelo link abaixo:</p>
+
+<p><%= link_to 'Confirmar', confirmation_url(@resource, confirmation_token: @token,host:'localhost:3000') %></p>

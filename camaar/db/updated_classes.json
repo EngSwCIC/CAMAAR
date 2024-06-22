@@ -1,0 +1,29 @@
+[
+  {
+    "code": "CIC0097",
+    "name": "BD",
+    "class": {
+      "classCode": "TA",
+      "semester": "2021.2",
+      "time": "35M34"
+    }
+  },
+  {
+    "code": "CIC0105",
+    "name": "ES",
+    "class": {
+      "classCode": "TA",
+      "semester": "2021.2",
+      "time": "35T45"
+    }
+  },
+  {
+    "code": "CIC0202",
+    "name": "PC",
+    "class": {
+      "classCode": "TA",
+      "semester": "2021.2",
+      "time": "35M12"
+    }
+  }
+]

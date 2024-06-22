@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  registration: 1
+  name: MyString
+  formation: MyString
+  occupation: MyString
+
+two:
+  registration: 1
+  name: MyString
+  formation: MyString
+  occupation: MyString
