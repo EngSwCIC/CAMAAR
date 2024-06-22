@@ -12,3 +12,6 @@ Sistema para avaliação de atividades acadêmicas remotas do CIC
 
 **Como executar os testes**
 - Para rodar os testes, basta rodar `cd CAAMAR` e depois `rspec --format documentation`
+
+# Participantes e informações da organização
+- Podem ser encontradas [na Wiki](https://github.com/wallacelw/CAMAAR/wiki/Organiza%C3%A7%C3%A3o)
