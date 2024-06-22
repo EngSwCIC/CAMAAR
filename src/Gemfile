@@ -61,16 +61,12 @@ group :development do
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
-end
-
-group :test do
   gem "cucumber-rails", require: false
-  # database_cleaner is not required, but highly recommended
   gem 'rspec-rails'
   gem 'database_cleaner'
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "capybara-email"
 end
 
 gem "devise", "~> 4.9"

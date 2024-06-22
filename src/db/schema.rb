@@ -51,24 +51,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_21_103104) do
   create_table "respostas", force: :cascade do |t|
     t.text "resposta"
     t.integer "numero"
-    t.integer "user_id"
-    t.integer "questao_id"
-    t.integer "formulario_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["formulario_id"], name: "index_respostas_on_formulario_id"
-    t.index ["questao_id"], name: "index_respostas_on_questao_id"
-    t.index ["user_id"], name: "index_respostas_on_user_id"
   end
 
   create_table "templates", force: :cascade do |t|
     t.string "nome"
     t.string "semestre"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "users_id"
-    t.index ["user_id"], name: "index_templates_on_user_id"
     t.index ["users_id"], name: "index_templates_on_users_id"
   end
 
@@ -127,10 +119,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_21_103104) do
   add_foreign_key "questoes", "respostas", column: "respostas_id"
   add_foreign_key "questoes_templates", "questoes"
   add_foreign_key "questoes_templates", "templates"
-  add_foreign_key "respostas", "formularios"
-  add_foreign_key "respostas", "questoes"
-  add_foreign_key "respostas", "users"
-  add_foreign_key "templates", "users"
+  add_foreign_key "templates", "users", column: "users_id"
   add_foreign_key "turmas", "materias"
   add_foreign_key "users", "respostas", column: "respostas_id"
   add_foreign_key "users_turmas", "turmas"

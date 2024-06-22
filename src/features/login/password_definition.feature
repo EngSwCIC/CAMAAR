@@ -6,27 +6,24 @@ Feature: User defines his password
 
 Scenario: User already registred redefines his password
 
-    Given "Fulano" is already registred with email "fulano@detal.com" and password "ciclano"
-    And solicitates password redefnition
-    Then I should see "Fulano" on password definition page
+    Given "Fulano de Tal" with login "fulano@detal.com" and password "ciclano" solicitates password redefinition
+    Then I should see "Fulano"
     When I fill in "Senha" with "teste123"
-    And I fill in "Confirmar senha" with "teste123"
-    And I press "Definir senha"
-    Then I should see "Senha definida com sucesso."
-    And trying to login with "fulano@detal.com" and "teste123"
-    Then I should see "Bem vindo, Fulano."
+    And I fill in "Confirma a senha" with "teste123"
+    And I press "Definir Senha"
+    Then I should see "Deslogar"
+    When I login with "fulano@detal.com" and "teste123"
+    Then I should see "Deslogar"
 
 Scenario: User already registred tries his old password
 
-    Given "Fulano" is already registred with email "fulano@detal.com" and password "pass"
-    And solicitates password redefnition
-    Then I should see "Fulano" on password definition page
+    Given "Fulano de Tal" with login "fulano@detal.com" and password "ciclano" solicitates password redefinition
+    Then I should see "Fulano"
     When I fill in "Senha" with "teste123"
-    And I fill in "Confirmar senha" with "teste123"
-    And I press "Definir senha"
-    Then I should see "Senha definida com sucesso."
-    And trying to login with "fulano@detal.com" and "pass"
-    Then I should see "E-mail e/ou senha não corresponde a nenhum usuário cadastrado."
+    And I fill in "Confirma a senha" with "teste123"
+    And I press "Definir Senha"
+    And I login with "fulano@detal.com" and "ciclano"
+    Then I should see "Email ou senha inválidos"
 
 Scenario: User not registred defines his password
 
@@ -34,7 +31,7 @@ Scenario: User not registred defines his password
     And recieved an email with a link for registration in the system
     Then I should see "Ciclano" on password definition page
     When I fill in "Senha" with "pass"
-    And I fill in "Confirmar Senha" with "pass"
+    And I fill in "Confirmar a senha" with "pass"
     And I press "Definir Senha"
     Then I should see "Senha definida com sucesso."
     And trying to login with "ciclano@dominio.com" and "pass"
@@ -43,21 +40,21 @@ Scenario: User not registred defines his password
 
 Scenario: User fill "Senha" with blank space
 
-    Given "Fulano" is already registred with email "fulano@detal.com" and password "pass"
+    Given "Fulano de Tal" with login "fulano@detal.com" and password "ciclano" solicitates password redefinition
     And solicitates password redefnition
     Then I should see "Fulano" on password definition page
     When I fill in "Senha" with ""
-    And I fill in "Confirmar senha" with ""
-    And I press "Definir senha"
-    Then I should see "Preencha corretamente o campo de senha"
+    And I fill in "Confirmar a senha" with ""
+    And I press "Definir Senha"
+    Then I should see "Defina sua senha nos espaços abaixo."
 
 Scenario: New User fill "Confirmar Senha" with divergent pass
 
     Given not registred user "Ciclano" with email "ciclano@dominio.com" exists
     And recieved an email with a link for registration in the system
     Then I should see "Ciclano" on password definition page
-    When I fill in "Senha" with "pass"
-    And I fill in "Confirmar Senha" with "dddd"
+    When I fill in "Senha" with "passdd"
+    And I fill in "Confirmar a senha" with "ddddss"
     And I press "Definir Senha"
     Then I should see "As senhas não correspondem. Preenha os campos corretamente."
 

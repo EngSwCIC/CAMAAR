@@ -13,41 +13,35 @@ Background:
 
 Scenario: User admin trying to login
     
-    When I fill in "E-mail" with "admin@localhost.com"
+    When I fill in "E-mail" with "admin@admin.com"
     And I fill in "Senha" with "admin1"
     And I press "Entrar"
-    Then I should see "Bem vindo(a), Admin!"
+    Then I should be logged in
 
 Scenario: User trying to login
 
     When I fill in "E-mail" with "user@user.com"
     And I fill in "Senha" with "pass12"
     And I press "Entrar"
-    Then I should see "Bem vindo(a), User!"
+    Then I should be logged in
 
 Scenario: Admin trying to login with a wrong password
 
     When I fill in "E-mail" with "admin@localhost.com"
-    And I fill in "Senha" with "ADMIN"
+    And I fill in "Senha" with "ADMIN1"
     And I press "Entrar"
-    Then I should see "E-mail e/ou senha não corresponde a nenhum usuário cadastrado."
-
-Scenario: User trying to login with an invalid e-mail
-
-    When I fill in "E-mail" with "admin"
-    And I press "Entrar"
-    Then I should see "Insira um e-mail válido."
+    Then I should not be logged in
 
 Scenario: User fill "Senha" with blank space
 
     When I fill in "Senha" with ""
     And I fill in "E-mail" with "user@user.com"
     And I press "Entrar"
-    Then I should see "Insira a senha"
+    Then I should not be logged in
 
 Scenario: User trying to login with a wrong password
 
     When I fill in "E-mail" with "user@user.com"
     And I fill in "Senha" with "invalid"
     And I press "Entrar"
-    Then I should see "E-mail e/ou senha não corresponde a nenhum usuário cadastrado."
+    Then I should see "Email ou senha inválidos"

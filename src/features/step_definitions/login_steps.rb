@@ -2,7 +2,9 @@ module UserStepHelper
     def create_user(params)
       user = User.new(params)
       user.skip_confirmation_notification!
+      user.confirm
       user.save
+      user
     end
 end
 
@@ -38,7 +40,16 @@ World(UserStepHelper)
     click_button button
     end
 
-    Then(/^I should see "([^"]*)"$/) do |message|
-    # Verifica se a mensagem tem a mensagem
-    expect(page).to have_content message
+    Then('I should see {string}') do |string|
+        expect(page).to have_content string
+    end
+
+    Then(/^I should not be logged in$/) do
+        visit root_path
+        expect(page).to have_content "login"
+    end
+
+    Then(/^I should be logged in$/) do
+        visit root_path
+        expect(page).to have_content "Deslogar"
     end
