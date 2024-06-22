@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edição de templates</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    main {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 500px;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    .btn-danger {
+      background-color: #dc3545;
+    }
+    .btn-danger:hover {
+      background-color: #c82333;
+    }
+    .link {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #007BFF;
+    }
+    .link:hover {
+      text-decoration: underline;
+    }
+    p {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <% if current_user %>
+      <h1>Escolha um nome para atualizar o template.</h1>
+      <%= form_with(model: @template, local: true) do |form| %>
+        <div class="form-group">
+          <%= form.label :nome, 'Nome', class: 'form-control' %>
+          <%= form.text_field :nome, class: 'form-control' %>
+        </div>
+        <%= form.submit 'Salvar mudanças', class: 'btn' %>
+      <% end %>
+      <p><%= link_to 'Voltar para página anterior', templates_path, class: 'link' %></p>
+    <% else %>
+      <p>Você não está logado.</p>
+      <%= link_to "Sign Up!", new_user_registration_path, class: 'link' %>
+      <br/>
+      <%= link_to "Login", new_user_session_path, class: 'link' %>
+    <% end %>
+  </main>
+</body>
+</html>

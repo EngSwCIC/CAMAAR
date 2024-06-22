@@ -1,0 +1,14 @@
+<h1>Formularios pendentes para responder</h1>
+
+<ul>
+  <% @formularios.each do |formulario| %>
+    <li>
+      <%= formulario.nome %> <br>
+      Codigo: <%= formulario.turma.codigo %> <br>
+      Semestre: <%= formulario.turma.semestre %> <br>
+      Horario: <%= formulario.turma.horario %> <br>
+      <%= link_to "Responder", "/formularios/responder/#{formulario.id}" %>
+    </li>
+    <hr>
+  <% end %>
+</ul>

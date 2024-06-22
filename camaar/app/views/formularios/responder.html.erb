@@ -1,0 +1,14 @@
+<%= form_with url: "/formularios/responder/#{@formulario.id}", method: :post, model: @formulario do |f| %>
+  <%= f.hidden_field :id %>
+
+      <%= f.fields_for :questaos do |questao_form| %>
+        <%= questao_form.label questao_form.object.texto %>
+        <%= questao_form.fields_for :resposta do |resposta_form| %>
+          <%= resposta_form.text_field :value %>
+        <% end %>
+        <hr>
+      <% end %>
+
+
+  <%= f.submit "Submit" %>
+<% end %>

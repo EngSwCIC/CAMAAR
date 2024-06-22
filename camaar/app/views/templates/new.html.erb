@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Criação de templates</title>
+  </head>
+<body>
+  <main>
+    <%if current_user %>
+    <h1>Escolha um nome para o template.</h1>
+        <%= form_tag templates_path, :method => :post, :class => 'form' do %>
+            <%= label :template, :nome, 'Nome', :class => 'form-control' %>
+            <%= text_field :template, :nome, :class => 'form-control' %>
+            <%= submit_tag 'Salvar template' %>
+        <% end %>
+        <p><%= link_to 'Voltar para pagina anterior', root_path %> </p>
+    <% else %>
+      <p>you are not signed in.</p>
+      <%= link_to "Sign Up!", new_user_registration_path%>
+      <br/>
+      <%= link_to "Login", new_user_session_path%>
+    <%end %>
+  </main>
+</body>
+</html>
