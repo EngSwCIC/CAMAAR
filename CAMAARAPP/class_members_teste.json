@@ -1,0 +1,54 @@
+[
+    {
+        "code": "CIC0097",
+        "classCode": "TA",
+        "semester": "2021.2",
+        "dicente": [
+            {
+                "nome": "Joao",
+                "curso": "CIÊNCIA DA COMPUTAÇÃO/CIC",
+                "matricula": "221017032",
+                "usuario": "221017032",
+                "formacao": "graduando",
+                "ocupacao": "dicente",
+                "email": "dacam33c@gmail.com"
+            },
+            {
+                "nome": "alisso",
+                "curso": "CIÊNCIA DA COMPUTAÇÃO/CIC",
+                "matricula": "221017032",
+                "usuario": "221017032",
+                "formacao": "graduando",
+                "ocupacao": "dicente",
+                "email": "dacam33c@gmail.com"
+            },
+            {
+                "nome": "otro joao",
+                "curso": "CIÊNCIA DA COMPUTAÇÃO/CIC",
+                "matricula": "221017032",
+                "usuario": "221017032",
+                "formacao": "graduando",
+                "ocupacao": "dicente",
+                "email": "dacam33c@gmail.com"
+            },
+            {
+                "nome": "lucas",
+                "curso": "CIÊNCIA DA COMPUTAÇÃO/CIC",
+                "matricula": "221017032",
+                "usuario": "221017032",
+                "formacao": "graduando",
+                "ocupacao": "dicente",
+                "email": "dacam33c@gmail.com"
+            }
+
+        ],
+        "docente": {
+            "nome": "MARISTELA TERTO DE HOLANDA",
+            "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO",
+            "formacao": "DOUTORADO",
+            "usuario": "83807519491",
+            "email": "dacam33c@gmail.com",
+            "ocupacao": "docente"
+        }
+    }
+]

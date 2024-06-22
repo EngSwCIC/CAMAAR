@@ -1,0 +1,13 @@
+<body>
+    <div class="outer-container">
+      <div class="inner-container text-center">
+        <h1>Gerenciamento <br> <%= current_user.nome %> </h1>
+
+        <div class="buttons">
+          <%= button_to "Import", "/telas/importar", method: :post, class: 'btn-custom' %>
+          <%= button_to "Mail", "/telas/mail", method: :post, class: 'btn-custom' %>
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn-custom' %>
+        </div>
+      </div>
+    </div>
+  </body>
