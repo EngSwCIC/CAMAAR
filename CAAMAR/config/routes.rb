@@ -36,6 +36,15 @@ Rails.application.routes.draw do
   end
 
 
+  #
+  get 'forms_answer/index'
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get 'forms_answer/new/:form_id/:solver_id', to: 'forms_answer#new'
+  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
+  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  post '/import_formanswercreates', to: 'forms_answer#create', as: 'import_formanswercreates'
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

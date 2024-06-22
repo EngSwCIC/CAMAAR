@@ -1,0 +1,26 @@
+<h1><%="Respondendo  Formuladio #{params[:form_id]}" %></h1>
+
+<%= form_with url: import_formanswercreates_path, method: :post do |f| %>
+    <%= f.label "Código:" %>
+    <%= f.text_field :form_id, value:params[:form_id], readonly: true %>
+    <%= f.label "solver:" %>
+    <%= f.text_field :solver_id, value:params[:solver_id], readonly: true %>
+
+
+  <% @template["questions"].each do |question| %>
+    <%symbol_reference = question["id"].to_s.to_sym %>
+    <div class="field">
+      <% if question["type"] == "open" %>
+        <P><%= f.label "#{question["id"]})  #{question["prompt"]} :" %>
+        <P><%= f.text_field symbol_reference, required: true %></P></P>
+      <% elsif question["type"] == "radio_button" %>
+        <P><%= f.label "#{question["id"]})  #{question["prompt"]} :" %>
+        <% question["options"].each do |option| %>
+           <P> <%= f.radio_button symbol_reference, option.to_s,id: "option_#{option}", required: true%>
+          <%= f.label "option_#{option}", option.to_s %></P></P>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <%= f.submit "Salvar" %>
+<% end %>
