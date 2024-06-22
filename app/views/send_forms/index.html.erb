@@ -1,9 +1,9 @@
-<%= form_with url: "todo", method: :post, class: "flex w-full h-full" do |f| %>
+<%= form_with url: "/gerenciamento/send_forms", method: :post, class: "flex w-full h-full" do |f| %>
   <div class="flex w-full h-full justify-center items-center">
     <div class="flex flex-col w-[600px] max-h-[600px] overflow-y-auto gap-8 bg-white p-8 rounded-lg">
       <div class="flex flex-row w-full justify-end items-center gap-2 p-4">
         <span>Template: </span>
-        <%= f.select "templates", @templates.map { |t| t.name } %>
+        <%= f.select "templates", @templates.map { |t| [t.name, t.id] } %>
       </div>
 
       <table class="table-auto text-left">
@@ -18,7 +18,7 @@
         <tbody>
         <% @study_classes.each_with_index do |sc| %>
           <tr>
-            <td><%= f.check_box("subject_#{sc.code}") %></td>
+            <td><%= f.check_box("study_class_#{sc.id}") %></td>
             <td><%= sc.name %></td>
             <td><%= sc.semester %></td>
             <td><%= sc.code %></td>

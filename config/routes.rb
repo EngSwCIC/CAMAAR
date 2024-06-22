@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/gerenciamento/resultados/:id/export', :to => 'resultados#export', :as => "resultados_export"
 
   get '/gerenciamento/send_forms', :to => 'send_forms#index'
+  post '/gerenciamento/send_forms', :to => 'send_forms#create'
 
   root to: "avaliacoes#index"
 end
