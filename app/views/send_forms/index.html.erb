@@ -1,34 +1,33 @@
-<div class="flex flex-col gap-4 justify-center">
-  <div class="flex w-full justify-center">
-    <span class="text-2xl font-bold">Assign Template to Class</span>
-  </div>
-  <div>
-    <form action="#" method="post">
-      <div class="grid grid-cols-1 gap-4">
-        <div class="flex items-center gap-4">
-          <label for="template_id">Select Template</label>
-          <select id="template_id" name="template_id" class="form-control">
-            <option value="" disabled selected>Choose a template</option>
-            <option value="1">Template 1</option>
-            <option value="2">Template 2</option>
-            <option value="3">Template 3</option>
-          </select>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <label for="class_id">Select Class</label>
-          <select id="class_id" name="class_id" class="form-control">
-            <option value="" disabled selected>Choose a class</option>
-            <option value="1">Class A</option>
-            <option value="2">Class B</option>
-            <option value="3">Class C</option>
-          </select>
-        </div>
-
-        <div class="flex w-full justify-center">
-          <button type="submit" class="btn btn-primary">Assign Template</button>
-        </div>
+<%= form_with url: "/gerenciamento/send_forms", method: :post, class: "flex w-full h-full" do |f| %>
+  <div class="flex w-full h-full justify-center items-center">
+    <div class="flex flex-col w-[600px] max-h-[600px] overflow-y-auto gap-8 bg-white p-8 rounded-lg">
+      <div class="flex flex-row w-full justify-end items-center gap-2 p-4">
+        <span>Template: </span>
+        <%= f.select "templates", @templates.map { |t| [t.name, t.id] } %>
       </div>
-    </form>
+
+      <table class="table-auto text-left">
+        <thead>
+        <tr>
+          <th></th>
+          <th>Nome</th>
+          <th>Semestre</th>
+          <th>Código</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @study_classes.each_with_index do |sc| %>
+          <tr>
+            <td><%= f.check_box("study_class_#{sc.id}") %></td>
+            <td><%= sc.name %></td>
+            <td><%= sc.semester %></td>
+            <td><%= sc.code %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <%= f.submit "Enviar", class: "btn bg-green-400 hover:cursor-pointer text-2xl text-white p-4 w-full rounded-lg" %>
+    </div>
   </div>
-</div>
+<% end %>
