@@ -1,0 +1,13 @@
+<div class="flex flex-col gap-4 p-8">
+  <span class="text-4xl font-bold text-slate-600">Templates</span>
+
+  <div class="grid grid-cols-3 gap-8">
+    <% @templates.each do |template| %>
+      <div class="flex flex-row items-center justify-between w-64 bg-white rounded-md p-4">
+        <span class="text-xl font-semibold text-slate-600"><%= template.name %></span>
+        <%= button_to 'Delete', template_path(template), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </div>
+    <% end %>
+    <%= link_to 'Add', new_template_path, method: :post, class: 'btn' %>
+  </div>
+</div>
