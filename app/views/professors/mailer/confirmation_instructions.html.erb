@@ -1,0 +1,105 @@
+<style> 
+/* Estilo geral */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    flex-direction: column; /* Alinha itens na vertical */
+  }
+  
+  /* Estilo do título */
+  h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+    text-align: center; /* Centraliza o texto */
+  }
+  
+  /* Estilo do título com span */
+  h1 span.caa {
+    color: #6a1b9a; /* cor roxa */
+  }
+  
+  h1 span.mar {
+    color: #28a745; /* cor verde */
+  }
+  
+  /* Estilo para os boxes de login */
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .login-box {
+    background: #ffffff;
+    padding: 30px;
+    margin: 20px 0; /* Altera a margem para espaçamento vertical */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 350px; /* Aumenta a largura */
+    height: 400px; /* Aumenta a altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Formatação dos formulários */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #555;
+  }
+  
+  form input[type="email"],
+  form input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Estilo dos botões de submissão */
+  form input[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #218838;
+  }
+  
+  /* Ajuste de layout para centralização */
+  body > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  p {
+    color: #999;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+</style>
+
+<p>Welcome <%= @email %>!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>

@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  template_usado: 1
+  perguntas: MyText
+
+two:
+  template_usado: 1
+  perguntas: MyText

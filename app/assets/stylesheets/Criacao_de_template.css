@@ -1,0 +1,177 @@
+#form-container {
+    background: rgb(242, 242, 242);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,1,1,0.8);
+    width: 500px;
+    border: 5px solid rgb(97, 97, 97);
+    padding: 20px;
+    border-radius: 20px;
+    transition: all 0.5s;
+
+    max-height: 80vh;
+    overflow-y: auto;
+}
+#form-container.border-change {
+    border: 3px solid rgb(214, 0, 214);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"], 
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.add-buttonT, .create-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.add-buttonT {
+    max-width: 200px;
+    border-radius: 5px;
+    margin:auto;
+    background-color: blueviolet;
+    transition: all 0.5s;
+}
+.add-buttonT:hover{
+    max-width: 250px;
+    background-color: rgb(78, 24, 129);
+    border-radius: 30px;
+}
+
+.create-button {
+    display: flex;
+    margin-left: auto;
+    justify-content: center;
+    background-color: #201b2c;
+    max-width: 150px;
+    transition: all 0.5s;
+}
+
+.create-button:hover {
+    max-width: 500px;
+    background-color: #00ff3c;
+}
+.options-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.option-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.option-buttons button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.option-count {
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.remove-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+.remove-button:hover{
+    background-color: #ff1515;
+}
+
+#legend-NovoTemplate {
+    color: purple;
+    display: flex;
+    justify-content: center;
+}
+
+#template-name {
+    border: none;
+    border-bottom: 2px solid black;
+    background: none;
+    padding: 2px 0;
+    transition: border-color 0.3s; /* adiciona transição suave */
+  }
+
+  /* Remove o estilo de foco padrão */
+  #template-name:focus {
+    outline: none;
+    border-bottom: 2px solid rgb(255, 0, 255); /* muda a cor para roxa ao focar */
+  }
+
+  /* Estilo para quando o input contém texto */
+  #template-name.has-text {
+    border-bottom: 2px solid rgb(255, 0, 255); /* mantém a cor roxa quando contém texto */
+  }
+
+  #label-TemplateName {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+    transition: .5s;
+  }
+  #label-TemplateName.has-text {
+    top: -20px;
+    font-size: 12px;
+    color: rgb(123, 0, 255);
+  }
+
+  .button-back {
+    width: 200px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: blueviolet;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white; /* cor do texto branco */
+    border-radius: 5px; /* bordas arredondadas */
+    font-size: 20px; /* tamanho da fonte */
+    cursor: pointer; /* cursor de ponteiro ao passar o mouse */
+    text-align: center; /* alinhamento do texto */
+    transition: all 0.2s;
+}
+
+.button-back:hover {
+    max-width: 250px;
+    background-color: rgb(78, 24, 129);
+    border-radius: 30px;
+}
+

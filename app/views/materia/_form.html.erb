@@ -1,0 +1,52 @@
+<%= form_with(model: materium) do |form| %>
+  <% if materium.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(materium.errors.count, "error") %> prohibited this materium from being saved:</h2>
+
+      <ul>
+        <% materium.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :codigo, style: "display: block" %>
+    <%= form.number_field :codigo %>
+  </div>
+
+  <div>
+    <%= form.label :semestre, style: "display: block" %>
+    <%= form.number_field :semestre %>
+  </div>
+
+  <div>
+    <%= form.label :nome, style: "display: block" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div>
+    <%= form.label :departamento, style: "display: block" %>
+    <%= form.number_field :departamento %>
+  </div>
+
+  <div>
+    <%= form.label :professor_id, style: "display: block" %>
+    <%= form.number_field :professor_id %>
+  </div>
+
+  <div>
+    <%= form.label :aluno_id, style: "display: block" %>
+    <%= form.number_field :aluno_id %>
+  </div>
+
+  <div>
+    <%= form.label :forms_materia, style: "display: block" %>
+    <%= form.number_field :forms_materia %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

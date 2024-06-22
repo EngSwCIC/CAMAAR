@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        #search-bar {
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+        #search-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid purple;
+            border-radius: 5px;
+        }
+        #buttons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1400px;
+        }
+        .button {
+            padding: 20px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-size: 20px;
+            border: 3px solid purple;
+            transition: 0.5s;
+        }
+        .button .value1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .button .value2,
+        .button .value3 {
+            font-size: 20px;
+            color: gray;
+        }
+        .button:hover {
+            background-color: purple;
+            transform: scale(1.1);
+        }
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            max-width: 500px;
+            text-align: center;
+        }
+        .modal-question-button {
+            border: 1px solid gray;
+            padding: 15px 32px;
+            margin: 4px 2px;
+            transition: 0.4s;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+        .modal-question-button:hover {
+            background-color: purple;
+            border: none;
+            color: white;
+            box-shadow: 5px 5px 10px black;
+            transform: translateY(-8px);
+        }
+        .modal-question-button:active {
+            transition: 0.025s;
+            background-color: darkviolet;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        .modal-content-question {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 2px solid purple;
+            width: 70%;
+            max-width: 1200px;
+            text-align: left;
+            border-radius: 10px;
+        }
+        .modal-content-question h2 {
+            text-align: center;
+        }
+        .modal-content-question p {
+            font-size: 18px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal-button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .view-button {
+            background-color: #4CAF50;
+            color: white;
+            transition: 0.25s;
+        }
+        .view-button:hover {
+            background-color: purple;
+            transform: scale(1.05);
+            border-radius: 20px;
+        }
+        .delete-button {
+            background-color: #f44336;
+            color: white;
+            transition: 0.25s;
+        }
+        .delete-button:hover {
+            background-color: darkred;
+            transform: scale(1.05);
+            border-radius: 20px;
+        }
+        .template-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .button-create-template {
+            margin: auto;
+            background-color: purple;
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 30px;
+            margin-bottom: 20px;
+            width: 50px; /* Define a largura e a altura inicial do botão */
+            height: 50px; /* Define a largura e a altura inicial do botão */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s;
+            border: none; /* Remove qualquer borda padrão */
+        }
+        .button-create-template:hover {
+            background-color: gray;
+            transform: scale(1.3);
+            border-radius: 10px;
+        }
+        #responseFilesList {
+            list-style-type: none;
+            padding: 0;
+        }
+        #responseFilesList li {
+            background: #f0f0f0;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        #chartCanvas {
+            width: 500px !important;
+            height: 500px !important;
+            margin: auto;
+        }
+
+
+
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            background-color: white;
+            overflow-x: hidden;
+            padding-top: 20px;
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            align-items: center;
+        }
+        .sidebar a {
+            width: 80%;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            text-align: center;
+            background-color: purple;
+            border-radius: 25px;
+            transition: 0.5s;
+        }
+        .sidebar a:hover {
+            background-color: darkviolet;
+            border-radius: 10px;
+            transform: scale(1.1);
+            transform: translateY(-10px);
+            
+        }
+        /* Overlay styles */
+        .overlay {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        /* Hamburger button styles */
+        .hamburger {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 3;
+            width: 30px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 100%;
+            height: 4px;
+            background-color: black;
+        }
+        .hamburger:hover div {
+            width: 100%;
+            height: 4px;
+            background-color: purple;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- NavBar -->
+    <div class="hamburger" onclick="toggleNavbar()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="overlay" onclick="toggleNavbar()"></div>
+
+    <div class="sidebar">
+       <br><br><br>
+        <a id="force-reload-linkF" href="<%= formularios_path %>">Formulários</a>
+        <br>
+        <a id="force-reload-linkT" href="<%= edit_template_path %>">Templates</a>
+        <br>
+        <a href="<%= departamentos_path %>">Departamentos</a>
+        <script> document.getElementById("force-reload-linkF").addEventListener("click", function(event) { event.preventDefault(); window.location.href = this.href + "?timestamp=" + new Date().getTime(); }); </script>
+        <script> document.getElementById("force-reload-linkT").addEventListener("click", function(event) { event.preventDefault(); window.location.href = this.href + "?timestamp=" + new Date().getTime(); }); </script>
+    </div>
+    <!-- ------------------->
+
+
+
+    <h1>Formulários</h1>
+    <div id="search-bar">
+        <input type="text" id="search-input" onkeyup="searchForms()" placeholder="Pesquisar formulários...">
+    </div>
+    <div id="buttons-container">
+        <% @files.each do |file| %>
+            <% values = file.split('.json')[0].split('-') %>
+            <button class="button" onclick="handleButtonClick('<%= file %>')" data-name="<%= file %>">
+                <div class="value1"><%= values[0] %></div>
+                <div class="value2">Professor: <%= values[1] %></div>
+                <div class="value3">Semestre: <%= values[2] %></div>
+            </button>
+        <% end %>
+
+        <%= link_to "+", new_formulario_path, id: "force-reload-link", class: "button-create-template" %>
+        <script>
+            document.getElementById("force-reload-link").addEventListener("click", function(event) {
+                event.preventDefault();
+                window.location.href = this.href + "?timestamp=" + new Date().getTime();
+            });
+        </script>
+    </div>
+
+    <!-- The Modal for actions -->
+    <div id="fileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modalText"></p>
+            <button class="modal-button view-button" onclick="viewFile()">Visualizar</button>
+            <button class="modal-button delete-button" onclick="deleteFile()">Deletar</button>
+        </div>
+    </div>
+
+    <!-- The Modal for viewing content -->
+    <div id="viewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeViewModal()">&times;</span>
+            <div class="template-name" id="templateName"></div>
+            <div id="fileContent" style="white-space: pre-wrap; text-align: left;"></div>
+        </div>
+    </div>
+    
+    <!-- The Modal for viewing questions -->
+    <div id="questionModal" class="modal">
+        <div class="modal-content-question">
+            <span class="close" onclick="closeQuestionModal()">&times;</span>
+            <div id="questionContent"></div>
+            <canvas id="chartCanvas" style="display: none; width: 400px; height: 400px;"></canvas>
+            <div id="responseFilesContainer">
+
+                <ul id="responseFilesList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedFile = '';
+        let fileNoExtension = '';
+        let chart; // Variable to store the chart instance
+
+        function handleButtonClick(file) {
+            selectedFile = file;
+            fileNoExtension = file.split('.json')[0];
+            document.getElementById('modalText').innerText = `Template ${fileNoExtension}`;
+            document.getElementById('fileModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('fileModal').style.display = "none";
+        }
+
+        function closeViewModal() {
+            document.getElementById('viewModal').style.display = "none";
+        }
+
+        function closeQuestionModal() {
+            document.getElementById('questionModal').style.display = "none";
+            resetChart(); // Reset the chart when closing the modal
+        }
+
+        function resetChart() {
+            if (chart) {
+                chart.destroy(); // Destroy the existing chart instance
+            }
+            document.getElementById('chartCanvas').style.display = 'none';
+        }
+
+        function viewFile() {
+            fetch(`/view_file_form?file_name=${selectedFile}`)
+                .then(response => response.json())
+                .then(async data => {
+                    if (data.status === 'success') {
+                        const content = JSON.parse(data.content);
+                        const [formName, professor, semester] = selectedFile.split('.json')[0].split('-');
+                        const totalResponses = await getTotalResponses(formName, professor, semester);
+
+                        let formattedContent = '<div style="font-family: Arial, sans-serif; line-height: 1.6;">';
+                        formattedContent += '<h2 style="color: purple;">Dados do Formulário</h2>';
+
+                        for (const key in content) {
+                            let displayKey = key;
+                            if (key === 'name') displayKey = 'Nome do Formulário';
+                            if (key === 'semester') displayKey = 'Semestre';
+                            if (key === 'questions') displayKey = 'Questões';
+                            if (key === 'professor') displayKey = 'Professor';
+
+                            if (Array.isArray(content[key])) {
+                                formattedContent += `<br><h3 style="color: #2196F3;">${displayKey}:</h3>`;
+                                formattedContent += `<p><i>Total de respostas recebidas: ${totalResponses}</i></p>`;
+                                content[key].forEach((item, index) => {
+                                    let itemType = item.type ? ` (${item.type})` : '';
+                                    let options = item.type === 'checkbox' ? item.options : null; // Store options if type is checkbox
+                                    formattedContent += `<div class="modal-question-button" onclick='viewQuestion(${index + 1}, "${item.question.replace(/"/g, '\\"')}", ${options ? JSON.stringify(options) : 'null'})'>`;
+                                    formattedContent += `<strong>Questão ${index + 1}: ${itemType}</strong><br>`;
+                                    for (const subKey in item) {
+                                        let displaySubKey = subKey;
+                                        if (subKey === 'question') displaySubKey = 'Pergunta';
+                                        if (subKey === 'type') {
+                                            continue;
+                                        }
+                                        if (subKey === 'options' && item['type'] === 'text') {
+                                            continue;
+                                        }
+                                        if (subKey === 'options') displaySubKey = 'Opções';
+
+                                        if (Array.isArray(item[subKey])) {
+                                            formattedContent += `<strong>${displaySubKey}:</strong><br>`;
+                                            item[subKey].forEach((option, optIndex) => {
+                                                formattedContent += `&nbsp;&nbsp;&nbsp;&nbsp;${optIndex + 1}. ${option}<br>`;
+                                            });
+                                        } else {
+                                            formattedContent += `<strong>${displaySubKey}:</strong> ${item[subKey]}<br>`;
+                                        }
+                                    }
+                                    formattedContent += `</div>`;
+                                });
+                            } else {
+                                formattedContent += `<strong style="color: #FF5722;">${displayKey}:</strong> ${content[key]}<br>`;
+                            }
+                        }
+
+                        formattedContent += '</div>';
+
+                        document.getElementById('fileContent').innerHTML = formattedContent;
+                        closeModal();
+                        document.getElementById('viewModal').style.display = "block";
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+
+        function viewQuestion(index, question, options) {
+            console.log('viewQuestion params:', index, question, options); // Debugging line
+            let questionContent = `<h2>Questão ${index}</h2><p><strong>Pergunta: </strong>${question}</p>`;
+            
+            if (options) {
+                questionContent += '<p><strong>Opções:</strong></p><ul>';
+                options.forEach((option, optIndex) => {
+                    questionContent += `<li id="option${optIndex + 1}">${option} <span>(0 respostas)</span></li>`;
+                });
+                questionContent += '</ul>';
+            }
+            
+            document.getElementById('questionContent').innerHTML = questionContent;
+
+            // Fetch the responses from JSON files
+            fetch(`/get_response_files?form_name=${fileNoExtension}&question_key=question${index}`)
+                .then(response => response.json())
+                .then(data => {
+                    const responseFilesList = document.getElementById('responseFilesList');
+                    responseFilesList.innerHTML = ''; // Clear previous list
+
+                    if (data.responses.length === 0) {
+                        responseFilesList.innerHTML = '<li>Nenhuma resposta encontrada para esta questão.</li>';
+                    } else {
+                        if (options) {
+                            let optionCounts = {};
+                            options.forEach((option, optIndex) => {
+                                optionCounts[option] = 0;
+                            });
+                            data.responses.forEach(item => {
+                                if (Array.isArray(item.response)) {
+                                    item.response.forEach(responseOption => {
+                                        if (optionCounts.hasOwnProperty(responseOption)) {
+                                            optionCounts[responseOption]++;
+                                        }
+                                    });
+                                } else {
+                                    if (optionCounts.hasOwnProperty(item.response)) {
+                                        optionCounts[item.response]++;
+                                    }
+                                }
+                            });
+
+                            // Update the counts in the UI
+                            options.forEach((option, optIndex) => {
+                                const optionElement = document.getElementById(`option${optIndex + 1}`);
+                                if (optionElement) {
+                                    optionElement.querySelector('span').innerText = `(${optionCounts[option]} respostas)`;
+                                }
+                            });
+
+                            // Display the pie chart
+                            const ctx = document.getElementById('chartCanvas').getContext('2d');
+                            document.getElementById('chartCanvas').style.display = 'block';
+                            chart = new Chart(ctx, {
+                                type: 'pie',
+                                data: {
+                                    labels: options,
+                                    datasets: [{
+                                        data: options.map(option => optionCounts[option]),
+                                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4CAF50', '#FF5722', '#9C27B0']
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    plugins: {
+                                        legend: {
+                                            position: 'top',
+                                            labels: {
+                                                font: {
+                                                    size: 25 // Aumente este valor para aumentar o tamanho do texto da legenda
+                                                }
+                                            }
+                                        },
+                                        tooltip: {
+                                            callbacks: {
+                                                label: function(tooltipItem) {
+                                                    return `${tooltipItem.label}: ${tooltipItem.raw} respostas`;
+                                                }
+                                            },
+                                            bodyFont: {
+                                                size: 20 // Aumente este valor para aumentar o tamanho do texto do tooltip
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+
+                        } else {
+                            // Display the responses
+                            data.responses.forEach((item, idx) => {
+                                const listItem = document.createElement('li');
+                                if (Array.isArray(item.response)) {
+                                    listItem.innerHTML = `<strong>${idx + 1}:</strong> ${item.response.join(', ')}`;
+                                } else {
+                                    listItem.innerHTML = `<strong>Resposta ${idx + 1}:</strong> ${item.response}`;
+                                }
+                                responseFilesList.appendChild(listItem);
+                            });
+                        }
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+
+            document.getElementById('questionModal').style.display = "block";
+        }
+
+        function deleteFile() {
+            if (confirm('Você tem certeza de que deseja deletar este arquivo?')) {
+                fetch(`/delete_file_form?file_name=${selectedFile}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    if (data.status === 'success') {
+                        location.reload();
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+            closeModal();
+        }
+
+        // Close the modal when the user clicks anywhere outside of the modal
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('fileModal')) {
+                closeModal();
+            }
+            if (event.target == document.getElementById('viewModal')) {
+                closeViewModal();
+            }
+            if (event.target == document.getElementById('questionModal')) {
+                closeQuestionModal();
+            }
+        }
+
+        function searchForms() {
+            let input, filter, buttons, button, i, txtValue;
+            input = document.getElementById('search-input');
+            filter = input.value.toUpperCase();
+            buttons = document.getElementById("buttons-container").getElementsByClassName('button');
+            for (i = 0; i < buttons.length; i++) {
+                button = buttons[i];
+                txtValue = button.textContent || button.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    buttons[i].style.display = "";
+                } else {
+                    buttons[i].style.display = "none";
+                }
+            }
+        }
+
+        function getTotalResponses(formName, professor, semester) {
+            return fetch(`/count_responses?form_name=${formName}&professor=${professor}&semester=${semester}`)
+                .then(response => response.json())
+                .then(data => data.totalResponses)
+                .catch(error => {
+                    console.error('Error:', error);
+                    return 0;
+                });
+        }
+
+
+
+
+        //--------NavBar
+        function toggleNavbar() {
+            var sidebar = document.querySelector('.sidebar');
+            var overlay = document.querySelector('.overlay');
+            if (sidebar.style.display === "none" || sidebar.style.display === "") {
+                sidebar.style.display = "flex";
+                overlay.style.display = "block";
+            } else {
+                sidebar.style.display = "none";
+                overlay.style.display = "none";
+            }
+        }
+        //---------NavBar
+
+    </script>
+</body>
+</html>

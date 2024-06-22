@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @formulario_template %>
+
+<div>
+  <%= link_to "Edit this formulario template", edit_formulario_template_path(@formulario_template) %> |
+  <%= link_to "Back to formulario templates", formulario_templates_path %>
+
+  <%= button_to "Destroy this formulario template", @formulario_template, method: :delete %>
+</div>
