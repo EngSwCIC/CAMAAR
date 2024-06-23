@@ -36,7 +36,13 @@ class TemplatesController < ApplicationController
   # POST: Gives students of disciplines access to a form copied from the given template
   def send_out_forms
     return redirect_to root_path unless user_authenticated && admin_user?
+
     params.permit(:authenticity_token, :commit, :id, :template_id, discipline_ids: [])
+
+    if params[:discipline_ids].nil?
+      flash[:error] = 'Nenhuma disciplina foi selecionada para envio'
+      return redirect_to manager_path
+    end
 
     params[:discipline_ids].each do |discipline_id|
       Form.create! template: Template.find(params[:template_id]), discipline: Discipline.find(discipline_id)

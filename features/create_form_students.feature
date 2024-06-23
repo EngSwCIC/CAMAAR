@@ -14,3 +14,4 @@ Feature: Sending forms out to students
   Scenario: No classes selected
     Given I imported data from SIGAA
     When I send forms wihout checking any classes
+    Then I should see "Nenhuma disciplina foi selecionada para envio"

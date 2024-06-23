@@ -25,7 +25,6 @@ end
 
 When('I send forms wihout checking any classes') do
   step 'I am on the Send page'
-  pending 'TODO: Controller should handle nil discipline_ids'
   click_button(:commit)
 end
 
