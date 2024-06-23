@@ -1,0 +1,41 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "run",
+      "type": "shell",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "command": "rails server"
+    },
+    {
+      "label": "install dependencies",
+      "type": "shell",
+      "group": "build",
+      "command": "bundle install",
+      "problemMatcher": []
+    },
+    {
+      "label": "migrate database",
+      "type": "shell",
+      "command": "rails db:migrate",
+      "problemMatcher": []
+    },
+    {
+      "label": "reset database",
+      "type": "shell",
+      "command": "rails db:reset",
+      "problemMatcher": []
+    },
+    {
+      "label": "seed database",
+      "type": "shell",
+      "command": "rails db:seed",
+      "problemMatcher": []
+    }
+  ]
+}

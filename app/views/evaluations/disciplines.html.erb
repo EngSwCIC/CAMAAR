@@ -1,0 +1,41 @@
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<% if flash[:success] %>
+  <div class="alert alert-success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+<h1 class="text-center"><i>Disciplinas</i></h1>
+<br>
+<br>
+
+<div class="row">
+  <% @disciplines_info.each do |discipline_info| %>
+    <div class="col-lg-3 col-md-6 mb-3">
+      <div class="card border-primary">
+        <div class="card-body">
+          <h5 class="card-title"><%= discipline_info[:discipline_name] %></h5>
+          <p class="card-text">
+            <strong>Professor:</strong> <%= discipline_info[:professor_name] %><br>
+            <strong>Semestre:</strong> <%= discipline_info[:semester_name] %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% if @disciplines_info.empty? %>
+  <p>Nenhuma disciplina encontrada.</p>
+<% end %>

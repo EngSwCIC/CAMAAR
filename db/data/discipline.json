@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Banco de Dados",
+        "code": "CIC0097",
+        "professor_registration": "123"
+    },
+    {
+        "name": "Estrutura de Dados",
+        "code": "CIC0090",
+        "professor_registration": "000"
+    },
+    {
+        "name": "ALGEBRA 2",
+        "code": "MAT0040",
+        "professor_registration": "777"
+    },
+    {
+        "name": "OAC",
+        "code": "CIC0093",
+        "professor_registration": "777"
+    }
+]

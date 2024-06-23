@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="card p-4">
+     <h4 class="text-center">Alteração de Senha</h4>
+
+    <%= form_with url: redefine_password_post_path, method: :post, scope: :user do |form| %>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <%= form.password_field :password, id: "password", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <label for="password_confirmation">Confirm Password:</label>
+        <%= form.password_field :password_confirmation, id: "password_confirmation", class: "form-control" %>
+      </div>
+
+      <%= form.submit "Subimmit", class: "btn btn-primary" %>
+      <% if flash.now[:error] %>
+        <p class="text-center" style="color: red;"><%= flash[:error] %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

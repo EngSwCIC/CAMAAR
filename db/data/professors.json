@@ -1,0 +1,16 @@
+[
+    {
+        "registration": "123",
+        "name": "MARISTELA TERTO DE HOLANDA",
+        "department_code": "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+    },
+    {
+        "registration": "000",
+        "name": "DANIEL DE PAULA PORTO",
+        "department_code": "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+    },
+    {   "registration": "777",
+        "name": "RAIMUNDO DE ARAUJO BASTOS JUNIOR",
+        "department_code": "DEPARTAMENTO DE MATEMÁTICA"
+    }
+]
