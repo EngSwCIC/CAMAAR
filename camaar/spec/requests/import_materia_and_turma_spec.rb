@@ -1,5 +1,6 @@
-require 'hashie'
-RSpec.describe "ImportMateriaAndTurmaController", type: :controller do
+RSpec.describe ImportMateriaAndTurmaController, type: :controller do
+
+
   #let(:valid_json) do
   #  { data: [
   #    { code: "MAT101", name: "Mathematics 1", class: { classCode: "TURMA_A", semester: "2021.2", time: "10:00-11:00" } },
