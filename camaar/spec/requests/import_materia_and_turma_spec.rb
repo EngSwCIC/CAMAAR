@@ -1,4 +1,3 @@
-require 'hashie'
 RSpec.describe ImportMateriaAndTurmaController, type: :controller do
   #let(:valid_json) do
   #  { data: [

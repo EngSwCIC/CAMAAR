@@ -12,8 +12,8 @@ RSpec.describe UserMailer, type: :mailer do
         .to change { ActionMailer::Base.deliveries.count }.by(1)
 
       # Optional: Test email content (if applicable)
-      # mail = ActionMailer::Base.deliveries.last
-      # expect(mail.body.encoded).to include(user.name)
+      mail = ActionMailer::Base.deliveries.last
+      expect(mail.body.encoded).to include(user.nome)
     end
   end
 
