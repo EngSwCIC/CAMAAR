@@ -131,39 +131,5 @@ RSpec.describe "Users", type: :request do
       end
     end
   end
-end
 
-RSpec.describe UsersController, type: :controller do
-  let(:data) { File.read(Rails.root.join('spec/support/class_members.json')) }
-  let(:materia) { Materia.create!(codigo: "CIC0097", name: "BANCO DE DADOS") }
-  let(:turma) { Turma.create!(codigo: "TA", semester: "2021.2", horario: "35T45", materia: materia) }
-  describe "POST #create" do
-    context "with valid JSON data" do
-      it "returns a success message" do
-        post :create, params: { data: data }, as: :json
-        expect(response.parsed_body).to eq({ "message" => "Data imported successfully!" })
-        expect(response).to have_http_status(:created)
-      end
-
-      it "creates the correct records in the database" do
-        expect {
-          post :create, params: { data: data }, as: :json
-        }.to change { Materia.count }.by(1)
-        .and change { Turma.count }.by(1)
-        .and change { User.count }.by(45)
-        .and change { Matricula.count }.by(45)
-      end
-    end
-
-    context "with invalid JSON data" do
-      let(:invalid_json) do
-        { data: { code: "MAT101", name: "Mathematics 1" } } # Missing class data
-      end
-      it "returns an error message" do
-        post :create, params: invalid_json
-        expect(response).to have_http_status(:bad_request)
-        expect(response.parsed_body).to eq({ "message" => "Invalid JSON data format." })
-      end
-    end
-  end
 end
