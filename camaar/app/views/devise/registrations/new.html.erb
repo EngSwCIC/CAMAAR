@@ -1,111 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CENTRAL</title>
-  <style>
+<h2>Sign up</h2>
 
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #F0F0F0;
-      font-family: Arial, sans-serif;
-    }
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
-    .container {
-      width: 340px;
-      padding: 20px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .field {
-      margin-bottom: 15px;
-    }
-
-    .field-label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-      text-align: left; /* Alinha o texto à esquerda */
-    }
-
-    .field-input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-      font-size: 16px;
-    }
-
-    .submit-button {
-      width: 100%;
-      padding: 10px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .submit-button:hover {
-      background-color: #2980b9;
-
-    }
-
-    .devise-links {
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .h2 {
-      text-align: center;
-    }
-
-    </style>
-    </head>
-<body>
-
-
-  <div class="container">
-  <h2>Primeiro acesso</h2>
-
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-
-      <div class="field">
-        <%= f.label :email, class: "field-label" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "fulano@aluno.unb.br", class: "field-input" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password, class: "field-label" %>
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "new-password", placeholder: "000000", class: "field-input" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation, class: "field-label" %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirme sua senha", class: "field-input" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Sign up", class: "submit-button", data: { turbo: false } %>
-      </div>
-    <% end %>
-
-    <div class="devise-links">
-      <%= render "devise/shared/links" %>
-    </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", data: {turbo: false}%>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
