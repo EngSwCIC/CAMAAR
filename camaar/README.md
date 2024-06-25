@@ -1,49 +1,54 @@
-# Sptint 2: Desenvolvimento
+# CAMAAR
 
-## Contribuindo
+**Sistema para avaliação de atividades acadêmicas remotas do CIC**
 
-### Criação de Models
+![Ruby on Rails](https://img.shields.io/badge/Ruby_on_Rails-D30001?style=for-the-badge&logo=rubyonrails&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=HTML5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=HTML5&logoColor=white)
 
-A criação das models se dá pelo seguinte comando Rails:
+****
+
+- **Versão Ruby**: 3.2.4
+- Gems Adicionais:
+  - capybara
+  - cucumber-rails
+  - rspec-rails
+  - factory_bot_rails
+  - database_cleaner
+  - selenium-webdriver
+  - devise
+  - panko_serializer
+
+## Rodando o Projeto
+
+Para visualizar o app, navege até a raiz do projeto, na pasta `camaar/`, e utilize o comando
 
 ```bash
-rails g model Nome atributo1:tipo atributo2:tipo ...
+rails db:seed
 ```
 
-### Testes com Rspec
-
-Seguindo [a documenteção do Rspec](https://github.com/rspec/rspec-rails?tab=readme-ov-file#creating-boilerplate-specs-with-rails-generate), para uma model já existente, rode o seguinte comando para criar testes:
+Isso irá popular a base de dados com algumas informações iniciais. Depois, rode o comando
 
 ```bash
-rails generate rspec:model Nome
+rails server
 ```
 
-De maneira geral, os testes com Rspec possuem a seguinte estrutura:
+Para iniciar o servidor. Siga as instruções que aparecerem no terminal ou navege até `localhost:3000/` para abrir a página inicial.
 
-```ruby
-# /spec/models/nome_spec.rb
-require 'rails-helper'
+### Testes
 
-RSpec.describe Nome, type: :model do
-    it 'descrição do teste' do
-        # Lógica do teste
-    end
-end
+Para verificar os testes do Rspec, basta utilizar dentro da raiz do projeto o comando
+
+```bash
+rspec
 ```
 
-Junto do Rspec, estamos utilizando a gem Factory Bot para simplificar a instanciação de models durante os testes.
-Caso as models estejam sendo criadas pela primeira vez usando o comando mencionado acima, Factory Bot deve ser invocado e criará os arquivos necessários para utilizá-lo nos testes do Rspec.
+## Política de Branching
 
-Caso as models já existam, para usar Factory Bot nos testes de uma model em específico, é necessário criar o arquivo `spec/factories/<nome_da_model_NO_PLURAL>.rb` [e definir uma "Factory"](https://github.com/thoughtbot/factory_bot/blob/main/GETTING_STARTED.md#factory-name-and-attributes), que é uma instância a ser reutilizada nos testes:
+Cada sprint deste trabalho possui dificuldades e necessidades diferentes.
 
-```ruby
-FactoryBot.define do
-    factory :noma_da_model do
-        atributo1 { "Um exemplo de atributo" }
-        atributo2 { "outro@exemplo.com" }
-        ...
-    end
-end
-```
+Para o sprint 1, onde são desenvolvidas as histórias de usuários utilizando o framework Cucumber e BDD, os commits são feitos diretamente na branch do sprint.
 
-Para rodar um teste, então, basta usar o comando `rspec`.
+Do sprint 2 em diante, onde é feito o desenvolvimento da aplicação em si, será adotado o seguinte modelo de branching:
+
+A partir da branch do sprint, cada membro fará uma branch própria para o desenvolvimento da funcionalidade da qual é responsável. Ao finalizar uma tarefa, deve ser aberto um pull request para a branch do sprint.
+
+![branching](lib/assets/branching.jpg)
