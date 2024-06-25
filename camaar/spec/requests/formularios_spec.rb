@@ -12,11 +12,19 @@ RSpec.describe "Formularios", type: :request do
 
     context "quando existem formulários" do
       before do
-        get "/formularios", as: :json
+        get "/formularios"
       end
 
       it "retorna status 200 OK" do
         expect(response).to have_http_status(200)
+      end
+
+      it "retorna os formulários" do
+        json_response = JSON.parse(response.body)
+        expect(json_response.map { |formulario| formulario.except('created_at', 'updated_at', 'id') }).to eq([
+          {"nome"=>"Avaliação A", "turma_id"=>1, "template_id"=>1},
+          {"nome"=>"Avaliação B", "turma_id"=>1, "template_id"=>1}
+        ])
       end
     end
   end
@@ -31,11 +39,18 @@ RSpec.describe "Formularios", type: :request do
 
     context "quando o formulário existe" do
       before do
-        get "/formularios/#{formulario.id}", params: { formulario: formulario_params }, as: :json
+        get "/formularios/#{formulario.id}", params: { formulario: formulario_params }
       end
 
       it "retorna status 200 OK" do
         expect(response).to have_http_status(200)
+      end
+
+      it "retorna o formulário" do
+        json_response = JSON.parse(response.body)
+        expect(json_response.except('created_at', 'updated_at', 'id')).to eq(
+          {"nome"=>"Avaliação A", "turma_id"=>1, "template_id"=>1}
+        )
       end
     end
 

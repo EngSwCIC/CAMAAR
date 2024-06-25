@@ -1,11 +1,11 @@
-class ImportMateriaTurmaController < ApplicationController
+class ImportMateriaAndTurmaController < ApplicationController
   def create
     materia_data = JSON.parse(params[:data], symbolize_names: true) rescue nil
     if materia_data.present?
       begin
         import_materias(materia_data)
         render json: { message: "Data imported successfully!" }, status: :created
-      rescue StandardError => e
+      rescue ActiveRecord::RecordInvalid => e
         render json: { message: "Error importing data: #{e.message}" }, status: :bad_request
       end
     else

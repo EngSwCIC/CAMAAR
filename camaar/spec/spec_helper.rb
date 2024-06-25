@@ -95,4 +95,8 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  config.before(:each) do
+      # Enable logging for each test
+    Rails.logger.level = :debug
+  end
 end

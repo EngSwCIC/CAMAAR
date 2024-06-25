@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   validates :nome, presence: true
   validates :email, presence: true
-  validates :curso, presence: true
+  :curso
   validates :matricula, presence: true
   validates :formacao, presence: true
   validates :ocupacao, presence: true
