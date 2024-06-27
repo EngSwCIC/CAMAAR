@@ -5,5 +5,5 @@ Feature: User Logout
 
     Scenario: login
         Given I am on the user page
-        And I click the "Logout" button
-        Then I should be redirected to "home page"
+        And I click the Logout button
+        Then I should be redirected to home page

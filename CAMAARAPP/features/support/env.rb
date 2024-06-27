@@ -6,6 +6,7 @@
 
 
 require 'cucumber/rails'
+require 'capybara/cucumber'
 require 'selenium-webdriver'
 require 'webdrivers'
 
@@ -52,10 +53,9 @@ end
 # Possible values are :truncation and :transaction
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
-Cucumber::Rails::Database.javascript_strategy = :truncation
 
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+  Capybara::Selenium::Driver.new(app, browser: :firefox)
 end
 
 Capybara.default_driver = :selenium

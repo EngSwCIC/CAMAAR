@@ -6,6 +6,6 @@ Feature: User Login
     Scenario: login
         Given I am on the login page
         When I enter my correct email and password
-        And I click the "Login" button
-        Then I should be redirected to "user_home"
+        And I click the Login button
+        Then I should be redirected to user_home
         And I should see a welcome message with my name
