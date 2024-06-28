@@ -8,6 +8,9 @@ RSpec.describe "Templates", type: :request do
   let(:invalid_attributes) {
     { nome: "" }
   }
+  it "funçao new funciona?"
+    Template.new valid_attributes
+  end
   describe "GET /index" do
     it "retorna um valor com sucesso" do
       Template.create! valid_attributes
