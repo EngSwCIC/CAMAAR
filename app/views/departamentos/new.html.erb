@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Novo Departamento</h1>
+
+  <%= form_with(model: @departamento, local: true) do |form| %>
+    <% if @departamento.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@departamento.errors.count, "erro") %> proibiu este departamento de ser salvo:</h2>
+        <ul>
+          <% @departamento.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :nome %>
+      <%= form.text_field :nome %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Criar Departamento', class: 'submit-button' %>
+      <%= link_to 'Voltar', departamentos_path, class: 'template-button' %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+  <h1><%= @departamento.nome %></h1>
+
+  <p>
+    <strong>Professores:</strong>
+    <ul>
+      <% @departamento.professor.each do |prof| %>
+        <li><%= prof.nome %></li>
+      <% end %>
+    </ul>
+  </p>
+
+  <p>
+    <strong>Matérias:</strong>
+    <ul>
+      <% @departamento.materias.each do |materia| %>
+        <li><%= materias.nome %></li>
+      <% end %>
+    </ul>
+  </p>
+
+  <div class="button-container">
+    <%= link_to 'Editar', edit_departamento_path(@departamento), class: 'template-button' %>
+    <%= link_to 'Voltar', departamentos_path, class: 'template-button' %>
+  </div>
+</div>
