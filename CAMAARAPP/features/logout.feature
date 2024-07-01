@@ -3,7 +3,8 @@ Feature: User Logout
     I want to log out of my account
     So that I can leave the website
 
-    Scenario: login
-        Given I am on the user page
-        And I click the "Logout" button
-        Then I should be redirected to "home page"
+    Scenario: Logout
+        Given I am loged in
+        Given I am on the gerenciamento page
+        When I click the Logout button
+        Then I should be redirected to the home page

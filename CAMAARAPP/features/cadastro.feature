@@ -4,6 +4,7 @@ Feature: Cadastro
     So that I can have my account created
 
     Scenario: login
-        Given I am on "Cadastro" page
-        And I fill in my password and click the button
+        Given I am on Cadastro page
+        When I fill in my password
+        When I click the confirmation button
         Then My account should be stored in the database
