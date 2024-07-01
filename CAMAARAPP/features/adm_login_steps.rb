@@ -26,4 +26,6 @@ end
 
 And ("I should see a welcome message") do 
     expect(page).to have_content("Gerenciamento")
-end
+
+    click_button "Logout"
+end             
