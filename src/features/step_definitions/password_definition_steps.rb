@@ -1,5 +1,5 @@
 
-Given('{string} with login {string} and password {string} solicitates password redefinition') do |nome, email, senha|
+    Given('{string} with login {string} and password {string} solicitates password redefinition') do |nome, email, senha|
         user = create_user({
             nome: nome,
             email: email,
@@ -7,13 +7,10 @@ Given('{string} with login {string} and password {string} solicitates password r
             password_confirmation: senha,
             usuario: email
         })
+        user.confirm
         user.send_reset_password_instructions
         open_email(email)
         current_email.click_link "Definir Senha"
-    end
-    
-    Given('recieved an email with a link for registration in the system') do
-        pending # Write code here that turns the phrase above into concrete actions
     end
     
     When('I login with {string} and {string}') do |string, string2|
@@ -22,4 +19,17 @@ Given('{string} with login {string} and password {string} solicitates password r
         fill_in "E-mail", with: string
         fill_in "Senha", with: string2
         click_button "Entrar"
+    end
+
+    Given('not confirmed user {string} with email {string} click the definition link') do |nome, email|
+        user = create_user({
+            nome: nome,
+            email: email,
+            password: "password",
+            password_confirmation: "password",
+            usuario: email
+        })
+        user.send_reset_password_instructions
+        open_email(email)
+        current_email.click_link "Definir Senha"
     end

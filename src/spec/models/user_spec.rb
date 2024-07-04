@@ -3,20 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
 
   before(:context) do
-    User.delete_all
-    @user = User.new(
-      nome: "Fulano", 
-      email: "teste@email.com", 
-      curso: "CIÊNCIA DA COMPUTAÇÃO/CIC", 
-      matricula: "123456789", 
-      usuario: "123456789", 
-      formacao: "graduando", 
-      ocupacao: "discente", 
-      password: "password", 
-      password_confirmation: "password"
-    )
-    @user.skip_confirmation_notification!
-    expect(@user.save).to be true
+    cria_usuario
   end
 
   context "Cria um usuário arbitrário" do

@@ -60,6 +60,9 @@ group :development do
   # gem "spring"
 end
 
+gem "metric_fu-Saikuro"
+gem "rubycritic", require: false
+
 group :test do
   gem "cucumber-rails", require: false
   gem 'rspec-rails'
@@ -67,6 +70,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "capybara-email"
+  gem 'simplecov', require: false
 end
 
 gem "devise", "~> 4.9"

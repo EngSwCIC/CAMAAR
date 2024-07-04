@@ -19,7 +19,7 @@ Scenario: System sent an email for potential user imported from SIGAA
 
 Scenario: System not sent an email because the user is already registred
 
-    Given "Fulano" is already registred with email "fulano@detal.com" and password "pass" exists
+    Given "Fulano" is already registred with email "fulano@detal.com" and password "password" exists
     Then an email shoud not be sent to "fulano@detal.com" containing a link
 
 Scenario: The link was invalid because the user already registred himself
