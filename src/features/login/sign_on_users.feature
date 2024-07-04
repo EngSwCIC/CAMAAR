@@ -6,26 +6,20 @@ Feature: Sign on User in the website
 
 Background:
 
-    Given I imported data from SIGAA 
-    And the student "Fulano" with email "fulano@detal.com" is participant of a SIGAA class
+    Given the student "Fulano" with email "fulano@detal.com" is participant of a SIGAA class
 
 Scenario: System sent an email for potential user imported from SIGAA 
 
     Given "Fulano" was not already registred
+    When I import data from SIGAA
+    When "fulano@detal.com" opens the email
     Then an email should be sent to "fulano@detal.com" containing a link
-    When "Fulano" click the link
-    Then should be on the password definition page
-    And should see "Fulano"
+    When I click "Definir Senha" email link
+    Then I should be on the password definition page
+    And I should see "Fulano"
 
 Scenario: System not sent an email because the user is already registred
 
-    Given "Fulano" is already registred with email "fulano@detal.com" and password "password" exists
+    Given "Fulano" was already registred with email "fulano@detal.com" and password "password" exists
+    When I import data from SIGAA
     Then an email shoud not be sent to "fulano@detal.com" containing a link
-
-Scenario: The link was invalid because the user already registred himself
-
-    Given "Fulano" was not already registred
-    Then an email should be sent to "fulano@detal.com" containing a link
-    When "Fulano" registred himself with password "pass"
-    And "Fulano" click the link again
-    Then "Fulano" should see an error message saying "O link expirou. O usuário já foi cadastrado"

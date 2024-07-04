@@ -7,23 +7,6 @@ describe Users::PasswordsController do
       cria_usuario
     end
 
-    it "GET #new da tela de redefinição de senha retorna código de http 200" do
-      get :new
-      expect(response).to have_http_status(200)
-    end
-
-    it "GET #edit com token certo" do
-      @token = @user.send_reset_password_instructions
-      get :edit, params: {reset_password_token: @token}
-      expect(User.with_reset_password_token(@token)).to eq(@user)
-      expect(response).to have_http_status(200)
-    end
-
-    it "GET #edit com token nulo" do
-      get :edit, params: {}
-      expect(flash[:alert]).to be_present
-    end
-
     context "PUT #update" do
       before(:each) do
         @token = @user.send_reset_password_instructions

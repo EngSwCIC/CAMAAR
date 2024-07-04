@@ -2,7 +2,6 @@ module UserStepHelper
     def create_user(params)
       user = User.new(params)
       user.skip_confirmation_notification!
-      user.confirm
       user.save
       user
     end
@@ -12,13 +11,14 @@ World(UserStepHelper)
 
     Given(/^"([^"]*)" with login "([^"]*)" and password "([^"]*)" exists$/) do |nome, email, password|
     # Cria um usuário com email, senha e nome
-    create_user({
+    user = create_user({
         :nome => nome, 
         :email => email, 
         :password => password, 
         :password_confirmation => password,
         :usuario => email
     })
+    user.confirm
     end
 
     Given(/^I am logged out$/) do
