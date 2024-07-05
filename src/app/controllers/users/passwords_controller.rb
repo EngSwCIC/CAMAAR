@@ -1,13 +1,22 @@
+  # Controladora para definição de senha do usuário
+  # Para usuários novos, confirmando a conta e definindo a senha.
+  # Também para redefinir a senha de usuários já confirmados que esqueceram.
+
 class Users::PasswordsController < DeviseController
-  
+  # Verifica, antes de acessar o método edit, se foi passado algum token como argumento
   append_before_action :assert_reset_token_passed, only: :edit
 
-  # GET /resource/password/new
+
+  # Cria uma instância do usuário para armazenar eventuais erros.
+  # Metodo Http GET /users/password/new
   def new
     self.resource = resource_class.new
   end
 
-  # POST /resource/password
+  # Recebe o email para envio da redefinição de senha.
+  # Além disso, se for enviado o email corretamente, redireciona para a tela de login.
+  # Caso não ocorra, permanece na página e mostra eventual erro.
+  # Metodo Http POST /users/password
   def create
     self.resource = resource_class.send_reset_password_instructions(resource_params)
     if successfully_sent?(resource)
@@ -17,28 +26,30 @@ class Users::PasswordsController < DeviseController
     end
   end
 
-  # GET /resource/password/edit?reset_password_token=abcdef
+  # Recebe um token como argumento.
+  # Se o token for inválido, redireciona para a tela de login com um erro.
+  # Caso contrário, continua na tela de definição de senha.
+  # Metodo Http GET /users/password/edit?reset_password_token=abcdef
   def edit
     self.resource = resource_class.new
-    @token = params[:reset_password_token]
-    if User.with_reset_password_token(@token)
-      resource.reset_password_token = @token
+    token = params[:reset_password_token]
+    if User.with_reset_password_token(token)
+      resource.reset_password_token = token
     else
       redirect_to new_user_session_path, notice: "O link que tentou utilizar expirou."
     end
     set_minimum_password_length
   end
 
-  # PUT /resource/password
+  # Consegue confirmar o usuário se ele ainda não está confirmado
+  # Dessa forma a conta ainda não está confirmada sem definir a senha a primeira vez
+  # A única forma de confirmar a conta é defininindo a senha
+  # Metodo Http PUT /resource/password
   def update
     self.resource = resource_class.reset_password_by_token(resource_params)
     set_minimum_password_length
     if resource.errors.empty?
-      # Consegue confirmar o usuário se ele ainda não está confirmado
-      # Dessa forma a conta ainda não está confirmada sem definir a senha a primeira vez
-      # A única forma de confirmar a conta é defininindo a senha
-      resource.confirm if !resource.confirmed?
-      sign_in(resource_name, resource)
+      sign_in_confirm(resource)
       respond_with resource, location: root_path(resource)
     else
       respond_with resource
@@ -46,15 +57,17 @@ class Users::PasswordsController < DeviseController
   end
 
   protected
-  
+    # Confirma as contas ainda não confirmadas e já autoriza a conta a acessar a Home
+    def sign_in_confirm(resource)
+      resource.confirm if !resource.confirmed?
+      sign_in(resource_name, resource)
+    end
+
+    # Verifica se o token foi passado como argumento
     def assert_reset_token_passed
       if params[:reset_password_token].blank?
         set_flash_message(:alert, :no_token)
         redirect_to new_session_path(resource_name)
       end
-    end
-
-    def translation_scope
-      'devise.passwords'
     end
 end

@@ -1,31 +1,23 @@
+
+# Controladora responsável pelo reenvio do e-mail de definição de senha.
 class Users::ConfirmationsController < DeviseController
-  # GET /resource/confirmation/new
+
+  # Cria uma instância do usuário para armazenar eventuais erros.
+  # Metodo Http GET /users/confirmations/new
   def new
     self.resource = resource_class.new
   end
 
-  # POST /resource/confirmation
+  # Manda as instruções de definição de senha para o email preenchido e redireciona para a página de login se ocorrer tudo bem.
+  # Recebe o email para o qual deve ser enviado como argumento.
+  # Se não for bem sucedido, permanece na página e mostra o erro.
+  # Metodo Http POST /users/confirmations
   def create
-    # Outra modificação no código padrão do DEVISE
-    # Manda as instruções de definição de senha, visto que lá confima-se a conta
     self.resource = resource_class.send_reset_password_instructions(resource_params)
-    yield resource if block_given?
-
     if successfully_sent?(resource)
-      respond_with({}, location: after_resending_confirmation_instructions_path_for(resource_name))
+      respond_with resource, location: new_session_path(resource)
     else
       respond_with(resource)
     end
   end
-
-  protected
-
-    # The path used after resending confirmation instructions.
-    def after_resending_confirmation_instructions_path_for(resource_name)
-      is_navigational_format? ? new_session_path(resource_name) : '/'
-    end
-
-    def translation_scope
-      'devise.confirmations'
-    end
 end
