@@ -23,3 +23,7 @@
     Then('I should be on the password definition page') do
         expect(page).to have_current_path(edit_user_password_path, ignore_query: true)
     end
+
+    When('I try the edit without token') do
+        visit edit_user_password_path
+    end

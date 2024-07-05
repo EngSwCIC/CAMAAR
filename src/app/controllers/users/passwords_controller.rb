@@ -66,8 +66,7 @@ class Users::PasswordsController < DeviseController
     # Verifica se o token foi passado como argumento
     def assert_reset_token_passed
       if params[:reset_password_token].blank?
-        set_flash_message(:alert, :no_token)
-        redirect_to new_session_path(resource_name)
+        redirect_to new_user_session_path, notice: "Para acessar precisa de token."
       end
     end
 end

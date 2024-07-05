@@ -33,3 +33,7 @@ Scenario: User fills in email with blank space
     When I fill in "Email" with ""
     And I press "Me mande as instruções de redefinição de senha"
     Then I should see "Email can't be blank"
+
+Scenario: User tries to access without token
+    When I try the edit without token
+    Then I should see "Para acessar precisa de token."
