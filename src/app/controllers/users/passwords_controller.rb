@@ -1,7 +1,6 @@
-  # Controladora para definição de senha do usuário
-  # Para usuários novos, confirmando a conta e definindo a senha.
-  # Também para redefinir a senha de usuários já confirmados que esqueceram.
-
+# Controladora para definição de senha do usuário
+# Para usuários novos, confirmando a conta e definindo a senha.
+# Também para redefinir a senha de usuários já confirmados que esqueceram.
 class Users::PasswordsController < DeviseController
   # Verifica, antes de acessar o método edit, se foi passado algum token como argumento
   append_before_action :assert_reset_token_passed, only: :edit

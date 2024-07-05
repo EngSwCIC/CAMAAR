@@ -1,4 +1,17 @@
+
+##
+# O módulo UserStepHelper fornece métodos auxiliares para a criação e manipulação de usuários.
+# É usado em testes para simplificar a configuração de usuários durante a execução de cenários.
 module UserStepHelper
+    ##
+    # Cria um novo usuário com os parâmetros fornecidos.
+    # 
+    # Este método cria uma instância do modelo User com os parâmetros especificados
+    #
+    # +param+ [Hash] params - Os parâmetros para criar um novo usuário, incluindo informações necessárias
+    #   como email, senha, etc.
+    #
+    # +return+ [User] O usuário recém-criado.
     def create_user(params)
       user = User.new(params)
       user.skip_confirmation_notification!

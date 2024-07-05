@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TemplatesController - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-create">#create</a>
+    <li ><a href="#method-i-destroy">#destroy</a>
+    <li ><a href="#method-i-edit">#edit</a>
+    <li ><a href="#method-i-index">#index</a>
+    <li ><a href="#method-i-show">#show</a>
+    <li ><a href="#method-i-update">#update</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TemplatesController">
+  <h1 id="class-TemplatesController" class="class">
+    class TemplatesController
+  </h1>
+
+  <section class="description">
+    
+<p>Controlador para gerenciar as ações relacionadas aos Templates</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-create" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">create</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Cria um novo template</p>
+
+<p><code>param</code> [Hash] template - Os parâmetros do template a ser criado, obtido dos parâmetros permitidos <code>effect_side</code> Cria um novo registro de template no banco de dados. Redireciona para a página index se bem-sucedido, ou renderiza a página new se houver erros</p>
+
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/controllers/templates_controller.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>  
+  <span class="ruby-comment"># recupera os elementos passados pela rota</span>
+  <span class="ruby-identifier">template</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:template</span>]
+
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">template</span>[<span class="ruby-string">&#39;user_id&#39;</span>])
+  <span class="ruby-identifier">semestre</span> = <span class="ruby-identifier">template</span>[<span class="ruby-string">&#39;semestre&#39;</span>]
+  <span class="ruby-identifier">nome</span> = <span class="ruby-identifier">template</span>[<span class="ruby-string">&#39;nome&#39;</span>]
+  <span class="ruby-identifier">questoes</span> = []
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">template</span>[<span class="ruby-string">&#39;questoes_id&#39;</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">template</span>[<span class="ruby-string">&#39;questoes_id&#39;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">questao_id</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">questoes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Questao</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">questao_id</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@template</span> = <span class="ruby-constant">Template</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">user:</span> <span class="ruby-identifier">user</span>, <span class="ruby-value">semestre:</span> <span class="ruby-identifier">semestre</span>, <span class="ruby-value">nome:</span> <span class="ruby-identifier">nome</span>, <span class="ruby-value">questoes:</span> <span class="ruby-identifier">questoes</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">questoes</span>.<span class="ruby-identifier">any?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">templates_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&quot;Template was successfully created.&quot;</span>, <span class="ruby-value">status:</span> <span class="ruby-value">302</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@template</span>.<span class="ruby-identifier">questoes</span>.<span class="ruby-identifier">any?</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&quot;Você deve adicionar alguma questão ao template antes de criá-lo.&quot;</span>, <span class="ruby-value">status:</span> <span class="ruby-value">400</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:unprocessable_entity</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-destroy" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">destroy</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Exclui um template existente</p>
+
+<p><code>param</code> [Integer] id - O ID do template a ser excluído, obtido dos parâmetros <code>effect_side</code> Remove um registro de template do banco de dados. Redireciona para a página index após exclusão</p>
+
+          <div class="method-source-code" id="destroy-source">
+            <pre><span class="ruby-comment"># File app/controllers/templates_controller.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
+  <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">destroy!</span>
+
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">templates_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&quot;Template excluído com sucesso.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-edit" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">edit</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Exibe o formulário para editar um template existente</p>
+
+<p><code>param</code> [Integer] id - O ID do template a ser editado, obtido dos parâmetros</p>
+
+          <div class="method-source-code" id="edit-source">
+            <pre><span class="ruby-comment"># File app/controllers/templates_controller.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-index" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">index</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Exibe a lista de todos os templates do usuário atual</p>
+
+<p><code>effect_side</code> Redireciona para a página de login se o usuário não estiver logado, caso contrário, renderiza a página index com a lista de templates</p>
+
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/templates_controller.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>
+    <span class="ruby-ivar">@templates</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">templates</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-ivar">@templates</span>.<span class="ruby-identifier">inspect</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">new_user_session_path</span>, <span class="ruby-value">alert:</span> <span class="ruby-string">&quot;Você precisa estar logado para acessar esta página.&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-show" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">show</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Exibe um template específico</p>
+
+<p><code>param</code> [Integer] id - O ID do template a ser exibido, obtido dos parâmetros</p>
+
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File app/controllers/templates_controller.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
+  <span class="ruby-ivar">@template</span> = <span class="ruby-constant">Template</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-update" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">update</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Atualiza um template existente</p>
+
+<p><code>param</code> [Hash] template_params - Os parâmetros do template a ser atualizado, obtido dos parâmetros permitidos <code>param</code> [Integer] id - O ID do template a ser atualizado, obtido dos parâmetros <code>effect_side</code> Atualiza um registro de template no banco de dados. Redireciona para a página show se bem-sucedido, ou renderiza a página edit se houver erros</p>
+
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File app/controllers/templates_controller.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">template_params</span>)
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">template_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&quot;Template atualizado!&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-identifier">template_url</span>(<span class="ruby-ivar">@template</span>), <span class="ruby-value">status:</span> <span class="ruby-value">:unprocessable_entity</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.7.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

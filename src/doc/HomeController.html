@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class HomeController - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-enviar_formularios">#enviar_formularios</a>
+    <li ><a href="#method-i-gerenciamento">#gerenciamento</a>
+    <li ><a href="#method-i-index">#index</a>
+    <li ><a href="#method-i-resultados">#resultados</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-HomeController">
+  <h1 id="class-HomeController" class="class">
+    class HomeController
+  </h1>
+
+  <section class="description">
+    
+<p>Controlador para gerenciar as ações da página inicial</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-enviar_formularios" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">enviar_formularios</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Envia os formulários selecionados para as turmas especificadas</p>
+
+<p><code>param</code> [Array&lt;Integer&gt;] turma_ids - Os IDs das turmas para as quais os formulários serão enviados, obtido dos parâmetros <code>param</code> [Integer] template_id - O ID do template a ser usado para os formulários, obtido dos parâmetros <code>effect_side</code> Cria novos registros de formulários no banco de dados para as turmas especificadas e redireciona para a página de gerenciamento com uma mensagem de sucesso ou erro</p>
+
+          <div class="method-source-code" id="enviar_formularios-source">
+            <pre><span class="ruby-comment"># File app/controllers/home_controller.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">enviar_formularios</span>
+  <span class="ruby-identifier">turma_ids</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:turma_ids</span>]
+  <span class="ruby-identifier">template_id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:template_id</span>]
+
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;template_id: #{template_id.inspect}&quot;</span>
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;turma_ids: #{turma_ids.inspect}&quot;</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">template_id</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">gerenciamento_path</span>, <span class="ruby-value">alert:</span> <span class="ruby-string">&quot;Template não selecionado!&quot;</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">turma_ids</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">gerenciamento_path</span>, <span class="ruby-value">alert:</span> <span class="ruby-string">&quot;Nenhuma turma selecionada!&quot;</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">turma_ids</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">turma_id</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">formulario</span> = <span class="ruby-constant">Formulario</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">turma_id:</span> <span class="ruby-identifier">turma_id</span>, <span class="ruby-value">template_id:</span> <span class="ruby-identifier">template_id</span>, <span class="ruby-value">id_turma:</span> <span class="ruby-identifier">turma_id</span>, <span class="ruby-value">id_template:</span> <span class="ruby-identifier">template_id</span>, <span class="ruby-value">created_at:</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">current</span>, <span class="ruby-value">updated_at:</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">current</span>)
+    
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">formulario</span>.<span class="ruby-identifier">persisted?</span>
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;Formulário criado com sucesso: #{formulario.inspect}&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">error</span> <span class="ruby-node">&quot;Erro ao criar formulário: #{formulario.errors.full_messages.join(&#39;, &#39;)}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">gerenciamento_path</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&quot;Formulário(s) criado(s) com sucesso!&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-gerenciamento" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">gerenciamento</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Exibe a página de gerenciamento de templates e turmas</p>
+
+          <div class="method-source-code" id="gerenciamento-source">
+            <pre><span class="ruby-comment"># File app/controllers/home_controller.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gerenciamento</span>
+  <span class="ruby-ivar">@templates</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">templates</span>
+  <span class="ruby-ivar">@turmas</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">turmas_professor</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-index" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">index</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Exibe a página inicial com a lista de formulários</p>
+
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/home_controller.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
+  <span class="ruby-ivar">@formularios</span> = <span class="ruby-constant">Formulario</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">turma:</span> [<span class="ruby-value">:professor</span>, <span class="ruby-value">:materia</span>], <span class="ruby-value">template:</span> [])
+      .<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;formularios.*, turmas.classCode as turma_classCode, turmas.semestre as turma_semestre, users.nome as professor_name, materias.nome as materia_nome&#39;</span>)
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-ivar">@formularios</span>.<span class="ruby-identifier">inspect</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-resultados" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">resultados</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Exibe a página de resultados com a lista de formulários</p>
+
+          <div class="method-source-code" id="resultados-source">
+            <pre><span class="ruby-comment"># File app/controllers/home_controller.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">resultados</span>
+  <span class="ruby-ivar">@formularios</span> = <span class="ruby-constant">Formulario</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">turma:</span> [<span class="ruby-value">:professor</span>, <span class="ruby-value">:materia</span>], <span class="ruby-value">template:</span> [])
+      .<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;formularios.*, turmas.classCode as turma_classCode, turmas.semestre as turma_semestre, users.nome as professor_name, materias.nome as materia_nome&#39;</span>)
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-ivar">@formularios</span>.<span class="ruby-identifier">inspect</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.7.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

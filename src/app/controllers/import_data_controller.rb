@@ -1,9 +1,7 @@
-# trabalhar com arquivos json e criar link de redefinicao de senha unico
-# usando o e-mail do participante
 require 'json'
 require 'digest'
 
-
+# Trabalhar com arquivos json e criar link de redefinicao de senha unico usando o e-mail do participante
 class ImportDataController < ApplicationController
   ##
   # Lê informações de um arquivo JSON enviado pelo usuário e cadastra no banco de dados

@@ -1,26 +1,43 @@
+# Controlador para gerenciar as ações relacionadas aos Formulários
 class FormulariosController < ApplicationController
   before_action :set_formulario, only: %i[ show edit update destroy ]
 
+  ##
   # GET /formularios or /formularios.json
+  # Exibe a lista de todos os formulários
   def index
     @formularios = Formulario.joins(turma: [:professor, :materia], template: [])
     .select('formularios.*, turmas.classCode as turma_classCode, turmas.semestre as turma_semestre, users.nome as professor_name, materias.nome as materia_nome')
   end
 
+  ##
   # GET /formularios/1 or /formularios/1.json
+  # Exibe um formulário específico
+  # +param+ [Integer] id - O ID do formulário a ser exibido, obtido dos parâmetros
   def show
   end
 
+  ##
   # GET /formularios/new
+  # Exibe o formulário para criar um novo formulário
   def new
     @formulario = Formulario.new
   end
 
+  ##
   # GET /formularios/1/edit
+  # Exibe o formulário para editar um formulário existente
+  #
+  # +param+ [Integer] id - O ID do formulário a ser editado, obtido dos parâmetros
   def edit
   end
 
+  ##
   # POST /formularios or /formularios.json
+  # Cria um novo formulário
+  #
+  # +param+ [Hash] formulario_params - Os parâmetros do formulário a ser criado, obtido dos parâmetros permitidos
+  # +effect_side+ Cria um novo registro de formulário no banco de dados. Redireciona para a página show se bem-sucedido, ou renderiza a página new se houver erros
   def create
     @formulario = Formulario.new(formulario_params)
 
@@ -35,7 +52,13 @@ class FormulariosController < ApplicationController
     end
   end
 
+  ##
   # PATCH/PUT /formularios/1 or /formularios/1.json
+  # Atualiza um formulário existente
+  #
+  # +param+ [Hash] formulario_params - Os parâmetros do formulário a ser atualizado, obtido dos parâmetros permitidos
+  # +param+ [Integer] id - O ID do formulário a ser atualizado, obtido dos parâmetros
+  # +effect_side+ Atualiza um registro de formulário no banco de dados. Redireciona para a página show se bem-sucedido, ou renderiza a página edit se houver erros
   def update
     respond_to do |format|
       if @formulario.update(formulario_params)
@@ -48,7 +71,12 @@ class FormulariosController < ApplicationController
     end
   end
 
+  ##
   # DELETE /formularios/1 or /formularios/1.json
+  # Exclui um formulário existente
+  #
+  # +param+ [Integer] id - O ID do formulário a ser excluído, obtido dos parâmetros
+  # +effect_side+ Remove um registro de formulário do banco de dados. Redireciona para a página index após exclusão
   def destroy
     @formulario.destroy!
 
