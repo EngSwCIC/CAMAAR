@@ -15,7 +15,7 @@ describe Users::PasswordsController do
 
     it "GET #edit com token nulo" do
         get :edit, params: {}
-        expect(flash[:alert]).to be_present
+        expect(flash[:notice]).to be_present
     end
 
 end
