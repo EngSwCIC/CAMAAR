@@ -1,0 +1,28 @@
+{
+    "classes": [
+      {
+        "codigo": "MAT101",
+        "nome": "Matemática Básica",
+        "turma": "A",
+        "semestre": "2024.1",
+        "horario": "08:00-10:00"
+      }
+    ],
+    "participantes": [
+      {
+        "code": "MAT101",
+        "classCode": "A",
+        "dicente": [
+          {
+            "nome": "João Silva",
+            "curso": "Engenharia",
+            "matricula": "123456",
+            "usuario": "joaos",
+            "formacao": "Graduando",
+            "email": "joao.silva@example.com"
+          }
+        ]
+      }
+    ]
+  }
+  

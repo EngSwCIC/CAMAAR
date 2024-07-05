@@ -64,8 +64,11 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-end
-
+  gem 'simplecov', require: false
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+end 
 group :test do
   gem "cucumber-rails", require: false
   # database_cleaner is not required, but highly recommended

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'gerenciamento', to: 'home#gerenciamento', as: 'gerenciamento'
   get 'resultados', to: 'home#resultados', as: 'resultados'
   post 'enviar_formularios', to: 'home#enviar_formularios', as: 'enviar_formularios'
+  post '/import_data/create', to: 'import_data#create'
   resources :materia
   resources :questaos
   resources :formularios
@@ -16,4 +17,5 @@ Rails.application.routes.draw do
   resources :imports, only: [:create]
   devise_for :users, controllers: { passwords: 'users/passwords', confirmations: 'users/confirmations'}
   resources :templates
+  resource :sessions, only: [:new, :create, :destroy]
 end

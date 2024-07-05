@@ -4,7 +4,7 @@ class TemplatesController < ApplicationController
   def index
     if current_user
       @templates = current_user.templates
-      Rails.logger.debug @templates.inspect
+      render status: :ok
     else
       redirect_to new_user_session_path, alert: "Você precisa estar logado para acessar esta página."
     end
@@ -17,51 +17,34 @@ class TemplatesController < ApplicationController
   def edit
   end
 
-  def create  
-    # recupera os elementos passados pela rota  
-    template = params[:template]
+  def create
+    user = User.find_by(id: template_params[:user_id])
+    semestre = template_params[:semestre]
+    nome = template_params[:nome]
+    questoes_ids = template_params[:questoes_ids] || []
 
-    user = User.find_by(template['user_id'])
-    semestre = template['semestre']
-    nome = template['nome']
-    questoes = []
-
-    if !template['questoes_id'].nil?
-      template['questoes_id'].each do |questao_id|
-        questoes << Questao.find_by(questao_id)
-      end
-    end
+    questoes = Questao.where(id: questoes_ids)
 
     @template = Template.new(user: user, semestre: semestre, nome: nome, questoes: questoes)
 
-    if @template.questoes.any? && @template.save
-      redirect_to templates_url, notice: "Template was successfully created.", status: 302
-    elsif !@template.questoes.any?
-      render :new, notice: "Você deve adicionar alguma questão ao template antes de criá-lo.", status: 400
+    if @template.save
+      redirect_to templates_url, notice: "Template criado com sucesso."
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @template.update(template_params)
-        format.html { redirect_to template_url(@template), notice: "Template atualizado!" }
-        format.json { render :show, status: :ok, location: @template }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @template.errors, status: :unprocessable_entity }
-      end
+    if @template.update(template_params)
+      redirect_to template_url(@template), notice: "Template atualizado com sucesso."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @template.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to templates_url, notice: "Template was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    @template.destroy
+    redirect_to templates_url, notice: "Template excluído com sucesso."
   end
 
   private
@@ -69,8 +52,7 @@ class TemplatesController < ApplicationController
       @template = Template.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def template_params
-      params.require(:template).permit(:user, :semestre, :nome, :questoes)
+      params.require(:template).permit(:user_id, :semestre, :nome, questoes_ids: [])
     end
 end
