@@ -1,16 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe FormulariosController, type: :controller do
-  let(:valid_attributes) {
+  let(:formulario_valid_attributes) {
     { id_turma: 1, id_template: 1 }
   }
+  let(:formulario_invalid_attributes) {
+    { id_turma: 1000, id_template: 1000 }
+  }
 
-  let!(:professor) { User.create!(nome: 'Professor A', email: 'professor@example.com', password: 'password123') }
-  let!(:materia) { Materia.create!(nome: 'Matemática') }
+  let!(:professor) { User.create!(nome: 'Professor A', email: 'professor@example.com', password: 'password123', usuario: 'Professor A') }
+  let!(:materia) { Materia.create!(code: 'MAT1', nome: 'Matemática') }
   let!(:turma) { Turma.create!(classCode: 'A1', semestre: '2024-1', professor: professor, materia: materia) }
-  let!(:user) { User.create!(nome: 'User A', email: 'user@example.com', password: 'password123') }
+  let!(:user) { User.create!(nome: 'User A', email: 'user@example.com', password: 'password123', usuario: 'User A') }
   let!(:template) { Template.create!(user: user) } # Adjust as per your Template model setup
-  let!(:formulario) { Formulario.create!(valid_attributes.merge(turma: turma, template: template)) }
+  let!(:formulario) { Formulario.create!(formulario_valid_attributes.merge(turma: turma, template: template)) }
 
   describe "GET #index" do
     it "returns a success response and fetches related data with custom select" do
@@ -52,12 +55,12 @@ RSpec.describe FormulariosController, type: :controller do
     context "with valid params" do
       it "creates a new Formulario" do
         expect {
-          post :create, params: { formulario: valid_attributes }
+          post :create, params: { formulario: formulario_valid_attributes }
         }.to change(Formulario, :count).by(1)
       end
 
       it "redirects to the created formulario" do
-        post :create, params: { formulario: valid_attributes }
+        post :create, params: { formulario: formulario_valid_attributes }
         expect(response).to redirect_to(Formulario.last)
         expect(flash[:notice]).to eq('Formulario was successfully created.')
       end
@@ -65,7 +68,7 @@ RSpec.describe FormulariosController, type: :controller do
 
     context "with invalid params" do
       it "returns a success response (i.e., to display the 'new' template)" do
-        post :create, params: { formulario: invalid_attributes }
+        post :create, params: { formulario: informulario_invalid_attributes }
         expect(response).to be_unprocessable
         expect(response).to render_template(:new)
       end
@@ -93,7 +96,7 @@ RSpec.describe FormulariosController, type: :controller do
 
     context "with invalid params" do
       it "returns a success response (i.e., to display the 'edit' template)" do
-        put :update, params: { id: formulario.to_param, formulario: invalid_attributes }
+        put :update, params: { id: formulario.to_param, formulario: informulario_valid_attributes }
         expect(response).to be_unprocessable
         expect(response).to render_template(:edit)
       end
