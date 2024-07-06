@@ -2,12 +2,12 @@
 require 'rails_helper'
 
 RSpec.describe Template, type: :model do
-  describe "associations" do
-    it "should belong to user" do
-      user = User.create(email: "test_user@example.com", password: "password")  # Ajuste para atributos válidos no seu modelo User
-      template = Template.new(user: user)
+  before(:each) do
+    @admin = User.create(email: "admin1@email.com", password: "senh@123", isAdmin: true)
+  end
 
-      expect(template.user).to eq(user)
-    end
+  it "deve criar um template" do
+    Template.create(user: @admin)
+    expect(Template.count).to equal(1)
   end
 end

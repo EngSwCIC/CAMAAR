@@ -1,79 +1,71 @@
+# Controladora para definição de senha do usuário
+# Para usuários novos, confirmando a conta e definindo a senha.
+# Também para redefinir a senha de usuários já confirmados que esqueceram.
 class Users::PasswordsController < DeviseController
-  prepend_before_action :require_no_authentication
-  # Render the #edit only if coming from a reset password email link
+  # Verifica, antes de acessar o método edit, se foi passado algum token como argumento
   append_before_action :assert_reset_token_passed, only: :edit
 
-  # GET /resource/password/new
+
+  # Cria uma instância do usuário para armazenar eventuais erros.
+  # Metodo Http GET /users/password/new
   def new
     self.resource = resource_class.new
   end
 
-  # POST /resource/password
+  # Recebe o email para envio da redefinição de senha.
+  # Além disso, se for enviado o email corretamente, redireciona para a tela de login.
+  # Caso não ocorra, permanece na página e mostra eventual erro.
+  # Metodo Http POST /users/password
   def create
     self.resource = resource_class.send_reset_password_instructions(resource_params)
-    yield resource if block_given?
-
     if successfully_sent?(resource)
-      respond_with({}, location: after_sending_reset_password_instructions_path_for(resource_name))
+      respond_with({}, location: new_session_path(resource_name))
     else
       respond_with(resource)
     end
   end
 
-  # GET /resource/password/edit?reset_password_token=abcdef
+  # Recebe um token como argumento.
+  # Se o token for inválido, redireciona para a tela de login com um erro.
+  # Caso contrário, continua na tela de definição de senha.
+  # Metodo Http GET /users/password/edit?reset_password_token=abcdef
   def edit
     self.resource = resource_class.new
+    token = params[:reset_password_token]
+    if User.with_reset_password_token(token)
+      resource.reset_password_token = token
+    else
+      redirect_to new_user_session_path, notice: "O link que tentou utilizar expirou."
+    end
     set_minimum_password_length
-    resource.reset_password_token = params[:reset_password_token]
   end
 
-  # PUT /resource/password
+  # Consegue confirmar o usuário se ele ainda não está confirmado
+  # Dessa forma a conta ainda não está confirmada sem definir a senha a primeira vez
+  # A única forma de confirmar a conta é defininindo a senha
+  # Metodo Http PUT /resource/password
   def update
     self.resource = resource_class.reset_password_by_token(resource_params)
     set_minimum_password_length
-    yield resource if block_given?
-
     if resource.errors.empty?
-      # Única adição ao código do Devise -> consegue confirmar o usuário se ele ainda não está confirmado
-      # Dessa forma a conta ainda não está confirmada sem redefinir a senha a primeira vez
-      resource.confirm if !resource.confirmed?
-      if resource_class.sign_in_after_reset_password
-        flash_message = resource.active_for_authentication? ? :updated : :updated_not_active
-        set_flash_message!(:notice, flash_message)
-        resource.after_database_authentication
-        sign_in(resource_name, resource)
-      else
-        set_flash_message!(:notice, :updated_not_active)
-      end
-      respond_with resource, location: after_resetting_password_path_for(resource)
+      sign_in_confirm(resource)
+      respond_with resource, location: root_path(resource)
     else
-      set_minimum_password_length
       respond_with resource
     end
   end
 
   protected
-    def after_resetting_password_path_for(resource)
-      resource_class.sign_in_after_reset_password ? after_sign_in_path_for(resource) : new_session_path(resource_name)
+    # Confirma as contas ainda não confirmadas e já autoriza a conta a acessar a Home
+    def sign_in_confirm(resource)
+      resource.confirm if !resource.confirmed?
+      sign_in(resource_name, resource)
     end
 
-    # The path used after sending reset password instructions
-    def after_sending_reset_password_instructions_path_for(resource_name)
-      new_session_path(resource_name) if is_navigational_format?
-    end
-
-    # Check if a reset_password_token is provided in the request
+    # Verifica se o token foi passado como argumento
     def assert_reset_token_passed
       if params[:reset_password_token].blank?
-        set_flash_message(:alert, :no_token)
-        redirect_to new_session_path(resource_name)
+        redirect_to new_user_session_path, notice: "Para acessar precisa de token."
       end
-    end
-
-    # Check if proper Lockable module methods are present & unlock strategy
-    # allows to unlock resource on password reset
-
-    def translation_scope
-      'devise.passwords'
     end
 end

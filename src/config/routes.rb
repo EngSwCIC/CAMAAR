@@ -18,4 +18,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { passwords: 'users/passwords', confirmations: 'users/confirmations'}
   resources :templates
   resource :sessions, only: [:new, :create, :destroy]
+
+  # get '/templates', to: 'templates#index'
+  # get '/templates/:id/edit', to: 'templates#edit' 
+  # patch '/templates/:id', to: 'templates#update'
+  # post '/templates', to: 'templates#create'
+
 end

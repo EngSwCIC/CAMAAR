@@ -1,3 +1,7 @@
+require 'json'
+require 'digest'
+
+# Trabalhar com arquivos json e criar link de redefinicao de senha unico usando o e-mail do participante
 class ImportDataController < ApplicationController
   def create
     if params[:file].nil?

@@ -1,6 +1,11 @@
 # frozen_string_literal: true
-
+##
+# Migração para criar a tabela users com campos de autenticação Devise
 class DeviseCreateUsers < ActiveRecord::Migration[7.1]
+    ##
+  # Cria a tabela users com diversos campos de autenticação Devise
+  #
+  # +effect_side+ Cria uma tabela users com os campos email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at e timestamps. Adiciona índices únicos para email e reset_password_token.
   def change
     create_table :users do |t|
       ## Database authenticatable

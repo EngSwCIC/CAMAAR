@@ -1,10 +1,10 @@
 body {
-  background-color: #DBDBDB;
-  font-family: Roboto;
+  background-color: #dbdbdb;
   font-weight: 400;
   line-height: 24px;
   box-sizing: border-box;
- }
+}
+
 .header-menu {
   top: 0;
   height: 50px;
@@ -19,7 +19,10 @@ body {
   box-sizing: border-box;
   gap: 20px;
   font-size: 20px;
+  font-family: Roboto;
+  
 }
+
 .icon-menu {
   width: 20px;
   height: 20px;
@@ -37,8 +40,8 @@ body {
   margin-top: 50px;
   display: flex;
   justify-content: center;
-  box-shadow: 1px 6px 5px 3px rgba(0,0,0,0.12);
-  cursor: pointer;
+  box-shadow: 1px 6px 5px 3px rgba(0, 0, 0, 0.12);
+  font-family: Roboto;
 }
 
 .sidebar.open {
@@ -57,6 +60,7 @@ body {
   text-align: center;
   box-sizing: border-box;
   color: black;
+  cursor: pointer;
 }
 
 .sidebar ul li a {
@@ -67,7 +71,6 @@ body {
 .sidebar ul li:hover a {
   color: white;
 }
-
 
 .sidebar li:hover {
   background-color: #6c236558;
@@ -84,7 +87,7 @@ body {
   width: 30px; /* Largura da bola */
   height: 30px; /* Altura da bola */
   border-radius: 50%; /* Torna a div em um círculo */
-  background: #6C2365;
+  background: #6c2365;
   color: #fff;
   display: flex;
   cursor: pointer;
@@ -97,19 +100,20 @@ body {
   position: fixed;
   margin-top: 50px;
   top: 0;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   right: -550px;
   display: flex;
   align-items: center;
   padding: 0px 24px;
   box-sizing: border-box;
-  box-shadow: 1px 6px 5px 3px rgba(0,0,0,0.12);
+  box-shadow: 1px 6px 5px 3px rgba(0, 0, 0, 0.12);
+  font-family: Roboto;
 }
 .logout:hover {
   background-color: #6c236546;
   color: white;
 }
-.logout a { 
+.logout a {
   color: black;
   text-decoration: unset;
   font-size: 16px;
@@ -117,7 +121,7 @@ body {
   line-height: 24px;
   text-align: center;
 }
-.logout:hover a{ 
+.logout:hover a {
   color: white;
 }
 .logout.open {
@@ -175,14 +179,14 @@ body {
 
 .botao-gerenciamento {
   width: 90%;
-  background: #86EFAC;
+  background: #86efac;
   padding: 10px;
   box-sizing: border-box;
   border-radius: 5px;
 }
 
 .botao-gerenciamento:hover {
-  background: #22C55E;
+  background: #22c55e;
 }
 
 .botao-gerenciamento h3 {
@@ -200,7 +204,7 @@ body {
 }
 
 .sidebar ul li.active {
-  background-color: #6C2365;
+  background-color: #6c2365;
 }
 
 .sidebar ul li.active a {
@@ -237,7 +241,6 @@ body {
   background-color: #912b87b2;
 }
 
-
 .box-template {
   display: flex;
   background-color: #fff;
@@ -267,7 +270,7 @@ body {
   font-size: 23px;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
 }
 
 .icon-template img {
@@ -284,8 +287,8 @@ body {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 .modal-content {
   background-color: #fefefe;
@@ -301,7 +304,7 @@ body {
 }
 
 .modal-content-env-forms {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin: 5% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
@@ -327,7 +330,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #e0e0e0;
 }
 
 .header-env-forms {
@@ -373,7 +376,6 @@ body {
   gap: 10px;
 }
 
-
 .select-box__list-option {
   display: flex;
   justify-content: space-between;
@@ -389,7 +391,7 @@ body {
 }
 
 .botaoEnviarForm {
-  background: #22C55E;
+  background: #22c55e;
   color: white;
   padding: 10px 20px;
   font-size: 16px;

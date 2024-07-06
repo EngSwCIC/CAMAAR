@@ -69,11 +69,17 @@ group :test do
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
 end 
+gem "metric_fu-Saikuro"
+gem "rubycritic", require: false
+
 group :test do
   gem "cucumber-rails", require: false
-  # database_cleaner is not required, but highly recommended
   gem 'rspec-rails'
   gem 'database_cleaner'
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "capybara-email"
+  gem 'simplecov', require: false
 end
 
 gem "devise", "~> 4.9"

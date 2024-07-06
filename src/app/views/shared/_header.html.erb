@@ -5,7 +5,7 @@
     </div>
     <div id="profile" class="profile">
       <% if user_signed_in? %>
-        <p><%= current_user.email.first %></p>
+        <p><%= current_user.email.first.upcase %></p>
       <% end %>
     </div>
   </div>
@@ -19,9 +19,9 @@
       <% if user_signed_in? %>
         <% if current_user.isAdmin %>
           <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Avaliações', root_path %></li>
+          <li class="<%= 'active' if current_page?(gerenciamento_path) || current_page?(resultados_path) %>"><%= link_to 'Gerenciamento', gerenciamento_path %></li>
         <% else %>
           <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Avaliações', root_path %></li>
-          <li class="<%= 'active' if current_page?(gerenciamento_path) || current_page?(resultados_path) %>"><%= link_to 'Gerenciamento', gerenciamento_path %></li>
         <% end %>
       <% end %>
     </ul>
