@@ -1,0 +1,22 @@
+<%= form_with(model: curso) do |form| %>
+  <% if curso.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(curso.errors.count, "error") %> prohibited this curso from being saved:</h2>
+
+      <ul>
+        <% curso.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nome, style: "display: block" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

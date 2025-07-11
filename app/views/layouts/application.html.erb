@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "CAMAAR - Sistema de Avaliação" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "figma_custom", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="<%= 'user-signed-in' if user_signed_in? %>">
+    <% if user_signed_in? %>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <div class="d-flex align-items-center">
+            <button class="btn btn-outline-secondary me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+              <i class="fas fa-bars"></i>
+            </button>
+            <%= link_to "CAMAAR", root_path, class: "navbar-brand" %>
+          </div>
+          
+          <div class="d-flex align-items-center">
+            <div class="me-3">
+              <input type="search" class="form-control" placeholder="Buscar..." style="width: 250px;">
+            </div>
+            
+            <div class="dropdown">
+              <button class="btn p-0" type="button" data-bs-toggle="dropdown">
+                <div class="user-avatar">
+                  <%= current_user.name.first.upcase %>
+                </div>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><%= link_to "Meu Perfil", edit_user_registration_path, class: "dropdown-item" %></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Sidebar -->
+      <div class="offcanvas offcanvas-start sidebar" tabindex="-1" id="sidebar">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <%= link_to root_path, class: "nav-link #{'active' if current_page?(root_path)}" do %>
+                <i class="fas fa-home me-2"></i> Início
+              <% end %>
+            </li>
+            
+            <% if current_user.admin? %>
+              <li class="nav-item">
+                <%= link_to users_path, class: "nav-link #{'active' if current_page?(users_path)}" do %>
+                  <i class="fas fa-users me-2"></i> Usuários
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to cursos_path, class: "nav-link #{'active' if current_page?(cursos_path)}" do %>
+                  <i class="fas fa-book me-2"></i> Cursos
+                <% end %>
+              </li>
+            <% end %>
+            
+            <li class="nav-item">
+              <%= link_to evaluations_path, class: "nav-link #{'active' if current_page?(evaluations_path)}" do %>
+                <i class="fas fa-poll me-2"></i> Avaliações
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+
+    <% if notice %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= notice %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    <% end %>
+
+    <% if alert %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <%= alert %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    <% end %>
+
+    <main class="main-content">
+      <%= yield %>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

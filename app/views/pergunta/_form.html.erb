@@ -1,0 +1,37 @@
+<%= form_with(model: perguntum) do |form| %>
+  <% if perguntum.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(perguntum.errors.count, "error") %> prohibited this perguntum from being saved:</h2>
+
+      <ul>
+        <% perguntum.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :template_id, style: "display: block" %>
+    <%= form.text_field :template_id %>
+  </div>
+
+  <div>
+    <%= form.label :titulo, style: "display: block" %>
+    <%= form.text_field :titulo %>
+  </div>
+
+  <div>
+    <%= form.label :tipo, style: "display: block" %>
+    <%= form.number_field :tipo %>
+  </div>
+
+  <div>
+    <%= form.label :ordem, style: "display: block" %>
+    <%= form.number_field :ordem %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

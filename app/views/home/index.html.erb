@@ -1,0 +1,106 @@
+<% content_for :title, "CAMAAR - Sistema de Avaliação" %>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="jumbotron text-white p-5 rounded fade-in-up">
+        <h1 class="display-4">Bem-vindo ao CAMAAR!</h1>
+        <p class="lead">Sistema de Avaliação Acadêmica</p>
+        <hr class="my-4">
+        <p>Olá, <strong><%= @current_user.name %></strong>! Você está logado como <strong><%= @current_user.role.capitalize %></strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <% if @current_user.admin? %>
+      <div class="col-md-4">
+        <div class="card fade-in-up">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fas fa-users text-primary"></i> Gerenciar Usuários
+            </h5>
+            <p class="card-text">Visualizar, criar, editar e remover usuários do sistema.</p>
+            <%= link_to 'Acessar', users_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card fade-in-up">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fas fa-user-plus"></i> Cadastrar Usuário
+            </h5>
+            <p class="card-text">Cadastrar novos alunos e professores no sistema.</p>
+            <%= link_to 'Cadastrar', new_admin_user_path, class: "btn btn-success" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fas fa-graduation-cap"></i> Gerenciar Cursos
+            </h5>
+            <p class="card-text">Visualizar e gerenciar cursos disponíveis.</p>
+            <%= link_to 'Acessar', cursos_path, class: "btn btn-info" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% if @current_user.professor? %>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fas fa-clipboard-list"></i> Minhas Avaliações
+            </h5>
+            <p class="card-text">Visualizar e gerenciar suas avaliações.</p>
+            <%= link_to 'Acessar', evaluations_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fas fa-chart-bar"></i> Relatórios
+            </h5>
+            <p class="card-text">Visualizar relatórios de avaliações.</p>
+            <%= link_to 'Acessar', "#", class: "btn btn-info" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% if @current_user.aluno? %>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fas fa-edit"></i> Responder Avaliações
+            </h5>
+            <p class="card-text">Responder avaliações disponíveis.</p>
+            <%= link_to 'Acessar', evaluations_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fas fa-history"></i> Minhas Respostas
+            </h5>
+            <p class="card-text">Visualizar avaliações já respondidas.</p>
+            <%= link_to 'Acessar', "#", class: "btn btn-info" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

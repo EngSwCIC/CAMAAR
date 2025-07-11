@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Opcoes pergunta" %>
+
+<h1>Opcoes pergunta</h1>
+
+<div id="opcoes_pergunta">
+  <% @opcoes_pergunta.each do |opcoes_perguntum| %>
+    <%= render opcoes_perguntum %>
+    <p>
+      <%= link_to "Show this opcoes perguntum", opcoes_perguntum %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New opcoes perguntum", new_opcoes_perguntum_path %>

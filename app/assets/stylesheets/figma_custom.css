@@ -1,0 +1,464 @@
+/* CAMAAR - Estilo baseado no Figma */
+
+/* Variáveis de cores baseadas no Figma */
+:root {
+  --primary-purple: #7B2CBF;
+  --secondary-purple: #9D4EDD;
+  --light-purple: #C77DFF;
+  --success-green: #10B981;
+  --background-gray: #F8F9FA;
+  --text-dark: #1F2937;
+  --text-light: #6B7280;
+  --white: #FFFFFF;
+  --border-color: #E5E7EB;
+}
+
+/* Reset e configurações gerais */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--background-gray);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* Tela de Login - Baseada no Figma */
+.login-container {
+  background: linear-gradient(135deg, var(--background-gray) 0%, #E5E7EB 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-card {
+  background: var(--white);
+  border-radius: 24px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  min-height: 500px;
+}
+
+.login-form-section {
+  flex: 1;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-welcome-section {
+  flex: 1;
+  background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  text-align: center;
+  padding: 40px;
+}
+
+.login-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.login-welcome-text {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: var(--white);
+}
+
+.form-control:focus {
+  border-color: var(--primary-purple);
+  box-shadow: 0 0 0 3px rgba(123, 44, 191, 0.1);
+  outline: none;
+}
+
+.btn-primary {
+  background: var(--success-green);
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  transition: all 0.3s ease;
+  text-transform: none;
+}
+
+.btn-primary:hover {
+  background: #059669;
+  transform: translateY(-2px);
+}
+
+/* Dashboard - Baseado no Figma */
+.navbar {
+  background: var(--white) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 16px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-dark) !important;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-purple);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Cards de Avaliações - Baseado no Figma */
+.evaluations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 24px;
+}
+
+.evaluation-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.evaluation-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.evaluation-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.evaluation-semester {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+
+.evaluation-professor {
+  font-size: 16px;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* Tabelas - Corrigindo o estilo quebrado */
+.table-container {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table thead th {
+  border-bottom: 2px solid var(--border-color);
+  font-weight: 600;
+  color: var(--text-dark);
+  padding: 16px;
+  background: var(--background-gray);
+}
+
+.table tbody td {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(123, 44, 191, 0.05);
+}
+
+/* Badges */
+.badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.badge-admin {
+  background: var(--primary-purple);
+  color: var(--white);
+}
+
+.badge-professor {
+  background: var(--secondary-purple);
+  color: var(--white);
+}
+
+.badge-aluno {
+  background: var(--light-purple);
+  color: var(--white);
+}
+
+/* Correção de badge padrão para matrícula */
+.badge:not(.badge-admin):not(.badge-professor):not(.badge-aluno) {
+  background: var(--border-color);
+  color: var(--text-dark);
+}
+
+/* Select customizado */
+select.form-control {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 12px;
+  appearance: none;
+  padding-right: 40px;
+}
+
+/* Botões */
+.btn {
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-success {
+  background: var(--success-green);
+  color: var(--white);
+}
+
+.btn-success:hover {
+  background: #059669;
+}
+
+.btn-outline-primary {
+  border: 2px solid var(--primary-purple);
+  color: var(--primary-purple);
+  background: transparent;
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary-purple);
+  color: var(--white);
+}
+
+.btn-outline-warning {
+  border: 2px solid #F59E0B;
+  color: #F59E0B;
+  background: transparent;
+}
+
+.btn-outline-warning:hover {
+  background: #F59E0B;
+  color: var(--white);
+}
+
+.btn-outline-danger {
+  border: 2px solid #EF4444;
+  color: #EF4444;
+  background: transparent;
+}
+
+.btn-outline-danger:hover {
+  background: #EF4444;
+  color: var(--white);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .login-card {
+    flex-direction: column;
+    max-width: 400px;
+  }
+  
+  .login-form-section,
+  .login-welcome-section {
+    flex: none;
+  }
+  
+  .login-welcome-section {
+    padding: 20px;
+  }
+  
+  .login-welcome-text {
+    font-size: 32px;
+  }
+  
+  .evaluations-grid {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Correção para elementos que estavam quebrados */
+.jumbotron {
+  background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%) !important;
+  border-radius: 16px !important;
+}
+
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 24px;
+}
+
+/* Correção para layout sem navbar quando não logado */
+body:not(.user-signed-in) {
+  padding-top: 0;
+}
+
+body.user-signed-in {
+  padding-top: 70px; /* altura da navbar */
+}
+
+/* Fix para alertas */
+.alert {
+  border-radius: 12px;
+  border: none;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+.alert-success {
+  background: rgba(16, 185, 129, 0.1);
+  color: #065f46;
+  border-left: 4px solid var(--success-green);
+}
+
+.alert-danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: #991b1b;
+  border-left: 4px solid #ef4444;
+}
+
+/* Container principal para páginas logadas */
+.main-content {
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+}
+
+/* Ajustes para responsividade */
+@media (max-width: 992px) {
+  body.user-signed-in {
+    padding-top: 60px;
+  }
+  
+  .table-container {
+    padding: 16px;
+  }
+  
+  .table-responsive {
+    font-size: 14px;
+  }
+}
+
+/* Sidebar e navegação */
+.sidebar {
+  background: var(--white);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+}
+
+.nav-link {
+  color: var(--text-dark);
+  font-weight: 500;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: var(--primary-purple);
+  color: var(--white);
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+}
+
+.dropdown-item {
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background: var(--primary-purple);
+  color: var(--white);
+}

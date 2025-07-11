@@ -1,0 +1,42 @@
+<% content_for :title, "Avaliações - CAMAAR" %>
+
+<div class="container-fluid">
+  <!-- Header com navegação -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">
+      <div class="d-flex align-items-center">
+        <button class="btn btn-outline-secondary me-3" type="button">
+          <i class="fas fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="#">Avaliações</a>
+      </div>
+      
+      <div class="d-flex align-items-center">
+        <div class="me-3">
+          <input type="search" class="form-control" placeholder="Buscar...">
+        </div>
+        <div class="dropdown">
+          <button class="btn p-0" type="button" data-bs-toggle="dropdown">
+            <div class="user-avatar">U</div>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><%= link_to "Perfil", edit_user_registration_path, class: "dropdown-item" %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Grid de Avaliações -->
+  <div class="evaluations-grid">
+    <% @subjects.each do |subject| %>
+      <div class="evaluation-card fade-in-up">
+        <h3 class="evaluation-title"><%= subject[:name] %></h3>
+        <p class="evaluation-semester">semestre <%= subject[:semester] %></p>
+        <p class="evaluation-professor">Professor</p>
+      </div>
+    <% end %>
+  </div>
+</div>

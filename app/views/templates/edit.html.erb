@@ -1,0 +1,12 @@
+<% content_for :title, "Editing template" %>
+
+<h1>Editing template</h1>
+
+<%= render "form", template: @template %>
+
+<br>
+
+<div>
+  <%= link_to "Show this template", @template %> |
+  <%= link_to "Back to templates", templates_path %>
+</div>

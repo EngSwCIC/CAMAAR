@@ -1,0 +1,24 @@
+# .rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 3.2
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+    - 'config/**/*'
+    - 'vendor/**/*'
+
+plugins:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rspec
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'db/migrate/*.rb'

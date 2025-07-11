@@ -1,0 +1,96 @@
+<% content_for :title, "Gerenciar Usuários" %>
+
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1><i class="fas fa-users"></i> Usuários do Sistema</h1>
+    <% if current_user.admin? %>
+      <%= link_to "Cadastrar Usuário", new_admin_user_path, class: "btn btn-success" %>
+    <% end %>
+  </div>
+
+  <div class="table-container">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Matrícula</th>
+            <th>Tipo</th>
+            <th>Cadastrado em</th>
+            <% if current_user.admin? %>
+              <th>Ações</th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td>
+                <strong><%= user.name %></strong>
+                </td>
+                <td>
+                  <i class="fas fa-envelope"></i> <%= user.email %>
+                </td>
+                <td>
+                  <span class="badge"><%= user.matricula %></span>
+                </td>
+                <td>
+                  <% case user.role %>
+                  <% when 'admin' %>
+                    <span class="badge badge-admin"><i class="fas fa-crown"></i> Administrador</span>
+                  <% when 'professor' %>
+                    <span class="badge badge-professor"><i class="fas fa-chalkboard-teacher"></i> Professor</span>
+                  <% when 'aluno' %>
+                    <span class="badge badge-aluno"><i class="fas fa-graduation-cap"></i> Aluno</span>
+                  <% end %>
+                </td>
+                <td>
+                  <%= user.created_at.strftime("%d/%m/%Y") %>
+                </td>
+                <% if current_user.admin? %>
+                  <td>
+                    <div class="btn-group" role="group">
+                      <%= link_to user_path(user), class: "btn btn-sm btn-outline-primary", title: "Visualizar" do %>
+                        <i class="fas fa-eye"></i>
+                      <% end %>
+                      <%= link_to edit_user_path(user), class: "btn btn-sm btn-outline-warning", title: "Editar" do %>
+                        <i class="fas fa-edit"></i>
+                      <% end %>
+                      <% unless user == current_user %>
+                        <%= link_to user_path(user), method: :delete, 
+                            class: "btn btn-sm btn-outline-danger", 
+                            title: "Excluir",
+                            data: { 
+                              confirm: "Tem certeza que deseja excluir o usuário #{user.name}?",
+                              turbo_method: :delete
+                            } do %>
+                          <i class="fas fa-trash"></i>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <% if @users.empty? %>
+        <div class="text-center py-4">
+          <i class="fas fa-users fa-3x text-muted mb-3"></i>
+          <h5 class="text-muted">Nenhum usuário encontrado</h5>
+          <p class="text-muted">Cadastre o primeiro usuário do sistema.</p>
+          <% if current_user.admin? %>
+            <%= link_to "Cadastrar Usuário", new_admin_user_path, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <%= link_to "Voltar ao Início", root_path, class: "btn btn-secondary" %>
+  </div>
+</div>
