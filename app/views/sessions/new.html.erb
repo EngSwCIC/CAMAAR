@@ -1,0 +1,22 @@
+<h1>Login</h1>
+
+<%= form_with url: login_path, local: true do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email, required: true %>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password, required: true %>
+  </div>
+
+  <div>
+    <%= f.check_box :remember_me %>
+    <%= f.label :remember_me %>
+  </div>
+
+  <%= f.submit "Entrar" %>
+<% end %>
+
+<%= link_to "Esqueceu sua senha?", new_password_path %>

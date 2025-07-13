@@ -1,0 +1,10 @@
+<h1>Resetar Senha</h1>
+
+<%= form_with url: reset_path, local: true do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email, required: true %>
+  </div>
+
+  <%= f.submit "Enviar Instruções" %>
+<% end %>
