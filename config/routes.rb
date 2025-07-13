@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # Área do admin
   namespace :admin do
-    root "gerenciamento#index"  # Rota: /admin/
+    get 'gerenciamento', to: 'gerenciamento#index'  # Rota: /admin/
   end
 
   # Área do Usuário
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # get 'profile', to: 'users#profile'  # Exemplo de outra rota de usuário
 
   # Página inicial
-  #root 'login#index'
+  root 'login#index'
 
   # PWA (opcional)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest

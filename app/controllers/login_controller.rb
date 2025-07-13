@@ -10,6 +10,7 @@ class LoginController < ApplicationController
   # GET /login
   #
   # Renderiza a view 'login/index.html.erb' que deve conter o formulário de login.
+  layout 'login'
   def index
   end
 
