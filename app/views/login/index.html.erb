@@ -6,36 +6,40 @@
   <title>Login</title>
 </head>
 <body>
-  <div class="Fundo-branco">
-    <div class="Fundo-roxo">
-      <!-- Lado esquerdo: login -->
-      <div class="Caixa-login">
-        <span class="login">LOGIN</span>
+<div class="Fundo-branco">
+  <div class="Fundo-roxo">
+    <!-- Lado esquerdo: login -->
+    <div class="Caixa-login">
+      <span class="login">LOGIN</span>
 
-        <%= form_with url: '/login', method: :post, local: true do %>
-          <div class="email">
-            <%= label_tag :email, "Email", class: "email" %><br>
-            <%= email_field_tag :email, nil, placeholder: "aluno@aluno.unb.br", class: "input" %>
-          </div>
+      <%= form_with url: login_path, method: :post, local: true do |f| %>
+        <div class="email">
+          <%= f.label :email, "Email", class: "email" %><br>
+          <%= f.email_field :email, placeholder: "aluno@aluno.unb.br", class: "input", required: true %>
+        </div>
 
-          <div class="senha">
-            <%= label_tag :senha, "Senha", class: "senha" %><br>
-            <%= password_field_tag :password, nil, placeholder: "Password", class: "input" %>
-          </div>
+        <div class="senha">
+          <%= f.label :password, "Senha", class: "senha" %><br>
+          <%= f.password_field :password, placeholder: "Password", class: "input", required: true %>
+        </div>
 
-          <div>
-            <%= submit_tag "Entrar", class: "entrar" %>
-          </div>
-        <% end %>
+        <div>
+          <%= f.submit "Entrar", class: "entrar" %>
+        </div>
+      <% end %>
+
+      <div class="esqueci-senha">
+        <%= link_to "Esqueceu sua senha?", new_password_path %>
       </div>
+    </div>
 
-      <div class="Caixa-bv">
+    <div class="Caixa-bv">
         <span class="bem-vindo">Bem vindo<br>
           ao<br>
           Camaar
         </span>
-      </div>
     </div>
   </div>
+</div>
 </body>
 </html>

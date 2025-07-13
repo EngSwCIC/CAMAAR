@@ -102,3 +102,17 @@ body {
     font-weight: Medium;
     font-size: 56px;
 }
+.esqueci-senha {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.esqueci-senha a {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.esqueci-senha a:hover {
+    text-decoration: underline;
+}
