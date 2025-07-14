@@ -1,0 +1,39 @@
+name: Status Badges
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  badges:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.2.0
+        bundler-cache: true
+
+    - name: Run tests for coverage
+      run: |
+        bundle exec rspec --format json --out tmp/rspec.json
+      continue-on-error: true
+
+    - name: Run RuboCop for badge
+      run: |
+        bundle exec rubocop --format json --out tmp/rubocop.json
+      continue-on-error: true
+
+    - name: Generate badge data
+      run: |
+        # Create tmp directory if it doesn't exist
+        mkdir -p tmp
+        
+        # Generate simple badge data
+        echo "CI Status: $(if [ $? -eq 0 ]; then echo 'passing'; else echo 'failing'; fi)" > tmp/badges.txt

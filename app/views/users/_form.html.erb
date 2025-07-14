@@ -1,0 +1,167 @@
+<%= form_with(model: user, local: true, class: "user-form") do |form| %>
+  <!-- Error Messages -->
+  <% if user.errors.any? %>
+    <div class="alert alert-danger border-0 mb-4">
+      <div class="d-flex align-items-start">
+        <div class="me-3">
+          <div class="bg-danger bg-opacity-10 rounded-circle p-2">
+            <div class="bg-danger rounded-circle" style="width: 8px; height: 8px;"></div>
+          </div>
+        </div>
+        <div class="flex-grow-1">
+          <strong class="text-dark">Erro na validação</strong>
+          <p class="mb-2 text-muted small">
+            <%= pluralize(user.errors.count, "erro encontrado", "erros encontrados") %>:
+          </p>
+          <ul class="mb-0 small">
+            <% user.errors.each do |error| %>
+              <li class="text-danger"><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <!-- Form Fields -->
+  <div class="row g-4">
+    <!-- Email Field -->
+    <div class="col-12">
+      <div class="form-group">
+        <%= form.label :email, "E-mail", class: "form-label fw-semibold text-dark" %>
+        <%= form.email_field :email, class: "form-control form-control-lg", placeholder: "Digite o e-mail do usuário" %>
+      </div>
+    </div>
+    <!-- Password Fields -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :password, "Nova Senha", class: "form-label fw-semibold text-dark" %>
+        <%= form.password_field :password, class: "form-control form-control-lg", placeholder: "Digite a nova senha" %>
+        <div class="form-text">Deixe em branco para manter a senha atual</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :password_confirmation, "Confirmar Senha", class: "form-label fw-semibold text-dark" %>
+        <%= form.password_field :password_confirmation, class: "form-control form-control-lg", placeholder: "Confirme a nova senha" %>
+      </div>
+    </div>
+    <!-- Name Field -->
+    <div class="col-12">
+      <div class="form-group">
+        <%= form.label :name, "Nome Completo", class: "form-label fw-semibold text-dark" %>
+        <%= form.text_field :name, class: "form-control form-control-lg", placeholder: "Digite o nome completo" %>
+      </div>
+    </div>
+    <!-- Matricula Field -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :matricula, "Matrícula", class: "form-label fw-semibold text-dark" %>
+        <%= form.text_field :matricula, class: "form-control form-control-lg", placeholder: "Digite a matrícula" %>
+      </div>
+    </div>
+    <!-- Role Field -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :role, "Tipo de Usuário", class: "form-label fw-semibold text-dark" %>
+        <%= form.select :role, 
+            options_for_select([
+              ['Administrador', 0],
+              ['Professor', 1], 
+              ['Aluno', 2]
+            ], user.role), 
+            { prompt: 'Selecione o tipo' }, 
+            { class: "form-select form-select-lg" } %>
+      </div>
+    </div>
+  </div>
+  <!-- Submit Button -->
+  <div class="d-grid mt-4">
+    <%= form.submit user.persisted? ? "Atualizar Usuário" : "Criar Usuário", class: "btn btn-primary btn-lg fw-semibold py-3" %>
+  </div>
+<% end %>
+<style>
+  /* Form styling */
+  .user-form {
+    max-width: 100%;
+  }
+
+  .form-control-lg, .form-select-lg {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-control-lg:focus, .form-select-lg:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 0.2rem rgba(124, 58, 237, 0.25);
+  }
+
+  .form-label {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .form-group {
+    margin-bottom: 0;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #6d28d9 0%, #9333ea 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  }
+
+  .btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    transform: translateY(-1px);
+  }
+
+  .btn-outline-primary {
+    border-color: #7c3aed;
+    color: #7c3aed;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-primary:hover {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+    transform: translateY(-1px);
+  }
+
+  .alert {
+    border-radius: 8px;
+  }
+
+  .card {
+    border-radius: 12px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .form-control-lg, .form-select-lg {
+      padding: 0.6rem 0.8rem;
+    }
+
+    .btn-lg {
+      padding: 0.6rem 1rem;
+    }
+  }
+</style>

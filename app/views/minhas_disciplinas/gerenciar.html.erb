@@ -1,0 +1,306 @@
+<% content_for :title, "Gerenciar Disciplinas - #{@disciplina.nome}" %>
+
+<div class="container-fluid py-4">
+  <div class="row">
+    <div class="col-12">
+      <!-- Header -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><%= link_to "Minhas Disciplinas", minhas_disciplinas_path %></li>
+              <li class="breadcrumb-item"><%= link_to @disciplina.nome, minhas_disciplinas_path(@disciplina) %></li>
+              <li class="breadcrumb-item active" aria-current="page">Gerenciar</li>
+            </ol>
+          </nav>
+          <h2 class="mb-1">
+            <i class="fas fa-cog me-2 text-primary"></i>
+            Gerenciar Disciplina
+          </h2>
+          <p class="text-muted mb-0">
+            <strong>Disciplina:</strong> <%= @disciplina.nome %> (<%= @disciplina.curso.nome %>)
+          </p>
+        </div>
+        
+        <%= link_to "Voltar", minhas_disciplinas_path, class: "btn btn-secondary" %>
+      </div>
+
+      <!-- Cards de Informações -->
+      <div class="row mb-4">
+        <div class="col-md-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <i class="fas fa-users fa-2x text-primary mb-3"></i>
+              <h5 class="card-title">Turmas</h5>
+              <h3 class="text-primary"><%= @turmas.count %></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <i class="fas fa-chalkboard-teacher fa-2x text-success mb-3"></i>
+              <h5 class="card-title">Professores</h5>
+              <h3 class="text-success"><%= @professores.count %></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <i class="fas fa-user-graduate fa-2x text-info mb-3"></i>
+              <h5 class="card-title">Alunos</h5>
+              <h3 class="text-info"><%= @alunos.count %></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <i class="fas fa-graduation-cap fa-2x text-warning mb-3"></i>
+              <h5 class="card-title">Matrículas</h5>
+              <h3 class="text-warning"><%= @matriculas.count %></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Adicionar Professor -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">
+            <i class="fas fa-user-plus me-2"></i>
+            Adicionar Professor à Disciplina
+          </h5>
+        </div>
+        <div class="card-body">
+          <%= form_with url: cadastrar_professor_disciplina_path, method: :post, local: true, class: "row g-3" do |form| %>
+            <%= form.hidden_field :disciplina_id, value: @disciplina.id %>
+            
+            <div class="col-md-6">
+              <%= form.label :professor_id, "Professor", class: "form-label" %>
+              <%= form.collection_select :professor_id, 
+                    User.where(role: 'professor'),
+                    :id, 
+                    :name, 
+                    { prompt: "Selecione um professor" }, 
+                    { class: "form-select" } %>
+            </div>
+            
+            <div class="col-md-4">
+              <%= form.label :semestre, "Semestre", class: "form-label" %>
+              <%= form.text_field :semestre, 
+                    placeholder: "Ex: 2024.1", 
+                    class: "form-control",
+                    required: true %>
+            </div>
+            
+            <div class="col-md-2">
+              <%= form.submit "Adicionar", class: "btn btn-success mt-4" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Adicionar Aluno -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">
+            <i class="fas fa-user-plus me-2"></i>
+            Matricular Aluno na Disciplina
+          </h5>
+        </div>
+        <div class="card-body">
+          <%= form_with url: cadastrar_aluno_disciplina_path, method: :post, local: true, class: "row g-3" do |form| %>
+            <%= form.hidden_field :disciplina_id, value: @disciplina.id %>
+            
+            <div class="col-md-4">
+              <%= form.label :aluno_id, "Aluno", class: "form-label" %>
+              <%= form.collection_select :aluno_id, 
+                    User.where(role: 'aluno'),
+                    :id, 
+                    :name, 
+                    { prompt: "Selecione um aluno" }, 
+                    { class: "form-select" } %>
+            </div>
+            
+            <div class="col-md-4">
+              <%= form.label :turma_id, "Turma", class: "form-label" %>
+              <%= form.collection_select :turma_id, 
+                    @turmas,
+                    :id, 
+                    ->(turma) { "#{turma.semestre} - #{turma.professor.name}" },
+                    { prompt: "Selecione uma turma" }, 
+                    { class: "form-select" } %>
+            </div>
+            
+            <div class="col-md-2">
+              <%= form.label :situacao, "Situação", class: "form-label" %>
+              <%= form.select :situacao, 
+                    options_for_select([
+                      ['Matriculado', 'matriculado'],
+                      ['Aprovado', 'aprovado'],
+                      ['Reprovado', 'reprovado']
+                    ], 'matriculado'),
+                    {}, 
+                    { class: "form-select" } %>
+            </div>
+            
+            <div class="col-md-2">
+              <%= form.submit "Matricular", class: "btn btn-info mt-4" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Turmas da Disciplina -->
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title mb-0">
+            <i class="fas fa-list me-2"></i>
+            Turmas da Disciplina
+          </h5>
+        </div>
+        <div class="card-body p-0">
+          <% if @turmas.any? %>
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>Semestre</th>
+                    <th>Professor</th>
+                    <th>Alunos Matriculados</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @turmas.each do |turma| %>
+                    <tr>
+                      <td>
+                        <span class="badge bg-primary fs-6"><%= turma.semestre %></span>
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center">
+                          <div class="user-avatar-small me-2">
+                            <%= turma.professor.name.first.upcase %>
+                          </div>
+                          <div>
+                            <div class="fw-bold"><%= turma.professor.name %></div>
+                            <small class="text-muted"><%= turma.professor.email %></small>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <span class="badge bg-info fs-6">
+                          <%= turma.matriculas.count %> alunos
+                        </span>
+                      </td>
+                      <td>
+                        <button class="btn btn-sm btn-outline-info" 
+                                data-bs-toggle="collapse" 
+                                data-bs-target="#gerenciar-turma-<%= turma.id %>"
+                                data-turbo="false">
+                          <i class="fas fa-cog me-1"></i>
+                          Gerenciar
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="collapse" id="gerenciar-turma-<%= turma.id %>">
+                      <td colspan="4">
+                        <div class="p-4 bg-light">
+                          <h6 class="mb-3">
+                            <i class="fas fa-users me-2"></i>
+                            Alunos Matriculados - <%= turma.semestre %>
+                          </h6>
+                          <% if turma.alunos.any? %>
+                            <div class="row">
+                              <% turma.alunos.each do |aluno| %>
+                                <div class="col-md-6 mb-3">
+                                  <div class="card">
+                                    <div class="card-body p-3">
+                                      <div class="d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                          <div class="user-avatar-small me-2">
+                                            <%= aluno.name.first.upcase %>
+                                          </div>
+                                          <div>
+                                            <div class="fw-bold"><%= aluno.name %></div>
+                                            <small class="text-muted">Mat: <%= aluno.matricula %></small>
+                                          </div>
+                                        </div>
+                                        <div class="text-end">
+                                          <% matricula = turma.matriculas.find_by(aluno: aluno) %>
+                                          <% if matricula %>
+                                            <span class="badge bg-<%= matricula.situacao == 'aprovado' ? 'success' : matricula.situacao == 'reprovado' ? 'danger' : 'secondary' %>">
+                                              <%= matricula.situacao.capitalize %>
+                                            </span>
+                                          <% end %>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              <% end %>
+                            </div>
+                          <% else %>
+                            <div class="text-center py-4">
+                              <i class="fas fa-user-graduate fa-2x text-muted mb-2"></i>
+                              <p class="text-muted mb-0">Nenhum aluno matriculado nesta turma.</p>
+                            </div>
+                          <% end %>
+                        </div>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          <% else %>
+            <div class="text-center py-5">
+              <i class="fas fa-users fa-3x text-muted mb-3"></i>
+              <h5 class="text-muted">Nenhuma turma encontrada</h5>
+              <p class="text-muted">Crie uma turma adicionando um professor à disciplina.</p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.user-avatar-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-purple);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.card {
+  border: 1px solid #e3e6f0;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0.25rem 2rem 0 rgba(58, 59, 69, 0.2);
+}
+
+.badge {
+  font-size: 0.75rem;
+}
+
+.table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+</style>

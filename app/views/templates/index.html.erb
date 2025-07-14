@@ -1,0 +1,196 @@
+<% content_for :title, "Gerenciar Templates de Formulários" %>
+
+<div class="container-fluid px-4 py-4">
+  <div class="row">
+    <div class="col-12">
+      <!-- Header consistente -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h2 class="mb-1">
+            <i class="fas fa-file-alt me-2 text-primary"></i>
+            Templates de Formulários
+          </h2>
+          <p class="text-muted mb-0">Gerencie templates de avaliação para alunos e professores</p>
+        </div>
+        
+        <%= link_to new_template_path, class: "btn btn-primary" do %>
+          <i class="fas fa-plus me-2"></i>
+          Novo Template
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards de Estatísticas -->
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-file-alt fa-2x text-primary mb-3"></i>
+          <h5 class="card-title">Total de Templates</h5>
+          <h3 class="text-primary"><%= @templates.count %></h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-user-graduate fa-2x text-info mb-3"></i>
+          <h5 class="card-title">Para Alunos</h5>
+          <h3 class="text-info"><%= @templates.para_alunos.count %></h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-chalkboard-teacher fa-2x text-success mb-3"></i>
+          <h5 class="card-title">Para Professores</h5>
+          <h3 class="text-success"><%= @templates.para_professores.count %></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Lista de Templates -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card shadow-sm">
+        <div class="card-header bg-white">
+          <h5 class="card-title mb-0">
+            <i class="fas fa-list me-2"></i>
+            Templates Criados
+          </h5>
+        </div>
+        <div class="card-body p-0">
+          <% if @templates.any? %>
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>Título</th>
+                    <th>Público Alvo</th>
+                    <th>Perguntas</th>
+                    <th>Criado por</th>
+                    <th>Data</th>
+                    <th class="text-center">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @templates.each do |template| %>
+                    <tr>
+                      <td>
+                        <div class="d-flex align-items-center">
+                          <i class="fas fa-file-alt text-primary me-2"></i>
+                          <div>
+                            <div class="fw-bold"><%= template.titulo %></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <span class="badge bg-<%= template.alunos? ? 'info' : 'success' %> fs-6">
+                          <i class="fas fa-<%= template.alunos? ? 'user-graduate' : 'chalkboard-teacher' %> me-1"></i>
+                          <%= template.publico_alvo.humanize %>
+                        </span>
+                      </td>
+                      <td>
+                        <span class="badge bg-secondary fs-6">
+                          <%= template.pergunta.count %> perguntas
+                        </span>
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center">
+                          <div class="user-avatar-small me-2">
+                            <%= template.criado_por.name.first.upcase %>
+                          </div>
+                          <div>
+                            <div class="fw-bold"><%= template.criado_por.name %></div>
+                            <small class="text-muted"><%= template.criado_por.email %></small>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <small class="text-muted">
+                          <%= template.created_at.strftime("%d/%m/%Y às %H:%M") %>
+                        </small>
+                      </td>
+                      <td class="text-center">
+                        <div class="btn-group" role="group">
+                          <%= link_to template, class: "btn btn-sm btn-outline-primary", title: "Visualizar" do %>
+                            <i class="fas fa-eye"></i>
+                          <% end %>
+                          <%= link_to edit_template_path(template), class: "btn btn-sm btn-outline-warning", title: "Editar" do %>
+                            <i class="fas fa-edit"></i>
+                          <% end %>
+                          <%= link_to template, method: :delete, 
+                                      confirm: "Tem certeza que deseja remover este template?", 
+                                      class: "btn btn-sm btn-outline-danger", 
+                                      title: "Remover",
+                                      data: { turbo_method: :delete } do %>
+                            <i class="fas fa-trash"></i>
+                          <% end %>
+                        </div>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          <% else %>
+            <div class="text-center py-5">
+              <i class="fas fa-file-alt fa-3x text-muted mb-3"></i>
+              <h5 class="text-muted">Nenhum template encontrado</h5>
+              <p class="text-muted">Comece criando seu primeiro template de formulário.</p>
+              <%= link_to new_template_path, class: "btn btn-primary" do %>
+                <i class="fas fa-plus me-2"></i>
+                Criar Primeiro Template
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.user-avatar-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-purple);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.card {
+  border: 1px solid #e3e6f0;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0.25rem 2rem 0 rgba(58, 59, 69, 0.2);
+}
+
+.badge {
+  font-size: 0.75rem;
+}
+
+.table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+</style>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,227 @@
+<% content_for :title, "Avaliações - CAMAAR" %>
+
+<div class="container-fluid px-4 py-4">
+  <!-- Header consistente -->
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h2 class="mb-1">
+            <i class="fas fa-poll me-2 text-primary"></i>
+            Avaliações Disponíveis
+          </h2>
+          <p class="text-muted mb-0">Selecione uma avaliação para responder</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards de Estatísticas -->
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-clipboard-list fa-2x text-primary mb-3"></i>
+          <h5 class="card-title">Disponíveis</h5>
+          <h3 class="text-primary"><%= @formularios_disponiveis.count %></h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-check-circle fa-2x text-success mb-3"></i>
+          <h5 class="card-title">Respondidas</h5>
+          <h3 class="text-success"><%= @formularios_respondidos.count %></h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-chart-bar fa-2x text-info mb-3"></i>
+          <h5 class="card-title">Total</h5>
+          <h3 class="text-info"><%= @formularios_disponiveis.count + @formularios_respondidos.count %></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulários Disponíveis -->
+  <% if @formularios_disponiveis.any? %>
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-header bg-white">
+            <h5 class="card-title mb-0">
+              <i class="fas fa-clipboard-list me-2 text-primary"></i>
+              Avaliações Pendentes
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <% @formularios_disponiveis.each do |formulario| %>
+                <div class="col-md-6 col-lg-4 mb-3">
+                  <div class="card border-left-primary h-100">
+                    <div class="card-body">
+                      <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-<%= formulario.publico_alvo == 'professores' ? 'chalkboard-teacher' : 'user-graduate' %> text-primary me-2"></i>
+                        <span class="badge bg-primary"><%= formulario.publico_alvo.humanize %></span>
+                      </div>
+                      
+                      <h6 class="card-title font-weight-bold">
+                        <%= formulario.template.titulo %>
+                      </h6>
+                      
+                      <p class="card-text text-muted small">
+                        <%= truncate(formulario.template.descricao, length: 100) %>
+                      </p>
+                      
+                      <% if formulario.disciplina %>
+                        <div class="mb-2">
+                          <i class="fas fa-book text-muted me-1"></i>
+                          <small class="text-muted"><%= formulario.disciplina.nome %></small>
+                        </div>
+                      <% end %>
+                      
+                      <div class="mb-3">
+                        <i class="fas fa-clock text-warning me-1"></i>
+                        <small class="text-warning">
+                          Até <%= formulario.data_fim.strftime("%d/%m/%Y às %H:%M") %>
+                        </small>
+                      </div>
+                      
+                      <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">
+                          <%= pluralize(formulario.template.pergunta.count, 'pergunta') %>
+                        </small>
+                        <div class="btn-group">
+                          <%= link_to evaluation_path(formulario), class: "btn btn-primary btn-sm" do %>
+                            <i class="fas fa-play me-1"></i>
+                            Responder
+                          <% end %>
+                          <% if current_user&.admin? %>
+                            <%= link_to evaluation_results_path(formulario), class: "btn btn-info btn-sm" do %>
+                              <i class="fas fa-chart-bar me-1"></i>
+                              Resultados
+                            <% end %>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-body text-center py-5">
+            <i class="fas fa-clipboard-list fa-3x text-muted mb-3"></i>
+            <h5 class="text-muted">Nenhuma avaliação disponível</h5>
+            <p class="text-muted">Não há avaliações pendentes para você no momento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <!-- Formulários Respondidos -->
+  <% if @formularios_respondidos.any? %>
+    <div class="row">
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-header bg-white">
+            <h5 class="card-title mb-0">
+              <i class="fas fa-check-circle me-2 text-success"></i>
+              Avaliações Respondidas
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <% @formularios_respondidos.each do |formulario| %>
+                <div class="col-md-6 col-lg-4 mb-3">
+                  <div class="card border-left-success h-100">
+                    <div class="card-body">
+                      <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-<%= formulario.publico_alvo == 'professores' ? 'chalkboard-teacher' : 'user-graduate' %> text-success me-2"></i>
+                        <span class="badge bg-success">Respondida</span>
+                      </div>
+                      
+                      <h6 class="card-title font-weight-bold">
+                        <%= formulario.template.titulo %>
+                      </h6>
+                      
+                      <p class="card-text text-muted small">
+                        <%= truncate(formulario.template.descricao, length: 100) %>
+                      </p>
+                      
+                      <% if formulario.disciplina %>
+                        <div class="mb-2">
+                          <i class="fas fa-book text-muted me-1"></i>
+                          <small class="text-muted"><%= formulario.disciplina.nome %></small>
+                        </div>
+                      <% end %>
+                      
+                      <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">
+                          <i class="fas fa-check text-success me-1"></i>
+                          Concluída
+                        </small>
+                        <div class="d-flex align-items-center">
+                          <% submissao = formulario.submissoes_concluidas.find_by(user: current_user) %>
+                          <% if submissao %>
+                            <small class="text-muted me-2">
+                              <%= submissao.created_at.strftime("%d/%m/%Y") %>
+                            </small>
+                          <% end %>
+                          <% if current_user&.admin? %>
+                            <%= link_to evaluation_results_path(formulario), class: "btn btn-info btn-sm" do %>
+                              <i class="fas fa-chart-bar me-1"></i>
+                              Resultados
+                            <% end %>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<style>
+.border-left-primary {
+  border-left: 4px solid #007bff !important;
+}
+
+.border-left-success {
+  border-left: 4px solid #28a745 !important;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+</style>

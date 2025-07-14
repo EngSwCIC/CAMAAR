@@ -1,0 +1,187 @@
+<% content_for :title, "#{@formulario.template.titulo} - CAMAAR" %>
+
+<div class="container-fluid px-4 py-4">
+  <!-- Header -->
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h2 class="mb-1">
+            <i class="fas fa-clipboard-check me-2 text-primary"></i>
+            <%= @formulario.template.titulo %>
+          </h2>
+          <p class="text-muted mb-0"><%= @formulario.template.descricao %></p>
+        </div>
+        
+        <%= link_to evaluations_path, class: "btn btn-outline-secondary" do %>
+          <i class="fas fa-arrow-left me-2"></i>
+          Voltar
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Informações do Formulário -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card shadow-sm border-info">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="text-center">
+                <i class="fas fa-<%= @formulario.publico_alvo == 'professores' ? 'chalkboard-teacher' : 'user-graduate' %> fa-2x text-info mb-2"></i>
+                <h6 class="font-weight-bold">Público Alvo</h6>
+                <span class="badge bg-info"><%= @formulario.publico_alvo.humanize %></span>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="text-center">
+                <i class="fas fa-clock fa-2x text-warning mb-2"></i>
+                <h6 class="font-weight-bold">Prazo</h6>
+                <small class="text-warning">
+                  Até <%= @formulario.data_fim.strftime("%d/%m/%Y às %H:%M") %>
+                </small>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="text-center">
+                <i class="fas fa-question-circle fa-2x text-primary mb-2"></i>
+                <h6 class="font-weight-bold">Perguntas</h6>
+                <span class="text-primary"><%= pluralize(@perguntas.count, 'pergunta') %></span>
+              </div>
+            </div>
+            <% if @formulario.disciplina %>
+              <div class="col-md-3">
+                <div class="text-center">
+                  <i class="fas fa-book fa-2x text-success mb-2"></i>
+                  <h6 class="font-weight-bold">Disciplina</h6>
+                  <small class="text-success"><%= @formulario.disciplina.nome %></small>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulário de Respostas -->
+  <div class="row">
+    <div class="col-12">
+      <%= form_with url: evaluation_path(@formulario), method: :post, local: true, data: { turbo: false } do |form| %>
+        <% @perguntas.each_with_index do |pergunta, index| %>
+          <div class="card shadow-sm mb-4">
+            <div class="card-header bg-light">
+              <h6 class="mb-0">
+                <i class="fas fa-question-circle me-2 text-primary"></i>
+                Pergunta <%= index + 1 %>
+                <% if pergunta.obrigatoria? %>
+                  <span class="text-danger">*</span>
+                <% end %>
+              </h6>
+            </div>
+            <div class="card-body">
+              <p class="mb-3"><%= pergunta.texto %></p>
+              
+              <% case pergunta.tipo %>
+              <% when 'verdadeiro_falso' %>
+                <div class="form-check mb-2">
+                  <%= radio_button_tag "respostas[#{pergunta.id}]", "true", false, 
+                      class: "form-check-input", 
+                      required: pergunta.obrigatoria?,
+                      id: "pergunta_#{pergunta.id}_true" %>
+                  <%= label_tag "pergunta_#{pergunta.id}_true", "Verdadeiro", class: "form-check-label" %>
+                </div>
+                <div class="form-check">
+                  <%= radio_button_tag "respostas[#{pergunta.id}]", "false", false, 
+                      class: "form-check-input", 
+                      required: pergunta.obrigatoria?,
+                      id: "pergunta_#{pergunta.id}_false" %>
+                  <%= label_tag "pergunta_#{pergunta.id}_false", "Falso", class: "form-check-label" %>
+                </div>
+              
+              <% when 'multipla_escolha' %>
+                <% pergunta.opcoes_pergunta.each do |opcao| %>
+                  <div class="form-check mb-2">
+                    <%= radio_button_tag "respostas[#{pergunta.id}]", opcao.id, false, 
+                        class: "form-check-input", 
+                        required: pergunta.obrigatoria?,
+                        id: "pergunta_#{pergunta.id}_opcao_#{opcao.id}" %>
+                    <%= label_tag "pergunta_#{pergunta.id}_opcao_#{opcao.id}", opcao.texto, class: "form-check-label" %>
+                  </div>
+                <% end %>
+              
+              <% when 'subjetiva' %>
+                <%= text_area_tag "respostas[#{pergunta.id}]", "", 
+                    class: "form-control", 
+                    rows: 4, 
+                    placeholder: "Digite sua resposta...",
+                    required: pergunta.obrigatoria? %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+        
+        <!-- Botões de Ação -->
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <%= link_to evaluations_path, class: "btn btn-outline-secondary" do %>
+                  <i class="fas fa-times me-2"></i>
+                  Cancelar
+                <% end %>
+              </div>
+              <div class="text-center">
+                <p class="text-muted mb-0 small">
+                  <i class="fas fa-info-circle me-1"></i>
+                  Certifique-se de revisar suas respostas antes de enviar
+                </p>
+              </div>
+              <div>
+                <%= form.submit "Enviar Respostas", 
+                    class: "btn btn-success btn-lg",
+                    data: { 
+                      confirm: "Tem certeza que deseja enviar suas respostas? Esta ação não pode ser desfeita." 
+                    } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<style>
+.card {
+  border: 1px solid #e3e6f0;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.card:hover {
+  box-shadow: 0 0.25rem 2rem 0 rgba(58, 59, 69, 0.2);
+  transition: all 0.3s ease;
+}
+
+.form-check-input:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-success:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.border-info {
+  border-color: #17a2b8 !important;
+}
+</style>

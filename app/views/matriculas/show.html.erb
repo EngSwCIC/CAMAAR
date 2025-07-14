@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @matricula %>
+
+<div>
+  <%= link_to "Edit this matricula", edit_matricula_path(@matricula) %> |
+  <%= link_to "Back to matriculas", matriculas_path %>
+
+  <%= button_to "Destroy this matricula", @matricula, method: :delete %>
+</div>

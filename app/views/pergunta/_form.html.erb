@@ -1,0 +1,41 @@
+<%= form_with(model: perguntum) do |form| %>
+  <% if perguntum.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(perguntum.errors.count, "error") %> prohibited this perguntum from being saved:</h2>
+
+      <ul>
+        <% perguntum.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :template_id, style: "display: block" %>
+    <%= form.collection_select :template_id, Template.all, :id, :titulo, { prompt: "Selecione um template" }, { class: "form-control" } %>
+  </div>
+
+  <div>
+    <%= form.label :texto, "Texto da Pergunta", style: "display: block" %>
+    <%= form.text_area :texto, rows: 3, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :tipo, style: "display: block" %>
+    <%= form.select :tipo, options_for_select([
+      ["Verdadeiro/Falso", "verdadeiro_falso"],
+      ["Múltipla Escolha", "multipla_escolha"], 
+      ["Subjetiva", "subjetiva"]
+    ], perguntum.tipo), { prompt: "Selecione o tipo" }, { class: "form-control" } %>
+  </div>
+
+  <div>
+    <%= form.label :obrigatoria, "Pergunta Obrigatória?", style: "display: block" %>
+    <%= form.check_box :obrigatoria %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

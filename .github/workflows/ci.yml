@@ -1,0 +1,93 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    env:
+      RAILS_ENV: test
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.2.0
+        bundler-cache: true
+
+    - name: Install dependencies
+      run: bundle install --jobs 4 --retry 3
+
+    - name: Set up database
+      run: |
+        bundle exec rails db:create RAILS_ENV=test
+        bundle exec rails db:migrate RAILS_ENV=test
+
+    - name: Run RSpec tests
+      run: bundle exec rspec --format progress --format RspecJunitFormatter --out tmp/rspec_results.xml
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: rspec-results
+        path: tmp/rspec_results.xml
+
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.2.0
+        bundler-cache: true
+
+    - name: Run RuboCop
+      run: bundle exec rubocop --format github
+
+    - name: Run RuboCop (JSON output for artifacts)
+      run: bundle exec rubocop --format json --out tmp/rubocop_results.json
+      continue-on-error: true
+
+    - name: Upload RuboCop results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: rubocop-results
+        path: tmp/rubocop_results.json
+
+  security:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.2.0
+        bundler-cache: true
+
+    - name: Run Brakeman security scan
+      run: bundle exec brakeman --format json --output tmp/brakeman_results.json
+      continue-on-error: true
+
+    - name: Upload Brakeman results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: brakeman-results
+        path: tmp/brakeman_results.json

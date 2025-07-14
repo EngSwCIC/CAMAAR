@@ -1,0 +1,24 @@
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/date-3.4.1/ext/date
+/usr/bin/ruby extconf.rb
+checking for rb_category_warn()... yes
+checking for timezone in time.h with -Werror... yes
+checking for altzone in time.h with -Werror... no
+creating Makefile
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/date-3.4.1/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-ljxgkf sitelibdir\=./.gem.20250711-895-ljxgkf clean
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/date-3.4.1/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-ljxgkf sitelibdir\=./.gem.20250711-895-ljxgkf
+compiling date_core.c
+compiling date_parse.c
+compiling date_strftime.c
+compiling date_strptime.c
+linking shared-object date_core.so
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/date-3.4.1/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-ljxgkf sitelibdir\=./.gem.20250711-895-ljxgkf install
+/usr/bin/install -c -m 0755 date_core.so ./.gem.20250711-895-ljxgkf
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/date-3.4.1/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-ljxgkf sitelibdir\=./.gem.20250711-895-ljxgkf clean

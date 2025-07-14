@@ -1,0 +1,118 @@
+<% content_for :title, "Resultados - #{@template.titulo}" %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h4 class="mb-0">
+            <i class="fas fa-chart-bar me-2"></i>
+            Resultados: <%= @template.titulo %>
+          </h4>
+          <%= link_to evaluations_path, class: "btn btn-secondary" do %>
+            <i class="fas fa-arrow-left me-1"></i>
+            Voltar
+          <% end %>
+        </div>
+        
+        <div class="card-body">
+          <!-- Estatísticas Gerais -->
+          <div class="row mb-4">
+            <div class="col-md-4">
+              <div class="card bg-primary text-white">
+                <div class="card-body text-center">
+                  <h3 class="mb-0"><%= @total_submissoes %></h3>
+                  <p class="mb-0">Total de Submissões</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card bg-success text-white">
+                <div class="card-body text-center">
+                  <h3 class="mb-0"><%= @total_respostas %></h3>
+                  <p class="mb-0">Total de Respostas</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card bg-info text-white">
+                <div class="card-body text-center">
+                  <h3 class="mb-0"><%= @template.pergunta.count %></h3>
+                  <p class="mb-0">Total de Perguntas</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Detalhes por Pergunta -->
+          <div class="row">
+            <div class="col-12">
+              <h5 class="mb-3">Detalhes por Pergunta</h5>
+              
+              <% @template.pergunta.each_with_index do |pergunta, index| %>
+                <div class="card mb-3">
+                  <div class="card-header">
+                    <h6 class="mb-0">
+                      <span class="badge bg-secondary me-2"><%= index + 1 %></span>
+                      <%= pergunta.texto %>
+                      <small class="text-muted">(<%= pergunta.tipo.humanize %>)</small>
+                    </h6>
+                  </div>
+                  
+                  <div class="card-body">
+                    <% stats = @estatisticas[pergunta.id] %>
+                    <p class="mb-3"><strong>Total de respostas:</strong> <%= stats[:total_respostas] %></p>
+                    
+                    <% if stats[:tipo] == 'subjetiva' %>
+                      <!-- Respostas Subjetivas -->
+                      <div class="mb-3">
+                        <h6>Respostas:</h6>
+                        <% if stats[:respostas_texto].any? %>
+                          <div class="row">
+                            <% stats[:respostas_texto].each_with_index do |resposta, idx| %>
+                              <div class="col-md-6 mb-2">
+                                <div class="border rounded p-2 bg-light">
+                                  <small class="text-muted">Resposta <%= idx + 1 %>:</small>
+                                  <p class="mb-0"><%= resposta %></p>
+                                </div>
+                              </div>
+                            <% end %>
+                          </div>
+                        <% else %>
+                          <p class="text-muted">Nenhuma resposta registrada.</p>
+                        <% end %>
+                      </div>
+                    <% else %>
+                      <!-- Respostas de Múltipla Escolha / Verdadeiro-Falso -->
+                      <div class="mb-3">
+                        <h6>Distribuição das Respostas:</h6>
+                        <% if stats[:opcoes].any? %>
+                          <% stats[:opcoes].each do |opcao_id, opcao_data| %>
+                            <% percentage = stats[:total_respostas] > 0 ? (opcao_data[:count].to_f / stats[:total_respostas] * 100).round(1) : 0 %>
+                            <div class="mb-2">
+                              <div class="d-flex justify-content-between align-items-center">
+                                <span><%= opcao_data[:texto] %></span>
+                                <span class="badge bg-primary"><%= opcao_data[:count] %> (<%= percentage %>%)</span>
+                              </div>
+                              <div class="progress mt-1" style="height: 20px;">
+                                <div class="progress-bar" role="progressbar" style="width: <%= percentage %>%;" aria-valuenow="<%= percentage %>" aria-valuemin="0" aria-valuemax="100">
+                                  <%= percentage %>%
+                                </div>
+                              </div>
+                            </div>
+                          <% end %>
+                        <% else %>
+                          <p class="text-muted">Nenhuma opção de resposta disponível.</p>
+                        <% end %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

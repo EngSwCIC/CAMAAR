@@ -1,0 +1,31 @@
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/ed25519-1.4.0/ext/ed25519_ref10
+/usr/bin/ruby extconf.rb
+checking for whether -Wall is accepted as CFLAGS... yes
+checking for whether -O3 is accepted as CFLAGS... yes
+checking for whether -pedantic is accepted as CFLAGS... no
+checking for whether -std=c99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/ed25519-1.4.0/ext/ed25519_ref10
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-dex8bz sitelibdir\=./.gem.20250711-895-dex8bz clean
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/ed25519-1.4.0/ext/ed25519_ref10
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-dex8bz sitelibdir\=./.gem.20250711-895-dex8bz
+compiling ed25519_ref10.c
+compiling fe.c
+compiling ge.c
+compiling keypair.c
+compiling open.c
+compiling sc_muladd.c
+compiling sc_reduce.c
+compiling sha512.c
+compiling sign.c
+compiling verify.c
+linking shared-object ed25519_ref10.so
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/ed25519-1.4.0/ext/ed25519_ref10
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-dex8bz sitelibdir\=./.gem.20250711-895-dex8bz install
+/usr/bin/install -c -m 0755 ed25519_ref10.so ./.gem.20250711-895-dex8bz
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/ed25519-1.4.0/ext/ed25519_ref10
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-dex8bz sitelibdir\=./.gem.20250711-895-dex8bz clean
