@@ -116,8 +116,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_11_152213) do
     t.string "registration"
     t.string "email"
     t.string "role"
-    t.string "password_hash"
-    t.string "password_salt"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

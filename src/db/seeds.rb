@@ -31,8 +31,7 @@ users = []
     registration: "U#{1000+i}",
     email: "user#{i+1}@example.com",
     role: i < 3 ? "professor" : "student",
-    password_hash: "hash#{i}",
-    password_salt: "salt#{i}"
+    password: "password#{i+1}"
   )
 end
 

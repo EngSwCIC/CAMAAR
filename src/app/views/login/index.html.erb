@@ -8,7 +8,7 @@
 <div class="container">
   <div class="login-section">
     <h2>LOGIN</h2>
-    <%= form_with url: login_login_path, method: :post, local: true do |f| %>
+    <%= form_with url: login_path, method: :post, local: true do |f| %>
       <div class="form-group">
         <%= f.label :email, "Email" %>
         <%= f.email_field :email, placeholder: "aluno@aluno.unb.br" %>

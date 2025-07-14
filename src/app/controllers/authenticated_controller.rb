@@ -1,12 +1,9 @@
 class AuthenticatedController < ApplicationController
-  def index
-  end
+  before_action :authorized, only: [ :home, :admin ]
 
   def home
-    user_id = session[:user_id]
-    return head :unauthorized unless user_id
-
-    user = User.find(user_id)
+    return head :unauthorized unless logged_in?
+    user = current_user
 
     class_group_ids = []
     class_group_ids += user.class_students.pluck(:class_group_id) if user.respond_to?(:class_students)
@@ -31,8 +28,6 @@ class AuthenticatedController < ApplicationController
     end.compact
   end
 
-  def destroy
-    session[:user_id] = nil
-    redirect_to root_path
+  def admin
   end
 end

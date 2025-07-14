@@ -20,7 +20,9 @@
 <div class="main-content">
   <div class="sidebar" id="mySidebar">
     <a href="/authenticated/home">Avaliações</a>
-    <a href="#" class="active">Gerenciamento</a>
+    <% if current_user && current_user.role == "professor" %>
+      <a href="#" class="active">Gerenciamento</a>
+    <% end %>
   </div>
   <div class="content-area">
     <div class="management-card">

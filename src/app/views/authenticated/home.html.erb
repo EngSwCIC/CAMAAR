@@ -24,7 +24,9 @@
   <div class="main-content">
     <div class="sidebar" id="mySidebar">
       <a href="#" class="active">Avaliações</a>
-      <a href="admin">Gerenciamento</a>
+      <% if current_user && current_user.role == "professor" %>
+        <a href="admin">Gerenciamento</a>
+      <% end %>
     </div>
     <div class="content-area" id="formularioBoxesContainer">
 

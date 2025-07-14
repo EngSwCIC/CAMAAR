@@ -1,17 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  registration: MyString
-  email: MyString
-  role: MyString
-  password_hash: MyString
-  password_salt: MyString
+  name: Aluno1
+  registration: 202512345
+  email: aluno1@aluno.unb.br
+  role: student
+  password_digest: <%= BCrypt::Password.create("12345") %>
 
 two:
-  name: MyString
-  registration: MyString
-  email: MyString
-  role: MyString
-  password_hash: MyString
-  password_salt: MyString
+  name: Professor1
+  registration: 202523456
+  email: professor1@unb.br
+  role: professor
+  password_digest: <%= BCrypt::Password.create("12345") %>
