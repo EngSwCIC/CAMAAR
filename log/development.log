@@ -5013,7 +5013,7 @@ Information for: ActionView::Template::Error (undefined local variable or method
     27:       <div class="navbar-menu">
     28:         <%= link_to "Página Atual", user_dashboard_path, class: "nav-link active" %>
     29: 
-    30:         <% if current_user&.admin? %>
+    30:         <% if current_user&.admin %>
     31:           <%= link_to "Gerenciamento", admin_dashboard_path, class: "nav-link" %>
   
 app/views/admin/dashboard.html.erb:28
@@ -8872,3 +8872,1215 @@ Started GET "/assets/admin" for 127.0.0.1 at 2025-07-13 16:43:29 -0300
   
 ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
   
+Started GET "/" for 127.0.0.1 at 2025-07-13 16:50:18 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 41ms (Views: 2.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-13 16:50:18 -0300
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-13 16:50:18 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-13 16:50:18 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/" for 127.0.0.1 at 2025-07-13 17:21:15 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 81.7ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 104.0ms | GC: 0.0ms)
+Completed 200 OK in 164ms (Views: 126.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-13 17:21:17 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-13 17:21:18 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-13 17:21:18 -0300
+Started GET "/" for 127.0.0.1 at 2025-07-13 17:22:40 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 1 pending migration:
+
+db/migrate/20250713202133_add_ocupacao_and_matricula_to_users.rb
+
+
+):
+  
+activerecord (8.0.2) lib/active_record/migration.rb:743:in `check_pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:660:in `block (2 levels) in call'
+activesupport (8.0.2) lib/active_support/file_update_checker.rb:85:in `execute'
+activesupport (8.0.2) lib/active_support/file_update_checker.rb:95:in `execute_if_updated'
+activerecord (8.0.2) lib/active_record/migration.rb:667:in `block in call'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in `synchronize'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.16) lib/rack/method_override.rb:28:in `call'
+rack (3.1.16) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.2) lib/rails/engine.rb:535:in `call'
+puma (6.6.0) lib/puma/configuration.rb:279:in `call'
+puma (6.6.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in `process_client'
+puma (6.6.0) lib/puma/server.rb:254:in `block in run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2025-07-13 17:25:51 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 1 pending migration:
+
+db/migrate/20250713202133_add_ocupacao_and_matricula_to_users.rb
+
+
+):
+  
+activerecord (8.0.2) lib/active_record/migration.rb:743:in `check_pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:660:in `block (2 levels) in call'
+activesupport (8.0.2) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (8.0.2) lib/active_record/migration.rb:665:in `block in call'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in `synchronize'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.16) lib/rack/method_override.rb:28:in `call'
+rack (3.1.16) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.2) lib/rails/engine.rb:535:in `call'
+puma (6.6.0) lib/puma/configuration.rb:279:in `call'
+puma (6.6.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in `process_client'
+puma (6.6.0) lib/puma/server.rb:254:in `block in run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2025-07-13 17:26:09 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 1 pending migration:
+
+db/migrate/20250713202133_add_ocupacao_and_matricula_to_users.rb
+
+
+):
+  
+activerecord (8.0.2) lib/active_record/migration.rb:743:in `check_pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:660:in `block (2 levels) in call'
+activesupport (8.0.2) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (8.0.2) lib/active_record/migration.rb:665:in `block in call'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in `synchronize'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.16) lib/rack/method_override.rb:28:in `call'
+rack (3.1.16) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.2) lib/rails/engine.rb:535:in `call'
+puma (6.6.0) lib/puma/configuration.rb:279:in `call'
+puma (6.6.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in `process_client'
+puma (6.6.0) lib/puma/server.rb:254:in `block in run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2025-07-13 17:27:00 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 1 pending migration:
+
+db/migrate/20250713202133_add_ocupacao_and_matricula_to_users.rb
+
+
+):
+  
+activerecord (8.0.2) lib/active_record/migration.rb:743:in `check_pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:660:in `block (2 levels) in call'
+activesupport (8.0.2) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (8.0.2) lib/active_record/migration.rb:665:in `block in call'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in `synchronize'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.16) lib/rack/method_override.rb:28:in `call'
+rack (3.1.16) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.2) lib/rails/engine.rb:535:in `call'
+puma (6.6.0) lib/puma/configuration.rb:279:in `call'
+puma (6.6.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in `process_client'
+puma (6.6.0) lib/puma/server.rb:254:in `block in run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2025-07-13 22:47:31 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 1 pending migration:
+
+db/migrate/20250713202133_add_ocupacao_and_matricula_to_users.rb
+
+
+):
+  
+activerecord (8.0.2) lib/active_record/migration.rb:743:in `check_pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:660:in `block (2 levels) in call'
+activesupport (8.0.2) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (8.0.2) lib/active_record/migration.rb:665:in `block in call'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in `synchronize'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.16) lib/rack/method_override.rb:28:in `call'
+rack (3.1.16) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.2) lib/rails/engine.rb:535:in `call'
+puma (6.6.0) lib/puma/configuration.rb:279:in `call'
+puma (6.6.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in `process_client'
+puma (6.6.0) lib/puma/server.rb:254:in `block in run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Migrating to AddocupacaoAndRegistrationNumberToUsers (20250713202133)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "users" ADD "ocupacao" varchar DEFAULT 'discente' /*application='Camaar'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "matricula" varchar /*application='Camaar'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_matricula" ON "users" ("matricula") /*application='Camaar'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_users_on_ocupacao" ON "users" ("ocupacao") /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250713202133') RETURNING "version" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (76.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-07-13 22:59:01 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 45.1ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 54.4ms | GC: 0.0ms)
+Completed 200 OK in 86ms (Views: 61.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-13 22:59:01 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-13 22:59:01 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-13 22:59:01 -0300
+Started GET "/" for 127.0.0.1 at 2025-07-13 23:07:14 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 4.2ms | GC: 0.1ms)
+  Rendered layout layouts/login.html.erb (Duration: 8.0ms | GC: 0.1ms)
+Completed 200 OK in 24ms (Views: 9.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-13 23:07:14 -0300
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-13 23:07:14 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-13 23:07:14 -0300
+Started GET "/" for 127.0.0.1 at 2025-07-13 23:15:48 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 4.2ms | GC: 0.6ms)
+  Rendered layout layouts/login.html.erb (Duration: 6.9ms | GC: 0.6ms)
+Completed 200 OK in 21ms (Views: 8.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-13 23:15:48 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-13 23:15:48 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-13 23:15:48 -0300
+Started GET "/" for 127.0.0.1 at 2025-07-13 23:24:58 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 2.6ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 6.7ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 8.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-13 23:24:58 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-13 23:24:58 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-13 23:24:58 -0300
+Started GET "/" for 127.0.0.1 at 2025-07-13 23:26:27 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 6.0ms | GC: 0.7ms)
+Completed 200 OK in 22ms (Views: 7.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-13 23:26:27 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-13 23:26:27 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-13 23:26:27 -0300
+Started GET "/" for 127.0.0.1 at 2025-07-13 23:27:28 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 4.2ms | GC: 0.0ms)
+Completed 200 OK in 18ms (Views: 5.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-13 23:27:28 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-13 23:27:28 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-13 23:27:28 -0300
+Started GET "/password/reset" for 127.0.0.1 at 2025-07-13 23:36:33 -0300
+Processing by PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering passwords/new.html.erb within layouts/application
+  Rendered passwords/new.html.erb within layouts/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `reset_path' for an instance of #<Class:0x00007de48776dfd8>)
+Caused by: NameError (undefined local variable or method `reset_path' for an instance of #<Class:0x00007de48776dfd8>)
+
+Information for: ActionView::Template::Error (undefined local variable or method `reset_path' for an instance of #<Class:0x00007de48776dfd8>):
+    1: <h1>Resetar Senha</h1>
+    2: 
+    3: <%= form_with url: reset_path, local: true do |f| %>
+    4:   <div>
+    5:     <%= f.label :email %>
+    6:     <%= f.email_field :email, required: true %>
+  
+app/views/passwords/new.html.erb:3
+
+Information for cause: NameError (undefined local variable or method `reset_path' for an instance of #<Class:0x00007de48776dfd8>):
+  
+app/views/passwords/new.html.erb:3
+Started GET "/password/reset" for 127.0.0.1 at 2025-07-13 23:36:34 -0300
+Processing by PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering passwords/new.html.erb within layouts/application
+  Rendered passwords/new.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `reset_path' for an instance of #<Class:0x00007de48776dfd8>)
+Caused by: NameError (undefined local variable or method `reset_path' for an instance of #<Class:0x00007de48776dfd8>)
+
+Information for: ActionView::Template::Error (undefined local variable or method `reset_path' for an instance of #<Class:0x00007de48776dfd8>):
+    1: <h1>Resetar Senha</h1>
+    2: 
+    3: <%= form_with url: reset_path, local: true do |f| %>
+    4:   <div>
+    5:     <%= f.label :email %>
+    6:     <%= f.email_field :email, required: true %>
+  
+app/views/passwords/new.html.erb:3
+
+Information for cause: NameError (undefined local variable or method `reset_path' for an instance of #<Class:0x00007de48776dfd8>):
+  
+app/views/passwords/new.html.erb:3
+Started GET "/" for 127.0.0.1 at 2025-07-13 23:36:39 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 4.0ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 8.0ms | GC: 0.0ms)
+Completed 200 OK in 37ms (Views: 9.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-13 23:36:39 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-13 23:36:39 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-13 23:36:39 -0300
+Started GET "/assets/application-bfcdf840.js" for 127.0.0.1 at 2025-07-14 20:00:09 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-07-14 20:00:11 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 8.2ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 17.0ms | GC: 0.0ms)
+Completed 200 OK in 59ms (Views: 20.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 20:00:11 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 20:00:11 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 20:00:11 -0300
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Migrating to RenameRegistrationNumberAndRoleToMatriculaAndOcupacao (20250714231912)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Camaar'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Camaar'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar NOT NULL, "password_digest" varchar NOT NULL, "password_reset_token" varchar, "password_reset_sent_at" datetime, "remember_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "role" varchar DEFAULT 'discente', "matricula" varchar) /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_ausers_on_role" ON "ausers" ("role") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_registration_number" ON "ausers" ("matricula") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_remember_digest" ON "ausers" ("remember_digest") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_password_reset_token" ON "ausers" ("password_reset_token") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email") /*application='Camaar'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","role","matricula")
+                     SELECT "id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","role","registration_number" FROM "users" /*application='Camaar'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "users" /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar NOT NULL, "password_digest" varchar NOT NULL, "password_reset_token" varchar, "password_reset_sent_at" datetime, "remember_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "role" varchar DEFAULT 'discente', "matricula" varchar) /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_password_reset_token" ON "users" ("password_reset_token") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_remember_digest" ON "users" ("remember_digest") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_registration_number" ON "users" ("matricula") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_role" ON "users" ("role") /*application='Camaar'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","role","matricula")
+                     SELECT "id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","role","matricula" FROM "ausers" /*application='Camaar'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ausers" /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Camaar'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_matricula" ON "users" ("matricula") /*application='Camaar'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mDROP INDEX "index_users_on_registration_number" /*application='Camaar'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Camaar'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Camaar'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar NOT NULL, "password_digest" varchar NOT NULL, "password_reset_token" varchar, "password_reset_sent_at" datetime, "remember_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "ocupacao" varchar DEFAULT 'discente', "matricula" varchar) /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_matricula" ON "ausers" ("matricula") /*application='Camaar'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_ausers_on_role" ON "ausers" ("ocupacao") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_remember_digest" ON "ausers" ("remember_digest") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_password_reset_token" ON "ausers" ("password_reset_token") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email") /*application='Camaar'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","ocupacao","matricula")
+                     SELECT "id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","role","matricula" FROM "users" /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "users" /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar NOT NULL, "password_digest" varchar NOT NULL, "password_reset_token" varchar, "password_reset_sent_at" datetime, "remember_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "ocupacao" varchar DEFAULT 'discente', "matricula" varchar) /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_password_reset_token" ON "users" ("password_reset_token") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_remember_digest" ON "users" ("remember_digest") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_role" ON "users" ("ocupacao") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_matricula" ON "users" ("matricula") /*application='Camaar'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","ocupacao","matricula")
+                     SELECT "id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","ocupacao","matricula" FROM "ausers" /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ausers" /*application='Camaar'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Camaar'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_ocupacao" ON "users" ("ocupacao") /*application='Camaar'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mDROP INDEX "index_users_on_role" /*application='Camaar'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Camaar'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Camaar'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar NOT NULL, "password_digest" varchar NOT NULL, "password_reset_token" varchar, "password_reset_sent_at" datetime, "remember_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "ocupacao" varchar DEFAULT 'discente', "matricula" varchar) /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_ausers_on_ocupacao" ON "ausers" ("ocupacao") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_matricula" ON "ausers" ("matricula") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_remember_digest" ON "ausers" ("remember_digest") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_password_reset_token" ON "ausers" ("password_reset_token") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email") /*application='Camaar'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","ocupacao","matricula")
+                     SELECT "id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","ocupacao","matricula" FROM "users" /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "users" /*application='Camaar'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar NOT NULL, "password_digest" varchar NOT NULL, "password_reset_token" varchar, "password_reset_sent_at" datetime, "remember_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "ocupacao" varchar DEFAULT 'discente', "matricula" varchar) /*application='Camaar'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_password_reset_token" ON "users" ("password_reset_token") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_remember_digest" ON "users" ("remember_digest") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_matricula" ON "users" ("matricula") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_ocupacao" ON "users" ("ocupacao") /*application='Camaar'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","ocupacao","matricula")
+                     SELECT "id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","ocupacao","matricula" FROM "ausers" /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ausers" /*application='Camaar'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250714231912') RETURNING "version" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-07-14 20:33:42 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 3.9ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 7.2ms | GC: 0.0ms)
+Completed 200 OK in 25ms (Views: 8.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 20:33:42 -0300
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 20:33:42 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 20:33:42 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2025-07-14 20:33:42 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2025-07-14 20:37:49 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 4.6ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 5.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 20:37:49 -0300
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 20:37:49 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 20:37:49 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-07-14 20:39:03 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 10.8ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 21.9ms | GC: 0.0ms)
+Completed 200 OK in 60ms (Views: 25.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 20:39:03 -0300
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 20:39:03 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 20:39:03 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started POST "/login" for 127.0.0.1 at 2025-07-14 20:39:38 -0300
+Processing by LoginController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1..2)):
+  
+app/models/user.rb:9:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+app/controllers/login_controller.rb:7:in `create'
+Started GET "/" for 127.0.0.1 at 2025-07-14 20:40:00 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 9.3ms | GC: 6.6ms)
+  Rendered layout layouts/login.html.erb (Duration: 10.3ms | GC: 6.6ms)
+Completed 200 OK in 45ms (Views: 12.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 9.3ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 20:40:00 -0300
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 20:40:00 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 20:40:00 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/" for 127.0.0.1 at 2025-07-14 20:42:47 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 2.0ms | GC: 0.2ms)
+  Rendered layout layouts/login.html.erb (Duration: 5.4ms | GC: 0.6ms)
+Completed 200 OK in 20ms (Views: 6.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 20:42:47 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 20:42:47 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 20:42:47 -0300
+Started POST "/login" for 127.0.0.1 at 2025-07-14 20:42:56 -0300
+Processing by LoginController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1..2)):
+  
+app/models/user.rb:9:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+app/controllers/login_controller.rb:7:in `create'
+Started GET "/" for 127.0.0.1 at 2025-07-14 20:53:22 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 2.9ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 6.1ms | GC: 0.3ms)
+Completed 200 OK in 22ms (Views: 7.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 20:53:22 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 20:53:22 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 20:53:22 -0300
+Started GET "/" for 127.0.0.1 at 2025-07-14 20:56:38 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 8.2ms | GC: 0.3ms)
+Completed 200 OK in 22ms (Views: 9.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 20:56:38 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 20:56:38 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 20:56:38 -0300
+Started POST "/login" for 127.0.0.1 at 2025-07-14 20:56:56 -0300
+Processing by LoginController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1..2)):
+  
+app/models/user.rb:4:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+app/controllers/login_controller.rb:7:in `create'
+Started GET "/" for 127.0.0.1 at 2025-07-14 20:59:31 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 4.2ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 5.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 20:59:32 -0300
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 20:59:32 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 20:59:32 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started POST "/login" for 127.0.0.1 at 2025-07-14 20:59:41 -0300
+Processing by LoginController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1..2)):
+  
+app/models/user.rb:9:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+app/controllers/login_controller.rb:7:in `create'
+Started GET "/" for 127.0.0.1 at 2025-07-14 20:59:44 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 2.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 20:59:44 -0300
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 20:59:44 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 20:59:44 -0300
+Started GET "/password/reset" for 127.0.0.1 at 2025-07-14 20:59:45 -0300
+Processing by PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering passwords/new.html.erb within layouts/application
+  Rendered passwords/new.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `reset_path' for an instance of #<Class:0x00007b32c1980520>)
+Caused by: NameError (undefined local variable or method `reset_path' for an instance of #<Class:0x00007b32c1980520>)
+
+Information for: ActionView::Template::Error (undefined local variable or method `reset_path' for an instance of #<Class:0x00007b32c1980520>):
+    1: <h1>Resetar Senha</h1>
+    2: 
+    3: <%= form_with url: reset_path, local: true do |f| %>
+    4:   <div>
+    5:     <%= f.label :email %>
+    6:     <%= f.email_field :email, required: true %>
+  
+app/views/passwords/new.html.erb:3
+
+Information for cause: NameError (undefined local variable or method `reset_path' for an instance of #<Class:0x00007b32c1980520>):
+  
+app/views/passwords/new.html.erb:3
+Started POST "/__web_console/repl_sessions/8ea376cf181776e0a3cbe6d38f2ce92a/trace" for 127.0.0.1 at 2025-07-14 20:59:50 -0300
+Started GET "/password/reset" for 127.0.0.1 at 2025-07-14 21:02:04 -0300
+Processing by PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering passwords/new.html.erb within layouts/application
+  Rendered passwords/new.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `reset_path' for an instance of #<Class:0x00007b32c14f2e40>)
+Caused by: NameError (undefined local variable or method `reset_path' for an instance of #<Class:0x00007b32c14f2e40>)
+
+Information for: ActionView::Template::Error (undefined local variable or method `reset_path' for an instance of #<Class:0x00007b32c14f2e40>):
+    1: <h1>Resetar Senha</h1>
+    2: 
+    3: <%= form_with url: reset_path, local: true do |f| %>
+    4:   <div>
+    5:     <%= f.label :email %>
+    6:     <%= f.email_field :email, required: true %>
+  
+app/views/passwords/new.html.erb:3
+
+Information for cause: NameError (undefined local variable or method `reset_path' for an instance of #<Class:0x00007b32c14f2e40>):
+  
+app/views/passwords/new.html.erb:3
+Started GET "/password/reset" for 127.0.0.1 at 2025-07-14 21:02:07 -0300
+Processing by PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering passwords/new.html.erb within layouts/application
+  Rendered passwords/new.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `reset_path' for an instance of #<Class:0x00007b32c14f2e40>)
+Caused by: NameError (undefined local variable or method `reset_path' for an instance of #<Class:0x00007b32c14f2e40>)
+
+Information for: ActionView::Template::Error (undefined local variable or method `reset_path' for an instance of #<Class:0x00007b32c14f2e40>):
+    1: <h1>Resetar Senha</h1>
+    2: 
+    3: <%= form_with url: reset_path, local: true do |f| %>
+    4:   <div>
+    5:     <%= f.label :email %>
+    6:     <%= f.email_field :email, required: true %>
+  
+app/views/passwords/new.html.erb:3
+
+Information for cause: NameError (undefined local variable or method `reset_path' for an instance of #<Class:0x00007b32c14f2e40>):
+  
+app/views/passwords/new.html.erb:3
+Started GET "/" for 127.0.0.1 at 2025-07-14 21:02:10 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 5.4ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 6.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 21:02:10 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 21:02:10 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 21:02:10 -0300
+Started POST "/login" for 127.0.0.1 at 2025-07-14 21:02:16 -0300
+Processing by LoginController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1..2)):
+  
+app/models/user.rb:9:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+app/controllers/login_controller.rb:7:in `create'
+Started GET "/" for 127.0.0.1 at 2025-07-14 21:09:11 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 3.8ms | GC: 0.0ms)
+Completed 200 OK in 17ms (Views: 4.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 21:09:11 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 21:09:11 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 21:09:11 -0300
+Started GET "/" for 127.0.0.1 at 2025-07-14 21:10:31 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 2.9ms | GC: 0.6ms)
+  Rendered layout layouts/login.html.erb (Duration: 5.0ms | GC: 0.6ms)
+Completed 200 OK in 19ms (Views: 6.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 21:10:31 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 21:10:31 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 21:10:31 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Camaar'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" /*application='Camaar'*/[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar NOT NULL, "password_digest" varchar NOT NULL, "password_reset_token" varchar, "password_reset_sent_at" datetime, "remember_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "ocupacao" varchar DEFAULT 'discente', "matricula" varchar) /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_matricula" ON "users" ("matricula") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_ocupacao" ON "users" ("ocupacao") /*application='Camaar'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_password_reset_token" ON "users" ("password_reset_token") /*application='Camaar'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_remember_digest" ON "users" ("remember_digest") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250714231912) /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250713202133),
+(20250713193427); /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-07-15 00:16:16.738277', '2025-07-15 00:16:16.738281') RETURNING "key" /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.1ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2025-07-15 00:16:16.740559' WHERE "ar_internal_metadata"."key" = 'environment' /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'ec4205d22a89fc2922d6c1326394ab007fc0dc71', '2025-07-15 00:16:16.743002', '2025-07-15 00:16:16.743004') RETURNING "key" /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Migrating to ChangeOcupacaoToEnum (20250715002405)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Camaar'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Camaar'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Camaar'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar NOT NULL, "password_digest" varchar NOT NULL, "password_reset_token" varchar, "password_reset_sent_at" datetime, "remember_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "ocupacao" varchar DEFAULT 'discente', "matricula" varchar) /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_ausers_on_ocupacao" ON "ausers" ("ocupacao") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_matricula" ON "ausers" ("matricula") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_remember_digest" ON "ausers" ("remember_digest") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_password_reset_token" ON "ausers" ("password_reset_token") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email") /*application='Camaar'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","ocupacao","matricula")
+                     SELECT "id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","ocupacao","matricula" FROM "users" /*application='Camaar'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "users" /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar NOT NULL, "password_digest" varchar NOT NULL, "password_reset_token" varchar, "password_reset_sent_at" datetime, "remember_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "ocupacao" varchar, "matricula" varchar) /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_password_reset_token" ON "users" ("password_reset_token") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_remember_digest" ON "users" ("remember_digest") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_matricula" ON "users" ("matricula") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_ocupacao" ON "users" ("ocupacao") /*application='Camaar'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","ocupacao","matricula")
+                     SELECT "id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","ocupacao","matricula" FROM "ausers" /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ausers" /*application='Camaar'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Camaar'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250715002405') RETURNING "version" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Migrating to ChangeOcupacaoTypeToStringOnUsers (20250715004325)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Camaar'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Camaar'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar NOT NULL, "password_digest" varchar NOT NULL, "password_reset_token" varchar, "password_reset_sent_at" datetime, "remember_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "ocupacao" varchar, "matricula" varchar) /*application='Camaar'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_ausers_on_ocupacao" ON "ausers" ("ocupacao") /*application='Camaar'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_matricula" ON "ausers" ("matricula") /*application='Camaar'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_remember_digest" ON "ausers" ("remember_digest") /*application='Camaar'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_password_reset_token" ON "ausers" ("password_reset_token") /*application='Camaar'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email") /*application='Camaar'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","ocupacao","matricula")
+                     SELECT "id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","ocupacao","matricula" FROM "users" /*application='Camaar'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "users" /*application='Camaar'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar NOT NULL, "password_digest" varchar NOT NULL, "password_reset_token" varchar, "password_reset_sent_at" datetime, "remember_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "ocupacao" varchar, "matricula" varchar) /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_password_reset_token" ON "users" ("password_reset_token") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_remember_digest" ON "users" ("remember_digest") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_matricula" ON "users" ("matricula") /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_ocupacao" ON "users" ("ocupacao") /*application='Camaar'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","ocupacao","matricula")
+                     SELECT "id","email","password_digest","password_reset_token","password_reset_sent_at","remember_digest","created_at","updated_at","ocupacao","matricula" FROM "ausers" /*application='Camaar'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ausers" /*application='Camaar'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Camaar'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250715004325') RETURNING "version" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Migrating to AddNomeToUsers (20250715005126)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "users" ADD "nome" varchar /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250715005126') RETURNING "version" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Migrating to AddFieldsToUsers (20250715012825)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" ADD "matricula" varchar /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='Camaar'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-07-14 22:34:14 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 2.3ms | GC: 0.2ms)
+  Rendered layout layouts/login.html.erb (Duration: 4.6ms | GC: 0.2ms)
+Completed 200 OK in 20ms (Views: 6.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/assets/application-c90a9cda.css" for 127.0.0.1 at 2025-07-14 22:34:14 -0300
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 22:34:14 -0300
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 22:34:14 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 22:34:14 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2025-07-14 22:34:14 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2025-07-14 22:40:30 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 3.9ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 5.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 22:40:30 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 22:40:30 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 22:40:30 -0300
+Started GET "/" for 127.0.0.1 at 2025-07-14 22:56:15 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 6.0ms | GC: 0.4ms)
+Completed 200 OK in 21ms (Views: 7.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 22:56:15 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 22:56:15 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 22:56:15 -0300
+Started GET "/" for 127.0.0.1 at 2025-07-14 22:58:29 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 2.6ms | GC: 0.0ms)
+Completed 200 OK in 40ms (Views: 3.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 22:58:29 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 22:58:29 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 22:58:29 -0300
+Started GET "/" for 127.0.0.1 at 2025-07-14 23:05:09 -0300
+Processing by LoginController#index as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/index.html.erb within layouts/login
+  Rendered login/index.html.erb within layouts/login (Duration: 2.1ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 4.4ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 5.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 23:05:10 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 23:05:10 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 23:05:10 -0300
+Started GET "/" for 127.0.0.1 at 2025-07-14 23:06:17 -0300
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for LoginController):
+  
+actionpack (8.0.2) lib/abstract_controller/base.rb:158:in `process'
+actionview (8.0.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (8.0.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.0.2) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.2) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.2) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.2) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.1.16) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.16) lib/rack/etag.rb:29:in `call'
+rack (3.1.16) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.16) lib/rack/head.rb:15:in `call'
+actionpack (8.0.2) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (8.0.2) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/cookies.rb:706:in `call'
+activerecord (8.0.2) lib/active_record/migration.rb:671:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.16) lib/rack/method_override.rb:28:in `call'
+rack (3.1.16) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.2) lib/rails/engine.rb:535:in `call'
+puma (6.6.0) lib/puma/configuration.rb:279:in `call'
+puma (6.6.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in `process_client'
+puma (6.6.0) lib/puma/server.rb:254:in `block in run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2025-07-14 23:06:29 -0300
+Processing by LoginController#new as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/new.html.erb within layouts/login
+  Rendered login/new.html.erb within layouts/login (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 4.5ms | GC: 0.4ms)
+Completed 200 OK in 20ms (Views: 5.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 23:06:29 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 23:06:29 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 23:06:29 -0300
+Started GET "/" for 127.0.0.1 at 2025-07-14 23:16:11 -0300
+Processing by LoginController#new as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/new.html.erb within layouts/login
+  Rendered login/new.html.erb within layouts/login (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 4.3ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 5.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 23:16:11 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 23:16:11 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 23:16:11 -0300
+Started GET "/favicon.ico" for 127.0.0.1 at 2025-07-14 23:16:11 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/login" for 127.0.0.1 at 2025-07-14 23:22:12 -0300
+Processing by LoginController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'admin@teste.com' LIMIT 1 /*action='create',application='Camaar',controller='login'*/[0m
+  ↳ app/controllers/login_controller.rb:8:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."matricula" = 'admin@teste.com' LIMIT 1 /*action='create',application='Camaar',controller='login'*/[0m
+  ↳ app/controllers/login_controller.rb:8:in `create'
+  Rendering layout layouts/login.html.erb
+  Rendering login/new.html.erb within layouts/login
+  Rendered login/new.html.erb within layouts/login (Duration: 1.6ms | GC: 0.1ms)
+  Rendered layout layouts/login.html.erb (Duration: 3.8ms | GC: 1.2ms)
+Completed 422 Unprocessable Content in 65ms (Views: 4.4ms | ActiveRecord: 4.1ms (2 queries, 0 cached) | GC: 1.5ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 23:22:12 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/admin" for 127.0.0.1 at 2025-07-14 23:23:11 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  
+Started GET "/" for 127.0.0.1 at 2025-07-14 23:28:41 -0300
+Processing by LoginController#new as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/new.html.erb within layouts/login
+  Rendered login/new.html.erb within layouts/login (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 4.2ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 5.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/app/assets/stylesheets/login.css" for 127.0.0.1 at 2025-07-14 23:28:41 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/login.css"):
+  
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 23:28:42 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 23:28:42 -0300

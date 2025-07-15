@@ -1,24 +1,31 @@
 class LoginController < ApplicationController
-  # Exibe o formulário de login
   def new
-    redirect_to root_path if logged_in?
+    redirect_to after_login_path(current_user) if logged_in?
   end
 
-  # Processa o login
   def create
-    user = User.find_by(email: params[:email].downcase)
+    # Busca usuário por email OU matrícula
+    user = User.find_by(email: params[:email]) || User.find_by(matricula: params[:email])
 
     if user&.authenticate(params[:password])
-      login(user)
-      remember(user) if params[:remember_me] == '1'
-      redirect_to root_path, notice: 'Login realizado com sucesso!'
+      handle_successful_login(user)
     else
-      flash.now[:alert] = 'Email ou senha inválidos'
-      render :new, status: :unprocessable_entity
+      handle_failed_login
     end
   end
 
-  # Processa o logout
+  private
+
+  def handle_successful_login(user)
+    session[:user_id] = user.id
+    redirect_to after_login_path(user), notice: 'Login realizado com sucesso!'
+  end
+
+  def handle_failed_login
+    flash.now[:alert] = 'Email ou senha inválidos'
+    render :new, status: :unprocessable_entity
+  end
+
   def destroy
     logout if logged_in?
     redirect_to login_path, notice: 'Você saiu do sistema.'
@@ -26,8 +33,35 @@ class LoginController < ApplicationController
 
   private
 
+  def login_params
+    params.permit(:login, :password, :remember_me)
+  end
+
+  def handle_successful_login(user)
+    login(user)
+    remember(user) if login_params[:remember_me] == '1'
+    redirect_after_login(user)
+  end
+
+  def handle_failed_login
+    flash.now[:alert] = 'Email/matrícula ou senha inválidos'
+    render :new, status: :unprocessable_entity
+  end
+
+  def redirect_after_login(user)
+    redirect_to after_login_path(user), notice: 'Login realizado com sucesso!'
+  end
+
+  def after_login_path(user)
+    if user.admin?
+      admin_gerenciamento_path
+    else
+      user_avaliacoes_path
+    end
+  end
+
   def login(user)
-    session[:user_id] = user.id  # Corrigido: era 'login[:user_id]' que não existe
+    session[:user_id] = user.id
   end
 
   def logout

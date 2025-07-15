@@ -12,7 +12,7 @@
     <div class="Caixa-login">
       <span class="login">LOGIN</span>
 
-      <%= form_with url: login_path, method: :post, local: true do |f| %>
+      <%= form_with url: login_path, method: :post, local: true, scope: nil do |f| %>
         <div class="email">
           <%= f.label :email, "Email", class: "email" %><br>
           <%= f.email_field :email, placeholder: "aluno@aluno.unb.br", class: "input", required: true %>

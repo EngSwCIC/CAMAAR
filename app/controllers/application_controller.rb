@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   # Método para obter o usuário atual
   def current_user
-    if (user_id = login[:user_id])
+    if (user_id = session[:user_id])
       @current_user ||= User.find_by(id: user_id)
     elsif (user_id = cookies.encrypted[:user_id])
       user = User.find_by(id: user_id)
@@ -35,12 +35,12 @@ class ApplicationController < ActionController::Base
 
   # Métodos auxiliares para sessão (usados pelo LoginController)
   def login(user)
-    login[:user_id] = user.id
+    session[:user_id] = user.id
   end
 
   def logout
     forget(current_user)
-    login.delete(:user_id)
+    session.delete(:user_id)
     @current_user = nil
   end
 

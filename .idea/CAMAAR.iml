@@ -26,6 +26,7 @@
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.7, rbenv: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ast (v2.4.3, rbenv: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="base64 (v0.3.0, rbenv: 3.3.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.20, rbenv: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt_pbkdf (v1.1.1, rbenv: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="benchmark (v0.4.1, rbenv: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bigdecimal (v3.2.2, rbenv: 3.3.1) [gem]" level="application" />
@@ -129,6 +130,7 @@
     <orderEntry type="library" scope="PROVIDED" name="solid_cable (v3.0.8, rbenv: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="solid_cache (v1.0.7, rbenv: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="solid_queue (v1.1.5, rbenv: 3.3.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="spring (v4.3.0, rbenv: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v2.7.0, rbenv: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sshkit (v1.24.0, rbenv: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stimulus-rails (v1.3.4, rbenv: 3.3.1) [gem]" level="application" />

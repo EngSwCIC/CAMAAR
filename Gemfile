@@ -68,4 +68,5 @@ end
 
 gem "rspec-rails", "~> 8.0", :groups => [:development, :test]
 gem "tailwindcss-rails"
-gem 'bcrypt', '~> 3.1.7'  # Ou versão mais recente
+gem 'bcrypt', '~> 3.1.7'
+gem 'spring'

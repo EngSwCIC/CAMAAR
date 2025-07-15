@@ -1,9 +1,9 @@
-class AddRoleAndRegistrationNumberToUsers < ActiveRecord::Migration[6.1]
+class AddocupacaoAndRegistrationNumberToUsers < ActiveRecord::Migration[6.1]
   def change
-    add_column :users, :role, :string, default: 'discente'
-    add_column :users, :registration_number, :string
+    add_column :users, :ocupacao, :string, default: 'discente'
+    add_column :users, :matricula, :string
 
-    add_index :users, :registration_number, unique: true
-    add_index :users, :role
+    add_index :users, :matricula, unique: true
+    add_index :users, :ocupacao
   end
 end

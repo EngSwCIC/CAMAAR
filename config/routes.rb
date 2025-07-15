@@ -15,17 +15,14 @@ Rails.application.routes.draw do
 
   # Área do admin
   namespace :admin do
-    get 'gerenciamento', to: 'gerenciamento#index'  # Rota: /admin/
+    get 'gerenciamento', to: 'gerenciamento#index', as: :gerenciamento
   end
 
-  # Área do Usuário
-  get 'gerenciamento', to: 'users#gerenciamento', as: :user_dashboard  # /gerenciamento
-  # get 'profile', to: 'users#profile'  # Exemplo de outra rota de usuário
+  # Área do usuário comum (docente, discente)
+  namespace :user do
+    get 'avaliacoes', to: 'avaliacoes#index' # user/avaliacoes
+  end
 
-  # Página inicial
-  root 'login#index'
-
-  # PWA (opcional)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  # Página inicial (login)
+  root to: 'login#new'
 end

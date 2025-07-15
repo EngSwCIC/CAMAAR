@@ -4,10 +4,18 @@ class User < ApplicationRecord
   # Constants
   RESET_TOKEN_EXPIRATION = 2.hours
   DIGEST_COST = Rails.env.production? ? 12 : 1
+  ROLES = %w[admin docente discente].freeze
+
+  validates :ocupacao, inclusion: { in: ROLES }
+
+  # Validações
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :matricula, uniqueness: true, allow_nil: true
+  validate :matricula_required_unless_admin_or_docente
 
   # Password reset methods
   def generate_password_reset_token!
-    raw_token = SecureRandom.urlsafe_base64(20) # Aumentado para 20 bytes
+    raw_token = SecureRandom.urlsafe_base64(20)
     digest = generate_digest(raw_token)
     update_columns(
       password_reset_token: digest,
@@ -32,6 +40,12 @@ class User < ApplicationRecord
     )
   end
 
+  # Authentication methods
+  def self.authenticate(login, password)
+    user = find_by(email: login) || find_by(matricula: login)
+    user&.authenticate(password)
+  end
+
   # Remember me methods
   def remember
     self.remember_token = SecureRandom.urlsafe_base64
@@ -54,10 +68,29 @@ class User < ApplicationRecord
     )
   end
 
+  # Métodos para verificar papel do usuário
+  def admin?
+    ocupacao == 'admin'
+  end
+
+  def docente?
+    ocupacao == 'docente'
+  end
+
+  def discente?
+    ocupacao == 'discente'
+  end
+
   private
 
   def generate_digest(token)
     cost = DIGEST_COST
     BCrypt::Password.create(token, cost: cost)
+  end
+
+  def matricula_required_unless_admin_or_docente
+    if discente? && matricula.blank?
+      errors.add(:matricula, "é obrigatória para discentes")
+    end
   end
 end
