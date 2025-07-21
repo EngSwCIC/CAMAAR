@@ -543,6 +543,7 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 8.0.2)
   rails-controller-testing
+  rdoc (~> 6.14)
   rspec-rails
   rubocop-rails-omakase
   rubycritic

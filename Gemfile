@@ -87,3 +87,4 @@ end
 #  gem 'cucumber-rails', require: false
 #  gem 'factory_bot_rails'
 #end
+gem "rdoc", "~> 6.14"

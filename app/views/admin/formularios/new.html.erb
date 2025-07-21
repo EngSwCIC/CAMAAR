@@ -11,7 +11,7 @@
     <div class="alert alert-success"><%= flash[:notice] %></div>
   <% end %>
 
-  <%= form_with scope: @formulario, url: admin_formularios_path, local: true, html: { class: "formulario-form" } do |form| %>
+  <%= form_with model: @formulario, url: admin_formularios_path, local: true, html: { class: "formulario-form" } do |form| %>
 
     <!-- Dropdown de Templates -->
     <div class="form-group">
