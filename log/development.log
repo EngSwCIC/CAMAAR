@@ -10084,3 +10084,33 @@ ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/
   
 Started GET "/assets/login" for 127.0.0.1 at 2025-07-14 23:28:42 -0300
 Started GET "/assets/admin" for 127.0.0.1 at 2025-07-14 23:28:42 -0300
+Started GET "/" for 127.0.0.1 at 2025-07-23 10:53:36 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Processing by LoginController#new as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/new.html.erb within layouts/login
+  Rendered login/new.html.erb within layouts/login (Duration: 8.1ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 12.4ms | GC: 0.0ms)
+Completed 200 OK in 53ms (Views: 14.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/stimulus.min-4b1e420e.js" for 127.0.0.1 at 2025-07-23 10:53:37 -0300
+Started GET "/assets/stimulus-loading-1fc53fe7.js" for 127.0.0.1 at 2025-07-23 10:53:37 -0300
+Started GET "/assets/controllers/application-3affb389.js" for 127.0.0.1 at 2025-07-23 10:53:37 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-23 10:53:37 -0300
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-23 10:53:37 -0300
+Started GET "/favicon.ico" for 127.0.0.1 at 2025-07-23 10:53:37 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2025-07-23 10:55:11 -0300
+Processing by LoginController#new as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/new.html.erb within layouts/login
+  Rendered login/new.html.erb within layouts/login (Duration: 2.2ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 4.9ms | GC: 0.5ms)
+Completed 200 OK in 25ms (Views: 6.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-23 10:55:12 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-23 10:55:12 -0300

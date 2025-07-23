@@ -2,7 +2,7 @@
 <html>
 <head>
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-  <link href="app/assets/stylesheets/login.css" rel="stylesheet" />
+  <%= stylesheet_link_tag 'login', media: 'all' %>
   <title>Login</title>
 </head>
 <body>
@@ -12,10 +12,18 @@
     <div class="Caixa-login">
       <span class="login">LOGIN</span>
 
-      <%= form_with url: login_path, method: :post, local: true, scope: nil do |f| %>
+      <%# Exibição da mensagem de erro %>
+      <% if flash.now[:alert] %>
+        <div class="alert alert-danger">
+          <%= flash.now[:alert] %>
+        </div>
+      <% end %>
+
+      <%= form_with url: login_path, method: :post, local: true do |f| %>
         <div class="email">
-          <%= f.label :email, "Email", class: "email" %><br>
-          <%= f.email_field :email, placeholder: "aluno@aluno.unb.br", class: "input", required: true %>
+          <%= f.label :email, "Email ou Matrícula", class: "email" %><br>
+          <%# Mudado para text_field para aceitar matrícula também %>
+          <%= f.text_field :email, placeholder: "aluno@aluno.unb.br", class: "input", required: true %>
         </div>
 
         <div class="senha">

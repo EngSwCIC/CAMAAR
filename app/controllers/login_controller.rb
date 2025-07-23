@@ -22,7 +22,7 @@ class LoginController < ApplicationController
   end
 
   def handle_failed_login
-    flash.now[:alert] = 'Email ou senha inválidos'
+    flash.now[:alert] = 'Email/matrícula ou senha inválidos'
     render :new, status: :unprocessable_entity
   end
 
@@ -35,17 +35,6 @@ class LoginController < ApplicationController
 
   def login_params
     params.permit(:login, :password, :remember_me)
-  end
-
-  def handle_successful_login(user)
-    login(user)
-    remember(user) if login_params[:remember_me] == '1'
-    redirect_after_login(user)
-  end
-
-  def handle_failed_login
-    flash.now[:alert] = 'Email/matrícula ou senha inválidos'
-    render :new, status: :unprocessable_entity
   end
 
   def redirect_after_login(user)

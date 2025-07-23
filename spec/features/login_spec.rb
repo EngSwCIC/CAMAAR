@@ -8,7 +8,7 @@ RSpec.feature "Login System", type: :feature do
       matricula: "012345678",
       password: "12345678",
       password_confirmation: "12345678",
-      ocupacao: "discente"  # mudou para string
+      ocupacao: "discente"
     )
   end
 
@@ -18,7 +18,7 @@ RSpec.feature "Login System", type: :feature do
       email: "admin@teste.com",
       password: "12345678",
       password_confirmation: "12345678",
-      ocupacao: "admin"     # mudou para string
+      ocupacao: "admin"
     )
   end
 
@@ -28,6 +28,15 @@ RSpec.feature "Login System", type: :feature do
 
   scenario "Login bem-sucedido com email (usuário regular)" do
     fill_in "Email", with: "aluno@teste.com"
+    fill_in "Senha", with: "12345678"
+    click_button "Entrar"
+
+    expect(page).to have_current_path(user_avaliacoes_path)
+    expect(page).to have_content("Login realizado com sucesso")
+  end
+
+  scenario "Login bem-sucedido com matrícula (usuário regular)" do
+    fill_in "Email", with: "012345678"
     fill_in "Senha", with: "12345678"
     click_button "Entrar"
 
@@ -50,6 +59,6 @@ RSpec.feature "Login System", type: :feature do
     click_button "Entrar"
 
     expect(page).to have_current_path(login_path)
-    #expect(page).to have_content("Email/matrícula ou senha inválidos")
+    expect(page).to have_content("Email/matrícula ou senha inválidos")
   end
 end
