@@ -2,7 +2,8 @@
   <div class="max-w-[1280px] h-full mx-auto flex justify-between items-center px-6">
     <!-- Lado esquerdo - Menu Hambúrguer e Título -->
     <div class="flex items-center space-x-4">
-      <button class="text-gray-600 hover:text-gray-800 focus:outline-none">
+      <!-- Botão hambúrguer -->
+      <button id="hamburger-button" class="text-gray-600 hover:text-gray-800 focus:outline-none mr-4">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
@@ -48,30 +49,83 @@
     </div>
   </div>
 </nav>
-<script>
-    document.addEventListener('turbo:load', function() {
 
+<!-- Menu Lateral -->
+<div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-40 transform -translate-x-full transition-transform duration-300 ease-in-out">
+  <div class="p-4 border-b border-gray-200">
+    <h2 class="text-xl font-semibold text-gray-800">Menu</h2>
+  </div>
+  <div class="p-4">
+    <ul class="space-y-2">
+      <% if current_user.admin? %>
+        <!-- Menu para Admin -->
+        <li>
+          <%= link_to 'Avaliações', admin_avaliacoes_path,
+                      class: "block px-4 py-2 rounded #{current_page?(admin_avaliacoes_path) ? 'text-white bg-[#6c2365] hover:bg-[#7a2f7a]' : 'text-black hover:bg-[#d9b6db]'}" %>
+        </li>
+        <li>
+          <%= link_to 'Gerenciamento', admin_gerenciamento_path,
+                      class: "block px-4 py-2 rounded #{current_page?(admin_gerenciamento_path) ? 'text-white bg-[#6c2365] hover:bg-[#7a2f7a]' : 'text-black hover:bg-[#d9b6db]'}" %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to 'Avaliações', user_avaliacoes_path,
+                      class: "block px-4 py-2 rounded #{current_page?(user_avaliacoes_path) ? 'text-white bg-[#6c2365] hover:bg-[#7a2f7a]' : 'text-black hover:bg-[#d9b6db]'}" %>
+        </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- Overlay para quando o menu estiver aberto -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden"></div>
+
+<script>
+    function setupMenu() {
         const userDropdown = document.getElementById('user-dropdown');
         const userPhoto = document.getElementById('user-photo');
         const logoutMenu = document.getElementById('logout-menu');
 
         if (userPhoto && logoutMenu) {
-            userPhoto.addEventListener('click', function(e) {
+            // Remove para não adicionar várias vezes
+            userPhoto.replaceWith(userPhoto.cloneNode(true));
+            const newUserPhoto = document.getElementById('user-photo');
+            newUserPhoto.addEventListener('click', function(e) {
                 e.stopPropagation();
                 logoutMenu.classList.toggle('hidden');
             });
 
-            // Fechar ao clicar fora
             document.addEventListener('click', function(e) {
                 if (!userDropdown.contains(e.target)) {
                     logoutMenu.classList.add('hidden');
                 }
             });
 
-            // Evitar que o menu feche ao clicar nele
             logoutMenu.addEventListener('click', function(e) {
                 e.stopPropagation();
             });
         }
-    });
+
+        const hamburgerButton = document.getElementById('hamburger-button');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        if (hamburgerButton && sidebar && sidebarOverlay) {
+            hamburgerButton.replaceWith(hamburgerButton.cloneNode(true));
+            const newHamburgerButton = document.getElementById('hamburger-button');
+
+            newHamburgerButton.addEventListener('click', function() {
+                sidebar.classList.toggle('-translate-x-full');
+                sidebarOverlay.classList.toggle('hidden');
+            });
+
+            sidebarOverlay.addEventListener('click', function() {
+                sidebar.classList.add('-translate-x-full');
+                sidebarOverlay.classList.add('hidden');
+            });
+        }
+    }
+
+    document.addEventListener('turbo:load', setupMenu);
+
 </script>
