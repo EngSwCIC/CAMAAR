@@ -1,0 +1,19 @@
+<aside id="sidebar-menu" class="hidden fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+  <div class="p-4 border-b border-gray-200">
+    <h2 class="text-lg font-semibold">Menu</h2>
+  </div>
+  <nav class="p-4">
+    <ul class="space-y-3">
+      <% if session[:user_type] == 'admin' %>
+        <!-- Menu para Administradores -->
+        <li><%= link_to 'Avaliações', admin_avaliacoes_path, class: "block py-2 px-3 hover:bg-gray-100 rounded" %></li>
+        <li><%= link_to 'Gerenciamento', admin_gerenciamento_path, class: "block py-2 px-3 hover:bg-gray-100 rounded" %></li>
+
+      <% elsif ['discente', 'docente'].include?(session[:user_type]) %>
+        <!-- Menu para Discentes/Docentes -->
+        <li><%= link_to 'Avaliações', user_avaliacoes_path, class: "block py-2 px-3 hover:bg-gray-100 rounded" %></li>
+
+      <% end %>
+    </ul>
+  </nav>
+</aside>

@@ -1,51 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-  <%= stylesheet_link_tag 'login', media: 'all' %>
   <title>Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style type="text/tailwindcss">
+      @layer components {
+          .input {
+              @apply w-full px-3 py-2 mb-4 border border-gray-300 rounded-md text-sm;
+          }
+          .entrar {
+              @apply w-full py-3 px-4 bg-green-500 text-white font-medium rounded-md hover:bg-green-600 transition-colors;
+          }
+      }
+  </style>
 </head>
-<body>
-<div class="Fundo-branco">
-  <div class="Fundo-roxo">
+<body class="bg-gray-200 flex justify-center items-center min-h-screen font-roboto">
+<div class="w-full max-w-[898px] bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="flex h-[525px] bg-[#6C2365]">
     <!-- Lado esquerdo: login -->
-    <div class="Caixa-login">
-      <span class="login">LOGIN</span>
+    <div class="w-[398px] bg-white p-[60px_40px] flex flex-col justify-center">
+      <span class="text-2xl font-normal text-center mb-6">LOGIN</span>
 
-      <%# Exibição da mensagem de erro %>
       <% if flash.now[:alert] %>
-        <div class="alert alert-danger">
+        <div class="mt-2 mb-2 text-sm text-[#721c24] font-roboto">
           <%= flash.now[:alert] %>
         </div>
       <% end %>
 
-      <%= form_with url: login_path, method: :post, local: true do |f| %>
-        <div class="email">
-          <%= f.label :email, "Email ou Matrícula", class: "email" %><br>
-          <%# Mudado para text_field para aceitar matrícula também %>
+      <%= form_with url: login_path, method: :post, local: true, class: "w-full" do |f| %>
+        <div class="mb-1">
+          <%= f.label :email, "Email", class: "text-[#333f51] font-normal" %>
           <%= f.text_field :email, placeholder: "aluno@aluno.unb.br", class: "input", required: true %>
         </div>
 
-        <div class="senha">
-          <%= f.label :password, "Senha", class: "senha" %><br>
+        <div class="mb-1">
+          <%= f.label :password, "Senha", class: "text-[#333f51] font-normal" %>
           <%= f.password_field :password, placeholder: "Password", class: "input", required: true %>
         </div>
 
-        <div>
+        <div class="mt-4">
           <%= f.submit "Entrar", class: "entrar" %>
         </div>
       <% end %>
 
-      <div class="esqueci-senha">
-        <%= link_to "Esqueceu sua senha?", new_password_path %>
+      <div class="mt-4 text-center">
+        <%= link_to "Esqueceu sua senha?", new_password_path, class: "text-gray-600 text-sm hover:underline" %>
       </div>
     </div>
 
-    <div class="Caixa-bv">
-        <span class="bem-vindo">Bem vindo<br>
-          ao<br>
-          Camaar
-        </span>
+    <!-- Lado direito: boas-vindas -->
+    <div class="flex-1 flex items-center justify-center text-center">
+      <span class="text-white font-medium text-[56px] leading-tight">
+        Bem vindo<br>
+        ao<br>
+        Camaar
+      </span>
     </div>
   </div>
 </div>

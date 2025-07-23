@@ -2,14 +2,12 @@
   <div class="max-w-[1280px] h-full mx-auto flex justify-between items-center px-6">
     <!-- Lado esquerdo - Menu Hambúrguer e Título -->
     <div class="flex items-center space-x-4">
-      <!-- Menu Hambúrguer -->
       <button class="text-gray-600 hover:text-gray-800 focus:outline-none">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
 
-      <!-- Título dinâmico -->
       <div class="text-[24px] font-normal text-gray-800 font-roboto">
         <%= content_for?(:navbar_title) ? yield(:navbar_title) : "CAMAAR" %>
       </div>
@@ -17,7 +15,6 @@
 
     <!-- Lado direito - Barra de pesquisa e usuário -->
     <div class="flex items-center space-x-8">
-      <!-- Barra de pesquisa com medidas personalizadas -->
       <div class="relative">
         <input
           type="text"
@@ -31,10 +28,50 @@
         </div>
       </div>
 
-      <!-- Foto do usuário -->
-      <div class="w-10 h-10 rounded-full bg-gray-300 overflow-hidden">
-        <img src="https://via.placeholder.com/40" alt="Foto do usuário" class="w-full h-full object-cover">
+      <!-- Foto do usuário e dropdown -->
+      <div class="relative" id="user-dropdown">
+        <button id="user-photo" class="focus:outline-none">
+          <div class="w-10 h-10 rounded-full bg-gray-300 overflow-hidden">
+            <img src="https://via.placeholder.com/40" alt="Foto do usuário" class="w-full h-full object-cover">
+          </div>
+        </button>
+
+        <!-- Menu de Logout -->
+        <div id="logout-menu"
+             class="hidden absolute right-0 mt-2 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200"
+             style="width: 222px; max-height: 38px;">
+          <%= button_to 'Logout', logout_path, method: :delete,
+                        form: { data: { turbo: false } },
+                        class: 'w-full text-left px-4 py-2 text-sm text-black hover:bg-gray-100' %>
+        </div>
       </div>
     </div>
   </div>
 </nav>
+<script>
+    document.addEventListener('turbo:load', function() {
+
+        const userDropdown = document.getElementById('user-dropdown');
+        const userPhoto = document.getElementById('user-photo');
+        const logoutMenu = document.getElementById('logout-menu');
+
+        if (userPhoto && logoutMenu) {
+            userPhoto.addEventListener('click', function(e) {
+                e.stopPropagation();
+                logoutMenu.classList.toggle('hidden');
+            });
+
+            // Fechar ao clicar fora
+            document.addEventListener('click', function(e) {
+                if (!userDropdown.contains(e.target)) {
+                    logoutMenu.classList.add('hidden');
+                }
+            });
+
+            // Evitar que o menu feche ao clicar nele
+            logoutMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+    });
+</script>

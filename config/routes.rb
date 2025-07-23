@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Login
   get 'login', to: 'login#new'
   post 'login', to: 'login#create'
-  delete 'logout', to: 'login#destroy'
+  delete '/logout', to: 'login#destroy', as: :logout
 
   # Password reset routes
   get 'password/reset', to: 'passwords#new', as: :new_password
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   # Área do admin
   namespace :admin do
     get 'gerenciamento', to: 'gerenciamento#index', as: :gerenciamento
+    get 'avaliacoes', to: 'avaliacoes#index', as: :avaliacoes
   end
 
   # Área do usuário comum (docente, discente)

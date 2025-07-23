@@ -1,4 +1,5 @@
 class LoginController < ApplicationController
+  layout 'login'
   def new
     redirect_to after_login_path(current_user) if logged_in?
   end
@@ -14,24 +15,23 @@ class LoginController < ApplicationController
     end
   end
 
-  private
-
-  def handle_successful_login(user)
-    session[:user_id] = user.id
-    redirect_to after_login_path(user), notice: 'Login realizado com sucesso!'
-  end
-
-  def handle_failed_login
-    flash.now[:alert] = 'Email/matrícula ou senha inválidos'
-    render :new, status: :unprocessable_entity
-  end
-
   def destroy
     logout if logged_in?
     redirect_to login_path, notice: 'Você saiu do sistema.'
   end
 
   private
+
+  def handle_successful_login(user)
+    session[:user_id] = user.id
+    redirect_to after_login_path(user), notice: 'Login realizado com sucesso!', status: :see_other
+  end
+
+
+  def handle_failed_login
+    flash.now[:alert] = 'Email/matrícula ou senha inválidos'
+    render :new, status: :unprocessable_entity
+  end
 
   def login_params
     params.permit(:login, :password, :remember_me)
