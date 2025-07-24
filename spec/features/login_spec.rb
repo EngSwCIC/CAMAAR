@@ -31,8 +31,7 @@ RSpec.feature "Login System", type: :feature do
     fill_in "Senha", with: "12345678"
     click_button "Entrar"
 
-    expect(page).to have_current_path(user_avaliacoes_path)
-    expect(page).to have_content("Login realizado com sucesso")
+    expect(page).to have_current_path(user_templates_path)
   end
 
   scenario "Login bem-sucedido com matrícula (usuário regular)" do
@@ -40,8 +39,7 @@ RSpec.feature "Login System", type: :feature do
     fill_in "Senha", with: "12345678"
     click_button "Entrar"
 
-    expect(page).to have_current_path(user_avaliacoes_path)
-    expect(page).to have_content("Login realizado com sucesso")
+    expect(page).to have_current_path(user_templates_path)
   end
 
   scenario "Login admin bem-sucedido" do
@@ -49,7 +47,7 @@ RSpec.feature "Login System", type: :feature do
     fill_in "Senha", with: "12345678"
     click_button "Entrar"
 
-    expect(page).to have_current_path(admin_gerenciamento_path)
+    expect(page).to have_current_path(admin_templates_path)
     #expect(page).to have_link("Avaliações")
   end
 

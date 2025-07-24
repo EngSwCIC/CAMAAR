@@ -20,6 +20,15 @@ if Rails.env.development?
     ocupacao: "admin"
   )
 
+  aa = User.create!(
+    nome: "Admin Testeaa",
+    email: "aa@teste.com",
+    password: "123456",
+    password_confirmation: "123456",
+    ocupacao: "admin"
+  )
+
+
   # Criar usuário aluno
   aluno = User.create!(
     nome: "Aluno Teste",

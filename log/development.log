@@ -17940,3 +17940,1396 @@ Completed 200 OK in 20ms (Views: 13.6ms | ActiveRecord: 0.0ms (0 queries, 0 cach
 
 Started GET "/assets/login" for ::1 at 2025-07-24 11:28:32 -0300
 Started GET "/assets/admin" for ::1 at 2025-07-24 11:28:32 -0300
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-07-24 13:30:45 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Processing by LoginController#new as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/new.html.erb within layouts/login
+  Rendered login/new.html.erb within layouts/login (Duration: 19.7ms | GC: 1.4ms)
+  Rendered layout layouts/login.html.erb (Duration: 99.0ms | GC: 24.9ms)
+Completed 200 OK in 197ms (Views: 107.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 24.9ms)
+
+
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-24 13:30:46 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-24 13:30:46 -0300
+Started POST "/login" for 127.0.0.1 at 2025-07-24 13:31:12 -0300
+Processing by LoginController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'admin@teste.com' LIMIT 1 /*action='create',application='Camaar',controller='login'*/[0m
+  ↳ app/controllers/login_controller.rb:9:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."matricula" = 'admin@teste.com' LIMIT 1 /*action='create',application='Camaar',controller='login'*/[0m
+  ↳ app/controllers/login_controller.rb:9:in `create'
+  Rendering layout layouts/login.html.erb
+  Rendering login/new.html.erb within layouts/login
+  Rendered login/new.html.erb within layouts/login (Duration: 8.3ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 12.1ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 132ms (Views: 14.5ms | ActiveRecord: 5.6ms (2 queries, 0 cached) | GC: 1.4ms)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-07-24 13:33:31 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Processing by LoginController#new as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/new.html.erb within layouts/login
+  Rendered login/new.html.erb within layouts/login (Duration: 31.2ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 197.5ms | GC: 31.4ms)
+Completed 200 OK in 320ms (Views: 210.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 31.4ms)
+
+
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-24 13:33:32 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-24 13:33:32 -0300
+Started GET "/favicon.ico" for 127.0.0.1 at 2025-07-24 13:33:33 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/login" for 127.0.0.1 at 2025-07-24 13:33:48 -0300
+Processing by LoginController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aa@teste.com' LIMIT 1 /*action='create',application='Camaar',controller='login'*/[0m
+  ↳ app/controllers/login_controller.rb:9:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."matricula" = 'aa@teste.com' LIMIT 1 /*action='create',application='Camaar',controller='login'*/[0m
+  ↳ app/controllers/login_controller.rb:9:in `create'
+  Rendering layout layouts/login.html.erb
+  Rendering login/new.html.erb within layouts/login
+  Rendered login/new.html.erb within layouts/login (Duration: 6.7ms | GC: 0.2ms)
+  Rendered layout layouts/login.html.erb (Duration: 10.6ms | GC: 0.2ms)
+Completed 422 Unprocessable Content in 186ms (Views: 12.3ms | ActiveRecord: 4.9ms (2 queries, 0 cached) | GC: 1.4ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+  [1m[36mQuestionAnswer Load (1.1ms)[0m  [1m[34mSELECT "question_answers".* FROM "question_answers" /*application='Camaar'*/[0m
+  [1m[36mTemplateResponse Load (0.1ms)[0m  [1m[34mSELECT "template_responses".* FROM "template_responses" /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Load (0.2ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" /*application='Camaar'*/[0m
+  [1m[36mTemplate Load (0.4ms)[0m  [1m[34mSELECT "templates".* FROM "templates" /*application='Camaar'*/[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mUser Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@teste.com' LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "password_reset_token", "password_reset_sent_at", "remember_digest", "created_at", "updated_at", "ocupacao", "matricula", "nome") VALUES ('admin@teste.com', '$2a$12$SxLARNJU0W1VD5dG1J5Wtujf.MGXlC4dbt3bG7U2j1hhEjRITFYFy', NULL, NULL, NULL, '2025-07-24 16:42:02.674058', '2025-07-24 16:42:02.674058', 'admin', NULL, 'Admin Teste') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mUser Exists? (3.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'aa@teste.com' LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "password_reset_token", "password_reset_sent_at", "remember_digest", "created_at", "updated_at", "ocupacao", "matricula", "nome") VALUES ('aa@teste.com', '$2a$12$.2.0ApVFh/Ao7j.K4/tTb.hEhF.XX4DegWJVgGIiIoc7c4Ozz6Eq2', NULL, NULL, NULL, '2025-07-24 16:42:03.016137', '2025-07-24 16:42:03.016137', 'admin', NULL, 'Admin Testeaa') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mUser Exists? (6.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'aluno@teste.com' LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."matricula" = '012345678' LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "password_reset_token", "password_reset_sent_at", "remember_digest", "created_at", "updated_at", "ocupacao", "matricula", "nome") VALUES ('aluno@teste.com', '$2a$12$nWEBgohRxN.OEcUJNCGTuOGZ//9nuXwlvcaM.f4thQkU9lNCOuL1.', NULL, NULL, NULL, '2025-07-24 16:42:03.330108', '2025-07-24 16:42:03.330108', 'discente', '012345678', 'Aluno Teste') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'professor@teste.com' LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "password_reset_token", "password_reset_sent_at", "remember_digest", "created_at", "updated_at", "ocupacao", "matricula", "nome") VALUES ('professor@teste.com', '$2a$12$8CnENea6aO8ohej3fWQxb.nAhk77Jb8jaM6HqwxoXDvrPUbS/gZim', NULL, NULL, NULL, '2025-07-24 16:42:03.642443', '2025-07-24 16:42:03.642443', 'docente', NULL, 'Professor Teste') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'maria@teste.com' LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."matricula" = '987654321' LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "password_reset_token", "password_reset_sent_at", "remember_digest", "created_at", "updated_at", "ocupacao", "matricula", "nome") VALUES ('maria@teste.com', '$2a$12$JhRSy8PfF9zs8mhSmYbM9u9SEvTWZjdJ4uog4wcLQWZ24VpNpDgpO', NULL, NULL, NULL, '2025-07-24 16:42:03.956316', '2025-07-24 16:42:03.956316', 'discente', '987654321', 'Maria Silva') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplate Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "templates" WHERE "templates"."name" = 'Avaliação da Disciplina' LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mTemplate Create (0.2ms)[0m  [1m[32mINSERT INTO "templates" ("name", "description", "user_id", "created_at", "updated_at") VALUES ('Avaliação da Disciplina', 'Formulário para avaliar a qualidade da disciplina e do professor', 1, '2025-07-24 16:42:04.047510', '2025-07-24 16:42:04.047510') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Create (1.4ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (1, 'Como você avalia o conteúdo da disciplina?', 'scale', NULL, 1, 1, '2025-07-24 16:42:04.082349', '2025-07-24 16:42:04.082349') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Create (1.2ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (1, 'O professor foi claro nas explicações?', 'radio', NULL, 1, 2, '2025-07-24 16:42:04.099425', '2025-07-24 16:42:04.099425') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Create (1.2ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (1, 'Os materiais didáticos foram adequados?', 'radio', NULL, 1, 3, '2025-07-24 16:42:04.109713', '2025-07-24 16:42:04.109713') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Create (1.3ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (1, 'Você recomendaria esta disciplina para outros alunos?', 'radio', NULL, 1, 4, '2025-07-24 16:42:04.117443', '2025-07-24 16:42:04.117443') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Create (1.2ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (1, 'Deixe seus comentários e sugestões:', 'text', NULL, 0, 5, '2025-07-24 16:42:04.129648', '2025-07-24 16:42:04.129648') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplate Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "templates" WHERE "templates"."name" = 'Avaliação Semestral' LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mTemplate Create (0.1ms)[0m  [1m[32mINSERT INTO "templates" ("name", "description", "user_id", "created_at", "updated_at") VALUES ('Avaliação Semestral', 'Avaliação geral do semestre letivo', 1, '2025-07-24 16:42:04.140058', '2025-07-24 16:42:04.140058') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Create (1.5ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (2, 'Como você avalia sua experiência geral neste semestre?', 'scale', NULL, 1, 1, '2025-07-24 16:42:04.151781', '2025-07-24 16:42:04.151781') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Create (1.8ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (2, 'A carga horária das disciplinas foi adequada?', 'radio', NULL, 1, 2, '2025-07-24 16:42:04.158364', '2025-07-24 16:42:04.158364') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Create (1.2ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (2, 'Os recursos da universidade (biblioteca, laboratórios, etc.) atenderam suas necessidades?', 'radio', NULL, 1, 3, '2025-07-24 16:42:04.165104', '2025-07-24 16:42:04.165104') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Create (1.3ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (2, 'Qual disciplina você mais gostou este semestre?', 'text', NULL, 0, 4, '2025-07-24 16:42:04.177535', '2025-07-24 16:42:04.177535') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Create (1.3ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (2, 'Sugestões para melhorar o próximo semestre:', 'text', NULL, 0, 5, '2025-07-24 16:42:04.182357', '2025-07-24 16:42:04.182357') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplate Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "templates" WHERE "templates"."name" = 'Avaliação de Infraestrutura' LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mTemplate Create (0.2ms)[0m  [1m[32mINSERT INTO "templates" ("name", "description", "user_id", "created_at", "updated_at") VALUES ('Avaliação de Infraestrutura', 'Avalie as instalações e recursos da universidade', 1, '2025-07-24 16:42:04.192933', '2025-07-24 16:42:04.192933') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Create (1.3ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (3, 'Como você avalia as salas de aula?', 'scale', NULL, 1, 1, '2025-07-24 16:42:04.215982', '2025-07-24 16:42:04.215982') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Create (1.4ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (3, 'Os laboratórios de informática atendem suas necessidades?', 'radio', NULL, 1, 2, '2025-07-24 16:42:04.230749', '2025-07-24 16:42:04.230749') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Create (1.4ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (3, 'A biblioteca possui os recursos que você precisa?', 'radio', NULL, 1, 3, '2025-07-24 16:42:04.238720', '2025-07-24 16:42:04.238720') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Create (1.6ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (3, 'Como você avalia a limpeza das instalações?', 'scale', NULL, 1, 4, '2025-07-24 16:42:04.243230', '2025-07-24 16:42:04.243230') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Create (1.4ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (3, 'Sugestões para melhorar a infraestrutura:', 'text', NULL, 0, 5, '2025-07-24 16:42:04.250477', '2025-07-24 16:42:04.250477') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateResponse Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "template_responses" WHERE "template_responses"."user_id" = 5 AND "template_responses"."template_id" = 1 LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mTemplateResponse Create (0.2ms)[0m  [1m[32mINSERT INTO "template_responses" ("user_id", "template_id", "submitted_at", "created_at", "updated_at") VALUES (5, 1, '2025-07-22 16:42:04.269348', '2025-07-24 16:42:04.326363', '2025-07-24 16:42:04.326363') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Load (0.1ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mQuestionAnswer Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "question_answers" WHERE "question_answers"."template_response_id" = 1 AND "question_answers"."template_question_id" = 1 LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mQuestionAnswer Create (0.2ms)[0m  [1m[32mINSERT INTO "question_answers" ("template_response_id", "template_question_id", "answer_text", "created_at", "updated_at") VALUES (1, 1, '5', '2025-07-24 16:42:04.393125', '2025-07-24 16:42:04.393125') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mQuestionAnswer Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "question_answers" WHERE "question_answers"."template_response_id" = 1 AND "question_answers"."template_question_id" = 2 LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mQuestionAnswer Create (0.2ms)[0m  [1m[32mINSERT INTO "question_answers" ("template_response_id", "template_question_id", "answer_text", "created_at", "updated_at") VALUES (1, 2, 'Concordo', '2025-07-24 16:42:04.405531', '2025-07-24 16:42:04.405531') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mQuestionAnswer Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "question_answers" WHERE "question_answers"."template_response_id" = 1 AND "question_answers"."template_question_id" = 3 LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mQuestionAnswer Create (0.2ms)[0m  [1m[32mINSERT INTO "question_answers" ("template_response_id", "template_question_id", "answer_text", "created_at", "updated_at") VALUES (1, 3, 'Concordo Totalmente', '2025-07-24 16:42:04.413805', '2025-07-24 16:42:04.413805') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mQuestionAnswer Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "question_answers" WHERE "question_answers"."template_response_id" = 1 AND "question_answers"."template_question_id" = 4 LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mQuestionAnswer Create (0.6ms)[0m  [1m[32mINSERT INTO "question_answers" ("template_response_id", "template_question_id", "answer_text", "created_at", "updated_at") VALUES (1, 4, 'Discordo', '2025-07-24 16:42:04.436437', '2025-07-24 16:42:04.436437') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mQuestionAnswer Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "question_answers" WHERE "question_answers"."template_response_id" = 1 AND "question_answers"."template_question_id" = 5 LIMIT 1 /*application='Camaar'*/[0m
+  [1m[36mQuestionAnswer Create (0.1ms)[0m  [1m[32mINSERT INTO "question_answers" ("template_response_id", "template_question_id", "answer_text", "created_at", "updated_at") VALUES (1, 5, 'Ótima disciplina! Aprendi muito sobre os conceitos fundamentais. Sugiro mais exercícios práticos.', '2025-07-24 16:42:04.447967', '2025-07-24 16:42:04.447967') RETURNING "id" /*application='Camaar'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*application='Camaar'*/[0m
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*application='Camaar'*/[0m
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 1 /*application='Camaar'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+Started GET "/" for 127.0.0.1 at 2025-07-24 13:42:17 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Processing by LoginController#new as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/new.html.erb within layouts/login
+  Rendered login/new.html.erb within layouts/login (Duration: 8.4ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 96.1ms | GC: 24.5ms)
+Completed 200 OK in 181ms (Views: 104.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 24.5ms)
+
+
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-24 13:42:18 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-24 13:42:18 -0300
+Started POST "/login" for 127.0.0.1 at 2025-07-24 13:42:27 -0300
+Processing by LoginController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'admin@teste.com' LIMIT 1 /*action='create',application='Camaar',controller='login'*/[0m
+  ↳ app/controllers/login_controller.rb:9:in `create'
+Redirected to http://localhost:3000/admin/templates
+Completed 303 See Other in 520ms (ActiveRecord: 18.5ms (1 query, 0 cached) | GC: 2.3ms)
+
+
+Started GET "/admin/templates" for 127.0.0.1 at 2025-07-24 13:42:28 -0300
+Processing by Admin::TemplatesController#index as TURBO_STREAM
+  [1m[36mUser Load (12.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Load (1.8ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY "templates"."name" ASC /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:13
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (10.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (4.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  Rendered admin/templates/index.html.erb within layouts/application (Duration: 477.2ms | GC: 33.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 9.1ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 519.6ms | GC: 33.3ms)
+Completed 200 OK in 625ms (Views: 516.0ms | ActiveRecord: 27.2ms (8 queries, 0 cached) | GC: 33.3ms)
+
+
+Started GET "/admin/templates/2" for 127.0.0.1 at 2025-07-24 13:43:02 -0300
+Processing by Admin::TemplatesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (1.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 AND "templates"."id" = 2 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:51:in `set_template'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/show.html.erb within layouts/application
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:28
+  [1m[36mTemplateQuestion Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "template_questions" WHERE "template_questions"."template_id" = 2 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:30
+  [1m[36mTemplateQuestion Load (0.1ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 2 ORDER BY "template_questions"."position" ASC /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:32:in `each_with_index'
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 2 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:60
+  [1m[36mTemplateResponse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "template_responses" WHERE "template_responses"."template_id" = 2 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:62
+  Rendered admin/templates/show.html.erb within layouts/application (Duration: 227.0ms | GC: 1.6ms)
+  Rendered layouts/_navbar.html.erb (Duration: 41.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 290.5ms | GC: 1.6ms)
+Completed 200 OK in 397ms (Views: 288.9ms | ActiveRecord: 5.7ms (7 queries, 0 cached) | GC: 2.3ms)
+
+
+Started GET "/admin/templates/2/edit" for 127.0.0.1 at 2025-07-24 13:43:07 -0300
+Processing by Admin::TemplatesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 AND "templates"."id" = 2 LIMIT 1 /*action='edit',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:51:in `set_template'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/edit.html.erb within layouts/application
+  [1m[36mTemplateQuestion Load (0.2ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='edit',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/edit.html.erb:34
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='edit',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/edit.html.erb:78
+  Rendered admin/templates/edit.html.erb within layouts/application (Duration: 202.7ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 2.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 213.1ms | GC: 0.0ms)
+Completed 200 OK in 286ms (Views: 219.5ms | ActiveRecord: 1.5ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/avaliacoes" for 127.0.0.1 at 2025-07-24 13:43:12 -0300
+Processing by Admin::AvaliacoesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admin/avaliacoes/index.html.erb within layouts/application
+  Rendered admin/avaliacoes/index.html.erb within layouts/application (Duration: 3.0ms | GC: 0.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='avaliacoes'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendered layouts/_navbar.html.erb (Duration: 42.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 162.5ms | GC: 27.2ms)
+Completed 200 OK in 230ms (Views: 170.5ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 27.2ms)
+
+
+Started GET "/admin/avaliacoes" for 127.0.0.1 at 2025-07-24 13:43:13 -0300
+Processing by Admin::AvaliacoesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admin/avaliacoes/index.html.erb within layouts/application
+  Rendered admin/avaliacoes/index.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='avaliacoes'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendered layouts/_navbar.html.erb (Duration: 23.3ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 39.6ms | GC: 0.7ms)
+Completed 200 OK in 82ms (Views: 39.2ms | ActiveRecord: 2.4ms (1 query, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/admin/gerenciamento" for 127.0.0.1 at 2025-07-24 13:43:15 -0300
+Processing by Admin::GerenciamentoController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admin/gerenciamento/index.html.erb within layouts/application
+  Rendered admin/gerenciamento/index.html.erb within layouts/application (Duration: 1.7ms | GC: 0.0ms)
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='gerenciamento'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendered layouts/_navbar.html.erb (Duration: 27.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 36.7ms | GC: 0.0ms)
+Completed 200 OK in 101ms (Views: 50.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/templates" for 127.0.0.1 at 2025-07-24 13:43:18 -0300
+Processing by Admin::TemplatesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY "templates"."name" ASC /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:13
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  Rendered admin/templates/index.html.erb within layouts/application (Duration: 147.4ms | GC: 0.8ms)
+  Rendered layouts/_navbar.html.erb (Duration: 16.6ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 188.2ms | GC: 1.4ms)
+Completed 200 OK in 269ms (Views: 197.8ms | ActiveRecord: 1.8ms (8 queries, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/admin/gerenciamento" for 127.0.0.1 at 2025-07-24 13:43:21 -0300
+Processing by Admin::GerenciamentoController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admin/gerenciamento/index.html.erb within layouts/application
+  Rendered admin/gerenciamento/index.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='gerenciamento'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendered layouts/_navbar.html.erb (Duration: 14.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | GC: 0.0ms)
+Completed 200 OK in 82ms (Views: 27.0ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/avaliacoes" for 127.0.0.1 at 2025-07-24 13:43:22 -0300
+Processing by Admin::AvaliacoesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admin/avaliacoes/index.html.erb within layouts/application
+  Rendered admin/avaliacoes/index.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='avaliacoes'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendered layouts/_navbar.html.erb (Duration: 4.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | GC: 0.0ms)
+Completed 200 OK in 33ms (Views: 10.6ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/templates" for 127.0.0.1 at 2025-07-24 13:43:25 -0300
+Processing by Admin::TemplatesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY "templates"."name" ASC /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:13
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  Rendered admin/templates/index.html.erb within layouts/application (Duration: 90.6ms | GC: 18.8ms)
+  Rendered layouts/_navbar.html.erb (Duration: 6.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 99.8ms | GC: 18.8ms)
+Completed 200 OK in 128ms (Views: 99.6ms | ActiveRecord: 1.3ms (8 queries, 0 cached) | GC: 18.8ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2025-07-24 13:43:35 -0300
+Processing by LoginController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='destroy',application='Camaar',controller='login'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mUser Update (5.4ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = NULL WHERE "users"."id" = 1 /*action='destroy',application='Camaar',controller='login'*/[0m
+  ↳ app/models/user.rb:60:in `forget'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 91ms (ActiveRecord: 5.4ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2025-07-24 13:43:35 -0300
+Processing by LoginController#new as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/new.html.erb within layouts/login
+  Rendered login/new.html.erb within layouts/login (Duration: 30.6ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 41.7ms | GC: 0.0ms)
+Completed 200 OK in 67ms (Views: 44.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-24 13:43:35 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-24 13:43:35 -0300
+Started POST "/login" for 127.0.0.1 at 2025-07-24 13:43:48 -0300
+Processing by LoginController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'aluno@teste.com' LIMIT 1 /*action='create',application='Camaar',controller='login'*/[0m
+  ↳ app/controllers/login_controller.rb:9:in `create'
+Redirected to http://localhost:3000/user/templates
+Completed 303 See Other in 442ms (ActiveRecord: 6.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user/templates" for 127.0.0.1 at 2025-07-24 13:43:49 -0300
+Processing by User::TemplatesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplateResponse Pluck (2.2ms)[0m  [1m[34mSELECT "template_responses"."template_id" FROM "template_responses" WHERE "template_responses"."user_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering user/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "templates" WHERE 1=1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/user/templates/index.html.erb:10
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE 1=1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/user/templates/index.html.erb:12
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/user/templates/index.html.erb:19
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/user/templates/index.html.erb:19
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/user/templates/index.html.erb:19
+  [1m[36mTemplate Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "templates" INNER JOIN "template_responses" ON "template_responses"."template_id" = "templates"."id" WHERE "template_responses"."user_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/user/templates/index.html.erb:38
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" INNER JOIN "template_responses" ON "template_responses"."template_id" = "templates"."id" WHERE "template_responses"."user_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/user/templates/index.html.erb:40
+  Rendered user/templates/index.html.erb within layouts/application (Duration: 88.5ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 101.7ms | GC: 0.0ms)
+Completed 200 OK in 235ms (Views: 104.0ms | ActiveRecord: 3.2ms (9 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/user/templates/1" for 127.0.0.1 at 2025-07-24 13:43:52 -0300
+Processing by User::TemplatesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."id" = 1 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:44:in `set_template'
+  [1m[36mTemplateResponse Load (0.1ms)[0m  [1m[34mSELECT "template_responses".* FROM "template_responses" WHERE "template_responses"."template_id" = 1 AND "template_responses"."user_id" = 3 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:14:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering user/templates/show.html.erb within layouts/application
+  [1m[36mTemplateQuestion Load (0.2ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 1 ORDER BY "template_questions"."position" ASC /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/user/templates/show.html.erb:12:in `each_with_index'
+  Rendered user/templates/show.html.erb within layouts/application (Duration: 69.2ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 5.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 83.1ms | GC: 0.0ms)
+Completed 200 OK in 243ms (Views: 84.9ms | ActiveRecord: 0.6ms (4 queries, 0 cached) | GC: 10.9ms)
+
+
+Started PATCH "/user/templates/1/respond" for 127.0.0.1 at 2025-07-24 13:44:06 -0300
+Processing by User::TemplatesController#respond as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "answers"=>{"1"=>"5", "2"=>"Concordo Totalmente", "3"=>"Concordo Totalmente", "4"=>"Concordo Totalmente", "5"=>"asodk"}, "commit"=>"Enviar Respostas", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."id" = 1 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:44:in `set_template'
+  [1m[36mTemplateResponse Load (0.2ms)[0m  [1m[34mSELECT "template_responses".* FROM "template_responses" WHERE "template_responses"."template_id" = 1 AND "template_responses"."user_id" = 3 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:19:in `respond'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:23:in `respond'
+  [1m[36mTemplateResponse Exists? (4.9ms)[0m  [1m[34mSELECT 1 AS one FROM "template_responses" WHERE "template_responses"."user_id" = 3 AND "template_responses"."template_id" = 1 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:23:in `respond'
+  [1m[36mTemplateResponse Create (0.4ms)[0m  [1m[32mINSERT INTO "template_responses" ("user_id", "template_id", "submitted_at", "created_at", "updated_at") VALUES (3, 1, NULL, '2025-07-24 16:44:06.445545', '2025-07-24 16:44:06.445545') RETURNING "id" /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:23:in `respond'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:23:in `respond'
+  [1m[36mTemplateQuestion Load (0.2ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 1 AND "template_questions"."id" = 1 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:28:in `block in respond'
+  [1m[36mQuestionAnswer Load (0.7ms)[0m  [1m[34mSELECT "question_answers".* FROM "question_answers" WHERE "question_answers"."template_response_id" = 2 AND "question_answers"."template_question_id" = 1 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:29:in `block in respond'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mQuestionAnswer Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "question_answers" WHERE "question_answers"."template_response_id" = 2 AND "question_answers"."template_question_id" = 1 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mQuestionAnswer Create (0.7ms)[0m  [1m[32mINSERT INTO "question_answers" ("template_response_id", "template_question_id", "answer_text", "created_at", "updated_at") VALUES (2, 1, '5', '2025-07-24 16:44:06.575620', '2025-07-24 16:44:06.575620') RETURNING "id" /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mTemplateQuestion Load (0.9ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 1 AND "template_questions"."id" = 2 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:28:in `block in respond'
+  [1m[36mQuestionAnswer Load (0.1ms)[0m  [1m[34mSELECT "question_answers".* FROM "question_answers" WHERE "question_answers"."template_response_id" = 2 AND "question_answers"."template_question_id" = 2 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:29:in `block in respond'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mQuestionAnswer Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "question_answers" WHERE "question_answers"."template_response_id" = 2 AND "question_answers"."template_question_id" = 2 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mQuestionAnswer Create (0.2ms)[0m  [1m[32mINSERT INTO "question_answers" ("template_response_id", "template_question_id", "answer_text", "created_at", "updated_at") VALUES (2, 2, 'Concordo Totalmente', '2025-07-24 16:44:06.626071', '2025-07-24 16:44:06.626071') RETURNING "id" /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mTemplateQuestion Load (1.7ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 1 AND "template_questions"."id" = 3 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:28:in `block in respond'
+  [1m[36mQuestionAnswer Load (0.2ms)[0m  [1m[34mSELECT "question_answers".* FROM "question_answers" WHERE "question_answers"."template_response_id" = 2 AND "question_answers"."template_question_id" = 3 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:29:in `block in respond'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mQuestionAnswer Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "question_answers" WHERE "question_answers"."template_response_id" = 2 AND "question_answers"."template_question_id" = 3 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mQuestionAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "question_answers" ("template_response_id", "template_question_id", "answer_text", "created_at", "updated_at") VALUES (2, 3, 'Concordo Totalmente', '2025-07-24 16:44:06.659019', '2025-07-24 16:44:06.659019') RETURNING "id" /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mTemplateQuestion Load (0.1ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 1 AND "template_questions"."id" = 4 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:28:in `block in respond'
+  [1m[36mQuestionAnswer Load (0.1ms)[0m  [1m[34mSELECT "question_answers".* FROM "question_answers" WHERE "question_answers"."template_response_id" = 2 AND "question_answers"."template_question_id" = 4 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:29:in `block in respond'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mQuestionAnswer Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "question_answers" WHERE "question_answers"."template_response_id" = 2 AND "question_answers"."template_question_id" = 4 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mQuestionAnswer Create (1.0ms)[0m  [1m[32mINSERT INTO "question_answers" ("template_response_id", "template_question_id", "answer_text", "created_at", "updated_at") VALUES (2, 4, 'Concordo Totalmente', '2025-07-24 16:44:06.674930', '2025-07-24 16:44:06.674930') RETURNING "id" /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mTemplateQuestion Load (0.1ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 1 AND "template_questions"."id" = 5 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:28:in `block in respond'
+  [1m[36mQuestionAnswer Load (0.2ms)[0m  [1m[34mSELECT "question_answers".* FROM "question_answers" WHERE "question_answers"."template_response_id" = 2 AND "question_answers"."template_question_id" = 5 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:29:in `block in respond'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mQuestionAnswer Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "question_answers" WHERE "question_answers"."template_response_id" = 2 AND "question_answers"."template_question_id" = 5 LIMIT 1 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mQuestionAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "question_answers" ("template_response_id", "template_question_id", "answer_text", "created_at", "updated_at") VALUES (2, 5, 'asodk', '2025-07-24 16:44:06.692553', '2025-07-24 16:44:06.692553') RETURNING "id" /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:31:in `block in respond'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:34:in `respond'
+  [1m[36mTemplateResponse Update (0.2ms)[0m  [1m[33mUPDATE "template_responses" SET "submitted_at" = '2025-07-24 16:44:06.720341', "updated_at" = '2025-07-24 16:44:06.730884' WHERE "template_responses"."id" = 2 /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:34:in `respond'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='respond',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:34:in `respond'
+Redirected to http://localhost:3000/user/templates
+Completed 302 Found in 356ms (ActiveRecord: 29.1ms (26 queries, 0 cached) | GC: 13.2ms)
+
+
+Started GET "/user/templates" for 127.0.0.1 at 2025-07-24 13:44:06 -0300
+Processing by User::TemplatesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplateResponse Pluck (0.1ms)[0m  [1m[34mSELECT "template_responses"."template_id" FROM "template_responses" WHERE "template_responses"."user_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/User/templates_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering user/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "templates" WHERE "templates"."id" != 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/user/templates/index.html.erb:10
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."id" != 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/user/templates/index.html.erb:12
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/user/templates/index.html.erb:19
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/user/templates/index.html.erb:19
+  [1m[36mTemplate Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "templates" INNER JOIN "template_responses" ON "template_responses"."template_id" = "templates"."id" WHERE "template_responses"."user_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/user/templates/index.html.erb:38
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" INNER JOIN "template_responses" ON "template_responses"."template_id" = "templates"."id" WHERE "template_responses"."user_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/user/templates/index.html.erb:40
+  [1m[36mTemplateResponse Load (0.1ms)[0m  [1m[34mSELECT "template_responses".* FROM "template_responses" WHERE "template_responses"."template_id" = 1 AND "template_responses"."user_id" = 3 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/user/templates/index.html.erb:47
+  Rendered user/templates/index.html.erb within layouts/application (Duration: 49.8ms | GC: 0.5ms)
+  Rendered layouts/_navbar.html.erb (Duration: 2.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 67.2ms | GC: 0.5ms)
+Completed 200 OK in 107ms (Views: 75.8ms | ActiveRecord: 1.3ms (9 queries, 0 cached) | GC: 0.5ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2025-07-24 13:44:12 -0300
+Processing by LoginController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='destroy',application='Camaar',controller='login'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mUser Update (3.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = NULL WHERE "users"."id" = 3 /*action='destroy',application='Camaar',controller='login'*/[0m
+  ↳ app/models/user.rb:60:in `forget'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 77ms (ActiveRecord: 3.4ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2025-07-24 13:44:12 -0300
+Processing by LoginController#new as HTML
+  Rendering layout layouts/login.html.erb
+  Rendering login/new.html.erb within layouts/login
+  Rendered login/new.html.erb within layouts/login (Duration: 42.5ms | GC: 20.2ms)
+  Rendered layout layouts/login.html.erb (Duration: 55.5ms | GC: 20.2ms)
+Completed 200 OK in 108ms (Views: 60.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 27.5ms)
+
+
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-24 13:44:13 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-24 13:44:13 -0300
+Started GET "/favicon.ico" for 127.0.0.1 at 2025-07-24 13:44:13 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/login" for 127.0.0.1 at 2025-07-24 13:44:23 -0300
+Processing by LoginController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'admin@teste.com' LIMIT 1 /*action='create',application='Camaar',controller='login'*/[0m
+  ↳ app/controllers/login_controller.rb:9:in `create'
+  Rendering layout layouts/login.html.erb
+  Rendering login/new.html.erb within layouts/login
+  Rendered login/new.html.erb within layouts/login (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layout layouts/login.html.erb (Duration: 3.6ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 435ms (Views: 4.4ms | ActiveRecord: 4.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2025-07-24 13:44:31 -0300
+Processing by LoginController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'admin@teste.com' LIMIT 1 /*action='create',application='Camaar',controller='login'*/[0m
+  ↳ app/controllers/login_controller.rb:9:in `create'
+Redirected to http://localhost:3000/admin/templates
+Completed 303 See Other in 412ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/templates" for 127.0.0.1 at 2025-07-24 13:44:31 -0300
+Processing by Admin::TemplatesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Load (0.7ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY "templates"."name" ASC /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:13
+  [1m[36mTemplateQuestion Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  Rendered admin/templates/index.html.erb within layouts/application (Duration: 66.7ms | GC: 9.7ms)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 79.7ms | GC: 9.7ms)
+Completed 200 OK in 105ms (Views: 79.9ms | ActiveRecord: 2.6ms (8 queries, 0 cached) | GC: 9.7ms)
+
+
+Started GET "/admin/gerenciamento" for 127.0.0.1 at 2025-07-24 13:44:35 -0300
+Processing by Admin::GerenciamentoController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admin/gerenciamento/index.html.erb within layouts/application
+  Rendered admin/gerenciamento/index.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='gerenciamento'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendered layouts/_navbar.html.erb (Duration: 14.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.7ms | GC: 1.3ms)
+Completed 200 OK in 87ms (Views: 50.4ms | ActiveRecord: 3.8ms (1 query, 0 cached) | GC: 1.3ms)
+
+
+Started GET "/admin/avaliacoes" for 127.0.0.1 at 2025-07-24 13:44:35 -0300
+Processing by Admin::AvaliacoesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admin/avaliacoes/index.html.erb within layouts/application
+  Rendered admin/avaliacoes/index.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='avaliacoes'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendered layouts/_navbar.html.erb (Duration: 14.2ms | GC: 1.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 34.8ms | GC: 1.6ms)
+Completed 200 OK in 92ms (Views: 39.3ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/admin/gerenciamento" for 127.0.0.1 at 2025-07-24 13:44:35 -0300
+Processing by Admin::GerenciamentoController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admin/gerenciamento/index.html.erb within layouts/application
+  Rendered admin/gerenciamento/index.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='gerenciamento'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendered layouts/_navbar.html.erb (Duration: 4.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 11.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/avaliacoes" for 127.0.0.1 at 2025-07-24 13:44:36 -0300
+Processing by Admin::AvaliacoesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admin/avaliacoes/index.html.erb within layouts/application
+  Rendered admin/avaliacoes/index.html.erb within layouts/application (Duration: 4.6ms | GC: 0.0ms)
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='avaliacoes'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendered layouts/_navbar.html.erb (Duration: 18.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 42.7ms | GC: 0.0ms)
+Completed 200 OK in 91ms (Views: 40.3ms | ActiveRecord: 6.2ms (1 query, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/admin/avaliacoes" for 127.0.0.1 at 2025-07-24 13:44:43 -0300
+Processing by Admin::AvaliacoesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admin/avaliacoes/index.html.erb within layouts/application
+  Rendered admin/avaliacoes/index.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='avaliacoes'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendered layouts/_navbar.html.erb (Duration: 6.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 57.0ms | GC: 0.4ms)
+Completed 200 OK in 95ms (Views: 57.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/admin/gerenciamento" for 127.0.0.1 at 2025-07-24 13:44:44 -0300
+Processing by Admin::GerenciamentoController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admin/gerenciamento/index.html.erb within layouts/application
+  Rendered admin/gerenciamento/index.html.erb within layouts/application (Duration: 3.8ms | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='gerenciamento'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendered layouts/_navbar.html.erb (Duration: 23.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 47.7ms | GC: 0.4ms)
+Completed 200 OK in 122ms (Views: 55.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/admin/avaliacoes" for 127.0.0.1 at 2025-07-24 17:46:28 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Started GET "/admin/avaliacoes" for 127.0.0.1 at 2025-07-24 17:46:28 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/admin/avaliacoes"):
+  
+Processing by Admin::AvaliacoesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admin/avaliacoes/index.html.erb within layouts/application
+  Rendered admin/avaliacoes/index.html.erb within layouts/application (Duration: 46.4ms | GC: 17.6ms)
+Started GET "/admin/templates" for 127.0.0.1 at 2025-07-24 17:46:29 -0300
+Processing by Admin::TemplatesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='avaliacoes'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendered layouts/_navbar.html.erb (Duration: 442.5ms | GC: 71.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 730.0ms | GC: 91.3ms)
+Completed 200 OK in 1100ms (Views: 723.0ms | ActiveRecord: 20.1ms (1 query, 0 cached) | GC: 111.0ms)
+
+
+  [1m[36mUser Load (8.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Load (2.5ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY "templates"."name" ASC /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:13
+  [1m[36mTemplateQuestion Count (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  Rendered admin/templates/index.html.erb within layouts/application (Duration: 389.3ms | GC: 0.7ms)
+  Rendered layouts/_navbar.html.erb (Duration: 3.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 409.7ms | GC: 0.7ms)
+Completed 200 OK in 997ms (Views: 412.1ms | ActiveRecord: 32.6ms (8 queries, 0 cached) | GC: 72.9ms)
+
+
+Started GET "/admin/templates" for 127.0.0.1 at 2025-07-24 17:46:30 -0300
+Processing by Admin::TemplatesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Load (0.3ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY "templates"."name" ASC /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:13
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  Rendered admin/templates/index.html.erb within layouts/application (Duration: 104.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 7.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 128.6ms | GC: 0.0ms)
+Completed 200 OK in 224ms (Views: 130.6ms | ActiveRecord: 1.9ms (8 queries, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-24 17:46:31 -0300
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-24 17:46:31 -0300
+Started GET "/admin/templates" for 127.0.0.1 at 2025-07-24 17:47:21 -0300
+Started GET "/assets/controllers/application-3affb389.js" for 127.0.0.1 at 2025-07-24 17:47:21 -0300
+Started GET "/assets/controllers/index-ee64e1f1.js" for 127.0.0.1 at 2025-07-24 17:47:21 -0300
+Processing by Admin::TemplatesController#index as */*
+Redirected to http://localhost:3000/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 166ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 13.9ms)
+
+
+Started GET "/assets/application-bfcdf840.js" for 127.0.0.1 at 2025-07-24 17:47:21 -0300
+Started GET "/login" for 127.0.0.1 at 2025-07-24 17:47:21 -0300
+Processing by LoginController#new as */*
+  Rendering layout layouts/login.html.erb
+  Rendering login/new.html.erb within layouts/login
+  Rendered login/new.html.erb within layouts/login (Duration: 17.4ms | GC: 0.5ms)
+  Rendered layout layouts/login.html.erb (Duration: 20.8ms | GC: 0.5ms)
+Completed 200 OK in 85ms (Views: 22.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/admin/templates" for 127.0.0.1 at 2025-07-24 18:16:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Camaar'*/[0m
+Processing by Admin::TemplatesController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Load (0.6ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY "templates"."name" ASC /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:13
+  [1m[36mTemplateQuestion Count (4.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (3.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (10.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (3.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  Rendered admin/templates/index.html.erb within layouts/application (Duration: 481.7ms | GC: 2.8ms)
+  Rendered layouts/_navbar.html.erb (Duration: 30.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 597.3ms | GC: 2.8ms)
+Completed 200 OK in 875ms (Views: 575.1ms | ActiveRecord: 37.8ms (8 queries, 0 cached) | GC: 29.2ms)
+
+
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-24 18:16:08 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-24 18:16:08 -0300
+Started GET "/admin/templates/new" for 127.0.0.1 at 2025-07-24 18:16:50 -0300
+Processing by Admin::TemplatesController#new as HTML
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='new',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/new.html.erb within layouts/application
+  Rendered admin/templates/new.html.erb within layouts/application (Duration: 39.6ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 12.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 65.9ms | GC: 0.0ms)
+Completed 200 OK in 314ms (Views: 70.5ms | ActiveRecord: 1.5ms (1 query, 0 cached) | GC: 33.8ms)
+
+
+Started POST "/admin/templates" for 127.0.0.1 at 2025-07-24 18:16:59 -0300
+Processing by Admin::TemplatesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "template"=>{"name"=>"a", "description"=>"a", "template_questions_attributes"=>{"0"=>{"question_text"=>"a", "question_type"=>"text", "required"=>"0"}}}, "commit"=>"Criar Template"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='create',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:23:in `create'
+  [1m[36mTemplate Exists? (5.8ms)[0m  [1m[34mSELECT 1 AS one FROM "templates" WHERE "templates"."name" = 'a' LIMIT 1 /*action='create',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:23:in `create'
+  [1m[36mTemplate Create (1.7ms)[0m  [1m[32mINSERT INTO "templates" ("name", "description", "user_id", "created_at", "updated_at") VALUES ('a', 'a', 1, '2025-07-24 21:16:59.995695', '2025-07-24 21:16:59.995695') RETURNING "id" /*action='create',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:23:in `create'
+  [1m[36mTemplateQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "template_questions" ("template_id", "question_text", "question_type", "options", "required", "position", "created_at", "updated_at") VALUES (4, 'a', 'text', NULL, 0, 0, '2025-07-24 21:17:00.060497', '2025-07-24 21:17:00.060497') RETURNING "id" /*action='create',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:23:in `create'
+Redirected to http://localhost:3000/admin/templates
+Completed 302 Found in 191ms (ActiveRecord: 10.6ms (4 queries, 0 cached) | GC: 1.5ms)
+
+
+Started GET "/admin/templates" for 127.0.0.1 at 2025-07-24 18:17:00 -0300
+Processing by Admin::TemplatesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY "templates"."name" ASC /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:13
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  Rendered admin/templates/index.html.erb within layouts/application (Duration: 123.5ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 3.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 136.5ms | GC: 0.0ms)
+Completed 200 OK in 178ms (Views: 137.9ms | ActiveRecord: 4.2ms (10 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/templates/4" for 127.0.0.1 at 2025-07-24 18:17:02 -0300
+Processing by Admin::TemplatesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (0.3ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 AND "templates"."id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:51:in `set_template'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/show.html.erb within layouts/application
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:28
+  [1m[36mTemplateQuestion Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "template_questions" WHERE "template_questions"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:30
+  [1m[36mTemplateQuestion Load (0.1ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 4 ORDER BY "template_questions"."position" ASC /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:32:in `each_with_index'
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:60
+  [1m[36mTemplateResponse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "template_responses" WHERE "template_responses"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:62
+  Rendered admin/templates/show.html.erb within layouts/application (Duration: 32.5ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 35.3ms | GC: 25.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 71.3ms | GC: 25.7ms)
+Completed 200 OK in 151ms (Views: 72.9ms | ActiveRecord: 0.9ms (7 queries, 0 cached) | GC: 25.7ms)
+
+
+Started GET "/admin/templates/4" for 127.0.0.1 at 2025-07-24 18:17:07 -0300
+Processing by Admin::TemplatesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 AND "templates"."id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:51:in `set_template'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/show.html.erb within layouts/application
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:28
+  [1m[36mTemplateQuestion Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "template_questions" WHERE "template_questions"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:30
+  [1m[36mTemplateQuestion Load (0.9ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 4 ORDER BY "template_questions"."position" ASC /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:32:in `each_with_index'
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:60
+  [1m[36mTemplateResponse Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "template_responses" WHERE "template_responses"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:62
+  Rendered admin/templates/show.html.erb within layouts/application (Duration: 58.5ms | GC: 0.6ms)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 66.1ms | GC: 0.6ms)
+Completed 200 OK in 116ms (Views: 64.7ms | ActiveRecord: 2.4ms (7 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/admin/templates/4" for 127.0.0.1 at 2025-07-24 18:17:10 -0300
+Processing by Admin::TemplatesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 AND "templates"."id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:51:in `set_template'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/show.html.erb within layouts/application
+  [1m[36mTemplateQuestion Count (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:28
+  [1m[36mTemplateQuestion Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "template_questions" WHERE "template_questions"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:30
+  [1m[36mTemplateQuestion Load (0.9ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 4 ORDER BY "template_questions"."position" ASC /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:32:in `each_with_index'
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:60
+  [1m[36mTemplateResponse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "template_responses" WHERE "template_responses"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:62
+  Rendered admin/templates/show.html.erb within layouts/application (Duration: 44.3ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 6.8ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 73.9ms | GC: 0.3ms)
+Completed 200 OK in 228ms (Views: 71.8ms | ActiveRecord: 3.9ms (7 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/admin/templates/4" for 127.0.0.1 at 2025-07-24 18:17:11 -0300
+Processing by Admin::TemplatesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (2.9ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 AND "templates"."id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:51:in `set_template'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/show.html.erb within layouts/application
+  [1m[36mTemplateQuestion Count (3.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:28
+  [1m[36mTemplateQuestion Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "template_questions" WHERE "template_questions"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:30
+  [1m[36mTemplateQuestion Load (0.4ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 4 ORDER BY "template_questions"."position" ASC /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:32:in `each_with_index'
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:60
+  [1m[36mTemplateResponse Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "template_responses" WHERE "template_responses"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:62
+Started GET "/admin/templates/4" for 127.0.0.1 at 2025-07-24 18:17:11 -0300
+  Rendered admin/templates/show.html.erb within layouts/application (Duration: 55.6ms | GC: 0.9ms)
+  Rendered layouts/_navbar.html.erb (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 73.7ms | GC: 0.9ms)
+Completed 200 OK in 228ms (Views: 78.3ms | ActiveRecord: 4.4ms (7 queries, 0 cached) | GC: 1.3ms)
+
+
+Processing by Admin::TemplatesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 AND "templates"."id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:51:in `set_template'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/show.html.erb within layouts/application
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:28
+  [1m[36mTemplateQuestion Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "template_questions" WHERE "template_questions"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:30
+  [1m[36mTemplateQuestion Load (0.1ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 4 ORDER BY "template_questions"."position" ASC /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:32:in `each_with_index'
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:60
+  [1m[36mTemplateResponse Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "template_responses" WHERE "template_responses"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:62
+  Rendered admin/templates/show.html.erb within layouts/application (Duration: 50.2ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 4.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 70.2ms | GC: 0.0ms)
+Completed 200 OK in 124ms (Views: 75.5ms | ActiveRecord: 1.4ms (7 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/templates" for 127.0.0.1 at 2025-07-24 18:17:14 -0300
+Processing by Admin::TemplatesController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Load (0.5ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY "templates"."name" ASC /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:13
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (3.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  Rendered admin/templates/index.html.erb within layouts/application (Duration: 205.4ms | GC: 0.7ms)
+  Rendered layouts/_navbar.html.erb (Duration: 7.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 222.4ms | GC: 0.7ms)
+Completed 200 OK in 305ms (Views: 219.8ms | ActiveRecord: 7.6ms (10 queries, 0 cached) | GC: 22.3ms)
+
+
+Started GET "/admin/templates/4" for 127.0.0.1 at 2025-07-24 18:17:17 -0300
+Processing by Admin::TemplatesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 AND "templates"."id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:51:in `set_template'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/show.html.erb within layouts/application
+  [1m[36mTemplateQuestion Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:28
+  [1m[36mTemplateQuestion Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "template_questions" WHERE "template_questions"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:30
+  [1m[36mTemplateQuestion Load (1.8ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 4 ORDER BY "template_questions"."position" ASC /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:32:in `each_with_index'
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:60
+  [1m[36mTemplateResponse Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "template_responses" WHERE "template_responses"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:62
+  Rendered admin/templates/show.html.erb within layouts/application (Duration: 52.2ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 10.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 68.7ms | GC: 0.2ms)
+Completed 200 OK in 145ms (Views: 68.7ms | ActiveRecord: 3.9ms (7 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/admin/templates/4" for 127.0.0.1 at 2025-07-24 18:17:18 -0300
+Processing by Admin::TemplatesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (0.6ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 AND "templates"."id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:51:in `set_template'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/show.html.erb within layouts/application
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:28
+  [1m[36mTemplateQuestion Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "template_questions" WHERE "template_questions"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:30
+  [1m[36mTemplateQuestion Load (0.4ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 4 ORDER BY "template_questions"."position" ASC /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:32:in `each_with_index'
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:60
+  [1m[36mTemplateResponse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "template_responses" WHERE "template_responses"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:62
+  Rendered admin/templates/show.html.erb within layouts/application (Duration: 14.0ms | GC: 0.4ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | GC: 0.4ms)
+Completed 200 OK in 106ms (Views: 16.2ms | ActiveRecord: 1.6ms (7 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/admin/templates/4" for 127.0.0.1 at 2025-07-24 18:17:21 -0300
+Processing by Admin::TemplatesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 AND "templates"."id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:51:in `set_template'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/show.html.erb within layouts/application
+  [1m[36mTemplateQuestion Count (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:28
+  [1m[36mTemplateQuestion Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "template_questions" WHERE "template_questions"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:30
+  [1m[36mTemplateQuestion Load (0.1ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 4 ORDER BY "template_questions"."position" ASC /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:32:in `each_with_index'
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:60
+  [1m[36mTemplateResponse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "template_responses" WHERE "template_responses"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:62
+  Rendered admin/templates/show.html.erb within layouts/application (Duration: 16.3ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | GC: 0.0ms)
+Completed 200 OK in 100ms (Views: 26.1ms | ActiveRecord: 2.3ms (7 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/login" for 127.0.0.1 at 2025-07-24 18:17:21 -0300
+Started GET "/assets/admin" for 127.0.0.1 at 2025-07-24 18:17:21 -0300
+Started GET "/admin/templates/4/edit" for 127.0.0.1 at 2025-07-24 18:17:22 -0300
+Processing by Admin::TemplatesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 AND "templates"."id" = 4 LIMIT 1 /*action='edit',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:51:in `set_template'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/edit.html.erb within layouts/application
+  [1m[36mTemplateQuestion Load (0.1ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='edit',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/edit.html.erb:34
+  [1m[36mTemplateQuestion Count (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='edit',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/edit.html.erb:78
+  Rendered admin/templates/edit.html.erb within layouts/application (Duration: 111.1ms | GC: 1.2ms)
+  Rendered layouts/_navbar.html.erb (Duration: 7.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 130.2ms | GC: 1.2ms)
+Completed 200 OK in 164ms (Views: 129.9ms | ActiveRecord: 2.4ms (4 queries, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/admin/templates" for 127.0.0.1 at 2025-07-24 18:17:24 -0300
+Processing by Admin::TemplatesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Load (1.0ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY "templates"."name" ASC /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:13
+  [1m[36mTemplateQuestion Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  Rendered admin/templates/index.html.erb within layouts/application (Duration: 30.9ms | GC: 0.6ms)
+  Rendered layouts/_navbar.html.erb (Duration: 23.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 60.1ms | GC: 0.6ms)
+Completed 200 OK in 119ms (Views: 59.9ms | ActiveRecord: 2.5ms (10 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/admin/templates" for 127.0.0.1 at 2025-07-24 18:17:25 -0300
+Processing by Admin::TemplatesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Load (0.7ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY "templates"."name" ASC /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:13
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  Rendered admin/templates/index.html.erb within layouts/application (Duration: 34.3ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 72.7ms | GC: 0.0ms)
+Completed 200 OK in 129ms (Views: 83.5ms | ActiveRecord: 2.0ms (10 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/templates/4" for 127.0.0.1 at 2025-07-24 18:17:29 -0300
+Processing by Admin::TemplatesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (5.6ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 AND "templates"."id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:51:in `set_template'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/show.html.erb within layouts/application
+  [1m[36mTemplateQuestion Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:28
+  [1m[36mTemplateQuestion Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "template_questions" WHERE "template_questions"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:30
+  [1m[36mTemplateQuestion Load (0.3ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 4 ORDER BY "template_questions"."position" ASC /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:32:in `each_with_index'
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:60
+  [1m[36mTemplateResponse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "template_responses" WHERE "template_responses"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:62
+  Rendered admin/templates/show.html.erb within layouts/application (Duration: 31.1ms | GC: 6.5ms)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 57.7ms | GC: 6.5ms)
+Completed 200 OK in 148ms (Views: 63.8ms | ActiveRecord: 6.6ms (7 queries, 0 cached) | GC: 6.5ms)
+
+
+Started GET "/admin/templates/4" for 127.0.0.1 at 2025-07-24 18:17:32 -0300
+Processing by Admin::TemplatesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 AND "templates"."id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:51:in `set_template'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/show.html.erb within layouts/application
+  [1m[36mTemplateQuestion Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:28
+  [1m[36mTemplateQuestion Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "template_questions" WHERE "template_questions"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:30
+  [1m[36mTemplateQuestion Load (0.1ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 4 ORDER BY "template_questions"."position" ASC /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:32:in `each_with_index'
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:60
+  [1m[36mTemplateResponse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "template_responses" WHERE "template_responses"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:62
+  Rendered admin/templates/show.html.erb within layouts/application (Duration: 28.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | GC: 0.0ms)
+Completed 200 OK in 149ms (Views: 38.2ms | ActiveRecord: 0.8ms (7 queries, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/admin/templates" for 127.0.0.1 at 2025-07-24 18:17:33 -0300
+Processing by Admin::TemplatesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY "templates"."name" ASC /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:13
+  [1m[36mTemplateQuestion Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  Rendered admin/templates/index.html.erb within layouts/application (Duration: 22.4ms | GC: 0.5ms)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 28.5ms | GC: 0.5ms)
+Completed 200 OK in 50ms (Views: 28.5ms | ActiveRecord: 1.1ms (10 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/admin/templates/4" for 127.0.0.1 at 2025-07-24 18:17:35 -0300
+Processing by Admin::TemplatesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 AND "templates"."id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:51:in `set_template'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/show.html.erb within layouts/application
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:28
+  [1m[36mTemplateQuestion Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "template_questions" WHERE "template_questions"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:30
+  [1m[36mTemplateQuestion Load (0.1ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 4 ORDER BY "template_questions"."position" ASC /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:32:in `each_with_index'
+  [1m[36mTemplateResponse Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:60
+  [1m[36mTemplateResponse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "template_responses" WHERE "template_responses"."template_id" = 4 LIMIT 1 /*action='show',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/show.html.erb:62
+  Rendered admin/templates/show.html.erb within layouts/application (Duration: 8.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | GC: 0.0ms)
+Completed 200 OK in 42ms (Views: 10.0ms | ActiveRecord: 0.9ms (7 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/templates/4/edit" for 127.0.0.1 at 2025-07-24 18:17:35 -0300
+Processing by Admin::TemplatesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 AND "templates"."id" = 4 LIMIT 1 /*action='edit',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/admin/templates_controller.rb:51:in `set_template'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/edit.html.erb within layouts/application
+  [1m[36mTemplateQuestion Load (0.1ms)[0m  [1m[34mSELECT "template_questions".* FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='edit',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/edit.html.erb:34
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='edit',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/edit.html.erb:78
+  Rendered admin/templates/edit.html.erb within layouts/application (Duration: 30.4ms | GC: 4.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.4ms | GC: 4.0ms)
+Completed 200 OK in 66ms (Views: 33.7ms | ActiveRecord: 0.4ms (4 queries, 0 cached) | GC: 4.0ms)
+
+
+Started GET "/admin/templates" for 127.0.0.1 at 2025-07-24 18:17:37 -0300
+Processing by Admin::TemplatesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Load (0.4ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY "templates"."name" ASC /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:13
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  Rendered admin/templates/index.html.erb within layouts/application (Duration: 34.4ms | GC: 1.3ms)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 38.0ms | GC: 1.3ms)
+Completed 200 OK in 69ms (Views: 37.1ms | ActiveRecord: 1.5ms (10 queries, 0 cached) | GC: 1.3ms)
+
+
+Started GET "/admin/templates" for 127.0.0.1 at 2025-07-24 18:17:39 -0300
+Processing by Admin::TemplatesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/templates/index.html.erb within layouts/application
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."user_id" = 1 ORDER BY "templates"."name" ASC /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:13
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 2 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 1 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 3 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  [1m[36mTemplateQuestion Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_questions" WHERE "template_questions"."template_id" = 4 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/views/admin/templates/index.html.erb:20
+  [1m[36mTemplateResponse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "template_responses" WHERE "template_responses"."template_id" = 4 /*action='index',application='Camaar',controller='templates'*/[0m
+  ↳ app/models/template.rb:17:in `total_responses'
+  Rendered admin/templates/index.html.erb within layouts/application (Duration: 37.6ms | GC: 1.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 5.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 47.7ms | GC: 1.2ms)
+Completed 200 OK in 69ms (Views: 47.1ms | ActiveRecord: 2.1ms (10 queries, 0 cached) | GC: 1.2ms)
+
+
