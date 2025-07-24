@@ -1,0 +1,67 @@
+<% content_for :title, @template.name %>
+<% content_for :navbar_title, "Responder Formulário" %>
+
+<div class="bg-[#dbdbdb] min-h-screen w-full p-4">
+  <div class="max-w-4xl mx-auto">
+    <div class="bg-white rounded-lg shadow p-6">
+      <h1 class="text-2xl font-bold mb-2"><%= @template.name %></h1>
+      <p class="text-gray-600 mb-6"><%= @template.description %></p>
+
+      <%= form_with url: respond_user_template_path(@template), method: :patch, local: true do |form| %>
+        <div class="space-y-6">
+          <% @questions.each_with_index do |question, index| %>
+            <div class="border-b border-gray-200 pb-6">
+              <h3 class="text-lg font-medium mb-3">
+                <%= index + 1 %>. <%= question.question_text %>
+                <% if question.required? %>
+                  <span class="text-red-500">*</span>
+                <% end %>
+              </h3>
+
+              <% case question.question_type %>
+              <% when 'text' %>
+                <%= text_area_tag "answers[#{question.id}]", "", 
+                    rows: 3, 
+                    class: "w-full px-3 py-2 border border-gray-300 rounded-md",
+                    required: question.required? %>
+
+              <% when 'radio' %>
+                <div class="space-y-2">
+                  <% %w[Discordo\ Totalmente Discordo Neutro Concordo Concordo\ Totalmente].each do |option| %>
+                    <label class="flex items-center">
+                      <%= radio_button_tag "answers[#{question.id}]", option, false,
+                          class: "mr-2", required: question.required? %>
+                      <%= option %>
+                    </label>
+                  <% end %>
+                </div>
+
+              <% when 'scale' %>
+                <div class="flex items-center space-x-4">
+                  <span class="text-sm">1 (Muito Ruim)</span>
+                  <div class="flex space-x-2">
+                    <% (1..5).each do |value| %>
+                      <label class="flex flex-col items-center">
+                        <%= radio_button_tag "answers[#{question.id}]", value, false,
+                            class: "mb-1", required: question.required? %>
+                        <%= value %>
+                      </label>
+                    <% end %>
+                  </div>
+                  <span class="text-sm">5 (Excelente)</span>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="flex gap-4 mt-8">
+          <%= form.submit "Enviar Respostas", 
+              class: "bg-[#22C55E] hover:bg-green-600 text-white px-6 py-3 rounded font-medium" %>
+          <%= link_to "Voltar", user_templates_path, 
+              class: "bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded font-medium" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

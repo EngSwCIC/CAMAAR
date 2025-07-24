@@ -6,6 +6,9 @@ class User < ApplicationRecord
   DIGEST_COST = Rails.env.production? ? 12 : 1
   ROLES = %w[admin docente discente].freeze
 
+  has_many :templates, dependent: :destroy
+  has_many :template_responses, dependent: :destroy
+
   validates :ocupacao, inclusion: { in: ROLES }
 
   # Validações
@@ -70,15 +73,15 @@ class User < ApplicationRecord
 
   # Métodos para verificar papel do usuário
   def admin?
-    ocupacao == 'admin'
+    ocupacao == "admin"
   end
 
   def docente?
-    ocupacao == 'docente'
+    ocupacao == "docente"
   end
 
   def discente?
-    ocupacao == 'discente'
+    ocupacao == "discente"
   end
 
   private

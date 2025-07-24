@@ -57,8 +57,13 @@
   </div>
   <div class="p-4">
     <ul class="space-y-2">
+      <!-- Na seção do menu lateral -->
       <% if current_user.admin? %>
         <!-- Menu para Admin -->
+        <li>
+          <%= link_to 'Templates', admin_templates_path,
+                      class: "block px-4 py-2 rounded #{current_page?(admin_templates_path) ? 'text-white bg-[#6c2365] hover:bg-[#7a2f7a]' : 'text-black hover:bg-[#d9b6db]'}" %>
+        </li>
         <li>
           <%= link_to 'Avaliações', admin_avaliacoes_path,
                       class: "block px-4 py-2 rounded #{current_page?(admin_avaliacoes_path) ? 'text-white bg-[#6c2365] hover:bg-[#7a2f7a]' : 'text-black hover:bg-[#d9b6db]'}" %>
@@ -69,10 +74,10 @@
         </li>
       <% else %>
         <li>
-          <%= link_to 'Avaliações', user_avaliacoes_path,
-                      class: "block px-4 py-2 rounded #{current_page?(user_avaliacoes_path) ? 'text-white bg-[#6c2365] hover:bg-[#7a2f7a]' : 'text-black hover:bg-[#d9b6db]'}" %>
+          <%= link_to 'Formulários', user_templates_path,
+                      class: "block px-4 py-2 rounded #{current_page?(user_templates_path) ? 'text-white bg-[#6c2365] hover:bg-[#7a2f7a]' : 'text-black hover:bg-[#d9b6db]'}" %>
         </li>
-    <% end %>
+      <% end %>
     </ul>
   </div>
 </div>
