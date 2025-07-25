@@ -4,7 +4,7 @@
         "name": "BANCOS DE DADOS",
         "class": {
             "classCode": "TA",
-            "semester": "2021.2",
+            "semester": "2025.1",
             "time": "35T45"
         }
     },
@@ -13,7 +13,7 @@
         "name": "ENGENHARIA DE SOFTWARE",
         "class": {
             "classCode": "TA",
-            "semester": "2021.2",
+            "semester": "2025.1",
             "time": "35M12"
         }
     },
@@ -22,7 +22,7 @@
         "name": "PROGRAMAÇÃO CONCORRENTE",
         "class": {
             "classCode": "TA",
-            "semester": "2021.2",
+            "semester": "2025.1",
             "time": "35M34"
         }
     }

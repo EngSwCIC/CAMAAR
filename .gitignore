@@ -1,0 +1,43 @@
+# === Rails ===
+
+# Arquivos temporários e de log
+/log/*
+!/log/.keep
+/tmp
+
+# Cache e compilação
+.byebug_history
+.sass-cache
+.cache/
+coverage/
+public/assets
+public/packs
+public/packs-test
+public/uploads
+
+# Banco de dados SQLite (caso use)
+*.sqlite3
+*.sqlite3-journal
+
+# Dependências locais
+.bundle/
+vendor/bundle
+node_modules/
+yarn-error.log
+npm-debug.log
+
+# Arquivos de swap e backup (comuns no Linux e editores)
+*~
+*.swp
+*.swo
+*.bak
+
+# === RubyMine / JetBrains ===
+
+.idea/
+*.iml
+.idea_modules/
+.DS_Store
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

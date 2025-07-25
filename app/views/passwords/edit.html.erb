@@ -1,0 +1,18 @@
+# app/views/passwords/edit.html.erb
+<h2>Redefinir senha</h2>
+
+<%= form_with model: @user, url: password_reset_update_path do |f| %>
+  <div class="field">
+    <%= f.label :password, "Nova senha" %>
+    <%= f.password_field :password, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, required: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Atualizar senha" %>
+  </div>
+<% end %>

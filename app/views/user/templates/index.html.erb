@@ -1,0 +1,56 @@
+<% content_for :title, "Formulários Disponíveis" %>
+<% content_for :navbar_title, "Avaliações" %>
+
+<div class="bg-[#dbdbdb] min-h-screen w-full p-4">
+  <div class="max-w-6xl mx-auto">
+    <h1 class="text-2xl font-bold mb-6">Formulários de Avaliação</h1>
+
+    <!-- Templates Pendentes -->
+    <div class="mb-8">
+      <h2 class="text-lg font-semibold mb-4 text-red-600">Pendentes (<%=@available_templates.count%>)</h2>
+      <div class="grid gap-4">
+        <% @available_templates.each do |template| %>
+          <div class="bg-white rounded-lg shadow p-6 border-l-4 border-red-500">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-lg font-semibold"><%= template.name %></h3>
+                <p class="text-gray-600"><%= template.description %></p>
+                <p class="text-sm text-gray-500 mt-2">
+                  <%= template.template_questions.count %> perguntas
+                </p>
+              </div>
+              <%= link_to "Responder", user_template_path(template), 
+                          class: "bg-[#22C55E] hover:bg-green-600 text-white px-4 py-2 rounded" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      
+      <% if @available_templates.empty? %>
+        <div class="bg-white rounded-lg shadow p-8 text-center">
+          <p class="text-gray-500">✅ Nenhum formulário pendente!</p>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Templates Concluídos -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4 text-green-600">Concluídos (<%=@completed_templates.count%>)</h2>
+      <div class="grid gap-4">
+        <% @completed_templates.each do |template| %>
+          <div class="bg-white rounded-lg shadow p-6 border-l-4 border-green-500">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-lg font-semibold"><%= template.name %></h3>
+                <p class="text-gray-600"><%= template.description %></p>
+                <p class="text-sm text-green-600 mt-2">
+                  ✅ Respondido em <%= template.template_responses.find_by(user: current_user)&.submitted_at&.strftime("%d/%m/%Y às %H:%M") %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

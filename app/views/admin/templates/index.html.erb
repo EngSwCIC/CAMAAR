@@ -1,0 +1,46 @@
+<% content_for :title, "Meus Templates" %>
+<% content_for :navbar_title, "Templates" %>
+
+<div class="bg-[#dbdbdb] min-h-screen w-full p-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold">Meus Templates</h1>
+      <%= link_to "Novo Template", new_admin_template_path, 
+                  class: "bg-[#22C55E] hover:bg-green-600 text-white px-4 py-2 rounded" %>
+    </div>
+
+    <div class="grid gap-4">
+      <% @templates.each do |template| %>
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="text-lg font-semibold"><%= template.name %></h3>
+              <p class="text-gray-600"><%= template.description %></p>
+              <p class="text-sm text-gray-500 mt-2">
+                <%= template.template_questions.count %> perguntas • 
+                <%= template.total_responses %> respostas
+              </p>
+            </div>
+            <div class="flex gap-2">
+              <%= link_to "Ver", admin_template_path(template), 
+                          class: "bg-blue-500 text-white px-3 py-1 rounded text-sm" %>
+              <%= link_to "Editar", edit_admin_template_path(template), 
+                          class: "bg-yellow-500 text-white px-3 py-1 rounded text-sm" %>
+              <%= link_to "Excluir", admin_template_path(template), method: :delete,
+                          confirm: "Tem certeza?",
+                          class: "bg-red-500 text-white px-3 py-1 rounded text-sm" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <% if @templates.empty? %>
+        <div class="bg-white rounded-lg shadow p-8 text-center">
+          <p class="text-gray-500">Nenhum template criado ainda.</p>
+          <%= link_to "Criar meu primeiro template", new_admin_template_path,
+                      class: "inline-block mt-4 bg-[#22C55E] text-white px-6 py-2 rounded" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
