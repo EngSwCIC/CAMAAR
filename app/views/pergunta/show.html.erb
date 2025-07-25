@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @perguntum %>
+
+<div>
+  <%= link_to "Edit this perguntum", edit_perguntum_path(@perguntum) %> |
+  <%= link_to "Back to pergunta", pergunta_path %>
+
+  <%= button_to "Destroy this perguntum", @perguntum, method: :delete %>
+</div>

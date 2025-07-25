@@ -1,0 +1,94 @@
+<% content_for :title, "Recuperar Senha - CAMAAR" %>
+<div class="login-container">
+  <div class="login-card fade-in-up">
+    <!-- Seção do Formulário -->
+    <div class="login-form-section">
+      <h1 class="login-title">RECUPERAR SENHA</h1>
+      <p class="text-muted mb-4">Digite sua matrícula e email para redefinir sua senha</p>
+      <%= form_with url: recuperar_senha_path, local: true, class: "needs-validation", novalidate: true do |f| %>
+        <div class="form-group">
+          <%= f.label :matricula, "Matrícula", class: "form-label" %>
+          <%= f.text_field :matricula, class: "form-control", placeholder: "Digite sua matrícula", required: true %>
+          <div class="invalid-feedback">Por favor, informe sua matrícula.</div>
+        </div>
+        <div class="form-group">
+          <%= f.label :email, "Email", class: "form-label" %>
+          <%= f.email_field :email, class: "form-control", placeholder: "Digite seu email", required: true %>
+          <div class="invalid-feedback">Por favor, informe seu e-mail.</div>
+        </div>
+        <div class="form-group">
+          <%= f.label :password, "Nova Senha", class: "form-label" %>
+          <%= f.password_field :password, class: "form-control", placeholder: "Digite sua nova senha (mínimo 6 caracteres)", required: true, minlength: 6 %>
+          <div class="invalid-feedback">A senha deve ter pelo menos 6 caracteres.</div>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation, "Confirmar Senha", class: "form-label" %>
+          <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirme sua nova senha", required: true, minlength: 6 %>
+          <div class="invalid-feedback">Por favor, confirme sua senha.</div>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Redefinir Senha", class: "btn btn-primary" %>
+        </div>
+        <div class="text-center mt-3">
+          <%= link_to "Voltar ao Login", new_user_session_path, class: "btn btn-link" %>
+        </div>
+      <% end %>
+    </div>
+    <!-- Seção de Boas-vindas -->
+    <div class="login-welcome-section">
+      <div>
+        <h2 class="login-welcome-text">Redefina<br>
+          sua<br>
+          Senha</h2>
+        <p class="mt-3 text-white-50">
+          <i class="fas fa-key mb-2" style="font-size: 2rem;"></i><br>
+          Digite suas credenciais para criar uma nova senha
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  // Bootstrap form validation
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      var forms = document.getElementsByClassName('needs-validation');
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          // Validação customizada para confirmar senha
+          var password = form.querySelector('input[name="password"]');
+          var passwordConfirmation = form.querySelector('input[name="password_confirmation"]');
+
+          if (password.value !== passwordConfirmation.value) {
+            passwordConfirmation.setCustomValidity('As senhas não coincidem');
+          } else {
+            passwordConfirmation.setCustomValidity('');
+          }
+
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+
+  // Validação em tempo real para confirmar senha
+  document.addEventListener('DOMContentLoaded', function() {
+    var passwordConfirmation = document.querySelector('input[name="password_confirmation"]');
+    var password = document.querySelector('input[name="password"]');
+
+    if (passwordConfirmation && password) {
+      passwordConfirmation.addEventListener('input', function() {
+        if (password.value !== passwordConfirmation.value) {
+          passwordConfirmation.setCustomValidity('As senhas não coincidem');
+        } else {
+          passwordConfirmation.setCustomValidity('');
+        }
+      });
+    }
+  });
+</script>

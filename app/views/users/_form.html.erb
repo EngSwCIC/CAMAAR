@@ -1,0 +1,622 @@
+<%= form_with(model: user, local: true, class: "user-form") do |form| %>
+  <!-- Error Messages -->
+  <% if user.errors.any? %>
+    <div class="alert alert-danger border-0 mb-4">
+      <div class="d-flex align-items-start">
+        <div class="me-3">
+          <div class="bg-danger bg-opacity-10 rounded-circle p-2">
+            <div class="bg-danger rounded-circle" style="width: 8px; height: 8px;"></div>
+          </div>
+        </div>
+        <div class="flex-grow-1">
+          <strong class="text-dark">Erro na validação</strong>
+          <p class="mb-2 text-muted small">
+            <%= pluralize(user.errors.count, "erro encontrado", "erros encontrados") %>:
+          </p>
+          <ul class="mb-0 small">
+            <% user.errors.each do |error| %>
+              <li class="text-danger"><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <!-- Form Fields -->
+  <div class="row g-4">
+    <!-- Email Field -->
+    <div class="col-12">
+      <div class="form-group">
+        <%= form.label :email, "E-mail", class: "form-label fw-semibold text-dark" %>
+        <%= form.email_field :email, class: "form-control form-control-lg", placeholder: "Digite o e-mail do usuário" %>
+      </div>
+    </div>
+    <!-- Password Fields -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :password, "Nova Senha", class: "form-label fw-semibold text-dark" %>
+        <%= form.password_field :password, class: "form-control form-control-lg", placeholder: "Digite a nova senha" %>
+        <div class="form-text">Deixe em branco para manter a senha atual</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :password_confirmation, "Confirmar Senha", class: "form-label fw-semibold text-dark" %>
+        <%= form.password_field :password_confirmation, class: "form-control form-control-lg", placeholder: "Confirme a nova senha" %>
+      </div>
+    </div>
+    <!-- Name Field -->
+    <div class="col-12">
+      <div class="form-group">
+        <%= form.label :name, "Nome Completo", class: "form-label fw-semibold text-dark" %>
+        <%= form.text_field :name, class: "form-control form-control-lg", placeholder: "Digite o nome completo" %>
+      </div>
+    </div>
+    <!-- Matricula Field -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :matricula, "Matrícula", class: "form-label fw-semibold text-dark" %>
+        <%= form.text_field :matricula, class: "form-control form-control-lg", placeholder: "Digite a matrícula" %>
+      </div>
+    </div>
+    <!-- Role Field - apenas para administradores -->
+    <% if current_user&.admin? %>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label :role, "Tipo de Usuário", class: "form-label fw-semibold text-dark" %>
+          <%= form.select :role, 
+              options_for_select([
+                ['Administrador', 'admin'],
+                ['Aluno', 'aluno'], 
+                ['Professor', 'professor'],
+                ['Coordenador', 'coordenador']
+              ], user.role), 
+              { prompt: 'Selecione o tipo' }, 
+              { class: "form-select form-select-lg" } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <!-- Seções específicas por tipo de usuário (apenas para edição) -->
+  <% if user.persisted? %>
+    <!-- Seção para Alunos -->
+    <% if user.aluno? %>
+      <div class="gerenciamento-section fade-in-up">
+        <h5 class="mb-4 text-dark fw-semibold">
+          <i class="fas fa-graduation-cap"></i>
+          Gerenciar Matrículas e Curso
+        </h5>
+        <!-- Curso do Aluno -->
+        <div class="card info-card-curso mb-4 shadow-soft">
+          <div class="card-header border-0">
+            <h6 class="card-title mb-0 text-white">
+              <i class="fas fa-university me-2"></i>
+              Curso
+            </h6>
+          </div>
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col-md-8">
+                <% if user.curso.present? %>
+                  <div class="d-flex align-items-center">
+                    <i class="fas fa-graduation-cap me-2 text-white-50"></i>
+                    <span class="text-white fw-semibold fs-5"><%= user.curso %></span>
+                  </div>
+                <% else %>
+                  <span class="text-white-50">Nenhum curso definido</span>
+                <% end %>
+              </div>
+              <div class="col-md-4 text-end">
+                <button type="button" class="btn btn-light btn-action" data-bs-toggle="modal" data-bs-target="#modalCurso">
+                  <i class="fas fa-edit"></i>
+                  Alterar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Disciplinas Matriculadas -->
+        <div class="card shadow-soft">
+          <div class="card-header bg-light d-flex justify-content-between align-items-center">
+            <h6 class="card-title mb-0">
+              <i class="fas fa-book me-2 text-primary"></i>
+              Disciplinas Matriculadas
+            </h6>
+            <button type="button" class="btn btn-add btn-sm btn-action" data-bs-toggle="modal" data-bs-target="#modalAdicionarDisciplina">
+              <i class="fas fa-plus"></i>
+              Adicionar
+            </button>
+          </div>
+          <div class="card-body">
+            <% disciplinas_matriculadas = user.disciplinas_como_aluno.includes(:curso, turmas: :professor) %>
+            <% if disciplinas_matriculadas.any? %>
+              <div class="row">
+                <% disciplinas_matriculadas.each do |disciplina| %>
+                  <div class="col-md-6 mb-3">
+                    <div class="disciplina-card card shadow-hover smooth-transition">
+                      <div class="card-body p-3">
+                        <div class="d-flex justify-content-between align-items-start">
+                          <div class="flex-grow-1">
+                            <h6 class="card-title"><%= disciplina.nome %></h6>
+                            <small class="text-muted d-flex align-items-center">
+                              <i class="fas fa-university me-1"></i>
+                              <%= disciplina.curso.nome %>
+                            </small>
+                            <% turmas_aluno = disciplina.turmas.joins(:matriculas).where(matriculas: { user_id: user.id }) %>
+                            <% turmas_aluno.each do |turma| %>
+                              <div class="mt-2 d-flex flex-wrap gap-1">
+                                <span class="badge badge-semestre badge-custom"><%= turma.semestre %></span>
+                                <small class="text-muted d-flex align-items-center">
+                                  <i class="fas fa-user-tie me-1"></i>
+                                  <%= turma.professor.name %>
+                                </small>
+                              </div>
+                            <% end %>
+                          </div>
+                          <div class="custom-dropdown dropdown">
+                            <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                              <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <% turmas_aluno.each do |turma| %>
+                                <li>
+                                  <%= link_to "#", 
+                                      class: "dropdown-item text-danger",
+                                      data: { 
+                                        bs_toggle: "modal", 
+                                        bs_target: "#modalRemoverDisciplina",
+                                        matricula_id: turma.matriculas.find_by(user: user)&.id,
+                                        disciplina_nome: disciplina.nome,
+                                        semestre: turma.semestre
+                                      } do %>
+                                    <i class="fas fa-trash me-2"></i>
+                                    Remover de <%= turma.semestre %>
+                                  <% end %>
+                                </li>
+                              <% end %>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            <% else %>
+              <div class="empty-state">
+                <i class="fas fa-book-open fa-3x"></i>
+                <h6>Nenhuma disciplina matriculada</h6>
+                <p class="mb-0">Use o botão "Adicionar" para matricular o aluno em disciplinas</p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <!-- Seção para Professores e Administradores -->
+    <% if user.professor? || user.admin? %>
+      <div class="gerenciamento-section fade-in-up">
+        <h5 class="mb-4 text-dark fw-semibold">
+          <i class="fas fa-chalkboard-teacher"></i>
+          Disciplinas que Leciona
+        </h5>
+        <div class="card shadow-soft">
+          <div class="card-header bg-light d-flex justify-content-between align-items-center">
+            <h6 class="card-title mb-0">
+              <i class="fas fa-list me-2 text-success"></i>
+              Lista de Disciplinas
+            </h6>
+            <button type="button" class="btn btn-add btn-sm btn-action" data-bs-toggle="modal" data-bs-target="#modalAdicionarDisciplinaProfessor">
+              <i class="fas fa-plus"></i>
+              Adicionar
+            </button>
+          </div>
+          <div class="card-body">
+            <% disciplinas_professor = user.disciplinas_como_professor.includes(:curso, :turmas) %>
+            <% if disciplinas_professor.any? %>
+              <div class="row">
+                <% disciplinas_professor.each do |disciplina| %>
+                  <div class="col-md-6 mb-3">
+                    <div class="disciplina-card card shadow-hover smooth-transition">
+                      <div class="card-body p-3">
+                        <div class="d-flex justify-content-between align-items-start">
+                          <div class="flex-grow-1">
+                            <h6 class="card-title"><%= disciplina.nome %></h6>
+                            <small class="text-muted d-flex align-items-center">
+                              <i class="fas fa-university me-1"></i>
+                              <%= disciplina.curso.nome %>
+                            </small>
+                            <% turmas_professor = disciplina.turmas.where(professor_id: user.id) %>
+                            <% turmas_professor.each do |turma| %>
+                              <div class="mt-2 d-flex flex-wrap gap-1">
+                                <span class="badge badge-semestre badge-custom"><%= turma.semestre %></span>
+                                <span class="badge badge-alunos badge-custom">
+                                  <i class="fas fa-users me-1"></i>
+                                  <%= turma.matriculas.count %> alunos
+                                </span>
+                              </div>
+                            <% end %>
+                          </div>
+                          <div class="custom-dropdown dropdown">
+                            <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                              <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <% turmas_professor.each do |turma| %>
+                                <li>
+                                  <%= link_to "#", 
+                                      class: "dropdown-item text-danger",
+                                      data: { 
+                                        bs_toggle: "modal", 
+                                        bs_target: "#modalRemoverDisciplinaProfessor",
+                                        turma_id: turma.id,
+                                        disciplina_nome: disciplina.nome,
+                                        semestre: turma.semestre
+                                      } do %>
+                                    <i class="fas fa-trash me-2"></i>
+                                    Remover de <%= turma.semestre %>
+                                  <% end %>
+                                </li>
+                              <% end %>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            <% else %>
+              <div class="empty-state">
+                <i class="fas fa-chalkboard-teacher fa-3x"></i>
+                <h6>Nenhuma disciplina sendo lecionada</h6>
+                <p class="mb-0">Use o botão "Adicionar" para atribuir disciplinas ao professor</p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <!-- Submit Button -->
+  <div class="d-grid mt-4">
+    <%= form.submit user.persisted? ? "Atualizar Usuário" : "Criar Usuário", class: "btn btn-primary btn-lg fw-semibold py-3" %>
+  </div>
+<% end %>
+<style>
+  /* Form styling */
+  .user-form {
+    max-width: 100%;
+  }
+
+  .form-control-lg, .form-select-lg {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-control-lg:focus, .form-select-lg:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 0.2rem rgba(124, 58, 237, 0.25);
+  }
+
+  .form-label {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .form-group {
+    margin-bottom: 0;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #6d28d9 0%, #9333ea 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  }
+
+  .btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    transform: translateY(-1px);
+  }
+
+  .btn-outline-primary {
+    border-color: #7c3aed;
+    color: #7c3aed;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-primary:hover {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+    transform: translateY(-1px);
+  }
+
+  .alert {
+    border-radius: 8px;
+  }
+
+  .card {
+    border-radius: 12px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .form-control-lg, .form-select-lg {
+      padding: 0.6rem 0.8rem;
+    }
+
+    .btn-lg {
+      padding: 0.6rem 1rem;
+    }
+  }
+</style>
+<!-- Modals para gerenciamento de disciplinas e cursos -->
+<% if user.persisted? %>
+  <!-- Modal para alterar curso (Alunos) -->
+  <% if user.aluno? %>
+    <div class="modal fade" id="modalCurso" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Alterar Curso</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <%= form_with model: user, url: user_path(user), method: :patch, local: true do |f| %>
+            <div class="modal-body">
+              <div class="form-group">
+                <%= f.label :curso, "Novo Curso", class: "form-label" %>
+                <%= f.select :curso, 
+                    options_from_collection_for_select(Curso.all, 'nome', 'nome', user.curso), 
+                    { prompt: 'Selecione um curso' }, 
+                    { class: "form-select" } %>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <%= f.submit "Alterar Curso", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!-- Modal para adicionar disciplina (Alunos) -->
+    <div class="modal fade" id="modalAdicionarDisciplina" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Adicionar Disciplina</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <%= form_with url: adicionar_disciplina_aluno_path, method: :post, local: true do |f| %>
+            <%= f.hidden_field :user_id, value: user.id %>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <%= f.label :disciplina_id, "Disciplina", class: "form-label" %>
+                  <%= f.collection_select :disciplina_id, 
+                      Disciplina.joins(:curso).includes(:curso), 
+                      :id, 
+                      ->(d) { "#{d.nome} (#{d.curso.nome})" },
+                      { prompt: 'Selecione uma disciplina' }, 
+                      { class: "form-select", id: "disciplina_select" } %>
+                </div>
+                <div class="col-md-6">
+                  <%= f.label :turma_id, "Turma", class: "form-label" %>
+                  <%= f.select :turma_id, [], 
+                      { prompt: 'Primeiro selecione uma disciplina' }, 
+                      { class: "form-select", id: "turma_select" } %>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <%= f.submit "Matricular", class: "btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!-- Modal para remover disciplina (Alunos) -->
+    <div class="modal fade" id="modalRemoverDisciplina" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              <i class="fas fa-exclamation-triangle me-2"></i>
+              Remover Disciplina
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <%= form_with url: remover_disciplina_aluno_path, method: :delete, local: true do |f| %>
+            <%= f.hidden_field :matricula_id, value: "", id: "matricula_id_input" %>
+            <div class="modal-body">
+              <div class="text-center mb-3">
+                <i class="fas fa-exclamation-triangle fa-3x text-warning mb-3"></i>
+              </div>
+              <p class="text-center">Tem certeza que deseja remover a matrícula na disciplina <strong><span id="disciplina_nome_texto"></span></strong> do semestre <strong><span id="semestre_texto"></span></strong>?</p>
+              <div class="alert alert-warning-custom">
+                <i class="fas fa-info-circle me-2"></i>
+                Esta ação não pode ser desfeita e removerá permanentemente a matrícula do aluno.
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-action" data-bs-dismiss="modal">
+                <i class="fas fa-times me-1"></i>
+                Cancelar
+              </button>
+              <%= f.submit "Confirmar Remoção", class: "btn btn-remove btn-action" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <!-- Modal para adicionar disciplina (Professores) -->
+  <% if user.professor? || user.admin? %>
+    <div class="modal fade" id="modalAdicionarDisciplinaProfessor" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Adicionar Disciplina para Lecionar</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <%= form_with url: adicionar_disciplina_professor_path, method: :post, local: true do |f| %>
+            <%= f.hidden_field :user_id, value: user.id %>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <%= f.label :disciplina_id, "Disciplina", class: "form-label" %>
+                  <%= f.collection_select :disciplina_id, 
+                      Disciplina.joins(:curso).includes(:curso), 
+                      :id, 
+                      ->(d) { "#{d.nome} (#{d.curso.nome})" },
+                      { prompt: 'Selecione uma disciplina' }, 
+                      { class: "form-select" } %>
+                </div>
+                <div class="col-md-4">
+                  <%= f.label :semestre, "Semestre", class: "form-label" %>
+                  <%= f.text_field :semestre, 
+                      placeholder: "Ex: 2025.1", 
+                      class: "form-control",
+                      required: true %>
+                </div>
+                <div class="col-md-4">
+                  <%= f.label :situacao, "Situação", class: "form-label" %>
+                  <%= f.select :situacao, 
+                      options_for_select([
+                        ['Ativo', 'ativo'],
+                        ['Inativo', 'inativo']
+                      ], 'ativo'),
+                      {}, 
+                      { class: "form-select" } %>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <%= f.submit "Adicionar Disciplina", class: "btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!-- Modal para remover disciplina (Professores) -->
+    <div class="modal fade" id="modalRemoverDisciplinaProfessor" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              <i class="fas fa-exclamation-triangle me-2"></i>
+              Remover Disciplina
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <%= form_with url: remover_disciplina_professor_path, method: :delete, local: true do |f| %>
+            <%= f.hidden_field :turma_id, value: "", id: "turma_id_input" %>
+            <div class="modal-body">
+              <div class="text-center mb-3">
+                <i class="fas fa-exclamation-triangle fa-3x text-warning mb-3"></i>
+              </div>
+              <p class="text-center">Tem certeza que deseja remover a disciplina <strong><span id="disciplina_nome_prof_texto"></span></strong> do semestre <strong><span id="semestre_prof_texto"></span></strong>?</p>
+              <div class="alert alert-warning-custom">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                <strong>Atenção:</strong> Esta ação não pode ser desfeita e removerá automaticamente todas as matrículas de alunos nesta turma.
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-action" data-bs-dismiss="modal">
+                <i class="fas fa-times me-1"></i>
+                Cancelar
+              </button>
+              <%= f.submit "Confirmar Remoção", class: "btn btn-remove btn-action" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<script>
+  // Script para gerenciar modals e dropdowns dinâmicos
+  document.addEventListener('DOMContentLoaded', function() {
+    // Modal de remoção de disciplina (Alunos)
+    const modalRemoverDisciplina = document.getElementById('modalRemoverDisciplina');
+    if (modalRemoverDisciplina) {
+      modalRemoverDisciplina.addEventListener('show.bs.modal', function(event) {
+        const button = event.relatedTarget;
+        const matriculaId = button.getAttribute('data-matricula_id');
+        const disciplinaNome = button.getAttribute('data-disciplina_nome');
+        const semestre = button.getAttribute('data-semestre');
+
+        document.getElementById('matricula_id_input').value = matriculaId;
+        document.getElementById('disciplina_nome_texto').textContent = disciplinaNome;
+        document.getElementById('semestre_texto').textContent = semestre;
+      });
+    }
+
+    // Modal de remoção de disciplina (Professores)
+    const modalRemoverDisciplinaProfessor = document.getElementById('modalRemoverDisciplinaProfessor');
+    if (modalRemoverDisciplinaProfessor) {
+      modalRemoverDisciplinaProfessor.addEventListener('show.bs.modal', function(event) {
+        const button = event.relatedTarget;
+        const turmaId = button.getAttribute('data-turma_id');
+        const disciplinaNome = button.getAttribute('data-disciplina_nome');
+        const semestre = button.getAttribute('data-semestre');
+
+        document.getElementById('turma_id_input').value = turmaId;
+        document.getElementById('disciplina_nome_prof_texto').textContent = disciplinaNome;
+        document.getElementById('semestre_prof_texto').textContent = semestre;
+      });
+    }
+
+    // Dropdown dinâmico para turmas baseado na disciplina selecionada
+    const disciplinaSelect = document.getElementById('disciplina_select');
+    const turmaSelect = document.getElementById('turma_select');
+
+    if (disciplinaSelect && turmaSelect) {
+      disciplinaSelect.addEventListener('change', function() {
+        const disciplinaId = this.value;
+
+        if (disciplinaId) {
+          // Fazer requisição AJAX para buscar turmas da disciplina
+          fetch(`/disciplinas/${disciplinaId}/turmas.json`)
+            .then(response => response.json())
+            .then(data => {
+              turmaSelect.innerHTML = '<option value="">Selecione uma turma</option>';
+              data.forEach(turma => {
+                const option = document.createElement('option');
+                option.value = turma.id;
+                option.textContent = `${turma.semestre} - Prof: ${turma.professor_nome}`;
+                turmaSelect.appendChild(option);
+              });
+            })
+            .catch(error => {
+              console.error('Erro ao carregar turmas:', error);
+              turmaSelect.innerHTML = '<option value="">Erro ao carregar turmas</option>';
+            });
+        } else {
+          turmaSelect.innerHTML = '<option value="">Primeiro selecione uma disciplina</option>';
+        }
+      });
+    }
+  });
+</script>

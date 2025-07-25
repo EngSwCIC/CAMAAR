@@ -1,0 +1,8 @@
+[
+  {
+    "name": "Test User",
+    "email": "test@example.com",
+    "matricula": "12345",
+    "ocupacao": "dicente"
+  }
+]

@@ -1,0 +1,27 @@
+<%= form_with(model: opcoes_perguntum) do |form| %>
+  <% if opcoes_perguntum.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(opcoes_perguntum.errors.count, "error") %> prohibited this opcoes_perguntum from being saved:</h2>
+
+      <ul>
+        <% opcoes_perguntum.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :pergunta_id, style: "display: block" %>
+    <%= form.text_field :pergunta_id %>
+  </div>
+
+  <div>
+    <%= form.label :texto, style: "display: block" %>
+    <%= form.text_field :texto %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

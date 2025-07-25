@@ -1,0 +1,133 @@
+<%# app/views/sessions/new.html.erb %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Camaar</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <style>
+      /* Reset básico e estilos do corpo */
+      body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: sans-serif;
+        background-color: #EBEBEB;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Container principal que engloba os dois painéis */
+      .login-container {
+        display: flex;
+        width: 800px;
+        height: 500px;
+        background-color: #FFFFFF;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden; /* Garante que os cantos arredondados sejam aplicados aos filhos */
+      }
+
+      /* Painel esquerdo (Formulário) */
+      .login-form {
+        flex: 1; /* Ocupa 50% do espaço */
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .login-form h2 {
+        margin: 0 0 40px 0;
+        font-size: 24px;
+        color: #333;
+        font-weight: bold;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: #555;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: #6E2D6C; /* Cor roxa no foco */
+      }
+
+      .submit-button {
+        width: 100%;
+        padding: 15px;
+        background-color: #28a745; /* Verde do botão */
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .submit-button:hover {
+        background-color: #218838;
+      }
+
+      /* Painel direito (Boas-vindas) */
+      .welcome-panel {
+        flex: 1; /* Ocupa 50% do espaço */
+        background-color: #6E2D6C; /* Roxo do painel */
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .welcome-panel h1 {
+        margin: 0;
+        font-size: 48px;
+        font-weight: bold;
+        line-height: 1.2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-form">
+        <h2>LOGIN</h2>
+        <%= form_with(url: login_path, local: true) do |form| %>
+          <div class="form-group">
+            <%= form.label :email, "Email" %>
+            <%= form.email_field :email, value: "aluno@aluno.unb.br", placeholder: "seu@email.com" %>
+          </div>
+          <div class="form-group">
+            <%= form.label :senha, "Senha" %>
+            <%= form.password_field :password, placeholder: "Password" %>
+          </div>
+          <%= form.submit "Entrar", class: "submit-button" %>
+        <% end %>
+      </div>
+      <div class="welcome-panel">
+        <h1>Bem vindo<br>
+          ao<br>
+          Camaar</h1>
+      </div>
+    </div>
+  </body>
+</html>

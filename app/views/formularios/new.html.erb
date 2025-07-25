@@ -1,0 +1,165 @@
+<% content_for :title, "Novo Formulário - CAMAAR" %>
+<div class="container-fluid">
+  <div class="container min-vh-100 d-flex align-items-start justify-content-center pt-5">
+    <div class="col-lg-8 col-md-10">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <%= link_to root_path, class: "text-decoration-none" do %>
+              <i class="fas fa-home me-1"></i>Início
+            <% end %>
+          </li>
+          <li class="breadcrumb-item">
+            <%= link_to formularios_path, class: "text-decoration-none" do %>
+              <i class="fas fa-clipboard-list me-1"></i>Formulários
+            <% end %>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <i class="fas fa-plus me-1"></i>Novo Formulário
+          </li>
+        </ol>
+      </nav>
+      <!-- Header -->
+      <div class="page-header mb-5">
+        <div class="d-flex align-items-center mb-3">
+          <div class="header-icon me-3">
+            <div class="bg-success bg-opacity-10 rounded-circle p-3">
+              <i class="fas fa-plus text-success" style="font-size: 1.5rem;"></i>
+            </div>
+          </div>
+          <div>
+            <h1 class="display-6 fw-bold text-dark mb-1">Novo Formulário</h1>
+            <p class="text-muted mb-0">
+              Publique um novo formulário para coleta de dados
+            </p>
+          </div>
+        </div>
+        <!-- Quick Info Card -->
+        <div class="alert alert-info border-0 mb-0">
+          <div class="d-flex align-items-center">
+            <div class="me-3">
+              <div class="bg-info bg-opacity-10 rounded-circle p-2">
+                <i class="fas fa-lightbulb text-info"></i>
+              </div>
+            </div>
+            <div class="flex-grow-1">
+              <strong class="text-dark">Dica:</strong>
+              <span class="text-muted">
+                Selecione o template desejado e configure as opções de visibilidade antes de publicar. 
+                Você poderá editar essas configurações posteriormente.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Form Card -->
+      <div class="card border-0 shadow-sm">
+        <div class="card-header bg-light border-0 py-3">
+          <h5 class="card-title mb-0 fw-semibold text-dark">
+            <i class="fas fa-cog me-2"></i>
+            Configurações do Formulário
+          </h5>
+        </div>
+        <div class="card-body p-4">
+          <%= render "form", formulario: @formulario %>
+        </div>
+      </div>
+      <!-- Action Buttons -->
+      <div class="d-flex justify-content-start align-items-center mt-4">
+        <%= link_to formularios_path, class: "btn btn-outline-secondary" do %>
+          <i class="fas fa-arrow-left me-2"></i>
+          Voltar para Lista
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  /* Page styling */
+  .page-header {
+    position: relative;
+  }
+
+  .header-icon {
+    flex-shrink: 0;
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+  }
+
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: "›";
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+
+  .breadcrumb-item a {
+    color: #7c3aed;
+    transition: color 0.3s ease;
+  }
+
+  .breadcrumb-item a:hover {
+    color: #6d28d9;
+  }
+
+  .breadcrumb-item.active {
+    color: #6c757d;
+  }
+
+  /* Cards */
+  .card {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .card-header {
+    border-radius: 12px 12px 0 0;
+  }
+
+  /* Buttons */
+  .btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border-width: 1px;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  .btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+  }
+
+  /* Alert */
+  .alert {
+    border-radius: 10px;
+    border: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .header-icon {
+      display: none;
+    }
+  }
+</style>

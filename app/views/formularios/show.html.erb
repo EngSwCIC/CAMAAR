@@ -1,0 +1,37 @@
+<%# Simple show view for formularios %>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <h1>Formulário de Avaliação</h1>
+      <div class="card">
+        <div class="card-header">
+          <h3><%= @formulario.template&.titulo || 'Formulário sem título' %></h3>
+        </div>
+        <div class="card-body">
+          <p><strong>Coordenador:</strong> <%= @formulario.coordenador&.name || 'Não definido' %></p>
+          <p><strong>Data de Envio:</strong> <%= @formulario.data_envio&.strftime("%d/%m/%Y %H:%M") || 'Não definida' %></p>
+          <p><strong>Data Fim:</strong> <%= @formulario.data_fim&.strftime("%d/%m/%Y %H:%M") || 'Não definida' %></p>
+          <p><strong>Status:</strong> <%= @formulario.ativo? ? 'Ativo' : 'Inativo' %></p>
+          <% if @perguntas&.any? %>
+            <h4>Perguntas:</h4>
+            <% @perguntas.each_with_index do |pergunta, index| %>
+              <div class="mb-3">
+                <p><strong><%= index + 1 %>.</strong> <%= pergunta.texto %></p>
+                <% if pergunta.opcoes_pergunta.any? %>
+                  <ul>
+                    <% pergunta.opcoes_pergunta.each do |opcao| %>
+                      <li><%= opcao.texto %></li>
+                    <% end %>
+                  </ul>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="mt-3">
+        <%= link_to 'Voltar', formularios_path, class: 'btn btn-secondary' %>
+      </div>
+    </div>
+  </div>
+</div>

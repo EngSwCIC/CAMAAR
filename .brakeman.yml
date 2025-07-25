@@ -1,0 +1,41 @@
+{
+  "application_path": ".",
+  "rails_version": "8.0.2",
+  "ruby_version": "3.2.0",
+  "quiet": false,
+  "checks": [
+    "CheckBasicAuth",
+    "CheckDefaultRoutes",
+    "CheckDivideByZero",
+    "CheckEscapeFunction",
+    "CheckEvaluation",
+    "CheckExecute",
+    "CheckFileAccess",
+    "CheckForgerySetting",
+    "CheckLinkTo",
+    "CheckLinkToHref",
+    "CheckMassAssignment",
+    "CheckModelAttrAccessible",
+    "CheckRedirect",
+    "CheckRegexDoS",
+    "CheckResponseSplitting",
+    "CheckSelectTag",
+    "CheckSelectVulnerability",
+    "CheckSend",
+    "CheckSendFile",
+    "CheckSQL",
+    "CheckSymbolDoSCVE",
+    "CheckTranslateBug",
+    "CheckUnsafeReflection",
+    "CheckValidationRegex",
+    "CheckXSS"
+  ],
+  "check_arguments": true,
+  "safe_methods": [
+    "params",
+    "request",
+    "cookies"
+  ],
+  "min_confidence": 2,
+  "ignore_file": ".brakeman.ignore"
+}

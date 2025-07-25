@@ -1,0 +1,354 @@
+<% content_for :title, "Formulários - CAMAAR" %>
+<div class="container-fluid">
+  <div class="container min-vh-100 d-flex align-items-start justify-content-center pt-5">
+    <div class="col-lg-10 col-md-12">
+      <!-- Success Notice -->
+      <% if notice %>
+        <div class="alert alert-success border-0 mb-4">
+          <div class="d-flex align-items-center">
+            <div class="me-3">
+              <div class="bg-success bg-opacity-10 rounded-circle p-2">
+                <div class="bg-success rounded-circle" style="width: 8px; height: 8px;"></div>
+              </div>
+            </div>
+            <div>
+              <strong class="text-dark">Sucesso!</strong>
+              <p class="mb-0 text-muted small"><%= notice %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <!-- Header -->
+      <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+          <h1 class="display-6 fw-bold text-dark mb-2">Formulários</h1>
+          <p class="text-muted fs-6 mb-0">
+            Gerencie os formulários de avaliação do sistema
+          </p>
+        </div>
+        <div>
+          <%= link_to new_formulario_path, class: "btn btn-primary d-flex align-items-center" do %>
+            <svg width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            </svg>
+            Novo Formulário
+          <% end %>
+        </div>
+      </div>
+      <!-- Formulários List -->
+      <% if @formularios.any? %>
+        <div class="formularios-grid">
+          <% @formularios.each do |formulario| %>
+            <div class="formulario-card">
+              <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="flex-grow-1">
+                      <h5 class="card-title fw-bold text-dark mb-2 formulario-titulo"><%= formulario.template.titulo %></h5>
+                      <p class="text-muted small mb-1">
+                        <i class="fas fa-<%= formulario.template.publico_alvo == 'alunos' ? 'graduation-cap' : 'chalkboard-teacher' %> me-1"></i>
+                        Público: <%= formulario.template.publico_alvo.humanize %>
+                      </p>
+                      <p class="text-muted small mb-0">
+                        <i class="fas fa-calendar me-1"></i>
+                        Prazo: <%= formulario.data_fim.strftime("%d/%m/%Y às %H:%M") %>
+                      </p>
+                    </div>
+                    <div class="formulario-status">
+                      <% if formulario.ativo? %>
+                        <span class="badge bg-success px-3 py-2">
+                          <i class="fas fa-check-circle me-1"></i>
+                          Ativo
+                        </span>
+                      <% else %>
+                        <span class="badge bg-secondary px-3 py-2">
+                          <i class="fas fa-pause-circle me-1"></i>
+                          Inativo
+                        </span>
+                      <% end %>
+                    </div>
+                  </div>
+                  <!-- Informações adicionais -->
+                  <div class="formulario-info mb-3">
+                    <div class="row g-2">
+                      <div class="col-12">
+                        <small class="text-muted">
+                          <i class="fas fa-user me-1"></i>
+                          <strong>Coordenador:</strong> <%= formulario.coordenador.name %>
+                        </small>
+                      </div>
+                      <% if formulario.turma %>
+                        <div class="col-12">
+                          <small class="text-muted">
+                            <i class="fas fa-users me-1"></i>
+                            <strong>Turma:</strong> <%= formulario.turma.disciplina.nome %> - <%= formulario.turma.semestre %>
+                          </small>
+                        </div>
+                      <% elsif formulario.disciplina %>
+                        <div class="col-12">
+                          <small class="text-muted">
+                            <i class="fas fa-book me-1"></i>
+                            <strong>Disciplina:</strong> <%= formulario.disciplina.nome %>
+                          </small>
+                        </div>
+                      <% end %>
+                      <div class="col-12">
+                        <small class="text-muted">
+                          <i class="fas fa-eye me-1"></i>
+                          <strong>Visibilidade:</strong> <%= formulario.escopo_visibilidade.humanize.gsub('_', ' ') %>
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Progresso do prazo -->
+                  <% if formulario.ativo? %>
+                    <div class="prazo-progress mb-3">
+                      <% 
+                        total_time = formulario.data_fim - formulario.data_envio
+                        elapsed_time = Time.current - formulario.data_envio
+                        progress = [(elapsed_time / total_time * 100).round, 100].min
+                        is_expired = Time.current > formulario.data_fim
+                      %>
+                      <div class="d-flex justify-content-between align-items-center mb-1">
+                        <small class="text-muted">Prazo</small>
+                        <small class="<%= is_expired ? 'text-danger' : 'text-muted' %>">
+                          <%= is_expired ? 'Expirado' : distance_of_time_in_words(Time.current, formulario.data_fim) + ' restantes' %>
+                        </small>
+                      </div>
+                      <div class="progress" style="height: 4px;">
+                        <div class="progress-bar <%= is_expired ? 'bg-danger' : 'bg-primary' %>" 
+                             style="width: <%= progress %>%"></div>
+                      </div>
+                    </div>
+                  <% end %>
+                  <!-- Ações -->
+                  <div class="formulario-actions mt-3">
+                    <div class="row g-2">
+                      <div class="col-4">
+                      </div>
+                      <div class="col-4">
+                        <%= link_to edit_formulario_path(formulario), class: "btn btn-outline-primary w-100 btn-sm" do %>
+                          <svg width="14" height="14" fill="currentColor" class="me-1" viewBox="0 0 16 16">
+                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708L10.5 8.207l-3-3L12.146.146zM11.207 9L8 5.793 1.146 12.646a.5.5 0 0 0-.146.354v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .354-.146L11.207 9z"/>
+                          </svg>
+                          Editar
+                        <% end %>
+                      </div>
+                      <div class="col-4">
+                        <%= link_to formulario_path(formulario), method: :delete,
+                            class: "btn btn-outline-danger w-100 btn-sm",
+                            data: { 
+                              confirm: "Tem certeza que deseja excluir este formulário?",
+                              turbo_method: :delete
+                            } do %>
+                          <svg width="14" height="14" fill="currentColor" class="me-1" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1z"/>
+                          </svg>
+                          Excluir
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="empty-state">
+          <div class="card border-0 bg-light">
+            <div class="card-body text-center py-5">
+              <div class="mb-4">
+                <div class="bg-muted bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                  <svg width="32" height="32" fill="currentColor" class="text-muted" viewBox="0 0 16 16">
+                    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                  </svg>
+                </div>
+              </div>
+              <h5 class="fw-bold text-dark mb-2">Nenhum formulário encontrado</h5>
+              <p class="text-muted mb-4">
+                Ainda não há formulários cadastrados no sistema. Crie o primeiro formulário para começar.
+              </p>
+              <%= link_to new_formulario_path, class: "btn btn-primary" do %>
+                <svg width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v-3a.5.5 0 0 1-1 0v3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg>
+                Criar Primeiro Formulário
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <!-- Back Button -->
+      <div class="d-flex justify-content-center mt-5">
+        <%= link_to root_path, class: "btn btn-outline-secondary" do %>
+          <svg width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+          </svg>
+          Voltar ao Início
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  /* Formulários Grid */
+  .formularios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Formulário Card */
+  .formulario-card .card {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .formulario-card .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+  }
+
+  .formulario-titulo {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+  }
+
+  .formulario-status .badge {
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .formulario-info {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  .prazo-progress {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid #e9ecef;
+  }
+
+  /* Buttons */
+  .btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border-width: 1px;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+    border: none;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #6d28d9 0%, #9333ea 100%);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+    color: white;
+  }
+
+  .btn-outline-primary {
+    border-color: #7c3aed;
+    color: #7c3aed;
+  }
+
+  .btn-outline-primary:hover {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+    color: white;
+  }
+
+  .btn-outline-info {
+    border-color: #0dcaf0;
+    color: #0dcaf0;
+  }
+
+  .btn-outline-info:hover {
+    background-color: #0dcaf0;
+    border-color: #0dcaf0;
+    color: white;
+  }
+
+  .btn-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+  }
+
+  .btn-outline-danger:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+  }
+
+  .btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+  }
+
+  /* Alert */
+  .alert {
+    border-radius: 12px;
+    border: none;
+  }
+
+  /* Empty State */
+  .empty-state .card {
+    border-radius: 16px;
+  }
+
+  /* Progress bar */
+  .progress {
+    border-radius: 4px;
+    background-color: #e9ecef;
+  }
+
+  .progress-bar {
+    border-radius: 4px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .formularios-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .d-flex.justify-content-between {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .d-flex.justify-content-between .btn {
+      align-self: stretch;
+      justify-content: center;
+    }
+
+    .formulario-card .card-body {
+      padding: 1rem;
+    }
+  }
+</style>

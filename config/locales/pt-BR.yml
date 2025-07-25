@@ -1,0 +1,58 @@
+pt-BR:
+  activerecord:
+    models:
+      curso: "Curso"
+      disciplina: "Disciplina"
+      template: "Template"
+    attributes:
+      curso:
+        nome: "Nome do Curso"
+      disciplina:
+        nome: "Nome da Disciplina"
+        curso_id: "Curso"
+      template:
+        titulo: "Título do Template"
+        descricao: "Descrição"
+        publico_alvo: "Público Alvo"
+        disciplina_id: "Disciplina"
+    errors:
+      models:
+        curso:
+          attributes:
+            nome:
+              blank: "não pode ficar em branco"
+              too_short: "deve ter pelo menos %{count} caracteres"
+        disciplina:
+          attributes:
+            nome:
+              blank: "não pode ficar em branco"
+              too_short: "deve ter pelo menos %{count} caracteres"
+            curso_id:
+              blank: "deve ser selecionado"
+        template:
+          attributes:
+            titulo:
+              blank: "não pode ficar em branco"
+              too_short: "deve ter pelo menos %{count} caracteres"
+            publico_alvo:
+              blank: "deve ser selecionado"
+            disciplina_id:
+              blank: "deve ser selecionado"
+  messages:
+    access_denied: "Acesso negado!"
+    login_success: "Login realizado com sucesso!"
+    login_failed: "Email ou senha inválidos."
+    auth_error: "Erro na autenticação. Entre em contato com o administrador."
+    logout_success: "Você saiu com segurança."
+    admin_only: "Apenas administradores podem cadastrar usuários."
+    course_created: "Curso criado com sucesso."
+    course_updated: "Curso atualizado com sucesso."
+    course_destroyed: "Curso removido com sucesso."
+    disciplina_created: "Disciplina criada com sucesso."
+    disciplina_updated: "Disciplina atualizada com sucesso."
+    disciplina_destroyed: "Disciplina removida com sucesso."
+    template_created: "Template criado com sucesso."
+    template_updated: "Template atualizado com sucesso."
+    template_destroyed: "Template removido com sucesso."
+    user_updated: "Usuário atualizado com sucesso."
+    user_destroyed: "Usuário removido com sucesso."

@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Matriculas" %>
+
+<h1>Matriculas</h1>
+
+<div id="matriculas">
+  <% @matriculas.each do |matricula| %>
+    <%= render matricula %>
+    <p>
+      <%= link_to "Show this matricula", matricula %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New matricula", new_matricula_path %>

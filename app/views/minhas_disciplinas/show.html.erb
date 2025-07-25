@@ -1,0 +1,173 @@
+<% content_for :title, "#{@disciplina.nome} - Detalhes" %>
+
+<div class="container-fluid py-4">
+  <div class="row">
+    <div class="col-12">
+      <!-- Header -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><%= link_to "Minhas Disciplinas", minhas_disciplinas_path %></li>
+              <li class="breadcrumb-item active" aria-current="page"><%= @disciplina.nome %></li>
+            </ol>
+          </nav>
+          <h2 class="mb-1">
+            <i class="fas fa-book me-2 text-primary"></i>
+            <%= @disciplina.nome %>
+          </h2>
+          <p class="text-muted mb-0">
+            <strong>Curso:</strong> <%= @disciplina.curso.nome %>
+            <% if @disciplina.codigo.present? %>
+              | <strong>Código:</strong> <%= @disciplina.codigo %>
+            <% end %>
+          </p>
+        </div>
+        
+        <%= link_to "Voltar", minhas_disciplinas_path, class: "btn btn-secondary" %>
+      </div>
+
+      <!-- Informações da disciplina -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">
+            <i class="fas fa-info-circle me-2"></i>
+            Informações da Disciplina
+          </h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <dl class="row">
+                <dt class="col-sm-4">Nome:</dt>
+                <dd class="col-sm-8"><%= @disciplina.nome %></dd>
+                
+                <dt class="col-sm-4">Curso:</dt>
+                <dd class="col-sm-8"><%= @disciplina.curso.nome %></dd>
+                
+                <% if @disciplina.codigo.present? %>
+                  <dt class="col-sm-4">Código:</dt>
+                  <dd class="col-sm-8"><%= @disciplina.codigo %></dd>
+                <% end %>
+              </dl>
+            </div>
+            <div class="col-md-6">
+              <dl class="row">
+                <% if @disciplina.horario.present? %>
+                  <dt class="col-sm-4">Horário:</dt>
+                  <dd class="col-sm-8"><%= @disciplina.horario %></dd>
+                <% end %>
+                
+                <dt class="col-sm-4">Total de Turmas:</dt>
+                <dd class="col-sm-8"><%= @turmas.count %></dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Turmas -->
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title mb-0">
+            <i class="fas fa-users me-2"></i>
+            Turmas
+          </h5>
+        </div>
+        <div class="card-body p-0">
+          <% if @turmas.any? %>
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>Semestre</th>
+                    <th>Professor</th>
+                    <% if current_user.professor? || current_user.admin? %>
+                      <th>Alunos Matriculados</th>
+                      <th>Ações</th>
+                    <% end %>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @turmas.each do |turma| %>
+                    <tr>
+                      <td>
+                        <span class="badge bg-primary"><%= turma.semestre %></span>
+                      </td>
+                      <td><%= turma.professor.name %></td>
+                      <% if current_user.professor? || current_user.admin? %>
+                        <td>
+                          <span class="badge bg-info">
+                            <%= turma.matriculas.count %> alunos
+                          </span>
+                        </td>
+                        <td>
+                          <button class="btn btn-sm btn-outline-info" 
+                                  data-bs-toggle="collapse" 
+                                  data-bs-target="#alunos-turma-<%= turma.id %>"
+                                  data-turbo="false">
+                            <i class="fas fa-eye me-1"></i>
+                            Ver Alunos
+                          </button>
+                        </td>
+                      <% end %>
+                    </tr>
+                    <% if current_user.professor? || current_user.admin? %>
+                      <tr class="collapse" id="alunos-turma-<%= turma.id %>">
+                        <td colspan="4">
+                          <div class="p-3 bg-light">
+                            <h6 class="mb-3">Alunos Matriculados - <%= turma.semestre %></h6>
+                            <% if turma.alunos.any? %>
+                              <div class="row">
+                                <% turma.alunos.each do |aluno| %>
+                                  <div class="col-md-6 mb-2">
+                                    <div class="d-flex align-items-center">
+                                      <div class="user-avatar-small me-2">
+                                        <%= aluno.name.first.upcase %>
+                                      </div>
+                                      <div>
+                                        <div class="fw-bold"><%= aluno.name %></div>
+                                        <small class="text-muted">Matrícula: <%= aluno.matricula %></small>
+                                      </div>
+                                    </div>
+                                  </div>
+                                <% end %>
+                              </div>
+                            <% else %>
+                              <p class="text-muted mb-0">Nenhum aluno matriculado nesta turma.</p>
+                            <% end %>
+                          </div>
+                        </td>
+                      </tr>
+                    <% end %>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          <% else %>
+            <div class="text-center py-5">
+              <i class="fas fa-users fa-3x text-muted mb-3"></i>
+              <h5 class="text-muted">Nenhuma turma encontrada</h5>
+              <p class="text-muted">Não há turmas cadastradas para esta disciplina.</p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.user-avatar-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-purple);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+</style>

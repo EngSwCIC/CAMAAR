@@ -1,0 +1,93 @@
+<%= form_with(model: disciplina, local: true, class: "disciplina-form") do |form| %>
+  <!-- Error Messages -->
+  <% if disciplina.errors.any? %>
+    <div class="alert alert-danger border-0 mb-4">
+      <div class="d-flex align-items-start">
+        <div class="me-3">
+          <div class="bg-danger bg-opacity-10 rounded-circle p-2">
+            <div class="bg-danger rounded-circle" style="width: 8px; height: 8px;"></div>
+          </div>
+        </div>
+        <div class="flex-grow-1">
+          <strong class="text-dark">Erro na validação</strong>
+          <p class="mb-2 text-muted small">
+            <%= pluralize(disciplina.errors.count, "erro encontrado", "erros encontrados") %>:
+          </p>
+          <ul class="mb-0 small">
+            <% disciplina.errors.each do |error| %>
+              <li class="text-danger"><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <!-- Form Fields -->
+  <div class="mb-4">
+    <div class="form-group">
+      <%= form.label :nome, "Nome da Disciplina", class: "form-label fw-semibold text-dark" %>
+      <%= form.text_field :nome, class: "form-control form-control-lg", placeholder: "Digite o nome da disciplina (ex: Programação Web)" %>
+      <div class="form-text">Informe o nome completo da disciplina</div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <div class="form-group">
+      <%= form.label :curso_id, "Curso", class: "form-label fw-semibold text-dark" %>
+      <%= form.collection_select :curso_id, Curso.all, :id, :nome, 
+          { prompt: "Selecione um curso" }, 
+          { class: "form-select form-control-lg" } %>
+      <div class="form-text">Selecione o curso ao qual esta disciplina pertence</div>
+    </div>
+  </div>
+  <!-- Submit Button -->
+  <div class="d-grid">
+    <%= form.submit disciplina.persisted? ? "Atualizar Disciplina" : "Criar Disciplina", class: "btn btn-primary btn-lg fw-semibold py-3" %>
+  </div>
+<% end %>
+<style>
+  /* Form styling */
+  .disciplina-form {
+    max-width: 100%;
+  }
+
+  .form-control-lg, .form-select {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-control-lg:focus, .form-select:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 0.25rem rgba(124, 58, 237, 0.25);
+  }
+
+  .form-label {
+    margin-bottom: 0.5rem;
+    color: #495057;
+  }
+
+  .form-text {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #6c757d;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #6d28d9 0%, #9333ea 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  }
+
+  .alert {
+    border-radius: 8px;
+  }
+</style>

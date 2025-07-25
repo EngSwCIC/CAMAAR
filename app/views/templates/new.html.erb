@@ -1,0 +1,217 @@
+<% content_for :title, "Criar Novo Template" %>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1><i class="fas fa-plus-circle"></i> Criar Novo Template</h1>
+    <%= link_to "Voltar", templates_path, class: "btn btn-secondary" %>
+  </div>
+  <div class="form-container">
+    <div class="table-responsive">
+      <%= form_with model: @template, local: true, data: { turbo: false } do |form| %>
+        <% if @template.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>Erro ao criar template:</strong>
+            <ul class="mb-0">
+              <% @template.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="row mb-3">
+          <div class="col-md-8">
+            <div class="mb-3">
+              <%= form.label :titulo, "Título", class: "form-label" %>
+              <%= form.text_field :titulo, class: "form-control", placeholder: "Digite o título do template" %>
+            </div>
+            <div class="mb-3">
+              <%= form.label :descricao, "Descrição", class: "form-label" %>
+              <%= form.text_area :descricao, rows: 3, class: "form-control", placeholder: "Descreva o objetivo deste template" %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <%= form.label :publico_alvo, "Público Alvo", class: "form-label" %>
+              <%= form.select :publico_alvo, 
+                                  options_for_select([
+                                    ["Alunos", "alunos"],
+                                    ["Professores", "professores"]
+                                  ]), 
+                                  { prompt: "Selecione o público" }, 
+                                  { class: "form-select" } %>
+            </div>
+            <div class="mb-3">
+              <%= form.label :disciplina_id, "Disciplina", class: "form-label" %>
+              <%= form.select :disciplina_id, 
+                                  options_from_collection_for_select(current_user.disciplinas, :id, :nome), 
+                                  { prompt: "Selecione a disciplina" }, 
+                                  { class: "form-select" } %>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5>Perguntas do Template</h5>
+          <button type="button" class="btn btn-primary btn-sm" style="width: 180px;" id="add-pergunta">
+            <i class="fas fa-plus"></i> Adicionar Pergunta
+          </button>
+        </div>
+        <div id="perguntas-container">
+          <!-- Perguntas serão adicionadas dinamicamente aqui -->
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between">
+          <%= link_to "Cancelar", templates_path, class: "btn btn-secondary" %>
+          <%= form.submit "Criar Template", class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- Template para JavaScript -->
+<template id="pergunta-template">
+  <div class="pergunta-item border rounded p-3 mb-3">
+    <div class="d-flex justify-content-between align-items-start mb-3">
+      <strong>Pergunta <span class="pergunta-number"></span></strong>
+      <button type="button" class="btn btn-sm btn-outline-danger remove-pergunta">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="mb-3">
+          <label class="form-label">Texto da Pergunta</label>
+          <textarea class="form-control pergunta-texto" rows="2" placeholder="Digite a pergunta..."></textarea>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label class="form-label">Tipo de Pergunta</label>
+          <select class="form-select pergunta-tipo">
+            <option value="verdadeiro_falso">Verdadeiro/Falso</option>
+            <option value="multipla_escolha">Múltipla Escolha</option>
+            <option value="subjetiva">Subjetiva</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="opcoes-container" style="display: none;">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <label class="form-label">Opções de Resposta</label>
+        <button type="button" class="btn btn-sm btn-outline-primary add-opcao">
+          <i class="fas fa-plus"></i> Adicionar Opção
+        </button>
+      </div>
+      <div class="opcoes-list"></div>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input pergunta-obrigatoria" type="checkbox" checked>
+      <label class="form-check-label">Pergunta obrigatória</label>
+    </div>
+  </div>
+</template>
+<template id="opcao-template">
+  <div class="opcao-item d-flex align-items-center mb-2">
+    <input type="text" class="form-control me-2 opcao-texto" placeholder="Digite a opção...">
+    <button type="button" class="btn btn-sm btn-outline-danger remove-opcao">
+      <i class="fas fa-trash"></i>
+    </button>
+  </div>
+</template>
+<script>
+  // Sistema de Perguntas Simplificado
+  (function() {
+    let perguntaCount = 0;
+
+    function initSystem() {
+      const addBtn = document.getElementById('add-pergunta');
+      if (!addBtn) {
+        setTimeout(initSystem, 100);
+        return;
+      }
+
+      addBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        addPergunta();
+      });
+
+      // Adicionar primeira pergunta
+      setTimeout(() => addPergunta(), 200);
+    }
+
+    function addPergunta() {
+      perguntaCount++;
+      const container = document.getElementById('perguntas-container');
+      const template = document.getElementById('pergunta-template');
+      const clone = template.content.cloneNode(true);
+
+      // Configurar número e nomes
+      clone.querySelector('.pergunta-number').textContent = perguntaCount;
+      clone.querySelector('.pergunta-texto').name = `perguntas[${perguntaCount}][texto]`;
+      clone.querySelector('.pergunta-tipo').name = `perguntas[${perguntaCount}][tipo]`;
+      clone.querySelector('.pergunta-obrigatoria').name = `perguntas[${perguntaCount}][obrigatoria]`;
+
+      container.appendChild(clone);
+
+      // Configurar eventos
+      const perguntaItem = container.lastElementChild;
+      setupPerguntaEvents(perguntaItem, perguntaCount);
+    }
+
+    function setupPerguntaEvents(perguntaItem, index) {
+      // Remover pergunta
+      perguntaItem.querySelector('.remove-pergunta').addEventListener('click', function(e) {
+        e.preventDefault();
+        perguntaItem.remove();
+      });
+
+      // Mudança de tipo
+      const tipoSelect = perguntaItem.querySelector('.pergunta-tipo');
+      const opcoesContainer = perguntaItem.querySelector('.opcoes-container');
+
+      tipoSelect.addEventListener('change', function() {
+        if (this.value === 'multipla_escolha') {
+          opcoesContainer.style.display = 'block';
+          if (perguntaItem.querySelectorAll('.opcao-item').length === 0) {
+            addOpcao(perguntaItem, index);
+            addOpcao(perguntaItem, index);
+          }
+        } else {
+          opcoesContainer.style.display = 'none';
+        }
+      });
+
+      // Adicionar opção
+      perguntaItem.querySelector('.add-opcao').addEventListener('click', function(e) {
+        e.preventDefault();
+        addOpcao(perguntaItem, index);
+      });
+    }
+
+    function addOpcao(perguntaItem, perguntaIndex) {
+      const opcoesList = perguntaItem.querySelector('.opcoes-list');
+      const template = document.getElementById('opcao-template');
+      const clone = template.content.cloneNode(true);
+      const opcaoIndex = perguntaItem.querySelectorAll('.opcao-item').length + 1;
+
+      clone.querySelector('.opcao-texto').name = `perguntas[${perguntaIndex}][opcoes][${opcaoIndex}]`;
+      opcoesList.appendChild(clone);
+
+      // Evento remover
+      const opcaoItem = opcoesList.lastElementChild;
+      opcaoItem.querySelector('.remove-opcao').addEventListener('click', function(e) {
+        e.preventDefault();
+        opcaoItem.remove();
+      });
+    }
+
+    // Inicializar
+    document.addEventListener('DOMContentLoaded', initSystem);
+    document.addEventListener('turbo:load', initSystem);
+    setTimeout(initSystem, 500);
+  })();
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>

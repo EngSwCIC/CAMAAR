@@ -1,0 +1,18 @@
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/websocket-driver-0.8.0/ext/websocket-driver
+/usr/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/websocket-driver-0.8.0/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-5zrpze sitelibdir\=./.gem.20250711-895-5zrpze clean
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/websocket-driver-0.8.0/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-5zrpze sitelibdir\=./.gem.20250711-895-5zrpze
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/websocket-driver-0.8.0/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-5zrpze sitelibdir\=./.gem.20250711-895-5zrpze install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20250711-895-5zrpze
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/websocket-driver-0.8.0/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-5zrpze sitelibdir\=./.gem.20250711-895-5zrpze clean
