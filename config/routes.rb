@@ -15,9 +15,6 @@ Rails.application.routes.draw do
 
   # Área do admin
   namespace :admin do
-    get "gerenciamento", to: "gerenciamento#index", as: :gerenciamento
-    get "avaliacoes", to: "avaliacoes#index", as: :avaliacoes
-
     # Templates do admin
     resources :templates do
       member do
