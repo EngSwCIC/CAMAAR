@@ -1,0 +1,82 @@
+<% content_for :title, "Novo Template" %>
+<% content_for :navbar_title, "Novo Template" %>
+
+<div class="bg-[#dbdbdb] min-h-screen w-full p-4">
+  <div class="max-w-4xl mx-auto">
+    <div class="bg-white rounded-lg shadow p-6">
+      <h1 class="text-2xl font-bold mb-6">Criar Novo Template</h1>
+
+      <%= form_with model: [:admin, @template], local: true, class: "space-y-6" do |form| %>
+        <div>
+          <%= form.label :name, "Nome do Template", class: "block text-sm font-medium mb-2" %>
+          <%= form.text_field :name, class: "w-full px-3 py-2 border border-gray-300 rounded-md" %>
+        </div>
+
+        <div>
+          <%= form.label :description, "Descrição", class: "block text-sm font-medium mb-2" %>
+          <%= form.text_area :description, rows: 3, class: "w-full px-3 py-2 border border-gray-300 rounded-md" %>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-medium mb-4">Perguntas</h3>
+          <div id="questions-container">
+            <%= form.fields_for :template_questions do |q| %>
+              <div class="question-item border border-gray-200 p-4 mb-4 rounded">
+                <%= q.label :question_text, "Pergunta", class: "block text-sm font-medium mb-2" %>
+                <%= q.text_area :question_text, rows: 2, class: "w-full px-3 py-2 border border-gray-300 rounded-md mb-2" %>
+                
+                <%= q.label :question_type, "Tipo", class: "block text-sm font-medium mb-2" %>
+                <%= q.select :question_type, 
+                    options_for_select([['Texto', 'text'], ['Múltipla Escolha', 'radio'], ['Escala', 'scale']]),
+                    {}, { class: "w-full px-3 py-2 border border-gray-300 rounded-md mb-2" } %>
+                
+                <label class="flex items-center">
+                  <%= q.check_box :required, class: "mr-2" %>
+                  Pergunta obrigatória
+                </label>
+              </div>
+            <% end %>
+          </div>
+          
+          <button type="button" id="add-question" class="bg-blue-500 text-white px-4 py-2 rounded">
+            Adicionar Pergunta
+          </button>
+        </div>
+
+        <div class="flex gap-4">
+          <%= form.submit "Criar Template", class: "bg-[#22C55E] text-white px-6 py-2 rounded" %>
+          <%= link_to "Cancelar", admin_templates_path, class: "bg-gray-500 text-white px-6 py-2 rounded" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('add-question').addEventListener('click', function() {
+  // Código JavaScript para adicionar mais perguntas dinamicamente
+  const container = document.getElementById('questions-container');
+  const questionCount = container.children.length;
+  
+  const newQuestion = document.createElement('div');
+  newQuestion.className = 'question-item border border-gray-200 p-4 mb-4 rounded';
+  newQuestion.innerHTML = `
+    <label class="block text-sm font-medium mb-2">Pergunta</label>
+    <textarea name="template[template_questions_attributes][${questionCount}][question_text]" rows="2" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-2"></textarea>
+    
+    <label class="block text-sm font-medium mb-2">Tipo</label>
+    <select name="template[template_questions_attributes][${questionCount}][question_type]" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-2">
+      <option value="text">Texto</option>
+      <option value="radio">Múltipla Escolha</option>
+      <option value="scale">Escala</option>
+    </select>
+    
+    <label class="flex items-center">
+      <input type="checkbox" name="template[template_questions_attributes][${questionCount}][required]" class="mr-2">
+      Pergunta obrigatória
+    </label>
+  `;
+  
+  container.appendChild(newQuestion);
+});
+</script>

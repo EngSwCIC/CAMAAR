@@ -64,7 +64,10 @@ RSpec.configure do |config|
   #
   # To enable this behaviour uncomment the line below.
   # config.infer_spec_type_from_file_location!
-
+  # Configuração para Capybara
+  require 'capybara/rspec'
+  Capybara.default_driver = :rack_test
+  Capybara.default_max_wait_time = 5
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:

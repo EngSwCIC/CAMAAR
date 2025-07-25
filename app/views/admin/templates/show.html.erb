@@ -1,0 +1,120 @@
+<% content_for :title, @template.name %>
+<% content_for :navbar_title, "Detalhes do Template" %>
+
+<div class="bg-[#dbdbdb] min-h-screen w-full p-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+      <div class="flex justify-between items-start mb-4">
+        <div>
+          <h1 class="text-2xl font-bold"><%= @template.name %></h1>
+          <p class="text-gray-600"><%= @template.description %></p>
+          <p class="text-sm text-gray-500 mt-2">
+            Criado em <%= @template.created_at.strftime("%d/%m/%Y às %H:%M") %>
+          </p>
+        </div>
+        <div class="flex gap-2">
+          <%= link_to "Editar", edit_admin_template_path(@template), 
+                      class: "bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded" %>
+          <%= link_to "Excluir", admin_template_path(@template), 
+                      method: :delete,
+                      confirm: "Tem certeza que deseja excluir este template?",
+                      class: "bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded" %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Perguntas do Template -->
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+      <h2 class="text-lg font-semibold mb-4">Perguntas (<%= @template.template_questions.count %>)</h2>
+      
+      <% if @template.template_questions.any? %>
+        <div class="space-y-4">
+          <% @template.template_questions.ordered.each_with_index do |question, index| %>
+            <div class="border border-gray-200 rounded p-4">
+              <div class="flex justify-between items-start">
+                <div class="flex-1">
+                  <h3 class="font-medium text-gray-900">
+                    <%= index + 1 %>. <%= question.question_text %>
+                    <% if question.required? %>
+                      <span class="text-red-500 text-sm">*</span>
+                    <% end %>
+                  </h3>
+                  <p class="text-sm text-gray-500 mt-1">
+                    Tipo: 
+                    <span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
+                      <%= question.question_type.humanize %>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <p class="text-gray-500">Nenhuma pergunta criada ainda.</p>
+      <% end %>
+    </div>
+
+    <!-- Respostas -->
+    <div class="bg-white rounded-lg shadow p-6">
+      <h2 class="text-lg font-semibold mb-4">Respostas (<%= @responses.count %>)</h2>
+      
+      <% if @responses.any? %>
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left p-2">Usuário</th>
+                <th class="text-left p-2">Email</th>
+                <th class="text-left p-2">Data</th>
+                <th class="text-left p-2">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @responses.each do |response| %>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="p-2"><%= response.user.nome %></td>
+                  <td class="p-2"><%= response.user.email %></td>
+                  <td class="p-2"><%= response.submitted_at&.strftime("%d/%m/%Y às %H:%M") %></td>
+                  <td class="p-2">
+                    <button class="text-blue-500 hover:underline text-sm" 
+                            onclick="toggleDetails('<%= response.id %>')">
+                      Ver detalhes
+                    </button>
+                  </td>
+                </tr>
+                <tr id="details-<%= response.id %>" class="hidden">
+                  <td colspan="4" class="p-4 bg-gray-50">
+                    <div class="space-y-3">
+                      <h4 class="font-medium">Respostas:</h4>
+                      <% response.question_answers.includes(:template_question).each do |answer| %>
+                        <div class="border-l-4 border-blue-200 pl-4">
+                          <strong class="text-sm"><%= answer.template_question.question_text %></strong>
+                          <p class="text-gray-700 mt-1"><%= answer.answer_text %></p>
+                        </div>
+                      <% end %>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% else %>
+        <p class="text-gray-500 text-center py-8">Nenhuma resposta recebida ainda.</p>
+      <% end %>
+    </div>
+
+    <div class="mt-6">
+      <%= link_to "Voltar", admin_templates_path, 
+                  class: "bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded" %>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleDetails(responseId) {
+  const element = document.getElementById('details-' + responseId);
+  element.classList.toggle('hidden');
+}
+</script>

@@ -38,3 +38,6 @@ npm-debug.log
 *.iml
 .idea_modules/
 .DS_Store
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

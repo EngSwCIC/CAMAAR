@@ -13,7 +13,7 @@
 # KAMAL_HOSTS
 # KAMAL_COMMAND
 # KAMAL_SUBCOMMAND
-# KAMAL_ROLES (if set)
+# KAMAL_OCUPACOES (if set)
 # KAMAL_DESTINATION (if set)
 
 # Only check the build status for production deployments

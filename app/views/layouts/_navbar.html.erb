@@ -1,0 +1,128 @@
+<nav class="bg-[#6C2365] shadow-sm fixed top-0 left-0 right-0 z-50 h-[60px]">
+  <div class="max-w-[1280px] h-full mx-auto flex justify-between items-center px-6">
+    <!-- Lado esquerdo - Menu Hambúrguer e Título -->
+    <div class="flex items-center space-x-4">
+      <!-- Botão hambúrguer -->
+      <button id="hamburger-button" class="text-white hover:text-gray-200 focus:outline-none mr-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <div class="text-[24px] font-normal text-white font-roboto">
+        <%= content_for?(:navbar_title) ? yield(:navbar_title) : "CAMAAR" %>
+      </div>
+    </div>
+
+    <!-- Lado direito - Barra de pesquisa e usuário -->
+    <div class="flex items-center space-x-8">
+      <div class="relative">
+        <input
+          type="text"
+          placeholder=""
+          class="w-[271px] h-[40px] rounded-[47px] border border-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent pl-10 pr-4"
+        >
+        <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#8E8E8E]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Foto do usuário e dropdown -->
+      <div class="relative" id="user-dropdown">
+        <button id="user-photo" class="focus:outline-none">
+          <div class="w-10 h-10 rounded-full bg-gray-300 overflow-hidden">
+            <img src="https://via.placeholder.com/40" alt="Foto do usuário" class="w-full h-full object-cover">
+          </div>
+        </button>
+
+        <!-- Menu de Logout -->
+        <div id="logout-menu"
+             class="hidden absolute right-0 mt-2 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200"
+             style="width: 222px; max-height: 38px;">
+          <%= button_to 'Logout', logout_path, method: :delete,
+                        form: { data: { turbo: false } },
+                        class: 'w-full text-left px-4 py-2 text-sm text-black hover:bg-gray-100' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Menu Lateral -->
+<div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-40 transform -translate-x-full transition-transform duration-300 ease-in-out">
+  <div class="p-4 border-b border-gray-200">
+    <h2 class="text-xl font-semibold text-white">Menu</h2>
+  </div>
+  <div class="p-4">
+    <ul class="space-y-2">
+      <!-- Na seção do menu lateral -->
+      <% if current_user.admin? %>
+        <!-- Menu para Admin -->
+        <li>
+          <%= link_to 'Templates', admin_templates_path,
+                      class: "block px-4 py-2 rounded #{current_page?(admin_templates_path) ? 'text-white bg-[#6c2365] hover:bg-[#7a2f7a]' : 'text-black hover:bg-[#d9b6db]'}" %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to 'Formulários', user_templates_path,
+                      class: "block px-4 py-2 rounded #{current_page?(user_templates_path) ? 'text-white bg-[#6c2365] hover:bg-[#7a2f7a]' : 'text-black hover:bg-[#d9b6db]'}" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- Overlay para quando o menu estiver aberto -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden"></div>
+
+<script>
+    function setupMenu() {
+        const userDropdown = document.getElementById('user-dropdown');
+        const userPhoto = document.getElementById('user-photo');
+        const logoutMenu = document.getElementById('logout-menu');
+
+        if (userPhoto && logoutMenu) {
+            // Remove para não adicionar várias vezes
+            userPhoto.replaceWith(userPhoto.cloneNode(true));
+            const newUserPhoto = document.getElementById('user-photo');
+            newUserPhoto.addEventListener('click', function(e) {
+                e.stopPropagation();
+                logoutMenu.classList.toggle('hidden');
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!userDropdown.contains(e.target)) {
+                    logoutMenu.classList.add('hidden');
+                }
+            });
+
+            logoutMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+
+        const hamburgerButton = document.getElementById('hamburger-button');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        if (hamburgerButton && sidebar && sidebarOverlay) {
+            hamburgerButton.replaceWith(hamburgerButton.cloneNode(true));
+            const newHamburgerButton = document.getElementById('hamburger-button');
+
+            newHamburgerButton.addEventListener('click', function() {
+                sidebar.classList.toggle('-translate-x-full');
+                sidebarOverlay.classList.toggle('hidden');
+            });
+
+            sidebarOverlay.addEventListener('click', function() {
+                sidebar.classList.add('-translate-x-full');
+                sidebarOverlay.classList.add('hidden');
+            });
+        }
+    }
+
+    document.addEventListener('turbo:load', setupMenu);
+
+</script>

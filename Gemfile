@@ -67,3 +67,6 @@ group :test do
 end
 
 gem "rspec-rails", "~> 8.0", :groups => [:development, :test]
+gem "tailwindcss-rails"
+gem 'bcrypt', '~> 3.1.7'
+gem 'spring'
