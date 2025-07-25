@@ -1,0 +1,228 @@
+<%# app/views/formularios/_form.html.erb %>
+<%= form_with(model: formulario, local: true, class: "formulario-form") do |form| %>
+  <!-- Error Messages -->
+  <% if formulario.errors.any? %>
+    <div class="alert alert-danger border-0 mb-4">
+      <div class="d-flex align-items-start">
+        <div class="me-3">
+          <div class="bg-danger bg-opacity-10 rounded-circle p-2">
+            <div class="bg-danger rounded-circle" style="width: 8px; height: 8px;"></div>
+          </div>
+        </div>
+        <div class="flex-grow-1">
+          <strong class="text-dark">Erro na validação</strong>
+          <p class="mb-2 text-muted small">
+            <%= pluralize(formulario.errors.count, "erro encontrado", "erros encontrados") %>:
+          </p>
+          <ul class="mb-0 small">
+            <% formulario.errors.each do |error| %>
+              <li class="text-danger"><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <!-- Template Selection -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="form-group">
+        <%= form.label :template_id, "Template de Formulário", class: "form-label fw-semibold text-dark" %>
+        <%= form.select :template_id, 
+            options_from_collection_for_select(@templates, 'id', 'titulo', formulario.template_id), 
+            { prompt: 'Selecione um template' }, 
+            { class: "form-select form-control-lg", required: true } %>
+        <div class="form-text">
+          <i class="fas fa-info-circle me-1"></i>
+          Escolha o template que será usado como base para este formulário
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Visibility Scope -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="form-group">
+        <%= form.label :escopo_visibilidade, "Escopo de Visibilidade", class: "form-label fw-semibold text-dark" %>
+        <%= form.select :escopo_visibilidade, 
+            Formulario.defined_enums['escopo_visibilidade'].keys.map { |e| [e.titleize.gsub('_', ' '), e] }, 
+            { prompt: 'Selecione o público-alvo' }, 
+            { class: "form-select form-control-lg", required: true, id: "escopo_visibilidade_select" } %>
+        <div class="form-text">
+          <i class="fas fa-eye me-1"></i>
+          Defina quem poderá visualizar e responder este formulário
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Conditional Fields -->
+  <div class="row mb-4" id="campo-disciplina" style="display: none;">
+    <div class="col-12">
+      <div class="form-group">
+        <%= form.label :disciplina_id, "Disciplina Específica", class: "form-label fw-semibold text-dark" %>
+        <%= form.select :disciplina_id, 
+            options_from_collection_for_select(@disciplinas, 'id', 'nome', formulario.disciplina_id), 
+            { prompt: 'Selecione uma disciplina' }, 
+            { class: "form-select form-control-lg" } %>
+        <div class="form-text">
+          <i class="fas fa-book me-1"></i>
+          Formulário será enviado apenas para alunos desta disciplina
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-4" id="campo-turma" style="display: none;">
+    <div class="col-12">
+      <div class="form-group">
+        <%= form.label :turma_id, "Turma Específica", class: "form-label fw-semibold text-dark" %>
+        <%= form.select :turma_id, 
+            options_from_collection_for_select(@turmas, 'id', ->(turma) { "#{turma.disciplina.nome} - Semestre #{turma.semestre}" }, formulario.turma_id), 
+            { prompt: 'Selecione uma turma' }, 
+            { class: "form-select form-control-lg" } %>
+        <div class="form-text">
+          <i class="fas fa-users me-1"></i>
+          Formulário será enviado apenas para alunos desta turma específica
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Deadline -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :data_fim, "Prazo Final para Respostas", class: "form-label fw-semibold text-dark" %>
+        <%= form.datetime_local_field :data_fim, 
+            value: formulario.data_fim&.strftime("%Y-%m-%dT%H:%M"),
+            class: "form-control form-control-lg", 
+            required: true %>
+        <div class="form-text">
+          <i class="fas fa-clock me-1"></i>
+          Data e hora limite para receber respostas
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label class="form-label fw-semibold text-dark d-block">Status do Formulário</label>
+        <div class="form-check form-switch">
+          <%= form.check_box :ativo, 
+              class: "form-check-input", 
+              style: "transform: scale(1.5); margin-top: 0.1rem;" %>
+          <%= form.label :ativo, class: "form-check-label ms-2" do %>
+            <span class="fw-semibold">Ativo</span>
+            <small class="d-block text-muted">Publicar e permitir respostas imediatamente</small>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Submit Button -->
+  <div class="d-grid">
+    <%= form.submit formulario.persisted? ? "Atualizar Formulário" : "Criar Formulário", 
+        class: "btn btn-primary btn-lg fw-semibold py-3" %>
+  </div>
+<% end %>
+<script>
+  document.addEventListener('turbo:load', function() {
+    const visibilidadeSelect = document.getElementById('escopo_visibilidade_select');
+    const turmaField = document.getElementById('campo-turma');
+    const disciplinaField = document.getElementById('campo-disciplina');
+
+    if (visibilidadeSelect) {
+      function toggleFields() {
+        const selectedValue = visibilidadeSelect.value;
+
+        // Reset fields
+        turmaField.style.display = 'none';
+        disciplinaField.style.display = 'none';
+        turmaField.querySelector('select').required = false;
+        disciplinaField.querySelector('select').required = false;
+
+        // Show appropriate field
+        if (selectedValue === 'por_turma') {
+          turmaField.style.display = 'block';
+          turmaField.querySelector('select').required = true;
+        } else if (selectedValue === 'por_disciplina') {
+          disciplinaField.style.display = 'block';
+          disciplinaField.querySelector('select').required = true;
+        }
+      }
+
+      visibilidadeSelect.addEventListener('change', toggleFields);
+      toggleFields(); // Run on page load
+    }
+  });
+</script>
+<style>
+  /* Form styling */
+  .formulario-form {
+    max-width: 100%;
+  }
+
+  .form-control-lg, .form-select {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-control-lg:focus, .form-select:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 0.2rem rgba(124, 58, 237, 0.25);
+  }
+
+  .form-label {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .form-group {
+    margin-bottom: 0;
+  }
+
+  .form-text {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #6c757d;
+  }
+
+  .form-check-input:checked {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+  }
+
+  .form-check-input:focus {
+    border-color: #7c3aed;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(124, 58, 237, 0.25);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #6d28d9 0%, #9333ea 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  }
+
+  .alert {
+    border-radius: 8px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .form-control-lg, .form-select {
+      padding: 0.6rem 0.8rem;
+    }
+
+    .btn-lg {
+      padding: 0.6rem 1rem;
+    }
+  }
+</style>

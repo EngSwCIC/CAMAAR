@@ -1,0 +1,310 @@
+<% content_for :title, "Editar Template" %>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1><i class="fas fa-edit"></i> Editar Template</h1>
+    <div class="btn-group">
+      <%= link_to "Visualizar", @template, class: "btn btn-primary" %>
+      <%= link_to "Voltar", templates_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+  <div class="form-container">
+    <%= form_with model: @template, local: true, data: { turbo: false } do |form| %>
+      <% if @template.errors.any? %>
+        <div class="alert alert-danger">
+          <strong>Erro ao editar template:</strong>
+          <ul class="mb-0">
+            <% @template.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="row mb-3">
+        <div class="col-md-8">
+          <div class="mb-3">
+            <%= form.label :titulo, "Título", class: "form-label" %>
+            <%= form.text_field :titulo, class: "form-control", placeholder: "Digite o título do template" %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :descricao, "Descrição", class: "form-label" %>
+            <%= form.text_area :descricao, rows: 3, class: "form-control", placeholder: "Descreva o objetivo deste template" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="mb-3">
+            <%= form.label :publico_alvo, "Público Alvo", class: "form-label" %>
+            <%= form.select :publico_alvo, 
+                            options_for_select([
+                              ["Alunos", "alunos"],
+                              ["Professores", "professores"]
+                            ], @template.publico_alvo), 
+                            { prompt: "Selecione o público" }, 
+                            { class: "form-select" } %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :disciplina_id, "Disciplina", class: "form-label" %>
+            <%= form.select :disciplina_id, 
+                            options_from_collection_for_select(current_user.disciplinas, :id, :nome, @template.disciplina_id), 
+                            { prompt: "Selecione a disciplina" }, 
+                            { class: "form-select" } %>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5>Perguntas do Template</h5>
+        <button type="button" class="btn btn-primary btn-sm" style="width: 180px;" id="add-pergunta">
+          <i class="fas fa-plus"></i> Adicionar Pergunta
+        </button>
+      </div>
+      <div id="perguntas-container">
+        <% @template.pergunta.each_with_index do |pergunta, index| %>
+          <div class="pergunta-item border rounded p-3 mb-3">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <strong>Pergunta <%= index + 1 %></strong>
+              <button type="button" class="btn btn-sm btn-outline-danger remove-pergunta-existente" data-pergunta-id="<%= pergunta.id %>">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="mb-3">
+                  <label class="form-label">Texto da Pergunta</label>
+                  <textarea name="perguntas_existentes[<%= pergunta.id %>][texto]" class="form-control" rows="2"><%= pergunta.texto %></textarea>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Tipo de Pergunta</label>
+                  <select name="perguntas_existentes[<%= pergunta.id %>][tipo]" class="form-select pergunta-tipo-existente">
+                    <option value="verdadeiro_falso" <%= 'selected' if pergunta.tipo == 'verdadeiro_falso' %>>Verdadeiro/Falso</option>
+                    <option value="multipla_escolha" <%= 'selected' if pergunta.tipo == 'multipla_escolha' %>>Múltipla Escolha</option>
+                    <option value="subjetiva" <%= 'selected' if pergunta.tipo == 'subjetiva' %>>Subjetiva</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <% if pergunta.tipo == 'multipla_escolha' && pergunta.opcoes_pergunta.any? %>
+              <div class="opcoes-container-existente">
+                      <label class="form-label">Opções de Resposta</label>
+                      <% pergunta.opcoes_pergunta.each do |opcao| %>
+                        <div class="opcao-item d-flex align-items-center mb-2">
+                          <input type="text" name="perguntas_existentes[<%= pergunta.id %>][opcoes][]" class="form-control me-2" value="<%= opcao.texto %>">
+                          <button type="button" class="btn btn-sm btn-outline-danger remove-opcao">
+                            <i class="fas fa-trash"></i>
+                          </button>
+                        </div>
+                      <% end %>
+                    </div>
+                  <% end %>
+                  <div class="form-check">
+                    <input name="perguntas_existentes[<%= pergunta.id %>][obrigatoria]" class="form-check-input" type="checkbox" <%= 'checked' if pergunta.obrigatoria %>>
+                    <label class="form-check-label">Pergunta obrigatória</label>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between">
+              <%= link_to "Cancelar", templates_path, class: "btn btn-secondary" %>
+              <%= form.submit "Atualizar Template", class: "btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <!-- Template para JavaScript -->
+      <template id="pergunta-template">
+        <div class="pergunta-item border rounded p-3 mb-3">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <strong>Pergunta <span class="pergunta-number"></span></strong>
+            <button type="button" class="btn btn-sm btn-outline-danger remove-pergunta">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="mb-3">
+                <label class="form-label">Texto da Pergunta</label>
+                <textarea class="form-control pergunta-texto" rows="2" placeholder="Digite a pergunta..."></textarea>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label class="form-label">Tipo de Pergunta</label>
+                <select class="form-select pergunta-tipo">
+                  <option value="verdadeiro_falso">Verdadeiro/Falso</option>
+                  <option value="multipla_escolha">Múltipla Escolha</option>
+                  <option value="subjetiva">Subjetiva</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="opcoes-container" style="display: none;">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <label class="form-label">Opções de Resposta</label>
+              <button type="button" class="btn btn-sm btn-outline-primary add-opcao">
+                <i class="fas fa-plus"></i> Adicionar Opção
+              </button>
+            </div>
+            <div class="opcoes-list"></div>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input pergunta-obrigatoria" type="checkbox" checked>
+            <label class="form-check-label">Pergunta obrigatória</label>
+          </div>
+        </div>
+      </template>
+      <template id="opcao-template">
+        <div class="opcao-item d-flex align-items-center mb-2">
+          <input type="text" class="form-control me-2 opcao-texto" placeholder="Digite a opção...">
+          <button type="button" class="btn btn-sm btn-outline-danger remove-opcao">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </template>
+      <script>
+        // Sistema de Perguntas para Edição
+        (function() {
+          let perguntaCount = <%= @template.pergunta.count %>;
+
+          function initSystem() {
+            const addBtn = document.getElementById('add-pergunta');
+            if (!addBtn) {
+              setTimeout(initSystem, 100);
+              return;
+            }
+
+            addBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              addPergunta();
+            });
+
+            // Configurar eventos para perguntas existentes
+            setupExistingPerguntas();
+          }
+
+          function setupExistingPerguntas() {
+            // Remover perguntas existentes
+            document.querySelectorAll('.remove-pergunta-existente').forEach(btn => {
+              btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                this.closest('.pergunta-item').remove();
+              });
+            });
+
+            // Remover opções existentes
+            document.querySelectorAll('.remove-opcao').forEach(btn => {
+              btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                this.closest('.opcao-item').remove();
+              });
+            });
+          }
+
+          function addPergunta() {
+            perguntaCount++;
+            const container = document.getElementById('perguntas-container');
+            const template = document.getElementById('pergunta-template');
+            const clone = template.content.cloneNode(true);
+
+            // Configurar número e nomes
+            clone.querySelector('.pergunta-number').textContent = perguntaCount;
+            clone.querySelector('.pergunta-texto').name = `perguntas[${perguntaCount}][texto]`;
+            clone.querySelector('.pergunta-tipo').name = `perguntas[${perguntaCount}][tipo]`;
+            clone.querySelector('.pergunta-obrigatoria').name = `perguntas[${perguntaCount}][obrigatoria]`;
+
+            container.appendChild(clone);
+
+            // Configurar eventos
+            const perguntaItem = container.lastElementChild;
+            setupPerguntaEvents(perguntaItem, perguntaCount);
+          }
+
+          function setupPerguntaEvents(perguntaItem, index) {
+            // Remover pergunta
+            perguntaItem.querySelector('.remove-pergunta').addEventListener('click', function(e) {
+              e.preventDefault();
+              perguntaItem.remove();
+            });
+
+            // Mudança de tipo
+            const tipoSelect = perguntaItem.querySelector('.pergunta-tipo');
+            const opcoesContainer = perguntaItem.querySelector('.opcoes-container');
+
+            tipoSelect.addEventListener('change', function() {
+              if (this.value === 'multipla_escolha') {
+                opcoesContainer.style.display = 'block';
+                if (perguntaItem.querySelectorAll('.opcao-item').length === 0) {
+                  addOpcao(perguntaItem, index);
+                  addOpcao(perguntaItem, index);
+                }
+              } else {
+                opcoesContainer.style.display = 'none';
+              }
+            });
+
+            // Adicionar opção
+            perguntaItem.querySelector('.add-opcao').addEventListener('click', function(e) {
+              e.preventDefault();
+              addOpcao(perguntaItem, index);
+            });
+          }
+
+          function addOpcao(perguntaItem, perguntaIndex) {
+            const opcoesList = perguntaItem.querySelector('.opcoes-list');
+            const template = document.getElementById('opcao-template');
+            const clone = template.content.cloneNode(true);
+            const opcaoIndex = perguntaItem.querySelectorAll('.opcao-item').length + 1;
+
+            clone.querySelector('.opcao-texto').name = `perguntas[${perguntaIndex}][opcoes][${opcaoIndex}]`;
+            opcoesList.appendChild(clone);
+
+            // Evento remover
+            const opcaoItem = opcoesList.lastElementChild;
+            opcaoItem.querySelector('.remove-opcao').addEventListener('click', function(e) {
+              e.preventDefault();
+              opcaoItem.remove();
+            });
+          }
+
+          // Inicializar
+          document.addEventListener('DOMContentLoaded', initSystem);
+          document.addEventListener('turbo:load', initSystem);
+          setTimeout(initSystem, 500);
+        })();
+      </script>
+      <style>
+        .pergunta-item {
+          transition: all 0.3s ease;
+        }
+
+        .pergunta-item:hover {
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .opcao-item {
+          transition: all 0.3s ease;
+        }
+
+        .form-label {
+          color: #495057;
+          font-size: 0.875rem;
+        }
+
+        .input-group-text {
+          background-color: #f8f9fa;
+          border-color: #dee2e6;
+        }
+
+        .btn-outline-primary:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .card {
+          border: 1px solid #e3e6f0;
+          border-radius: 0.75rem;
+          box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+        }
+      </style>

@@ -1,0 +1,239 @@
+<% content_for :title, "Cursos - CAMAAR" %>
+<div class="container-fluid">
+  <div class="container min-vh-100 d-flex align-items-start justify-content-center pt-5">
+    <div class="col-lg-8 col-md-10">
+      <!-- Success Notice -->
+      <% if notice %>
+        <div class="alert alert-success border-0 mb-4">
+          <div class="d-flex align-items-center">
+            <div class="me-3">
+              <div class="bg-success bg-opacity-10 rounded-circle p-2">
+                <div class="bg-success rounded-circle" style="width: 8px; height: 8px;"></div>
+              </div>
+            </div>
+            <div>
+              <strong class="text-dark">Sucesso!</strong>
+              <p class="mb-0 text-muted small"><%= notice %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <!-- Header -->
+      <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+          <h1 class="display-6 fw-bold text-dark mb-2">Cursos</h1>
+          <p class="text-muted fs-6 mb-0">
+            Gerencie os cursos disponíveis no sistema
+          </p>
+        </div>
+        <div>
+          <%= link_to new_curso_path, class: "btn btn-primary d-flex align-items-center" do %>
+            <svg width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            </svg>
+            Novo Curso
+          <% end %>
+        </div>
+      </div>
+      <!-- Courses List -->
+      <% if @cursos.any? %>
+        <div class="courses-grid">
+          <% @cursos.each do |curso| %>
+            <div class="course-card">
+              <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="flex-grow-1">
+                      <h5 class="card-title fw-bold text-dark mb-2"><%= curso.nome %></h5>
+                      <p class="text-muted small mb-0">
+                        <%= pluralize(curso.disciplinas.count, 'disciplina') %> cadastrada<%= 's' if curso.disciplinas.count != 1 %>
+                      </p>
+                    </div>
+                    <div class="course-badge">
+                      <span class="badge bg-light text-dark px-3 py-2">
+                        Curso
+                      </span>
+                    </div>
+                  </div>
+                  <div class="course-actions mt-3">
+                    <div class="row g-2">
+                      <div class="col-6">
+                        <%= link_to edit_curso_path(curso), class: "btn btn-outline-primary w-100 btn-sm" do %>
+                          <svg width="14" height="14" fill="currentColor" class="me-1" viewBox="0 0 16 16">
+                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708L10.5 8.207l-3-3L12.146.146zM11.207 9L8 5.793 1.146 12.646a.5.5 0 0 0-.146.354v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .354-.146L11.207 9z"/>
+                          </svg>
+                          Editar
+                        <% end %>
+                      </div>
+                      <div class="col-6">
+                        <%= link_to curso_path(curso), method: :delete,
+                            class: "btn btn-outline-danger w-100 btn-sm",
+                            data: { 
+                              confirm: "Tem certeza que deseja excluir o curso '#{curso.nome}'? Esta ação removerá também todas as disciplinas associadas.",
+                              turbo_method: :delete
+                            } do %>
+                          <svg width="14" height="14" fill="currentColor" class="me-1" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1z"/>
+                          </svg>
+                          Excluir
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="empty-state">
+          <div class="card border-0 bg-light">
+            <div class="card-body text-center py-5">
+              <div class="mb-4">
+                <div class="bg-muted bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                  <svg width="32" height="32" fill="currentColor" class="text-muted" viewBox="0 0 16 16">
+                    <path d="M2 3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3zm1 0v10h10V3H3z"/>
+                    <path d="M4 5.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
+                  </svg>
+                </div>
+              </div>
+              <h5 class="fw-bold text-dark mb-2">Nenhum curso encontrado</h5>
+              <p class="text-muted mb-4">
+                Ainda não há cursos cadastrados no sistema. Cadastre o primeiro curso para começar.
+              </p>
+              <%= link_to new_curso_path, class: "btn btn-primary" do %>
+                <svg width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg>
+                Cadastrar Primeiro Curso
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <!-- Back Button -->
+      <div class="d-flex justify-content-center mt-5">
+        <%= link_to root_path, class: "btn btn-outline-secondary" do %>
+          <svg width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+          </svg>
+          Voltar ao Início
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  /* Courses Grid */
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Course Card */
+  .course-card .card {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .course-card .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+  }
+
+  .course-badge .badge {
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  /* Buttons */
+  .btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border-width: 1px;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+    border: none;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #6d28d9 0%, #9333ea 100%);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+    color: white;
+  }
+
+  .btn-outline-primary {
+    border-color: #7c3aed;
+    color: #7c3aed;
+  }
+
+  .btn-outline-primary:hover {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+    color: white;
+  }
+
+  .btn-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+  }
+
+  .btn-outline-danger:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+  }
+
+  .btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+  }
+
+  /* Alert */
+  .alert {
+    border-radius: 12px;
+    border: none;
+  }
+
+  /* Empty State */
+  .empty-state .card {
+    border-radius: 16px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .courses-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .d-flex.justify-content-between {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .d-flex.justify-content-between .btn {
+      align-self: stretch;
+      justify-content: center;
+    }
+  }
+</style>

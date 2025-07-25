@@ -1,0 +1,22 @@
+<div id="<%= dom_id perguntum %>">
+  <p>
+    <strong>Template:</strong>
+    <%= perguntum.template.titulo %>
+  </p>
+
+  <p>
+    <strong>Texto:</strong>
+    <%= perguntum.texto %>
+  </p>
+
+  <p>
+    <strong>Tipo:</strong>
+    <%= perguntum.tipo.humanize %>
+  </p>
+
+  <p>
+    <strong>Obrigatória:</strong>
+    <%= perguntum.obrigatoria? ? "Sim" : "Não" %>
+  </p>
+
+</div>

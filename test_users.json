@@ -1,0 +1,26 @@
+[
+  {
+    "nome": "João Silva",
+    "email": "joao.silva@test.com",
+    "matricula": "202001001",
+    "ocupacao": "dicente",
+    "curso": "CIÊNCIA DA COMPUTAÇÃO/CIC",
+    "formacao": "graduando"
+  },
+  {
+    "nome": "Maria Santos",
+    "email": "maria.santos@test.com",
+    "matricula": "202001002",
+    "ocupacao": "dicente",
+    "curso": "ENGENHARIA DE COMPUTAÇÃO/CIC",
+    "formacao": "graduando"
+  },
+  {
+    "nome": "Professor Carlos",
+    "email": "carlos.professor@test.com",
+    "matricula": "1001",
+    "ocupacao": "docente",
+    "departamento": "DEPTO CIÊNCIAS DA COMPUTAÇÃO",
+    "formacao": "DOUTORADO"
+  }
+]

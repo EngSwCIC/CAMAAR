@@ -1,0 +1,22 @@
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/bcrypt_pbkdf-1.1.1/ext/mri
+/usr/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/bcrypt_pbkdf-1.1.1/ext/mri
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-bx3lol sitelibdir\=./.gem.20250711-895-bx3lol clean
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/bcrypt_pbkdf-1.1.1/ext/mri
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-bx3lol sitelibdir\=./.gem.20250711-895-bx3lol
+compiling bcrypt_pbkdf.c
+compiling bcrypt_pbkdf_ext.c
+compiling blowfish.c
+compiling explicit_bzero.c
+compiling hash_sha512.c
+linking shared-object bcrypt_pbkdf_ext.so
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/bcrypt_pbkdf-1.1.1/ext/mri
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-bx3lol sitelibdir\=./.gem.20250711-895-bx3lol install
+/usr/bin/install -c -m 0755 bcrypt_pbkdf_ext.so ./.gem.20250711-895-bx3lol
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/bcrypt_pbkdf-1.1.1/ext/mri
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-bx3lol sitelibdir\=./.gem.20250711-895-bx3lol clean

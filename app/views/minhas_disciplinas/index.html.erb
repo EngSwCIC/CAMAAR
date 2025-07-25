@@ -1,0 +1,179 @@
+<% content_for :title, @page_title %>
+
+<div class="container-fluid py-4">
+  <div class="row">
+    <div class="col-12">
+      <!-- Header da página -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h2 class="mb-1">
+            <i class="fas fa-book-open me-2 text-primary"></i>
+            <%= @page_title %>
+          </h2>
+          <p class="text-muted mb-0">
+            <% if @user_type == 'aluno' %>
+              Disciplinas em que você está matriculado
+            <% elsif @user_type == 'professor' %>
+              Disciplinas que você leciona
+            <% else %>
+              Gerenciar todas as disciplinas do sistema
+            <% end %>
+          </p>
+        </div>
+        
+        <% if current_user.admin? %>
+          <div>
+            <%= link_to "Gerenciar Disciplinas", gerenciar_disciplinas_path, 
+                class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Estatísticas -->
+      <div class="row mb-4">
+        <div class="col-md-3">
+          <div class="card bg-primary text-white">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div class="flex-grow-1">
+                  <h5 class="card-title">Total de Disciplinas</h5>
+                  <h3 class="mb-0"><%= @disciplinas.count %></h3>
+                </div>
+                <div class="ms-3">
+                  <i class="fas fa-book fa-2x opacity-75"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <% if @user_type == 'professor' %>
+          <div class="col-md-3">
+            <div class="card bg-success text-white">
+              <div class="card-body">
+                <div class="d-flex align-items-center">
+                  <div class="flex-grow-1">
+                    <h5 class="card-title">Total de Alunos</h5>
+                    <h3 class="mb-0">
+                      <%= @disciplinas.joins(turmas: :matriculas).where(turmas: { professor_id: current_user.id }).count %>
+                    </h3>
+                  </div>
+                  <div class="ms-3">
+                    <i class="fas fa-users fa-2x opacity-75"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Lista de disciplinas -->
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title mb-0">
+            <i class="fas fa-list me-2"></i>
+            Lista de Disciplinas
+          </h5>
+        </div>
+        <div class="card-body p-0">
+          <% if @disciplinas.any? %>
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>Disciplina</th>
+                    <th>Curso</th>
+                    <% if @user_type == 'aluno' %>
+                      <th>Professor</th>
+                    <% elsif @user_type == 'professor' %>
+                      <th>Alunos Matriculados</th>
+                    <% else %>
+                      <th>Professores</th>
+                    <% end %>
+                    <th>Semestre</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @disciplinas.each do |disciplina| %>
+                    <tr>
+                      <td>
+                        <div>
+                          <strong><%= disciplina.nome %></strong>
+                          <% if disciplina.codigo.present? %>
+                            <br><small class="text-muted">Código: <%= disciplina.codigo %></small>
+                          <% end %>
+                        </div>
+                      </td>
+                      <td><%= disciplina.curso.nome %></td>
+                      <td>
+                        <% if @user_type == 'aluno' %>
+                          <% turmas_aluno = disciplina.turmas.joins(:matriculas).where(matriculas: { user_id: current_user.id }) %>
+                          <% turmas_aluno.each do |turma| %>
+                            <div><%= turma.professor.name %></div>
+                          <% end %>
+                        <% elsif @user_type == 'professor' %>
+                          <% turmas_professor = disciplina.turmas.where(professor_id: current_user.id) %>
+                          <% total_alunos = turmas_professor.joins(:matriculas).count %>
+                          <span class="badge bg-info"><%= total_alunos %> alunos</span>
+                        <% else %>
+                          <% professores = disciplina.turmas.includes(:professor).map(&:professor).uniq %>
+                          <% professores.each do |professor| %>
+                            <div><small><%= professor.name %></small></div>
+                          <% end %>
+                        <% end %>
+                      </td>
+                      <td>
+                        <% if @user_type == 'aluno' %>
+                          <% turmas_aluno = disciplina.turmas.joins(:matriculas).where(matriculas: { user_id: current_user.id }) %>
+                          <% turmas_aluno.each do |turma| %>
+                            <span class="badge bg-secondary"><%= turma.semestre %></span>
+                          <% end %>
+                        <% elsif @user_type == 'professor' %>
+                          <% turmas_professor = disciplina.turmas.where(professor_id: current_user.id) %>
+                          <% turmas_professor.each do |turma| %>
+                            <span class="badge bg-secondary"><%= turma.semestre %></span>
+                          <% end %>
+                        <% else %>
+                          <% semestres = disciplina.turmas.pluck(:semestre).uniq %>
+                          <% semestres.each do |semestre| %>
+                            <span class="badge bg-secondary"><%= semestre %></span>
+                          <% end %>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= link_to "Ver Detalhes", minhas_disciplinas_path(disciplina), 
+                            class: "btn btn-sm btn-outline-primary" %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          <% else %>
+            <div class="text-center py-5">
+              <i class="fas fa-book-open fa-3x text-muted mb-3"></i>
+              <h5 class="text-muted">
+                <% if @user_type == 'aluno' %>
+                  Você não está matriculado em nenhuma disciplina
+                <% elsif @user_type == 'professor' %>
+                  Você não leciona nenhuma disciplina
+                <% else %>
+                  Nenhuma disciplina cadastrada
+                <% end %>
+              </h5>
+              <p class="text-muted">
+                <% if current_user.admin? %>
+                  <%= link_to "Cadastrar Nova Disciplina", new_disciplina_path, class: "btn btn-primary" %>
+                <% else %>
+                  Entre em contato com a administração para mais informações.
+                <% end %>
+              </p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

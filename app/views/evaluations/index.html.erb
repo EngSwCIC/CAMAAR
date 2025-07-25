@@ -1,0 +1,782 @@
+<% content_for :title, "Avaliações - CAMAAR" %>
+<div class="container-fluid px-4 py-4">
+  <!-- Header moderno e elegante -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <div class="hero-section">
+        <div class="hero-content">
+          <div class="hero-icon">
+            <i class="fas fa-poll"></i>
+          </div>
+          <div>
+            <h1 class="hero-title">Avaliações Disponíveis</h1>
+            <p class="hero-subtitle">
+              <% if current_user.admin? || current_user.coordenador? %>
+                Gerencie e monitore as avaliações do sistema
+              <% else %>
+                Participe das avaliações e contribua com sua opinião
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Cards de Estatísticas aprimorados -->
+  <div class="row mb-5">
+    <div class="col-md-4">
+      <div class="stats-card stats-card-primary">
+        <div class="stats-icon">
+          <i class="fas fa-clipboard-list"></i>
+        </div>
+        <div class="stats-content">
+          <h3 class="stats-number"><%= @formularios_disponiveis.count %></h3>
+          <p class="stats-label">Avaliações Disponíveis</p>
+        </div>
+        <div class="stats-decoration"></div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="stats-card stats-card-success">
+        <div class="stats-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="stats-content">
+          <h3 class="stats-number"><%= @formularios_respondidos.count %></h3>
+          <p class="stats-label">Avaliações Respondidas</p>
+        </div>
+        <div class="stats-decoration"></div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="stats-card stats-card-info">
+        <div class="stats-icon">
+          <i class="fas fa-chart-bar"></i>
+        </div>
+        <div class="stats-content">
+          <h3 class="stats-number"><%= @formularios_disponiveis.count + @formularios_respondidos.count %></h3>
+          <p class="stats-label">Total de Avaliações</p>
+        </div>
+        <div class="stats-decoration"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Formulários Disponíveis -->
+  <% if @formularios_disponiveis.any? %>
+    <div class="section-card mb-5">
+      <div class="section-header">
+        <div class="section-title">
+          <i class="fas fa-clipboard-list section-icon"></i>
+          <h4>Avaliações Pendentes</h4>
+        </div>
+        <div class="section-badge">
+          <span class="badge-count"><%= @formularios_disponiveis.count %></span>
+        </div>
+      </div>
+      <div class="evaluations-grid">
+        <% @formularios_disponiveis.each do |formulario| %>
+          <div class="evaluation-card">
+            <div class="card-header-custom">
+              <div class="evaluation-type">
+                <i class="fas fa-<%= formulario.template.publico_alvo == 'professores' ? 'chalkboard-teacher' : 'user-graduate' %>"></i>
+                <span class="type-badge type-<%= formulario.template.publico_alvo == 'professores' ? 'teacher' : 'student' %>">
+                  <%= formulario.template.publico_alvo.humanize %>
+                </span>
+              </div>
+              <div class="status-indicator status-available">
+                <i class="fas fa-circle"></i>
+              </div>
+            </div>
+            <div class="card-content">
+              <h5 class="evaluation-title"><%= formulario.template.titulo %></h5>
+              <p class="evaluation-description">
+                <%= truncate(formulario.template.descricao, length: 120) %>
+              </p>
+              <% if formulario.disciplina %>
+                <div class="evaluation-meta">
+                  <i class="fas fa-book"></i>
+                  <span><%= formulario.disciplina.nome %></span>
+                </div>
+              <% end %>
+              <div class="evaluation-deadline">
+                <i class="fas fa-clock"></i>
+                <span>Até <%= formulario.data_fim.strftime("%d/%m/%Y às %H:%M") %></span>
+              </div>
+              <div class="evaluation-questions">
+                <i class="fas fa-question-circle"></i>
+                <span><%= pluralize(formulario.template.pergunta.count, 'pergunta') %></span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <% 
+                # Lógica para mostrar botão Responder:
+                # - Para usuários normais: sempre mostrar
+                # - Para admins/coordenadores: só mostrar se o formulário for para professores OU se não for admin
+                show_respond_button = !current_user.admin? || 
+                                    (current_user.admin? && formulario.template.publico_alvo == 'professores')
+              %>
+              <% if show_respond_button %>
+                <%= link_to evaluation_path(formulario), class: "btn btn-respond" do %>
+                  <i class="fas fa-play"></i>
+                  <span>Responder</span>
+                <% end %>
+              <% end %>
+              <% if current_user&.admin? %>
+                <%= link_to evaluation_results_path(formulario), class: "btn btn-results" do %>
+                  <i class="fas fa-chart-bar"></i>
+                  <span>Resultados</span>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <div class="empty-state">
+      <div class="empty-icon">
+        <i class="fas fa-clipboard-list"></i>
+      </div>
+      <h4 class="empty-title">Nenhuma avaliação disponível</h4>
+      <p class="empty-description">
+        <% if current_user.admin? || current_user.coordenador? %>
+          Não há avaliações ativas no momento. Crie novas avaliações para visualizá-las aqui.
+        <% else %>
+          Não há avaliações pendentes para você no momento. Verifique novamente em breve.
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+  <!-- Formulários Respondidos -->
+  <% if @formularios_respondidos.any? %>
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-title">
+          <i class="fas fa-check-circle section-icon text-success"></i>
+          <h4>Avaliações Respondidas</h4>
+        </div>
+        <div class="section-badge">
+          <span class="badge-count success"><%= @formularios_respondidos.count %></span>
+        </div>
+      </div>
+      <div class="evaluations-grid">
+        <% @formularios_respondidos.each do |formulario| %>
+          <div class="evaluation-card completed">
+            <div class="card-header-custom">
+              <div class="evaluation-type">
+                <i class="fas fa-<%= formulario.template.publico_alvo == 'professores' ? 'chalkboard-teacher' : 'user-graduate' %>"></i>
+                <span class="type-badge type-completed">Respondida</span>
+              </div>
+              <div class="status-indicator status-completed">
+                <i class="fas fa-check"></i>
+              </div>
+            </div>
+            <div class="card-content">
+              <h5 class="evaluation-title"><%= formulario.template.titulo %></h5>
+              <p class="evaluation-description">
+                <%= truncate(formulario.template.descricao, length: 120) %>
+              </p>
+              <% if formulario.disciplina %>
+                <div class="evaluation-meta">
+                  <i class="fas fa-book"></i>
+                  <span><%= formulario.disciplina.nome %></span>
+                </div>
+              <% end %>
+              <% submissao = formulario.submissoes_concluidas.find_by(user: current_user) %>
+              <% if submissao %>
+                <div class="evaluation-completion">
+                  <i class="fas fa-calendar-check"></i>
+                  <span>Respondida em <%= submissao.created_at.strftime("%d/%m/%Y") %></span>
+                </div>
+              <% end %>
+            </div>
+            <div class="card-actions">
+              <% if current_user&.admin? %>
+                <%= link_to evaluation_results_path(formulario), class: "btn btn-results" do %>
+                  <i class="fas fa-chart-bar"></i>
+                  <span>Ver Resultados</span>
+                <% end %>
+              <% else %>
+                <div class="completion-badge">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Concluída</span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<style>
+  /* Reset e variáveis CSS */
+  :root {
+    --primary-color: #667eea;
+    --primary-dark: #5a67d8;
+    --success-color: #48bb78;
+    --info-color: #4299e1;
+    --warning-color: #ed8936;
+    --danger-color: #f56565;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --border-radius: 12px;
+    --border-radius-lg: 16px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hero Section */
+  .hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    border-radius: var(--border-radius-lg);
+    padding: 3rem 2rem;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="40" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+  }
+
+  .hero-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin: 0.5rem 0 0 0;
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+
+  /* Stats Cards */
+  .stats-card {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--gray-100);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    height: 140px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .stats-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .stats-card-primary .stats-decoration {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  }
+
+  .stats-card-success .stats-decoration {
+    background: linear-gradient(135deg, var(--success-color), #38a169);
+  }
+
+  .stats-card-info .stats-decoration {
+    background: linear-gradient(135deg, var(--info-color), #3182ce);
+  }
+
+  .stats-decoration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6px;
+    height: 100%;
+    border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;
+  }
+
+  .stats-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+
+  .stats-card-primary .stats-icon {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  }
+
+  .stats-card-success .stats-icon {
+    background: linear-gradient(135deg, var(--success-color), #38a169);
+  }
+
+  .stats-card-info .stats-icon {
+    background: linear-gradient(135deg, var(--info-color), #3182ce);
+  }
+
+  .stats-content {
+    flex-grow: 1;
+  }
+
+  .stats-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+    color: var(--gray-800);
+  }
+
+  .stats-label {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    margin: 0.5rem 0 0 0;
+    font-weight: 500;
+  }
+
+  /* Section Cards */
+  .section-card {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--gray-100);
+    overflow: hidden;
+  }
+
+  .section-header {
+    padding: 2rem 2rem 1rem 2rem;
+    border-bottom: 1px solid var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-title h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-800);
+  }
+
+  .section-icon {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+  }
+
+  .badge-count {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .badge-count.success {
+    background: var(--success-color);
+  }
+
+  /* Evaluations Grid */
+  .evaluations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+
+  /* Evaluation Cards */
+  .evaluation-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-200);
+    transition: var(--transition);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+  }
+
+  .evaluation-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+  }
+
+  .evaluation-card.completed {
+    opacity: 0.9;
+  }
+
+  .evaluation-card.completed:hover {
+    opacity: 1;
+  }
+
+  .card-header-custom {
+    padding: 1.25rem 1.5rem 0 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .evaluation-type {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .evaluation-type i {
+    color: var(--gray-500);
+    font-size: 1rem;
+  }
+
+  .type-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+  }
+
+  .type-teacher {
+    background: rgba(237, 137, 54, 0.1);
+    color: var(--warning-color);
+  }
+
+  .type-student {
+    background: rgba(66, 153, 225, 0.1);
+    color: var(--info-color);
+  }
+
+  .type-completed {
+    background: rgba(72, 187, 120, 0.1);
+    color: var(--success-color);
+  }
+
+  .status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .status-available {
+    background: var(--success-color);
+    color: var(--white);
+  }
+
+  .status-completed {
+    background: var(--success-color);
+    color: var(--white);
+  }
+
+  .status-indicator i {
+    font-size: 0.5rem;
+  }
+
+  /* Card Content */
+  .card-content {
+    padding: 1rem 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .evaluation-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .evaluation-description {
+    color: var(--gray-600);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .evaluation-meta,
+  .evaluation-deadline,
+  .evaluation-questions,
+  .evaluation-completion {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.825rem;
+    color: var(--gray-600);
+  }
+
+  .evaluation-meta i,
+  .evaluation-deadline i,
+  .evaluation-questions i,
+  .evaluation-completion i {
+    color: var(--gray-400);
+    font-size: 0.75rem;
+    width: 12px;
+  }
+
+  .evaluation-deadline {
+    color: var(--warning-color);
+    font-weight: 500;
+  }
+
+  .evaluation-completion {
+    color: var(--success-color);
+    font-weight: 500;
+  }
+
+  /* Card Actions */
+  .card-actions {
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    gap: 0.75rem;
+    border-top: 1px solid var(--gray-100);
+    background: var(--gray-50);
+  }
+
+  .btn {
+    padding: 0.75rem 1.25rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .btn-respond {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--white);
+  }
+
+  .btn-respond:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+    background: linear-gradient(135deg, var(--primary-dark), #553c9a);
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .btn-results {
+    background: var(--white);
+    color: var(--info-color);
+    border: 1px solid var(--info-color);
+  }
+
+  .btn-results:hover {
+    background: var(--info-color);
+    color: var(--white);
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  .completion-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--success-color);
+    font-weight: 600;
+    font-size: 0.875rem;
+    justify-content: center;
+    width: 100%;
+    padding: 0.75rem;
+  }
+
+  /* Empty State */
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-200);
+  }
+
+  .empty-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gray-100);
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--gray-400);
+    margin-bottom: 1.5rem;
+  }
+
+  .empty-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-700);
+    margin: 0 0 1rem 0;
+  }
+
+  .empty-description {
+    color: var(--gray-600);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .stats-card {
+      padding: 1.5rem;
+      height: auto;
+      min-height: 120px;
+    }
+
+    .stats-number {
+      font-size: 2rem;
+    }
+
+    .evaluations-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .section-header {
+      padding: 1.5rem 1rem 1rem 1rem;
+    }
+
+    .section-title h4 {
+      font-size: 1.25rem;
+    }
+
+    .card-actions {
+      flex-direction: column;
+    }
+
+    .btn {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-section {
+      padding: 2rem 1rem;
+    }
+
+    .empty-state {
+      padding: 3rem 1rem;
+    }
+
+    .evaluation-card {
+      min-height: auto;
+    }
+  }
+
+  /* Animation de entrada */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .evaluation-card {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .evaluation-card:nth-child(1) { animation-delay: 0.1s; }
+  .evaluation-card:nth-child(2) { animation-delay: 0.2s; }
+  .evaluation-card:nth-child(3) { animation-delay: 0.3s; }
+  .evaluation-card:nth-child(4) { animation-delay: 0.4s; }
+  .evaluation-card:nth-child(5) { animation-delay: 0.5s; }
+  .evaluation-card:nth-child(6) { animation-delay: 0.6s; }
+</style>

@@ -1,0 +1,343 @@
+<% content_for :title, "Gerenciamento - CAMAAR" %>
+<div class="container-fluid">
+  <div class="container min-vh-100 d-flex align-items-start justify-content-center pt-5">
+    <div class="col-lg-6 col-md-8">
+      <!-- Header -->
+      <div class="text-center mb-5">
+        <h1 class="display-6 fw-bold text-dark mb-3">Gerenciamento</h1>
+        <p class="text-muted fs-5">
+          Painel administrativo do sistema
+        </p>
+      </div>
+      <!-- Management Options Card -->
+      <div class="management-main-card">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-4">
+            <!-- Option 1: Importar Dados -->
+            <div class="management-option <%= 'active' %> mb-4">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <h5 class="mb-1 fw-semibold">Importar dados</h5>
+                  <p class="text-muted mb-0 small">Importe usuários e disciplinas do SIGAA</p>
+                </div>
+                <button type="button" class="btn btn-success btn-sm px-4" data-bs-toggle="modal" data-bs-target="#importModal">
+                  Importar
+                </button>
+              </div>
+            </div>
+            <hr class="my-4">
+            <!-- Option 2: Editar Templates -->
+            <div class="management-option <%= 'disabled' unless @has_imported_data %> mb-4">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <h5 class="mb-1 fw-semibold">Editar Templates</h5>
+                  <p class="text-muted mb-0 small">Gerencie templates de formulários</p>
+                </div>
+                <% if @has_imported_data %>
+                  <%= link_to "Acessar", templates_path, class: "btn btn-outline-primary btn-sm px-4" %>
+                <% else %>
+                  <button class="btn btn-outline-secondary btn-sm px-4" disabled>Bloqueado</button>
+                <% end %>
+              </div>
+            </div>
+            <hr class="my-4">
+            <!-- Option 3: Enviar Formulários -->
+            <div class="management-option <%= 'disabled' unless @has_imported_data %> mb-4">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <h5 class="mb-1 fw-semibold">Enviar Formulários</h5>
+                  <p class="text-muted mb-0 small">Distribua formulários para turmas</p>
+                </div>
+                <% if @has_imported_data %>
+                  <%= link_to "Acessar", formularios_path, class: "btn btn-outline-primary btn-sm px-4" %>
+                <% else %>
+                  <button class="btn btn-outline-secondary btn-sm px-4" disabled>Bloqueado</button>
+                <% end %>
+              </div>
+            </div>
+            <hr class="my-4">
+            <!-- Option 4: Resultados -->
+            <div class="management-option <%= 'disabled' unless @has_imported_data %>">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <h5 class="mb-1 fw-semibold">Resultados</h5>
+                  <p class="text-muted mb-0 small">Visualize relatórios e resultados</p>
+                </div>
+                <% if @has_imported_data %>
+                  <%= link_to "Acessar", evaluations_path, class: "btn btn-outline-primary btn-sm px-4" %>
+                <% else %>
+                  <button class="btn btn-outline-secondary btn-sm px-4" disabled>Bloqueado</button>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Status Alert -->
+      <% unless @has_imported_data %>
+        <div class="alert alert-light border-start border-warning border-4 mt-4">
+          <div class="d-flex align-items-center">
+            <div class="me-3">
+              <div class="bg-warning bg-opacity-10 rounded-circle p-2">
+                <div class="bg-warning rounded-circle" style="width: 8px; height: 8px;"></div>
+              </div>
+            </div>
+            <div>
+              <strong class="text-dark">Primeiro acesso</strong>
+              <p class="mb-0 text-muted small">Para começar a usar o sistema, importe os dados do SIGAA. Após a importação, as demais funcionalidades serão liberadas.</p>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="alert alert-light border-start border-success border-4 mt-4">
+          <div class="d-flex align-items-center">
+            <div class="me-3">
+              <div class="bg-success bg-opacity-10 rounded-circle p-2">
+                <div class="bg-success rounded-circle" style="width: 8px; height: 8px;"></div>
+              </div>
+            </div>
+            <div>
+              <strong class="text-dark">Sistema configurado</strong>
+              <p class="mb-0 text-muted small">Dados importados com sucesso! Todas as funcionalidades estão disponíveis.</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<!-- Modal de Importação -->
+<div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="importModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content border-0 shadow">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fw-bold" id="importModalLabel">Importar Dados</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pt-2">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="import-card">
+              <div class="card border-0 bg-light h-100">
+                <div class="card-body text-center p-4">
+                  <div class="mb-3">
+                    <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                      <div class="bg-primary rounded-circle" style="width: 8px; height: 8px;"></div>
+                    </div>
+                  </div>
+                  <h5 class="fw-semibold mb-2">Importar Usuários</h5>
+                  <p class="text-muted small mb-4">
+                    Faça upload do arquivo class_members.json
+                  </p>
+                  <form id="importUsersForm" enctype="multipart/form-data">
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                    <div class="mb-3">
+                      <input type="file" class="form-control form-control-sm" id="usersFile" name="file" accept=".json" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm px-4">
+                      Importar Usuários
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="import-card">
+              <div class="card border-0 bg-light h-100">
+                <div class="card-body text-center p-4">
+                  <div class="mb-3">
+                    <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                      <div class="bg-success rounded-circle" style="width: 8px; height: 8px;"></div>
+                    </div>
+                  </div>
+                  <h5 class="fw-semibold mb-2">Importar Disciplinas</h5>
+                  <p class="text-muted small mb-4">
+                    Faça upload do arquivo classes.json
+                  </p>
+                  <form id="importDisciplinesForm" enctype="multipart/form-data">
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                    <div class="mb-3">
+                      <input type="file" class="form-control form-control-sm" id="disciplinesFile" name="file" accept=".json" required>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-sm px-4">
+                      Importar Disciplinas
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Loading -->
+        <div id="importLoading" class="text-center mt-4" style="display: none;">
+          <div class="spinner-border spinner-border-sm text-primary" role="status">
+            <span class="visually-hidden">Carregando...</span>
+          </div>
+          <p class="mt-2 text-muted small">Processando arquivo...</p>
+        </div>
+        <!-- Results -->
+        <div id="importResults" class="mt-4"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Form de importação de usuários
+    document.getElementById('importUsersForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      importData(this, '<%= admin_management_import_users_path %>');
+    });
+
+    // Form de importação de disciplinas
+    document.getElementById('importDisciplinesForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      importData(this, '<%= admin_management_import_disciplines_path %>');
+    });
+
+    function importData(form, url) {
+      const formData = new FormData(form);
+      const loadingDiv = document.getElementById('importLoading');
+      const resultsDiv = document.getElementById('importResults');
+
+      // Mostra loading
+      loadingDiv.style.display = 'block';
+      resultsDiv.innerHTML = '';
+
+      fetch(url, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        loadingDiv.style.display = 'none';
+
+        if (data.success) {
+          resultsDiv.innerHTML = `
+            <div class="alert alert-success">
+              <i class="fas fa-check-circle me-2"></i>
+              ${data.message}
+              ${data.imported_count ? `<br><small>Importados: ${data.imported_count} | Ignorados: ${data.skipped_count || 0}</small>` : ''}
+            </div>
+          `;
+
+          // Recarrega a página após 2 segundos para atualizar o status
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
+        } else {
+          resultsDiv.innerHTML = `
+            <div class="alert alert-danger">
+              <i class="fas fa-exclamation-circle me-2"></i>
+              ${data.message}
+            </div>
+          `;
+        }
+      })
+      .catch(error => {
+        loadingDiv.style.display = 'none';
+        resultsDiv.innerHTML = `
+          <div class="alert alert-danger">
+            <i class="fas fa-exclamation-circle me-2"></i>
+            Erro ao processar arquivo: ${error.message}
+          </div>
+        `;
+      });
+    }
+  });
+</script>
+<style>
+  /* Main management card */
+  .management-main-card {
+    transition: all 0.3s ease;
+  }
+
+  .management-main-card:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Management options */
+  .management-option {
+    transition: all 0.3s ease;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .management-option.active:hover {
+    background-color: #f8f9fa;
+  }
+
+  .management-option.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .management-option.disabled h5,
+  .management-option.disabled p {
+    color: #6c757d !important;
+  }
+
+  /* Import cards in modal */
+  .import-card .card {
+    transition: all 0.3s ease;
+  }
+
+  .import-card .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+  }
+
+  /* Custom button styles */
+  .btn-sm {
+    font-size: 0.875rem;
+    padding: 0.375rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+
+  /* Alert improvements */
+  .alert {
+    border: none;
+    border-radius: 8px;
+  }
+
+  /* Modal improvements */
+  .modal-content {
+    border-radius: 12px;
+  }
+
+  /* Form controls */
+  .form-control-sm {
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .form-control-sm:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .management-option {
+      padding: 0.75rem;
+    }
+
+    .management-option .d-flex {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .management-option .btn {
+      margin-top: 0.5rem;
+      align-self: center;
+    }
+  }
+</style>

@@ -1,0 +1,267 @@
+<% content_for :title, "Editar Formulário - CAMAAR" %>
+<div class="container-fluid">
+  <div class="container min-vh-100 d-flex align-items-start justify-content-center pt-5">
+    <div class="col-lg-8 col-md-10">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <%= link_to root_path, class: "text-decoration-none" do %>
+              <i class="fas fa-home me-1"></i>Início
+            <% end %>
+          </li>
+          <li class="breadcrumb-item">
+            <%= link_to formularios_path, class: "text-decoration-none" do %>
+              <i class="fas fa-clipboard-list me-1"></i>Formulários
+            <% end %>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <i class="fas fa-edit me-1"></i>Editar Formulário
+          </li>
+        </ol>
+      </nav>
+      <!-- Header -->
+      <div class="page-header mb-5">
+        <div class="d-flex align-items-center mb-3">
+          <div class="header-icon me-3">
+            <div class="bg-primary bg-opacity-10 rounded-circle p-3">
+              <i class="fas fa-edit text-primary" style="font-size: 1.5rem;"></i>
+            </div>
+          </div>
+          <div>
+            <h1 class="display-6 fw-bold text-dark mb-1">Editar Formulário</h1>
+            <p class="text-muted mb-0">
+              Atualize as configurações do formulário "<strong><%= @formulario.template&.titulo || 'Sem template' %></strong>"
+            </p>
+          </div>
+        </div>
+        <!-- Quick Info Card -->
+        <div class="alert alert-info border-0 mb-0">
+          <div class="d-flex align-items-center">
+            <div class="me-3">
+              <div class="bg-info bg-opacity-10 rounded-circle p-2">
+                <i class="fas fa-info text-info"></i>
+              </div>
+            </div>
+            <div class="flex-grow-1">
+              <div class="row g-2">
+                <div class="col-md-4">
+                  <small class="text-muted d-block">Status Atual</small>
+                  <span class="badge <%= @formulario.ativo? ? 'bg-success' : 'bg-secondary' %>">
+                    <i class="fas fa-<%= @formulario.ativo? ? 'check-circle' : 'pause-circle' %> me-1"></i>
+                    <%= @formulario.ativo? ? 'Ativo' : 'Inativo' %>
+                  </span>
+                </div>
+                <div class="col-md-4">
+                  <small class="text-muted d-block">Público-alvo</small>
+                  <span class="fw-semibold text-dark">
+                    <i class="fas fa-<%= @formulario.template&.publico_alvo == 'alunos' ? 'graduation-cap' : 'chalkboard-teacher' %> me-1"></i>
+                    <%= @formulario.template&.publico_alvo&.humanize || 'Não definido' %>
+                  </span>
+                </div>
+                <div class="col-md-4">
+                  <small class="text-muted d-block">Prazo Final</small>
+                  <span class="fw-semibold text-dark">
+                    <i class="fas fa-calendar me-1"></i>
+                    <%= @formulario.data_fim.strftime("%d/%m/%Y às %H:%M") %>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Form Card -->
+      <div class="card border-0 shadow-sm">
+        <div class="card-header bg-light border-0 py-3">
+          <h5 class="card-title mb-0 fw-semibold text-dark">
+            <i class="fas fa-cog me-2"></i>
+            Configurações do Formulário
+          </h5>
+        </div>
+        <div class="card-body p-4">
+          <%= render "form", formulario: @formulario %>
+        </div>
+      </div>
+      <!-- Action Buttons -->
+      <div class="d-flex justify-content-between align-items-center mt-4">
+        <div class="d-flex gap-2">
+          <%= link_to formulario_path(@formulario), class: "btn btn-outline-info" do %>
+            <i class="fas fa-eye me-2"></i>
+            Visualizar Formulário
+          <% end %>
+          <%= link_to formularios_path, class: "btn btn-outline-secondary" do %>
+            <i class="fas fa-arrow-left me-2"></i>
+            Voltar para Lista
+          <% end %>
+        </div>
+        <div class="text-muted small">
+          <i class="fas fa-user me-1"></i>
+          Criado por <strong><%= @formulario.coordenador&.name || 'Usuário não definido' %></strong>
+          em <%= @formulario.created_at.strftime("%d/%m/%Y") %>
+        </div>
+      </div>
+      <!-- Danger Zone (se necessário) -->
+      <div class="card border-danger mt-4">
+        <div class="card-header bg-danger bg-opacity-10 border-danger py-3">
+          <h6 class="card-title mb-0 text-danger fw-semibold">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            Zona Perigosa
+          </h6>
+        </div>
+        <div class="card-body">
+          <p class="text-muted mb-3">
+            Ações irreversíveis. Tenha cuidado ao usar essas opções.
+          </p>
+          <%= link_to @formulario, method: :delete,
+              class: "btn btn-outline-danger",
+              data: { 
+                confirm: "Tem certeza que deseja excluir este formulário permanentemente? Esta ação não pode ser desfeita.",
+                turbo_method: :delete
+              } do %>
+            <i class="fas fa-trash me-2"></i>
+            Excluir Formulário
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  /* Page styling */
+  .page-header {
+    position: relative;
+  }
+
+  .header-icon {
+    flex-shrink: 0;
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+  }
+
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: "›";
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+
+  .breadcrumb-item a {
+    color: #7c3aed;
+    transition: color 0.3s ease;
+  }
+
+  .breadcrumb-item a:hover {
+    color: #6d28d9;
+  }
+
+  .breadcrumb-item.active {
+    color: #6c757d;
+  }
+
+  /* Cards */
+  .card {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .card-header {
+    border-radius: 12px 12px 0 0;
+  }
+
+  /* Buttons */
+  .btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border-width: 1px;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+    border: none;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #6d28d9 0%, #9333ea 100%);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+    color: white;
+  }
+
+  .btn-outline-primary {
+    border-color: #7c3aed;
+    color: #7c3aed;
+  }
+
+  .btn-outline-primary:hover {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+    color: white;
+  }
+
+  .btn-outline-info {
+    border-color: #0dcaf0;
+    color: #0dcaf0;
+  }
+
+  .btn-outline-info:hover {
+    background-color: #0dcaf0;
+    border-color: #0dcaf0;
+    color: white;
+  }
+
+  .btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+  }
+
+  .btn-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+  }
+
+  .btn-outline-danger:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+  }
+
+  /* Alert */
+  .alert {
+    border-radius: 10px;
+    border: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .d-flex.justify-content-between {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .header-icon {
+      display: none;
+    }
+  }
+</style>

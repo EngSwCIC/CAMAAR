@@ -1,0 +1,22 @@
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.18.6/ext/bootsnap
+/usr/bin/ruby extconf.rb
+checking for fdatasync() in unistd.h... yes
+checking for whether -D_GNU_SOURCE is accepted as CPPFLAGS... yes
+checking for whether -O3 is accepted as CFLAGS... yes
+checking for whether -std=c99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.18.6/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-dbkxb8 sitelibdir\=./.gem.20250711-895-dbkxb8 clean
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.18.6/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-dbkxb8 sitelibdir\=./.gem.20250711-895-dbkxb8
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.18.6/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-dbkxb8 sitelibdir\=./.gem.20250711-895-dbkxb8 install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20250711-895-dbkxb8/bootsnap
+
+current directory: /home/ryan/Downloads/CAMAAR/CAMAAR-Projeto-Engenharia-de-Software/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.18.6/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20250711-895-dbkxb8 sitelibdir\=./.gem.20250711-895-dbkxb8 clean

@@ -1,0 +1,301 @@
+<% content_for :title, "Resultados - #{@template.titulo}" %>
+<div class="container-fluid">
+  <div class="container min-vh-100 d-flex align-items-start justify-content-center pt-5">
+    <div class="col-lg-10 col-md-12">
+      <!-- Breadcrumb -->
+    </nav>
+    <!-- Header -->
+    <div class="page-header mb-5">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <div class="d-flex align-items-center">
+          <div>
+            <h1 class="display-6 fw-bold text-dark mb-1">Resultados da Avaliação</h1>
+            <p class="text-muted mb-0">
+              <%= @template.titulo %>
+            </p>
+          </div>
+        </div>
+        <%= link_to evaluations_path, class: "btn btn-outline-secondary" do %>
+          <i class="fas fa-arrow-left me-2"></i>
+          Voltar
+        <% end %>
+      </div>
+      <!-- Quick Stats Card -->
+      <div class="alert alert-light border mb-0">
+        <div class="d-flex align-items-center">
+          <div class="flex-grow-1">
+            <div class="row g-2">
+              <div class="col-md-4">
+                <small class="text-muted d-block">Total de Submissões</small>
+                <span class="fw-bold text-dark h5 mb-0">
+                  <i class="fas fa-users me-1"></i>
+                  <%= @total_submissoes %>
+                </span>
+              </div>
+              <div class="col-md-4">
+                <small class="text-muted d-block">Total de Respostas</small>
+                <span class="fw-bold text-dark h5 mb-0">
+                  <i class="fas fa-comments me-1"></i>
+                  <%= @total_respostas %>
+                </span>
+              </div>
+              <div class="col-md-4">
+                <small class="text-muted d-block">Perguntas</small>
+                <span class="fw-bold text-dark h5 mb-0">
+                  <i class="fas fa-question-circle me-1"></i>
+                  <%= @template.pergunta.count %>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Detalhes por Pergunta -->
+    <div class="row">
+      <div class="col-12">
+        <h5 class="mb-4 fw-semibold text-dark">
+          <i class="fas fa-chart-pie me-2 text-purple"></i>
+          Análise Detalhada por Pergunta
+        </h5>
+        <% @template.pergunta.each_with_index do |pergunta, index| %>
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-header bg-light border-0 py-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                  <span class="badge bg-purple me-3 fs-6 text-white">
+                    <%= index + 1 %>
+                  </span>
+                  <div>
+                    <h6 class="mb-1 fw-semibold text-dark">
+                      <%= pergunta.texto %>
+                    </h6>
+                    <small class="text-muted">
+                      <i class="fas fa-<%= pergunta.tipo == 'verdadeiro_falso' ? 'check' : pergunta.tipo == 'multipla_escolha' ? 'list' : 'pen' %> me-1"></i>
+                      <%= pergunta.tipo.humanize %>
+                    </small>
+                  </div>
+                </div>
+                <% stats = @estatisticas[pergunta.id] %>
+                <span class="badge bg-light text-dark border">
+                  <i class="fas fa-reply me-1"></i>
+                  <%= stats[:total_respostas] %> resposta<%= stats[:total_respostas] != 1 ? 's' : '' %>
+                </span>
+              </div>
+            </div>
+            <div class="card-body p-4">
+              <% if stats[:tipo] == 'subjetiva' %>
+                <!-- Respostas Subjetivas -->
+                <% if stats[:respostas_texto].any? %>
+                  <div class="row">
+                    <% stats[:respostas_texto].each_with_index do |resposta, idx| %>
+                      <div class="col-md-6 mb-3">
+                        <div class="p-3 border rounded-3 bg-light">
+                          <div class="d-flex align-items-center mb-2 gap-2">
+                            <i class="fas fa-user text-purple small"></i>
+                            <small class="text-muted fw-medium">Resposta <%= idx + 1 %></small>
+                          </div>
+                          <p class="mb-0 text-dark"><%= resposta %></p>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                <% else %>
+                  <div class="text-center py-4">
+                    <i class="fas fa-comment-slash fa-2x text-muted mb-3"></i>
+                    <p class="text-muted mb-0">Nenhuma resposta registrada para esta pergunta.</p>
+                  </div>
+                <% end %>
+              <% else %>
+                <!-- Respostas de Múltipla Escolha / Verdadeiro-Falso -->
+                <% if stats[:opcoes].any? %>
+                  <div class="row">
+                    <% stats[:opcoes].each do |opcao_id, opcao_data| %>
+                      <% percentage = stats[:total_respostas] > 0 ? (opcao_data[:count].to_f / stats[:total_respostas] * 100).round(1) : 0 %>
+                      <div class="col-md-6 mb-3">
+                        <div class="option-result-card">
+                          <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex align-items-center">
+                              <% if pergunta.tipo == 'verdadeiro_falso' %>
+                                <span class="badge <%= opcao_data[:texto] == 'Verdadeiro' ? 'bg-success' : 'bg-danger' %> me-2">
+                                  <%= opcao_data[:texto] == 'Verdadeiro' ? 'V' : 'F' %>
+                                </span>
+                              <% else %>
+                                <span class="badge bg-purple me-2">
+                                  <%= ('A'.ord + stats[:opcoes].keys.index(opcao_id)).chr %>
+                                </span>
+                              <% end %>
+                              <span class="fw-medium text-dark"><%= opcao_data[:texto] %></span>
+                            </div>
+                            <span class="badge bg-light text-dark border">
+                              <%= opcao_data[:count] %> (<%= percentage %>%)
+                            </span>
+                          </div>
+                          <div class="progress-container">
+                            <div class="progress bg-light" style="height: 8px;">
+                              <div class="progress-bar bg-purple" 
+                                     role="progressbar" 
+                                     style="width: <%= percentage %>%;" 
+                                     aria-valuenow="<%= percentage %>" 
+                                     aria-valuemin="0" 
+                                     aria-valuemax="100">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                <% else %>
+                  <div class="text-center py-4">
+                    <i class="fas fa-chart-bar fa-2x text-muted mb-3"></i>
+                    <p class="text-muted mb-0">Nenhuma resposta registrada para esta pergunta.</p>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<style>
+  /* Cores personalizadas */
+  .bg-purple { background-color: #7c3aed !important; }
+  .text-purple { color: #7c3aed !important; }
+  .border-purple { border-color: #7c3aed !important; }
+
+  /* Page styling */
+  .page-header {
+    position: relative;
+  }
+
+  .header-icon {
+    flex-shrink: 0;
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+  }
+
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: "›";
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+
+  .breadcrumb-item a {
+    color: #7c3aed;
+    transition: color 0.3s ease;
+  }
+
+  .breadcrumb-item a:hover {
+    color: #6d28d9;
+  }
+
+  .breadcrumb-item.active {
+    color: #6c757d;
+  }
+
+  /* Cards */
+  .card {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .card-header {
+    border-radius: 12px 12px 0 0;
+  }
+
+  /* Option Result Cards */
+  .option-result-card {
+    padding: 1rem;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+  }
+
+  .option-result-card:hover {
+    border-color: #7c3aed;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.1);
+  }
+
+  .progress-container {
+    margin-top: 0.5rem;
+  }
+
+  .progress {
+    border-radius: 4px;
+  }
+
+  .progress-bar {
+    transition: width 0.6s ease;
+    border-radius: 4px;
+  }
+
+  /* Badges */
+  .badge {
+    font-weight: 500;
+    border-radius: 6px;
+  }
+
+  .bg-purple {
+    background-color: #7c3aed !important;
+  }
+
+  /* Buttons */
+  .btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border-width: 1px;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  .btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+  }
+
+  /* Alert */
+  .alert {
+    border-radius: 10px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .header-icon {
+      display: none;
+    }
+
+    .option-result-card {
+      padding: 0.75rem;
+    }
+
+    .d-flex.justify-content-between {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>

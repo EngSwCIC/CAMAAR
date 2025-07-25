@@ -1,0 +1,212 @@
+<% content_for :title, "Relatório: #{@formulario.template.titulo} - CAMAAR" %>
+
+<div class="container-fluid px-4 py-4">
+  <!-- Header -->
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h2 class="mb-1">
+            <i class="fas fa-chart-line me-2 text-primary"></i>
+            Relatório: <%= @formulario.template.titulo %>
+          </h2>
+          <p class="text-muted mb-0">
+            <i class="fas fa-<%= @formulario.publico_alvo == 'professores' ? 'chalkboard-teacher' : 'user-graduate' %> me-1"></i>
+            Público: <%= @formulario.publico_alvo.humanize %>
+            <% if @formulario.disciplina %>
+              | <i class="fas fa-book ms-2 me-1"></i>
+              Disciplina: <%= @formulario.disciplina.nome %>
+            <% end %>
+          </p>
+        </div>
+        <div>
+          <%= link_to reports_path, class: "btn btn-outline-secondary me-2" do %>
+            <i class="fas fa-arrow-left me-1"></i>
+            Voltar aos Relatórios
+          <% end %>
+          <button class="btn btn-success" onclick="window.print()">
+            <i class="fas fa-print me-1"></i>
+            Imprimir
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Estatísticas do Formulário -->
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-users fa-2x text-primary mb-3"></i>
+          <h5 class="card-title">Total de Respostas</h5>
+          <h3 class="text-primary"><%= @estatisticas[:total_respostas] %></h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-question-circle fa-2x text-info mb-3"></i>
+          <h5 class="card-title">Total de Perguntas</h5>
+          <h3 class="text-info"><%= @estatisticas[:total_perguntas] %></h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-calendar-alt fa-2x text-success mb-3"></i>
+          <h5 class="card-title">Data de Criação</h5>
+          <h6 class="text-success"><%= @formulario.created_at.strftime("%d/%m/%Y") %></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Respostas por Pergunta -->
+  <% if @respostas.any? %>
+    <div class="row">
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-header bg-white">
+            <h5 class="card-title mb-0">
+              <i class="fas fa-chart-pie me-2 text-primary"></i>
+              Análise das Respostas por Pergunta
+            </h5>
+          </div>
+          <div class="card-body">
+            <% @respostas.each_with_index do |(pergunta_id, dados), index| %>
+              <div class="pergunta-section mb-4 <% unless index == @respostas.size - 1 %>border-bottom pb-4<% end %>">
+                <h6 class="fw-bold text-dark mb-3">
+                  <span class="badge bg-primary me-2"><%= index + 1 %></span>
+                  <%= dados[:pergunta].texto %>
+                </h6>
+                
+                <% if dados[:tipo] == 'multipla_escolha' %>
+                  <!-- Gráfico para múltipla escolha -->
+                  <% if dados[:respostas_agrupadas].any? %>
+                    <div class="row">
+                      <div class="col-md-8">
+                        <% total_respostas = dados[:respostas_agrupadas].values.sum %>
+                        <% dados[:respostas_agrupadas].each do |opcao, count| %>
+                          <% porcentagem = total_respostas > 0 ? (count.to_f / total_respostas * 100).round(1) : 0 %>
+                          <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                              <span class="fw-medium"><%= opcao %></span>
+                              <span class="text-muted">
+                                <%= count %> (<%= porcentagem %>%)
+                              </span>
+                            </div>
+                            <div class="progress" style="height: 20px;">
+                              <div class="progress-bar bg-primary" 
+                                   role="progressbar" 
+                                   style="width: <%= porcentagem %>%"
+                                   aria-valuenow="<%= porcentagem %>" 
+                                   aria-valuemin="0" 
+                                   aria-valuemax="100">
+                              </div>
+                            </div>
+                          </div>
+                        <% end %>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="card bg-light">
+                          <div class="card-body text-center">
+                            <h6 class="card-title">Resumo</h6>
+                            <p class="mb-1">
+                              <strong><%= total_respostas %></strong> respostas
+                            </p>
+                            <p class="mb-0 text-muted">
+                              <%= dados[:respostas_agrupadas].keys.size %> opções
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% else %>
+                    <p class="text-muted">Nenhuma resposta registrada para esta pergunta.</p>
+                  <% end %>
+                  
+                <% else %>
+                  <!-- Lista para respostas de texto livre -->
+                  <% if dados[:respostas_texto].any? %>
+                    <div class="text-responses">
+                      <p class="text-muted mb-3">
+                        <i class="fas fa-comment me-1"></i>
+                        <%= dados[:respostas_texto].size %> respostas de texto livre:
+                      </p>
+                      <div class="row">
+                        <% dados[:respostas_texto].each_with_index do |resposta, resp_index| %>
+                          <div class="col-md-6 mb-2">
+                            <div class="card border-left-secondary">
+                              <div class="card-body py-2">
+                                <small class="text-muted">Resposta <%= resp_index + 1 %>:</small>
+                                <p class="mb-0"><%= simple_format(resposta) %></p>
+                              </div>
+                            </div>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  <% else %>
+                    <p class="text-muted">Nenhuma resposta registrada para esta pergunta.</p>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <!-- Estado sem respostas -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-body text-center py-5">
+            <i class="fas fa-chart-line fa-3x text-muted mb-3"></i>
+            <h5 class="text-muted mb-3">Nenhuma resposta disponível</h5>
+            <p class="text-muted">
+              Este formulário ainda não recebeu respostas. O relatório será atualizado automaticamente conforme novas respostas chegarem.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<style>
+.border-left-secondary {
+  border-left: 3px solid #6c757d !important;
+}
+
+.pergunta-section {
+  page-break-inside: avoid;
+}
+
+@media print {
+  .btn, .card-header {
+    display: none !important;
+  }
+  
+  .card {
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  .pergunta-section {
+    page-break-inside: avoid;
+    margin-bottom: 20px !important;
+  }
+}
+
+.progress {
+  background-color: #e9ecef;
+}
+
+.card:hover {
+  transform: none; /* Desabilitar hover em relatórios */
+}
+</style>

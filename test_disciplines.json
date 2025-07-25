@@ -1,0 +1,29 @@
+[
+  {
+    "code": "CIC0001",
+    "name": "ALGORITMOS E ESTRUTURAS DE DADOS",
+    "class": {
+      "classCode": "TA",
+      "semester": "2024.1",
+      "time": "35T23"
+    }
+  },
+  {
+    "code": "CIC0002",
+    "name": "PROGRAMAÇÃO ORIENTADA A OBJETOS",
+    "class": {
+      "classCode": "TB",
+      "semester": "2024.1",
+      "time": "24T45"
+    }
+  },
+  {
+    "code": "ENC0001",
+    "name": "SISTEMAS DIGITAIS",
+    "class": {
+      "classCode": "TA",
+      "semester": "2024.1",
+      "time": "35M34"
+    }
+  }
+]

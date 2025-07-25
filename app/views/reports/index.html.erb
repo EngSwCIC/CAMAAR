@@ -1,0 +1,173 @@
+<% content_for :title, "Relatórios - CAMAAR" %>
+
+<div class="container-fluid px-4 py-4">
+  <!-- Header -->
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h2 class="mb-1">
+            <i class="fas fa-chart-bar me-2 text-primary"></i>
+            Relatórios de Avaliações
+          </h2>
+          <p class="text-muted mb-0">
+            <% if current_user.professor? %>
+              Visualize os relatórios das avaliações de suas disciplinas
+            <% else %>
+              Visualize os relatórios de todas as avaliações do sistema
+            <% end %>
+          </p>
+        </div>
+        <div>
+          <%= link_to root_path, class: "btn btn-outline-secondary" do %>
+            <i class="fas fa-arrow-left me-1"></i>
+            Voltar ao Início
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards de Estatísticas Gerais -->
+  <div class="row mb-4">
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-clipboard-list fa-2x text-primary mb-3"></i>
+          <h5 class="card-title">Total de Formulários</h5>
+          <h3 class="text-primary"><%= @estatisticas_gerais[:total_formularios] %></h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-users fa-2x text-success mb-3"></i>
+          <h5 class="card-title">Total de Respostas</h5>
+          <h3 class="text-success"><%= @estatisticas_gerais[:total_respostas] %></h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-check-circle fa-2x text-info mb-3"></i>
+          <h5 class="card-title">Com Respostas</h5>
+          <h3 class="text-info"><%= @estatisticas_gerais[:formularios_com_respostas] %></h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-percentage fa-2x text-warning mb-3"></i>
+          <h5 class="card-title">Taxa de Participação</h5>
+          <h3 class="text-warning"><%= @estatisticas_gerais[:taxa_participacao] %>%</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lista de Formulários para Relatórios -->
+  <% if @formularios.any? %>
+    <div class="row">
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-header bg-white">
+            <h5 class="card-title mb-0">
+              <i class="fas fa-list me-2 text-primary"></i>
+              Formulários Disponíveis para Relatório
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <% @formularios.each do |formulario| %>
+                <div class="col-md-6 col-lg-4 mb-3">
+                  <div class="card border-left-info h-100">
+                    <div class="card-body">
+                      <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-<%= formulario.publico_alvo == 'professores' ? 'chalkboard-teacher' : 'user-graduate' %> text-info me-2"></i>
+                        <span class="badge bg-info"><%= formulario.publico_alvo.humanize %></span>
+                      </div>
+                      
+                      <h6 class="card-title font-weight-bold">
+                        <%= formulario.template.titulo %>
+                      </h6>
+                      
+                      <p class="card-text text-muted small">
+                        <%= truncate(formulario.template.descricao, length: 100) %>
+                      </p>
+                      
+                      <% if formulario.disciplina %>
+                        <div class="mb-2">
+                          <small class="text-muted">
+                            <i class="fas fa-book me-1"></i>
+                            <%= formulario.disciplina.nome %>
+                          </small>
+                        </div>
+                      <% end %>
+                      
+                      <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">
+                          <i class="fas fa-users me-1"></i>
+                          <%= formulario.submissoes_concluidas.count %> respostas
+                        </small>
+                        
+                        <%= link_to report_path(formulario), class: "btn btn-info btn-sm" do %>
+                          <i class="fas fa-chart-line me-1"></i>
+                          Ver Relatório
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <!-- Estado vazio -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-body text-center py-5">
+            <i class="fas fa-chart-bar fa-3x text-muted mb-3"></i>
+            <h5 class="text-muted mb-3">Nenhum formulário disponível</h5>
+            <p class="text-muted">
+              <% if current_user.professor? %>
+                Você ainda não possui formulários em suas disciplinas para gerar relatórios.
+              <% else %>
+                Não há formulários cadastrados no sistema ainda.
+              <% end %>
+            </p>
+            <%= link_to "Ir para Avaliações", evaluations_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<style>
+.border-left-info {
+  border-left: 4px solid #17a2b8 !important;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-info {
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+  border: none;
+}
+
+.btn-info:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+</style>

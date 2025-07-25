@@ -1,0 +1,103 @@
+/* Correções específicas para a navbar */
+
+/* Remove qualquer espaçamento no topo */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+
+/* Navbar posicionamento correto */
+.navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1050 !important;
+  margin: 0 !important;
+  padding: 16px 0 !important;
+  background-color: #fff !important;
+  border-bottom: 1px solid #e3e6f0 !important;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
+  width: 100% !important;
+}
+
+/* Ajuste do corpo quando logado */
+body.user-signed-in {
+  padding-top: 80px !important;
+  margin-top: 0 !important;
+}
+
+/* Dropdown simples e funcional */
+.dropdown-menu {
+  border: 1px solid #e3e6f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  min-width: 160px;
+  z-index: 1000;
+}
+
+.dropdown-menu-end {
+  right: 0;
+  left: auto;
+}
+
+.dropdown-item {
+  border-radius: 4px;
+  padding: 8px 12px;
+  transition: background-color 0.2s ease;
+  color: #1F2937;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.dropdown-item:hover {
+  background-color: #7B2CBF;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-item i {
+  width: 16px;
+  text-align: center;
+  margin-right: 8px;
+}
+
+/* Avatar do usuário */
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.user-avatar:hover {
+  transform: scale(1.05);
+}
+
+/* Remove estilos conflitantes */
+.dropdown-toggle {
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.dropdown-toggle:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
