@@ -1,0 +1,7 @@
+Grupo composto por:
+- Caio Medeiros Balaniuk - 231025190
+- Davi Henrique Vieira Lima - 231013529
+- Lucca Schoen de Almeida - 231018900
+
+Link para o repositório do GitHub:
+https://github.com/DaviHVL/CAMAAR.git
