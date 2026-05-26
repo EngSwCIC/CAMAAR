@@ -1,0 +1,2 @@
+class Departamento < ApplicationRecord
+end

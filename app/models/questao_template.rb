@@ -1,0 +1,2 @@
+class QuestaoTemplate < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class Resposta < ApplicationRecord
+end

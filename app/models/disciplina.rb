@@ -1,0 +1,2 @@
+class Disciplina < ApplicationRecord
+end
