@@ -1,0 +1,309 @@
+<% content_for :title, "Responder · #{@formulario.titulo}" %>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .82rem;
+    color: var(--texto-suave);
+    margin-bottom: 1.5rem;
+  }
+  .breadcrumb a { color: var(--verde-unb); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .form-header {
+    background: var(--azul-cic);
+    border-radius: var(--radius);
+    padding: 1.75rem 2rem;
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+  .form-header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+  }
+  .form-header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+  .form-header-meta span {
+    font-size: .85rem;
+    color: rgba(255,255,255,.75);
+  }
+
+  .obrigatorio-aviso {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    background: #FEF3C7;
+    border: 1.5px solid #FDE68A;
+    border-radius: var(--radius);
+    padding: .75rem 1.1rem;
+    font-size: .85rem;
+    font-weight: 500;
+    color: #92400E;
+    margin-bottom: 1.75rem;
+  }
+
+  .questao-card {
+    background: var(--branco);
+    border: 1.5px solid var(--borda);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow-sm);
+    transition: border-color .2s;
+  }
+  .questao-card:focus-within { border-color: var(--verde-unb); }
+
+  .questao-header {
+    background: var(--fundo);
+    border-bottom: 1.5px solid var(--borda);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: .875rem;
+  }
+  .questao-num {
+    width: 28px;
+    height: 28px;
+    background: var(--azul-cic);
+    color: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .78rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .questao-enunciado {
+    font-size: .9rem;
+    font-weight: 500;
+    color: var(--texto);
+    line-height: 1.5;
+  }
+  .questao-tipo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    font-size: .72rem;
+    font-weight: 600;
+    color: var(--texto-suave);
+    background: var(--borda);
+    padding: .2rem .5rem;
+    border-radius: 4px;
+    margin-top: .35rem;
+  }
+
+  .questao-body { padding: 1.25rem 1.5rem; }
+
+  /* textarea */
+  .resposta-textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: .75rem 1rem;
+    border: 1.5px solid var(--borda);
+    border-radius: var(--radius);
+    font-size: .9rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--texto);
+    background: var(--branco);
+    resize: vertical;
+    transition: border-color .2s;
+    box-sizing: border-box;
+  }
+  .resposta-textarea:focus {
+    outline: none;
+    border-color: var(--verde-unb);
+    box-shadow: 0 0 0 3px rgba(0,122,51,.1);
+  }
+  .resposta-textarea::placeholder { color: var(--texto-suave); }
+
+  /* radio */
+  .opcoes-list {
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+  }
+  .opcao-item {
+    display: flex;
+    align-items: center;
+    gap: .875rem;
+    padding: .75rem 1rem;
+    border: 1.5px solid var(--borda);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+  }
+  .opcao-item:hover { background: var(--fundo); border-color: #B0C4D8; }
+  .opcao-item input[type="radio"] { accent-color: var(--verde-unb); width: 17px; height: 17px; flex-shrink: 0; }
+  .opcao-item:has(input:checked) {
+    background: var(--verde-claro);
+    border-color: var(--verde-unb);
+  }
+  .opcao-texto { font-size: .9rem; color: var(--texto); }
+
+  /* barra rodapé sticky */
+  .submit-bar {
+    position: sticky;
+    bottom: 0;
+    background: var(--branco);
+    border-top: 1.5px solid var(--borda);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 2rem;
+    border-radius: 0 0 var(--radius) var(--radius);
+    box-shadow: 0 -4px 16px rgba(0,0,0,.06);
+  }
+  .submit-bar-info {
+    font-size: .85rem;
+    color: var(--texto-suave);
+  }
+  .submit-bar-info strong { color: var(--texto); }
+
+  .progresso {
+    width: 100%;
+    height: 4px;
+    background: var(--borda);
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  .progresso-bar {
+    height: 100%;
+    background: var(--verde-unb);
+    border-radius: 999px;
+    width: 0%;
+    transition: width .3s;
+  }
+</style>
+
+<div class="breadcrumb">
+  <%= link_to "Formulários", formularios_path %>
+  <span>›</span>
+  <%= link_to @formulario.titulo, formulario_path(@formulario) %>
+  <span>›</span>
+  <span>Responder</span>
+</div>
+
+<div class="form-header">
+  <h1><%= @formulario.titulo %></h1>
+  <div class="form-header-meta">
+    <span>📚 <%= @formulario.turma.disciplina.nome %> · Turma <%= @formulario.turma.codigo %></span>
+    <% if @formulario.prazo %>
+      <% dias = (@formulario.prazo.to_date - Date.today).to_i %>
+      <span>⏱ Prazo: <%= @formulario.prazo.strftime("%d/%m/%Y às %H:%M") %>
+        <% if dias == 0 %> · Hoje!
+        <% elsif dias == 1 %> · Amanhã
+        <% elsif dias > 0 %> · <%= dias %> dias
+        <% end %>
+      </span>
+    <% end %>
+  </div>
+</div>
+
+<div class="obrigatorio-aviso">
+  ⚠️ Todas as questões são obrigatórias. Não será possível enviar com campos em branco.
+</div>
+
+<div class="progresso"><div class="progresso-bar" id="progresso-bar"></div></div>
+
+<%= form_with url: envio_formularios_path, method: :post, id: "form-resposta" do |f| %>
+  <%= f.hidden_field :formulario_id, value: @formulario.id %>
+
+  <% @questoes.each_with_index do |questao, i| %>
+    <div class="questao-card" data-questao-id="<%= questao.id %>">
+      <div class="questao-header">
+        <div class="questao-num"><%= i + 1 %></div>
+        <div>
+          <div class="questao-enunciado"><%= questao.enunciado %></div>
+          <span class="questao-tipo-badge">
+            <%= questao.aberta? ? "✏️ Resposta aberta" : "☑️ Múltipla escolha" %>
+          </span>
+        </div>
+      </div>
+
+      <div class="questao-body">
+        <% if questao.aberta? %>
+          <textarea
+            class="resposta-textarea"
+            name="respostas[<%= questao.id %>]"
+            id="resposta_<%= questao.id %>"
+            placeholder="Digite sua resposta aqui..."
+            required
+            data-tipo="aberta"
+            data-questao="<%= questao.id %>"
+          ></textarea>
+
+        <% else %>
+          <div class="opcoes-list">
+            <% questao.opcao_questoes.each do |opcao| %>
+              <label class="opcao-item">
+                <input
+                  type="radio"
+                  name="respostas[<%= questao.id %>]"
+                  value="<%= opcao.texto %>"
+                  required
+                  data-tipo="multipla"
+                  data-questao="<%= questao.id %>"
+                >
+                <span class="opcao-texto"><%= opcao.texto %></span>
+              </label>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="submit-bar">
+    <div class="submit-bar-info">
+      <strong id="respondidas">0</strong> de <strong><%= @questoes.count %></strong> questões respondidas
+    </div>
+    <div style="display:flex; gap:.75rem;">
+      <%= link_to "← Voltar", formulario_path(@formulario), class: "btn btn-secondary" %>
+      <%= f.submit "Enviar Respostas", class: "btn btn-primary", id: "btn-enviar" %>
+    </div>
+  </div>
+<% end %>
+
+<script>
+(function() {
+  const form      = document.getElementById('form-resposta');
+  const total     = <%= @questoes.count %>;
+  const barra     = document.getElementById('progresso-bar');
+  const contador  = document.getElementById('respondidas');
+
+  function atualizar() {
+    const respondidas = new Set();
+
+    // textareas preenchidos
+    form.querySelectorAll('textarea[data-tipo="aberta"]').forEach(el => {
+      if (el.value.trim()) respondidas.add(el.dataset.questao);
+    });
+
+    // radios selecionados
+    form.querySelectorAll('input[type="radio"]:checked').forEach(el => {
+      respondidas.add(el.dataset.questao);
+    });
+
+    const n = respondidas.size;
+    contador.textContent = n;
+    barra.style.width = ((n / total) * 100) + '%';
+  }
+
+  form.addEventListener('input', atualizar);
+  form.addEventListener('change', atualizar);
+  atualizar();
+})();
+</script>
