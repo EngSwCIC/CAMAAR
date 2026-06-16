@@ -1,0 +1,58 @@
+<div style="margin-bottom:24px;">
+  <h1 style="font-size:1.4rem; color:#333; margin-bottom:4px;">Novo Formulário de Avaliação</h1>
+  <p style="color:#888; font-size:0.85rem;">Selecione o template, a turma e o público-alvo</p>
+</div>
+
+<div style="background:#fff; padding:28px; border-radius:4px; box-shadow:0 1px 6px rgba(0,0,0,0.08); max-width:560px;">
+  <%= form_with model: @avaliacao, url: avaliacoes_path do |f| %>
+    <% if @avaliacao.errors.any? %>
+      <div class="alert-error" style="margin-bottom:20px;">
+        <% @avaliacao.errors.full_messages.each do |msg| %>
+          <div><%= msg %></div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div style="margin-bottom:18px;">
+      <%= f.label :template_id, "Template", style: "display:block; font-size:0.85rem; color:#555; margin-bottom:6px; font-weight:600;" %>
+      <%= f.select :template_id,
+            @templates.map { |t| [t.titulo, t.id] },
+            { prompt: "Selecione um template" },
+            style: "width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:3px; font-size:0.88rem;" %>
+    </div>
+
+    <div style="margin-bottom:18px;">
+      <%= f.label :turma_id, "Turma", style: "display:block; font-size:0.85rem; color:#555; margin-bottom:6px; font-weight:600;" %>
+      <%= f.select :turma_id,
+            @turmas.map { |t| ["#{t.disciplina.nome} - #{t.codigo} (#{t.semestre})", t.id] },
+            { prompt: "Selecione uma turma" },
+            style: "width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:3px; font-size:0.88rem;" %>
+    </div>
+
+    <div style="margin-bottom:18px;">
+      <%= f.label :tipo, "Público-alvo", style: "display:block; font-size:0.85rem; color:#555; margin-bottom:6px; font-weight:600;" %>
+      <%= f.select :tipo,
+            [["Discentes", "discente"], ["Docentes", "docente"]],
+            {},
+            style: "width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:3px; font-size:0.88rem;" %>
+    </div>
+
+    <div style="display:flex; gap:16px; margin-bottom:18px;">
+      <div style="flex:1;">
+        <%= f.label :data_inicio, "Data de Início", style: "display:block; font-size:0.85rem; color:#555; margin-bottom:6px; font-weight:600;" %>
+        <%= f.datetime_local_field :data_inicio, style: "width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:3px; font-size:0.88rem;" %>
+      </div>
+      <div style="flex:1;">
+        <%= f.label :data_fim, "Data de Fim", style: "display:block; font-size:0.85rem; color:#555; margin-bottom:6px; font-weight:600;" %>
+        <%= f.datetime_local_field :data_fim, style: "width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:3px; font-size:0.88rem;" %>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:12px; margin-top:8px;">
+      <%= f.submit "Disponibilizar Formulário",
+            style: "background:#6B2482; color:white; padding:9px 20px; border:none; border-radius:3px; font-size:0.88rem; cursor:pointer;" %>
+      <%= link_to "Cancelar", avaliacoes_path,
+            style: "padding:9px 16px; color:#666; font-size:0.88rem; text-decoration:none;" %>
+    </div>
+  <% end %>
+</div>

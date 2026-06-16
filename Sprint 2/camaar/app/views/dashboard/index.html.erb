@@ -1,0 +1,21 @@
+<h1 style="font-size:1.4rem; color:#333; margin-bottom:8px;">Bem-vindo, <%= current_user.name %>!</h1>
+<p style="color:#666; font-size:0.9rem;">Você está logado como <strong><%= current_user.role == 'admin' ? 'Administrador' : 'Usuário' %></strong>.</p>
+
+
+<% if current_user.admin? %>
+  <div style="margin-top:20px; display:flex; flex-direction:column; gap:10px; max-width:220px;">
+
+    <%= button_to "Importar dados", import_data_path, method: :post,
+      style: "width:100%; background:#6B2482; color:#fff; padding:10px; border-radius:6px; text-align:center; text-decoration:none;" %>
+
+    <%= link_to "Editar Templates", templates_path,
+      style: "background:#8e44ad; color:#fff; padding:10px; border-radius:6px; text-align:center; text-decoration:none;" %>
+
+    <%= link_to "Enviar Formulários", avaliacoes_path,
+      style: "background:#9b59b6; color:#fff; padding:10px; border-radius:6px; text-align:center; text-decoration:none;" %>
+
+    <%= link_to "Resultados", avaliacoes_path,
+      style: "background:#af7ac5; color:#fff; padding:10px; border-radius:6px; text-align:center; text-decoration:none;" %>
+
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+<div class="auth-card">
+  <div class="auth-card__form">
+    <h2 class="auth-title">Esqueci minha senha</h2>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email, "E-mail" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "seu@email.com" %>
+      </div>
+
+      <%= f.submit "Enviar instruções", class: "btn-primary" %>
+    <% end %>
+
+    <div class="auth-links">
+      <%= link_to "Voltar para o login", new_user_session_path %>
+    </div>
+  </div>
+
+  <div class="auth-card__welcome">
+    Bem vindo ao Camaar
+  </div>
+</div>
