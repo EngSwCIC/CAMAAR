@@ -1,0 +1,35 @@
+<h1>Convidar usuário</h1>
+
+<%= form_for resource, as: resource_name, url: invitation_path(resource_name) do |f| %>
+  <% if resource.errors.any? %>
+    <div style="color: red;">
+      <ul>
+        <% resource.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="margin-bottom: 15px;">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <%= f.label :matricula, "Matrícula" %><br>
+    <%= f.text_field :matricula %>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <%= f.label :perfil %><br>
+    <%= f.select :perfil, [["Docente", "docente"], ["Discente", "discente"]] %>
+  </div>
+
+  <%= f.submit "Enviar convite" %>
+<% end %>

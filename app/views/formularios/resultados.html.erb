@@ -1,0 +1,34 @@
+<h1>Resultados — <%= @formulario.titulo %></h1>
+
+<p><strong>Turma:</strong> <%= @formulario.turma.nome_completo %></p>
+<p><strong>Respondentes:</strong> <%= @formulario.total_respondentes %> de <%= @formulario.total_participantes %></p>
+
+<p>
+  <%= link_to "Baixar relatório (CSV)", relatorio_formulario_path(@formulario, format: :csv) %> |
+  <%= link_to "Voltar", formularios_path %>
+</p>
+
+<hr>
+
+<% @formulario.questions.each do |question| %>
+  <div style="margin-bottom: 20px;">
+    <h3><%= question.enunciado %> <em>(<%= question.tipo.humanize %>)</em></h3>
+
+    <% respostas = @formulario.respostas_da(question) %>
+    <% if respostas.empty? %>
+      <p>Sem respostas.</p>
+    <% elsif question.multipla_escolha? %>
+      <ul>
+        <% respostas.group(:valor).count.each do |valor, total| %>
+          <li><%= valor %>: <%= total %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <ul>
+        <% respostas.each do |resposta| %>
+          <li><%= resposta.valor %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+<% end %>

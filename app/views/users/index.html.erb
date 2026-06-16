@@ -1,0 +1,25 @@
+<% if current_user %>
+  <%= link_to "Logout", destroy_user_session_path, :data => { :turbo_method => :delete } %>
+<% end %>
+
+<h1>Usuários Cadastrados</h1>
+
+<% if current_user&.admin? %>
+  <%= link_to "Importar Novos Usuários", new_user_path %> |
+  <%= link_to "Templates", templates_path %> |
+  <%= link_to "Turmas", turmas_path %> |
+<% end %>
+<%= link_to "Formulários", formularios_path %>
+
+<hr>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <strong><%= user.nome %></strong> (Matrícula: <%= user.matricula %>) - <%= user.perfil %> <br>
+      Email: <%= user.email %> <br>
+      Status: <%= user.invitation_accepted? ? "Ativo (Senha criada)" : "Pendente (Aguardando acesso)" %>
+    </li>
+    <br>
+  <% end %>
+</ul>

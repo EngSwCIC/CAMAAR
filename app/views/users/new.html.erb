@@ -1,0 +1,13 @@
+<h1>Importar Usuários do SIGAA</h1>
+
+<%= form_with url: import_users_path, multipart: true do |form| %>
+  <div style="margin-bottom: 20px;">
+    <%= form.label :file, "Selecione o arquivo CSV (.csv):" %><br>
+    <%= form.file_field :file, accept: ".csv" %>
+  </div>
+  
+  <%= form.submit "Importar e Enviar Convites" %>
+<% end %>
+
+<br>
+<%= link_to "Voltar para a lista", users_path %>

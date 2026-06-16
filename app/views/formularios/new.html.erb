@@ -1,0 +1,39 @@
+<h1>Novo Formulário</h1>
+
+<%= form_with url: formularios_path, method: :post do |form| %>
+  <div style="margin-bottom: 15px;">
+    <%= form.label :titulo, "Título (opcional — usa o nome do template se vazio)" %><br>
+    <%= form.text_field :titulo %>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <%= form.label :template_id, "Template" %><br>
+    <%= form.select :template_id,
+                    @templates.map { |t| [t.nome, t.id] },
+                    include_blank: "Selecione um template" %>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <%= form.label :prazo, "Prazo (opcional)" %><br>
+    <%= form.datetime_field :prazo %>
+  </div>
+
+  <fieldset style="margin-bottom: 15px;">
+    <legend>Turmas</legend>
+    <% if @turmas.any? %>
+      <% @turmas.each do |turma| %>
+        <div>
+          <%= check_box_tag "turma_ids[]", turma.id, false, id: "turma_#{turma.id}" %>
+          <%= label_tag "turma_#{turma.id}", turma.nome_completo %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>Nenhuma turma cadastrada. Importe os dados do SIGAA primeiro.</p>
+    <% end %>
+  </fieldset>
+
+  <%= form.submit "Criar Formulário" %>
+<% end %>
+
+<br>
+<%= link_to "Voltar para a lista", formularios_path %>
