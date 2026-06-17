@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 60px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-avatar-wrapper {
+  position: relative;
+}
+
+.user-avatar {
+  cursor: pointer;
+}
+
+.user-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 120%;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  min-width: 160px;
+  z-index: 100;
+  padding: 8px 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-menu.open {
+  display: flex;
+}
+
+.user-menu-name {
+  font-size: 0.9rem;
+  color: #555;
+  padding: 4px 16px;
+}
+
+.logout-btn {
+  background: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 24px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  width: 80%;
+}
+
+.logout-btn:hover {
+  background: #c53030;
+}
+
+.search {
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  padding: 8px 15px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 257px;
+  height: calc(100% - 60px);
+  background: white;
+}
+
+.menu-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.menu-item:hover {
+  background: #f5f5f5;
+}
+
+.menu-item.active {
+  background: #6C2365;
+  color: white;
+}
+
+.main {
+  margin-left: 257px;
+  margin-top: 60px;
+  height: calc(100vh - 60px);
+  background: #DBDBDB;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: white;
+  width: 460px;
+  height: 650px;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn {
+  width: 300px;
+  height: 43px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.primary {
+  background: #22C55E;
+  color: white;
+}
+
+.secondary {
+  background: #86EFAC;
+  color: white;
+}
+.alert {
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+}
+.alert-success { background: #d4edda; color: #155724; }
+.alert-danger { background: #f8d7da; color: #721c24; }

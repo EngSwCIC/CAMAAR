@@ -1,0 +1,25 @@
+<div class="login-wrapper">
+    <div class="login-left">
+        <h1>LOGIN</h1>
+
+        <%= form_with url: login_path do |form| %>
+            <div class="field">
+                <%= form.label :login, "Email ou Matrícula" %>
+                <%= form.text_field :login, required: true, placeholder: "Email ou Matrícula" %>
+            </div>
+            <div class="field">
+                <%= form.label :password, "Senha" %>
+                <%= form.password_field :password, placeholder: "Senha" %>
+            </div>
+            <%= form.submit "Entrar" %>
+        <% end %>
+
+        <p style="text-align:center; margin-top: 16px;">
+            <%= link_to "Esqueci minha senha", new_password_reset_path %>
+        </p>
+    </div>
+
+    <div class="login-right">
+        <h2>Bem-vindo ao Camaar</h2>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<h1>Avaliações</h1>
+
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="alert alert-danger"><%= flash[:alert] %></div>
+<% end %>
+
+<div class="formularios">
+  <% if @formularios.empty? %>
+    <p>Não há avaliações disponíveis no momento.</p>
+  <% end %>
+
+  <% @formularios.each do |formulario| %>
+    <div id="formulario_<%= formulario.id %>" class="card">
+      <h3><%= formulario.titulo %></h3>
+      <p>Turma: <%= formulario.turma.classCode %> - <%= formulario.turma.disciplina.name %></p>
+      
+      <% respondido = Resposta.exists?(formulario: formulario, user: current_user) %>
+      
+      <% if respondido %>
+        <span class="status">Respondido</span>
+        <button disabled>Responder</button>
+        <p>Você já respondeu esta avaliação</p>
+      <% elsif formulario.deadline < Time.current %>
+        <span class="status">Encerrado</span>
+        <p>Avaliação encerrada em <%= formulario.deadline.strftime('%d/%m/%Y') %></p>
+      <% else %>
+        <%= link_to "Responder", formulario_path(formulario), class: "btn" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

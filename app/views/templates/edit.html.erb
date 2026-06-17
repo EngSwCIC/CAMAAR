@@ -1,0 +1,11 @@
+<h1>Editar Template</h1>
+
+<%= form_with model: @template do |f| %>
+  <%= f.label :nome %>
+  <%= f.text_field :nome %>
+
+  <%= f.label :descricao %>
+  <%= f.text_area :descricao %>
+
+  <%= f.submit "Salvar" %>
+<% end %>

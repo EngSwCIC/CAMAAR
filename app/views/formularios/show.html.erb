@@ -1,0 +1,26 @@
+<h1><%= @formulario.titulo %></h1>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger"><%= flash[:alert] %></div>
+<% end %>
+
+<%= form_with url: formulario_respostas_path(@formulario), method: :post, local: true do |f| %>
+  <% @perguntas.each do |pergunta| %>
+    <div class="pergunta <%= 'highlight-red' if flash[:alert] && params[:respostas]&.[](pergunta.id.to_s).blank? && pergunta.obrigatoria? %>">
+      <label><%= pergunta.enunciado %> <%= '*' if pergunta.obrigatoria? %></label>
+      
+      <% if pergunta.tipo_pergunta == 'texto' %>
+        <%= text_area_tag "respostas[#{pergunta.id}]", params.dig(:respostas, pergunta.id.to_s), id: "pergunta_#{pergunta.id}" %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= f.submit "Enviar Avaliação" %>
+<% end %>
+
+<style>
+  .highlight-red {
+    border: 2px solid red;
+    padding: 10px;
+  }
+</style>

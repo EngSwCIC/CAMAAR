@@ -1,0 +1,28 @@
+<h1>Templates</h1>
+
+<%= form_with url: templates_path, method: :get, local: true do |f| %>
+  <%= f.label :q, "Buscar" %>
+  <%= f.text_field :q %>
+  <%= f.submit "Pesquisar" %>
+<% end %>
+
+<% if @templates.any? %>
+  <ul>
+    <% @templates.each do |template| %>
+      <li>
+        <strong><%= template.nome %></strong>
+
+        <%= link_to "Visualizar", template_path(template) %> |
+        <%= link_to "Editar", edit_template_path(template) %> |
+        <%= link_to "Excluir",
+                    template_path(template),
+                    data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Tem certeza que deseja excluir este template?"
+                    } %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Não há templates disponíveis.</p>
+<% end %>

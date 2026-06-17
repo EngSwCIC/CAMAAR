@@ -1,0 +1,34 @@
+<body>
+    <% if flash[:alert] %>
+        <div class="modal-overlay">
+            <div class="modal">
+                <p class="flash-alert"><%= flash[:alert] %></p>
+                <script>
+                    setTimeout(() => {
+                        const modal = document.querySelector('.modal-overlay');
+                        if (modal) modal.remove();
+                    }, 3000);
+                </script>
+            </div>
+        </div>
+    <% end %>
+
+    <div class="password-set-wrapper">
+        <div class="password-set-left">
+            <h1>ESQUECI MINHA SENHA</h1>
+            <%= form_with url: password_resets_path do |form| %>
+                <div class="field">
+                    <%= form.label :login, "Email ou Matrícula" %>
+                    <%= form.text_field :login, required: true, placeholder: "Email ou Matrícula" %>
+                </div>
+                <%= form.submit "Enviar link" %>
+            <% end %>
+            <p style="text-align:center; margin-top: 16px;">
+                <%= link_to "Voltar para o login", login_path %>
+            </p>
+        </div>
+        <div class="password-set-right">
+            <h2>Recupere seu acesso</h2>
+        </div>
+    </div>
+</body>

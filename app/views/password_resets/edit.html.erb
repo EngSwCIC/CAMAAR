@@ -1,0 +1,35 @@
+<body>
+    <% if flash[:alert] %>
+        <div class="modal-overlay">
+            <div class="modal">
+                <p class="flash-alert"><%= flash[:alert] %></p>
+                <script>
+                    setTimeout(() => {
+                        const modal = document.querySelector('.modal-overlay');
+                        if (modal) modal.remove();
+                    }, 3000);
+                </script>
+            </div>
+        </div>
+    <% end %>
+
+    <div class="password-set-wrapper">
+        <div class="password-set-left">
+            <h1>REDEFINIR SENHA</h1>
+            <%= form_with url: url_for(action: :update, token: params[:token]), method: :patch do |form| %>
+                <div class="field">
+                    <%= form.label :password, "Nova Senha" %>
+                    <%= form.password_field :password, required: true, placeholder: "Nova Senha" %>
+                </div>
+                <div class="field">
+                    <%= form.label :password_confirmation, "Confirmar Senha" %>
+                    <%= form.password_field :password_confirmation, required: true, placeholder: "Confirmar Senha" %>
+                </div>
+                <%= form.submit "Redefinir Senha" %>
+            <% end %>
+        </div>
+        <div class="password-set-right">
+            <h2>Crie sua nova senha</h2>
+        </div>
+    </div>
+</body>

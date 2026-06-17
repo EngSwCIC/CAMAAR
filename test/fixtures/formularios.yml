@@ -1,0 +1,14 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titulo: MyString
+  descricao: MyText
+  deadline: <%= 1.week.from_now.to_fs(:db) %>
+  turma: one
+
+two:
+  titulo: MyString
+  descricao: MyText
+  deadline: <%= 1.week.from_now.to_fs(:db) %>
+  turma: two
+
