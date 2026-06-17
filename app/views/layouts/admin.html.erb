@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Camaar - Admin</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <div class="avaliacoes-page">
+      <input type="checkbox" id="student-sidebar-toggle" class="student-sidebar-toggle" />
+
+      <aside class="student-sidebar" aria-label="Menu administrativo">
+        <div class="student-sidebar__title">Menu Lateral</div>
+        <nav class="student-sidebar__menu">
+          <%= link_to "Avaliações", admin_resultados_path, class: "student-sidebar__item #{current_page?(admin_resultados_path) ? 'student-sidebar__item--active' : ''}" %>
+          <%= link_to "Gerenciamento", admin_root_path, class: "student-sidebar__item #{current_page?(admin_root_path) ? 'student-sidebar__item--active' : ''}" %>
+        </nav>
+      </aside>
+
+      <label for="student-sidebar-toggle" class="student-sidebar__backdrop" aria-hidden="true"></label>
+
+      <header class="avaliacoes-topbar">
+        <label for="student-sidebar-toggle" class="menu-trigger" aria-label="Abrir navegação">
+          <span></span><span></span><span></span>
+        </label>
+        <div class="avaliacoes-brand"><%= content_for?(:page_title) ? yield(:page_title) : "Gerenciamento" %></div>
+
+        <div class="avaliacoes-actions">
+          <label class="search-field" aria-label="Pesquisar">
+            <span class="search-field__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <path d="M10.5 4a6.5 6.5 0 1 0 4.02 11.6l4.44 4.45 1.06-1.06-4.45-4.44A6.5 6.5 0 0 0 10.5 4Zm0 1.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z"></path>
+              </svg>
+            </span>
+            <input type="search" placeholder="" aria-label="Pesquisar" />
+          </label>
+
+          <details class="user-menu">
+            <summary class="user-menu__trigger" aria-label="Abrir menu do usuário">
+              <span><%= current_pessoa.nome.to_s.first.to_s.upcase.presence || "A" %></span>
+            </summary>
+            <div class="user-menu__dropdown">
+              <%= button_to "Logout", logout_path, method: :delete, class: "user-menu__item" %>
+            </div>
+          </details>
+        </div>
+      </header>
+
+      <main class="avaliacoes-content">
+        <% if flash[:notice].present? %>
+          <div style="padding: 15px; margin-bottom: 20px; background-color: #d4edda; color: #155724; border-radius: 4px;"><%= flash[:notice] %></div>
+        <% end %>
+        <% if flash[:alert].present? %>
+          <div style="padding: 15px; margin-bottom: 20px; background-color: #f8d7da; color: #721c24; border-radius: 4px;"><%= flash[:alert] %></div>
+        <% end %>
+        
+        <%= yield %>
+      </main>
+    </div>
+  </body>
+</html>

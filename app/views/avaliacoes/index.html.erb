@@ -1,0 +1,68 @@
+<div class="avaliacoes-page">
+	<input type="checkbox" id="student-sidebar-toggle" class="student-sidebar-toggle" />
+
+	<aside class="student-sidebar" aria-label="Menu do aluno">
+		<div class="student-sidebar__title">Menu Lateral</div>
+
+		<nav class="student-sidebar__menu">
+			<%= link_to "Avaliações", root_path, class: "student-sidebar__item student-sidebar__item--active" %>
+			<%= button_to "Sair", logout_path, method: :delete, class: "student-sidebar__button" %>
+		</nav>
+	</aside>
+
+	<label for="student-sidebar-toggle" class="student-sidebar__backdrop" aria-hidden="true"></label>
+
+	<header class="avaliacoes-topbar">
+		<label for="student-sidebar-toggle" class="menu-trigger" aria-label="Abrir navegação">
+			<span></span>
+			<span></span>
+			<span></span>
+		</label>
+
+		<div class="avaliacoes-brand">Avaliações</div>
+
+		<div class="avaliacoes-actions">
+			<label class="search-field" aria-label="Pesquisar avaliações">
+				<span class="search-field__icon" aria-hidden="true">
+					<svg viewBox="0 0 24 24" role="presentation">
+						<path d="M10.5 4a6.5 6.5 0 1 0 4.02 11.6l4.44 4.45 1.06-1.06-4.45-4.44A6.5 6.5 0 0 0 10.5 4Zm0 1.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z"></path>
+					</svg>
+				</span>
+				<input type="search" placeholder="" aria-label="Pesquisar" />
+			</label>
+
+			<details class="user-menu">
+				<summary class="user-menu__trigger" aria-label="Abrir menu do usuário">
+					<span><%= current_pessoa.nome.to_s.first.to_s.upcase.presence || "U" %></span>
+				</summary>
+
+				<div class="user-menu__dropdown">
+					<%= button_to "Logout", logout_path, method: :delete, class: "user-menu__item" %>
+				</div>
+			</details>
+		</div>
+	</header>
+
+	<main class="avaliacoes-content">
+		<% if @formularios.any? %>
+			<section class="avaliacoes-grid" aria-label="Formulários disponíveis">
+				<% @formularios.each do |formulario| %>
+					<% disciplina = formulario.turma.disciplina %>
+					<% docente = formulario.turma.docente %>
+					<% professor_nome = docente&.pessoa&.nome.presence || "Professor" %>
+					
+					<%= link_to formulario_path(formulario), class: "avaliacao-card" do %>
+						<h2><%= disciplina&.nome.presence || "Nome da matéria" %></h2>
+						<p><strong>Avaliação:</strong> <%= formulario.template.nome %></p>
+						<p>Turma: <%= formulario.turma.codigo %> - Semestre: <%= formulario.turma.semestre.presence || "2026.1" %></p>
+						<p>Docente: <%= professor_nome %></p>
+					<% end %>
+				<% end %>
+			</section>
+		<% else %>
+			<section class="avaliacoes-empty">
+				<p>Voce nao possui formularios pendentes para responder no momento.</p>
+			</section>
+		<% end %>
+	</main>
+</div>

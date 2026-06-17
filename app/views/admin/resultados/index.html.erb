@@ -1,0 +1,29 @@
+<% content_for :page_title, "Gerenciamento - Resultados" %>
+
+<% if @formularios.any? %>
+  <section class="avaliacoes-grid" aria-label="Resultados dos formulários">
+    <% @formularios.each do |formulario| %>
+      <% disciplina = formulario.turma.disciplina %>
+      <% docente = formulario.turma.docente %>
+      <% professor_nome = docente&.pessoa&.nome.presence || "Professor" %>
+
+      <% if formulario.status == "fechado" %>
+        <%= link_to exportar_csv_admin_resultado_path(formulario), class: "avaliacao-card" do %>
+          <h2><%= disciplina&.nome.presence || "Nome da matéria" %></h2>
+          <p class="avaliacao-card__semester"><%= formulario.turma.semestre.presence || "semestre" %></p>
+          <p class="avaliacao-card__teacher"><%= professor_nome %></p>
+        <% end %>
+      <% else %>
+        <div class="avaliacao-card avaliacao-card--inactive">
+          <h2><%= disciplina&.nome.presence || "Nome da matéria" %></h2>
+          <p class="avaliacao-card__semester"><%= formulario.turma.semestre.presence || "semestre" %></p>
+          <p class="avaliacao-card__teacher"><%= professor_nome %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
+<% else %>
+  <section class="avaliacoes-empty">
+    <p>Não existem formulários disponíveis para gerar relatórios no momento.</p>
+  </section>
+<% end %>

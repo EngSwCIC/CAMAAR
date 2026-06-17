@@ -1,0 +1,24 @@
+<div class="questao-fields" data-questao-index="<%= index %>">
+  <% unless qf.object.new_record? %>
+    <%= qf.hidden_field :id %>
+  <% end %>
+  <div class="questao-fields__row">
+    <label class="template-form__label">Questão <%= index + 1 %></label>
+  </div>
+  <div class="questao-fields__row">
+    <label class="template-form__label">Tipo:</label>
+    <%= qf.select :tipo_resposta,
+          [["Radio", "radio"], ["Texto", "texto"]],
+          {},
+          class: "template-form__select questao-tipo-select" %>
+  </div>
+  <div class="questao-fields__row">
+    <label class="template-form__label">Texto:</label>
+    <%= qf.text_field :enunciado, placeholder: "Placeholder", class: "template-form__input" %>
+  </div>
+  <div class="questao-fields__row questao-opcoes-row" style="<%= qf.object.tipo_resposta == 'texto' ? 'display:none' : '' %>">
+    <label class="template-form__label">Opções:</label>
+    <%= qf.text_field :opcoes, placeholder: "Placeholder", class: "template-form__input",
+          value: qf.object.opcoes.is_a?(Array) ? qf.object.opcoes.join(", ") : qf.object.opcoes %>
+  </div>
+</div>

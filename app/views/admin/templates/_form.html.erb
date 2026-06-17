@@ -1,0 +1,84 @@
+<%= form_with model: [:admin, @template], local: true, html: { class: "template-form" } do |f| %>
+  <div class="template-form__panel">
+    <div class="template-form__field">
+      <%= f.label :nome, "Nome do template:", class: "template-form__label" %>
+      <%= f.text_field :nome, placeholder: "Placeholder", class: "template-form__input" %>
+    </div>
+
+    <div id="questoes-container">
+      <% questao_index = 0 %>
+      <%= f.fields_for :template_questoes do |qf| %>
+        <%= render "questao_fields", qf: qf, index: questao_index %>
+        <% questao_index += 1 %>
+      <% end %>
+    </div>
+
+    <button type="button" class="template-form__add-btn" id="add-questao-btn">
+      <span>+</span>
+    </button>
+
+    <div class="template-form__actions">
+      <%= f.submit @template.new_record? ? "Criar" : "Salvar", class: "template-form__submit" %>
+    </div>
+  </div>
+<% end %>
+
+<template id="questao-template">
+  <div class="questao-fields" data-questao-index="NEW_INDEX">
+    <div class="questao-fields__row">
+      <label class="template-form__label">Questão <span class="questao-num">?</span></label>
+    </div>
+    <div class="questao-fields__row">
+      <label class="template-form__label">Tipo:</label>
+      <select name="template[template_questoes_attributes][NEW_INDEX][tipo_resposta]" class="template-form__select questao-tipo-select">
+        <option value="radio">Radio</option>
+        <option value="texto">Texto</option>
+      </select>
+    </div>
+    <div class="questao-fields__row">
+      <label class="template-form__label">Texto:</label>
+      <input type="text" name="template[template_questoes_attributes][NEW_INDEX][enunciado]" placeholder="Placeholder" class="template-form__input" />
+    </div>
+    <div class="questao-fields__row questao-opcoes-row">
+      <label class="template-form__label">Opções:</label>
+      <input type="text" name="template[template_questoes_attributes][NEW_INDEX][opcoes]" placeholder="Placeholder" class="template-form__input" />
+    </div>
+  </div>
+</template>
+
+<script>
+(function() {
+  var container = document.getElementById('questoes-container');
+  var addBtn = document.getElementById('add-questao-btn');
+  var tmpl = document.getElementById('questao-template');
+  var nextIndex = container ? container.querySelectorAll('.questao-fields').length + 100 : 100;
+
+  function updateOpcoes(sel) {
+    var row = sel.closest('.questao-fields').querySelector('.questao-opcoes-row');
+    if (row) row.style.display = sel.value === 'radio' ? '' : 'none';
+  }
+
+  document.querySelectorAll('.questao-tipo-select').forEach(function(sel) {
+    updateOpcoes(sel);
+    sel.addEventListener('change', function() { updateOpcoes(this); });
+  });
+
+  if (addBtn && tmpl) {
+    addBtn.addEventListener('click', function() {
+      var html = tmpl.innerHTML.replace(/NEW_INDEX/g, nextIndex);
+      var div = document.createElement('div');
+      div.innerHTML = html;
+      var num = container.querySelectorAll('.questao-fields').length + 1;
+      var numEl = div.querySelector('.questao-num');
+      if (numEl) numEl.textContent = num + 1;
+      container.appendChild(div.firstElementChild);
+      var sel = container.lastElementChild.querySelector('.questao-tipo-select');
+      if (sel) {
+        updateOpcoes(sel);
+        sel.addEventListener('change', function() { updateOpcoes(this); });
+      }
+      nextIndex++;
+    });
+  }
+})();
+</script>
