@@ -1,0 +1,19 @@
+<h1>Login</h1>
+
+<%= render "shared/flash" %>
+
+<%= form_with scope: :session, url: login_path do |form| %>
+  <div>
+    <%= form.label :identifier, "Email ou matricula" %>
+    <%= form.text_field :identifier %>
+  </div>
+
+  <div>
+    <%= form.label :password, "Senha" %>
+    <%= form.password_field :password %>
+  </div>
+
+  <%= form.submit "Entrar" %>
+<% end %>
+
+<%= link_to "Esqueci minha senha", new_password_reset_path %>

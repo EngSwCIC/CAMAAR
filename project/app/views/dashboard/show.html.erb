@@ -1,0 +1,20 @@
+<h1>CAMAAR</h1>
+
+<%= render "shared/flash" %>
+
+<aside aria-label="Menu lateral">
+  <% if current_user.admin? %>
+    <nav>
+      <%= button_to "Importar participantes do SIGAA", imports_class_members_path %>
+      <a href="#">Gerenciar templates</a>
+      <a href="#">Gerenciar formularios</a>
+      <a href="#">Resultados</a>
+    </nav>
+  <% else %>
+    <nav>
+      <a href="#">Formularios pendentes</a>
+    </nav>
+  <% end %>
+</aside>
+
+<p>Usuario autenticado: <%= current_user.name %></p>
