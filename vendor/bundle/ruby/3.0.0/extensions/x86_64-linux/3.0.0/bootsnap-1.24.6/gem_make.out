@@ -1,0 +1,20 @@
+current directory: /home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.24.6/ext/bootsnap
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20260608-10247-37grg7.rb extconf.rb
+checking for fdatasync() in unistd.h... yes
+checking for fstatat() in sys/stat.h... yes
+checking for whether -D_GNU_SOURCE is accepted as CPPFLAGS... yes
+checking for whether -O3 is accepted as CFLAGS... yes
+checking for whether -std=c99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.24.6/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.24.6/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.24.6/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20260608-10247-4tuodd/bootsnap

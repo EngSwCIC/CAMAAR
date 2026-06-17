@@ -1,0 +1,36 @@
+make[1]: Entering directory '/home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ext/sqlite3/tmp/x86_64-linux-gnu/ports/sqlite3/3.46.1/sqlite-autoconf-3460100'
+ /usr/bin/mkdir -p '/home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/lib'
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   libsqlite3.la '/home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/lib'
+libtool: install: /usr/bin/install -c .libs/libsqlite3.lai /home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/lib/libsqlite3.la
+libtool: install: /usr/bin/install -c .libs/libsqlite3.a /home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/lib/libsqlite3.a
+libtool: install: chmod 644 /home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/lib/libsqlite3.a
+libtool: install: x86_64-linux-gnu-ranlib /home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/lib/libsqlite3.a
+libtool: finish: PATH="/usr/local/lib/nodejs/bin:/home/galvao/.local/bin:/home/galvao/.local/share/pnpm:/usr/local/lib/nodejs/bin:/home/galvao/.cabal/bin:/home/galvao/.ghcup/bin:/home/galvao/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/galvao/.vscode/extensions/ms-python.debugpy-2025.18.0-linux-x64/bundled/scripts/noConfigScripts:/sbin" ldconfig -n /home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /usr/bin/mkdir -p '/home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/bin'
+  /bin/bash ./libtool   --mode=install /usr/bin/install -c sqlite3 '/home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/bin'
+libtool: install: /usr/bin/install -c sqlite3 /home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/bin/sqlite3
+ /usr/bin/mkdir -p '/home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/include'
+ /usr/bin/install -c -m 644 sqlite3.h sqlite3ext.h '/home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/include'
+ /usr/bin/mkdir -p '/home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/share/man/man1'
+ /usr/bin/install -c -m 644 sqlite3.1 '/home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/share/man/man1'
+ /usr/bin/mkdir -p '/home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/lib/pkgconfig'
+ /usr/bin/install -c -m 644 sqlite3.pc '/home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ports/x86_64-linux-gnu/sqlite3/3.46.1/lib/pkgconfig'
+make[1]: Leaving directory '/home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/sqlite3-2.0.4/ext/sqlite3/tmp/x86_64-linux-gnu/ports/sqlite3/3.46.1/sqlite-autoconf-3460100'

@@ -1,0 +1,22 @@
+<div class="admin-panel">
+  <h1>Meus Templates</h1>
+
+  <% if @templates.any? %>
+    <table class="tabela-admin">
+      <tbody>
+        <% @templates.each do |template| %>
+          <tr>
+            <td><strong><%= template.nome %></strong></td>
+            <td><%= link_to "Editar", edit_admin_template_path(template), class: "btn-edit" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>Nenhum template de formulário foi encontrado.</p>
+  <% end %>
+
+  <div class="admin-actions">
+    <%= link_to "Novo Template", new_admin_template_path, class: "btn-admin btn-admin--primary" %>
+  </div>
+</div>

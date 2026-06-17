@@ -1,0 +1,31 @@
+<%= form_with model: [:admin, @template], local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :nome, "Nome do template:" %>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div class="form-group">
+    <label for="publico_alvo">Público-alvo:</label>
+    <select id="publico_alvo" name="publico_alvo">
+      <option value="Discente">Discente</option>
+      <option value="Docente">Docente</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <h3>Questões</h3>
+    <%= f.fields_for :template_questoes do |qf| %>
+      <div class="questao-box">
+        <%= qf.label :enunciado, "Enunciado da questão:" %>
+        <%= qf.text_field :enunciado %>
+      </div>
+    <% end %>
+    
+    <!-- Botão visual para atender ao BDD -->
+    <button type="button" class="btn-add-questao">+</button>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit @template.new_record? ? "Criar" : "Salvar", class: "btn-admin btn-admin--primary" %>
+  </div>
+<% end %>

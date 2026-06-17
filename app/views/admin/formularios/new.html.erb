@@ -1,0 +1,31 @@
+<div class="admin-panel">
+  <h1>Criação de Formulários</h1>
+
+  <%= form_with url: admin_formularios_path, method: :post, local: true do |f| %>
+    <div class="form-group">
+      <%= label_tag :template_id, "Template:" %>
+      <%= select_tag :template_id, options_from_collection_for_select(@templates, "id", "nome"), include_blank: "Selecione um template..." %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :publico_alvo, "Público-alvo:" %>
+      <%= select_tag :publico_alvo, options_for_select(["Discentes", "Docentes"]) %>
+    </div>
+
+    <div class="form-group">
+      <h3>Selecione as Turmas:</h3>
+      <div class="turmas-list">
+        <% @turmas.each do |turma| %>
+          <label class="turma-checkbox">
+            <%= check_box_tag "turma_ids[]", turma.id, false, id: "turma_ids_#{turma.id}" %>
+            <%= turma.disciplina.nome %> - Turma <%= turma.codigo %>
+          </label>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= submit_tag "Publicar Formulário", class: "btn-admin btn-admin--primary" %>
+    </div>
+  <% end %>
+</div>
