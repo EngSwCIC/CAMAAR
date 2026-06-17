@@ -1,0 +1,26 @@
+<!-- app/views/passwords/forgot.html.erb - Estilização do formulário de recuperação de senha -->
+<div class="w-full max-w-md bg-white rounded-3xl shadow-xl border border-gray-100 p-8 text-gray-700">
+  <div class="text-center space-y-2 mb-6">
+    <h2 class="text-xl font-bold text-gray-900">Recuperar Senha</h2>
+    <p class="text-xs text-gray-400">Insira seu e-mail cadastrado para receber instruções de redefinição.</p>
+  </div>
+
+  <% if flash[:alert] %>
+    <div class="bg-red-50 border border-red-200 text-red-700 p-3 rounded-lg text-xs mb-4">
+      <span><%= flash[:alert] %></span>
+    </div>
+  <% end %>
+
+  <%= form_with url: forgot_password_path, local: true, class: "space-y-4" do |f| %>
+    <div class="space-y-1">
+      <label for="email" class="text-xs font-bold text-gray-500 uppercase">E-mail</label>
+      <%= f.text_field :email, id: "email", placeholder: "usuario@unb.br", class: "w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs focus:outline-none focus:border-[#702562]" %>
+    </div>
+
+    <%= f.submit "Enviar e-mail de redefinição", class: "w-full py-3 bg-[#702562] hover:bg-[#832d73] text-white font-bold text-xs uppercase tracking-widest rounded-xl transition cursor-pointer" %>
+  <% end %>
+  
+  <div class="mt-4 text-center">
+    <%= link_to "Voltar para o Login", login_path, class: "text-xs font-bold text-[#702562] hover:underline" %>
+  </div>
+</div>

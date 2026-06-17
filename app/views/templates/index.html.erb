@@ -1,0 +1,142 @@
+<!-- app/views/templates/index.html.erb -->
+<% content_for :page_title, "Gerenciamento de Templates" %>
+
+<div class="space-y-6">
+  
+  <!-- Back Header -->
+  <div class="flex items-center gap-3">
+    <%= link_to admin_dashboard_path, class: "p-2 bg-white hover:bg-gray-100 border border-gray-200 text-gray-700 rounded-xl shadow-sm transition" do %>
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+    <% end %>
+    <div>
+      <span class="text-[10px] uppercase font-mono text-gray-400">Administração / Colegiado</span>
+      <h2 class="text-xl font-bold text-gray-900 tracking-tight">Templates de Inquérito</h2>
+    </div>
+  </div>
+
+  <% if flash[:notice] %>
+    <div class="bg-green-50 border border-green-200 text-green-700 p-4 rounded-xl text-xs mb-4 flex items-center gap-2">
+      <svg class="h-4 w-4 shrink-0 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span><%= flash[:notice] %></span>
+    </div>
+  <% end %>
+
+  <% if flash[:alert] %>
+    <div class="bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl text-xs mb-4 flex items-center gap-2">
+      <svg class="h-4 w-4 shrink-0 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>
+      <span><%= flash[:alert] %></span>
+    </div>
+  <% end %>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    
+    <!-- Esquerda: Lista de Templates existentes -->
+    <div class="lg:col-span-1 space-y-4">
+      <div class="bg-white rounded-3xl p-5 border border-gray-100 shadow-sm space-y-4">
+        <h3 class="font-bold text-gray-900 text-xs uppercase tracking-wider text-gray-400">Templates Ativos</h3>
+        
+        <div class="space-y-2">
+          <% if @templates.empty? %>
+            <!-- Mensagem de estado vazio (lista sem templates) -->
+            <div class="text-center py-6 text-xs text-gray-400">Nenhum template de formulário foi encontrado.</div>
+          <% end %>
+
+          <% @templates.each do |template| %>
+            <div class="p-3 bg-gray-50 hover:bg-purple-50 rounded-xl border border-gray-200/60 transition group cursor-pointer flex items-center justify-between">
+              <div>
+                <p class="font-bold text-xs text-gray-800"><%= template.titulo %></p>
+                <span class="text-[9px] font-mono text-gray-400 uppercase"><%= template.perfil_alvo %> • <%= template.perguntas.count %> questões</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <%= link_to "Editar", edit_template_path(template), class: "text-[10px] font-bold text-blue-600 hover:underline" %>
+                <%= link_to "Deletar", template_path(template), data: { turbo_method: :delete, turbo_confirm: 'Tem certeza?' }, class: "text-[10px] font-bold text-red-600 hover:underline" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Direita: Criador/Editor de Templates -->
+    <div class="lg:col-span-2">
+      <div class="bg-white rounded-3xl p-6 md:p-8 border border-gray-100 shadow-md space-y-6">
+        <h3 class="font-bold text-gray-900 text-sm">Criar Novo Template</h3>
+
+        <%= form_with model: @template, url: templates_path, local: true, class: "space-y-6" do |f| %>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <div class="space-y-1">
+              <%= f.label :titulo, "Título", class: "text-xs font-bold text-gray-500 uppercase tracking-wider" %>
+              <%= f.text_field :titulo, placeholder: "Ex: Avaliação Geral de Disciplinas Práticas", class: "w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs focus:outline-none focus:border-[#702562] text-gray-700 transition" %>
+            </div>
+
+            <div class="space-y-1">
+              <%= f.label :perfil_alvo, "Público Alvo", class: "text-xs font-bold text-gray-500 uppercase tracking-wider" %>
+              <%= f.select :perfil_alvo, [['Discente (Alunos)', 'discente'], ['Docente (Autoavaliação)', 'docente']], {}, class: "w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs focus:outline-none focus:border-[#702562] text-gray-700 transition" %>
+            </div>
+
+          </div>
+
+          <!-- Question Builder Sandbox -->
+          <div class="border-t border-gray-100 pt-5 space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-xs text-gray-500 uppercase tracking-wider">Perguntas Cadastradas</h4>
+              <button type="button" onclick="addQuestionField()" class="px-3 py-1 bg-purple-50 hover:bg-purple-100 text-[#702562] font-semibold text-[10px] uppercase tracking-wider rounded-lg transition cursor-pointer">+ Adicionar Pergunta</button>
+            </div>
+
+            <!-- Conteiner dinâmico para javascript adicionar novas perguntas se necessário -->
+            <div id="questions-builder-container" class="space-y-3">
+              <div class="p-4 bg-gray-50 rounded-2xl border border-gray-200/60 relative grid grid-cols-1 md:grid-cols-4 gap-3">
+                <div class="md:col-span-3 space-y-1">
+                  <label class="text-[9px] uppercase font-bold text-gray-400">Texto da Pergunta</label>
+                  <input type="text" name="template[perguntas][][texto]" placeholder="O nível de dificuldade desta matéria condiz com o programa?" class="w-full px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-xs text-gray-700">
+                </div>
+                <div class="space-y-1">
+                  <label class="text-[9px] uppercase font-bold text-gray-400">Tipo de Resposta</label>
+                  <select name="template[perguntas][][tipo]" class="w-full px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-xs text-gray-700">
+                    <option value="likert">Escala Likert (1 a 5)</option>
+                    <option value="texto">Texto Livre / Comentário</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <%= f.submit "Salvar Template", class: "px-6 py-2.5 bg-[#702562] hover:bg-[#832d73] text-white font-bold text-xs uppercase tracking-widest rounded-xl transition cursor-pointer" %>
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  function addQuestionField() {
+    const container = document.getElementById('questions-builder-container');
+    const div = document.createElement('div');
+    div.className = "p-4 bg-gray-50 rounded-2xl border border-gray-200/60 relative grid grid-cols-1 md:grid-cols-4 gap-3";
+    div.innerHTML = `
+      <div class="md:col-span-3 space-y-1">
+        <label class="text-[9px] uppercase font-bold text-gray-400">Texto da Pergunta</label>
+        <input type="text" name="template[perguntas][][texto]" placeholder="Escreva o texto da pergunta..." class="w-full px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-xs text-gray-700">
+      </div>
+      <div class="space-y-1">
+        <label class="text-[9px] uppercase font-bold text-gray-400">Tipo de Resposta</label>
+        <select name="template[perguntas][][tipo]" class="w-full px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-xs text-gray-700">
+          <option value="likert">Escala Likert (1 a 5)</option>
+          <option value="texto">Texto Livre / Comentário</option>
+        </select>
+      </div>
+    `;
+    container.appendChild(div);
+  }
+</script>

@@ -1,0 +1,54 @@
+<!-- app/views/admin/import_console.html.erb -->
+<% content_for :page_title, "Central de Importação SIGRA" %>
+
+<div class="space-y-6">
+  <% if flash[:notice] %>
+    <div class="bg-green-50 border border-green-200 text-green-700 p-4 rounded-xl text-sm mb-4">
+      <span><%= flash[:notice] %></span>
+    </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl text-sm mb-4">
+      <span><%= flash[:alert] %></span>
+    </div>
+  <% end %>
+  <div>
+    <h2 class="text-xl font-bold text-gray-900 tracking-tight">Console de Importação e Carga de Dados</h2>
+    <p class="text-xs text-gray-500">Módulo de sincronização direta utilizando formatos padronizados (JSON ou XML).</p>
+  </div>
+
+  <div class="bg-white rounded-3xl p-6 md:p-8 border border-gray-100 shadow-md">
+    <h3 class="font-bold text-gray-900 text-lg mb-4">Sincronização Ativa</h3>
+    <p class="text-sm text-gray-600 mb-6">Utilize os botões abaixo para realizar a carga de dados no sistema a partir dos arquivos estruturados do departamento.</p>
+
+    <div class="space-y-4">
+      <div class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl border border-gray-150">
+        <div>
+          <h4 class="font-bold text-gray-800 text-sm">Dados de Teste do CIC</h4>
+          <p class="text-xs text-gray-500">Importação automática a partir de `classes.json` e `class_members.json` fornecidos.</p>
+        </div>
+        <%= button_to "Carregar Dados do CIC", carregar_dados_teste_path, method: :post, class: "px-4 py-2 bg-[#702562] hover:bg-[#832d73] text-white text-xs font-bold rounded-xl transition cursor-pointer" %>
+      </div>
+
+      <div class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl border border-gray-150">
+        <div>
+          <h4 class="font-bold text-gray-800 text-sm">Atualizar Dados do CIC</h4>
+          <p class="text-xs text-gray-500">Sincroniza os dados atuais sem apagar históricos.</p>
+        </div>
+        <% if AdminController.class_variable_get(:@@sigaa_updating) || ENV["SIGAA_UPDATING_MOCK"] == "true" %>
+          <button class="px-4 py-2 bg-gray-300 text-gray-600 text-xs font-bold rounded-xl cursor-not-allowed" disabled>Indisponível</button>
+        <% else %>
+          <%= button_to "Atualizar Base", sigaa_update_path, method: :post, class: "px-4 py-2 bg-[#702562] hover:bg-[#832d73] text-white text-xs font-bold rounded-xl transition cursor-pointer" %>
+        <% end %>
+      </div>
+
+      <div class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl border border-gray-150 opacity-60">
+        <div>
+          <h4 class="font-bold text-gray-800 text-sm">Sincronização Direta via SIGAA XML</h4>
+          <p class="text-xs text-gray-500">Sincronização em lote em tempo real com o ambiente corporativo do SIGAA.</p>
+        </div>
+        <button class="px-4 py-2 bg-gray-300 text-gray-600 text-xs font-bold rounded-xl cursor-not-allowed" disabled>Indisponível</button>
+      </div>
+    </div>
+  </div>
+</div>
