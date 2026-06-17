@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Campos" %>
+
+<h1>Campos</h1>
+
+<div id="campos">
+  <% @campos.each do |campo| %>
+    <%= render campo %>
+    <p>
+      <%= link_to "Show this campo", campo %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New campo", new_campo_path %>

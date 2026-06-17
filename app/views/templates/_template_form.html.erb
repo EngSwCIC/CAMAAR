@@ -1,0 +1,11 @@
+<%= form_with model: @template, 
+              url: @template.persisted? ? update_admin_template_path(@admin, @template) : create_admin_template_path, 
+              method: @template.persisted? ? :patch : :post do |f| %>
+  
+  <div class="form-group">
+    <%= f.label :nome, "Nome do template:" %>
+    <%= f.text_field :nome, placeholder: "Digite o nome..." %>
+  </div>
+  
+  <%= f.submit @template.persisted? ? "Salvar Alterações" : "Criar Template", class: "btn-save" %>
+<% end %>

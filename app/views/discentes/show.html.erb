@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @discente %>
+
+<div>
+  <%= link_to "Edit this discente", edit_discente_path(@discente) %> |
+  <%= link_to "Back to discentes", discentes_path %>
+
+  <%= button_to "Destroy this discente", @discente, method: :delete %>
+</div>

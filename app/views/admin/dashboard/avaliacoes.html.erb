@@ -1,0 +1,35 @@
+<div class="page-heading">
+  <h1>Avaliações do Sistema</h1>
+  <%= link_to "Criar Avaliação", new_admin_form_path, class: "btn btn--primary" %>
+</div>
+
+<div class="form-grid">
+  <% @forms.each do |form| %>
+    <div class="form-card">
+      <div class="form-card__title"><%= form["title"] %></div>
+      <div class="form-card__meta">
+        <span><%= form["semester"] %></span> · 
+        <span><%= form["professor"] %></span>
+      </div>
+      <div class="form-card__meta"><%= form["responses"].size %> respostas</div>
+      <div class="form-card__footer">
+        <span class="pill">
+          <%= form["active"] ? "Ativo" : "Inativo" %>
+        </span>
+        <div class="mini-actions">
+          <%= link_to "Resultados", results_admin_form_path(form["id"]), class: "btn btn--ghost" %>
+          <% unless form["active"] %>
+            <%= button_to "Publicar", publish_admin_form_path(form["id"]), method: :post, class: "btn btn--primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @forms.empty? %>
+    <div class="empty-state">
+      <p>Nenhuma avaliação criada.</p>
+      <%= link_to "Criar primeira avaliação", new_admin_form_path, class: "btn btn--primary" %>
+    </div>
+  <% end %>
+</div>

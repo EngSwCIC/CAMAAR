@@ -1,0 +1,32 @@
+<%= form_with(model: campo_form) do |form| %>
+  <% if campo_form.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(campo_form.errors.count, "error") %> prohibited this campo_form from being saved:</h2>
+
+      <ul>
+        <% campo_form.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :ordem, style: "display: block" %>
+    <%= form.number_field :ordem %>
+  </div>
+
+  <div>
+    <%= form.label :enunciado, style: "display: block" %>
+    <%= form.text_field :enunciado %>
+  </div>
+
+  <div>
+    <%= form.label :elemento_form_id, style: "display: block" %>
+    <%= form.text_field :elemento_form_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

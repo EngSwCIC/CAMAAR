@@ -1,0 +1,11 @@
+<% content_for :title, "New elemento" %>
+
+<h1>New elemento</h1>
+
+<%= render "form", elemento: @elemento %>
+
+<br>
+
+<div>
+  <%= link_to "Back to elementos", elementos_path %>
+</div>

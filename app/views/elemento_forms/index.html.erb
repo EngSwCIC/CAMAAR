@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Elemento forms" %>
+
+<h1>Elemento forms</h1>
+
+<div id="elemento_forms">
+  <% @elemento_forms.each do |elemento_form| %>
+    <%= render elemento_form %>
+    <p>
+      <%= link_to "Show this elemento form", elemento_form %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New elemento form", new_elemento_form_path %>

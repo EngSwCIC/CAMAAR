@@ -1,0 +1,42 @@
+<%= form_with(model: discente) do |form| %>
+  <% if discente.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(discente.errors.count, "error") %> prohibited this discente from being saved:</h2>
+
+      <ul>
+        <% discente.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :matricula, style: "display: block" %>
+    <%= form.text_field :matricula %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :nome, style: "display: block" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div>
+    <%= form.label :formacao, style: "display: block" %>
+    <%= form.text_field :formacao %>
+  </div>
+
+  <div>
+    <%= form.label :curso_id, style: "display: block" %>
+    <%= form.text_field :curso_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

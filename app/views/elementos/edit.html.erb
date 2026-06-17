@@ -1,0 +1,12 @@
+<% content_for :title, "Editing elemento" %>
+
+<h1>Editing elemento</h1>
+
+<%= render "form", elemento: @elemento %>
+
+<br>
+
+<div>
+  <%= link_to "Show this elemento", @elemento %> |
+  <%= link_to "Back to elementos", elementos_path %>
+</div>

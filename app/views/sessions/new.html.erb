@@ -1,0 +1,31 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-form">
+      <h1>LOGIN</h1>
+
+      <%= form_with url: login_path do %>
+        <div class="field">
+          <%= label_tag :login, "Email ou matrícula" %>
+          <%= text_field_tag :login, nil, placeholder: "aluno@aluno.unb.br" %>
+        </div>
+
+        <div class="field">
+          <%= label_tag :senha, "Senha" %>
+          <%= password_field_tag :senha, nil, placeholder: "Senha" %>
+        </div>
+
+        <%= submit_tag "Entrar", class: "btn-login" %>
+      <% end %>
+
+      <%= button_to "Esqueci minha senha", redefinir_senha_path, method: :get, class: "btn-forgot" %>
+    </div>
+
+    <div class="login-banner">
+      <h2>
+        Bem vindo<br>
+        ao<br>
+        Camaar
+      </h2>
+    </div>
+  </div>
+</div>

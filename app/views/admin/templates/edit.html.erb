@@ -1,0 +1,84 @@
+<div class="modal-page">
+  <div class="modal-card">
+    <h1>Editar Template</h1>
+
+    <%= form_with url: admin_template_path(@template["id"]), method: :patch, local: true do %>
+      <div class="field">
+        <%= label_tag :template_title, "Título" %>
+        <%= text_field_tag "template[title]", @template["title"], placeholder: "Ex: Template de Avaliação de Turma" %>
+      </div>
+
+      <div class="field">
+        <%= label_tag :template_semester, "Semestre" %>
+        <%= text_field_tag "template[semester]", @template["semester"], placeholder: "Ex: 2026.1" %>
+      </div>
+
+      <h3>Perguntas</h3>
+      <div id="questions">
+        <% @template["questions"].each_with_index do |question, index| %>
+          <div class="question-block" data-index="<%= index %>">
+            <div class="field">
+              <%= label_tag "template_questions_#{index}_title", "Pergunta #{index + 1}" %>
+              <%= text_field_tag "template[questions][#{index}][title]", question["title"], placeholder: "Digite a pergunta", id: "template_questions_#{index}_title" %>
+            </div>
+            <div class="field">
+              <%= label_tag "template_questions_#{index}_type", "Tipo" %>
+              <%= select_tag "template[questions][#{index}][type]", options_for_select([["Múltipla escolha", "radio"], ["Texto", "text"]], question["type"]), id: "template_questions_#{index}_type", class: "question-type-select" %>
+            </div>
+            <div class="field options-field">
+              <%= label_tag "template_questions_#{index}_options", "Opções (separadas por vírgula)" %>
+              <%= text_field_tag "template[questions][#{index}][options]", question["options"].join(", "), placeholder: "Ótimo, Bom, Regular, Ruim", id: "template_questions_#{index}_options" %>
+            </div>
+            <%= hidden_field_tag "template[questions][#{index}][id]", question["id"] %>
+          </div>
+        <% end %>
+      </div>
+
+      <button type="button" id="add-question" class="btn btn--secondary" style="margin-top: 12px;">+ Adicionar Pergunta</button>
+
+      <div style="display: flex; gap: 10px; margin-top: 20px;">
+        <%= submit_tag "Salvar Alterações", class: "btn btn--primary" %>
+        <%= link_to "Cancelar", admin_templates_path, class: "btn btn--ghost" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+document.addEventListener("turbo:load", bindAddButton);
+document.addEventListener("DOMContentLoaded", bindAddButton);
+
+function bindAddButton() {
+  var btn = document.getElementById("add-question");
+  if (btn && !btn.dataset.bound) {
+    btn.dataset.bound = "1";
+    btn.addEventListener("click", function() {
+      var container = document.getElementById("questions");
+      var blocks = container.querySelectorAll(".question-block");
+      var idx = blocks.length;
+      var newId = Date.now() + "-" + idx;
+      var div = document.createElement("div");
+      div.className = "question-block";
+      div.dataset.index = idx;
+      div.innerHTML = '<div class="field">' +
+        '<label>Pergunta ' + (idx + 1) + '</label>' +
+        '<input type="text" name="template[questions][' + idx + '][title]" placeholder="Digite a pergunta">' +
+        '</div>' +
+        '<div class="field">' +
+        '<label>Tipo</label>' +
+        '<select name="template[questions][' + idx + '][type]" class="question-type-select">' +
+        '<option value="radio">Múltipla escolha</option>' +
+        '<option value="text">Texto</option>' +
+        '</select>' +
+        '</div>' +
+        '<div class="field options-field">' +
+        '<label>Opções (separadas por vírgula)</label>' +
+        '<input type="text" name="template[questions][' + idx + '][options]" placeholder="Ótimo, Bom, Regular, Ruim">' +
+        '</div>' +
+        '<input type="hidden" name="template[questions][' + idx + '][id]" value="' + newId + '">' +
+        '<button type="button" class="btn btn--danger" style="margin-top:8px;" onclick="this.closest(\'.question-block\').remove()">Remover</button>';
+      container.appendChild(div);
+    });
+  }
+}
+</script>

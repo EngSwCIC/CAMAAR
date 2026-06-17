@@ -1,0 +1,37 @@
+<div class="modal-page">
+  <div class="modal-card">
+    <h1>Novo Formulário de Avaliação</h1>
+
+    <%= form_with url: admin_forms_path, method: :post, local: true do %>
+      <div class="field">
+        <%= label_tag :form_title, "Título" %>
+        <%= text_field_tag "form[title]", @form["title"], placeholder: "Ex: Avaliação de Turma 2026.1" %>
+      </div>
+
+      <div class="field">
+        <%= label_tag :form_semester, "Semestre" %>
+        <%= text_field_tag "form[semester]", @form["semester"], placeholder: "Ex: 2026.1" %>
+      </div>
+
+      <div class="field">
+        <%= label_tag :form_professor, "Professor" %>
+        <%= text_field_tag "form[professor]", @form["professor"], placeholder: "Nome do professor" %>
+      </div>
+
+      <div class="field">
+        <%= label_tag :form_template_id, "Template" %>
+        <%= select_tag "form[template_id]", options_for_select(@templates.map { |t| [t["title"], t["id"]] }, @form["template_id"]), prompt: "Selecione um template" %>
+      </div>
+
+      <div class="field">
+        <%= label_tag :form_audience, "Público alvo" %>
+        <%= select_tag "form[audience]", options_for_select([["Aluno", "aluno"], ["Professor", "professor"], ["Ambos", "ambos"]], @form["audience"]) %>
+      </div>
+
+      <div style="display: flex; gap: 10px; margin-top: 20px;">
+        <%= submit_tag "Criar Formulário", class: "btn btn--primary" %>
+        <%= link_to "Cancelar", admin_forms_path, class: "btn btn--ghost" %>
+      </div>
+    <% end %>
+  </div>
+</div>

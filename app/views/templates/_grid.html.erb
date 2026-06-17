@@ -1,0 +1,37 @@
+<% if @templates.empty? %>
+  <div class="empty-state" style="text-align: center; padding: 40px; font-family: 'Inter', sans-serif;">
+    <p style="color: #8E8E8E; font-size: 16px; margin-bottom: 20px;">Nenhum template encontrado.</p>
+    <%= link_to "Criar novo template", new_admin_template_path, class: "btn-figma-success", style: "text-decoration: none;" %>
+  </div>
+<% else %>
+  <div class="templates-grid">
+    <% @templates.each do |template| %>
+      
+      <% next if template.new_record? %>
+
+      <div class="card">
+        <div class="card-content">
+          <h2 class="template-title"><%= template.nome %></h2>
+        </div>
+        
+        <div class="card-actions">
+          <%= link_to edit_admin_template_path(@admin, template), class: "action-btn", aria: { label: "Editar" } do %>
+            <%= svg_icon('edit') %>
+          <% end %>
+
+          <%= button_to admin_template_path(@admin, template), method: :delete, 
+              form: { data: { turbo_confirm: "..." } }, 
+              class: "action-btn button-to-clean",
+              aria: { label: "Deletar" } do %>
+            <%= svg_icon('trash') %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= link_to new_admin_template_path(@admin), class: "card-create-new" do %>
+      <span style="display: none;">Adicionar novo template</span>
+      +
+    <% end %>
+  </div>
+<% end %>

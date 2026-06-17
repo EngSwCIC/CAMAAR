@@ -1,0 +1,14 @@
+<div class="figma-card">
+
+  <h2 style="font-family: 'Poppins', sans-serif; font-size: 20px; margin-bottom: 20px;">
+    Ações de Gerenciamento
+  </h2>
+
+  <%= link_to "Importar / Atualizar dados do SIGAA", admin_sincronizar_sigaa_path(@admin), class: "btn-figma" %>
+
+  <%= link_to "Editar Template", admin_templates_path(@admin), class: "btn-figma" %>
+
+  <%= button_to "Resultados", admin_resultados_path, method: :get, class: "btn-figma" %>
+  
+
+</div>

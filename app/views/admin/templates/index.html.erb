@@ -1,0 +1,29 @@
+<div class="page-heading">
+  <h1>Templates de Avaliação</h1>
+  <%= link_to "Criar Template", new_admin_template_path, class: "btn btn--primary" %>
+</div>
+
+<div class="template-grid">
+  <% @templates.each do |template| %>
+    <div class="template-card">
+      <div class="template-card__title"><%= template["title"] %></div>
+      <div class="template-card__meta"><%= template["semester"] %></div>
+      <div class="template-card__meta"><%= template["questions"].size %> perguntas</div>
+      <div class="template-card__footer">
+        <%= link_to "Editar", edit_admin_template_path(template["id"]), class: "btn btn--ghost" %>
+        <%= button_to "Excluir", admin_template_path(template["id"]), method: :delete, class: "btn btn--danger", form: { data: { turbo_confirm: "Tem certeza?" } } %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @templates.empty? %>
+    <div class="empty-state">
+      <p>Nenhum template criado ainda.</p>
+      <%= link_to "Criar primeiro template", new_admin_template_path, class: "btn btn--primary" %>
+    </div>
+  <% end %>
+
+  <%= link_to new_admin_template_path, class: "action-card" do %>
+    +
+  <% end %>
+</div>

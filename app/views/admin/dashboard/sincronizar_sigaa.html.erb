@@ -1,0 +1,22 @@
+<div class="modal-page">
+  <div class="modal-card modal-card--narrow">
+    <h1>Sincronizar dados do SIGAA</h1>
+
+    <%= form_with local: true, url: admin_sincronizar_sigaa_path, method: :post, multipart: true do |f| %>
+      <div class="field">
+        <%= f.label :acao, "Tipo de sincronização:" %>
+        <%= f.select :acao, [["Importar dados", "importar"], ["Atualizar dados", "atualizar"]], {}, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :arquivo_sigaa, "Selecione o arquivo JSON:" %>
+        <%= f.file_field :arquivo_sigaa, accept: "application/json", required: true %>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <%= f.submit "Sincronizar", class: "btn btn--primary" %>
+        <%= link_to "Cancelar", admin_gerenciamento_path, class: "btn btn--ghost" %>
+      </div>
+    <% end %>
+  </div>
+</div>

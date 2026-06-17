@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CAMAAR - Gerenciamento</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <div class="app-shell">
+      <div class="sidebar">
+        <%= link_to "Avaliações", admin_avaliacoes_path, class: "sidebar__item #{'sidebar__item--active' if request.path == '/admin/avaliacoes' || request.path.start_with?('/admin/forms')}" %>
+        <%= link_to "Gerenciamento", admin_gerenciamento_path, class: "sidebar__item #{'sidebar__item--active' if request.path.start_with?('/admin/gerenciamento') || request.path.start_with?('/admin/templates') || request.path.start_with?('/admin/sincronizar_sigaa')}" %>
+        <%= link_to "Templates", admin_templates_path, class: "sidebar__item #{'sidebar__item--active' if request.path.start_with?('/admin/templates')}" %>
+      </div>
+
+      <div class="workspace">
+        <div class="topbar">
+          <h1 class="topbar__title">Admin CAMAAR</h1>
+          <div class="search-pill"></div>
+          <div class="avatar">A</div>
+          <%= link_to "Voltar ao Início", inicio_path, class: "btn btn--ghost" %>
+          <%= button_to "Logout", logout_path, method: :delete, class: "btn btn--danger" %>
+        </div>
+
+        <div class="workspace__body">
+          <% flash.each do |type, message| %>
+            <div class="flash">
+              <div class="flash__item <%= 'flash__item--alert' if type == 'alert' %>">
+                <%= message %>
+              </div>
+            </div>
+          <% end %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

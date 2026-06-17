@@ -1,0 +1,38 @@
+<div class="app-shell">
+  <div class="sidebar">
+    <%= link_to "Avaliações", inicio_path, class: "sidebar__item sidebar__item--active" %>
+    <% if admin_signed_in? %>
+      <%= link_to "Gerenciamento", admin_gerenciamento_path, class: "sidebar__item" %>
+    <% end %>
+  </div>
+
+  <div class="workspace">
+    <div class="topbar">
+      <h1 class="topbar__title">Avaliações</h1>
+      <div class="search-pill"></div>
+      <div class="avatar">U</div>
+      <%= button_to "Logout", logout_path, method: :delete, class: "btn btn--ghost" %>
+    </div>
+
+    <div class="workspace__body">
+      <% if @forms.present? %>
+        <div class="cards-grid">
+          <% @forms.each do |form| %>
+            <%= link_to form_path(form["id"]), class: "card" do %>
+              <div class="card__title"><%= form["title"] %></div>
+              <div class="card__meta"><%= form["semester"] %></div>
+              <div class="card__meta"><%= form["professor"] %></div>
+              <div class="card__footer">
+                <span class="pill"><%= form["questions"]&.size || 0 %> perguntas</span>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="empty-state">
+          <p>Nenhuma avaliação disponível no momento.</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

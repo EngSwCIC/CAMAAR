@@ -1,0 +1,50 @@
+<div class="page-heading">
+  <h1>Resultados - <%= @form["title"] %></h1>
+  <%= link_to "Voltar", admin_forms_path, class: "btn btn--ghost" %>
+</div>
+
+<div class="split-layout">
+  <div class="summary-panel">
+    <h3>Resumo</h3>
+    <p><strong>Total de respostas:</strong> <%= @form["responses"].size %></p>
+    <p><strong>Semestre:</strong> <%= @form["semester"] %></p>
+    <p><strong>Professor:</strong> <%= @form["professor"] %></p>
+  </div>
+
+  <div>
+    <% @form["questions"].each do |question| %>
+      <div class="form-question">
+        <h3 class="form-question__title"><%= question["title"] %></h3>
+        <% if question["type"] == "radio" %>
+          <div class="radio-list">
+            <% counts = Hash.new(0) %>
+            <% @form["responses"].each do |response| %>
+              <% counts[response["answers"][question["id"]]] += 1 %>
+            <% end %>
+            <% question["options"].each do |option| %>
+              <div>
+                <strong><%= option %>:</strong> <%= counts[option] %> votos
+              </div>
+            <% end %>
+          </div>
+        <% elsif question["type"] == "text" %>
+          <div class="results-grid">
+            <% @form["responses"].each do |response| %>
+              <% if response["answers"][question["id"]].present? %>
+                <div class="result-card">
+                  <div class="result-card__meta"><%= response["answers"][question["id"]] %></div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if @form["responses"].empty? %>
+      <div class="empty-state">
+        <p>Nenhuma resposta recebida ainda.</p>
+      </div>
+    <% end %>
+  </div>
+</div>

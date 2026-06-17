@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Turmas" %>
+
+<h1>Turmas</h1>
+
+<div id="turmas">
+  <% @turmas.each do |turma| %>
+    <%= render turma %>
+    <p>
+      <%= link_to "Show this turma", turma %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New turma", new_turma_path %>

@@ -1,0 +1,42 @@
+<div style="background-color: #E6E6E6; padding: 40px; min-height: calc(100vh - 60px); width: 100%;">
+  
+  <% if @formularios.present? %>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start;">
+      
+      <% @formularios.each do |formulario| %>
+        <div style="background-color: #FFFFFF; border-radius: 8px; padding: 24px; width: 280px; min-height: 160px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+          
+          <div>
+            <h3 style="margin: 0; font-size: 1.2rem; color: #000000; font-weight: bold; line-height: 1.2;">
+              <%= formulario.turma.disciplina.nome %>
+            </h3>
+            <p style="margin: 4px 0 0 0; font-size: 0.85rem; color: #333333;">
+              Turma <%= formulario.turma.numero_da_turma %>
+            </p>
+            <p style="margin: 4px 0 0 0; font-size: 0.85rem; color: #333333;">
+              <%= formulario.turma.semestre %> - <%= formulario.turma.horario %>
+            </p>
+          </div>
+          
+          <div style="margin-top: 32px;">
+            <p style="margin: 0 0 16px 0; font-size: 1.1rem; font-weight: bold; color: #000000;">
+              <%# Caso a relação no seu model seja diferente, ajuste '.docentes' para o nome correto %>
+              <%= formulario.turma.docentes.first&.nome || "Professor(a) não alocado(a)" %>
+            </p>
+            
+            <%= link_to "Baixar Resultado", baixar_csv_path(id: formulario.id, format: :csv), style: "display: block; text-align: center; background-color: #612F65; color: white; text-decoration: none; padding: 10px 16px; border-radius: 4px; font-weight: bold; font-size: 0.9rem;" %>
+          </div>
+
+        </div>
+      <% end %>
+
+    </div>
+  <% else %>
+    
+    <div style="background-color: #FFFFFF; border-radius: 8px; height: 300px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+      <p style="color: #666666; font-size: 1.1rem;">Nenhum formulário encontrado para o seu departamento neste semestre.</p>
+    </div>
+
+  <% end %>
+
+</div>

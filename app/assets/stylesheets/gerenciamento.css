@@ -1,0 +1,435 @@
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: 'Roboto', 'Poppins', sans-serif;
+  background: #DBDBDB; 
+}
+
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.admin-header {
+  height: 60px;
+  min-height: 60px;
+  background: #FFFFFF;
+  box-shadow: 0px 11px 10.7px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 10;
+}
+
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.tab-name {
+  font-size: 24px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0;
+}
+
+.search-container {
+  width: 271px;
+  height: 40px;
+  border: 1px solid #8E8E8E;
+  border-radius: 47px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+.user-avatar {
+  width: 44px;
+  height: 44px;
+  background: #6C2365;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.admin-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.admin-sidebar {
+  width: 257px;
+  min-width: 257px;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #D9D9D9;
+  padding-top: 10px;
+}
+
+.menu-item {
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #D9D9D9;
+  text-decoration: none;
+  color: #000000;
+  font-size: 16px;
+}
+
+.menu-item.active {
+  background: #6C2365;
+  color: #FFFFFF;
+}
+
+.admin-content {
+  flex: 1;
+  background: #DBDBDB;
+  padding: 25px 43px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  overflow-y: auto;
+}
+
+.figma-card {
+  width: 462px;
+  height: 655px; 
+  background: #FFFFFF;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  padding-top: 40px; 
+  gap: 15px; 
+}
+
+.btn-figma {
+  width: 302px;
+  height: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 1px 2px rgba(105, 81, 255, 0.05);
+  background: #86EFAC; 
+  color: #1e1e1e; 
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.btn-figma:hover {
+  background: #22C55E;
+  color: #F0FDF4; 
+}
+
+.flash-message.notice {
+  background-color: #d1fae5; 
+  color: #065f46;
+  border: 1px solid #10b981;
+}
+
+.flash-message.alert {
+  background-color: #fee2e2; 
+  color: #991b1b;
+  border: 1px solid #ef4444;
+}
+
+.templates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 278px);
+  gap: 50px;
+  padding: 25px 43px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.card {
+  width: 278px;
+  height: 82px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.template-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+  color: #000000;
+}
+
+.template-semester {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 5px 0 0 0;
+  color: #000000;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.card-create-new {
+  width: 278px;
+  height: 82px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  border: 2px dashed #000000;
+  box-sizing: border-box;
+}
+
+.plus-icon {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.icon-wrapper svg {
+  width: 14px;
+  height: 14px;
+  fill: #000000; 
+  transition: fill 0.2s;
+}
+
+.action-btn:hover .icon-wrapper svg {
+  fill: #6C2365; 
+}
+
+.template-modal {
+  width: 453px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  margin: 85px auto;
+  border-radius: 8px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"], .dropdown {
+  border: none;
+  border-bottom: 1px solid #000;
+  width: 280px;
+  padding: 5px;
+}
+
+.btn-save {
+  background: #22C55E;
+  color: #F0FDF4;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 6px;
+  width: 125px;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.figma-form-card {
+  width: 453px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 8px; 
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.figma-form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Nome do template */
+.form-header-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.figma-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.figma-input-line {
+  border: none;
+  border-bottom: 1px solid #000000;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  padding: 5px 0;
+  outline: none;
+  background: transparent;
+}
+
+.figma-input-line::placeholder {
+  color: #8E8E8E;
+}
+
+/* Blocos de Questão */
+.question-block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.question-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  margin: 0;
+}
+
+.question-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.figma-label-small {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #000000;
+  width: 50px;
+}
+
+.figma-dropdown {
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #828282;
+  width: 163px;
+  outline: none;
+}
+
+.figma-input-line-full {
+  border: none;
+  border-bottom: 1px solid #000000;
+  flex-grow: 1;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  padding: 5px 0;
+  outline: none;
+}
+
+/* Botão roxo de adicionar (+) */
+.add-question-btn {
+  width: 34px;
+  height: 34px;
+  background: #6C2365;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.submit-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.btn-figma-success {
+  background: #22C55E;
+  color: #F0FDF4;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 30px;
+  cursor: pointer;
+  box-shadow: 0px 1px 2px rgba(105, 81, 255, 0.05);
+}
+
+.cancel-row {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-cancel {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #828282;
+  text-decoration: underline;
+}

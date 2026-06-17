@@ -1,0 +1,34 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: aluno
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: camaar_development
+
+test:
+  <<: *default
+  database: camaar_test
+
+production:
+  primary: &primary_production
+    <<: *default
+    database: camaar_production
+    username: camaar
+    password: <%= ENV["CAMAAR_DATABASE_PASSWORD"] %>
+  cache:
+    <<: *primary_production
+    database: camaar_production_cache
+    migrations_paths: db/cache_migrate
+  queue:
+    <<: *primary_production
+    database: camaar_production_queue
+    migrations_paths: db/queue_migrate
+  cable:
+    <<: *primary_production
+    database: camaar_production_cable
+    migrations_paths: db/cable_migrate
