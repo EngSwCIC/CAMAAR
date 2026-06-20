@@ -1,0 +1,26 @@
+<div class="main-page">
+  <div class="redefinir-container">
+    <h1>RECUPERAR SENHA</h1>
+
+    <% if notice %>
+      <p class="auth-notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="auth-alert"><%= alert %></p>
+    <% end %>
+
+    <p class="auth-hint">
+      Digite seu e-mail cadastrado. Se ele existir no sistema, você receberá
+      instruções para redefinir sua senha.
+    </p>
+
+    <%= form_with url: recuperar_senha_path, method: :post, class: "login-form" do |form| %>
+      <div class="form-group">
+        <%= form.email_field :email, placeholder: "seu@email.com" %>
+      </div>
+      <%= form.submit "Enviar instruções", class: "login-button" %>
+    <% end %>
+
+    <p class="auth-link"><%= link_to "Voltar ao login", login_path %></p>
+  </div>
+</div>

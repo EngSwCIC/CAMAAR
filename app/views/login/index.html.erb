@@ -1,0 +1,34 @@
+<div class="main-page">
+<div class="login-container">
+  <div class="login-left">
+  <h1>LOGIN</h1>
+    <% if alert %>
+      <p class="auth-alert" role="alert"><%= alert %></p>
+    <% end %>
+    <% if notice %>
+      <p class="auth-notice"><%= notice %></p>
+    <% end %>
+    <%= form_with url: login_path, method: :post, class: "login-form" do |form| %>
+      <div class="form-group">
+        <%= form.label :email, "Email" %>
+        <%= form.email_field :email, placeholder: "aluno@aluno.unb.br" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :password, "Senha" %>
+        <%= form.password_field :password, placeholder: "password" %>
+      </div>
+
+      <%= form.submit "Entrar", class: "login-button" %>
+      <p class="auth-link"><%= link_to "Esqueceu sua senha?", recuperar_senha_path %></p>
+    <% end %>
+  </div>
+  <div class="login-welcome-side">
+    <h2>
+      Bem vindo<br>
+      ao<br>
+      CAMAAR
+    </h2>
+  </div>
+</div>
+</div>

@@ -1,0 +1,41 @@
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "header", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "gerenciamento", "data-turbo-track": "reload" %>
+<% end %>
+
+<%= render "shared/header", title: "Criar Template" %>
+
+<div class="gerenciamento-page">
+  <aside class="sidebar">
+    <%= link_to "Avaliações", avaliacoes_path, class: "sidebar-item" %>
+    <%= link_to "Gerenciamento", gerenciamento_path, class: "sidebar-item active" %>
+  </aside>
+
+  <main class="content">
+    <section class="formulario-panel">
+      <h2>Passo 1: Identificação</h2>
+      
+      <% if @template_formulario.errors.any? %>
+        <div class="formulario-errors" role="alert">
+          <ul>
+            <% @template_formulario.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_with model: @template_formulario, class: "formulario-form" do |form| %>
+        <div class="formulario-field">
+          <%= form.label :nome_template, "Nome do Template" %>
+          <%= form.text_field :nome_template, required: true %>
+        </div>
+
+        <div style="display: flex; gap: 12px; margin-top: 10px;">
+          <%= form.submit "Avançar para Perguntas", class: "btn btn--primary" %>
+          <%= link_to "Cancelar", editar_templates_path, class: "btn btn--primary", style: "text-align: center;" %>
+        </div>
+      <% end %>
+    </section>
+  </main>
+</div>

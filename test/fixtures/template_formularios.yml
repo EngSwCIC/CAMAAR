@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome_template: MyString
+  criador_formulario: one
+
+two:
+  nome_template: MyString
+  criador_formulario: two

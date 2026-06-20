@@ -1,0 +1,17 @@
+<h1>Departamento: <%= @departamento.nome_departamento %></h1>
+
+<h2>Turmas</h2>
+
+<% if @turmas.empty? %>
+  <p>Não há turmas cadastradas para este departamento.</p>
+<% else %>
+  <ul>
+    <% @turmas.each do |turma| %>
+      <li>
+        <%= link_to "#{turma.materia.nome_materia} (Turma #{turma.numero_turma})", departamento_turma_path(turma) %>
+        — Semestre <%= turma.semestre_string %>
+        (formulários: <%= turma.formularios.size %>)
+      </li>
+    <% end %>
+  </ul>
+<% end %>

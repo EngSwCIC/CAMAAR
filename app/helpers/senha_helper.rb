@@ -1,0 +1,2 @@
+module SenhaHelper
+end

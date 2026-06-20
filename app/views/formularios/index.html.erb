@@ -1,0 +1,13 @@
+<h1>Formulários disponíveis</h1>
+
+<% if @formularios.empty? %>
+  <p>Não há formulários disponíveis no momento.</p>
+<% else %>
+  <ul>
+    <% @formularios.each do |formulario| %>
+      <li>
+        <%= link_to formulario.nome_formulario, formulario_path(formulario) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

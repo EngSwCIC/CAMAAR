@@ -1,0 +1,39 @@
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "header", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "avaliacoes", "data-turbo-track": "reload" %>
+<% end %>
+
+<%= render "shared/header", title: "Avaliações" %>
+
+<div class="avaliacoes-page">
+  <aside class="sidebar">
+    <%= link_to "Avaliações", avaliacoes_path, class: "sidebar-item active" %>
+    <% if current_usuario&.admin? %>
+      <%= link_to "Gerenciamento", gerenciamento_path, class: "sidebar-item" %>
+    <% end %>
+    <% if current_usuario&.professor? %>
+      <%= link_to "Relatórios", relatorios_path, class: "sidebar-item" %>
+    <% end %>
+  </aside>
+
+  <main class="content">
+    <% if @formularios_pendentes.any? %>
+      <div class="cards-container">
+        <% @formularios_pendentes.each do |formulario| %>
+          <% turma = formulario.turma %>
+          <% professor = turma.professor.usuario %>
+
+          <article class="avaliacao-card">
+            <h2><%= formulario.nome_formulario %></h2>
+            <p><%= turma.materia.nome_materia %> - <%= turma.semestre_string %></p>
+            <h3><%= professor.nome %></h3>
+          </article>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="empty-state">
+        <p>Você está em dia! Sem formulários para preencher.</p>
+      </div>
+    <% end %>
+  </main>
+</div>

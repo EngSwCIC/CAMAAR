@@ -1,0 +1,45 @@
+<div class="main-page">
+  <div class="login-container signup-container">
+    <div class="login-left signup-left">
+      <h1>CADASTRO</h1>
+
+      <% if @usuario.errors.any? %>
+        <div role="alert">
+          <ul>
+            <% @usuario.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_with model: @usuario, url: signup_path, class: "login-form" do |form| %>
+        <div class="form-group">
+          <%= form.label :nome, "Nome" %>
+          <%= form.text_field :nome, required: true, autocomplete: "name" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :email, "Email" %>
+          <%= form.email_field :email, required: true, autocomplete: "email" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :password, "Senha" %>
+          <%= form.password_field :password, required: true, autocomplete: "new-password" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :password_confirmation, "Confirmação de senha" %>
+          <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password" %>
+        </div>
+
+        <%= form.submit "Cadastrar", class: "login-button" %>
+      <% end %>
+    </div>
+
+    <div class="login-welcome-side">
+      <h2>Bem vindo<br>ao<br>CAMAAR</h2>
+    </div>
+  </div>
+</div>

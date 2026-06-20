@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo_pergunta: 1
+  gabarito_discursiva: MyString
+  gabarito_radio: MyString
+  opcoes_radio: MyText
+  template_formulario: one
+
+two:
+  tipo_pergunta: 1
+  gabarito_discursiva: MyString
+  gabarito_radio: MyString
+  opcoes_radio: MyText
+  template_formulario: two

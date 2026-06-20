@@ -1,0 +1,194 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body.sidebar-collapsed .sidebar {
+    display: none;
+}
+
+.main-page {
+    min-height: 100vh;
+    background-color: #909090;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-page {
+    min-height: 100vh;
+    background-color: #9f9e9e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-container {
+    width: 880px;
+    height: 420px;
+    display: flex;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.login-left {
+    width: 44%;
+    background-color: white;
+    padding: 35px 38px;
+    box-sizing: border-box;
+}
+
+.signup-container {
+    height: auto;
+    min-height: 620px;
+}
+
+.signup-left {
+    padding: 40px 38px;
+}
+
+.login-left h1 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 22px;
+    color: #111827;
+}
+
+.login-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #1f2937;
+}
+
+.form-group input {
+    width: 100%;
+    height: 42px;
+    padding: 0 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #111827;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: #6b7280;
+}
+
+.form-group input:focus {
+    border-color: #7a1f7a;
+}
+
+.login-button {
+    width: 100%;
+    height: 44px;
+    border: none;
+    border-radius: 5px;
+    background-color: #22c55e;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #16a34a;
+}
+
+.login-welcome-side {
+    width: 56%;
+    background-color: #702272;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-welcome-side h2 {
+    color: white;
+    text-align: center;
+    font-size: 43px;
+    line-height: 1.4;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.redefinir-container {
+    width: 380px;
+    min-height: 380px;
+    border-radius: 4px;
+    background-color: white;
+    padding: 48px 38px 40px;
+    box-sizing: border-box;
+}
+
+.redefinir-container h1 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 0 22px;
+    color: #111827;
+}
+
+.auth-notice {
+    background: #d1fae5;
+    color: #065f46;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin: 0 0 16px;
+    font-size: 14px;
+}
+
+.auth-alert {
+    background: #fee2e2;
+    color: #991b1b;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin: 0 0 16px;
+    font-size: 14px;
+}
+
+.auth-hint {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0 0 18px;
+    line-height: 1.5;
+}
+
+.auth-link {
+    text-align: center;
+    margin: 16px 0 0;
+    font-size: 14px;
+}
+
+.auth-link a {
+    color: #702272;
+    text-decoration: none;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}

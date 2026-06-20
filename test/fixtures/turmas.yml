@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numero_turma: 1
+  semestre_string: MyString
+  nota_turma: 1.5
+  materia: one
+  professor: one
+
+two:
+  numero_turma: 1
+  semestre_string: MyString
+  nota_turma: 1.5
+  materia: two
+  professor: two

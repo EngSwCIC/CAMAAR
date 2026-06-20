@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome_formulario: MyString
+  nota_final: 1.5
+  nota_media: 1.5
+  publico_estudante: false
+  template_formulario: one
+  turma: one
+  criador_formulario: one
+
+two:
+  nome_formulario: MyString
+  nota_final: 1.5
+  nota_media: 1.5
+  publico_estudante: false
+  template_formulario: two
+  turma: two
+  criador_formulario: two

@@ -1,0 +1,60 @@
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "header", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "gerenciamento", "data-turbo-track": "reload" %>
+<% end %>
+
+<%= render "shared/header", title: "Detalhes do Template" %>
+
+<div class="gerenciamento-page">
+  <aside class="sidebar">
+    <%= link_to "Avaliações", avaliacoes_path, class: "sidebar-item" %>
+    <%= link_to "Gerenciamento", gerenciamento_path, class: "sidebar-item active" %>
+  </aside>
+
+  <main class="content">
+    <section class="formulario-panel" style="width: min(800px, 100%);">
+      <h2 style="margin-bottom: 4px;"><%= @template_formulario.nome_template %></h2>
+      <p style="color: var(--gp-ink-soft); margin-top: 0;">
+        <strong>Criado por:</strong> <%= @template_formulario.criador_formulario.usuario.nome rescue 'Desconhecido' %>
+      </p>
+
+      <hr class="actions-divider" style="margin: 24px 0;">
+
+      <h3 style="color: var(--gp-ink-soft);">Perguntas deste Template (<%= @template_formulario.perguntas.count %>)</h3>
+
+      <% if @template_formulario.perguntas.any? %>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <% @template_formulario.perguntas.each_with_index do |pergunta, index| %>
+            <div style="border: 1px solid var(--gp-line); padding: 18px; border-radius: 8px; background-color: #fafafb;">
+              <strong style="font-size: 1.1rem;">Questão <%= index + 1 %>:</strong> 
+              <span style="font-size: 1.05rem;"><%= pergunta.enunciado %></span>
+              
+              <div style="margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--gp-line); color: var(--gp-ink-soft);">
+                <strong>Tipo:</strong> <%= pergunta.tipo_pergunta.titleize %><br>
+                
+                <% if pergunta.radio? %>
+                  <strong style="color: var(--gp-green-dark);">Gabarito:</strong> <%= pergunta.gabarito_radio.titleize rescue '-' %><br>
+                  <strong>Qtd. respostas:</strong> <%= pergunta.numero_opcoes %><br>
+                  <% if pergunta.opcoes_radio.present? %>
+                    <%= pergunta.opcoes_radio.join(", ") %>
+                  <% end %>
+                <% elsif pergunta.discursiva? %>
+                  <strong style="color: var(--gp-green-dark);">Gabarito Esperado:</strong> <%= pergunta.gabarito_discursiva %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="formulario-warning">Este template ainda não possui perguntas.</div>
+      <% end %>
+
+      <hr class="actions-divider" style="margin: 24px 0;">
+
+      <div style="display: flex; gap: 12px;">
+        <%= link_to "Editar Template", edit_template_formulario_path(@template_formulario), class: "btn btn--primary", style: "width: auto; padding: 10px 20px;" %>
+        <%= link_to "Voltar para Lista", editar_templates_path, class: "btn btn--primary", style: "width: auto; padding: 10px 20px; text-align: center;" %>
+      </div>
+    </section>
+  </main>
+</div>

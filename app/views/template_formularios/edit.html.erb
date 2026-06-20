@@ -1,0 +1,82 @@
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "header", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "gerenciamento", "data-turbo-track": "reload" %>
+<% end %>
+
+<%= render "shared/header", title: "Editar Template" %>
+
+<div class="gerenciamento-page">
+  <aside class="sidebar">
+    <%= link_to "Avaliações", avaliacoes_path, class: "sidebar-item" %>
+    <%= link_to "Gerenciamento", gerenciamento_path, class: "sidebar-item active" %>
+  </aside>
+
+  <main class="content">
+    <section class="formulario-panel" style="width: min(800px, 100%);">
+      <h2>Passo 2: Adicionar Perguntas</h2>
+      <h3><%= @template_formulario.nome_template %></h3>
+
+      <% if params[:erro] == "sem_perguntas" %>
+        <div class="formulario-errors" role="alert" style="margin-bottom: 20px;">
+          <ul><li>Template sem Perguntas. Adicione uma Pergunta para Salvar.</li></ul>
+        </div>
+      <% elsif params[:erro] == "enunciado_vazio" %>
+        <div class="formulario-errors" role="alert" style="margin-bottom: 20px;">
+          <ul><li>Alguma caixa está vazia. Certifique-se de que tudo está preenchido para Salvar.</li></ul>
+        </div>
+      <% elsif params[:erro] == "sem_questoes" %>
+        <div class="formulario-errors" role="alert" style="margin-bottom: 20px;">
+          <ul><li>Template <%= @template_formulario.nome_template %> não pode ser criada, por favor adicione uma Questão</li></ul>
+        </div>
+      <% end %>
+
+      <% if @template_formulario.errors.any? %>
+        <div class="formulario-errors" role="alert" style="margin-bottom: 20px;">
+          <ul>
+            <% @template_formulario.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_with model: @template_formulario, class: "formulario-form", data: { controller: "nested-form" } do |form| %>
+        <div class="formulario-field">
+          <%= form.label :nome_template, "Nome do Template" %>
+          <%= form.text_field :nome_template, required: true %>
+        </div>
+
+        <hr class="actions-divider" style="margin: 24px 0;">
+        
+        <h3 style="color: var(--gp-ink-soft); margin-top: 0;">Banco de Perguntas</h3>
+
+        <!-- This is where existing or new questions are rendered -->
+        <div data-nested-form-target="target" style="display: flex; flex-direction: column; gap: 20px;">
+          <%= form.fields_for :perguntas do |pergunta_form| %>
+            <%= render "pergunta_fields", f: pergunta_form %>
+          <% end %>
+        </div>
+
+        <!-- The Stimulus Template (Invisible) -->
+        <template data-nested-form-target="template">
+          <%= form.fields_for :perguntas, Pergunta.new, child_index: 'NEW_RECORD' do |pergunta_form| %>
+            <%= render "pergunta_fields", f: pergunta_form %>
+          <% end %>
+        </template>
+
+        <div style="margin-top: 15px;">
+          <button type="button" class="btn btn--primary" data-action="nested-form#add" style="width: auto; padding: 10px 20px;">
+            + Adicionar Nova Pergunta
+          </button>
+        </div>
+
+        <hr class="actions-divider" style="margin: 24px 0;">
+
+        <div style="display: flex; gap: 12px;">
+          <%= form.submit "Finalizar Template", class: "btn btn--primary" %>
+          <%= link_to "Voltar", editar_templates_path, class: "btn btn--primary", style: "text-align: center;" %>
+        </div>
+      <% end %>
+    </section>
+  </main>
+</div>
