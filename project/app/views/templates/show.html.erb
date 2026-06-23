@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
+
+<% content_for :title, @template.title %>
+
+<h1><%= @template.title %></h1>
+
+<p><strong>Público-alvo:</strong> <%= @template.target_role %></p>
+
+<h2>Questões</h2>
+
+<ul>
+  <% @template.questaos.each do |questao| %>
+    <li><%= questao.enunciado %> (<%= questao.tipo %>)</li>
+  <% end %>
+</ul>
+
+<div>
+  <%= link_to "Editar", edit_template_path(@template) %>
+</div>
+
+<div>
+  <p>Tem certeza que deseja deletar este template?</p>
+  <%= button_to "Confirmar", template_path(@template), method: :delete %>
+</div>
+
+<div>
+  <%= link_to "Voltar para templates", templates_path %>
+</div>

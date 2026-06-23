@@ -1,0 +1,12 @@
+<% content_for :title, "Editing formulario" %>
+
+<h1>Editing formulario</h1>
+
+<%= render "form", formulario: @formulario %>
+
+<br>
+
+<div>
+  <%= link_to "Show this formulario", @formulario %> |
+  <%= link_to "Back to formularios", formularios_path %>
+</div>

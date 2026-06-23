@@ -1,0 +1,42 @@
+<p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
+
+<h1><%= @formulario.title %></h1>
+<p>Turma: <%= @formulario.course_class&.name %></p>
+
+<hr>
+
+<% if current_user.admin? %>
+  <%# -- VISÃO DO ADMINISTRADOR (Issue 4) -- %>
+  <h3>Resultados</h3>
+  
+  <% if Submissao.where(formulario_id: @formulario.id).any? %>
+    <%= link_to "Exportar Resultados (CSV)", exportar_csv_formulario_path(@formulario, format: :csv) %>
+  <% else %>
+    <p>Não é possível exportar o relatório pois nenhuma resposta foi registrada. Aguarde os participantes responderem.</p>
+  <% end %>
+  
+  <br><br>
+  <%= link_to "Voltar para listagem", formularios_path %>
+
+<% else %>
+  <%# -- VISÃO DO PARTICIPANTE RESPONDENDO (Issue 3) -- %>
+  <h3>Responda o Questionário</h3>
+  
+  <%= form_with scope: :respostum, url: resposta_path, method: :post do |f| %>
+    <%# Atributos ocultos necessários para sincronizar com as colunas do banco %>
+    <%= f.hidden_field :formulario_id, value: @formulario.id %> 
+    <%= f.hidden_field :questao_id, value: @formulario.questaos.first&.id %> 
+    
+    <div>
+      <%= f.label :valor_numerico, "Score" %><br>
+      <%= f.number_field :valor_numerico %>
+    </div>
+    
+    <br>
+    <%= f.submit "Enviar Resposta" %>
+  <% end %>
+  
+  <br>
+  <%= link_to "Voltar", formularios_path %>
+<% end %>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @respostum %>
+
+<div>
+  <%= link_to "Edit this respostum", edit_respostum_path(@respostum) %> |
+  <%= link_to "Back to resposta", resposta_path %>
+
+  <%= button_to "Destroy this respostum", @respostum, method: :delete %>
+</div>

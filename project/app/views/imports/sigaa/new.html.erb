@@ -1,0 +1,19 @@
+<h1>Importacao de Dados do SIGAA</h1>
+
+<%= render "shared/flash" %>
+
+<%= form_with scope: :sigaa_sync, url: imports_sigaa_path, method: :post do |form| %>
+  <div>
+    <%= form.label :semester, "Periodo letivo" %>
+    <%= form.select :semester, options_for_select(@semesters, @semester) %>
+  </div>
+
+  <div>
+    <%= form.label :scope, "Dados para sincronizar" %>
+    <p>Turmas, Materias e Participantes</p>
+  </div>
+
+  <%= form.submit "Sincronizar turmas, materias e participantes" %>
+<% end %>
+
+<p><%= link_to "Voltar ao painel", root_path %></p>

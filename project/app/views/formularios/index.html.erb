@@ -1,0 +1,44 @@
+<p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
+
+<h1>Formulários</h1>
+
+<% if current_user.admin? %>
+  <% if @formularios.empty? %>
+    <p>Você ainda não possui formulários criados para as suas turmas.</p>
+  <% else %>
+    <div id="formularios">
+      <% @formularios.each do |formulario| %>
+        <div class="formulario-item">
+          <strong><%= formulario.title %></strong> | 
+          Turma: <%= formulario.course_class&.name %> | 
+          Status: <%= formulario.status %>
+          <br>
+          <%= link_to "Ver Detalhes", formulario %>
+        </div>
+        <hr>
+      <% end %>
+    </div>
+  <% end %>
+  
+  <br>
+  <%= link_to "Novo formulário", new_formulario_path %>
+
+<% else %>
+  <h2>Avaliações Pendentes</h2>
+  
+  <% if @formularios_pendentes.empty? %>
+    <p>Você não possui nenhuma avaliação pendente no momento.</p>
+  <% else %>
+    <div id="formularios_pendentes">
+      <% @formularios_pendentes.each do |formulario| %>
+        <div class="formulario-item">
+          <strong><%= formulario.title %></strong>
+          <br>
+          <%= link_to "Responder Avaliação", formulario %>
+        </div>
+        <hr>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

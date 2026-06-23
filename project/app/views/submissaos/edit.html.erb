@@ -1,0 +1,12 @@
+<% content_for :title, "Editing submissao" %>
+
+<h1>Editing submissao</h1>
+
+<%= render "form", submissao: @submissao %>
+
+<br>
+
+<div>
+  <%= link_to "Show this submissao", @submissao %> |
+  <%= link_to "Back to submissaos", submissaos_path %>
+</div>

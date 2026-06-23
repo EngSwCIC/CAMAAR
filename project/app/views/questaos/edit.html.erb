@@ -1,0 +1,12 @@
+<% content_for :title, "Editing questao" %>
+
+<h1>Editing questao</h1>
+
+<%= render "form", questao: @questao %>
+
+<br>
+
+<div>
+  <%= link_to "Show this questao", @questao %> |
+  <%= link_to "Back to questaos", questaos_path %>
+</div>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  valor_texto: MyText
+  valor_numerico: 1
+  submissao: one
+  questao: one
+
+two:
+  valor_texto: MyText
+  valor_numerico: 1
+  submissao: two
+  questao: two

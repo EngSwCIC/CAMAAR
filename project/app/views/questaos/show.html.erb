@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @questao %>
+
+<div>
+  <%= link_to "Edit this questao", edit_questao_path(@questao) %> |
+  <%= link_to "Back to questaos", questaos_path %>
+
+  <%= button_to "Destroy this questao", @questao, method: :delete %>
+</div>

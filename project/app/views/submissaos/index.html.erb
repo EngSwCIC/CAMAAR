@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Submissaos" %>
+
+<h1>Submissaos</h1>
+
+<div id="submissaos">
+  <% @submissaos.each do |submissao| %>
+    <%= render submissao %>
+    <p>
+      <%= link_to "Show this submissao", submissao %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New submissao", new_submissao_path %>
