@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Painel Administrativo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "admin", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "admin_gerenciamento", "data-turbo-track": "reload" %>
+
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    
+   <!-- <header class= "header_admin"> Teste </header>-->
+    
+    <nav class="navbar" aria-label="Painel do admin">
+      
+      <div class="btn-expandir">
+        <i class="bi bi-list" id="btn-exp"></i>
+      </div>
+
+      <ul class="nav-menu">
+
+        <li class="nav-item">
+        <%= link_to admin_dashboard_path, class: "nav-link" do %>
+            <span class="nav-icon"><i class="bi bi-house"></i></span>
+            <span class="nav-text">Home</span>
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to admin_avaliacao_dashboard_path, class: "nav-link" do %>
+            <span class="nav-icon"><i class="bi bi-folder"></i></span>
+            <span class="nav-text">Avaliações</span>
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to admin_gerenciamento_dashboard_path, class: "nav-link" do %>
+            <span class="nav-icon"><i class="bi bi-building-gear"></i></span>
+            <span class="nav-text">Gerenciamento</span>
+          <% end %>
+        </li>
+
+      </ul>
+    </nav>
+
+    <main class="dashboard-content">
+      <%= yield %>
+    </main>
+
+    <%= javascript_include_tag "admin_controller", "data-turbo-track": "reload" %>
+  </body>
+</html>

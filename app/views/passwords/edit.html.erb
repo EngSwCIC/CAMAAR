@@ -1,0 +1,30 @@
+<div class="login-page">
+  <div class="login-card">
+    <section class="login-form-section">
+      <h1>DEFINIR SENHA</h1>
+
+      <% if flash[:alert].present? %>
+        <p class="login-error"><%= flash[:alert] %></p>
+      <% end %>
+
+      <% unless @invalid_link %>
+        <%= form_with url: definir_senha_path, method: :patch, local: true, data: { turbo: false } do |_form| %>
+          <%= hidden_field_tag :email, params[:email] %>
+          <div class="form-group">
+            <%= label_tag :password, "Nova Senha" %>
+            <%= password_field_tag :password %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :password_confirmation, "Confirmar Senha" %>
+            <%= password_field_tag :password_confirmation %>
+          </div>
+          <%= submit_tag "Salvar", class: "login-button" %>
+        <% end %>
+      <% end %>
+    </section>
+
+    <section class="login-welcome-section">
+      <h2>Bem vindo<br>ao<br>Camaar</h2>
+    </section>
+  </div>
+</div>

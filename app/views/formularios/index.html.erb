@@ -1,0 +1,346 @@
+<% content_for :title, "Meus Formulários" %>
+
+<style>
+  /* ─── STATS ─── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat-card {
+    background: var(--branco);
+    border: 1.5px solid var(--borda);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .stat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .stat-icon.pendente  { background: #FEF3C7; }
+  .stat-icon.respondido{ background: var(--verde-claro); }
+  .stat-icon.fechado   { background: #F3F4F6; }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--azul-cic);
+  }
+
+  .stat-label {
+    font-size: .78rem;
+    color: var(--texto-suave);
+    font-weight: 500;
+    margin-top: .2rem;
+  }
+
+  /* ─── SEÇÕES ─── */
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .625rem;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--borda);
+  }
+
+  .section-badge {
+    background: var(--borda);
+    color: var(--texto-suave);
+    padding: .15rem .5rem;
+    border-radius: 999px;
+    font-size: .72rem;
+  }
+
+  /* ─── CARDS DE FORMULÁRIO ─── */
+  .formularios-grid {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .formulario-card {
+    background: var(--branco);
+    border: 1.5px solid var(--borda);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow .2s, border-color .2s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .formulario-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: #B0C4D8;
+  }
+
+  .formulario-card.respondido {
+    opacity: .75;
+  }
+
+  .formulario-card.fechado {
+    opacity: .6;
+  }
+
+  /* Barra lateral colorida por status */
+  .formulario-card::before {
+    content: '';
+    width: 4px;
+    border-radius: 4px;
+    align-self: stretch;
+    flex-shrink: 0;
+  }
+
+  .formulario-card.pendente::before  { background: var(--alerta); }
+  .formulario-card.aberto::before    { background: var(--verde-unb); }
+  .formulario-card.respondido::before{ background: var(--respondido); }
+  .formulario-card.fechado::before   { background: var(--fechado); }
+
+  .formulario-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .formulario-titulo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--azul-cic);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .formulario-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: .35rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    font-size: .8rem;
+    color: var(--texto-suave);
+  }
+
+  .meta-item svg {
+    width: 13px;
+    height: 13px;
+    opacity: .6;
+  }
+
+  /* ─── STATUS BADGE ─── */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    padding: .3rem .75rem;
+    border-radius: 999px;
+    font-size: .75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .status-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .badge-aberto     { background: var(--verde-claro); color: var(--verde-escuro); }
+  .badge-respondido { background: #EFF6FF; color: #1D4ED8; }
+  .badge-fechado    { background: #F3F4F6; color: #6B7280; }
+
+  /* ─── PRAZO ─── */
+  .prazo-urgente { color: #DC2626 !important; font-weight: 600; }
+  .prazo-normal  { color: var(--alerta) !important; }
+
+  /* ─── CTA RESPONDER ─── */
+  .formulario-actions {
+    flex-shrink: 0;
+  }
+
+  /* ─── VAZIO ─── */
+  .empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--branco);
+    border: 1.5px dashed var(--borda);
+    border-radius: var(--radius);
+    color: var(--texto-suave);
+  }
+
+  .empty-state-icon {
+    font-size: 2.5rem;
+    margin-bottom: .75rem;
+    opacity: .4;
+  }
+
+  .empty-state p {
+    font-size: .9rem;
+    font-weight: 500;
+  }
+
+  /* ─── TURMAS CHIP ─── */
+  .turmas-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-bottom: 2rem;
+  }
+
+  .turma-chip {
+    background: var(--branco);
+    border: 1.5px solid var(--borda);
+    border-radius: 999px;
+    padding: .3rem .875rem;
+    font-size: .8rem;
+    font-weight: 500;
+    color: var(--azul-cic);
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+  }
+
+  .turma-chip-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--verde-unb);
+    border-radius: 50%;
+  }
+
+  @media (max-width: 640px) {
+    .stats-row { grid-template-columns: 1fr; }
+    .formulario-card { flex-wrap: wrap; }
+    .formulario-actions { width: 100%; }
+    .formulario-actions .btn { width: 100%; justify-content: center; }
+  }
+</style>
+
+<div class="page-header">
+  <h1>Meus Formulários</h1>
+  <p>Olá, <strong><%= discente_atual.nome %></strong> — confira os formulários disponíveis para você responder.</p>
+</div>
+
+<%# ─── TURMAS MATRICULADAS ─── %>
+<% if @turmas.any? %>
+  <div class="turmas-chips">
+    <% @turmas.each do |turma| %>
+      <div class="turma-chip">
+        <span class="turma-chip-dot"></span>
+        <%= turma.disciplina.nome %> · <%= turma.codigo %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<%# ─── STATS ─── %>
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="stat-icon pendente">📋</div>
+    <div>
+      <div class="stat-num"><%= @formularios_pendentes.count %></div>
+      <div class="stat-label">Para responder</div>
+    </div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon respondido">✅</div>
+    <div>
+      <div class="stat-num"><%= @formularios_respondidos.count %></div>
+      <div class="stat-label">Respondidos</div>
+    </div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon fechado">🔒</div>
+    <div>
+      <div class="stat-num"><%= @formularios_fechados.count %></div>
+      <div class="stat-label">Encerrados</div>
+    </div>
+  </div>
+</div>
+
+<%# ─── PENDENTES ─── %>
+<div class="section-title">
+  Aguardando sua resposta
+  <span class="section-badge"><%= @formularios_pendentes.count %></span>
+</div>
+
+<div class="formularios-grid">
+  <% if @formularios_pendentes.any? %>
+    <% @formularios_pendentes.each do |formulario| %>
+      <%= render "formulario_card", formulario: formulario, status: :aberto %>
+    <% end %>
+  <% else %>
+    <div class="empty-state">
+      <div class="empty-state-icon">🎉</div>
+      <p>Nenhum formulário pendente. Você está em dia!</p>
+    </div>
+  <% end %>
+</div>
+
+<%# ─── RESPONDIDOS ─── %>
+<% if @formularios_respondidos.any? %>
+  <div class="section-title">
+    Já respondidos
+    <span class="section-badge"><%= @formularios_respondidos.count %></span>
+  </div>
+
+  <div class="formularios-grid">
+    <% @formularios_respondidos.each do |formulario| %>
+      <%= render "formulario_card", formulario: formulario, status: :respondido %>
+    <% end %>
+  </div>
+<% end %>
+
+<%# ─── FECHADOS ─── %>
+<% if @formularios_fechados.any? %>
+  <div class="section-title">
+    Encerrados sem resposta
+    <span class="section-badge"><%= @formularios_fechados.count %></span>
+  </div>
+
+  <div class="formularios-grid">
+    <% @formularios_fechados.each do |formulario| %>
+      <%= render "formulario_card", formulario: formulario, status: :fechado %>
+    <% end %>
+  </div>
+<% end %>

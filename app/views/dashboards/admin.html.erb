@@ -1,0 +1,15 @@
+
+
+<% content_for :stylesheet, stylesheet_link_tag("admin", "data-turbo-track": "reload") %>
+<section class="conteudo-admin">
+  <h1>Perfil de Administrador</h1>
+  <p>Bem-vindo ao painel do administrador.</p>
+  <h2>Conteúdo</h2>
+  Seus testes de criação de downloads entrarão aqui
+  <ul>
+      <li>Início</li>
+      <li><%= link_to "Gerenciamento", templates_path %></li>
+      <li><%= link_to "Turmas", turmas_path %></li>
+     </ul>
+</section>
+

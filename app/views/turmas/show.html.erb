@@ -1,0 +1,12 @@
+<div class="dashboard-page">
+  <main class="dashboard-content">
+    <% if @turma %>
+      <h1><%= @turma.codigo %> - <%= @turma.nome %></h1>
+      <p>Departamento: <%= @turma.departamento.nome %></p>
+    <% else %>
+      <p>Não há dados disponíveis</p>
+    <% end %>
+
+    <%= link_to "Voltar", turmas_path %>
+  </main>
+</div>

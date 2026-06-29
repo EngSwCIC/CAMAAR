@@ -1,0 +1,152 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+/*
+.header_admin{
+    color: yellow;
+    width: 100%;
+    height: 0;
+    background-color: yellow;
+    top:0;
+
+
+    padding: 40px 0 10px 0;
+}
+*/
+
+body{
+    height: 100vh;
+}
+
+/*menu principal*/
+nav.navbar{
+    width: 80px;
+    height: 100%;
+    background-color: #6f2477;
+
+    padding: 40px 0 40px 1%;
+
+    position:fixed;   
+    top:0;
+    left:0;
+
+    overflow: hidden;
+    transition: 0.7s;
+    
+}
+
+nav.navbar.expandir{
+    width: 300px;
+}
+
+/*conteudo*/
+
+.dashboard-content{
+
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+
+    padding: 40px 10px 0 8%;
+
+}
+
+.dashboard-content{
+    transition: 0.7s;
+}
+
+.conteudo-admin{
+    color: #000;
+}
+
+.dashboard-content.expandir{
+    padding-left: 320px;
+    
+    transition: .5s;
+}
+
+/*seções*/
+section{
+    overflow: hidden;
+}
+
+
+/*botão*/
+.btn-expandir{
+    width: 100%;
+    padding-left: 10px;
+
+}
+
+.btn-expandir > i{
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* navegação*/
+ul.nav-menu{
+    height: 100%;
+    list-style-type: none;
+    
+    padding-top: 10px;
+}
+
+ul li.nav-item{
+    transition: 0.2s;
+    /*margin-left: 10px;*/
+}
+
+ul li.ativo{
+    background-color: #fff;
+    box-sizing: border-box;
+    border-end-start-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+ul li.nav-item.ativo a{
+    color: #6f2477;
+}
+
+
+ul li.nav-item:hover{
+    background-color: #fff;
+    box-sizing: border-box;
+    border-end-start-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+ul li.nav-item a:hover{
+    color: #6f2477;
+}
+
+ul li.nav-item a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
+    
+    display: flex;
+    line-height: 40px;
+    margin-left: 10px;
+}
+
+ul li.nav-item a .nav-text{
+    margin-left: 70px;
+    transition: 0.5s;
+    opacity:0;
+
+}
+
+nav.navbar.expandir .nav-text{
+    margin-left: 40px;
+    opacity: 1;
+}
+
+ul li.nav-item a .nav-icon{
+    font-size: 30px;
+}
+
