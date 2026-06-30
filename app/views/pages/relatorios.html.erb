@@ -1,0 +1,19 @@
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "header", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "relatorios", "data-turbo-track": "reload" %>
+<% end %>
+
+<%= render "shared/header", title: "Relatórios" %>
+
+<div class="relatorios-page">
+  <aside class="sidebar">
+    <%= link_to "Avaliações",  avaliacoes_path,  class: "sidebar-item" %>
+    <%= link_to "Relatórios",  relatorios_path,  class: "sidebar-item active" %>
+  </aside>
+
+  <main class="content">
+    <div class="empty-state">
+      <p>Nenhum relatório disponível no momento.</p>
+    </div>
+  </main>
+</div>

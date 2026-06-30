@@ -1,0 +1,24 @@
+<h1>Relatórios</h1>
+
+<% if @formularios.empty? %>
+  <p>Não há formulários cadastrados.</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Formulário</th>
+        <th>Respostas</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @formularios.each do |formulario| %>
+        <tr>
+          <td><%= formulario.nome_formulario %></td>
+          <td><%= formulario.resposta_formularios.size %></td>
+          <td><%= link_to "Gerar relatório", relatorio_path(formulario) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

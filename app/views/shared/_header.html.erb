@@ -1,0 +1,37 @@
+<header class="main-header">
+  <div class="header-left">
+    <button class="menu-button" data-action="click->sidebar#toggle">
+      ☰
+    </button>
+
+    <h1 class="page-title">
+      <%= local_assigns[:title] || "CAMAAR" %>
+    </h1>
+  </div>
+
+  <div class="header-right">
+    <div class="search-box">
+      <span class="search-icon">⌕</span>
+      <input type="text">
+    </div>
+
+    <div class="user-menu"
+         data-controller="dropdown"
+         data-action="click@window->dropdown#hide">
+      <button class="user-avatar"
+              data-action="click->dropdown#toggle"
+              aria-label="Menu do usuário"
+              aria-haspopup="true">
+        <%= current_usuario&.email&.chr&.upcase || "?" %>
+      </button>
+
+      <div class="user-dropdown" data-dropdown-target="menu" hidden>
+        <span class="user-dropdown-email"><%= current_usuario&.email %></span>
+        <%= link_to "Alterar Senha", senha_redefinir_path, class: "user-dropdown-item" %>
+        <%= button_to "Sair", logout_path, method: :delete,
+              class: "user-dropdown-signout",
+              form: { class: "user-dropdown-form" } %>
+      </div>
+    </div>
+  </div>
+</header>

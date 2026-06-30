@@ -1,0 +1,55 @@
+<div class="nested-fields" style="border: 1px solid var(--gp-line); padding: 20px; border-radius: 8px; background-color: #fafafb; position: relative;" data-controller="dynamic-question">
+  
+  <div class="formulario-field">
+    <%= f.label :enunciado, "Enunciado da Pergunta" %>
+    <%= f.text_area :enunciado, rows: 2, required: true, style: "width: 100%; border: 1px solid var(--gp-line); border-radius: 6px; padding: 8px 12px; font-family: inherit; font-size: 1rem; box-sizing: border-box;" %>
+  </div>
+
+  <div class="formulario-field" style="margin-top: 15px;">
+    <%= f.label :tipo_pergunta, "Tipo da Pergunta" %>
+    <%= f.select :tipo_pergunta, Pergunta.defined_enums["tipo_pergunta"].keys.map { |type| [type.titleize, type] }, { prompt: "Selecione o tipo..." }, data: { dynamic_question_target: "typeSelect", action: "change->dynamic-question#toggleFields" } %>
+  </div>
+
+  <div data-dynamic-question-target="radioFields" style="display: none;">
+    <hr class="actions-divider" style="margin: 20px 0 15px 0;">
+    
+    <div class="formulario-options" style="gap: 15px;">
+      <div class="formulario-field" style="flex: 1;">
+        <%= f.label :numero_opcoes, "Número de Opções" %>
+        <%= f.number_field :numero_opcoes, min: 1, max: 10, style: "width: 100%; height: 42px; border: 1px solid var(--gp-line); border-radius: 6px; padding: 8px 12px; box-sizing: border-box;", data: { dynamic_question_target: "numOptions", action: "input->dynamic-question#generateOptions" } %>
+      </div>
+
+      <div class="formulario-field" style="flex: 2;">
+        <%= f.label :gabarito_radio, "Gabarito Correto" %>
+        <%= f.select :gabarito_radio, Pergunta.defined_enums["gabarito_radio"].keys.map { |type| [type.titleize, type] }, { prompt: "Selecione a resposta..." }, data: { dynamic_question_target: "gabaritoSelect" } %>
+      </div>
+    </div>
+
+    <div data-dynamic-question-target="optionsContainer" style="margin-top: 15px; padding: 15px; background: #fff; border: 1px dashed #ccc; border-radius: 6px;">
+      <% if f.object.opcoes_radio.present? %>
+        <% f.object.opcoes_radio.each_with_index do |opcao, index| %>
+          <div class="formulario-field" style="margin-top: 10px;">
+            <label style="font-size: 0.9rem;">Opção <%= (65 + index).chr %></label>
+            <input type="text" name="<%= f.object_name %>[opcoes_radio][]" value="<%= opcao %>" required style="width: 100%; border: 1px solid var(--gp-line); border-radius: 6px; padding: 8px 12px; box-sizing: border-box;">
+          </div>
+        <% end %>
+      <% else %>
+        <span style="color: #888; font-size: 0.9rem;">Insira o número de opções acima para gerar os campos de texto.</span>
+      <% end %>
+    </div>
+  </div>
+
+  <div data-dynamic-question-target="discursivaFields" style="display: none;">
+    <hr class="actions-divider" style="margin: 20px 0 15px 0;">
+    <div class="formulario-field">
+      <%= f.label :gabarito_discursiva, "Gabarito Discursiva (Palavras-chave esperadas)" %>
+      <%= f.text_area :gabarito_discursiva, rows: 2, style: "width: 100%; border: 1px solid var(--gp-line); border-radius: 6px; padding: 8px 12px; font-family: inherit; font-size: 1rem; box-sizing: border-box;" %>
+    </div>
+  </div>
+
+  <%= f.hidden_field :_destroy %>
+  <button type="button" class="btn btn--danger" data-action="nested-form#remove" style="width: auto; padding: 6px 14px; font-size: 0.9rem; margin-top: 15px; float: right;">
+    Remover Pergunta
+  </button>
+  <div style="clear: both;"></div>
+</div>

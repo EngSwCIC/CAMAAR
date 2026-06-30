@@ -1,0 +1,39 @@
+<h1>Turma <%= @turma.numero_turma %> — <%= @turma.materia.nome_materia %></h1>
+<p>Semestre: <%= @turma.semestre_string %></p>
+
+<h2>Formulários associados</h2>
+
+<% if @formularios.empty? %>
+  <p>Nenhum formulário associado a esta turma.</p>
+<% else %>
+  <ul>
+    <% @formularios.each do |formulario| %>
+      <li>
+        <%= formulario.nome_formulario %>
+        &nbsp;
+        <%= button_to "Confirmar remoção",
+              turma_formulario_path(formulario),
+              method: :delete,
+              data: { confirm: "Confirmar remoção?" } %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h2>Associar formulário</h2>
+
+<% if @formularios_disponiveis.empty? %>
+  <p>Não há formulários disponíveis para associar.</p>
+<% else %>
+  <%= form_with url: turma_formularios_path, method: :post do |f| %>
+    <%= hidden_field_tag :turma_id, @turma.id %>
+    <div>
+      <%= label_tag :formulario_id, "Formulário" %>
+      <%= select_tag :formulario_id,
+            options_for_select(@formularios_disponiveis.map { |f| [f.nome_formulario, f.id] }) %>
+    </div>
+    <%= f.submit "Salvar" %>
+  <% end %>
+<% end %>
+
+<%= link_to "Voltar ao departamento", departamento_path %>

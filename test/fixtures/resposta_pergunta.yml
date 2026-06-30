@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dataResposta: 2026-05-31 11:16:59
+  formulario: one
+  usuario: one
+
+two:
+  dataResposta: 2026-05-31 11:16:59
+  formulario: two
+  usuario: two

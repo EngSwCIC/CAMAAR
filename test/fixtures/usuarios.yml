@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: professor@example.com
+  matricula: "100001"
+  nome: Professor Exemplo
+  password_digest: <%= BCrypt::Password.create("Senha123") %>
+  role: 1
+
+two:
+  email: estudante@example.com
+  matricula: "100002"
+  nome: Estudante Exemplo
+  password_digest: <%= BCrypt::Password.create("Senha123") %>
+  role: 2

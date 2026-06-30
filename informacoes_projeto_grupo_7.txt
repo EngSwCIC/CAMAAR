@@ -1,0 +1,9 @@
+link do repositorio:  https://github.com/yuri-sl/CAMAAR
+
+Membros do grupo 7:
+| Nome | Matrícula |
+| Arthur Souza Chagas | 221037385| 
+| João Felipe Stein | 241039331 |
+| Luidgi Varela Carneiro | 231011669 |
+| Yuri Santana Lopes | 222009750 |
+| João Vitor das Neves Romero |221028546 |

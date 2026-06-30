@@ -1,0 +1,81 @@
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "header", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "gerenciamento", "data-turbo-track": "reload" %>
+<% end %>
+
+<%= render "shared/header", title: "Criar Formulário" %>
+
+<div class="gerenciamento-page">
+  <aside class="sidebar">
+    <%= link_to "Avaliações", avaliacoes_path, class: "sidebar-item" %>
+    <%= link_to "Gerenciamento", gerenciamento_path, class: "sidebar-item active" %>
+  </aside>
+
+  <main class="content">
+    <section class="formulario-panel">
+      <h2>Novo formulário</h2>
+
+      <% if @sem_templates %>
+        <p class="formulario-warning">Não existem templates disponíveis para criar formulários.</p>
+      <% end %>
+
+      <% if @formulario.errors.any? %>
+        <div class="formulario-errors" role="alert">
+          <ul>
+            <% @formulario.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_with model: @formulario, url: enviar_formularios_path, class: "formulario-form" do |form| %>
+        <div class="formulario-field">
+          <%= form.label :nome_formulario, "Nome do Formulário" %>
+          <%= form.text_field :nome_formulario %>
+        </div>
+
+        <div class="formulario-field">
+          <%= form.label :template_formulario_id, "Template" %>
+          <%= form.collection_select :template_formulario_id,
+                                     @templates,
+                                     :id,
+                                     :nome_template,
+                                     { prompt: "Selecione um template" },
+                                     disabled: @sem_templates %>
+        </div>
+
+        <div class="formulario-field">
+          <%= form.label :turma_id, "Turma" %>
+          <%= form.collection_select :turma_id,
+                                     @turmas,
+                                     :id,
+                                     ->(turma) {
+                                       "#{turma.materia.nome_materia} - Turma #{turma.numero_turma} - #{turma.semestre_string}"
+                                     },
+                                     prompt: "Selecione uma turma" %>
+        </div>
+
+        <fieldset class="formulario-field formulario-fieldset">
+          <legend>Público-Alvo</legend>
+          <div class="formulario-options">
+            <label>
+              <%= radio_button_tag "formulario[publico_alvo]",
+                                   "discente",
+                                   params.dig(:formulario, :publico_alvo) == "discente" %>
+              Discente
+            </label>
+            <label>
+              <%= radio_button_tag "formulario[publico_alvo]",
+                                   "docente",
+                                   params.dig(:formulario, :publico_alvo) == "docente" %>
+              Docente
+            </label>
+          </div>
+        </fieldset>
+
+        <%= form.submit "Criar", class: "btn btn--primary", disabled: @sem_templates %>
+      <% end %>
+    </section>
+  </main>
+</div>

@@ -1,0 +1,30 @@
+# Config auxiliar usada apenas para extrair métricas de complexidade
+# (complexidade ciclomática e ABC score) para a Sprint 3.
+#
+# O .rubocop.yml principal herda o estilo "omakase" do Rails, que desativa
+# o departamento Metrics. Este arquivo isolado liga só os cops necessários,
+# sem alterar o lint de estilo do projeto.
+#
+# Max é 1 unidade abaixo do limite da Sprint (CC >= 10, ABC >= 20): o RuboCop
+# só sinaliza valores MAIORES que Max, então Max: 10/20 deixaria passar um
+# método exatamente em 10/20.
+#
+# Uso: bundle exec rubocop --config .rubocop_metrics.yml \
+#        --only Metrics/CyclomaticComplexity,Metrics/AbcSize,Metrics/PerceivedComplexity \
+#        app lib --format simple
+
+AllCops:
+  NewCops: disable
+  TargetRubyVersion: 3.2
+
+Metrics/CyclomaticComplexity:
+  Enabled: true
+  Max: 9
+
+Metrics/AbcSize:
+  Enabled: true
+  Max: 19
+
+Metrics/PerceivedComplexity:
+  Enabled: true
+  Max: 9

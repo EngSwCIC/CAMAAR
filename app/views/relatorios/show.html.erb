@@ -1,0 +1,19 @@
+<h1>Relatório: <%= @formulario.nome_formulario %></h1>
+
+<p>Total de respostas: <strong><%= @total_respostas %></strong></p>
+
+<% if @total_respostas == 0 %>
+  <p>Não há respostas registradas para este formulário.</p>
+<% else %>
+  <p>Respostas consolidadas abaixo.</p>
+  <%= link_to "Exportar CSV", export_csv_relatorio_path(@formulario) %>
+
+  <% @pergunta_formularios.each_with_index do |pf, i| %>
+    <div>
+      <h3><%= "#{i + 1}. #{pf.enunciado}" %></h3>
+      <p><strong>Tipo:</strong> <%= pf.tipo_pergunta %></p>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to "Voltar para relatórios", relatorios_path %>
