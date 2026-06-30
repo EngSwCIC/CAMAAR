@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class AdminController - CAMAAR</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-carregar_dados_teste">#carregar_dados_teste</a>
+    <li ><a href="#method-i-dashboard">#dashboard</a>
+    <li ><a href="#method-i-desempenho_semestral">#desempenho_semestral</a>
+    <li ><a href="#method-i-handle_large_volume">#handle_large_volume</a>
+    <li ><a href="#method-i-handle_release_lock">#handle_release_lock</a>
+    <li ><a href="#method-i-import_console">#import_console</a>
+    <li ><a href="#method-i-large_volume_request-3F">#large_volume_request?</a>
+    <li ><a href="#method-i-sigaa_import">#sigaa_import</a>
+    <li ><a href="#method-i-sigaa_update">#sigaa_update</a>
+    <li ><a href="#method-i-turma_avaliacoes">#turma_avaliacoes</a>
+    <li ><a href="#method-i-turmas">#turmas</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-AdminController">
+  <h1 id="class-AdminController" class="class">
+    class AdminController
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-carregar_dados_teste" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">carregar_dados_teste</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Carrega dados fictícios ou iniciais para testes da aplicação.</p>
+
+<p><strong>Parâmetros:</strong></p>
+<ul><li>
+<p>Nenhum.</p>
+</li></ul>
+
+<p><strong>Retorno:</strong></p>
+<ul><li>
+<p>Redirecionamento para a página do dashboard.</p>
+</li></ul>
+
+<p><strong>Efeitos Colaterais:</strong></p>
+<ul><li>
+<p>Popula tabelas no banco de dados usando <a href="TestDataLoader.html"><code>TestDataLoader</code></a> e define notificações de sucesso ou erro no <code>flash</code>.</p>
+</li></ul>
+
+          <div class="method-source-code" id="carregar_dados_teste-source">
+            <pre><span class="ruby-comment"># File app/controllers/admin_controller.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">carregar_dados_teste</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">check_sigaa_simulated_errors</span>(<span class="ruby-identifier">admin_dashboard_path</span>)
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">TestDataLoader</span>.<span class="ruby-identifier">call</span>
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&quot;Importação concluída com sucesso&quot;</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:alert</span>] = <span class="ruby-node">&quot;Erro ao carregar dados de teste: #{e.message}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">admin_dashboard_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-dashboard" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">dashboard</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Exibe o painel inicial do administrador e as estatísticas gerais do sistema.</p>
+
+<p><strong>Parâmetros:</strong></p>
+<ul><li>
+<p><code>params[:release_lock]</code> - Se definido como “true”, destrava o processo de atualização concorrente (String).</p>
+</li></ul>
+
+<p><strong>Retorno:</strong></p>
+<ul><li>
+<p>Renderiza a view do dashboard de administração.</p>
+</li></ul>
+
+<p><strong>Efeitos Colaterais:</strong></p>
+<ul><li>
+<p>Pode redefinir a variável @@sigaa_updating para <code>false</code>.</p>
+</li></ul>
+
+          <div class="method-source-code" id="dashboard-source">
+            <pre><span class="ruby-comment"># File app/controllers/admin_controller.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dashboard</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:release_lock</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span>
+    <span class="ruby-identifier">@@sigaa_updating</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@stats</span> = {
+    <span class="ruby-value">deps:</span> <span class="ruby-constant">Departamento</span>.<span class="ruby-identifier">count</span>,
+    <span class="ruby-value">discs:</span> <span class="ruby-constant">Disciplina</span>.<span class="ruby-identifier">count</span>,
+    <span class="ruby-value">turmas:</span> <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">count</span>,
+    <span class="ruby-value">mats:</span> <span class="ruby-constant">Matricula</span>.<span class="ruby-identifier">count</span>,
+    <span class="ruby-value">users:</span> <span class="ruby-constant">Usuario</span>.<span class="ruby-identifier">count</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-desempenho_semestral" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">desempenho_semestral</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Apresenta métricas e médias de desempenho das turmas vinculadas ao departamento do administrador atual ou de todas as turmas.</p>
+
+<p><strong>Parâmetros:</strong></p>
+<ul><li>
+<p>Nenhum.</p>
+</li></ul>
+
+<p><strong>Retorno:</strong></p>
+<ul><li>
+<p>Renderiza a view de desempenho semestral.</p>
+</li></ul>
+
+<p><strong>Efeitos Colaterais:</strong></p>
+<ul><li>
+<p>Define a variável de instância +@desempenho_turmas+ mapeada com as estatísticas de média e número de respostas.</p>
+</li></ul>
+
+          <div class="method-source-code" id="desempenho_semestral-source">
+            <pre><span class="ruby-comment"># File app/controllers/admin_controller.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">desempenho_semestral</span>
+  <span class="ruby-ivar">@departamento</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">departamento</span>
+  <span class="ruby-ivar">@turmas</span> = <span class="ruby-ivar">@departamento</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">departamento:</span> <span class="ruby-ivar">@departamento</span>) <span class="ruby-operator">:</span> <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">all</span>
+
+  <span class="ruby-ivar">@desempenho_turmas</span> = <span class="ruby-ivar">@turmas</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">turma</span><span class="ruby-operator">|</span>
+    {
+      <span class="ruby-value">turma:</span> <span class="ruby-identifier">turma</span>,
+      <span class="ruby-value">media:</span> <span class="ruby-identifier">turma</span>.<span class="ruby-identifier">calcular_media_desempenho</span>,
+      <span class="ruby-value">respostas_count:</span> <span class="ruby-identifier">turma</span>.<span class="ruby-identifier">respostas_count</span>
+    }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-handle_large_volume" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">handle_large_volume</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Simula o processamento em lote de grande volume de dados ativando a trava persistente.</p>
+
+<p><strong>Parâmetros:</strong></p>
+<ul><li>
+<p>Nenhum.</p>
+</li></ul>
+
+<p><strong>Retorno:</strong></p>
+<ul><li>
+<p>Redirecionamento para o console de importação.</p>
+</li></ul>
+
+<p><strong>Efeitos Colaterais:</strong></p>
+<ul><li>
+<p>Define @@sigaa_updating como <code>true</code> e adiciona mensagem explicativa no <code>flash</code>.</p>
+</li></ul>
+
+          <div class="method-source-code" id="handle_large_volume-source">
+            <pre><span class="ruby-comment"># File app/controllers/admin_controller.rb, line 208</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_large_volume</span>
+  <span class="ruby-identifier">@@sigaa_updating</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&quot;Processando atualização de grande volume do SIGAA&quot;</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">admin_import_console_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-handle_release_lock" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">handle_release_lock</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Libera a trava concorrente de atualização e redireciona com confirmação.</p>
+
+<p><strong>Parâmetros:</strong></p>
+<ul><li>
+<p>Nenhum.</p>
+</li></ul>
+
+<p><strong>Retorno:</strong></p>
+<ul><li>
+<p>Redirecionamento para o console de importação.</p>
+</li></ul>
+
+<p><strong>Efeitos Colaterais:</strong></p>
+<ul><li>
+<p>Redefine @@sigaa_updating para <code>false</code> e insere mensagem de sucesso no <code>flash</code>.</p>
+</li></ul>
+
+          <div class="method-source-code" id="handle_release_lock-source">
+            <pre><span class="ruby-comment"># File app/controllers/admin_controller.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_release_lock</span>
+  <span class="ruby-identifier">@@sigaa_updating</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&quot;Trava liberada com sucesso.&quot;</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">admin_import_console_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-import_console" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">import_console</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Renderiza a página do console de integração com o SIGAA.</p>
+
+<p><strong>Parâmetros:</strong></p>
+<ul><li>
+<p><code>params[:release_lock]</code> - Se definido como “true”, libera a trava concorrente (String).</p>
+</li></ul>
+
+<p><strong>Retorno:</strong></p>
+<ul><li>
+<p>Renderiza a página console de importação do SIGAA.</p>
+</li></ul>
+
+<p><strong>Efeitos Colaterais:</strong></p>
+<ul><li>
+<p>Pode definir @@sigaa_updating para <code>false</code>.</p>
+</li></ul>
+
+          <div class="method-source-code" id="import_console-source">
+            <pre><span class="ruby-comment"># File app/controllers/admin_controller.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">import_console</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:release_lock</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span>
+    <span class="ruby-identifier">@@sigaa_updating</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-large_volume_request-3F" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">large_volume_request?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Verifica se a requisição atual solicita processamento de grande volume.</p>
+
+<p><strong>Parâmetros:</strong></p>
+<ul><li>
+<p>Nenhum.</p>
+</li></ul>
+
+<p><strong>Retorno:</strong></p>
+<ul><li>
+<p>Boolean (<code>true</code> se for grande volume, <code>false</code> caso contrário).</p>
+</li></ul>
+
+<p><strong>Efeitos Colaterais:</strong></p>
+<ul><li>
+<p>Nenhum.</p>
+</li></ul>
+
+          <div class="method-source-code" id="large_volume_request-3F-source">
+            <pre><span class="ruby-comment"># File app/controllers/admin_controller.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">large_volume_request?</span>
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:large_volume</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SIGAA_LARGE_VOLUME&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-sigaa_import" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">sigaa_import</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Simula a importação básica de dados do SIGAA.</p>
+
+<p><strong>Parâmetros:</strong></p>
+<ul><li>
+<p>Nenhum.</p>
+</li></ul>
+
+<p><strong>Retorno:</strong></p>
+<ul><li>
+<p>Redirecionamento para a página do console de importação.</p>
+</li></ul>
+
+<p><strong>Efeitos Colaterais:</strong></p>
+<ul><li>
+<p>Verifica erros simulados do SIGAA, alterando o <code>flash</code> de alerta, ou adiciona notificação de sucesso se correr normalmente.</p>
+</li></ul>
+
+          <div class="method-source-code" id="sigaa_import-source">
+            <pre><span class="ruby-comment"># File app/controllers/admin_controller.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sigaa_import</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">@@sigaa_updating</span>
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:alert</span>] = <span class="ruby-string">&quot;Uma atualização já está em andamento. Aguarde a conclusão.&quot;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">admin_import_console_path</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">check_sigaa_simulated_errors</span>(<span class="ruby-identifier">admin_import_console_path</span>)
+
+  <span class="ruby-comment"># Perform normal import logic</span>
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&quot;Importação concluída com sucesso&quot;</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">admin_import_console_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-sigaa_update" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">sigaa_update</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Simula o fluxo de atualização das matrículas e turmas do SIGAA (podendo liberar travas, processar alto volume ou simular cenários de cancelamento).</p>
+
+<p><strong>Parâmetros:</strong></p>
+<ul><li>
+<p><code>params[:release_lock]</code> - Se definido como “true”, destrava o processo (String).</p>
+</li><li>
+<p><code>params[:large_volume]</code> - Se definido como “true”, ativa processamento assíncrono simulado de alto volume (String).</p>
+</li></ul>
+
+<p><strong>Retorno:</strong></p>
+<ul><li>
+<p>Redirecionamento para o console de importação.</p>
+</li></ul>
+
+<p><strong>Efeitos Colaterais:</strong></p>
+<ul><li>
+<p>Altera o banco de dados via simulação de desvinculação (<code>simulate_sigaa_unenrollment</code>), define variáveis de trava concorrente, e notifica via <code>flash</code>.</p>
+</li></ul>
+
+          <div class="method-source-code" id="sigaa_update-source">
+            <pre><span class="ruby-comment"># File app/controllers/admin_controller.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sigaa_update</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">handle_release_lock</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:release_lock</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">handle_sigaa_updating</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">handle_large_volume</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">large_volume_request?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">check_sigaa_simulated_errors</span>(<span class="ruby-identifier">admin_import_console_path</span>)
+
+  <span class="ruby-identifier">simulate_sigaa_unenrollment</span>
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&quot;Base de dados atualizada com sucesso&quot;</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">admin_import_console_path</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">@@sigaa_updating</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">large_volume_request?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-turma_avaliacoes" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">turma_avaliacoes</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Exibe os formulários de avaliação ativos de uma turma específica.</p>
+
+<p><strong>Parâmetros:</strong></p>
+<ul><li>
+<p><code>params[:id]</code> - O ID da turma desejada (Integer/String).</p>
+</li></ul>
+
+<p><strong>Retorno:</strong></p>
+<ul><li>
+<p>Redireciona para a lista de turmas se houver acesso negado, ou renderiza os formulários da turma.</p>
+</li></ul>
+
+<p><strong>Efeitos Colaterais:</strong></p>
+<ul><li>
+<p>Define alertas no <code>flash</code> caso a turma pertença a outro departamento e o administrador tenha perfil restrito por departamento.</p>
+</li></ul>
+
+          <div class="method-source-code" id="turma_avaliacoes-source">
+            <pre><span class="ruby-comment"># File app/controllers/admin_controller.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">turma_avaliacoes</span>
+  <span class="ruby-ivar">@turma</span> = <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">departamento</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@turma</span>.<span class="ruby-identifier">departamento</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">departamento</span>
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:alert</span>] = <span class="ruby-string">&quot;Acesso negado: Você tem permissão para gerenciar apenas as turmas vinculadas ao seu departamento.&quot;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">admin_turmas_path</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@formularios</span> = <span class="ruby-ivar">@turma</span>.<span class="ruby-identifier">formularios</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-turmas" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">turmas</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Lista todas as turmas vinculadas ao departamento do administrador atual, ou todas as turmas se não houver vínculo específico.</p>
+
+<p><strong>Parâmetros:</strong></p>
+<ul><li>
+<p>Nenhum.</p>
+</li></ul>
+
+<p><strong>Retorno:</strong></p>
+<ul><li>
+<p>Renderiza a view contendo a listagem das turmas.</p>
+</li></ul>
+
+<p><strong>Efeitos Colaterais:</strong></p>
+<ul><li>
+<p>Define uma mensagem informativa no <code>flash.now</code> caso nenhuma turma seja encontrada.</p>
+</li></ul>
+
+          <div class="method-source-code" id="turmas-source">
+            <pre><span class="ruby-comment"># File app/controllers/admin_controller.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">turmas</span>
+  <span class="ruby-ivar">@departamento</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">departamento</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@departamento</span>
+    <span class="ruby-ivar">@turmas</span> = <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">departamento:</span> <span class="ruby-ivar">@departamento</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@turmas</span> = <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">all</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@turmas</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-ivar">@aviso_mensagem</span> = <span class="ruby-string">&quot;Nenhuma turma encontrada para o seu departamento neste semestre. Verifique o status da sincronização com o SIGAA.&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.5.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

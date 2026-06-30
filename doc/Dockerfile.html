@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Dockerfile - CAMAAR</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./Dockerfile.html">Dockerfile</a>
+    <li><a href="./Gemfile.html">Gemfile</a>
+    <li><a href="./Rakefile.html">Rakefile</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page Dockerfile">
+
+<p># syntax=docker/dockerfile:1 # check=error=true</p>
+
+<p># This <a href="Dockerfile.html">Dockerfile</a> is designed for production, not development. Use with Kamal or build’n’run by hand: # docker build -t camaar . # docker run -d -p 80:80 -e RAILS_MASTER_KEY=&lt;value from config/master.key&gt; –name camaar camaar</p>
+
+<p># For a containerized dev environment, see Dev Containers: <a href="https://guides.rubyonrails.org/getting_started_with_devcontainer.html">guides.rubyonrails.org/getting_started_with_devcontainer.html</a></p>
+
+<p># Make sure RUBY_VERSION matches the Ruby version in .ruby-version ARG RUBY_VERSION=3.4.1 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base</p>
+
+<p># Rails app lives here WORKDIR /rails</p>
+
+<p># Install base packages RUN apt-get update -qq &amp;&amp; \</p>
+
+<pre>apt-get install --no-install-recommends -y curl libjemalloc2 libvips sqlite3 &amp;&amp; \
+ln -s /usr/lib/$(uname -m)-linux-gnu/libjemalloc.so.2 /usr/local/lib/libjemalloc.so &amp;&amp; \
+rm -rf /var/lib/apt/lists /var/cache/apt/archives</pre>
+
+<p># Set production environment variables and enable jemalloc for reduced memory usage and latency. ENV RAILS_ENV=“production” \</p>
+
+<pre>BUNDLE_DEPLOYMENT=&quot;1&quot; \
+BUNDLE_PATH=&quot;/usr/local/bundle&quot; \
+BUNDLE_WITHOUT=&quot;development&quot; \
+LD_PRELOAD=&quot;/usr/local/lib/libjemalloc.so&quot;</pre>
+
+<p># Throw-away build stage to reduce size of final image FROM base AS build</p>
+
+<p># Install packages needed to build gems RUN apt-get update -qq &amp;&amp; \</p>
+
+<pre>apt-get install --no-install-recommends -y build-essential git libvips libyaml-dev pkg-config &amp;&amp; \
+rm -rf /var/lib/apt/lists /var/cache/apt/archives</pre>
+
+<p># Install application gems COPY vendor/* ./vendor/ COPY <a href="Gemfile.html">Gemfile</a> Gemfile.lock ./</p>
+
+<p>RUN bundle install &amp;&amp; \</p>
+
+<pre>rm -rf ~/.bundle/ &quot;${BUNDLE_PATH}&quot;/ruby/*/cache &quot;${BUNDLE_PATH}&quot;/ruby/*/bundler/gems/*/.git &amp;&amp; \
+# -j 1 disable parallel compilation to avoid a QEMU bug: https://github.com/rails/bootsnap/issues/495
+bundle exec bootsnap precompile -j 1 --gemfile</pre>
+
+<p># Copy application code COPY . .</p>
+
+<p># Precompile bootsnap code for faster boot times. # -j 1 disable parallel compilation to avoid a QEMU bug: <a href="https://github.com/rails/bootsnap/issues/495">github.com/rails/bootsnap/issues/495</a> RUN bundle exec bootsnap precompile -j 1 app/ lib/</p>
+
+<p># Precompiling assets for production without requiring secret RAILS_MASTER_KEY RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile</p>
+
+<p># Final stage for app image FROM base</p>
+
+<p># Run and own only the runtime files as a non-root user for security RUN groupadd –system –gid 1000 rails &amp;&amp; \</p>
+
+<pre>useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash</pre>
+
+<p>USER 1000:1000</p>
+
+<p># Copy built artifacts: gems, application COPY –chown=rails:rails –from=build “${BUNDLE_PATH}” “${BUNDLE_PATH}” COPY –chown=rails:rails –from=build /rails /rails</p>
+
+<p># Entrypoint prepares the database. ENTRYPOINT [“/rails/bin/docker-entrypoint”]</p>
+
+<p># Start server via Thruster by default, this can be overwritten at runtime EXPOSE 80 CMD [“./bin/thrust”, “./bin/rails”, “server”]</p>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.5.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

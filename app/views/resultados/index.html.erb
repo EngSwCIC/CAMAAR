@@ -1,0 +1,70 @@
+<!-- app/views/resultados/index.html.erb -->
+<% content_for :page_title, "Resultados Analíticos" %>
+
+<div class="space-y-6">
+  
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <%= link_to admin_dashboard_path, class: "p-2 bg-white hover:bg-gray-100 border border-gray-200 text-gray-700 rounded-xl shadow-sm transition" do %>
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+      <% end %>
+      <div>
+        <span class="text-[10px] uppercase font-mono text-gray-400">Colegiado / Análise</span>
+        <h2 class="text-xl font-bold text-gray-900 tracking-tight">Avaliações consolidadas do Semestre</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    
+    <% if @formularios.blank? %>
+      <div class="col-span-1 md:col-span-3 bg-white p-12 text-center rounded-3xl border border-gray-150">
+        <p class="text-sm font-semibold text-gray-400">Nenhum formulário cadastrado no sistema.</p>
+      </div>
+    <% else %>
+      <% @formularios.each do |formulario| %>
+        <div class="group bg-white rounded-3xl p-5 md:p-6 border border-gray-100 shadow-sm flex flex-col justify-between hover:border-purple-250 transition text-gray-700">
+          <div class="space-y-4">
+            <div>
+              <span class="text-[9px] font-mono bg-purple-50 text-[#702562] font-bold px-2.5 py-1 rounded-full"><%= formulario.turma.codigo %></span>
+              <h3 class="font-bold text-gray-950 text-base mt-2 leading-tight group-hover:text-[#702562] transition"><%= formulario.template.titulo %></h3>
+              <p class="text-xs text-gray-500 mt-1">Turma <%= formulario.turma.nome %> • <%= formulario.turma.docente.nome rescue "Não atribuído" %></p>
+            </div>
+
+            <!-- Stats -->
+            <div class="space-y-1">
+              <div class="flex items-center justify-between text-[11px] font-mono text-gray-500">
+                <span>Respostas Obtidas</span>
+                <span class="font-bold text-gray-800"><%= formulario.respostas.count %> / <%= formulario.turma.matriculas_count %></span>
+              </div>
+              <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                <% percentage = (formulario.turma.matriculas_count > 0 ? (formulario.respostas.count.to_f / formulario.turma.matriculas_count * 100).round : 0) %>
+                <div class="bg-[#702562] h-full transition-all" style="width: <%= percentage %>%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 flex items-center justify-between pt-3 border-t border-gray-50">
+            <%= link_to export_csv_resultado_path(formulario), class: "inline-flex items-center gap-1 px-3 py-1.5 bg-[#1cb05e] hover:bg-[#15944d] text-white font-bold text-[10px] uppercase rounded-lg shadow-sm whitespace-nowrap cursor-pointer" do %>
+              <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <span>Baixar CSV</span>
+            <% end %>
+
+            <%= link_to resultado_path(formulario), class: "text-[10px] uppercase font-bold text-gray-400 hover:text-[#702562] transition flex items-center gap-1 whitespace-nowrap cursor-pointer" do %>
+              <span>Ver Relatório</span>
+              <svg class="h-3.5 w-3.5 text-[#702562]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+
+</div>

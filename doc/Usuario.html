@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Usuario - CAMAAR</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link"><a href="ApplicationRecord.html">ApplicationRecord</a>
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-authenticate">#authenticate</a>
+    <li ><a href="#method-i-generate_reset_token-21">#generate_reset_token!</a>
+    <li ><a href="#method-i-generate_setup_token-21">#generate_setup_token!</a>
+    <li ><a href="#method-i-password-3D">#password=</a>
+    <li ><a href="#method-i-pode_gerenciar_turma-3F">#pode_gerenciar_turma?</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Usuario">
+  <h1 id="class-Usuario" class="class">
+    class Usuario
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      <div id="attribute-i-password" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">password</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+      <div id="attribute-i-password_confirmation" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">password_confirmation</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+      <div id="attribute-i-validating_password_rules" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">validating_password_rules</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+    </section>
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-authenticate" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">authenticate</span><span
+              class="method-args">(unencrypted_password)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Custom password hashing using bcrypt to work with existing ‘senha_hash’ column Autentica o usuário comparando a senha não criptografada.</p>
+
+<h1 id="method-i-authenticate-label-Par-C3-A2metros-3A">Parâmetros:<span><a href="#method-i-authenticate-label-Par-C3-A2metros-3A">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p><code>unencrypted_password</code> - A senha em texto puro que o usuário tenta usar.</p>
+</li></ul>
+
+<h1 id="method-i-authenticate-label-Retorno-3A">Retorno:<span><a href="#method-i-authenticate-label-Retorno-3A">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Retorna um boolean, true se a senha for válida, false caso contrário.</p>
+</li></ul>
+
+<h1 id="method-i-authenticate-label-Efeitos+Colaterais-3A">Efeitos Colaterais:<span><a href="#method-i-authenticate-label-Efeitos+Colaterais-3A">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Nenhum.</p>
+</li></ul>
+
+          <div class="method-source-code" id="authenticate-source">
+            <pre><span class="ruby-comment"># File app/models/usuario.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">authenticate</span>(<span class="ruby-identifier">unencrypted_password</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">senha_hash</span>.<span class="ruby-identifier">blank?</span>
+  <span class="ruby-constant">BCrypt</span><span class="ruby-operator">::</span><span class="ruby-constant">Password</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">senha_hash</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">unencrypted_password</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">BCrypt</span><span class="ruby-operator">::</span><span class="ruby-constant">Errors</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidHash</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-generate_reset_token-21" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">generate_reset_token!</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Gera um token para o reset de senha do usuário.</p>
+
+<h1 id="method-i-generate_reset_token-21-label-Par-C3-A2metros-3A">Parâmetros:<span><a href="#method-i-generate_reset_token-21-label-Par-C3-A2metros-3A">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Nenhum.</p>
+</li></ul>
+
+<h1 id="method-i-generate_reset_token-21-label-Retorno-3A">Retorno:<span><a href="#method-i-generate_reset_token-21-label-Retorno-3A">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Retorna true caso a operação de salvar seja bem-sucedida.</p>
+</li></ul>
+
+<h1 id="method-i-generate_reset_token-21-label-Efeitos+Colaterais-3A">Efeitos Colaterais:<span><a href="#method-i-generate_reset_token-21-label-Efeitos+Colaterais-3A">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Altera o banco de dados (salva reset_token, reset_token_sent_at, e reset_token_used na base).</p>
+</li></ul>
+
+          <div class="method-source-code" id="generate_reset_token-21-source">
+            <pre><span class="ruby-comment"># File app/models/usuario.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_reset_token!</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reset_token</span> = <span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">hex</span>(<span class="ruby-value">20</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reset_token_sent_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">current</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reset_token_used</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">save!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-generate_setup_token-21" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">generate_setup_token!</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Helpers to generate tokens Gera um token para a configuração inicial do usuário.</p>
+
+<h1 id="method-i-generate_setup_token-21-label-Par-C3-A2metros-3A">Parâmetros:<span><a href="#method-i-generate_setup_token-21-label-Par-C3-A2metros-3A">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Nenhum.</p>
+</li></ul>
+
+<h1 id="method-i-generate_setup_token-21-label-Retorno-3A">Retorno:<span><a href="#method-i-generate_setup_token-21-label-Retorno-3A">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Retorna true caso a operação de salvar seja bem-sucedida.</p>
+</li></ul>
+
+<h1 id="method-i-generate_setup_token-21-label-Efeitos+Colaterais-3A">Efeitos Colaterais:<span><a href="#method-i-generate_setup_token-21-label-Efeitos+Colaterais-3A">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Altera o banco de dados (salva setup_token, setup_token_sent_at, e setup_token_used na base).</p>
+</li></ul>
+
+          <div class="method-source-code" id="generate_setup_token-21-source">
+            <pre><span class="ruby-comment"># File app/models/usuario.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_setup_token!</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">setup_token</span> = <span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">hex</span>(<span class="ruby-value">20</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">setup_token_sent_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">current</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">setup_token_used</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">save!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-password-3D" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">password=</span><span
+              class="method-args">(unencrypted_password)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Atribui uma nova senha e gera o hash com bcrypt.</p>
+
+<h1 id="method-i-password-3D-label-Par-C3-A2metros-3A">Parâmetros:<span><a href="#method-i-password-3D-label-Par-C3-A2metros-3A">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p><code>unencrypted_password</code> - A nova senha em texto puro.</p>
+</li></ul>
+
+<h1 id="method-i-password-3D-label-Retorno-3A">Retorno:<span><a href="#method-i-password-3D-label-Retorno-3A">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Retorna o próprio hash gerado caso haja senha, ou nil.</p>
+</li></ul>
+
+<h1 id="method-i-password-3D-label-Efeitos+Colaterais-3A">Efeitos Colaterais:<span><a href="#method-i-password-3D-label-Efeitos+Colaterais-3A">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Atualiza o atributo ‘senha_hash` da instância (não salva no banco automaticamente).</p>
+</li></ul>
+
+          <div class="method-source-code" id="password-3D-source">
+            <pre><span class="ruby-comment"># File app/models/usuario.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">password=</span>(<span class="ruby-identifier">unencrypted_password</span>)
+  <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">unencrypted_password</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">senha_hash</span> = <span class="ruby-constant">BCrypt</span><span class="ruby-operator">::</span><span class="ruby-constant">Password</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">unencrypted_password</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">unencrypted_password</span>.<span class="ruby-identifier">present?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-pode_gerenciar_turma-3F" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">pode_gerenciar_turma?</span><span
+              class="method-args">(turma)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Verifica se o usuário tem permissão para gerenciar uma determinada turma.</p>
+
+<h1 id="method-i-pode_gerenciar_turma-3F-label-Par-C3-A2metros-3A">Parâmetros:<span><a href="#method-i-pode_gerenciar_turma-3F-label-Par-C3-A2metros-3A">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p><code>turma</code> - Objeto do tipo <a href="Turma.html"><code>Turma</code></a>.</p>
+</li></ul>
+
+<h1 id="method-i-pode_gerenciar_turma-3F-label-Retorno-3A">Retorno:<span><a href="#method-i-pode_gerenciar_turma-3F-label-Retorno-3A">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Retorna um boolean indicando se o usuário pertence ao mesmo departamento da turma.</p>
+</li></ul>
+
+<h1 id="method-i-pode_gerenciar_turma-3F-label-Efeitos+Colaterais-3A">Efeitos Colaterais:<span><a href="#method-i-pode_gerenciar_turma-3F-label-Efeitos+Colaterais-3A">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Nenhum.</p>
+</li></ul>
+
+          <div class="method-source-code" id="pode_gerenciar_turma-3F-source">
+            <pre><span class="ruby-comment"># File app/models/usuario.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pode_gerenciar_turma?</span>(<span class="ruby-identifier">turma</span>)
+  <span class="ruby-identifier">departamento_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">turma</span>.<span class="ruby-identifier">departamento_id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.5.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

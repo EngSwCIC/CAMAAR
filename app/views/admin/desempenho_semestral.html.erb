@@ -1,0 +1,45 @@
+<!-- app/views/admin/desempenho_semestral.html.erb -->
+<% content_for :page_title, "Relatório de Desempenho" %>
+
+<div class="space-y-6">
+  
+  <div class="flex items-center gap-3">
+    <%= link_to admin_turmas_path, class: "p-2 bg-white hover:bg-gray-100 border border-gray-200 text-gray-700 rounded-xl shadow-sm transition" do %>
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+    <% end %>
+    <div>
+      <span class="text-[10px] uppercase font-mono text-gray-400">Relatórios / Desempenho</span>
+      <h2 class="text-xl font-bold text-gray-900 tracking-tight">Desempenho de Turmas do DCC</h2>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-md">
+    <h3 class="font-bold text-gray-900 text-base mb-4">Métricas Consolidadas (DCC)</h3>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-xs text-gray-700">
+        <thead class="bg-gray-50 text-gray-500 font-bold uppercase border-b border-gray-100">
+          <tr>
+            <th class="p-4">Turma</th>
+            <th class="p-4">Disciplina</th>
+            <th class="p-4 text-center">Respostas</th>
+            <th class="p-4 text-center">Média Geral (Likert 1-5)</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          <% @desempenho_turmas.each do |dt| %>
+            <tr class="hover:bg-purple-50/40">
+              <td class="p-4 font-mono font-bold"><%= dt[:turma].codigo_turma %></td>
+              <td class="p-4"><%= dt[:turma].disciplina.nome %></td>
+              <td class="p-4 text-center font-mono font-semibold"><%= dt[:respostas_count] %></td>
+              <td class="p-4 text-center font-mono font-black text-[#702562]"><%= dt[:media] %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

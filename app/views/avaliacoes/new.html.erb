@@ -1,0 +1,101 @@
+<!-- app/views/avaliacoes/new.html.erb -->
+<% content_for :page_title, "Preencher Avaliação" %>
+
+<div class="space-y-6 pb-24 relative">
+  
+  <!-- Back Header link -->
+  <div class="flex items-center gap-3">
+    <%= link_to avaliacoes_path, class: "p-2 bg-white hover:bg-gray-100 border border-gray-200 text-gray-700 rounded-xl shadow-sm transition" do %>
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+    <% end %>
+    <div>
+      <span class="text-[10px] uppercase font-mono text-gray-400">Questionário / Auto-Opinião</span>
+      <h2 class="text-xl font-bold text-gray-900 tracking-tight">Avaliação De Desempenho Escolar</h2>
+    </div>
+  </div>
+
+  <% if flash[:alert] %>
+    <div class="bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl text-xs mb-4 flex items-center gap-2">
+      <svg class="h-4 w-4 shrink-0 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>
+      <span><%= flash[:alert] %></span>
+    </div>
+  <% end %>
+
+  <!-- Detalhes da matéria atual sendo avaliada -->
+  <div class="bg-white rounded-3xl p-5 md:p-6 border border-gray-100 shadow-sm flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div class="space-y-1">
+      <span class="px-2.5 py-1 text-[9px] font-mono font-black bg-purple-50 text-[#702562] rounded-full"><%= @formulario.turma.codigo rescue "N/C" %></span>
+      <h3 class="text-base font-extrabold text-gray-950 mt-1"><%= @formulario.turma.disciplina.nome rescue "N/C" %></h3>
+      <p class="text-xs text-gray-500 font-semibold">Semestre de Referência: <b class="text-gray-800">2026/1</b> • Docente Responsável: <%= @formulario.turma.docente.nome rescue "Não atribuído" %></p>
+    </div>
+    
+    <div class="px-4 py-2 border border-yellow-250 bg-yellow-50/50 rounded-2xl flex items-center gap-2 text-xs text-yellow-902 font-medium">
+      <!-- Shield check icon -->
+      <svg class="h-4 w-4 text-yellow-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      </svg>
+      <span>Formulário de Resposta 100% Anônimo</span>
+    </div>
+  </div>
+
+  <!-- Formulário de Respostas -->
+  <%= form_with url: responder_avaliacao_path(@formulario), local: true, method: :post, class: "space-y-6" do |f| %>
+    
+    <!-- Loop dinâmico pelas perguntas do inquérito -->
+    <% @formulario.template.perguntas.each_with_index do |pergunta, idx| %>
+      <div class="bg-white rounded-3xl p-6 md:p-8 border border-gray-100 shadow-md space-y-4 text-gray-700">
+        
+        <div>
+          <span class="text-[10px] font-mono text-purple-600 font-bold uppercase tracking-wider">Questão <%= idx + 1 %></span>
+          <h4 class="font-extrabold text-sm md:text-base text-gray-950 mt-1 leading-normal"><%= pergunta["texto"] %></h4>
+        </div>
+
+        <% if pergunta["tipo"] == 'likert' %>
+          <!-- Escala Likert 1 a 5 com botões circulares -->
+          <div class="pt-2">
+            <span class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Sua Classificação de Desempenho</span>
+            
+            <div class="grid grid-cols-5 gap-2 md:gap-4 mt-3">
+              <% (1..5).each do |num| %>
+                <label class="cursor-pointer group relative">
+                  <input type="radio" name="respostas[<%= idx %>][nota]" value="<%= num %>" class="sr-only peer">
+                  
+                  <div class="w-full text-center py-4 bg-gray-50 border border-gray-200 rounded-2xl peer-checked:bg-[#702562] peer-checked:text-white peer-checked:border-[#702562] group-hover:bg-purple-50 group-hover:border-purple-300 transition duration-150 flex flex-col items-center justify-center gap-1">
+                    <span class="text-lg font-black font-sans leading-none"><%= num %></span>
+                    <span class="text-[8px] md:text-[9px] uppercase font-bold text-gray-400 group-hover:text-purple-700 peer-checked:text-purple-200">
+                      <% if num == 1 %>Péssimo<% elsif num == 5 %>Excelente<% else %>Nota <%= num %><% end %>
+                    </span>
+                  </div>
+                </label>
+              <% end %>
+            </div>
+          </div>
+
+        <% else %>
+          <!-- Comentário Livre (Texto) -->
+          <div class="space-y-2 pt-2">
+            <label for="comentario_<%= idx %>" class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Insira sua opinião construtiva ou feedback adicional</label>
+            <textarea name="respostas[<%= idx %>][texto]" id="comentario_<%= idx %>" placeholder="Escreva um comentário explicativo ou ideias de melhorias para a coordenação..." class="w-full h-32 px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl text-xs text-gray-700 focus:outline-none focus:border-[#702562] focus:bg-white transition leading-relaxed"></textarea>
+          </div>
+        <% end %>
+
+      </div>
+    <% end %>
+
+    <!-- Floating Footer Send Widget -->
+    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-lg bg-white/95 backdrop-blur border border-purple-100/60 p-3 rounded-full shadow-2xl flex items-center justify-between gap-4 z-40 animate-fade-in">
+      <div class="pl-4 flex items-center gap-2">
+        <div class="w-2.5 h-2.5 bg-yellow-500 rounded-full animate-pulse"></div>
+        <span class="text-[10px] font-mono text-gray-650 font-bold uppercase tracking-widest">Responda todas para liberar</span>
+      </div>
+      
+      <%= f.submit "Submeter Avaliação", class: "px-6 py-2.5 bg-[#702562] hover:bg-[#832d73] active:scale-95 text-white text-xs font-bold uppercase tracking-widest rounded-full shadow-lg transition duration-200 cursor-pointer" %>
+    </div>
+
+  <% end %>
+
+</div>

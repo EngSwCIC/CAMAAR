@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class AvaliacoesController - CAMAAR</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-create">#create</a>
+    <li ><a href="#method-i-index">#index</a>
+    <li ><a href="#method-i-new">#new</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-AvaliacoesController">
+  <h1 id="class-AvaliacoesController" class="class">
+    class AvaliacoesController
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-create" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">create</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Processa e salva as respostas submetidas pelo usuário para uma determinada avaliação.</p>
+
+<p><strong>Parâmetros:</strong></p>
+<ul><li>
+<p><code>params[:id]</code> - ID do formulário respondido (Integer/String).</p>
+</li><li>
+<p><code>params[:respostas]</code> - Hash contendo as respostas fornecidas pelo usuário.</p>
+</li></ul>
+
+<p><strong>Retorno:</strong></p>
+<ul><li>
+<p>Redirecionamento para a lista de avaliações ou de volta para a resposta em caso de erros.</p>
+</li></ul>
+
+<p><strong>Efeitos Colaterais:</strong></p>
+<ul><li>
+<p>Cria um registro de <code>Resposta</code> e os itens correspondentes (<code>RespostaItem</code>) associados no banco de dados. Define mensagens de erro/sucesso no <code>flash</code>.</p>
+</li></ul>
+
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/controllers/avaliacoes_controller.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">reject_duplicate_submission</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">reject_missing_fields</span>
+
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@resposta</span> = <span class="ruby-constant">Resposta</span>.<span class="ruby-identifier">create!</span>(
+      <span class="ruby-value">formulario:</span> <span class="ruby-ivar">@formulario</span>,
+      <span class="ruby-value">usuario:</span> <span class="ruby-identifier">current_user</span>,
+      <span class="ruby-value">enviado_em:</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">current</span>
+    )
+    <span class="ruby-identifier">create_resposta_items</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&quot;Sua avaliação foi enviada com sucesso! Muito obrigado por contribuir.&quot;</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">avaliacoes_path</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:alert</span>] = <span class="ruby-node">&quot;Erro ao enviar avaliação: #{e.message}&quot;</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">responder_avaliacao_path</span>(<span class="ruby-ivar">@formulario</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-index" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">index</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Lista as pesquisas e avaliações pendentes ou respondidas baseadas no perfil do usuário atual.</p>
+
+<p><strong>Parâmetros:</strong></p>
+<ul><li>
+<p>Nenhum.</p>
+</li></ul>
+
+<p><strong>Retorno:</strong></p>
+<ul><li>
+<p>Renderiza a listagem de avaliações.</p>
+</li></ul>
+
+<p><strong>Efeitos Colaterais:</strong></p>
+<ul><li>
+<p>Define as variáveis +@pesquisas_pendentes+ e +@pesquisas_respondidas+.</p>
+</li></ul>
+
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/avaliacoes_controller.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">perfil</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;administrador&quot;</span>
+    <span class="ruby-identifier">load_admin_pesquisas</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;docente&quot;</span>
+    <span class="ruby-identifier">load_docente_pesquisas</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">load_discente_pesquisas</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-new" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Exibe o formulário de avaliação para ser preenchido (new).</p>
+
+<p><strong>Parâmetros:</strong></p>
+<ul><li>
+<p><code>params[:id]</code> - O ID do formulário de avaliação (Integer/String).</p>
+</li></ul>
+
+<p><strong>Retorno:</strong></p>
+<ul><li>
+<p>Renderiza a página para responder à avaliação.</p>
+</li></ul>
+
+<p><strong>Efeitos Colaterais:</strong></p>
+<ul><li>
+<p>Define a variável +@formulario+ via before_action.</p>
+</li></ul>
+
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/avaliacoes_controller.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
+  <span class="ruby-comment"># Already set by before_action</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.5.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

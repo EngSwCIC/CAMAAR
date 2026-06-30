@@ -1,0 +1,71 @@
+<!-- app/views/resultados/relatorios.html.erb -->
+<% content_for :page_title, "Relatórios de Avaliação" %>
+
+<div class="space-y-6">
+  
+  <div class="flex items-center gap-3">
+    <%= link_to root_path, class: "p-2 bg-white hover:bg-gray-100 border border-gray-200 text-gray-700 rounded-xl shadow-sm transition" do %>
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+    <% end %>
+    <div>
+      <span class="text-[10px] uppercase font-mono text-gray-400">Colegiado / Exportador</span>
+      <h2 class="text-xl font-bold text-gray-900 tracking-tight">Relatórios de Avaliação</h2>
+    </div>
+  </div>
+
+  <% if flash[:alert] %>
+    <div class="bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl text-xs mb-4 flex items-center gap-2">
+      <svg class="h-4 w-4 shrink-0 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>
+      <span><%= flash[:alert] %></span>
+    </div>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div class="bg-green-50 border border-green-200 text-green-700 p-4 rounded-xl text-xs mb-4 flex items-center gap-2">
+      <svg class="h-4 w-4 shrink-0 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span><%= flash[:notice] %></span>
+    </div>
+  <% end %>
+
+  <!-- Grid of Forms for Export -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <% if @formularios.blank? %>
+      <div class="col-span-2 bg-white p-12 text-center rounded-3xl border border-gray-150">
+        <p class="text-sm font-semibold text-gray-400">Nenhum formulário ativo encontrado.</p>
+      </div>
+    <% else %>
+      <% @formularios.uniq { |f| f.template_id }.each do |formulario| %>
+        <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-md space-y-6 text-gray-700">
+          <div>
+            <span class="text-[9px] font-mono bg-purple-50 text-[#702562] font-bold px-2.5 py-1 rounded-full">TEMPLATE</span>
+            <h3 class="font-extrabold text-gray-950 text-base mt-2 leading-tight"><%= formulario.template.titulo %></h3>
+            <p class="text-xs text-gray-500 mt-1"><%= formulario.template.descricao %></p>
+          </div>
+
+          <%= form_with url: admin_relatorios_csv_path, method: :get, local: true, class: "space-y-4" do |f| %>
+            <%= hidden_field_tag :id, formulario.id %>
+            
+            <div class="space-y-1">
+              <label for="turma_id_<%= formulario.id %>" class="text-xs font-bold text-gray-500 uppercase tracking-wider">Turma</label>
+              <select name="turma_id" id="turma_id_<%= formulario.id %>" class="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs focus:outline-none focus:border-[#702562] text-gray-700">
+                <option value="">Todas as turmas</option>
+                <% formulario.template.formularios.map(&:turma).uniq.each do |t| %>
+                  <option value="<%= t.id %>"><%= t.codigo_turma %></option>
+                <% end %>
+              </select>
+            </div>
+
+            <%= f.submit "Exportar Resultados (CSV)", class: "w-full py-2.5 bg-[#702562] hover:bg-[#832d73] text-white font-bold text-xs uppercase tracking-widest rounded-xl shadow transition cursor-pointer" %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>

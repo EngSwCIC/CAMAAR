@@ -1,0 +1,36 @@
+---
+encoding: UTF-8
+static_path: []
+rdoc_include: []
+page_dir:
+apply_default_exclude: true
+autolink_excluded_words: []
+canonical_root:
+charset: UTF-8
+class_module_path_prefix:
+embed_mixins: false
+exclude:
+- "(bin|config|db|features|log|public|spec|storage|tmp|vendor|coverage|doc)"
+- "\\.(lock|pdf|json|css|js|scss|sass|erb|html|haml|slim|txt|md|rake|yaml|yml|sh|gitignore|gemspec)$"
+- "app/(assets|javascript|views|mailers|jobs|helpers)"
+- "/Dockerfile"
+- "/Gemfile"
+- "/Rakefile"
+- "/README"
+file_path_prefix:
+footer_content:
+hyperlink_all: false
+line_numbers: false
+locale_dir: locale
+locale_name:
+main_page: README.md
+markup: rdoc
+output_decoration: true
+show_hash: false
+skip_tests: true
+tab_width: 8
+template_stylesheets: []
+title: CAMAAR
+visibility: :protected
+warn_missing_rdoc_ref: true
+webcvs:

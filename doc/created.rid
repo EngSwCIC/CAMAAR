@@ -1,0 +1,25 @@
+Sat, 27 Jun 2026 09:54:28 -0300
+Dockerfile	Sat, 23 May 2026 11:34:49 -0300
+Gemfile	Tue, 16 Jun 2026 19:16:37 -0300
+Rakefile	Sat, 23 May 2026 11:34:49 -0300
+app/controllers/admin_controller.rb	Sat, 27 Jun 2026 09:37:18 -0300
+app/controllers/application_controller.rb	Sat, 27 Jun 2026 09:37:18 -0300
+app/controllers/avaliacoes_controller.rb	Sat, 27 Jun 2026 09:37:18 -0300
+app/controllers/formularios_controller.rb	Sat, 27 Jun 2026 09:37:18 -0300
+app/controllers/passwords_controller.rb	Sat, 27 Jun 2026 09:37:18 -0300
+app/controllers/resultados_controller.rb	Sat, 27 Jun 2026 09:37:18 -0300
+app/controllers/sessions_controller.rb	Sat, 27 Jun 2026 09:37:18 -0300
+app/controllers/templates_controller.rb	Sat, 27 Jun 2026 09:37:18 -0300
+app/models/application_record.rb	Sat, 23 May 2026 11:34:49 -0300
+app/models/curso.rb	Tue, 16 Jun 2026 20:39:43 -0300
+app/models/departamento.rb	Sat, 27 Jun 2026 09:43:56 -0300
+app/models/disciplina.rb	Sat, 27 Jun 2026 09:43:58 -0300
+app/models/formulario.rb	Sat, 27 Jun 2026 09:43:28 -0300
+app/models/matricula.rb	Tue, 16 Jun 2026 20:39:43 -0300
+app/models/questao_template.rb	Sat, 27 Jun 2026 09:43:54 -0300
+app/models/resposta.rb	Tue, 16 Jun 2026 19:16:37 -0300
+app/models/resposta_item.rb	Tue, 16 Jun 2026 19:16:37 -0300
+app/models/template.rb	Sat, 27 Jun 2026 09:43:32 -0300
+app/models/turma.rb	Sat, 27 Jun 2026 09:43:30 -0300
+app/models/usuario.rb	Sat, 27 Jun 2026 09:43:26 -0300
+app/services/test_data_loader.rb	Sat, 27 Jun 2026 09:37:18 -0300

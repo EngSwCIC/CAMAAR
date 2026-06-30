@@ -1,0 +1,111 @@
+<!-- app/views/resultados/show.html.erb -->
+<% content_for :page_title, "Análise Comercial de Classe" %>
+
+<div class="space-y-6">
+  
+  <!-- Back bar -->
+  <div class="flex items-center gap-3">
+    <%= link_to resultados_path, class: "p-2 bg-white hover:bg-gray-100 border border-gray-200 text-gray-700 rounded-xl shadow-sm transition" do %>
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+    <% end %>
+    <div>
+      <span class="text-[10px] uppercase font-mono text-gray-400">Resultados / Relatório Individual</span>
+      <h2 class="text-xl font-bold text-gray-900 tracking-tight">Turma <%= @formulario.turma.nome %> - <%= @formulario.turma.disciplina.nome rescue "N/C" %></h2>
+    </div>
+  </div>
+
+  <!-- Cabeçalho Detalhado da matéria -->
+  <div class="bg-white rounded-3xl p-6 md:p-8 border border-gray-100 shadow-sm grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="md:col-span-2 space-y-2">
+      <span class="px-2.5 py-1 text-[10px] font-mono font-bold bg-purple-50 text-[#702562] rounded-full"><%= @formulario.turma.codigo %></span>
+      <h3 class="text-xl font-black text-gray-950 mt-1"><%= @formulario.turma.disciplina.nome rescue "N/A" %></h3>
+      <p class="text-xs text-gray-500 font-semibold flex items-center gap-1">
+        Docente: <b class="text-gray-800"><%= @formulario.turma.docente.nome rescue "Não atribuído" %></b> • Departamento: <%= @formulario.turma.disciplina.departamento.codigo rescue "DCC" %>
+      </p>
+    </div>
+    
+    <div class="bg-purple-50/50 rounded-2xl p-4 border border-purple-100/40 text-center flex flex-col justify-center">
+      <p class="text-[10px] text-[#702562] font-bold uppercase tracking-widest">Média Geral Consolidada</p>
+      <% 
+        all_medias = @perguntas_metricas.map { |pm| pm[:media] }
+        media_geral = all_medias.any? ? (all_medias.sum / all_medias.size).round(1) : 0.0
+      %>
+      <p class="text-4xl font-extrabold text-[#702562] mt-1"><%= media_geral %></p>
+      <p class="text-[9px] text-gray-400 mt-1">Métrica baseada na escala Likert 1-5</p>
+    </div>
+  </div>
+
+  <% if @mensagem_aviso.present? %>
+    <!-- Warning message when no submissions exist -->
+    <div class="bg-yellow-50 border border-yellow-200 text-yellow-800 p-8 rounded-3xl text-center space-y-2">
+      <svg class="h-8 w-8 text-yellow-600 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>
+      <p class="text-sm font-bold"><%= @mensagem_aviso %></p>
+      <p class="text-xs text-gray-500">Aguarde até que os estudantes enviem suas respostas para ver as consolidações.</p>
+    </div>
+  <% else %>
+    <!-- Análise Quantitativa (Pergunta a Pergunta) -->
+    <div class="space-y-4 pt-4">
+      <h3 class="font-bold text-xs text-gray-400 uppercase tracking-widest">Distribuição Quantitativa</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <% @perguntas_metricas.each_with_index do |pm, index| %>
+          <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm space-y-4 text-gray-700">
+            <div>
+              <span class="text-[9px] font-mono text-purple-600 font-bold uppercase">Pergunta <%= index + 1 %></span>
+              <h4 class="font-bold text-xs text-gray-900 leading-normal mt-1"><%= pm[:pergunta].enunciado %></h4>
+              <span class="text-[9px] font-semibold text-gray-400">Média: <b class="text-gray-700"><%= pm[:media] %></b> (com <%= pm[:count] %> respostas)</span>
+            </div>
+
+            <div class="space-y-2">
+              <% (1..5).reverse_each do |num| %>
+                <% percentage = pm[:distribuicao][num] %>
+                <div class="flex items-center gap-3 text-xs">
+                  <span class="w-2 font-bold text-gray-500"><%= num %></span>
+                  <div class="flex-1 bg-gray-100 h-2.5 rounded-full overflow-hidden">
+                    <div class="bg-[#702562] h-full" style="width: <%= percentage %>%"></div>
+                  </div>
+                  <span class="w-8 text-right font-mono font-bold text-gray-800"><%= percentage %>%</span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- Análise Qualitativa (Comentários Anônimos) -->
+    <div class="space-y-4 pt-4">
+      <h3 class="font-bold text-xs text-gray-400 uppercase tracking-widest">Avaliação Qualitativa (Opiniões Anônimas)</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <% @comentarios.each do |c| %>
+          <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm space-y-4 text-gray-700 md:col-span-2">
+            <h4 class="font-bold text-sm text-[#702562] flex items-center gap-2">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+              </svg>
+              <%= c[:pergunta].enunciado %>
+            </h4>
+            
+            <div class="space-y-3">
+              <% if c[:respostas].empty? %>
+                <p class="text-xs text-gray-450 italic">Nenhum comentário enviado para esta questão.</p>
+              <% else %>
+                <% c[:respostas].each do |texto| %>
+                  <div class="p-3 bg-purple-50/50 rounded-xl border border-purple-150/40 text-[11px] text-purple-950 leading-relaxed font-semibold">
+                    "<%= texto %>"
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

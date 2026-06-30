@@ -1,0 +1,149 @@
+<!-- app/views/admin/dashboard.html.erb -->
+<% content_for :page_title, "Painel de Gerenciamento" %>
+
+<!-- Seção Inicial do Painel com estatísticas rápidas -->
+<div class="space-y-6">
+  
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div>
+      <h2 class="text-xl font-bold text-gray-900 tracking-tight">Console de Controle Geral</h2>
+      <p class="text-xs text-gray-500">Mapeamento de formulários do Colegiado e status de banco de dados do DCC.</p>
+    </div>
+    
+    <div class="flex items-center gap-3">
+    </div>
+  </div>
+
+  <% if flash[:notice] %>
+    <div class="bg-green-50 border border-green-200 text-green-700 p-4 rounded-xl text-xs mb-4 flex items-center gap-2">
+      <svg class="h-4 w-4 shrink-0 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span><%= flash[:notice] %></span>
+    </div>
+  <% end %>
+
+  <% if flash[:alert] %>
+    <div class="bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl text-xs mb-4 flex items-center gap-2">
+      <svg class="h-4 w-4 shrink-0 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>
+      <span><%= flash[:alert] %></span>
+    </div>
+  <% end %>
+
+  <!-- Cards de métricas rápidas -->
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+    <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm text-center">
+      <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Deps</span>
+      <p class="text-2xl font-black text-[#702562] mt-1"><%= @stats[:deps] rescue 0 %></p>
+    </div>
+    <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm text-center">
+      <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Disciplinas</span>
+      <p class="text-2xl font-black text-[#702562] mt-1"><%= @stats[:discs] rescue 0 %></p>
+    </div>
+    <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm text-center">
+      <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Turmas</span>
+      <p class="text-2xl font-black text-[#702562] mt-1"><%= @stats[:turmas] rescue 0 %></p>
+    </div>
+    <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm text-center">
+      <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Matrículas</span>
+      <p class="text-2xl font-black text-[#702562] mt-1"><%= @stats[:mats] rescue 0 %></p>
+    </div>
+    <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm text-center">
+      <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Membros</span>
+      <p class="text-2xl font-black text-[#702562] mt-1"><%= @stats[:users] rescue 0 %></p>
+    </div>
+  </div>
+
+  <!-- Bento Grid de Módulos (Shortcuts) -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+    
+    <!-- Box 1: Gerenciar Templates -->
+    <%= link_to templates_path, class: "group bg-white rounded-3xl p-6 md:p-8 border border-gray-100 hover:border-purple-200 shadow-md hover:shadow-xl transition duration-150 flex flex-col justify-between" do %>
+      <div class="space-y-3">
+        <div class="w-10 h-10 bg-purple-50 text-[#702562] rounded-xl flex items-center justify-center">
+          <svg class="h-[18px] w-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-950 text-base group-hover:text-[#702562] transition">Gerenciar Templates de Avaliação</h3>
+          <p class="text-xs text-gray-500 mt-1 leading-relaxed">Desenvolva grades parametrizadas de perguntas discentes / docentes no formato Likert ou de comentários livres para o Colegiado.</p>
+        </div>
+      </div>
+      <div class="mt-6 flex items-center gap-1 text-[11px] text-[#702562] font-black uppercase tracking-widest">
+        <span>Acessar Módulo</span>
+        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+    <% end %>
+
+    <!-- Box 2: Enviar Formulários (Criação/Distribuição) -->
+    <%= link_to new_formulario_path, class: "group bg-white rounded-3xl p-6 md:p-8 border border-gray-100 hover:border-purple-200 shadow-md hover:shadow-xl transition duration-150 flex flex-col justify-between" do %>
+      <div class="space-y-3">
+        <div class="w-10 h-10 bg-purple-50 text-[#702562] rounded-xl flex items-center justify-center">
+          <svg class="h-[18px] w-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-950 text-base group-hover:text-[#702562] transition">Enviar / Distribuir Formulários</h3>
+          <p class="text-xs text-gray-500 mt-1 leading-relaxed">Dispare formulários de resposta parametrizados para turmas e semestres específicos, ativando pesquisas para todos os discentes.</p>
+        </div>
+      </div>
+      <div class="mt-6 flex items-center gap-1 text-[11px] text-[#702562] font-black uppercase tracking-widest">
+        <span>Acessar Módulo</span>
+        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+    <% end %>
+
+    <!-- Box 3: Resultados de Avalições (Dados Consolidados) -->
+    <%= link_to resultados_path, class: "group bg-white rounded-3xl p-6 md:p-8 border border-gray-100 hover:border-purple-200 shadow-md hover:shadow-xl transition duration-150 flex flex-col justify-between" do %>
+      <div class="space-y-3">
+        <div class="w-10 h-10 bg-purple-50 text-[#702562] rounded-xl flex items-center justify-center">
+          <svg class="h-[18px] w-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.003 9.003 0 1020.945 13H11V3.055z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-950 text-base group-hover:text-[#702562] transition">Análise de Resultados de Avaliações</h3>
+          <p class="text-xs text-gray-500 mt-1 leading-relaxed">Monitore relatórios estatísticos consolidados por docente e comentários qualitativos anônimos sobre o andamento das matérias.</p>
+        </div>
+      </div>
+      <div class="mt-6 flex items-center gap-1 text-[11px] text-[#702562] font-black uppercase tracking-widest">
+        <span>Acessar Módulo</span>
+        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+    <% end %>
+
+    <!-- Box 4: Central de Importação XML/JSON -->
+    <%= link_to admin_import_console_path, class: "group bg-white rounded-3xl p-6 md:p-8 border border-gray-100 hover:border-purple-200 shadow-md hover:shadow-xl transition duration-150 flex flex-col justify-between" do %>
+      <div class="space-y-3">
+        <div class="w-10 h-10 bg-purple-50 text-[#702562] rounded-xl flex items-center justify-center">
+          <svg class="h-[18px] w-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-950 text-base group-hover:text-[#702562] transition">Importação Conforme SIGAA (XML/JSON)</h3>
+          <p class="text-xs text-gray-500 mt-1 leading-relaxed">Faça upload de dados agregados do departamento (membros, turmas e matrículas) para atualizar autonomamente o banco de dados.</p>
+        </div>
+      </div>
+      <div class="mt-6 flex items-center gap-1 text-[11px] text-[#702562] font-black uppercase tracking-widest">
+        <span>Acessar Módulo</span>
+        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+    <% end %>
+
+  </div>
+
+</div>

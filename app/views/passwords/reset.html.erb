@@ -1,0 +1,27 @@
+<!-- app/views/passwords/reset.html.erb -->
+<div class="w-full max-w-md bg-white rounded-3xl shadow-xl border border-gray-100 p-8 text-gray-700">
+  <div class="text-center space-y-2 mb-6">
+    <h2 class="text-xl font-bold text-gray-900">Redefinir Senha</h2>
+    <p class="text-xs text-gray-400">Escolha uma nova senha forte para acessar sua conta.</p>
+  </div>
+
+  <% if flash[:alert] %>
+    <div class="bg-red-50 border border-red-200 text-red-700 p-3 rounded-lg text-xs mb-4">
+      <span><%= flash[:alert] %></span>
+    </div>
+  <% end %>
+
+  <%= form_with url: reset_password_path(token: @token), local: true, class: "space-y-4" do |f| %>
+    <div class="space-y-1">
+      <label for="password" class="text-xs font-bold text-gray-500 uppercase">Nova senha</label>
+      <%= f.password_field :password, id: "password", placeholder: "••••••••", class: "w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs focus:outline-none focus:border-[#702562]" %>
+    </div>
+
+    <div class="space-y-1">
+      <label for="password_confirmation" class="text-xs font-bold text-gray-500 uppercase">Confirmar nova senha</label>
+      <%= f.password_field :password_confirmation, id: "password_confirmation", placeholder: "••••••••", class: "w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs focus:outline-none focus:border-[#702562]" %>
+    </div>
+
+    <%= f.submit "Redefinir senha", class: "w-full py-3 bg-[#702562] hover:bg-[#832d73] text-white font-bold text-xs uppercase tracking-widest rounded-xl transition cursor-pointer" %>
+  <% end %>
+</div>
