@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Wiki - RDoc Documentation</title>
+
+
+  <meta name="keywords" content="ruby,documentation,Wiki">
+  <meta
+    name="description"
+    content="Wiki: Nessa feature, o usuário (admin) deve ser capaz de visualizar os templates para formulários criados, quando acessar a página correspondente. Nessa fea"
+  >
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wiki - RDoc Documentation">
+
+
+
+    <meta property="og:description" content="Nessa feature, o usuário (admin) deve ser capaz de visualizar os templates para formulários criados, quando acessar a página correspondente. Nessa fea">
+
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wiki - RDoc Documentation">
+
+
+
+    <meta name="twitter:description" content="Nessa feature, o usuário (admin) deve ser capaz de visualizar os templates para formulários criados, quando acessar a página correspondente. Nessa fea">
+
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script
+  src="./js/theme-toggle.js?v=7.2.0"
+></script>
+
+<script
+  src="./js/search_navigation.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/search_data.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/search_ranker.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/search_controller.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/c_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/bash_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/aliki.js?v=7.2.0"
+  defer
+></script>
+
+<link
+  href="./css/rdoc.css?v=7.2.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="file has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="./index.html" class="navbar-brand">
+    RDoc Documentation
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation" hidden>
+  
+
+
+
+
+
+
+  <div id="fileindex-section" class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg>
+            <use href="#icon-file"></use>
+          </svg>
+        </span>
+
+        <span class="nav-section-title">Pages</span>
+
+        <span class="nav-section-chevron">
+          <svg>
+            <use href="#icon-chevron"></use>
+          </svg>
+        </span>
+      </summary>
+
+      <ul class="nav-list">
+
+
+
+
+
+
+            <li>
+              <a href="./Dockerfile.html">
+                Dockerfile
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="./Dockerfile_test.html">
+                Dockerfile.test
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="./Gemfile.html">
+                Gemfile
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="./Gemfile_lock.html">
+                Gemfile.lock
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="./Group_txt.html">
+                Group
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="./README_md.html">
+                README
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="./Rakefile.html">
+                Rakefile
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="./Wiki_md.html">
+                Wiki
+              </a>
+            </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  app
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="./app/assets/stylesheets/application_css.html">
+                      application.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/javascript/application_js.html">
+                      application.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/javascript/controllers/application_js.html">
+                      application.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/javascript/controllers/hello_controller_js.html">
+                      hello_controller.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/javascript/controllers/index_js.html">
+                      index.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/javascript/controllers/nested_form_controller_js.html">
+                      nested_form_controller.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/views/pwa/service-worker_js.html">
+                      service-worker.js
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  bin
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="./bin/docker-entrypoint.html">
+                      docker-entrypoint
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./bin/kamal_cmd.html">
+                      kamal.cmd
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+            <li>
+              <a href="./bundle.html">
+                bundle
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="./class_members_json.html">
+                class_members.json
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="./classes_json.html">
+                classes.json
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="./config_ru.html">
+                config.ru
+              </a>
+            </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  config
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="./config/credentials_yml_enc.html">
+                      credentials.yml.enc
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./config/master_key.html">
+                      master.key
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  coverage
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="./coverage/assets/0_13_2/application_css.html">
+                      application.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./coverage/assets/0_13_2/application_js.html">
+                      application.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./coverage/index_html.html">
+                      index.html
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+            <li>
+              <a href="./cucumber-results_txt.html">
+                cucumber-results
+              </a>
+            </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  db
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="./db/amostra_sigaa_csv.html">
+                      amostra_sigaa.csv
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./db/amostra_sigaa_invalida_csv.html">
+                      amostra_sigaa_invalida.csv
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  features
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="./features/answerable_forms/answer_evaluation_form_feature.html">
+                      answer_evaluation_form.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/data/import_sigaa_feature.html">
+                      import_sigaa.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/data/manage_department_classes_feature.html">
+                      manage_department_classes.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/data/update_database_feature.html">
+                      update_database.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/form/create_form_feature.html">
+                      create_form.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/form/view_forms_feature.html">
+                      view_forms.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/form/view_unanswered_forms_feature.html">
+                      view_unanswered_forms.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/login/login_feature.html">
+                      login.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/login/login_with_admin_menu_feature.html">
+                      login_with_admin_menu.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/password/redefine_password_from_email_feature.html">
+                      redefine_password_from_email.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/register_user/register_from_sigaa_feature.html">
+                      register_from_sigaa.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/register_user/register_users_feature.html">
+                      register_users.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/results/download_results_csv_feature.html">
+                      download_results_csv.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/results/results_view_feature.html">
+                      results_view.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/templates/delete_template_feature.html">
+                      delete_template.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/templates/edit_template_feature.html">
+                      edit_template.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/templates/search_template_feature.html">
+                      search_template.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/templates/view_template_feature.html">
+                      view_template.feature
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  log
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="./log/development_log.html">
+                      development.log
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./log/test_log.html">
+                      test.log
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  public
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="./public/400_html.html">
+                      400.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./public/404_html.html">
+                      404.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./public/406-unsupported-browser_html.html">
+                      406-unsupported-browser.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./public/422_html.html">
+                      422.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./public/500_html.html">
+                      500.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./public/robots_txt.html">
+                      robots
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  tmp
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="./tmp/local_secret_txt.html">
+                      local_secret
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/restart_txt.html">
+                      restart
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/controllers/application_controller_html.html">
+                      application_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/controllers/classes_controller_html.html">
+                      classes_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/controllers/formularios_controller_html.html">
+                      formularios_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/controllers/password_redefinition_controller_html.html">
+                      password_redefinition_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/controllers/pending_registrations_controller_html.html">
+                      pending_registrations_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/controllers/respostas_controller_html.html">
+                      respostas_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/controllers/resultados_controller_html.html">
+                      resultados_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/controllers/sigaa_updates_controller_html.html">
+                      sigaa_updates_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/controllers/templates_controller_html.html">
+                      templates_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/controllers/turmas_controller_html.html">
+                      turmas_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/controllers/users_controller_html.html">
+                      users_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/helpers/application_helper_html.html">
+                      application_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/helpers/turmas_helper_html.html">
+                      turmas_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/helpers/users_helper_html.html">
+                      users_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/jobs/application_job_html.html">
+                      application_job.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/mailers/application_mailer_html.html">
+                      application_mailer.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/mailers/pending_registration_mailer_html.html">
+                      pending_registration_mailer.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/models/application_record_html.html">
+                      application_record.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/models/enrollment_html.html">
+                      enrollment.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/models/formulario_html.html">
+                      formulario.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/models/password_reset_usage_html.html">
+                      password_reset_usage.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/models/pending_registration_html.html">
+                      pending_registration.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/models/question_html.html">
+                      question.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/models/resposta_html.html">
+                      resposta.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/models/template_html.html">
+                      template.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/models/turma_html.html">
+                      turma.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/models/user_html.html">
+                      user.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/app/services/sigaa_importer_html.html">
+                      sigaa_importer.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/assets/javascripts/application_js.html">
+                      application.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/assets/stylesheets/application_css.html">
+                      application.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/assets/vendor/javascripts/bootstrap_min_js.html">
+                      bootstrap.min.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/assets/vendor/javascripts/highcharts_src-4_0_1_js.html">
+                      highcharts.src-4.0.1.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/assets/vendor/javascripts/jquery_filtertable_min_js.html">
+                      jquery.filtertable.min.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/assets/vendor/javascripts/jquery_min_js.html">
+                      jquery.min.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/assets/vendor/javascripts/jquery_scrollTo_min_js.html">
+                      jquery.scrollTo.min.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_js.html">
+                      jquery.tablesorter.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_min_js.html">
+                      jquery.tablesorter.min.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/assets/vendor/javascripts/jquery_timeago_js.html">
+                      jquery.timeago.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/assets/vendor/javascripts/prettify_js.html">
+                      prettify.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/assets/vendor/stylesheets/bootstrap_min_css.html">
+                      bootstrap.min.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/assets/vendor/stylesheets/font-awesome_min_css.html">
+                      font-awesome.min.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/assets/vendor/stylesheets/prettify_css.html">
+                      prettify.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/assets/vendor/stylesheets/prettify_custom_theme_css.html">
+                      prettify.custom_theme.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/code_index_html.html">
+                      code_index.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/config/application_html.html">
+                      application.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/config/boot_html.html">
+                      boot.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/config/ci_html.html">
+                      ci.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/config/environment_html.html">
+                      environment.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/config/environments/development_html.html">
+                      development.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/config/environments/production_html.html">
+                      production.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/config/environments/test_html.html">
+                      test.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/config/importmap_html.html">
+                      importmap.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/config/initializers/assets_html.html">
+                      assets.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/config/initializers/content_security_policy_html.html">
+                      content_security_policy.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/config/initializers/devise_html.html">
+                      devise.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/config/initializers/filter_parameter_logging_html.html">
+                      filter_parameter_logging.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/config/initializers/inflections_html.html">
+                      inflections.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/config/puma_html.html">
+                      puma.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/config/routes_html.html">
+                      routes.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/cable_schema_html.html">
+                      cable_schema.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/cache_schema_html.html">
+                      cache_schema.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/migrate/20260602152923_devise_create_users_html.html">
+                      20260602152923_devise_create_users.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/migrate/20260602152937_devise_invitable_add_to_users_html.html">
+                      20260602152937_devise_invitable_add_to_users.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/migrate/20260609120000_create_templates_html.html">
+                      20260609120000_create_templates.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/migrate/20260609120001_create_questions_html.html">
+                      20260609120001_create_questions.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/migrate/20260610120000_create_turmas_html.html">
+                      20260610120000_create_turmas.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/migrate/20260610120001_create_enrollments_html.html">
+                      20260610120001_create_enrollments.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/migrate/20260610120002_create_formularios_html.html">
+                      20260610120002_create_formularios.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/migrate/20260610120003_create_respostas_html.html">
+                      20260610120003_create_respostas.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/migrate/20260616140618_add_departamento_to_users_html.html">
+                      20260616140618_add_departamento_to_users.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/migrate/20260616140643_add_departamento_to_turmas_html.html">
+                      20260616140643_add_departamento_to_turmas.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/migrate/20260625000001_add_professor_to_turmas_html.html">
+                      20260625000001_add_professor_to_turmas.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/migrate/20260625000002_create_pending_registrations_html.html">
+                      20260625000002_create_pending_registrations.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/migrate/20260625000003_create_password_reset_usages_html.html">
+                      20260625000003_create_password_reset_usages.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/queue_schema_html.html">
+                      queue_schema.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/schema_html.html">
+                      schema.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/db/seeds_html.html">
+                      seeds.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/answer_evaluation_form_steps_html.html">
+                      answer_evaluation_form_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/create_form_steps_html.html">
+                      create_form_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/delete_template_steps_html.html">
+                      delete_template_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/download_results_csv_steps_html.html">
+                      download_results_csv_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/edit_template_steps_html.html">
+                      edit_template_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/import_sigaa_steps_html.html">
+                      import_sigaa_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/login_steps_html.html">
+                      login_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/login_with_admin_menu_steps_html.html">
+                      login_with_admin_menu_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/manage_department_classes_steps_html.html">
+                      manage_department_classes_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/password_steps_html.html">
+                      password_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/redefine_password_from_email_steps_html.html">
+                      redefine_password_from_email_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/register_from_sigaa_steps_html.html">
+                      register_from_sigaa_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/register_users_steps_html.html">
+                      register_users_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/results_steps_html.html">
+                      results_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/search_template_steps_html.html">
+                      search_template_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/template_steps_html.html">
+                      template_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/update_database_steps_html.html">
+                      update_database_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/view_forms_steps_html.html">
+                      view_forms_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/step_definitions/view_unanswered_forms_steps_html.html">
+                      view_unanswered_forms_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/features/support/env_html.html">
+                      env.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/overview_html.html">
+                      overview.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/simple_cov_index_html.html">
+                      simple_cov_index.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./tmp/rubycritic/smells_index_html.html">
+                      smells_index.html
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><code><a href="./AddDepartamentoToTurmas.html">AddDepartamentoToTurmas</a></code></li><li><code><a href="./AddDepartamentoToUsers.html">AddDepartamentoToUsers</a></code></li><li><code><a href="./AddProfessorToTurmas.html">AddProfessorToTurmas</a></code></li><li><code><a href="./ApplicationController.html">ApplicationController</a></code></li><li><code><a href="./ApplicationHelper.html">ApplicationHelper</a></code></li><li><code><a href="./ApplicationJob.html">ApplicationJob</a></code></li><li><code><a href="./ApplicationMailer.html">ApplicationMailer</a></code></li><li><code><a href="./ApplicationRecord.html">ApplicationRecord</a></code></li><li><details><summary><code><a href="./Camaar.html">Camaar</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Camaar/Application.html">Application</a></code></li></ul></details></li><li><code><a href="./ClassesController.html">ClassesController</a></code></li><li><code><a href="./CreateEnrollments.html">CreateEnrollments</a></code></li><li><code><a href="./CreateFormularios.html">CreateFormularios</a></code></li><li><code><a href="./CreatePasswordResetUsages.html">CreatePasswordResetUsages</a></code></li><li><code><a href="./CreatePendingRegistrations.html">CreatePendingRegistrations</a></code></li><li><code><a href="./CreateQuestions.html">CreateQuestions</a></code></li><li><code><a href="./CreateRespostas.html">CreateRespostas</a></code></li><li><code><a href="./CreateTemplates.html">CreateTemplates</a></code></li><li><code><a href="./CreateTurmas.html">CreateTurmas</a></code></li><li><code><a href="./DeviseCreateUsers.html">DeviseCreateUsers</a></code></li><li><code><a href="./DeviseInvitableAddToUsers.html">DeviseInvitableAddToUsers</a></code></li><li><code><a href="./Enrollment.html">Enrollment</a></code></li><li><code><a href="./Formulario.html">Formulario</a></code></li><li><code><a href="./FormulariosController.html">FormulariosController</a></code></li><li><code><a href="./Object.html">Object</a></code></li><li><code><a href="./PasswordRedefinitionController.html">PasswordRedefinitionController</a></code></li><li><code><a href="./PasswordResetUsage.html">PasswordResetUsage</a></code></li><li><code><a href="./PendingRegistration.html">PendingRegistration</a></code></li><li><code><a href="./PendingRegistrationMailer.html">PendingRegistrationMailer</a></code></li><li><code><a href="./PendingRegistrationsController.html">PendingRegistrationsController</a></code></li><li><code><a href="./Question.html">Question</a></code></li><li><code><a href="./Resposta.html">Resposta</a></code></li><li><code><a href="./RespostasController.html">RespostasController</a></code></li><li><code><a href="./ResultadosController.html">ResultadosController</a></code></li><li><code><a href="./SigaaUpdatesController.html">SigaaUpdatesController</a></code></li><li><code><a href="./Template.html">Template</a></code></li><li><code><a href="./TemplatesController.html">TemplatesController</a></code></li><li><code><a href="./Turma.html">Turma</a></code></li><li><code><a href="./TurmasHelper.html">TurmasHelper</a></code></li><li><code><a href="./User.html">User</a></code></li><li><code><a href="./UsersController.html">UsersController</a></code></li><li><code><a href="./UsersHelper.html">UsersHelper</a></code></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main" aria-label="Page Wiki.md">
+
+<span id="label-CAMAAR+-+Sistema+para+avalia-C3-A7-C3-A3o+de+atividades+remotas" class="legacy-anchor"></span>
+<h2 id="camaar---sistema-para-avaliao-de-atividades-remotas"><a href="#camaar---sistema-para-avaliao-de-atividades-remotas">CAMAAR - Sistema para avaliação de atividades remotas</a></h2>
+<ul><li>
+<span id="label-Roberto+Ribeiro+Corr-C3-AAa+Neto+-+242009936" class="legacy-anchor"></span>
+<h3 id="roberto-ribeiro-corra-neto---242009936"><a href="#roberto-ribeiro-corra-neto---242009936">Roberto Ribeiro Corrêa Neto - 242009936</a></h3>
+</li><li>
+<span id="label-Lucas+Teles+Leiro+-+211066131" class="legacy-anchor"></span>
+<h3 id="lucas-teles-leiro---211066131"><a href="#lucas-teles-leiro---211066131">Lucas Teles Leiro - 211066131</a></h3>
+</li><li>
+<span id="label-Davi+Brasileiro+Gomes+-+241020741" class="legacy-anchor"></span>
+<h3 id="davi-brasileiro-gomes---241020741"><a href="#davi-brasileiro-gomes---241020741">Davi Brasileiro Gomes - 241020741</a></h3>
+
+<span id="label-Especifica-C3-A7-C3-B5es+da+Sprint+1-3A" class="legacy-anchor"></span>
+<h1 id="especificaes-da-sprint-1"><a href="#especificaes-da-sprint-1">Especificações da <em>Sprint</em> 1:</a></h1>
+
+<p><strong>Product Owner</strong>: Lucas Teles <strong>Scrum Master</strong>: Davi Brasileiro</p>
+
+<span id="label-Features+desenvolvidas-3A" class="legacy-anchor"></span>
+<h2 id="features-desenvolvidas"><a href="#features-desenvolvidas">Features desenvolvidas:</a></h2>
+
+<span id="label-Templates-3A" class="legacy-anchor"></span>
+<h3 id="templates"><a href="#templates">Templates:</a></h3>
+</li><li>
+<p><strong>Visualizar template</strong>: Nessa feature, o usuário (admin) deve ser capaz de visualizar os templates para formulários criados, quando acessar a página correspondente.\ <strong>Responsável</strong>: Davi Brasileiro <strong>Story Points</strong>: 1</p>
+</li><li>
+<p><strong>Editar <a href="Template.html"><code>Template</code></a></strong>: Nessa feature, o usuário (admin) deve ser capaz de editar os templates por ele criados, podendo alterar informações próprias do template (nome, tipo…), bem como da composição de questões.\ <strong>Responsável</strong>: Roberto Ribeiro <strong>Story Points</strong>: 5</p>
+</li><li>
+<p><strong>Deletar <a href="Template.html"><code>Template</code></a></strong>: Nessa feature, o usuário (admin) deve ser capaz de deletar os templates para formulários criados, quando clicar no template e entçao no botão correspondente.\ <strong>Responsável</strong>: Roberto RIbeiro <strong>Story Points</strong>: 3</p>
+</li><li>
+<p><strong>Buscar template</strong>: Nessa feature, o usuário deve ser capaz de realizar a busca por templates existentes utilizando uma barra de pesquisa, filtrando os resultados na listagem.\ <strong>Responsável</strong>: Lucas Teles Leiro <strong>Story Points</strong>: 3</p>
+
+<span id="label-Senha-3A" class="legacy-anchor"></span>
+<h3 id="senha"><a href="#senha">Senha:</a></h3>
+</li><li>
+<p><strong>Criar senha</strong>: Nessa feature, o usuário deve ser capaz de criar uma senha logando com o email, quando acessar a plataforma pela primeira vez.\ <strong>Responsável</strong>: Davi Brasileiro <strong>Story Points</strong>: 5</p>
+</li><li>
+<p><strong>Redefinir senha por e-mail</strong>: Nessa feature, o usuário deve ser capaz de requisitar a mudança de senha por link de e-mail, e a partir deste, fazer a mudança da senha.\ <strong>Responsável</strong>: Roberto Ribeiro <strong>Story Points</strong>: 10</p>
+
+<span id="label-Resultados-3A" class="legacy-anchor"></span>
+<h3 id="resultados"><a href="#resultados">Resultados:</a></h3>
+</li><li>
+<p><strong>Visualizar resultados</strong>: Nessa feature, o usuário (admin) deve ser capaz de visualizar o resultado para as avaliações criadas, quando acessá-las da página correspondente.\ <strong>Responsável</strong>: Davi Brasileiro <strong>Story Points</strong>: 3</p>
+
+<span id="label-Formul-C3-A1rio+-28avalia-C3-A7-C3-A3o-29-3A" class="legacy-anchor"></span>
+<h3 id="formulrio-avaliao"><a href="#formulrio-avaliao">Formulário (avaliação):</a></h3>
+</li><li>
+<p><strong>Criar formulário</strong>: Nessa feature, o usuário (admin) deve ser capaz de criar avaliações a partir de templates existentes, quando acessar a opção para tal.\ <strong>Responsável</strong>: Roberto Ribeiro <strong>Story Points</strong>: 5</p>
+</li><li>
+<p><strong>Ver formulário (preenchido)</strong>: Nessa feature, o usuário (admin) deve ser capaz de visualizar as avaliações criadas, quando acessar a página correspondente.\ <strong>Responsável</strong>: Roberto Ribeiro <strong>Story Points</strong>: 1</p>
+</li><li>
+<p><strong>Ver formulário (não preenchido)</strong>: Nessa feature, o usuário deve ser capaz de ver as avaliações que ainda não respondeu quando acessar a página associada.\ <strong>Responsável</strong>: Roberto Ribeiro <strong>Story Points</strong>: 3</p>
+</li><li>
+<p><strong>Responder formulário</strong>: Nessa feature, o usuário (discente) deve ser capaz de preencher as questões de múltipla escolha e discursivas de um formulário disponível e enviar as respostas para concluir sua avaliação.\ <strong>Responsável</strong>: Lucas Teles Leiro <strong>Story Points</strong>: 5</p>
+
+<span id="label-Login+-2F+Cadastro-3A" class="legacy-anchor"></span>
+<h3 id="login--cadastro"><a href="#login--cadastro">Login / Cadastro:</a></h3>
+</li><li>
+<p><strong>Realizar Login</strong>: Nessa feature, o usuário (admin / user) deve ser capaz de acessar a plataforma quando logar com e-mail e senha válidos.\ <strong>Responsável</strong>: Davi Brasileiro <strong>Story Points</strong>: 1</p>
+</li><li>
+<p><strong>Cadastrar usuários do sistema</strong>: Nessa feature, o usuário (admin) deve ser capaz de cadastrar novos usuários (docentes ou discentes) informando nome, matrícula, e-mail e perfil de acesso.\ <strong>Responsável</strong>: Lucas Teles Leiro <strong>Story Points</strong>: 5</p>
+
+<span id="label-Dados+-2F+requisi-C3-A7-C3-B5es+externas-3A" class="legacy-anchor"></span>
+<h3 id="dados--requisies-externas"><a href="#dados--requisies-externas">Dados / requisições externas:</a></h3>
+</li><li>
+<p><strong>Atualizar base de dados</strong>: Nessa feature, o usuário (admin) deve ser capaz de atualizar os dados de turmas e alunos com base no banco de dados do SIGAA.\ <strong>Responsável</strong>: Roberto Ribeiro <strong>Story Points</strong>: 10</p>
+</li><li>
+<p><strong>Gerenciar turmas do departamento</strong>: Nessa feature, o usuário (admin) deve ser capaz de gerenciar e de visualizar os dados das turmas que leciona quando associar as informações na página associada.\ <strong>Responsável</strong>: Roberto Ribeiro <strong>Story Points</strong>: 7</p>
+
+<span id="label-Estrat-C3-A9gia+de+branching-3A" class="legacy-anchor"></span>
+<h2 id="estratgia-de-branching"><a href="#estratgia-de-branching">Estratégia de <em>branching</em>:</a></h2>
+
+<p>Inicialmente, criar uma <em>branch</em> central para consolidação das tarefas da <em>sprint</em> 1. Após isso, foi feito uma <em>branch</em> por feature implementada, sendo gradualmente feito o <em>merge</em> na branch original, agindo como centro do repositório. Com isso, evitamos conflitos na implementação das <em>features</em> por parte de cada integrante, garantindo a coesão do resultado no <em>merge</em> para a visão consolidada dos resultados da <em>sprint</em>. Após fazer todos os “merges”, escolhemos deletar as branchs das features e deixar apenas a branch “feature-sprint-1” para deixar mais limpo e organizado.</p>
+</li></ul>
+
+<span id="label-Especifica-C3-A7-C3-B5es+da+Sprint+2-3A" class="legacy-anchor"></span>
+<h1 id="especificaes-da-sprint-2"><a href="#especificaes-da-sprint-2">Especificações da <em>Sprint</em> 2:</a></h1>
+
+<p><strong>Product Owner</strong>: Roberto Neto <strong>Scrum Master</strong>: Lucas Teles</p>
+
+<span id="label-Objetivos-3A" class="legacy-anchor"></span>
+<h2 id="objetivos"><a href="#objetivos">Objetivos:</a></h2>
+
+<span id="label-Implementar+os+passos+RSpec+para+defini-C3-A7-C3-A3o+dos+steps+de+teste-3A" class="legacy-anchor"></span>
+<h3 id="implementar-os-passos-rspec-para-definio-dos-steps-de-teste"><a href="#implementar-os-passos-rspec-para-definio-dos-steps-de-teste">Implementar os passos RSpec para definição dos steps de teste:</a></h3>
+
+<p>Aqui foram utilizados conceitos como <strong>mocks, seams e factories</strong> para aproveitar das funções da controladora na manipulação de entidades e recursos para os testes. Assim, tomou-se proveito de métodos como <em>find_or_create_by(:id)</em> para mockagem de dados, bem como métodos como <em>expect(content)</em> e <em>allow()</em> para tratar de comportamentos esperados de entidades envolvidas nas operações dos testes.</p>
+
+<span id="label-Implementar+a+arquitetura+MVC+no+Rails+seguindo+as+entidades+do+MER+proposto-2C+com+m-C3-A9todos+da+controladora+e+as+views+correspondentes-3A" class="legacy-anchor"></span>
+<h3 id="implementar-a-arquitetura-mvc-no-rails-seguindo-as-entidades-do-mer-proposto-com-mtodos-da-controladora-e-as-views-correspondentes"><a href="#implementar-a-arquitetura-mvc-no-rails-seguindo-as-entidades-do-mer-proposto-com-mtodos-da-controladora-e-as-views-correspondentes">Implementar a arquitetura MVC no Rails seguindo as entidades do MER proposto, com métodos da controladora e as views correspondentes:</a></h3>
+<ul><li>
+<p><strong>Modelos</strong>: Definição dos <em>schemas</em> das entidades considerando as hierarquias, relacionamentos e dependências.</p>
+</li><li>
+<p><strong>Controladoras</strong>: Implementação das funções CRUD para as entidades, observando a modularidade e consistência.</p>
+</li><li>
+<p><strong>Views</strong>: Uso do HTML + CSS + comportamento responsivo do rails por meio de funções como &lt;%=if =%&gt; e &lt;%=yield =%&gt; para maior personalização.</p>
+</li><li>
+<p><strong>Rotas</strong>: Uso do mecanismo padrão do rails para contrução automática de rotas e paths, com auxílio do <strong>Devise</strong> para autenticação e login facilitados.</p>
+</li></ul>
+
+<span id="label-Features+desenvolvidas-3A-1" class="legacy-anchor"></span>
+<h2 id="features-desenvolvidas-1"><a href="#features-desenvolvidas-1">Features desenvolvidas:</a></h2>
+
+<span id="label-Respons-C3-A1vel-3A+Lucas+Teles+Leiro" class="legacy-anchor"></span>
+<h3 id="responsvel-lucas-teles-leiro"><a href="#responsvel-lucas-teles-leiro">Responsável: Lucas Teles Leiro</a></h3>
+<ul><li>
+<p><strong>Sistema de gerenciamento por departamento (#16)</strong>: Implementação da regra de negócio que filtra a listagem de turmas para que os administradores visualizem apenas aquelas vinculadas ao seu respectivo departamento.</p>
+</li><li>
+<p><strong>Redefinição de senha (#15)</strong>: Implementação do fluxo para o usuário requisitar e efetuar a mudança de senha no sistema.</p>
+</li><li>
+<p><strong>Cadastrar usuários do sistema (#3)</strong>: Criação da interface e lógica para que administradores cadastrem novos usuários (docentes ou discentes) informando dados e perfil de acesso.</p>
+</li><li>
+<p><strong>Buscar template (#1)</strong>: Funcionalidade que permite ao usuário realizar buscas por templates existentes utilizando uma barra de pesquisa.</p>
+</li><li>
+<p><strong>Responder formulário (#2)</strong>: Funcionalidade para o discente preencher as questões de múltipla escolha e discursivas de um formulário e enviar as respostas.</p>
+</li></ul>
+
+<span id="label-Respons-C3-A1vel-3A+Davi+Brasileiro+Gomes" class="legacy-anchor"></span>
+<h3 id="responsvel-davi-brasileiro-gomes"><a href="#responsvel-davi-brasileiro-gomes">Responsável: Davi Brasileiro Gomes</a></h3>
+<ul><li>
+<p><strong>Login de usuários (#9)</strong>: Implementação do fluxo de sign-in com uso das rotas do Devise.</p>
+</li><li>
+<p><strong>Relatório do administrador (#6)</strong>: Implementação da opção de baixar um .csv contendo o relatório das respostas de formulários acessíveis pelo administrador do sistema.</p>
+</li><li>
+<p><strong>Criar formulário (#7)</strong>: Funcionalidade para criar um novo formulário a partir de um template já existente, para turmas dentro do contexto do administrador.</p>
+</li><li>
+<p><strong>Visualizar formulário para responder (#8)</strong>: Condição do usuário, que acessa a página de formulários para acessar aqueles que ainda vão ser respondidos, podendo selecioná-los.</p>
+</li><li>
+<p><strong>Importar dados do SIGAA (#4)</strong>: Capacidade de importar novos usuários a partir de arquivos .csv</p>
+</li><li>
+<p><strong>Visualização de templates criados</strong>: Visualizar os templates disponíveis</p>
+</li></ul>
+
+<span id="label-Respons-C3-A1vel-3A+Roberto+Ribeiro+Corr-C3-AAa+Neto" class="legacy-anchor"></span>
+<h3 id="responsvel-roberto-ribeiro-corra-neto"><a href="#responsvel-roberto-ribeiro-corra-neto">Responsável: Roberto Ribeiro Corrêa Neto</a></h3>
+<ul><li>
+<p><strong>Criar senha (#5)</strong>: Implementação do fluxo para o usuário criar uma senha ao acessar a plataforma pela primeira vez logando com o e-mail.</p>
+</li><li>
+<p><strong>Criar template de formulário (#10)</strong>: Criação de templates de formulários pelo administrador, definindo nome, tipo e a composição de questões.</p>
+</li><li>
+<p><strong>Edição e deleção de templates (#11)</strong>: Edição dos templates criados (informações próprias e composição de questões) e remoção de templates a partir da página do template.</p>
+</li><li>
+<p><strong>Criação de formulário para docentes ou discentes (#12)</strong>: Criação de formulários direcionados a docentes ou discentes a partir de templates existentes.</p>
+</li><li>
+<p><strong>Visualização de resultados dos formulários (#13)</strong>: Visualização do resultado das avaliações criadas a partir da página correspondente (view <code>formularios/resultados</code>).</p>
+</li><li>
+<p><strong>Atualizar base de dados com os dados do SIGAA (#14)</strong>: Atualização dos dados de turmas e alunos com base no banco do SIGAA, incluindo o serviço <code>app/services/sigaa_importer.rb</code>.</p>
+</li></ul>
+
+<span id="label-Estrat-C3-A9gia+de+branching-3A-1" class="legacy-anchor"></span>
+<h2 id="estratgia-de-branching-1"><a href="#estratgia-de-branching-1">Estratégia de <em>branching</em>:</a></h2>
+
+<p>Para a Sprint 2, consolidamos as implementações na branch <code>sprint-2</code>. Os merges foram realizados e testados localmente, garantindo a integridade do sistema e a resolução de conflitos (incluindo chaves do Rails). [cite_start]Todos os testes RSpec [cite: 7] [cite_start]foram validados com 100% de sucesso antes da abertura do Pull Request[cite: 16].</p>
+
+</main>
+
+<aside class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 7.2.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+

@@ -1,0 +1,2 @@
+module TurmasHelper #:nodoc:
+end

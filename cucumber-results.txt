@@ -1,0 +1,844 @@
+Feature: Answer evaluation form
+  As a student of the CAMAAR system
+  I want to fill in and submit the answers of an evaluation form
+  So that I can complete my evaluation of the subject
+
+  Background:                                                                                                                                                                                # features/answerable_forms/answer_evaluation_form.feature:6
+    Given I am logged in as a student user                                                                                                                                                   # features/step_definitions/answer_evaluation_form_steps.rb:39
+    And There is an evaluation form named "Avaliação de Disciplina - Engenharia de Software" for the class "Engenharia de Software", with code "CIC0105", class code "TA", semester "2021.2" # features/step_definitions/answer_evaluation_form_steps.rb:1
+    And I navigate to the forms page                                                                                                                                                         # features/step_definitions/view_forms_steps.rb:17
+    And I access the "Avaliação de Disciplina - Engenharia de Software" forms page                                                                                                           # features/step_definitions/answer_evaluation_form_steps.rb:16
+
+  Scenario: [Happy Path] Submit form with all answers filled in                    # features/answerable_forms/answer_evaluation_form.feature:12
+    When I fill the multiple choice question with "Excelente"                      # features/step_definitions/answer_evaluation_form_steps.rb:53
+    And I fill the open-ended question with "O conteúdo foi muito bem ministrado." # features/step_definitions/answer_evaluation_form_steps.rb:57
+    And I click the "Enviar Respostas" button                                      # features/step_definitions/answer_evaluation_form_steps.rb:61
+    Then the system should record my answers                                       # features/step_definitions/answer_evaluation_form_steps.rb:65
+    And I should be redirected to the forms page                                   # features/step_definitions/answer_evaluation_form_steps.rb:73
+    And I should see the message "Respostas enviadas. Obrigado!"                   # features/step_definitions/view_forms_steps.rb:31
+
+  Scenario: [Sad Path] Attempt to submit with required questions left blank        # features/answerable_forms/answer_evaluation_form.feature:20
+    When I fill the multiple choice question with "Excelente"                      # features/step_definitions/answer_evaluation_form_steps.rb:53
+    And I leave the open-ended question blank                                      # features/step_definitions/answer_evaluation_form_steps.rb:80
+    And I click the "Enviar Respostas" button                                      # features/step_definitions/answer_evaluation_form_steps.rb:61
+    Then I should see the message "Existem questões obrigatórias não respondidas." # features/step_definitions/view_forms_steps.rb:31
+
+Feature: Initial import of SIGAA data
+  As an Administrator
+  I want to import class, subject and participant data from SIGAA if it does not exist in the database
+  So that I can populate the system database
+
+  Background:                                           # features/data/import_sigaa.feature:6
+    Given I am logged in as the "Administrador" profile # features/step_definitions/register_users_steps.rb:1
+    And the system database is empty                    # features/step_definitions/import_sigaa_steps.rb:1
+    And I navigate to the "Importação SIGAA" page       # features/step_definitions/import_sigaa_steps.rb:7
+
+  Scenario: [Happy Path] Import non-existent SIGAA data                                 # features/data/import_sigaa.feature:11
+    Given a valid SIGAA file with classes, subjects and participants is available       # features/step_definitions/import_sigaa_steps.rb:14
+    When I upload the SIGAA import file                                                 # features/step_definitions/import_sigaa_steps.rb:18
+    And I click the "Importar e Enviar Convites" button                                 # features/step_definitions/answer_evaluation_form_steps.rb:61
+    Then the system should create the classes in the database                           # features/step_definitions/import_sigaa_steps.rb:22
+      expected: > 0
+           got:   0 (RSpec::Expectations::ExpectationNotMetError)
+      ./features/step_definitions/import_sigaa_steps.rb:23:in `"the system should create the classes in the database"'
+      features/data/import_sigaa.feature:15:in `the system should create the classes in the database'
+    And the system should create the subjects in the database                           # features/step_definitions/import_sigaa_steps.rb:26
+    And the system should create the participants in the database                       # features/step_definitions/import_sigaa_steps.rb:30
+    And I should see the message "Usuários importados e convites enviados com sucesso!" # features/step_definitions/view_forms_steps.rb:31
+
+  Scenario: Ignore already existing records during import                               # features/data/import_sigaa.feature:20
+    Given the class "CIC0097" already exists in the system                              # features/step_definitions/import_sigaa_steps.rb:34
+    And a valid SIGAA file containing the class "CIC0097" is available                  # features/step_definitions/import_sigaa_steps.rb:41
+    When I upload the SIGAA import file                                                 # features/step_definitions/import_sigaa_steps.rb:18
+    And I click the "Importar e Enviar Convites" button                                 # features/step_definitions/answer_evaluation_form_steps.rb:61
+    Then the class "CIC0097" should not be duplicated in the database                   # features/step_definitions/import_sigaa_steps.rb:45
+    Then I should be on the home page                                                   # features/step_definitions/import_sigaa_steps.rb:49
+      expected "/users" to equal "/" (RSpec::Expectations::ExpectationNotMetError)
+      ./features/step_definitions/import_sigaa_steps.rb:50:in `"I should be on the home page"'
+      features/data/import_sigaa.feature:26:in `I should be on the home page'
+    And I should see the message "Usuários importados e convites enviados com sucesso!" # features/step_definitions/view_forms_steps.rb:31
+
+Feature: Manage classes of own department
+  As an Administrator
+  I want to manage only the classes of the department I belong to
+  So that I can evaluate the performance of the classes in the current semester
+
+  Background:                                                                                         # features/data/manage_department_classes.feature:6
+    Given I am logged in as an admin user from the department "Departamento de Ciência da Computação" # features/step_definitions/manage_department_classes_steps.rb:1
+    And the current semester is "2026.1"                                                              # features/step_definitions/manage_department_classes_steps.rb:13
+    And the following classes exist:                                                                  # features/step_definitions/manage_department_classes_steps.rb:17
+      | code      | name                       | department                                    | semester |
+      | CIC0097   | Engenharia de Software     | Departamento de Ciência da Computação         | 2026.1   |
+      | CIC0124   | Banco de Dados             | Departamento de Ciência da Computação         | 2026.1   |
+      | MAT0025   | Cálculo 1                  | Departamento de Matemática                    | 2026.1   |
+      | FGA0158   | Estruturas de Dados        | Departamento de Engenharias                   | 2026.1   |
+      undefined method `department=' for an instance of Turma (NoMethodError)
+      ./features/step_definitions/manage_department_classes_steps.rb:22:in `block (3 levels) in <main>'
+      ./features/step_definitions/manage_department_classes_steps.rb:20:in `block (2 levels) in <main>'
+      ./features/step_definitions/manage_department_classes_steps.rb:19:in `each'
+      ./features/step_definitions/manage_department_classes_steps.rb:19:in `"the following classes exist:"'
+      features/data/manage_department_classes.feature:9:in `the following classes exist:'
+
+  Scenario: View only classes from own department                  # features/data/manage_department_classes.feature:16
+    When I navigate to the classes management page                 # features/step_definitions/manage_department_classes_steps.rb:28
+    Then I should see the class "CIC0097 - Engenharia de Software" # features/step_definitions/manage_department_classes_steps.rb:32
+    And I should see the class "CIC0124 - Banco de Dados"          # features/step_definitions/manage_department_classes_steps.rb:32
+    And I should not see the class "MAT0025 - Cálculo 1"           # features/step_definitions/manage_department_classes_steps.rb:36
+    And I should not see the class "FGA0158 - Estruturas de Dados" # features/step_definitions/manage_department_classes_steps.rb:36
+
+  Scenario: Filter classes by current semester                                     # features/data/manage_department_classes.feature:23
+    And the following classes exist:                                               # features/step_definitions/manage_department_classes_steps.rb:17
+      | code      | name                       | department                                    | semester |
+      | CIC0097   | Engenharia de Software     | Departamento de Ciência da Computação         | 2026.1   |
+      | CIC0124   | Banco de Dados             | Departamento de Ciência da Computação         | 2026.1   |
+      | MAT0025   | Cálculo 1                  | Departamento de Matemática                    | 2026.1   |
+      | FGA0158   | Estruturas de Dados        | Departamento de Engenharias                   | 2026.1   |
+      undefined method `department=' for an instance of Turma (NoMethodError)
+      ./features/step_definitions/manage_department_classes_steps.rb:22:in `block (3 levels) in <main>'
+      ./features/step_definitions/manage_department_classes_steps.rb:20:in `block (2 levels) in <main>'
+      ./features/step_definitions/manage_department_classes_steps.rb:19:in `each'
+      ./features/step_definitions/manage_department_classes_steps.rb:19:in `"the following classes exist:"'
+      features/data/manage_department_classes.feature:9:in `the following classes exist:'
+    When I navigate to the classes management page                                 # features/step_definitions/manage_department_classes_steps.rb:28
+    Then I should see only classes from semester "2026.1"                          # features/step_definitions/manage_department_classes_steps.rb:40
+    And each listed class should belong to "Departamento de Ciência da Computação" # features/step_definitions/manage_department_classes_steps.rb:45
+
+  Scenario: View details of a class from own department                 # features/data/manage_department_classes.feature:28
+    And the following classes exist:                                    # features/step_definitions/manage_department_classes_steps.rb:17
+      | code      | name                       | department                                    | semester |
+      | CIC0097   | Engenharia de Software     | Departamento de Ciência da Computação         | 2026.1   |
+      | CIC0124   | Banco de Dados             | Departamento de Ciência da Computação         | 2026.1   |
+      | MAT0025   | Cálculo 1                  | Departamento de Matemática                    | 2026.1   |
+      | FGA0158   | Estruturas de Dados        | Departamento de Engenharias                   | 2026.1   |
+      undefined method `department=' for an instance of Turma (NoMethodError)
+      ./features/step_definitions/manage_department_classes_steps.rb:22:in `block (3 levels) in <main>'
+      ./features/step_definitions/manage_department_classes_steps.rb:20:in `block (2 levels) in <main>'
+      ./features/step_definitions/manage_department_classes_steps.rb:19:in `each'
+      ./features/step_definitions/manage_department_classes_steps.rb:19:in `"the following classes exist:"'
+      features/data/manage_department_classes.feature:9:in `the following classes exist:'
+    When I navigate to the classes management page                      # features/step_definitions/manage_department_classes_steps.rb:28
+    And I click on the class "CIC0097 - Engenharia de Software"         # features/step_definitions/manage_department_classes_steps.rb:51
+    Then I should see the details of "CIC0097 - Engenharia de Software" # features/step_definitions/template_steps.rb:56
+    And I should see the list of enrolled students                      # features/step_definitions/manage_department_classes_steps.rb:55
+    And I should see the assigned professor                             # features/step_definitions/manage_department_classes_steps.rb:59
+
+  Scenario: Edit a class from own department                                            # features/data/manage_department_classes.feature:35
+    And the following classes exist:                                                    # features/step_definitions/manage_department_classes_steps.rb:17
+      | code      | name                       | department                                    | semester |
+      | CIC0097   | Engenharia de Software     | Departamento de Ciência da Computação         | 2026.1   |
+      | CIC0124   | Banco de Dados             | Departamento de Ciência da Computação         | 2026.1   |
+      | MAT0025   | Cálculo 1                  | Departamento de Matemática                    | 2026.1   |
+      | FGA0158   | Estruturas de Dados        | Departamento de Engenharias                   | 2026.1   |
+      undefined method `department=' for an instance of Turma (NoMethodError)
+      ./features/step_definitions/manage_department_classes_steps.rb:22:in `block (3 levels) in <main>'
+      ./features/step_definitions/manage_department_classes_steps.rb:20:in `block (2 levels) in <main>'
+      ./features/step_definitions/manage_department_classes_steps.rb:19:in `each'
+      ./features/step_definitions/manage_department_classes_steps.rb:19:in `"the following classes exist:"'
+      features/data/manage_department_classes.feature:9:in `the following classes exist:'
+    When I navigate to the classes management page                                      # features/step_definitions/manage_department_classes_steps.rb:28
+    And I click on "Edit" for the class "CIC0124 - Banco de Dados"                      # features/step_definitions/manage_department_classes_steps.rb:63
+    And I update the professor to "Profa. Maria Silva"                                  # features/step_definitions/manage_department_classes_steps.rb:67
+    And I click on "Save"                                                               # features/step_definitions/manage_department_classes_steps.rb:77
+    Then I should see a confirmation message "Turma atualizada com sucesso"             # features/step_definitions/redefine_password_from_email_steps.rb:34
+    And the class "CIC0124 - Banco de Dados" should have professor "Profa. Maria Silva" # features/step_definitions/manage_department_classes_steps.rb:71
+
+  Scenario: Forbid access to a class from another department                           # features/data/manage_department_classes.feature:43
+    And the following classes exist:                                                   # features/step_definitions/manage_department_classes_steps.rb:17
+      | code      | name                       | department                                    | semester |
+      | CIC0097   | Engenharia de Software     | Departamento de Ciência da Computação         | 2026.1   |
+      | CIC0124   | Banco de Dados             | Departamento de Ciência da Computação         | 2026.1   |
+      | MAT0025   | Cálculo 1                  | Departamento de Matemática                    | 2026.1   |
+      | FGA0158   | Estruturas de Dados        | Departamento de Engenharias                   | 2026.1   |
+      undefined method `department=' for an instance of Turma (NoMethodError)
+      ./features/step_definitions/manage_department_classes_steps.rb:22:in `block (3 levels) in <main>'
+      ./features/step_definitions/manage_department_classes_steps.rb:20:in `block (2 levels) in <main>'
+      ./features/step_definitions/manage_department_classes_steps.rb:19:in `each'
+      ./features/step_definitions/manage_department_classes_steps.rb:19:in `"the following classes exist:"'
+      features/data/manage_department_classes.feature:9:in `the following classes exist:'
+    When I try to access the management page of the class "MAT0025"                    # features/step_definitions/manage_department_classes_steps.rb:81
+    Then I should see an error message "Acesso negado: turma fora do seu departamento" # features/step_definitions/redefine_password_from_email_steps.rb:38
+    And I should be redirected to the classes management page                          # features/step_definitions/manage_department_classes_steps.rb:85
+
+  Scenario: View empty classes list when department has no classes in current semester               # features/data/manage_department_classes.feature:48
+    And the following classes exist:                                                                 # features/step_definitions/manage_department_classes_steps.rb:17
+      | code      | name                       | department                                    | semester |
+      | CIC0097   | Engenharia de Software     | Departamento de Ciência da Computação         | 2026.1   |
+      | CIC0124   | Banco de Dados             | Departamento de Ciência da Computação         | 2026.1   |
+      | MAT0025   | Cálculo 1                  | Departamento de Matemática                    | 2026.1   |
+      | FGA0158   | Estruturas de Dados        | Departamento de Engenharias                   | 2026.1   |
+      undefined method `department=' for an instance of Turma (NoMethodError)
+      ./features/step_definitions/manage_department_classes_steps.rb:22:in `block (3 levels) in <main>'
+      ./features/step_definitions/manage_department_classes_steps.rb:20:in `block (2 levels) in <main>'
+      ./features/step_definitions/manage_department_classes_steps.rb:19:in `each'
+      ./features/step_definitions/manage_department_classes_steps.rb:19:in `"the following classes exist:"'
+      features/data/manage_department_classes.feature:9:in `the following classes exist:'
+    Given the department "Departamento de Ciência da Computação" has no classes in semester "2026.1" # features/step_definitions/manage_department_classes_steps.rb:89
+    When I navigate to the classes management page                                                   # features/step_definitions/manage_department_classes_steps.rb:28
+    Then I should see a message "Nenhuma turma encontrada para o semestre atual"                     # features/data/manage_department_classes.feature:51
+
+Feature: Updating the database with current SIGAA data
+
+  Background:                             # features/data/update_database.feature:3
+    Given I am logged in as an admin user # features/step_definitions/template_steps.rb:1
+    And I am on the dashboard page        # features/step_definitions/template_steps.rb:32
+
+  Scenario: Successfully import current SIGAA data                                  # features/data/update_database.feature:7
+    Given a valid SIGAA data file is available                                      # features/step_definitions/update_database_steps.rb:1
+    When I navigate to the admin import page                                        # features/step_definitions/update_database_steps.rb:9
+      Unable to find link "Importar Dados do SIGAA" (Capybara::ElementNotFound)
+      ./features/step_definitions/update_database_steps.rb:10:in `"I navigate to the admin import page"'
+      features/data/update_database.feature:9:in `I navigate to the admin import page'
+    And I upload the SIGAA data file                                                # features/step_definitions/update_database_steps.rb:13
+    And I click on "Update Database"                                                # features/step_definitions/manage_department_classes_steps.rb:77
+    Then I should see a confirmation message "Base de dados atualizada com sucesso" # features/step_definitions/redefine_password_from_email_steps.rb:34
+    And the system data should reflect the new SIGAA information                    # features/step_definitions/update_database_steps.rb:17
+
+  Scenario: Update preserves existing forms and templates                           # features/data/update_database.feature:15
+    Given I have created a template with the name "Template Existente"              # features/data/update_database.feature:16
+    And I have created a form called "Formulário Existente"                         # features/step_definitions/view_forms_steps.rb:1
+    And a valid SIGAA data file is available                                        # features/step_definitions/update_database_steps.rb:1
+    When I navigate to the admin import page                                        # features/step_definitions/update_database_steps.rb:9
+    And I upload the SIGAA data file                                                # features/step_definitions/update_database_steps.rb:13
+    And I click on "Update Database"                                                # features/step_definitions/manage_department_classes_steps.rb:77
+    Then I should see a confirmation message "Base de dados atualizada com sucesso" # features/step_definitions/redefine_password_from_email_steps.rb:34
+    And the template "Template Existente" should still exist                        # features/step_definitions/update_database_steps.rb:21
+    And the form "Formulário Existente" should still exist                          # features/step_definitions/update_database_steps.rb:26
+
+  Scenario: Fail to update with invalid SIGAA file              # features/data/update_database.feature:26
+    Given an invalid SIGAA data file is available               # features/step_definitions/update_database_steps.rb:5
+    When I navigate to the admin import page                    # features/step_definitions/update_database_steps.rb:9
+      Unable to find link "Importar Dados do SIGAA" (Capybara::ElementNotFound)
+      ./features/step_definitions/update_database_steps.rb:10:in `"I navigate to the admin import page"'
+      features/data/update_database.feature:28:in `I navigate to the admin import page'
+    And I upload the SIGAA data file                            # features/step_definitions/update_database_steps.rb:13
+    And I click on "Update Database"                            # features/step_definitions/manage_department_classes_steps.rb:77
+    Then I should see an error message "Arquivo SIGAA inválido" # features/step_definitions/redefine_password_from_email_steps.rb:38
+    And the database should remain unchanged                    # features/step_definitions/update_database_steps.rb:31
+
+Feature: Creating a form from a template
+
+  Background:                                                           # features/form/create_form.feature:3
+    Given I am logged in as an admin user                               # features/step_definitions/template_steps.rb:1
+    And I am on the dashboard page                                      # features/step_definitions/template_steps.rb:32
+    And a class "CIC0105 - ENGENHARIA DE SOFTWARE (TA - 2021.2)" exists # features/step_definitions/create_form_steps.rb:5
+    And I have created a template with the name Avaliação de Disciplina # features/step_definitions/template_steps.rb:16
+    And I have created a template with the name Avaliação de Docente    # features/step_definitions/template_steps.rb:24
+
+  Scenario: Create form for teachers of a class                               # features/form/create_form.feature:10
+    When I navigate to the forms page                                         # features/step_definitions/view_forms_steps.rb:17
+    And I follow "Novo Formulário"                                            # features/step_definitions/create_form_steps.rb:17
+    Then I should see the form creation page                                  # features/step_definitions/create_form_steps.rb:21
+    And I select the class "CIC0105 - ENGENHARIA DE SOFTWARE (TA - 2021.2)"   # features/step_definitions/create_form_steps.rb:1
+    And I choose the template "Avaliação de Docente"                          # features/step_definitions/create_form_steps.rb:13
+    And I click on "Criar Formulário"                                         # features/step_definitions/manage_department_classes_steps.rb:77
+    Then I should see a confirmation message "Formulário criado com sucesso." # features/step_definitions/redefine_password_from_email_steps.rb:34
+
+  Scenario: Create form for evaluation of a class                             # features/form/create_form.feature:19
+    When I navigate to the forms page                                         # features/step_definitions/view_forms_steps.rb:17
+    And I follow "Novo Formulário"                                            # features/step_definitions/create_form_steps.rb:17
+    Then I should see the form creation page                                  # features/step_definitions/create_form_steps.rb:21
+    And I select the class "CIC0105 - ENGENHARIA DE SOFTWARE (TA - 2021.2)"   # features/step_definitions/create_form_steps.rb:1
+    And I choose the template "Avaliação de Disciplina"                       # features/step_definitions/create_form_steps.rb:13
+    And I click on "Criar Formulário"                                         # features/step_definitions/manage_department_classes_steps.rb:77
+    Then I should see a confirmation message "Formulário criado com sucesso." # features/step_definitions/redefine_password_from_email_steps.rb:34
+
+  Scenario: Fail to create form without selecting audience                           # features/form/create_form.feature:28
+    When I navigate to the forms page                                                # features/step_definitions/view_forms_steps.rb:17
+    And I follow "Novo Formulário"                                                   # features/step_definitions/create_form_steps.rb:17
+    Then I should see the form creation page                                         # features/step_definitions/create_form_steps.rb:21
+    And I choose the template "Avaliação de Disciplina"                              # features/step_definitions/create_form_steps.rb:13
+    And I click on "Criar Formulário"                                                # features/step_definitions/manage_department_classes_steps.rb:77
+    Then I should see an error message "Selecione um template e ao menos uma turma." # features/step_definitions/redefine_password_from_email_steps.rb:38
+
+Feature: Viewing created forms
+
+  Background:                             # features/form/view_forms.feature:3
+    Given I am logged in as an admin user # features/step_definitions/template_steps.rb:1
+    And I am on the dashboard page        # features/step_definitions/template_steps.rb:32
+
+  Scenario: View list of created forms                            # features/form/view_forms.feature:7
+    Given I have created a form called "Avaliação Docente 2026.1" # features/step_definitions/view_forms_steps.rb:1
+    And I have created a form called "Avaliação Discente 2026.1"  # features/step_definitions/view_forms_steps.rb:1
+    When I navigate to the forms page                             # features/step_definitions/view_forms_steps.rb:17
+    Then I should see a list of created forms                     # features/step_definitions/view_forms_steps.rb:21
+    And the list should include "Avaliação Docente 2026.1"        # features/step_definitions/template_steps.rb:36
+    And the list should include "Avaliação Discente 2026.1"       # features/step_definitions/template_steps.rb:36
+
+  Scenario: View form details to generate a report                # features/form/view_forms.feature:15
+    Given I have created a form called "Avaliação Docente 2026.1" # features/step_definitions/view_forms_steps.rb:1
+    When I navigate to the forms page                             # features/step_definitions/view_forms_steps.rb:17
+    And I click on the form named "Avaliação Docente 2026.1"      # features/step_definitions/view_forms_steps.rb:25
+    Then I should see the responses of "Avaliação Docente 2026.1" # features/step_definitions/view_forms_steps.rb:35
+    And I should see an option to "Baixar relatório (CSV)"        # features/step_definitions/redefine_password_from_email_steps.rb:63
+
+  Scenario: View empty forms list                            # features/form/view_forms.feature:22
+    When I navigate to the forms page                        # features/step_definitions/view_forms_steps.rb:17
+    Then I should see the message "Nenhum formulário criado" # features/step_definitions/view_forms_steps.rb:31
+
+Feature: Participant viewing unanswered forms
+
+  Background:                                                     # features/form/view_unanswered_forms.feature:3
+    Given I am logged in as a participant user                    # features/step_definitions/view_unanswered_forms_steps.rb:1
+    And I am enrolled in the class "Engenharia de Software - T01" # features/step_definitions/view_unanswered_forms_steps.rb:15
+    And I am enrolled in the class "Banco de Dados - T02"         # features/step_definitions/view_unanswered_forms_steps.rb:15
+
+  Scenario: View unanswered forms from enrolled classes                                                                                                                                        # features/form/view_unanswered_forms.feature:8
+    Given There is an evaluation form named "Avaliação de Disciplina - Engenharia de Software" for the class "Engenharia de Software", with code "CIC0105", class code "TA", semester "2021.2" # features/step_definitions/answer_evaluation_form_steps.rb:1
+    And There is an evaluation form named "Avaliação de Disciplina - Banco de Dados" for the class "Banco de Dados", with code "CIC0105", class code "BD", semester "2021.2"                   # features/step_definitions/answer_evaluation_form_steps.rb:1
+    When I navigate to the forms page                                                                                                                                                          # features/step_definitions/view_forms_steps.rb:17
+    Then I should see a list of unanswered forms                                                                                                                                               # features/step_definitions/view_unanswered_forms_steps.rb:54
+
+  Scenario: Answered forms should not appear in unanswered list                                                      # features/form/view_unanswered_forms.feature:14
+    Given I have already answered the form "Avaliação de Disciplina - Banco de Dados" for the class "Banco de Dados" # features/step_definitions/view_unanswered_forms_steps.rb:20
+    When I navigate to the forms page                                                                                # features/step_definitions/view_forms_steps.rb:17
+    Then the list should not include "Avaliação de Disciplina - Banco de Dados" within "Pendentes"                   # features/step_definitions/delete_template_steps.rb:9
+
+  Scenario: Forms from non-enrolled classes are not visible                                                                                       # features/form/view_unanswered_forms.feature:19
+    Given There is an evaluation form named "Avaliação Externa" for the class "Cálculo I", with code "MAT101", class code "TC", semester "2021.2" # features/step_definitions/answer_evaluation_form_steps.rb:1
+    When I navigate to the forms page                                                                                                             # features/step_definitions/view_forms_steps.rb:17
+    Then the list should not include "Avaliação Externa" within "Pendentes"                                                                       # features/step_definitions/delete_template_steps.rb:9
+
+  Scenario: Select a form to answer                                                                                                                                                            # features/form/view_unanswered_forms.feature:24
+    Given There is an evaluation form named "Avaliação de Disciplina - Engenharia de Software" for the class "Engenharia de Software", with code "CIC0105", class code "TA", semester "2021.2" # features/step_definitions/answer_evaluation_form_steps.rb:1
+    When I navigate to the forms page                                                                                                                                                          # features/step_definitions/view_forms_steps.rb:17
+    And I access the "Avaliação de Disciplina - Engenharia de Software" forms page                                                                                                             # features/step_definitions/answer_evaluation_form_steps.rb:16
+    Then I should see the questions of "Avaliação de Disciplina - Engenharia de Software"                                                                                                      # features/step_definitions/view_unanswered_forms_steps.rb:58
+
+Feature: User Login
+
+  Scenario: Successful Login                                   # features/login/login.feature:3
+    Given the user is on the login page                        # features/step_definitions/login_steps.rb:1
+    When the user fills "valid_username" in the username field # features/login/login.feature:5
+    And the user fills "valid_password" in the password field  # features/login/login.feature:6
+    Then the user should be redirected to the dashboard        # features/step_definitions/login_steps.rb:14
+
+  Scenario: Unsuccessful Login                                                    # features/login/login.feature:9
+    Given the user is on the login page                                           # features/step_definitions/login_steps.rb:1
+    When the user fills "invalid_username" in the username field                  # features/login/login.feature:11
+    And the user fills "invalid_password" in the password field                   # features/login/login.feature:12
+    Then an error message should be displayed with "Invalid username or password" # features/login/login.feature:13
+
+  Scenario: Empty Fields                                                    # features/login/login.feature:15
+    Given the user is on the login page                                     # features/step_definitions/login_steps.rb:1
+    When the user leaves "username" field empty                             # features/login/login.feature:17
+    And the user leaves "password" field empty                              # features/login/login.feature:18
+    Then an error message should be displayed with "Fields cannot be empty" # features/login/login.feature:19
+
+Feature: Login with email or registration number and admin menu display
+  As a System User
+  I want to log in with email or registration number and an already registered password
+  So that I can answer forms or manage the system
+
+  Note: When the logged-in user is an admin, the management option appears in the side menu.
+
+  Background:                           # features/login/login_with_admin_menu.feature:8
+    Given I am on the CAMAAR login page # features/step_definitions/login_with_admin_menu_steps.rb:1
+
+  Scenario: [Happy Path] Login with valid email                                  # features/login/login_with_admin_menu.feature:11
+    Given a regular user exists with email "user@unb.br" and password "Senha123" # features/step_definitions/login_with_admin_menu_steps.rb:5
+    When I fill the identification field with "user@unb.br"                      # features/step_definitions/login_with_admin_menu_steps.rb:23
+    And I fill the password field with "Senha123"                                # features/step_definitions/login_with_admin_menu_steps.rb:27
+    And I click the "Login" button                                               # features/step_definitions/answer_evaluation_form_steps.rb:61
+      Unable to find button "Login" that is not disabled (Capybara::ElementNotFound)
+      ./features/step_definitions/answer_evaluation_form_steps.rb:62:in `"I click the {string} button"'
+      features/login/login_with_admin_menu.feature:15:in `I click the "Login" button'
+    Then I should be redirected to the CAMAAR dashboard                          # features/step_definitions/login_with_admin_menu_steps.rb:32
+
+  Scenario: Admin menu visible for admin                                             # features/login/login_with_admin_menu.feature:18
+    Given an administrator exists with email "admin@unb.br" and password "AdminPass" # features/step_definitions/login_with_admin_menu_steps.rb:14
+    When I fill the identification field with "admin@unb.br"                         # features/step_definitions/login_with_admin_menu_steps.rb:23
+    And I fill the password field with "AdminPass"                                   # features/step_definitions/login_with_admin_menu_steps.rb:27
+    And I click the "Login" button                                                   # features/step_definitions/answer_evaluation_form_steps.rb:61
+      Unable to find button "Login" that is not disabled (Capybara::ElementNotFound)
+      ./features/step_definitions/answer_evaluation_form_steps.rb:62:in `"I click the {string} button"'
+      features/login/login_with_admin_menu.feature:22:in `I click the "Login" button'
+    Then I should see the "Management" option in the side menu                       # features/step_definitions/login_with_admin_menu_steps.rb:36
+
+  Scenario: Admin menu hidden for regular user                                   # features/login/login_with_admin_menu.feature:25
+    Given a regular user exists with email "user@unb.br" and password "Senha123" # features/step_definitions/login_with_admin_menu_steps.rb:5
+    When I fill the identification field with "user@unb.br"                      # features/step_definitions/login_with_admin_menu_steps.rb:23
+    And I fill the password field with "Senha123"                                # features/step_definitions/login_with_admin_menu_steps.rb:27
+    And I click the "Login" button                                               # features/step_definitions/answer_evaluation_form_steps.rb:61
+      Unable to find button "Login" that is not disabled (Capybara::ElementNotFound)
+      ./features/step_definitions/answer_evaluation_form_steps.rb:62:in `"I click the {string} button"'
+      features/login/login_with_admin_menu.feature:29:in `I click the "Login" button'
+    Then I should not see the "Management" option in the side menu               # features/step_definitions/login_with_admin_menu_steps.rb:40
+
+  Scenario: [Sad Path] Invalid credentials                                # features/login/login_with_admin_menu.feature:32
+    When I fill the identification field with "user@unb.br"               # features/step_definitions/login_with_admin_menu_steps.rb:23
+    And I fill the password field with "SenhaErrada"                      # features/step_definitions/login_with_admin_menu_steps.rb:27
+    And I click the "Login" button                                        # features/step_definitions/answer_evaluation_form_steps.rb:61
+      Unable to find button "Login" that is not disabled (Capybara::ElementNotFound)
+      ./features/step_definitions/answer_evaluation_form_steps.rb:62:in `"I click the {string} button"'
+      features/login/login_with_admin_menu.feature:35:in `I click the "Login" button'
+    Then I should see the error message "Identificação ou senha inválida" # features/step_definitions/register_users_steps.rb:37
+
+Feature: Redefine password from email link
+  As a User
+  I want to redefine my password from the email received after requesting a password change
+  So that I can recover my access to the system
+
+  Background:                                                         # features/password/redefine_password_from_email.feature:6
+    Given I have a registered account with the email "usuario@unb.br" # features/step_definitions/redefine_password_from_email_steps.rb:1
+    And I have requested a password reset for "usuario@unb.br"        # features/step_definitions/redefine_password_from_email_steps.rb:6
+    And I have received the reset link in my email                    # features/step_definitions/redefine_password_from_email_steps.rb:13
+
+  Scenario: Redefine password successfully from email link                  # features/password/redefine_password_from_email.feature:11
+    When I access the reset link from my email                              # features/step_definitions/redefine_password_from_email_steps.rb:17
+      No route matches [GET] "/password/edit" (ActionController::RoutingError)
+      ./features/step_definitions/redefine_password_from_email_steps.rb:18:in `"I access the reset link from my email"'
+      features/password/redefine_password_from_email.feature:12:in `I access the reset link from my email'
+    And I fill in the new password field with "NovaSenha123"                # features/step_definitions/redefine_password_from_email_steps.rb:25
+    And I fill in the confirmation field with "NovaSenha123"                # features/step_definitions/redefine_password_from_email_steps.rb:30
+    And I click on "Reset Password"                                         # features/step_definitions/manage_department_classes_steps.rb:77
+    Then I should see a confirmation message "Senha redefinida com sucesso" # features/step_definitions/redefine_password_from_email_steps.rb:34
+    And I should be redirected to the login page                            # features/step_definitions/redefine_password_from_email_steps.rb:42
+    And I should be able to log in with "usuario@unb.br" and "NovaSenha123" # features/step_definitions/redefine_password_from_email_steps.rb:46
+
+  Scenario: Fail to redefine password with mismatched confirmation # features/password/redefine_password_from_email.feature:20
+    When I access the reset link from my email                     # features/step_definitions/redefine_password_from_email_steps.rb:17
+      No route matches [GET] "/password/edit" (ActionController::RoutingError)
+      ./features/step_definitions/redefine_password_from_email_steps.rb:18:in `"I access the reset link from my email"'
+      features/password/redefine_password_from_email.feature:21:in `I access the reset link from my email'
+    And I fill in the new password field with "NovaSenha123"       # features/step_definitions/redefine_password_from_email_steps.rb:25
+    And I fill in the confirmation field with "OutraSenha456"      # features/step_definitions/redefine_password_from_email_steps.rb:30
+    And I click on "Reset Password"                                # features/step_definitions/manage_department_classes_steps.rb:77
+    Then I should see an error message "As senhas não coincidem"   # features/step_definitions/redefine_password_from_email_steps.rb:38
+    And my password should remain unchanged                        # features/step_definitions/redefine_password_from_email_steps.rb:54
+
+  Scenario: Fail to redefine password with weak password                         # features/password/redefine_password_from_email.feature:28
+    When I access the reset link from my email                                   # features/step_definitions/redefine_password_from_email_steps.rb:17
+      No route matches [GET] "/password/edit" (ActionController::RoutingError)
+      ./features/step_definitions/redefine_password_from_email_steps.rb:18:in `"I access the reset link from my email"'
+      features/password/redefine_password_from_email.feature:29:in `I access the reset link from my email'
+    And I fill in the new password field with "123"                              # features/step_definitions/redefine_password_from_email_steps.rb:25
+    And I fill in the confirmation field with "123"                              # features/step_definitions/redefine_password_from_email_steps.rb:30
+    And I click on "Reset Password"                                              # features/step_definitions/manage_department_classes_steps.rb:77
+    Then I should see an error message "Senha não atende aos requisitos mínimos" # features/step_definitions/redefine_password_from_email_steps.rb:38
+
+  Scenario: Fail to use an expired reset link                         # features/password/redefine_password_from_email.feature:35
+    Given the reset link has expired                                  # features/step_definitions/redefine_password_from_email_steps.rb:59
+    When I access the reset link from my email                        # features/step_definitions/redefine_password_from_email_steps.rb:17
+      No route matches [GET] "/password/edit" (ActionController::RoutingError)
+      ./features/step_definitions/redefine_password_from_email_steps.rb:18:in `"I access the reset link from my email"'
+      features/password/redefine_password_from_email.feature:37:in `I access the reset link from my email'
+    Then I should see an error message "Link de redefinição expirado" # features/step_definitions/redefine_password_from_email_steps.rb:38
+    And I should see an option to "Request new link"                  # features/step_definitions/redefine_password_from_email_steps.rb:63
+
+  Scenario: Fail to reuse an already-used reset link                                  # features/password/redefine_password_from_email.feature:41
+    Given I have already redefined my password using the reset link                   # features/step_definitions/redefine_password_from_email_steps.rb:67
+      No route matches [GET] "/password/edit" (ActionController::RoutingError)
+      ./features/step_definitions/redefine_password_from_email_steps.rb:68:in `"I have already redefined my password using the reset link"'
+      features/password/redefine_password_from_email.feature:42:in `I have already redefined my password using the reset link'
+    When I access the reset link from my email again                                  # features/step_definitions/redefine_password_from_email_steps.rb:21
+    Then I should see an error message "Link de redefinição inválido ou já utilizado" # features/step_definitions/redefine_password_from_email_steps.rb:38
+
+Feature: Register participants via SIGAA import
+  As an Administrator
+  I want to register participants when importing data of new users from SIGAA
+  So that they can access the CAMAAR system
+
+  Note: Registration is only completed after the user sets their password via the email received.
+
+  Background:                                           # features/register_user/register_from_sigaa.feature:8
+    Given I am logged in as the "Administrador" profile # features/step_definitions/register_users_steps.rb:1
+    And I navigate to the "Importação SIGAA" page       # features/step_definitions/import_sigaa_steps.rb:7
+
+  Scenario: [Happy Path] Request password setup for new participants                      # features/register_user/register_from_sigaa.feature:12
+    Given a SIGAA file containing the new participant "maria@unb.br" is available         # features/step_definitions/register_from_sigaa_steps.rb:1
+    And no user is registered with the email "maria@unb.br"                               # features/step_definitions/register_from_sigaa_steps.rb:9
+    When I upload the SIGAA participants file                                             # features/step_definitions/register_from_sigaa_steps.rb:13
+      cannot attach file, /mnt/d/Usuario/Área de trabalho/Estudo/2026.1/ES/CAMAAR/spec/fixtures/sigaa_participant_maria.json does not exist (Capybara::FileNotFound)
+      ./features/step_definitions/register_from_sigaa_steps.rb:14:in `"I upload the SIGAA participants file"'
+      features/register_user/register_from_sigaa.feature:15:in `I upload the SIGAA participants file'
+    And I click the "Register Participants" button                                        # features/step_definitions/answer_evaluation_form_steps.rb:61
+    Then the system should create a registration request for "maria@unb.br"               # features/step_definitions/register_from_sigaa_steps.rb:17
+    And a password setup email should be sent to "maria@unb.br"                           # features/step_definitions/register_from_sigaa_steps.rb:21
+    And the user "maria@unb.br" should appear with status "Aguardando definição de senha" # features/step_definitions/register_from_sigaa_steps.rb:25
+
+  Scenario: Registration completed after password setup                             # features/register_user/register_from_sigaa.feature:21
+    Given there is a pending registration request for "maria@unb.br"                # features/step_definitions/register_from_sigaa_steps.rb:29
+      uninitialized constant PendingRegistration (NameError)
+      ./features/step_definitions/register_from_sigaa_steps.rb:30:in `"there is a pending registration request for {string}"'
+      features/register_user/register_from_sigaa.feature:22:in `there is a pending registration request for "maria@unb.br"'
+    When the user "maria@unb.br" accesses the password setup link received by email # features/step_definitions/register_from_sigaa_steps.rb:33
+    And the user sets the password "SenhaForte123"                                  # features/step_definitions/register_from_sigaa_steps.rb:38
+    Then the registration of "maria@unb.br" should be completed                     # features/step_definitions/register_from_sigaa_steps.rb:44
+    And the user "maria@unb.br" should appear with status "Ativo"                   # features/step_definitions/register_from_sigaa_steps.rb:25
+
+  Scenario: [Sad Path] Already registered participant is ignored               # features/register_user/register_from_sigaa.feature:28
+    Given a user already exists with email "joao@unb.br"                       # features/step_definitions/register_users_steps.rb:29
+    And a SIGAA file containing the participant "joao@unb.br" is available     # features/step_definitions/register_from_sigaa_steps.rb:5
+    When I upload the SIGAA participants file                                  # features/step_definitions/register_from_sigaa_steps.rb:13
+      cannot attach file, /mnt/d/Usuario/Área de trabalho/Estudo/2026.1/ES/CAMAAR/spec/fixtures/sigaa_participant_joao.json does not exist (Capybara::FileNotFound)
+      ./features/step_definitions/register_from_sigaa_steps.rb:14:in `"I upload the SIGAA participants file"'
+      features/register_user/register_from_sigaa.feature:31:in `I upload the SIGAA participants file'
+    And I click the "Register Participants" button                             # features/step_definitions/answer_evaluation_form_steps.rb:61
+    Then the system should not send a new email to "joao@unb.br"               # features/step_definitions/register_from_sigaa_steps.rb:48
+    And I should see the message "Usuário joao@unb.br já cadastrado, ignorado" # features/step_definitions/view_forms_steps.rb:31
+
+Feature: Register system users
+  As an administrator of the CAMAAR system
+  I want to register new users (teachers or students)
+  So that they can have access to the platform
+
+  Background:                                           # features/register_user/register_users.feature:6
+    Given I am logged in as the "Administrador" profile # features/step_definitions/register_users_steps.rb:1
+    And I am on the user registration page              # features/step_definitions/register_users_steps.rb:8
+
+  Scenario: [Happy Path] Register user with valid data                   # features/register_user/register_users.feature:10
+    When I fill the "Nome" field with "João da Silva"                    # features/step_definitions/register_users_steps.rb:12
+      Unable to find field "Nome" that is not disabled (Capybara::ElementNotFound)
+      ./features/step_definitions/register_users_steps.rb:13:in `"I fill the {string} field with {string}"'
+      features/register_user/register_users.feature:11:in `I fill the "Nome" field with "João da Silva"'
+    And I fill the "Matrícula" field with "200012345"                    # features/step_definitions/register_users_steps.rb:12
+    And I fill the "Email" field with "joao.silva@unb.br"                # features/step_definitions/register_users_steps.rb:12
+    And I select the "Discente" profile                                  # features/step_definitions/register_users_steps.rb:16
+    And I click the "Save User" button                                   # features/step_definitions/answer_evaluation_form_steps.rb:61
+    Then the system should register the new user                         # features/step_definitions/register_users_steps.rb:20
+    And I should see the green message "Usuário cadastrado com sucesso." # features/register_user/register_users.feature:17
+
+  Scenario: [Sad Path] Register with already existing email                           # features/register_user/register_users.feature:19
+    Given a user already exists with email "joao.silva@unb.br"                        # features/step_definitions/register_users_steps.rb:29
+    When I fill the "Nome" field with "João da Silva"                                 # features/step_definitions/register_users_steps.rb:12
+      Unable to find field "Nome" that is not disabled (Capybara::ElementNotFound)
+      ./features/step_definitions/register_users_steps.rb:13:in `"I fill the {string} field with {string}"'
+      features/register_user/register_users.feature:21:in `I fill the "Nome" field with "João da Silva"'
+    And I fill the "Matrícula" field with "200012345"                                 # features/step_definitions/register_users_steps.rb:12
+    And I fill the "Email" field with "joao.silva@unb.br"                             # features/step_definitions/register_users_steps.rb:12
+    And I select the "Discente" profile                                               # features/step_definitions/register_users_steps.rb:16
+    And I click the "Save User" button                                                # features/step_definitions/answer_evaluation_form_steps.rb:61
+    Then the system should not register the user                                      # features/step_definitions/register_users_steps.rb:33
+    And I should see the error message "Este email já está em uso por outro usuário." # features/step_definitions/register_users_steps.rb:37
+
+Feature: Download results as CSV
+  As an Administrator
+  I want to download a CSV file containing the results of a form
+  So that I can evaluate the performance of the classes
+
+  Background:                                           # features/results/download_results_csv.feature:6
+    Given I am logged in as the "Administrador" profile # features/step_definitions/register_users_steps.rb:1
+
+  Scenario: [Happy Path] Download CSV of an answered form                        # features/results/download_results_csv.feature:9
+    Given an answered form named "Avaliação ES 2026.1" exists                    # features/step_definitions/download_results_csv_steps.rb:1
+    And I am on the results page of the form "Avaliação ES 2026.1"               # features/step_definitions/download_results_csv_steps.rb:11
+      No route matches [GET] "/resultados/avaliao_es_2026_1" (ActionController::RoutingError)
+      ./features/step_definitions/download_results_csv_steps.rb:13:in `"I am on the results page of the form {string}"'
+      features/results/download_results_csv.feature:11:in `I am on the results page of the form "Avaliação ES 2026.1"'
+    When I click the "Download CSV" button                                       # features/step_definitions/answer_evaluation_form_steps.rb:61
+    Then the browser should start downloading the file "avaliacao_es_2026_1.csv" # features/step_definitions/download_results_csv_steps.rb:16
+    And the CSV file should contain the header with the form questions           # features/step_definitions/download_results_csv_steps.rb:20
+    And the CSV file should contain one row per submitted answer                 # features/step_definitions/download_results_csv_steps.rb:24
+
+  Scenario: [Sad Path] Form with no answers does not allow download # features/results/download_results_csv.feature:17
+    Given a form with no answers named "Avaliação BD 2026.1" exists # features/step_definitions/download_results_csv_steps.rb:6
+    And I am on the results page of the form "Avaliação BD 2026.1"  # features/step_definitions/download_results_csv_steps.rb:11
+      No route matches [GET] "/resultados/avaliao_bd_2026_1" (ActionController::RoutingError)
+      ./features/step_definitions/download_results_csv_steps.rb:13:in `"I am on the results page of the form {string}"'
+      features/results/download_results_csv.feature:19:in `I am on the results page of the form "Avaliação BD 2026.1"'
+    When I click the "Download CSV" button                          # features/step_definitions/answer_evaluation_form_steps.rb:61
+    Then I should see the message "Não há respostas para exportar"  # features/step_definitions/view_forms_steps.rb:31
+    And no CSV file should be downloaded                            # features/step_definitions/download_results_csv_steps.rb:28
+
+Feature: View form results
+
+  Background:                       # features/results/results_view.feature:3
+    Given I am logged in as "admin" # features/step_definitions/results_steps.rb:1
+      undefined method `email' for nil (NoMethodError)
+      ./features/step_definitions/results_steps.rb:4:in `"I am logged in as {string}"'
+      features/results/results_view.feature:4:in `I am logged in as "admin"'
+
+  Scenario: View results for an answered form                  # features/results/results_view.feature:6
+    Given I navigate to the forms page                         # features/step_definitions/view_forms_steps.rb:17
+    And I have created a form called "Answered Form"           # features/step_definitions/view_forms_steps.rb:1
+    And I click on the "Answered Form" form                    # features/step_definitions/results_steps.rb:13
+    Then I should see the results for the "Answered Form" form # features/step_definitions/results_steps.rb:17
+
+  Scenario: View results for a form with no answers                                                 # features/results/results_view.feature:12
+    Given I navigate to the forms page                                                              # features/step_definitions/view_forms_steps.rb:17
+    And I click on the "Unanswered Form" form                                                       # features/step_definitions/results_steps.rb:13
+    Then I should see a message indicating that there are no results for the "Unanswered Form" form # features/step_definitions/results_steps.rb:21
+
+Feature: Deleting a created template
+
+  Background:                                                           # features/templates/delete_template.feature:3
+    Given I am logged in as an admin user                               # features/step_definitions/template_steps.rb:1
+    And I am on the dashboard page                                      # features/step_definitions/template_steps.rb:32
+    And I have created a template with the name "Template Para Remover" # features/templates/delete_template.feature:6
+
+  Scenario: Delete template successfully                                     # features/templates/delete_template.feature:8
+    When I navigate to the templates page                                    # features/step_definitions/template_steps.rb:48
+    And I click on the template named "Template Para Remover"                # features/step_definitions/template_steps.rb:40
+    And I click on "Delete"                                                  # features/step_definitions/manage_department_classes_steps.rb:77
+    And I confirm the deletion                                               # features/step_definitions/delete_template_steps.rb:1
+    Then I should see a confirmation message "Template removido com sucesso" # features/step_definitions/redefine_password_from_email_steps.rb:34
+    And the list should not include "Template Para Remover"                  # features/templates/delete_template.feature:14
+
+  Scenario: Delete template without affecting already created forms          # features/templates/delete_template.feature:16
+    Given I have created a form from the template "Template Para Remover"    # features/step_definitions/delete_template_steps.rb:15
+    When I navigate to the templates page                                    # features/step_definitions/template_steps.rb:48
+    And I click on the template named "Template Para Remover"                # features/step_definitions/template_steps.rb:40
+    And I click on "Delete"                                                  # features/step_definitions/manage_department_classes_steps.rb:77
+    And I confirm the deletion                                               # features/step_definitions/delete_template_steps.rb:1
+    Then I should see a confirmation message "Template removido com sucesso" # features/step_definitions/redefine_password_from_email_steps.rb:34
+    And the form created from "Template Para Remover" should still exist     # features/step_definitions/delete_template_steps.rb:19
+
+  Scenario: Cancel template deletion                          # features/templates/delete_template.feature:25
+    When I navigate to the templates page                     # features/step_definitions/template_steps.rb:48
+    And I click on the template named "Template Para Remover" # features/step_definitions/template_steps.rb:40
+    And I click on "Delete"                                   # features/step_definitions/manage_department_classes_steps.rb:77
+    And I cancel the deletion                                 # features/step_definitions/delete_template_steps.rb:5
+    Then the list should include "Template Para Remover"      # features/step_definitions/template_steps.rb:36
+
+Feature: Editing a created template
+
+  Background:                                                     # features/templates/edit_template.feature:3
+    Given I am logged in as an admin user                         # features/step_definitions/template_steps.rb:1
+    And I am on the dashboard page                                # features/step_definitions/template_steps.rb:32
+    And I have created a template with the name "Template Antigo" # features/templates/edit_template.feature:6
+
+  Scenario: Edit template name successfully                                    # features/templates/edit_template.feature:8
+    When I navigate to the templates page                                      # features/step_definitions/template_steps.rb:48
+    And I click on the template named "Template Antigo"                        # features/step_definitions/template_steps.rb:40
+    And I click on "Edit"                                                      # features/step_definitions/manage_department_classes_steps.rb:77
+    And I change the template name to "Template Novo"                          # features/step_definitions/edit_template_steps.rb:1
+    And I click on "Save"                                                      # features/step_definitions/manage_department_classes_steps.rb:77
+    Then I should see a confirmation message "Template atualizado com sucesso" # features/step_definitions/redefine_password_from_email_steps.rb:34
+    And the list should include "Template Novo"                                # features/step_definitions/template_steps.rb:36
+
+  Scenario: Edit template questions without affecting existing forms             # features/templates/edit_template.feature:17
+    Given I have created a form from the template "Template Antigo"              # features/step_definitions/delete_template_steps.rb:15
+    When I navigate to the templates page                                        # features/step_definitions/template_steps.rb:48
+    And I click on the template named "Template Antigo"                          # features/step_definitions/template_steps.rb:40
+    And I click on "Edit"                                                        # features/step_definitions/manage_department_classes_steps.rb:77
+    And I add a question "Qual sua avaliação geral?"                             # features/step_definitions/edit_template_steps.rb:5
+    And I click on "Save"                                                        # features/step_definitions/manage_department_classes_steps.rb:77
+    Then I should see a confirmation message "Template atualizado com sucesso"   # features/step_definitions/redefine_password_from_email_steps.rb:34
+    And the existing form created from "Template Antigo" should remain unchanged # features/step_definitions/edit_template_steps.rb:10
+
+  Scenario: Cancel template editing                        # features/templates/edit_template.feature:27
+    When I navigate to the templates page                  # features/step_definitions/template_steps.rb:48
+    And I click on the template named "Template Antigo"    # features/step_definitions/template_steps.rb:40
+    And I click on "Edit"                                  # features/step_definitions/manage_department_classes_steps.rb:77
+    And I change the template name to "Template Cancelado" # features/step_definitions/edit_template_steps.rb:1
+    And I click on "Cancel"                                # features/step_definitions/manage_department_classes_steps.rb:77
+    Then the list should include "Template Antigo"         # features/step_definitions/template_steps.rb:36
+    And the list should not include "Template Cancelado"   # features/templates/edit_template.feature:34
+
+Feature: Searching templates
+
+  Background:                             # features/templates/search_template.feature:3
+    Given I am logged in as an admin user # features/step_definitions/template_steps.rb:1
+    And I am on the dashboard page        # features/step_definitions/template_steps.rb:32
+
+  Scenario: Search for an existing template                               # features/templates/search_template.feature:7
+    Given I have created a template with the name "Algorithms Evaluation" # features/templates/search_template.feature:8
+    And I have created a template with the name "Satisfaction Survey"     # features/templates/search_template.feature:9
+    When I navigate to the templates page                                 # features/step_definitions/template_steps.rb:48
+    And I search for "Algorithms" in the search bar                       # features/step_definitions/search_template_steps.rb:1
+    Then I should see "Algorithms Evaluation" in the list                 # features/step_definitions/search_template_steps.rb:6
+    And I should not see "Satisfaction Survey" in the list                # features/step_definitions/search_template_steps.rb:10
+
+  Scenario: Search for a non-existent template                            # features/templates/search_template.feature:15
+    Given I have created a template with the name "Algorithms Evaluation" # features/templates/search_template.feature:16
+    And I have created a template with the name "Satisfaction Survey"     # features/templates/search_template.feature:17
+    When I navigate to the templates page                                 # features/step_definitions/template_steps.rb:48
+    And I search for "Calculus" in the search bar                         # features/step_definitions/search_template_steps.rb:1
+    Then I should not see any templates in the list                       # features/step_definitions/search_template_steps.rb:14
+    And I should see the message "[ Nenhum template encontrado ]"         # features/step_definitions/view_forms_steps.rb:31
+
+Feature: Viewing created templates
+
+  Background:                             # features/templates/view_template.feature:3
+    Given I am logged in as an admin user # features/step_definitions/template_steps.rb:1
+    And I am on the dashboard page        # features/step_definitions/template_steps.rb:32
+
+  Scenario: View created templates                             # features/templates/view_template.feature:7
+    Given I have created a template with the name "Template 1" # features/templates/view_template.feature:8
+    And I have created a template with the name "Template 2"   # features/templates/view_template.feature:9
+    When I navigate to the templates page                      # features/step_definitions/template_steps.rb:48
+    Then I should see a list of created templates              # features/step_definitions/template_steps.rb:52
+    And the list should include "Template 1"                   # features/step_definitions/template_steps.rb:36
+    And the list should include "Template 2"                   # features/step_definitions/template_steps.rb:36
+
+  Scenario: View template details                              # features/templates/view_template.feature:15
+    Given I have created a template with the name "Template 1" # features/templates/view_template.feature:16
+    When I navigate to the templates page                      # features/step_definitions/template_steps.rb:48
+    And I click on the template named "Template 1"             # features/step_definitions/template_steps.rb:40
+    Then I should see the details of "Template 1"              # features/step_definitions/template_steps.rb:56
+    And the details should include the name "Template 1"       # features/step_definitions/template_steps.rb:44
+
+Failing Scenarios:
+cucumber features/data/import_sigaa.feature:11 # Scenario: [Happy Path] Import non-existent SIGAA data
+cucumber features/data/import_sigaa.feature:20 # Scenario: Ignore already existing records during import
+cucumber features/data/manage_department_classes.feature:16 # Scenario: View only classes from own department
+cucumber features/data/manage_department_classes.feature:23 # Scenario: Filter classes by current semester
+cucumber features/data/manage_department_classes.feature:28 # Scenario: View details of a class from own department
+cucumber features/data/manage_department_classes.feature:35 # Scenario: Edit a class from own department
+cucumber features/data/manage_department_classes.feature:43 # Scenario: Forbid access to a class from another department
+cucumber features/data/manage_department_classes.feature:48 # Scenario: View empty classes list when department has no classes in current semester
+cucumber features/data/update_database.feature:7 # Scenario: Successfully import current SIGAA data
+cucumber features/data/update_database.feature:26 # Scenario: Fail to update with invalid SIGAA file
+cucumber features/login/login_with_admin_menu.feature:11 # Scenario: [Happy Path] Login with valid email
+cucumber features/login/login_with_admin_menu.feature:18 # Scenario: Admin menu visible for admin
+cucumber features/login/login_with_admin_menu.feature:25 # Scenario: Admin menu hidden for regular user
+cucumber features/login/login_with_admin_menu.feature:32 # Scenario: [Sad Path] Invalid credentials
+cucumber features/password/redefine_password_from_email.feature:11 # Scenario: Redefine password successfully from email link
+cucumber features/password/redefine_password_from_email.feature:20 # Scenario: Fail to redefine password with mismatched confirmation
+cucumber features/password/redefine_password_from_email.feature:28 # Scenario: Fail to redefine password with weak password
+cucumber features/password/redefine_password_from_email.feature:35 # Scenario: Fail to use an expired reset link
+cucumber features/password/redefine_password_from_email.feature:41 # Scenario: Fail to reuse an already-used reset link
+cucumber features/register_user/register_from_sigaa.feature:12 # Scenario: [Happy Path] Request password setup for new participants
+cucumber features/register_user/register_from_sigaa.feature:21 # Scenario: Registration completed after password setup
+cucumber features/register_user/register_from_sigaa.feature:28 # Scenario: [Sad Path] Already registered participant is ignored
+cucumber features/register_user/register_users.feature:10 # Scenario: [Happy Path] Register user with valid data
+cucumber features/register_user/register_users.feature:19 # Scenario: [Sad Path] Register with already existing email
+cucumber features/results/download_results_csv.feature:9 # Scenario: [Happy Path] Download CSV of an answered form
+cucumber features/results/download_results_csv.feature:17 # Scenario: [Sad Path] Form with no answers does not allow download
+cucumber features/results/results_view.feature:6 # Scenario: View results for an answered form
+cucumber features/results/results_view.feature:12 # Scenario: View results for a form with no answers
+
+54 scenarios (28 failed, 14 undefined, 12 passed)
+417 steps (28 failed, 159 skipped, 25 undefined, 205 passed)
+0m9.631s
+
+You can implement step definitions for undefined steps with these snippets:
+
+Then('I should see a message {string}') do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given('I have created a template with the name {string}') do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When('the user fills {string} in the username field') do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When('the user fills {string} in the password field') do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then('an error message should be displayed with {string}') do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When('the user leaves {string} field empty') do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then('the list should not include {string}') do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+The parameter field is not defined. You can define a new one with:
+
+ParameterType(
+  name:        'field',
+  regexp:      /some regexp here/,
+  type:        Field,
+  # The transformer takes as many arguments as there are capture groups in the regexp,
+  # or just one if there are none.
+  transformer: ->(s) { Field.new(s) }
+)
+The parameter field is not defined. You can define a new one with:
+
+ParameterType(
+  name:        'field',
+  regexp:      /some regexp here/,
+  type:        Field,
+  # The transformer takes as many arguments as there are capture groups in the regexp,
+  # or just one if there are none.
+  transformer: ->(s) { Field.new(s) }
+)
+The parameter err is not defined. You can define a new one with:
+
+ParameterType(
+  name:        'err',
+  regexp:      /some regexp here/,
+  type:        Err,
+  # The transformer takes as many arguments as there are capture groups in the regexp,
+  # or just one if there are none.
+  transformer: ->(s) { Err.new(s) }
+)
+The parameter field is not defined. You can define a new one with:
+
+ParameterType(
+  name:        'field',
+  regexp:      /some regexp here/,
+  type:        Field,
+  # The transformer takes as many arguments as there are capture groups in the regexp,
+  # or just one if there are none.
+  transformer: ->(s) { Field.new(s) }
+)
+The parameter field is not defined. You can define a new one with:
+
+ParameterType(
+  name:        'field',
+  regexp:      /some regexp here/,
+  type:        Field,
+  # The transformer takes as many arguments as there are capture groups in the regexp,
+  # or just one if there are none.
+  transformer: ->(s) { Field.new(s) }
+)
+The parameter page is not defined. You can define a new one with:
+
+ParameterType(
+  name:        'page',
+  regexp:      /some regexp here/,
+  type:        Page,
+  # The transformer takes as many arguments as there are capture groups in the regexp,
+  # or just one if there are none.
+  transformer: ->(s) { Page.new(s) }
+)
+The parameter button is not defined. You can define a new one with:
+
+ParameterType(
+  name:        'button',
+  regexp:      /some regexp here/,
+  type:        Button,
+  # The transformer takes as many arguments as there are capture groups in the regexp,
+  # or just one if there are none.
+  transformer: ->(s) { Button.new(s) }
+)
+The parameter email is not defined. You can define a new one with:
+
+ParameterType(
+  name:        'email',
+  regexp:      /some regexp here/,
+  type:        Email,
+  # The transformer takes as many arguments as there are capture groups in the regexp,
+  # or just one if there are none.
+  transformer: ->(s) { Email.new(s) }
+)
+The parameter page is not defined. You can define a new one with:
+
+ParameterType(
+  name:        'page',
+  regexp:      /some regexp here/,
+  type:        Page,
+  # The transformer takes as many arguments as there are capture groups in the regexp,
+  # or just one if there are none.
+  transformer: ->(s) { Page.new(s) }
+)
+The parameter password is not defined. You can define a new one with:
+
+ParameterType(
+  name:        'password',
+  regexp:      /some regexp here/,
+  type:        Password,
+  # The transformer takes as many arguments as there are capture groups in the regexp,
+  # or just one if there are none.
+  transformer: ->(s) { Password.new(s) }
+)
+The parameter message is not defined. You can define a new one with:
+
+ParameterType(
+  name:        'message',
+  regexp:      /some regexp here/,
+  type:        Message,
+  # The transformer takes as many arguments as there are capture groups in the regexp,
+  # or just one if there are none.
+  transformer: ->(s) { Message.new(s) }
+)

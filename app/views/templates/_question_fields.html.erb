@@ -1,0 +1,19 @@
+<div class="question-fields" data-nested-form-target="item" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+  <div style="margin-bottom: 10px;">
+    <%= form.label :enunciado %><br>
+    <%= form.text_area :enunciado, rows: 2 %>
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <%= form.label :tipo %><br>
+    <%= form.select :tipo, Question::TIPOS.map { |t| [t.humanize, t] } %>
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <%= form.label :opcoes, "Opções (uma por linha, apenas para múltipla escolha)" %><br>
+    <%= form.text_area :opcoes, rows: 3 %>
+  </div>
+
+  <%= form.hidden_field :_destroy %>
+  <button type="button" data-action="nested-form#remove">Remover questão</button>
+</div>

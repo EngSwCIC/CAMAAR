@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>application.css - RDoc Documentation</title>
+
+
+  <meta name="keywords" content="ruby,documentation,application.css">
+  <meta
+    name="description"
+    content="application.css: Lightweight Bootstrap-like stylesheet for the application. Provides basic typography, layout container, grid, forms, buttons, alerts and utilities."
+  >
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="application.css - RDoc Documentation">
+
+
+
+    <meta property="og:description" content="Lightweight Bootstrap-like stylesheet for the application. Provides basic typography, layout container, grid, forms, buttons, alerts and utilities.">
+
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="application.css - RDoc Documentation">
+
+
+
+    <meta name="twitter:description" content="Lightweight Bootstrap-like stylesheet for the application. Provides basic typography, layout container, grid, forms, buttons, alerts and utilities.">
+
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script
+  src="../../../js/theme-toggle.js?v=7.2.0"
+></script>
+
+<script
+  src="../../../js/search_navigation.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../../js/search_data.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../../js/search_ranker.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../../js/search_controller.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../../js/c_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../../js/bash_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../../js/aliki.js?v=7.2.0"
+  defer
+></script>
+
+<link
+  href="../../../css/rdoc.css?v=7.2.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="file has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="../../../index.html" class="navbar-brand">
+    RDoc Documentation
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation" hidden>
+  
+
+
+
+
+
+
+  <div id="fileindex-section" class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg>
+            <use href="#icon-file"></use>
+          </svg>
+        </span>
+
+        <span class="nav-section-title">Pages</span>
+
+        <span class="nav-section-chevron">
+          <svg>
+            <use href="#icon-chevron"></use>
+          </svg>
+        </span>
+      </summary>
+
+      <ul class="nav-list">
+
+
+
+
+
+
+
+          <li>
+            <details  open>
+              <summary>
+                
+                  app
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="../../../app/assets/stylesheets/application_css.html">
+                      application.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../app/javascript/application_js.html">
+                      application.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../app/javascript/controllers/application_js.html">
+                      application.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../app/javascript/controllers/hello_controller_js.html">
+                      hello_controller.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../app/javascript/controllers/index_js.html">
+                      index.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../app/javascript/controllers/nested_form_controller_js.html">
+                      nested_form_controller.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../app/views/pwa/service-worker_js.html">
+                      service-worker.js
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  config
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="../../../config/credentials_yml_enc.html">
+                      credentials.yml.enc
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../config/master_key.html">
+                      master.key
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><code><a href="../../../ApplicationMailer.html">ApplicationMailer</a></code></li><li><details><summary><code><a href="../../../Camaar.html">Camaar</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../../Camaar/Application.html">Application</a></code></li></ul></details></li><li><code><a href="../../../ClassesController.html">ClassesController</a></code></li><li><code><a href="../../../Enrollment.html">Enrollment</a></code></li><li><code><a href="../../../Formulario.html">Formulario</a></code></li><li><code><a href="../../../FormulariosController.html">FormulariosController</a></code></li><li><code><a href="../../../PasswordRedefinitionController.html">PasswordRedefinitionController</a></code></li><li><code><a href="../../../PasswordResetUsage.html">PasswordResetUsage</a></code></li><li><code><a href="../../../PendingRegistration.html">PendingRegistration</a></code></li><li><code><a href="../../../PendingRegistrationMailer.html">PendingRegistrationMailer</a></code></li><li><code><a href="../../../PendingRegistrationsController.html">PendingRegistrationsController</a></code></li><li><code><a href="../../../Question.html">Question</a></code></li><li><code><a href="../../../Resposta.html">Resposta</a></code></li><li><code><a href="../../../RespostasController.html">RespostasController</a></code></li><li><code><a href="../../../ResultadosController.html">ResultadosController</a></code></li><li><code><a href="../../../SigaaUpdatesController.html">SigaaUpdatesController</a></code></li><li><code><a href="../../../Template.html">Template</a></code></li><li><code><a href="../../../TemplatesController.html">TemplatesController</a></code></li><li><code><a href="../../../Turma.html">Turma</a></code></li><li><code><a href="../../../User.html">User</a></code></li><li><code><a href="../../../UsersController.html">UsersController</a></code></li><li><code><a href="../../../UsersHelper.html">UsersHelper</a></code></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main" aria-label="Page app/assets/stylesheets/application.css">
+
+<p>/*</p>
+
+<pre>* Lightweight Bootstrap-like stylesheet for the application.
+* Provides basic typography, layout container, grid, forms, buttons, alerts and utilities.
+* Mobile-first, minimal and easy to customize.
+*/</pre>
+
+<p>:root {</p>
+
+<pre>--bs-blue: #0d6efd;
+--bs-indigo: #6610f2;
+--bs-purple: #6f42c1;
+--bs-pink: #d63384;
+--bs-red: #dc3545;
+--bs-orange: #fd7e14;
+--bs-yellow: #ffc107;
+--bs-green: #198754;
+--bs-teal: #20c997;
+--bs-cyan: #0dcaf0;
+--bs-white: #ffffff;
+--bs-gray-100: #f8f9fa;
+--bs-gray-200: #e9ecef;
+--bs-gray-300: #dee2e6;
+--bs-gray-700: #495057;
+--bs-body-bg: #ffffff;
+--bs-body-color: #212529;
+--bs-font-sans: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;
+--bs-container-max-width: 1140px;</pre>
+
+<p>}</p>
+
+<p>/* Basic reset */ *, *::before, *::after { box-sizing: border-box; } html, body { height: 100%; } body {</p>
+
+<pre>margin: 0;
+font-family: var(--bs-font-sans);
+font-size: 16px;
+line-height: 1.5;
+color: var(--bs-body-color);
+background-color: var(--bs-body-bg);
+-webkit-font-smoothing: antialiased;</pre>
+
+<p>}</p>
+
+<p>/* Typography */ h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: .5rem; font-weight: 600; } h1 { font-size: 2.5rem; } h2 { font-size: 2rem; } h3 { font-size: 1.75rem; } p { margin-top: 0; margin-bottom: 1rem; }</p>
+
+<p>/* Container */ .container {</p>
+
+<pre>width: 100%;
+padding-right: 1rem;
+padding-left: 1rem;
+margin-right: auto;
+margin-left: auto;</pre>
+
+<p>} @media (min-width: 576px) { .container { max-width: 540px; } } @media (min-width: 768px) { .container { max-width: 720px; } } @media (min-width: 992px) { .container { max-width: 960px; } } @media (min-width: 1200px) { .container { max-width: var(–bs-container-max-width); } }</p>
+
+<p>/* Grid: simple flexbox system */ .row {</p>
+
+<pre>display: flex;
+flex-wrap: wrap;
+margin-right: -0.5rem;
+margin-left: -0.5rem;</pre>
+
+<p>} .col {</p>
+
+<pre>flex: 1 0 0%;
+padding-right: 0.5rem;
+padding-left: 0.5rem;</pre>
+
+<p>} .col-auto { flex: 0 0 auto; width: auto; } .col-1 { flex: 0 0 8.333333%; max-width: 8.333333%; } .col-2 { flex: 0 0 16.666667%; max-width: 16.666667%; } .col-3 { flex: 0 0 25%; max-width: 25%; } .col-4 { flex: 0 0 33.333333%; max-width: 33.333333%; } .col-6 { flex: 0 0 50%; max-width: 50%; } .col-12 { flex: 0 0 100%; max-width: 100%; }</p>
+
+<p>/* Forms */ label { display: block; margin-bottom: .25rem; font-weight: 500; } .form-control {</p>
+
+<pre>display: block;
+width: 100%;
+padding: .375rem .75rem;
+font-size: 1rem;
+line-height: 1.5;
+color: var(--bs-body-color);
+background-color: var(--bs-white);
+background-clip: padding-box;
+border: 1px solid var(--bs-gray-300);
+border-radius: .25rem;
+transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;</pre>
+
+<p>} .form-control:focus {</p>
+
+<pre>outline: 0;
+border-color: var(--bs-blue);
+box-shadow: 0 0 0 .15rem rgba(13,110,253,.15);</pre>
+
+<p>} .form-check { display: flex; align-items: center; gap: .5rem; } .form-check-input { width: 1rem; height: 1rem; }</p>
+
+<p>/* Buttons */ .btn {</p>
+
+<pre>display: inline-block;
+font-weight: 500;
+color: var(--bs-white);
+text-align: center;
+vertical-align: middle;
+user-select: none;
+background-color: var(--bs-gray-700);
+border: 1px solid transparent;
+padding: .375rem .75rem;
+font-size: 1rem;
+line-height: 1.5;
+border-radius: .25rem;
+cursor: pointer;
+text-decoration: none;</pre>
+
+<p>} .btn:hover { opacity: .92; } .btn:focus { outline: 0; box-shadow: 0 0 0 .15rem rgba(0,0,0,.12); } .btn-primary { background-color: var(–bs-blue); border-color: var(–bs-blue); } .btn-secondary { background-color: var(–bs-gray-700); border-color: var(–bs-gray-700); } .btn-link { background: transparent; color: var(–bs-blue); border: none; padding: 0; }</p>
+
+<p>/* Alerts */ .alert {</p>
+
+<pre>position: relative;
+padding: .75rem 1rem;
+margin-bottom: 1rem;
+border: 1px solid transparent;
+border-radius: .25rem;</pre>
+
+<p>} .alert-info { color: #055160; background-color: cff4fc; border-color: b6effb; } .alert-success { color: #0f5132; background-color: d1e7dd; border-color: badbcc; } .alert-warning { color: #664d03; background-color: fff3cd; border-color: ffecb5; } .alert-danger { color: #842029; background-color: f8d7da; border-color: f5c2c7; }</p>
+
+<p>/* Navbar */ .navbar { display:flex; align-items:center; justify-content:space-between; padding: .5rem 1rem; background-color: var(–bs-gray-100); border-bottom: 1px solid var(–bs-gray-200); } .navbar-brand { font-weight: 700; font-size: 1.25rem; color: var(–bs-body-color); text-decoration: none; } .navbar-nav { display:flex; gap: .5rem; list-style: none; margin: 0; padding: 0; } .nav-link { color: var(–bs-body-color); text-decoration: none; padding: .375rem .75rem; }</p>
+
+<p>/* Utilities */ .text-center { text-align: center; } .mb-0 { margin-bottom: 0 !important; } .mb-1 { margin-bottom: .25rem !important; } .mb-2 { margin-bottom: .5rem !important; } .mt-1 { margin-top: .25rem !important; } .d-block { display: block !important; } .d-flex { display: flex !important; } .justify-content-center { justify-content: center !important; } .align-items-center { align-items: center !important; }</p>
+
+<p>/* Responsive helpers */ @media (max-width: 575.98px) {</p>
+
+<pre>.row { margin-right: 0; margin-left: 0; }
+.col { padding-right: 0; padding-left: 0; }</pre>
+
+<p>}</p>
+
+<p>/* Small forms and spacing used by Devise views */ .field { margin-bottom: 1rem; } .actions { margin-top: 1rem; }</p>
+
+<p>/* Make images responsive */ img { max-width: 100%; height: auto; }</p>
+
+<p>/* Simple focus-visible outline for accessibility */ :focus-visible { outline: 3px solid rgba(13,110,253,.25); outline-offset: 2px; }</p>
+
+<p>/* Utility to visually hide elements but keep for screen readers */ .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }</p>
+
+<p>/* End of lightweight Bootstrap-like stylesheet */</p>
+
+</main>
+
+<aside class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 7.2.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+

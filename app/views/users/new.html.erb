@@ -1,0 +1,56 @@
+<h1>Cadastro de Usuários</h1>
+
+<%# Cadastro de um único usuário (register_users) %>
+<section>
+  <h2>Cadastrar Usuário</h2>
+  <%= form_with url: users_path, method: :post do |form| %>
+    <div>
+      <%= label_tag :nome, "Nome" %><br>
+      <%= text_field_tag :nome %>
+    </div>
+    <div>
+      <%= label_tag :matricula, "Matrícula" %><br>
+      <%= text_field_tag :matricula %>
+    </div>
+    <div>
+      <%= label_tag :email, "Email" %><br>
+      <%= text_field_tag :email %>
+    </div>
+    <div>
+      <%= label_tag :perfil, "Perfil de Acesso" %><br>
+      <%= select_tag :perfil, options_for_select([ [ "Discente", "discente" ], [ "Docente", "docente" ] ]) %>
+    </div>
+    <%= form.submit "Save User" %>
+  <% end %>
+</section>
+
+<hr>
+
+<%# Importação de usuários por CSV do SIGAA (import_sigaa) %>
+<section>
+  <h2>Importar Usuários do SIGAA</h2>
+  <%= form_with url: import_users_path, multipart: true do |form| %>
+    <div style="margin-bottom: 20px;">
+      <%= form.label :file, "Selecione o arquivo CSV (.csv):" %><br>
+      <%= form.file_field :file, accept: ".csv" %>
+    </div>
+    <%= form.submit "Importar e Enviar Convites" %>
+  <% end %>
+</section>
+
+<hr>
+
+<%# Importação de participantes via JSON (register_from_sigaa) %>
+<section>
+  <h2>Registrar Participantes do SIGAA</h2>
+  <%= form_with url: register_participants_users_path, multipart: true do |form| %>
+    <div style="margin-bottom: 20px;">
+      <%= form.label :participants_file, "Arquivo de participantes (.json):" %><br>
+      <%= form.file_field :participants_file %>
+    </div>
+    <%= form.submit "Register Participants" %>
+  <% end %>
+</section>
+
+<br>
+<%= link_to "Voltar para a lista", users_path %>

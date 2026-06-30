@@ -1,0 +1,60 @@
+<% if current_user.docente? %>
+  <h1>Formulários</h1>
+
+  <%= link_to "Novo Formulário", new_formulario_path %> |
+  <%= link_to "Voltar", root_path %>
+
+  <hr>
+
+  <% if @formularios.any? %>
+    <ul>
+      <% @formularios.each do |formulario| %>
+        <li>
+          <strong><%= link_to formulario.titulo, formulario %></strong>
+          — <%= formulario.turma.nome_completo %><br>
+          <% if formulario.total_respondentes > 0 %>
+            Respostas: <%= formulario.total_respondentes %> de <%= formulario.total_participantes %><br>
+            <%= link_to "Ver resultados", formulario %> |
+            <%= link_to "Baixar relatório (CSV)", relatorio_formulario_path(formulario, format: :csv) %>
+          <% end %>
+        </li>
+        <br>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Nenhum formulário criado ainda.</p>
+  <% end %>
+
+<% else %>
+  <h1>Formulários para responder</h1>
+
+  <%= link_to "Voltar", root_path %>
+  <hr>
+
+  <h2 id="pendentes">Pendentes</h2>
+  <% if @pendentes.any? %>
+    <ul>
+      <% @pendentes.each do |formulario| %>
+        <li>
+          <strong><%= formulario.titulo %></strong>
+          — <%= formulario.turma.nome_completo %>
+          <%= link_to "Responder", formulario %>
+        </li>
+        <br>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Nenhum formulário pendente.</p>
+  <% end %>
+
+  <h2 id="respondidos">Respondidos</h2>
+  <% if @respondidos.any? %>
+    <ul>
+      <% @respondidos.each do |formulario| %>
+        <li><%= formulario.titulo %> — <%= formulario.turma.nome_completo %> (respondido)</li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Você ainda não respondeu nenhum formulário.</p>
+  <% end %>
+<% end %>

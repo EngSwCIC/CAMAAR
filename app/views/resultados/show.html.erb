@@ -1,0 +1,9 @@
+<h1>Resultados — <%= @formulario.titulo %></h1>
+
+<p>Turma: <%= @formulario.turma.nome_completo %></p>
+<p>Respostas: <%= @formulario.total_respondentes %></p>
+
+<%= button_to "Download CSV", "/resultados/#{@slug}/download", method: :get %>
+
+<br>
+<%= link_to "Voltar", formularios_path %>

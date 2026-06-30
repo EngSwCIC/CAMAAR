@@ -1,0 +1,179 @@
+/*
+ * Lightweight Bootstrap-like stylesheet for the application.
+ * Provides basic typography, layout container, grid, forms, buttons, alerts and utilities.
+ * Mobile-first, minimal and easy to customize.
+ */
+
+:root {
+	--bs-blue: #0d6efd;
+	--bs-indigo: #6610f2;
+	--bs-purple: #6f42c1;
+	--bs-pink: #d63384;
+	--bs-red: #dc3545;
+	--bs-orange: #fd7e14;
+	--bs-yellow: #ffc107;
+	--bs-green: #198754;
+	--bs-teal: #20c997;
+	--bs-cyan: #0dcaf0;
+	--bs-white: #ffffff;
+	--bs-gray-100: #f8f9fa;
+	--bs-gray-200: #e9ecef;
+	--bs-gray-300: #dee2e6;
+	--bs-gray-700: #495057;
+	--bs-body-bg: #ffffff;
+	--bs-body-color: #212529;
+	--bs-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--bs-container-max-width: 1140px;
+}
+
+/* Basic reset */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+	margin: 0;
+	font-family: var(--bs-font-sans);
+	font-size: 16px;
+	line-height: 1.5;
+	color: var(--bs-body-color);
+	background-color: var(--bs-body-bg);
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: .5rem; font-weight: 600; }
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+p { margin-top: 0; margin-bottom: 1rem; }
+
+/* Container */
+.container {
+	width: 100%;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	margin-right: auto;
+	margin-left: auto;
+}
+@media (min-width: 576px) { .container { max-width: 540px; } }
+@media (min-width: 768px) { .container { max-width: 720px; } }
+@media (min-width: 992px) { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container { max-width: var(--bs-container-max-width); } }
+
+/* Grid: simple flexbox system */
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: -0.5rem;
+	margin-left: -0.5rem;
+}
+.col {
+	flex: 1 0 0%;
+	padding-right: 0.5rem;
+	padding-left: 0.5rem;
+}
+.col-auto { flex: 0 0 auto; width: auto; }
+.col-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+.col-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+.col-3 { flex: 0 0 25%; max-width: 25%; }
+.col-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+.col-6 { flex: 0 0 50%; max-width: 50%; }
+.col-12 { flex: 0 0 100%; max-width: 100%; }
+
+/* Forms */
+label { display: block; margin-bottom: .25rem; font-weight: 500; }
+.form-control {
+	display: block;
+	width: 100%;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: var(--bs-body-color);
+	background-color: var(--bs-white);
+	background-clip: padding-box;
+	border: 1px solid var(--bs-gray-300);
+	border-radius: .25rem;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.form-control:focus {
+	outline: 0;
+	border-color: var(--bs-blue);
+	box-shadow: 0 0 0 .15rem rgba(13,110,253,.15);
+}
+.form-check { display: flex; align-items: center; gap: .5rem; }
+.form-check-input { width: 1rem; height: 1rem; }
+
+/* Buttons */
+.btn {
+	display: inline-block;
+	font-weight: 500;
+	color: var(--bs-white);
+	text-align: center;
+	vertical-align: middle;
+	user-select: none;
+	background-color: var(--bs-gray-700);
+	border: 1px solid transparent;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	border-radius: .25rem;
+	cursor: pointer;
+	text-decoration: none;
+}
+.btn:hover { opacity: .92; }
+.btn:focus { outline: 0; box-shadow: 0 0 0 .15rem rgba(0,0,0,.12); }
+.btn-primary { background-color: var(--bs-blue); border-color: var(--bs-blue); }
+.btn-secondary { background-color: var(--bs-gray-700); border-color: var(--bs-gray-700); }
+.btn-link { background: transparent; color: var(--bs-blue); border: none; padding: 0; }
+
+/* Alerts */
+.alert {
+	position: relative;
+	padding: .75rem 1rem;
+	margin-bottom: 1rem;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+}
+.alert-info { color: #055160; background-color: #cff4fc; border-color: #b6effb; }
+.alert-success { color: #0f5132; background-color: #d1e7dd; border-color: #badbcc; }
+.alert-warning { color: #664d03; background-color: #fff3cd; border-color: #ffecb5; }
+.alert-danger { color: #842029; background-color: #f8d7da; border-color: #f5c2c7; }
+
+/* Navbar */
+.navbar { display:flex; align-items:center; justify-content:space-between; padding: .5rem 1rem; background-color: var(--bs-gray-100); border-bottom: 1px solid var(--bs-gray-200); }
+.navbar-brand { font-weight: 700; font-size: 1.25rem; color: var(--bs-body-color); text-decoration: none; }
+.navbar-nav { display:flex; gap: .5rem; list-style: none; margin: 0; padding: 0; }
+.nav-link { color: var(--bs-body-color); text-decoration: none; padding: .375rem .75rem; }
+
+/* Utilities */
+.text-center { text-align: center; }
+.mb-0 { margin-bottom: 0 !important; }
+.mb-1 { margin-bottom: .25rem !important; }
+.mb-2 { margin-bottom: .5rem !important; }
+.mt-1 { margin-top: .25rem !important; }
+.d-block { display: block !important; }
+.d-flex { display: flex !important; }
+.justify-content-center { justify-content: center !important; }
+.align-items-center { align-items: center !important; }
+
+/* Responsive helpers */
+@media (max-width: 575.98px) {
+	.row { margin-right: 0; margin-left: 0; }
+	.col { padding-right: 0; padding-left: 0; }
+}
+
+/* Small forms and spacing used by Devise views */
+.field { margin-bottom: 1rem; }
+.actions { margin-top: 1rem; }
+
+/* Make images responsive */
+img { max-width: 100%; height: auto; }
+
+/* Simple focus-visible outline for accessibility */
+:focus-visible { outline: 3px solid rgba(13,110,253,.25); outline-offset: 2px; }
+
+/* Utility to visually hide elements but keep for screen readers */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* End of lightweight Bootstrap-like stylesheet */
+
+ 

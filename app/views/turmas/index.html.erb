@@ -1,0 +1,24 @@
+<h1>Turmas do Departamento</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nome</th>
+      <th>Semestre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @turmas.each do |turma| %>
+      <tr>
+        <td><%= turma.code %></td>
+        <td><%= turma.name %></td>
+        <td><%= turma.semester %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<hr>
+<%= link_to "Voltar", root_path %>

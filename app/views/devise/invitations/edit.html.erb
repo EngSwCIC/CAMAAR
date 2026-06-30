@@ -1,0 +1,29 @@
+<h1>Defina sua senha</h1>
+
+<p>Crie uma senha para acessar o sistema CAMAAR.</p>
+
+<%= form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put } do |f| %>
+  <% if resource.errors.any? %>
+    <div style="color: red;">
+      <ul>
+        <% resource.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :invitation_token %>
+
+  <div style="margin-bottom: 15px;">
+    <%= f.label :password, "Senha" %><br>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <%= f.label :password_confirmation, "Confirmação da senha" %><br>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <%= f.submit "Definir senha" %>
+<% end %>

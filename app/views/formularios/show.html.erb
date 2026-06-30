@@ -1,0 +1,35 @@
+<% if flash[:alert] %>
+  <div class="alert alert-danger"><%= flash[:alert] %></div>
+<% end %>
+<h1><%= @formulario.titulo %></h1>
+<p><strong>Turma:</strong> <%= @formulario.turma.nome_completo %></p>
+
+<% if @ja_respondido %>
+  <p>Você já respondeu este formulário. Obrigado!</p>
+  <%= link_to "Voltar", formularios_path %>
+<% else %>
+  <%= form_with url: formulario_respostas_path(@formulario), id: "formulario_questoes" , method: :post do |form|%>
+    <% @formulario.questions.each do |question| %>
+      <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+        <p><strong><%= question.enunciado %></strong></p>
+
+        <% if question.multipla_escolha? %>
+          <% question.opcoes_lista.each do |opcao| %>
+            <div>
+              <%= radio_button_tag "respostas[#{question.id}]", opcao, false, id: "q#{question.id}_#{opcao.parameterize}" , required: true %>
+              <%= label_tag "q#{question.id}_#{opcao.parameterize}", opcao %>
+            </div>
+          <% end %>
+        <% else %>
+          <%= label_tag "respostas_#{question.id}", question.enunciado %><br>
+          <%= text_area_tag "respostas[#{question.id}]", nil, id: "respostas_#{question.id}", rows: 3, cols: 50 , required: true %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= form.submit "Enviar Respostas", id: "enviar_respostas" %>
+  <% end %>
+
+  <br>
+  <%= link_to "Voltar", formularios_path %>
+<% end %>

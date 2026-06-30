@@ -1,0 +1,17 @@
+<h1>Redefinir Senha</h1>
+
+<%= form_with url: "/password/update", method: :post do |form| %>
+  <%= hidden_field_tag :token, @token %>
+
+  <div>
+    <%= label_tag :nova_senha, "Nova Senha" %><br>
+    <%= password_field_tag :nova_senha %>
+  </div>
+
+  <div>
+    <%= label_tag :confirmar_senha, "Confirmar Senha" %><br>
+    <%= password_field_tag :confirmar_senha %>
+  </div>
+
+  <%= form.submit "Reset Password" %>
+<% end %>

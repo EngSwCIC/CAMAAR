@@ -1,0 +1,37 @@
+<h1><%= @template.nome %></h1>
+
+<% if @template.publico_alvo.present? %>
+  <p><strong>Público-alvo:</strong> <%= @template.publico_alvo %></p>
+<% end %>
+
+<% if @template.descricao.present? %>
+  <p><%= @template.descricao %></p>
+<% end %>
+
+<h2>Questões</h2>
+
+<% if @template.questions.any? %>
+  <ol>
+    <% @template.questions.each do |question| %>
+      <li>
+        <%= question.enunciado %>
+        <em>(<%= question.tipo.humanize %>)</em>
+        <% if question.multipla_escolha? %>
+          <ul>
+            <% question.opcoes_lista.each do |opcao| %>
+              <li><%= opcao %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </li>
+    <% end %>
+  </ol>
+<% else %>
+  <p>Este template não possui questões.</p>
+<% end %>
+
+<hr>
+
+<%= link_to "Editar", edit_template_path(@template) %> |
+<%= link_to "Remover", @template, data: { turbo_method: :delete, turbo_confirm: "Remover este template?" } %> |
+<%= link_to "Voltar para a lista", templates_path %>

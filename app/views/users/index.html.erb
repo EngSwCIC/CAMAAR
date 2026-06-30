@@ -1,0 +1,37 @@
+<% if current_user %>
+  <%= link_to "Logout", destroy_user_session_path, :data => { :turbo_method => :delete } %>
+<% else %>
+  <%= link_to "Login", new_user_session_path %>
+<% end %>
+
+<h1>Usuários Cadastrados</h1>
+
+<% if current_user&.admin? %>
+  <%= link_to "Importar Novos Usuários", new_user_path %> |
+  <%= link_to "Importar Dados do SIGAA", "/sigaa/atualizar" %> |
+  <%= link_to "Templates", templates_path %> |
+  <%= link_to "Turmas", turmas_path %> |
+  <%= link_to "Gestão de Turmas", classes_path %> |
+<% end %>
+<%= link_to "Formulários", formularios_path %>
+
+<hr>
+
+<ul>
+  <% @users.each do |user| %>
+    <li class="user-row">
+      <strong><%= user.nome %></strong> (Matrícula: <%= user.matricula %>) - <%= user.perfil %> <br>
+      Email: <%= user.email %> <br>
+      Status: <%= status_do_usuario(user) %>
+    </li>
+    <br>
+  <% end %>
+
+  <% @pending_registrations.each do |pending| %>
+    <li class="user-row">
+      Email: <%= pending.email %> <br>
+      Status: Aguardando definição de senha
+    </li>
+    <br>
+  <% end %>
+</ul>

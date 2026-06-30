@@ -1,0 +1,15 @@
+<h1>Gestão de Turmas</h1>
+
+<% if @turmas.any? %>
+  <ul>
+    <% @turmas.each do |turma| %>
+      <li class="class-row" data-semester="<%= turma.semester %>" data-department="<%= turma.department %>">
+        <%= link_to "#{turma.code} - #{turma.name}", class_path(turma.code) %>
+        — <span class="assigned-professor"><%= turma.professor %></span>
+        <%= link_to "Edit", edit_class_path(turma.code) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Nenhuma turma encontrada para o semestre atual</p>
+<% end %>

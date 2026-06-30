@@ -1,0 +1,51 @@
+<%= form_with model: template do |form| %>
+  <% if template.errors.any? %>
+    <div style="color: red;">
+      <h2><%= pluralize(template.errors.count, "erro") %> impediram o salvamento:</h2>
+      <ul>
+        <% template.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="margin-bottom: 15px;">
+    <%= form.label :nome %><br>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <%= form.label :descricao, "Descrição" %><br>
+    <%= form.text_area :descricao, rows: 3 %>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <%= form.label :publico_alvo, "Público-alvo" %><br>
+    <%= form.select :publico_alvo,
+                    [["Docente", "docente"], ["Discente", "discente"]],
+                    include_blank: "Qualquer" %>
+  </div>
+
+  <h2>Questões</h2>
+
+  <div data-controller="nested-form">
+    <div data-nested-form-target="container">
+      <%= form.fields_for :questions do |question_form| %>
+        <%= render "question_fields", form: question_form %>
+      <% end %>
+    </div>
+
+    <%# Modelo usado pelo Stimulus para clonar novas questões %>
+    <template data-nested-form-target="template">
+      <%= form.fields_for :questions, Question.new, child_index: "NEW_RECORD" do |question_form| %>
+        <%= render "question_fields", form: question_form %>
+      <% end %>
+    </template>
+
+    <button type="button" data-action="nested-form#add">+ Adicionar questão</button>
+  </div>
+
+  <br>
+  <%= form.submit %>
+<% end %>

@@ -1,0 +1,48 @@
+<%= link_to "Voltar", root_path %>
+
+<h1>Templates</h1>
+
+<%= link_to "Novo Template", new_template_path %>
+
+<hr>
+
+<%# Issue #1 - Buscar template: barra de pesquisa que filtra a listagem %>
+<%= form_with url: templates_path, method: :get do |form| %>
+  <%= form.text_field :q, value: @q, placeholder: "Buscar por nome do template..." %>
+  <%= form.submit "Buscar" %>
+  <% if @q.present? %>
+    <%= link_to "Limpar", templates_path %>
+  <% end %>
+<% end %>
+
+<br>
+
+<% if @templates.any? %>
+  <ul>
+    <% @templates.each do |template| %>
+      <li>
+        <strong><%= link_to template.nome, template %></strong>
+        <% if template.publico_alvo.present? %>
+          (<%= template.publico_alvo %>)
+        <% end %>
+        - <%= pluralize(template.questions.size, "questão", plural: "questões") %><br>
+        <%= link_to "Editar", edit_template_path(template) %> |
+        <%= form_with(model: template, method: :delete) do |f| %>
+          <label>
+            <input type="checkbox" name="confirmar" value="1">Remover
+          </label>
+          <%= f.submit "Confirmar exclusão" %>
+        <% end %>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    <% if @q.present? %>
+      Nenhum template encontrado para "<%= @q %>".
+    <% else %>
+      Nenhum template cadastrado ainda.
+    <% end %>
+  </p>
+<% end %>

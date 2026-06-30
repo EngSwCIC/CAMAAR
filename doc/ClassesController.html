@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>class ClassesController - RDoc Documentation</title>
+
+
+  <meta
+    name="keywords"
+    content="ruby,class,ClassesController"
+  >
+
+    <meta
+      name="description"
+      content="class ClassesController: Gestão das turmas do departamento do administrador logado (issue de gestão de turmas). edita turmas do próprio departamento no semestre atual."
+    >
+
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="class ClassesController - RDoc Documentation">
+
+
+
+    <meta property="og:description" content="Gestão das turmas do departamento do administrador logado (issue de gestão de turmas). edita turmas do próprio departamento no semestre atual.">
+
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="class ClassesController - RDoc Documentation">
+
+
+
+    <meta name="twitter:description" content="Gestão das turmas do departamento do administrador logado (issue de gestão de turmas). edita turmas do próprio departamento no semestre atual.">
+
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script
+  src="./js/theme-toggle.js?v=7.2.0"
+></script>
+
+<script
+  src="./js/search_navigation.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/search_data.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/search_ranker.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/search_controller.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/c_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/bash_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/aliki.js?v=7.2.0"
+  defer
+></script>
+
+<link
+  href="./css/rdoc.css?v=7.2.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="class has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="./index.html" class="navbar-brand">
+    RDoc Documentation
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation" hidden>
+  
+
+
+
+
+  <div id="fileindex-section" class="nav-section">
+    <details class="nav-section-collapsible" >
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg>
+            <use href="#icon-file"></use>
+          </svg>
+        </span>
+
+        <span class="nav-section-title">Pages</span>
+
+        <span class="nav-section-chevron">
+          <svg>
+            <use href="#icon-chevron"></use>
+          </svg>
+        </span>
+      </summary>
+
+      <ul class="nav-list">
+
+
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  app
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="./app/assets/stylesheets/application_css.html">
+                      application.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/javascript/application_js.html">
+                      application.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/javascript/controllers/application_js.html">
+                      application.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/javascript/controllers/hello_controller_js.html">
+                      hello_controller.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/javascript/controllers/index_js.html">
+                      index.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/javascript/controllers/nested_form_controller_js.html">
+                      nested_form_controller.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/views/pwa/service-worker_js.html">
+                      service-worker.js
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  config
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="./config/credentials_yml_enc.html">
+                      credentials.yml.enc
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./config/master_key.html">
+                      master.key
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  
+
+  
+<div id="parent-class-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-ancestors"></use></svg>
+      </span>
+      <span class="nav-section-title">Ancestors</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+    <ul><li>ApplicationController</li></ul>
+  </details>
+</div>
+
+
+  
+
+  
+
+  
+
+
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-instance-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Instance Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-i-edit">edit</a></li>
+
+        <li ><a href="#method-i-index">index</a></li>
+
+        <li ><a href="#method-i-show">show</a></li>
+
+        <li ><a href="#method-i-update">update</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><code><a href="./ApplicationMailer.html">ApplicationMailer</a></code></li><li><details><summary><code><a href="./Camaar.html">Camaar</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Camaar/Application.html">Application</a></code></li></ul></details></li><li><code><a href="./ClassesController.html">ClassesController</a></code></li><li><code><a href="./Enrollment.html">Enrollment</a></code></li><li><code><a href="./Formulario.html">Formulario</a></code></li><li><code><a href="./FormulariosController.html">FormulariosController</a></code></li><li><code><a href="./PasswordRedefinitionController.html">PasswordRedefinitionController</a></code></li><li><code><a href="./PasswordResetUsage.html">PasswordResetUsage</a></code></li><li><code><a href="./PendingRegistration.html">PendingRegistration</a></code></li><li><code><a href="./PendingRegistrationMailer.html">PendingRegistrationMailer</a></code></li><li><code><a href="./PendingRegistrationsController.html">PendingRegistrationsController</a></code></li><li><code><a href="./Question.html">Question</a></code></li><li><code><a href="./Resposta.html">Resposta</a></code></li><li><code><a href="./RespostasController.html">RespostasController</a></code></li><li><code><a href="./ResultadosController.html">ResultadosController</a></code></li><li><code><a href="./SigaaUpdatesController.html">SigaaUpdatesController</a></code></li><li><code><a href="./Template.html">Template</a></code></li><li><code><a href="./TemplatesController.html">TemplatesController</a></code></li><li><code><a href="./Turma.html">Turma</a></code></li><li><code><a href="./User.html">User</a></code></li><li><code><a href="./UsersController.html">UsersController</a></code></li><li><code><a href="./UsersHelper.html">UsersHelper</a></code></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main" aria-labelledby="class-classescontroller">
+  
+  
+
+  <span id="class-ClassesController" class="legacy-anchor"></span>
+  <h1 id="class-classescontroller" class="anchor-link class">
+    class ClassesController
+  </h1>
+
+  <section class="description">
+    
+<p>Gestão das turmas do departamento do administrador logado (issue de gestão de turmas). O admin só enxerga/edita turmas do próprio departamento no semestre atual.</p>
+
+  </section>
+
+
+  <span id="5Buntitled-5D" class="legacy-anchor"></span>
+  <section class="documentation-section anchor-link">
+
+
+
+
+
+    <section class="constants-list">
+      <header>
+        <h3 id="untitled-constants"><a href="#untitled-constants">Constants</a></h3>
+      </header>
+      <dl>
+
+        <dt id="CURRENT_SEMESTER">CURRENT_SEMESTER</dt>
+
+        <dd>
+
+          
+        </dd>
+
+
+      </dl>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <section id="public-instance-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-instance-untitled-methods"><a href="#public-instance-untitled-methods">Public Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-edit" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-edit" title="Link to this method">
+                <span class="method-name">edit</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="edit-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/classes_controller.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
+  <span class="ruby-ivar">@turma</span> = <span class="ruby-identifier">turmas_do_departamento</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">code:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:code</span>])
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">classes_path</span>, <span class="ruby-value">alert:</span> <span class="ruby-string">&quot;Acesso negado: turma fora do seu departamento&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@turma</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <ol style="list-style-type: lower-alpha"><li>
+<p>Descrição: Permite a edição de uma turma específica, atualmente apenas o professor.</p>
+</li><li>
+<p>Argumentos: Recebe o param ‘code’, que é o código da turma.</p>
+</li><li>
+<p>Retorno: Não há retorno.</p>
+</li><li>
+<p>Efeitos colaterais: Redireciona a requisição caso o usuário não tenha permissão.</p>
+</li></ol>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-index" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-index" title="Link to this method">
+                <span class="method-name">index</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="index-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/classes_controller.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
+  <span class="ruby-ivar">@semester</span> = <span class="ruby-constant">CURRENT_SEMESTER</span>
+  <span class="ruby-ivar">@turmas</span> = <span class="ruby-identifier">turmas_do_departamento</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">semester:</span> <span class="ruby-ivar">@semester</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:code</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <ol style="list-style-type: lower-alpha"><li>
+<p>Descrição: Retorna a lista de turmas do departamento do admin no semestre atual.</p>
+</li><li>
+<p>Argumentos: Usa a variável de classe <a href="ClassesController.html#CURRENT_SEMESTER"><code>CURRENT_SEMESTER</code></a>.</p>
+</li><li>
+<p>Retorno: Sem retorno.</p>
+</li><li>
+<p>Efeitos colaterais: Faz a atribuição das turmas do departamento.</p>
+</li></ol>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-show" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-show" title="Link to this method">
+                <span class="method-name">show</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="show-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/classes_controller.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
+  <span class="ruby-ivar">@turma</span> = <span class="ruby-identifier">turmas_do_departamento</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">code:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:code</span>])
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@turma</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">classes_path</span>, <span class="ruby-value">alert:</span> <span class="ruby-string">&quot;Acesso negado: turma fora do seu departamento&quot;</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@discentes</span> = <span class="ruby-ivar">@turma</span>.<span class="ruby-identifier">discentes</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <ol style="list-style-type: lower-alpha"><li>
+<p>Descrição: Mostra os detalhes de uma turma específica.</p>
+</li><li>
+<p>Argumentos: usa o param ‘code’, que é o código da turma.</p>
+</li><li>
+<p>Retorno: Sem retorno.</p>
+</li><li>
+<p>Efeitos colaterais: Faz a atribuição dos discentes da turma.</p>
+</li></ol>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-update" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-update" title="Link to this method">
+                <span class="method-name">update</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="update-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/classes_controller.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
+  <span class="ruby-ivar">@turma</span> = <span class="ruby-identifier">turmas_do_departamento</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">code:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:code</span>])
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@turma</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">classes_path</span>, <span class="ruby-value">alert:</span> <span class="ruby-string">&quot;Acesso negado: turma fora do seu departamento&quot;</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@turma</span>.<span class="ruby-identifier">update</span>(<span class="ruby-value">professor:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:professor</span>])
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">classes_path</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&quot;Turma atualizada com sucesso&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <ol style="list-style-type: lower-alpha"><li>
+<p>Descrição: Atualiza a turma (atualmente apenas o professor).</p>
+</li><li>
+<p>Argumentos: Recebe o param ‘code’, que é o código da turma.</p>
+</li><li>
+<p>Retorno: Não há retorno.</p>
+</li><li>
+<p>Efeitos colaterais: Redireciona a requisição caso o usuário não tenha permissão ou caso a atualização seja bem-sucedida.</p>
+</li></ol>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+  </section>
+
+</main>
+
+<aside class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 7.2.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+

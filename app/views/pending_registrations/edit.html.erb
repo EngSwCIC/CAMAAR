@@ -1,0 +1,17 @@
+<h1>Definir Senha</h1>
+
+<%= form_with url: "/users/password/define", method: :post do |form| %>
+  <%= hidden_field_tag :token, @pending.token %>
+
+  <div>
+    <%= label_tag :senha, "Senha" %><br>
+    <%= password_field_tag :senha %>
+  </div>
+
+  <div>
+    <%= label_tag :confirmacao, "Confirmação" %><br>
+    <%= password_field_tag :confirmacao %>
+  </div>
+
+  <%= form.submit "Set Password" %>
+<% end %>

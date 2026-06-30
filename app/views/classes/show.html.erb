@@ -1,0 +1,15 @@
+<h1><%= @turma.code %> - <%= @turma.name %></h1>
+
+<p>Departamento: <%= @turma.department %></p>
+<p>Semestre: <%= @turma.semester %></p>
+
+<p>Professor: <span class="assigned-professor"><%= @turma.professor %></span></p>
+
+<h2>Alunos matriculados</h2>
+<ul class="enrolled-students">
+  <% @discentes.each do |aluno| %>
+    <li><%= aluno.nome %> (<%= aluno.matricula %>)</li>
+  <% end %>
+</ul>
+
+<%= link_to "Voltar", classes_path %>

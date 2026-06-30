@@ -1,0 +1,12 @@
+<h1>Editar Turma <%= @turma.code %> - <%= @turma.name %></h1>
+
+<%= form_with url: class_path(@turma.code), method: :patch do |form| %>
+  <div>
+    <%= label_tag :professor, "Professor" %><br>
+    <%= text_field_tag :professor, @turma.professor %>
+  </div>
+
+  <%= form.submit "Save" %>
+<% end %>
+
+<%= link_to "Voltar", classes_path %>

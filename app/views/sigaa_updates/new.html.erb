@@ -1,0 +1,13 @@
+<h1>Atualizar Base de Dados (SIGAA)</h1>
+
+<%= form_with url: "/sigaa/atualizar", method: :post, multipart: true do |form| %>
+  <div style="margin-bottom: 20px;">
+    <%= form.label :sigaa_file, "Arquivo de dados do SIGAA (.csv):" %><br>
+    <%= form.file_field :sigaa_file %>
+  </div>
+
+  <%= form.submit "Update Database" %>
+<% end %>
+
+<br>
+<%= link_to "Voltar", root_path %>
