@@ -1,0 +1,54 @@
+<h1>Resultados — <%= @turma.disciplina&.name || @turma.classCode %></h1>
+
+<%= form_with url: csv_admin_result_path(@turma), method: :get, local: true do %>
+  <%= submit_tag "Baixar CSV", class: "btn btn-primary" %>
+<% end %>
+
+<% if @responses.empty? %>
+  <p>Esta turma ainda não possui respostas registradas</p>
+<% else %>
+  <h2><%= @template&.nome %></h2>
+  <p class="total-respostas">Total de respostas recebidas: <%= @responses.size %></p>
+
+  <% @question_summaries.each do |summary| %>
+    <div class="questao-resumo" data-tipo="<%= summary[:question].kind %>">
+      <h3><%= summary[:question].text %></h3>
+
+      <% if summary[:question].kind == "radio" %>
+        <ul class="opcoes-resumo">
+          <% summary[:option_counts].each do |opcao, count| %>
+            <li><%= opcao %>: <%= count %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <ul class="respostas-texto">
+          <% summary[:respostas].each do |resposta| %>
+            <li><%= resposta[:value] %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
+
+  <hr>
+  <h3>Respostas detalhadas</h3>
+  <table>
+    <thead>
+      <tr><th>Discente</th><th>Questão</th><th>Resposta</th></tr>
+    </thead>
+    <tbody>
+      <% @responses.each do |fr| %>
+        <% answers = Array(fr.answers) %>
+        <% questions = fr.form&.template&.questions || [] %>
+        <% answers.each do |a| %>
+          <% q = questions.find { |q| q.id == a["question_id"] } %>
+          <tr>
+            <td><%= fr.user&.nome %></td>
+            <td><%= q&.text %></td>
+            <td><%= a["value"] %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

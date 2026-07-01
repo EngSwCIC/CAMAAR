@@ -1,0 +1,20 @@
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="alert alert-danger"><%= flash[:alert] %></div>
+<% end %>
+
+<div class="formulario-detalhes">
+  <h1>Detalhes da Avaliação</h1>
+
+  <p class="detalhe-turma"><strong>Turma:</strong> <%= @turma.classCode %></p>
+  <p class="detalhe-template"><strong>Template:</strong> <%= @form.template&.name %></p>
+  <p class="detalhe-data-inicio"><strong>Data de Início:</strong> <%= @form.start_date.strftime("%d/%m/%Y") %></p>
+  <p class="detalhe-data-termino"><strong>Data de Término:</strong> <%= @form.end_date.strftime("%d/%m/%Y") %></p>
+  <p class="detalhe-qtd-questoes"><%= @questions.size %> questões</p>
+
+  <%= form_with url: avaliacao_path(@turma), method: :get, local: true do %>
+    <%= submit_tag "Responder Agora", name: nil, class: "btn btn-primary btn-responder-agora" %>
+  <% end %>
+</div>

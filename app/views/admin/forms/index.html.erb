@@ -1,0 +1,35 @@
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="alert alert-danger"><%= flash[:alert] %></div>
+<% end %>
+
+<h1>Formulários Ativos</h1>
+
+<% if @forms.empty? %>
+  <p>Nenhum formulário ativo no momento</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Destinatário</th>
+        <th>Turma(s)</th>
+        <th>Template</th>
+        <th>Início</th>
+        <th>Término</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @forms.each do |form| %>
+        <tr>
+          <td><%= form.destinatario == "discente" ? "Dicentes" : "Docentes" %></td>
+          <td><%= form.turmas.map(&:classCode).join(", ") %></td>
+          <td><%= form.template.nome %></td>
+          <td><%= form.start_date&.strftime("%d/%m/%Y") %></td>
+          <td><%= form.end_date&.strftime("%d/%m/%Y") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

@@ -1,0 +1,17 @@
+<h1>Gerenciamento - Importar Dados SIGAA</h1>
+
+<%= form_with(url: admin_imports_path, method: :post, multipart: true) do |f| %>
+  <div class="field">
+    <%= f.label :import_type, "Tipo de Importação" %>
+    <%= f.select :import_type, [["Turmas", "classes"], ["Participantes", "members"]] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :file, "Selecionar Arquivo (.json)" %>
+    <%= f.file_field :file %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Confirmar Importação" %>
+  </div>
+<% end %>

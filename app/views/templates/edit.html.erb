@@ -1,0 +1,17 @@
+<h1>Editar Template</h1>
+
+<% if flash[:alert].present? %>
+  <div class="alert alert-danger">
+    <p><%= flash[:alert] %></p>
+  </div>
+<% end %>
+
+<%= form_with model: @template, local: true do |f| %>
+  <%= f.label :nome, "Nome" %>
+  <%= f.text_field :nome %>
+
+  <%= f.label :descricao, "Descricao" %>
+  <%= f.text_area :descricao %>
+
+  <%= f.submit "Salvar" %>
+<% end %>

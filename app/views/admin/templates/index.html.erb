@@ -1,0 +1,103 @@
+<div data-controller="template-modal">
+
+<h1>Templates</h1>
+
+<div class="templates-list">
+  <div class="template-card-novo" data-action="click->template-modal#openNew">+</div>
+
+  <% @templates.each do |template| %>
+    <div class="template-card">
+      <span class="template-nome"><%= template.nome %></span>
+      <span class="template-semestre"><%= template.semester %></span>
+      <div class="template-actions">
+        <button class="btn-editar"
+                data-action="click->template-modal#openEdit"
+                data-template-id="<%= template.id %>"
+                data-template-name="<%= template.nome %>"
+                data-template-semester="<%= template.semester %>">
+          Editar
+        </button>
+        <button class="btn-excluir"
+                data-action="click->template-modal#openDelete"
+                data-template-id="<%= template.id %>"
+                data-template-name="<%= template.nome %>">
+          Excluir
+        </button>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<!-- Modal de criação/edição -->
+<div id="templateModal" class="modal" style="display:none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div id="templateModalError" class="alert alert-danger" style="display:none;"></div>
+
+      <form id="templateForm" action="<%= admin_templates_path %>" method="post"
+            data-create-url="<%= admin_templates_path %>"
+            data-action="submit->template-modal#handleSubmit">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" id="templateFormMethod" name="_method" value="post">
+
+        <div class="form-group">
+          <label for="templateName">Nome do template</label>
+          <input type="text" id="templateName" name="template[name]"
+                 placeholder="Nome do template">
+        </div>
+
+        <!-- Botão de nova questão aparece ANTES das questões para ser o primeiro '+' no modal -->
+        <button type="button" class="btn-add-questao btn"
+                data-action="click->template-modal#addQuestao">+</button>
+
+        <div id="questoesContainer">
+          <div class="questao" data-idx="0">
+            <div class="form-group">
+              <label for="questao_0_tipo">Tipo</label>
+              <select id="questao_0_tipo" name="questions[0][kind]" class="questao-tipo">
+                <option value="radio">Radio</option>
+                <option value="text">Texto</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="questao_0_texto">Texto</label>
+              <input id="questao_0_texto" type="text" name="questions[0][text]"
+                     class="questao-texto" placeholder="Texto da questão">
+            </div>
+            <div class="opcoes-container" data-questao="0">
+              <label for="questao_0_opcao_0">Opções</label>
+              <input id="questao_0_opcao_0" type="text" name="questions[0][options][]"
+                     class="campo-opcao" placeholder="Opção 1">
+              <button type="button" class="btn-add-opcao"
+                      data-action="click->template-modal#addOpcao">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" id="templateSubmitBtn">Criar</button>
+          <button type="button" class="btn"
+                  data-action="click->template-modal#close">Fechar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de confirmação de exclusão -->
+<div id="deleteModal" class="modal-confirmacao" style="display:none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <p id="deleteMessage"></p>
+      <form id="deleteForm" action="" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit" class="btn btn-danger">Confirmar</button>
+        <button type="button" class="btn"
+                data-action="click->template-modal#closeDelete">Cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+</div><!-- end data-controller -->

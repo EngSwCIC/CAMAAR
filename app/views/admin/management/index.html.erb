@@ -1,0 +1,133 @@
+<h1>Gerenciamento</h1>
+
+<div class="management-actions">
+  <%= button_to "Atualizar Base SIGAA", "/sigaa/update", method: :post, class: "btn btn-warning", data: { turbo: false } %>
+  <%= button_to "Editar Templates", admin_templates_path, method: :get, class: "btn btn-secondary", data: { turbo: false } %>
+
+  <button type="button" class="btn btn-primary" id="btnCriarFormulario">
+    Criar Formulário
+  </button>
+
+  <%= link_to "Resultados", admin_results_path, class: "btn btn-info" %>
+</div>
+
+<!-- Modal: Criar Formulário -->
+<div id="criarFormularioModal" class="modal" style="display:none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <h2>Criar Formulário</h2>
+      <div id="modalFormError" class="alert alert-danger" style="display:none;"></div>
+
+      <form id="formCriarFormulario" action="<%= admin_forms_path %>" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <div class="form-group">
+          <label for="destinatario">Tipo de Destinatário</label>
+          <select id="destinatario" name="destinatario">
+            <option value="">Selecione</option>
+            <option value="discente">Dicentes</option>
+            <option value="docente">Docentes</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="template_id">Template</label>
+          <select id="template_id" name="template_id">
+            <option value="">Selecione um template</option>
+            <% @templates.each do |t| %>
+              <option value="<%= t.id %>"><%= t.nome %></option>
+            <% end %>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="turma_ids">Turma(s)</label>
+          <select id="turma_ids" name="turma_ids[]" multiple <%= "disabled" if @turmas.empty? %>>
+            <% @turmas.each do |turma| %>
+              <option value="<%= turma.id %>">
+                <%= turma.classCode %>
+              </option>
+            <% end %>
+          </select>
+          <% if @turmas.empty? %>
+            <p>Nenhuma turma disponível</p>
+          <% end %>
+        </div>
+
+        <div class="form-group">
+          <label for="data_inicio">Data de início</label>
+          <input type="date" id="data_inicio" name="start_date">
+        </div>
+
+        <div class="form-group">
+          <label for="data_termino">Data de término</label>
+          <input type="date" id="data_termino" name="end_date">
+        </div>
+
+        <button type="submit" class="btn btn-primary"
+                <%= "disabled" if @turmas.empty? %>>Criar</button>
+      </form>
+
+      <button type="button" class="btn" id="btnFecharModal">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var openBtn  = document.getElementById("btnCriarFormulario");
+    var closeBtn = document.getElementById("btnFecharModal");
+    var modal    = document.getElementById("criarFormularioModal");
+    var form     = document.getElementById("formCriarFormulario");
+    var errorDiv = document.getElementById("modalFormError");
+
+    function showModalError(msg) {
+      errorDiv.textContent = msg;
+      errorDiv.style.display = "block";
+    }
+
+    if (openBtn) openBtn.addEventListener("click", function() {
+      errorDiv.style.display = "none";
+      modal.style.display = "block";
+    });
+
+    if (closeBtn) closeBtn.addEventListener("click", function() {
+      modal.style.display = "none";
+    });
+
+    if (form) form.addEventListener("submit", function(e) {
+      var destinatario = document.getElementById("destinatario").value;
+      var templateId    = document.getElementById("template_id").value;
+      var turmaSelect   = document.getElementById("turma_ids");
+      var turmasSelecionadas = turmaSelect ? turmaSelect.selectedOptions.length : 0;
+      var startDate = document.getElementById("data_inicio").value;
+      var endDate   = document.getElementById("data_termino").value;
+
+      if (!destinatario) {
+        e.preventDefault();
+        showModalError("Selecione o tipo de destinatário (Dicentes ou Docentes)");
+        return;
+      }
+      if (!templateId) {
+        e.preventDefault();
+        showModalError("Selecione um template para o formulário");
+        return;
+      }
+      if (turmasSelecionadas === 0) {
+        e.preventDefault();
+        showModalError("Selecione ao menos uma turma");
+        return;
+      }
+      if (!startDate || !endDate) {
+        e.preventDefault();
+        showModalError("As datas de vigência são obrigatórias");
+        return;
+      }
+      if (endDate < startDate) {
+        e.preventDefault();
+        showModalError("A data de término não pode ser anterior à data de início");
+        return;
+      }
+    });
+  })();
+</script>

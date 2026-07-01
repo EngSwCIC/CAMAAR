@@ -1,0 +1,27 @@
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="alert alert-danger"><%= flash[:alert] %></div>
+<% end %>
+
+<h1>Resultados</h1>
+
+<% if @turmas.empty? %>
+  <p>Nenhum resultado disponível</p>
+<% else %>
+  <div class="turmas-list">
+    <% @turmas.each do |turma| %>
+      <div class="turma-card">
+        <span class="turma-nome">
+          <%= link_to turma.disciplina&.name || turma.classCode,
+                admin_result_path(turma) %>
+        </span>
+        <span class="turma-semestre"><%= turma.semester %></span>
+        <span class="turma-professor">
+          <%= turma.docentes.map(&:nome).reject(&:blank?).join(", ") %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+<% end %>

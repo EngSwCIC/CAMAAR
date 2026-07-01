@@ -1,0 +1,35 @@
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="alert alert-danger"><%= flash[:alert] %></div>
+<% end %>
+
+<h1>Minhas Avaliações</h1>
+
+<% if @turmas_com_form.empty? %>
+  <p>Nenhuma avaliação disponível no momento.</p>
+<% else %>
+  <section class="formularios-nao-respondidos">
+    <div class="turmas-list">
+      <% @turmas_com_form.each do |turma| %>
+        <% form = form_for(turma) %>
+        <div class="turma-card" id="formulario_<%= form.id %>">
+          <strong class="turma-nome"><%= link_to turma.classCode, detalhes_avaliacao_path(turma) %></strong>
+          <p class="template-nome"><%= form.template&.name %></p>
+          <p class="data-termino">Término: <%= form.end_date.strftime("%d/%m/%Y") %></p>
+
+          <% if respondido?(form) %>
+            <span class="status">Respondido</span>
+            <p class="ja-respondido">Você já respondeu esta avaliação</p>
+            <%= button_tag "Responder", disabled: true, class: "btn-responder" %>
+          <% elsif form.active? %>
+            <%= link_to "Responder", avaliacao_path(turma), class: "btn-responder" %>
+          <% else %>
+            <p>Avaliação encerrada em <%= form.end_date.strftime("%d/%m/%Y") %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </section>
+<% end %>

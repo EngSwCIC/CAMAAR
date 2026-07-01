@@ -1,0 +1,33 @@
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="alert alert-danger"><%= flash[:alert] %></div>
+<% end %>
+
+<h1>Avaliação — <%= @turma.classCode %></h1>
+
+<%= form_with url: responder_avaliacao_path(@turma), method: :post, local: true do |f| %>
+  <% @questions.each do |question| %>
+    <div class="questao<%= ' highlight-red' if @missing_question_ids&.include?(question.id) %>">
+      <p>
+        <strong><%= question.text %></strong>
+        <% if question.obrigatoria? %><span class="obrigatoria">*</span><% end %>
+      </p>
+
+      <% valor_anterior = params.dig(:answers, question.id.to_s) %>
+      <% if question.kind == "radio" %>
+        <% ["Sim", "Não", "Parcialmente"].each_with_index do |opcao, index| %>
+          <label>
+            <input type="radio" id="answers_<%= question.id %>_<%= index %>" name="answers[<%= question.id %>]" value="<%= opcao %>" <%= 'checked' if valor_anterior == opcao %>>
+            <%= opcao %>
+          </label>
+        <% end %>
+      <% else %>
+        <textarea id="answers_<%= question.id %>" name="answers[<%= question.id %>]" rows="3"><%= valor_anterior %></textarea>
+      <% end %>
+    </div>
+  <% end %>
+
+  <button type="submit" class="btn-enviar-formulario btn btn-primary">Enviar Avaliação</button>
+<% end %>
