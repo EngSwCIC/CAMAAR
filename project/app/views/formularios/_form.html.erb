@@ -1,0 +1,31 @@
+<%= form_with(model: formulario) do |form| %>
+  <% if formulario.errors.any? %>
+    <div id="error_explanation" class="form-errors">
+      <h2><%= pluralize(formulario.errors.count, "erro") %> impediu(ram) este formulário de ser salvo:</h2>
+      <ul>
+        <% formulario.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title, "Nome do formulário:" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :template_id, "Template:" %>
+    <%= form.collection_select :template_id, @templates, :id, :title, include_blank: "Selecione um template" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :course_class_id, "Turma:" %>
+    <%= form.collection_select :course_class_id, @course_classes, :id, :name, include_blank: "Selecione uma turma" %>
+  </div>
+
+  <div>
+    <%= form.submit "Enviar", class: "btn btn-primary" %>
+  </div>
+<% end %>

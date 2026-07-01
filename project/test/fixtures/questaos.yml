@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  enunciado: MyText
+  tipo: MyString
+  template: one
+  formulario: one
+
+two:
+  enunciado: MyText
+  tipo: MyString
+  template: two
+  formulario: two

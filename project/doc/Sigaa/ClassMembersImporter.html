@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>class Sigaa::ClassMembersImporter - CAMAAR - Documentação do Código</title>
+
+
+  <meta
+    name="keywords"
+    content="ruby,class,Sigaa::ClassMembersImporter"
+  >
+
+    <meta
+      name="description"
+      content="class Sigaa::ClassMembersImporter: Importa participantes e vínculos de turma, registrando inconsistências e enviando instruções de senha para usuários recém-criados."
+    >
+
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="class Sigaa::ClassMembersImporter - CAMAAR - Documentação do Código">
+
+
+
+    <meta property="og:description" content="Importa participantes e vínculos de turma, registrando inconsistências e enviando instruções de senha para usuários recém-criados.">
+
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="class Sigaa::ClassMembersImporter - CAMAAR - Documentação do Código">
+
+
+
+    <meta name="twitter:description" content="Importa participantes e vínculos de turma, registrando inconsistências e enviando instruções de senha para usuários recém-criados.">
+
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script
+  src="../js/theme-toggle.js?v=7.2.0"
+></script>
+
+<script
+  src="../js/search_navigation.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/search_data.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/search_ranker.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/search_controller.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/c_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/bash_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/aliki.js?v=7.2.0"
+  defer
+></script>
+
+<link
+  href="../css/rdoc.css?v=7.2.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="class has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="../index.html" class="navbar-brand">
+    CAMAAR - Documentação do Código
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation" hidden>
+  
+
+
+
+
+
+  
+
+  
+<div id="parent-class-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-ancestors"></use></svg>
+      </span>
+      <span class="nav-section-title">Ancestors</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+    <ul><li>Object</li></ul>
+  </details>
+</div>
+
+
+  
+
+  
+
+  
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-class-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Class Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-c-new">new</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-instance-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Instance Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-i-apply_user_updates">apply_user_updates</a></li>
+
+        <li ><a href="#method-i-build_user_updates">build_user_updates</a></li>
+
+        <li ><a href="#method-i-call">call</a></li>
+
+        <li ><a href="#method-i-create_user">create_user</a></li>
+
+        <li ><a href="#method-i-department_for">department_for</a></li>
+
+        <li ><a href="#method-i-ensure_membership">ensure_membership</a></li>
+
+        <li ><a href="#method-i-find_or_create_course_class">find_or_create_course_class</a></li>
+
+        <li ><a href="#method-i-invalid_member-3F">invalid_member?</a></li>
+
+        <li ><a href="#method-i-member_registration">member_registration</a></li>
+
+        <li ><a href="#method-i-members_for">members_for</a></li>
+
+        <li ><a href="#method-i-normalized_email">normalized_email</a></li>
+
+        <li ><a href="#method-i-parsed_data">parsed_data</a></li>
+
+        <li ><a href="#method-i-process_member">process_member</a></li>
+
+        <li ><a href="#method-i-register_inconsistency">register_inconsistency</a></li>
+
+        <li ><a href="#method-i-resolve_department_code">resolve_department_code</a></li>
+
+        <li ><a href="#method-i-send_password_setup">send_password_setup</a></li>
+
+        <li ><a href="#method-i-sync_user">sync_user</a></li>
+
+        <li ><a href="#method-i-user_for">user_for</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><code><a href="../ApplicationController.html">ApplicationController</a></code></li><li><code><a href="../ApplicationHelper.html">ApplicationHelper</a></code></li><li><code><a href="../ApplicationJob.html">ApplicationJob</a></code></li><li><code><a href="../ApplicationMailer.html">ApplicationMailer</a></code></li><li><code><a href="../ApplicationRecord.html">ApplicationRecord</a></code></li><li><code><a href="../ClassMembership.html">ClassMembership</a></code></li><li><code><a href="../CourseClass.html">CourseClass</a></code></li><li><code><a href="../CourseClassesController.html">CourseClassesController</a></code></li><li><code><a href="../DashboardController.html">DashboardController</a></code></li><li><code><a href="../Department.html">Department</a></code></li><li><code><a href="../Formulario.html">Formulario</a></code></li><li><details><summary><code><a href="../Formularios.html">Formularios</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Formularios/CreateFromTemplate.html">CreateFromTemplate</a></code></li></ul></details></li><li><code><a href="../FormulariosController.html">FormulariosController</a></code></li><li><code><a href="../FormulariosHelper.html">FormulariosHelper</a></code></li><li><code><a href="../ImportInconsistency.html">ImportInconsistency</a></code></li><li><details><summary><code><a href="../Imports.html">Imports</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Imports/SigaaController.html">SigaaController</a></code></li></ul></details></li><li><code><a href="../PasswordResetsController.html">PasswordResetsController</a></code></li><li><code><a href="../PasswordSetupsController.html">PasswordSetupsController</a></code></li><li><code><a href="../Questao.html">Questao</a></code></li><li><code><a href="../RespostaController.html">RespostaController</a></code></li><li><code><a href="../RespostaHelper.html">RespostaHelper</a></code></li><li><code><a href="../Respostum.html">Respostum</a></code></li><li><code><a href="../SessionsController.html">SessionsController</a></code></li><li><details><summary><code><a href="../Sigaa.html">Sigaa</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Sigaa/ClassMembersImporter.html">ClassMembersImporter</a></code></li><li><code><a href="../Sigaa/ClassesImporter.html">ClassesImporter</a></code></li><li><code><a href="../Sigaa/DataSynchronizer.html">DataSynchronizer</a></code></li></ul></details></li><li><code><a href="../Submissao.html">Submissao</a></code></li><li><code><a href="../Template.html">Template</a></code></li><li><code><a href="../TemplatesController.html">TemplatesController</a></code></li><li><code><a href="../TemplatesHelper.html">TemplatesHelper</a></code></li><li><code><a href="../User.html">User</a></code></li><li><code><a href="../UserMailer.html">UserMailer</a></code></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main" aria-labelledby="class-sigaa-classmembersimporter">
+  
+  
+    <ol role="navigation" aria-label="Breadcrumb navigation" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../Sigaa.html">Sigaa</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>ClassMembersImporter</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <span id="class-Sigaa::ClassMembersImporter" class="legacy-anchor"></span>
+  <h1 id="class-sigaa-classmembersimporter" class="anchor-link class">
+    class Sigaa::ClassMembersImporter
+  </h1>
+
+  <section class="description">
+    
+<p>Importa participantes e vínculos de turma, registrando inconsistências e enviando instruções de senha para usuários recém-criados.</p>
+
+  </section>
+
+
+  <span id="5Buntitled-5D" class="legacy-anchor"></span>
+  <section class="documentation-section anchor-link">
+
+
+
+
+
+    <section class="constants-list">
+      <header>
+        <h3 id="untitled-constants"><a href="#untitled-constants">Constants</a></h3>
+      </header>
+      <dl>
+
+        <dt id="DEFAULT_PATH">DEFAULT_PATH</dt>
+
+        <dd>
+
+          <p>Caminho padrão do arquivo JSON de participantes na raiz do repositório.</p>
+        </dd>
+
+
+        <dt id="Result">Result</dt>
+
+        <dd>
+
+          <p>Resultado imutável com quantidades de criações, atualizações e inconsistências.</p>
+        </dd>
+
+
+      </dl>
+    </section>
+
+
+
+    <section class="attribute-method-details method-section">
+      <header>
+        <h3 id="untitled-attributes"><a href="#untitled-attributes">Attributes</a></h3>
+      </header>
+
+
+      <div id="attribute-i-imported_by" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-imported_by" title="Link to this attribute">
+            <span class="method-name">imported_by</span>
+            <span class="attribute-access-type">[R]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+
+
+        <p>Caminho de origem, semestre selecionado e administrador que iniciou a importação.</p>
+
+        </div>
+      </div>
+
+      <div id="attribute-i-path" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-path" title="Link to this attribute">
+            <span class="method-name">path</span>
+            <span class="attribute-access-type">[R]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+
+
+        <p>Caminho de origem, semestre selecionado e administrador que iniciou a importação.</p>
+
+        </div>
+      </div>
+
+      <div id="attribute-i-semester" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-semester" title="Link to this attribute">
+            <span class="method-name">semester</span>
+            <span class="attribute-access-type">[R]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+
+
+        <p>Caminho de origem, semestre selecionado e administrador que iniciou a importação.</p>
+
+        </div>
+      </div>
+
+    </section>
+
+
+
+
+
+
+     <section id="public-class-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-class-untitled-methods"><a href="#public-class-untitled-methods">Public Class Methods</a></h3>
+       </header>
+
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">(path: DEFAULT_PATH, semester: nil, imported_by: nil)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="new-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">path:</span> <span class="ruby-constant">DEFAULT_PATH</span>, <span class="ruby-value">semester:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">imported_by:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@path</span> = <span class="ruby-identifier">path</span>
+  <span class="ruby-ivar">@semester</span> = <span class="ruby-identifier">semester</span>
+  <span class="ruby-ivar">@imported_by</span> = <span class="ruby-identifier">imported_by</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Inicializa o importador de participantes.</p>
+
+<span id="method-c-new-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-c-new-argumentos"><a href="#method-c-new-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>path:DEFAULT_PATH</code></dt>
+<dd>
+<p>Caminho do arquivo JSON; utiliza <a href="ClassMembersImporter.html#DEFAULT_PATH"><code>DEFAULT_PATH</code></a> por padrão.</p>
+</dd><dt><code>semester:nil</code></dt>
+<dd>
+<p>Período letivo que será filtrado ou <code>nil</code> para importar todos.</p>
+</dd><dt><code>imported_by:nil</code></dt>
+<dd>
+<p><a href="../User.html"><code>User</code></a> administrador que iniciou a importação ou <code>nil</code>.</p>
+</dd></dl>
+
+<span id="method-c-new-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-c-new-retorno"><a href="#method-c-new-retorno">Retorno</a></h3>
+
+<p>Retorna uma nova instância de <a href="ClassMembersImporter.html"><code>Sigaa::ClassMembersImporter</code></a>.</p>
+
+<span id="method-c-new-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-c-new-efeitos-colaterais"><a href="#method-c-new-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Armazena os argumentos em memória; não lê o arquivo nem persiste registros.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+
+
+
+     <section id="public-instance-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-instance-untitled-methods"><a href="#public-instance-untitled-methods">Public Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-call" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-call" title="Link to this method">
+                <span class="method-name">call</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="call-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call</span>
+  <span class="ruby-identifier">counts</span> = { <span class="ruby-value">created:</span> <span class="ruby-value">0</span>, <span class="ruby-value">updated:</span> <span class="ruby-value">0</span>, <span class="ruby-value">inconsistencies:</span> <span class="ruby-value">0</span> }
+
+  <span class="ruby-identifier">parsed_data</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">class_payload</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">course_class</span> = <span class="ruby-identifier">find_or_create_course_class</span>(<span class="ruby-identifier">class_payload</span>)
+    <span class="ruby-identifier">members_for</span>(<span class="ruby-identifier">class_payload</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">member_payload</span>, <span class="ruby-identifier">membership_role</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">process_member</span>(<span class="ruby-identifier">member_payload</span>, <span class="ruby-identifier">membership_role</span>, <span class="ruby-identifier">course_class</span>, <span class="ruby-identifier">counts</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Result</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">created_count:</span> <span class="ruby-identifier">counts</span>[<span class="ruby-value">:created</span>], <span class="ruby-value">updated_count:</span> <span class="ruby-identifier">counts</span>[<span class="ruby-value">:updated</span>], <span class="ruby-value">inconsistencies:</span> <span class="ruby-identifier">counts</span>[<span class="ruby-value">:inconsistencies</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Sincroniza usuários e vínculos encontrados no arquivo de participantes.</p>
+
+<p>Não recebe argumentos.</p>
+
+<p>Retorna <a href="ClassMembersImporter.html#Result"><code>Result</code></a> com quantidades de criações, atualizações e inconsistências.</p>
+
+<p>Efeitos colaterais: lê o JSON, cria ou atualiza turmas, departamentos, usuários, vínculos e inconsistências e pode enviar e-mails de definição de senha.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+     <section id="private-instance-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="private-instance-untitled-methods"><a href="#private-instance-untitled-methods">Private Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-apply_user_updates" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-apply_user_updates" title="Link to this method">
+                <span class="method-name">apply_user_updates</span>
+                <span class="method-args">(user, name, email, registration, department)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="apply_user_updates-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 240</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">apply_user_updates</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">email</span>, <span class="ruby-identifier">registration</span>, <span class="ruby-identifier">department</span>)
+  <span class="ruby-identifier">updates</span> = <span class="ruby-identifier">build_user_updates</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">email</span>, <span class="ruby-identifier">registration</span>, <span class="ruby-identifier">department</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-value">:unchanged</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">updates</span>.<span class="ruby-identifier">any?</span>
+
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">update!</span>(<span class="ruby-identifier">updates</span>)
+  <span class="ruby-value">:updated</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-build_user_updates" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-build_user_updates" title="Link to this method">
+                <span class="method-name">build_user_updates</span>
+                <span class="method-args">(user, name, email, registration, department)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="build_user_updates-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 248</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">build_user_updates</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">email</span>, <span class="ruby-identifier">registration</span>, <span class="ruby-identifier">department</span>)
+  {}.<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">u</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">u</span>[<span class="ruby-value">:name</span>] = <span class="ruby-identifier">name</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">name</span>
+    <span class="ruby-identifier">u</span>[<span class="ruby-value">:email</span>] = <span class="ruby-identifier">email</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">email</span>
+    <span class="ruby-identifier">u</span>[<span class="ruby-value">:registration</span>] = <span class="ruby-identifier">registration</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">registration</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">registration</span>
+    <span class="ruby-identifier">u</span>[<span class="ruby-value">:department</span>] = <span class="ruby-identifier">department</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">department_id</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">department</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-create_user" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-create_user" title="Link to this method">
+                <span class="method-name">create_user</span>
+                <span class="method-args">(name, email, registration, department)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="create_user-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 234</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_user</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">email</span>, <span class="ruby-identifier">registration</span>, <span class="ruby-identifier">department</span>)
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-value">name:</span>, <span class="ruby-value">email:</span>, <span class="ruby-value">registration:</span>, <span class="ruby-value">role:</span> <span class="ruby-value">:participant</span>, <span class="ruby-value">department:</span>)
+  <span class="ruby-identifier">send_password_setup</span>(<span class="ruby-identifier">user</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">pending_password_setup?</span>
+  <span class="ruby-value">:created</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-department_for" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-department_for" title="Link to this method">
+                <span class="method-name">department_for</span>
+                <span class="method-args">(code)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="department_for-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">department_for</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-identifier">department_code</span> = <span class="ruby-identifier">resolve_department_code</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-identifier">department</span> = <span class="ruby-constant">Department</span>.<span class="ruby-identifier">find_or_create_by!</span>(<span class="ruby-value">code:</span> <span class="ruby-identifier">department_code</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">dept</span><span class="ruby-operator">|</span> <span class="ruby-identifier">dept</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">department_code</span> }
+  <span class="ruby-identifier">imported_by</span>.<span class="ruby-identifier">update!</span>(<span class="ruby-value">department:</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">imported_by</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">imported_by</span>.<span class="ruby-identifier">department_id</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">department</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Obtém ou cria o departamento ao qual um código de disciplina pertence.</p>
+
+<span id="method-i-department_for-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-department_for-argumentos"><a href="#method-i-department_for-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>code</code></dt>
+<dd>
+<p>Código da disciplina usado como alternativa para inferir o departamento.</p>
+</dd></dl>
+
+<span id="method-i-department_for-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-department_for-retorno"><a href="#method-i-department_for-retorno">Retorno</a></h3>
+
+<p>Retorna o <a href="../Department.html"><code>Department</code></a> encontrado ou criado.</p>
+
+<span id="method-i-department_for-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-department_for-efeitos-colaterais"><a href="#method-i-department_for-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Pode criar um departamento e associá-lo ao administrador no banco de dados.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-ensure_membership" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-ensure_membership" title="Link to this method">
+                <span class="method-name">ensure_membership</span>
+                <span class="method-args">(user, course_class, role)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="ensure_membership-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 343</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ensure_membership</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">course_class</span>, <span class="ruby-identifier">role</span>)
+  <span class="ruby-identifier">membership</span> = <span class="ruby-constant">ClassMembership</span>.<span class="ruby-identifier">find_or_create_by!</span>(<span class="ruby-value">user:</span>, <span class="ruby-value">course_class:</span>, <span class="ruby-value">role:</span>)
+  <span class="ruby-identifier">membership</span>.<span class="ruby-identifier">previously_new_record?</span> <span class="ruby-operator">?</span> <span class="ruby-value">:created</span> <span class="ruby-operator">:</span> <span class="ruby-value">:unchanged</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Garante a existência do vínculo do usuário com a turma no papel informado.</p>
+
+<span id="method-i-ensure_membership-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-ensure_membership-argumentos"><a href="#method-i-ensure_membership-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>user</code></dt>
+<dd>
+<p><a href="../User.html"><code>User</code></a> que participa da turma.</p>
+</dd><dt><a href="../app/models/course_class_rb.html">course_class</a></dt>
+<dd>
+<p><a href="../CourseClass.html"><code>CourseClass</code></a> à qual o usuário será vinculado.</p>
+</dd><dt><code>role</code></dt>
+<dd>
+<p>Papel <code>:discente</code> ou <code>:docente</code> do vínculo.</p>
+</dd></dl>
+
+<span id="method-i-ensure_membership-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-ensure_membership-retorno"><a href="#method-i-ensure_membership-retorno">Retorno</a></h3>
+
+<p>Retorna <code>:created</code> quando cria o vínculo e <code>:unchanged</code> quando ele já existia.</p>
+
+<span id="method-i-ensure_membership-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-ensure_membership-efeitos-colaterais"><a href="#method-i-ensure_membership-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Pode inserir uma <a href="../ClassMembership.html"><code>ClassMembership</code></a> no banco e lançar erros de persistência.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-find_or_create_course_class" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-find_or_create_course_class" title="Link to this method">
+                <span class="method-name">find_or_create_course_class</span>
+                <span class="method-args">(class_payload)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="find_or_create_course_class-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_or_create_course_class</span>(<span class="ruby-identifier">class_payload</span>)
+  <span class="ruby-identifier">code</span> = <span class="ruby-identifier">class_payload</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;code&quot;</span>)
+  <span class="ruby-identifier">department</span> = <span class="ruby-identifier">department_for</span>(<span class="ruby-identifier">code</span>)
+
+  <span class="ruby-constant">CourseClass</span>.<span class="ruby-identifier">find_or_create_by!</span>(
+    <span class="ruby-value">code:</span>,
+    <span class="ruby-value">class_code:</span> <span class="ruby-identifier">class_payload</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;classCode&quot;</span>),
+    <span class="ruby-value">semester:</span> <span class="ruby-identifier">class_payload</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;semester&quot;</span>)
+  ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">course_class</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">course_class</span>.<span class="ruby-identifier">department</span> = <span class="ruby-identifier">department</span>
+    <span class="ruby-identifier">course_class</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">class_payload</span>[<span class="ruby-string">&quot;name&quot;</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Localiza ou cria a turma descrita por um bloco do arquivo de participantes.</p>
+
+<span id="method-i-find_or_create_course_class-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-find_or_create_course_class-argumentos"><a href="#method-i-find_or_create_course_class-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>class_payload</code></dt>
+<dd>
+<p>Hash com código, turma, semestre e nome da disciplina.</p>
+</dd></dl>
+
+<span id="method-i-find_or_create_course_class-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-find_or_create_course_class-retorno"><a href="#method-i-find_or_create_course_class-retorno">Retorno</a></h3>
+
+<p>Retorna a <a href="../CourseClass.html"><code>CourseClass</code></a> encontrada ou criada.</p>
+
+<span id="method-i-find_or_create_course_class-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-find_or_create_course_class-efeitos-colaterais"><a href="#method-i-find_or_create_course_class-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Pode criar departamento e turma no banco ou lançar erros por dados obrigatórios ausentes.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-invalid_member-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-invalid_member-3F" title="Link to this method">
+                <span class="method-name">invalid_member?</span>
+                <span class="method-args">(member_payload)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="invalid_member-3F-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">invalid_member?</span>(<span class="ruby-identifier">member_payload</span>)
+  <span class="ruby-identifier">member_payload</span>[<span class="ruby-string">&quot;email&quot;</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">member_registration</span>(<span class="ruby-identifier">member_payload</span>).<span class="ruby-identifier">blank?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Verifica se um participante não possui e-mail ou matrícula.</p>
+
+<span id="method-i-invalid_member-3F-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-invalid_member-3F-argumentos"><a href="#method-i-invalid_member-3F-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>member_payload</code></dt>
+<dd>
+<p>Hash com os dados do participante.</p>
+</dd></dl>
+
+<span id="method-i-invalid_member-3F-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-invalid_member-3F-retorno"><a href="#method-i-invalid_member-3F-retorno">Retorno</a></h3>
+
+<p>Retorna <code>true</code> quando falta um dado obrigatório e <code>false</code> caso contrário.</p>
+
+<span id="method-i-invalid_member-3F-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-invalid_member-3F-efeitos-colaterais"><a href="#method-i-invalid_member-3F-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Não possui efeitos colaterais.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-member_registration" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-member_registration" title="Link to this method">
+                <span class="method-name">member_registration</span>
+                <span class="method-args">(member_payload)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="member_registration-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">member_registration</span>(<span class="ruby-identifier">member_payload</span>)
+  <span class="ruby-identifier">member_payload</span>[<span class="ruby-string">&quot;matricula&quot;</span>].<span class="ruby-identifier">presence</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">member_payload</span>[<span class="ruby-string">&quot;usuario&quot;</span>].<span class="ruby-identifier">presence</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Extrai a matrícula acadêmica ou o identificador alternativo do participante.</p>
+
+<span id="method-i-member_registration-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-member_registration-argumentos"><a href="#method-i-member_registration-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>member_payload</code></dt>
+<dd>
+<p>Hash com os dados do participante.</p>
+</dd></dl>
+
+<span id="method-i-member_registration-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-member_registration-retorno"><a href="#method-i-member_registration-retorno">Retorno</a></h3>
+
+<p>Retorna o valor de <code>matricula</code>, o valor de <code>usuario</code> ou <code>nil</code>.</p>
+
+<span id="method-i-member_registration-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-member_registration-efeitos-colaterais"><a href="#method-i-member_registration-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Não possui efeitos colaterais.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-members_for" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-members_for" title="Link to this method">
+                <span class="method-name">members_for</span>
+                <span class="method-args">(class_payload)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="members_for-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">members_for</span>(<span class="ruby-identifier">class_payload</span>)
+  <span class="ruby-identifier">class_payload</span>.<span class="ruby-identifier">flat_map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> [] <span class="ruby-keyword">unless</span> <span class="ruby-node">%w[dicente docente]</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)
+
+    <span class="ruby-identifier">role</span> = <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;docente&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-value">:docente</span> <span class="ruby-operator">:</span> <span class="ruby-value">:discente</span>
+    <span class="ruby-identifier">members</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">:</span> (<span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> [ <span class="ruby-identifier">value</span> ] <span class="ruby-operator">:</span> [])
+    <span class="ruby-identifier">members</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">member_payload</span><span class="ruby-operator">|</span> [ <span class="ruby-identifier">member_payload</span>, <span class="ruby-identifier">role</span> ] }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Normaliza docentes e discentes de uma turma em pares de participante e papel.</p>
+
+<span id="method-i-members_for-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-members_for-argumentos"><a href="#method-i-members_for-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>class_payload</code></dt>
+<dd>
+<p>Hash da turma contendo coleções de docentes e discentes.</p>
+</dd></dl>
+
+<span id="method-i-members_for-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-members_for-retorno"><a href="#method-i-members_for-retorno">Retorno</a></h3>
+
+<p>Retorna um Array de pares +[member_payload, role]+.</p>
+
+<span id="method-i-members_for-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-members_for-efeitos-colaterais"><a href="#method-i-members_for-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Não possui efeitos colaterais.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-normalized_email" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-normalized_email" title="Link to this method">
+                <span class="method-name">normalized_email</span>
+                <span class="method-args">(member_payload)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="normalized_email-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 305</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">normalized_email</span>(<span class="ruby-identifier">member_payload</span>)
+  <span class="ruby-identifier">member_payload</span>[<span class="ruby-string">&quot;email&quot;</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">downcase</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Normaliza o e-mail importado removendo espaços e convertendo-o para minúsculas.</p>
+
+<span id="method-i-normalized_email-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-normalized_email-argumentos"><a href="#method-i-normalized_email-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>member_payload</code></dt>
+<dd>
+<p>Hash contendo o campo <code>email</code>.</p>
+</dd></dl>
+
+<span id="method-i-normalized_email-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-normalized_email-retorno"><a href="#method-i-normalized_email-retorno">Retorno</a></h3>
+
+<p>Retorna uma String normalizada, inclusive vazia quando o campo não existe.</p>
+
+<span id="method-i-normalized_email-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-normalized_email-efeitos-colaterais"><a href="#method-i-normalized_email-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Não possui efeitos colaterais.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-parsed_data" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-parsed_data" title="Link to this method">
+                <span class="method-name">parsed_data</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="parsed_data-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parsed_data</span>
+  <span class="ruby-identifier">data</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>))
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">data</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">semester</span>.<span class="ruby-identifier">blank?</span>
+
+  <span class="ruby-identifier">data</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span> <span class="ruby-identifier">entry</span>[<span class="ruby-string">&quot;semester&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">semester</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Lê o arquivo de participantes e aplica o filtro opcional de semestre.</p>
+
+<p>Não recebe argumentos.</p>
+
+<p>Retorna um Array de hashes do JSON, completo ou filtrado.</p>
+
+<p>Efeitos colaterais: lê o arquivo e pode lançar erros de leitura ou JSON::ParserError.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-process_member" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-process_member" title="Link to this method">
+                <span class="method-name">process_member</span>
+                <span class="method-args">(member_payload, membership_role, course_class, counts)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="process_member-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">process_member</span>(<span class="ruby-identifier">member_payload</span>, <span class="ruby-identifier">membership_role</span>, <span class="ruby-identifier">course_class</span>, <span class="ruby-identifier">counts</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">invalid_member?</span>(<span class="ruby-identifier">member_payload</span>)
+    <span class="ruby-identifier">register_inconsistency</span>(<span class="ruby-identifier">member_payload</span>, <span class="ruby-string">&quot;Participante sem email ou matricula&quot;</span>)
+    <span class="ruby-identifier">counts</span>[<span class="ruby-value">:inconsistencies</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">user_status</span> = <span class="ruby-identifier">sync_user</span>(<span class="ruby-identifier">member_payload</span>, <span class="ruby-identifier">course_class</span>.<span class="ruby-identifier">department</span>)
+  <span class="ruby-identifier">counts</span>[<span class="ruby-value">:created</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">user_status</span> <span class="ruby-operator">==</span> <span class="ruby-value">:created</span>
+  <span class="ruby-identifier">counts</span>[<span class="ruby-value">:updated</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">user_status</span> <span class="ruby-operator">==</span> <span class="ruby-value">:updated</span>
+
+  <span class="ruby-identifier">membership_status</span> = <span class="ruby-identifier">ensure_membership</span>(<span class="ruby-identifier">user_for</span>(<span class="ruby-identifier">member_payload</span>), <span class="ruby-identifier">course_class</span>, <span class="ruby-identifier">membership_role</span>)
+  <span class="ruby-identifier">counts</span>[<span class="ruby-value">:created</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">membership_status</span> <span class="ruby-operator">==</span> <span class="ruby-value">:created</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-register_inconsistency" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-register_inconsistency" title="Link to this method">
+                <span class="method-name">register_inconsistency</span>
+                <span class="method-args">(member_payload, message)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="register_inconsistency-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">register_inconsistency</span>(<span class="ruby-identifier">member_payload</span>, <span class="ruby-identifier">message</span>)
+  <span class="ruby-constant">ImportInconsistency</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-value">source:</span> <span class="ruby-string">&quot;class_members.json&quot;</span>, <span class="ruby-value">message:</span>, <span class="ruby-value">payload:</span> <span class="ruby-identifier">member_payload</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Registra um participante inválido para análise posterior.</p>
+
+<span id="method-i-register_inconsistency-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-register_inconsistency-argumentos"><a href="#method-i-register_inconsistency-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>member_payload</code></dt>
+<dd>
+<p>Hash original que apresentou inconsistência.</p>
+</dd><dt><code>message</code></dt>
+<dd>
+<p>Descrição legível do problema encontrado.</p>
+</dd></dl>
+
+<span id="method-i-register_inconsistency-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-register_inconsistency-retorno"><a href="#method-i-register_inconsistency-retorno">Retorno</a></h3>
+
+<p>Retorna o <a href="../ImportInconsistency.html"><code>ImportInconsistency</code></a> criado.</p>
+
+<span id="method-i-register_inconsistency-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-register_inconsistency-efeitos-colaterais"><a href="#method-i-register_inconsistency-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Insere uma inconsistência no banco e pode lançar ActiveRecord::RecordInvalid.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-resolve_department_code" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-resolve_department_code" title="Link to this method">
+                <span class="method-name">resolve_department_code</span>
+                <span class="method-args">(code)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="resolve_department_code-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">resolve_department_code</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-identifier">imported_by</span>&amp;.<span class="ruby-identifier">department</span>&amp;.<span class="ruby-identifier">code</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_s</span>[<span class="ruby-regexp">/\A[A-Za-z]+/</span>]&amp;.<span class="ruby-identifier">upcase</span> <span class="ruby-operator">||</span> <span class="ruby-string">&quot;GERAL&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-send_password_setup" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-send_password_setup" title="Link to this method">
+                <span class="method-name">send_password_setup</span>
+                <span class="method-args">(user)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="send_password_setup-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 323</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send_password_setup</span>(<span class="ruby-identifier">user</span>)
+  <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">password_setup</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">user</span>.<span class="ruby-identifier">generate_password_setup_token!</span>).<span class="ruby-identifier">deliver_now</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Gera o token inicial e entrega o e-mail de definição de senha.</p>
+
+<span id="method-i-send_password_setup-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-send_password_setup-argumentos"><a href="#method-i-send_password_setup-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>user</code></dt>
+<dd>
+<p><a href="../User.html"><code>User</code></a> recém-criado que receberá as instruções.</p>
+</dd></dl>
+
+<span id="method-i-send_password_setup-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-send_password_setup-retorno"><a href="#method-i-send_password_setup-retorno">Retorno</a></h3>
+
+<p>Retorna a mensagem entregue pelo Action Mailer.</p>
+
+<span id="method-i-send_password_setup-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-send_password_setup-efeitos-colaterais"><a href="#method-i-send_password_setup-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Atualiza o token do usuário no banco e envia um e-mail de forma síncrona.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-sync_user" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-sync_user" title="Link to this method">
+                <span class="method-name">sync_user</span>
+                <span class="method-args">(member_payload, department)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="sync_user-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sync_user</span>(<span class="ruby-identifier">member_payload</span>, <span class="ruby-identifier">department</span>)
+  <span class="ruby-identifier">registration</span> = <span class="ruby-identifier">member_registration</span>(<span class="ruby-identifier">member_payload</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>
+  <span class="ruby-identifier">email</span> = <span class="ruby-identifier">normalized_email</span>(<span class="ruby-identifier">member_payload</span>)
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">member_payload</span>[<span class="ruby-string">&quot;nome&quot;</span>]
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">email:</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">registration:</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">create_user</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">email</span>, <span class="ruby-identifier">registration</span>, <span class="ruby-identifier">department</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">apply_user_updates</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">email</span>, <span class="ruby-identifier">registration</span>, <span class="ruby-identifier">department</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Cria ou atualiza o usuário correspondente ao participante importado.</p>
+
+<span id="method-i-sync_user-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-sync_user-argumentos"><a href="#method-i-sync_user-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>member_payload</code></dt>
+<dd>
+<p>Hash com nome, e-mail e matrícula do participante.</p>
+</dd><dt><code>department</code></dt>
+<dd>
+<p><a href="../Department.html"><code>Department</code></a> que será associado ao usuário.</p>
+</dd></dl>
+
+<span id="method-i-sync_user-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-sync_user-retorno"><a href="#method-i-sync_user-retorno">Retorno</a></h3>
+
+<p>Retorna <code>:created</code>, <code>:updated</code> ou <code>:unchanged</code> conforme a operação realizada.</p>
+
+<span id="method-i-sync_user-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-sync_user-efeitos-colaterais"><a href="#method-i-sync_user-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Cria ou atualiza o usuário no banco e envia e-mail de definição de senha para contas novas.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-user_for" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-user_for" title="Link to this method">
+                <span class="method-name">user_for</span>
+                <span class="method-args">(member_payload)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="user_for-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/class_members_importer.rb, line 286</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">user_for</span>(<span class="ruby-identifier">member_payload</span>)
+  <span class="ruby-identifier">registration</span> = <span class="ruby-identifier">member_registration</span>(<span class="ruby-identifier">member_payload</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>
+  <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">email:</span> <span class="ruby-identifier">normalized_email</span>(<span class="ruby-identifier">member_payload</span>)) <span class="ruby-operator">||</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by!</span>(<span class="ruby-value">registration:</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Localiza o usuário já sincronizado a partir do e-mail ou da matrícula importada.</p>
+
+<span id="method-i-user_for-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-user_for-argumentos"><a href="#method-i-user_for-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>member_payload</code></dt>
+<dd>
+<p>Hash com os dados usados na busca.</p>
+</dd></dl>
+
+<span id="method-i-user_for-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-user_for-retorno"><a href="#method-i-user_for-retorno">Retorno</a></h3>
+
+<p>Retorna o <a href="../User.html"><code>User</code></a> encontrado.</p>
+
+<span id="method-i-user_for-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-user_for-efeitos-colaterais"><a href="#method-i-user_for-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Consulta o banco e pode lançar ActiveRecord::RecordNotFound quando não há correspondência.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+  </section>
+
+</main>
+
+<aside class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 7.2.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+

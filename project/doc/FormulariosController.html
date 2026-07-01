@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>class FormulariosController - CAMAAR - Documentação do Código</title>
+
+
+  <meta
+    name="keywords"
+    content="ruby,class,FormulariosController"
+  >
+
+    <meta
+      name="description"
+      content="class FormulariosController: Gerencia formulários de avaliação, apresenta pendências aos participantes e disponibiliza resultados e exportação aos administradores."
+    >
+
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="class FormulariosController - CAMAAR - Documentação do Código">
+
+
+
+    <meta property="og:description" content="Gerencia formulários de avaliação, apresenta pendências aos participantes e disponibiliza resultados e exportação aos administradores.">
+
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="class FormulariosController - CAMAAR - Documentação do Código">
+
+
+
+    <meta name="twitter:description" content="Gerencia formulários de avaliação, apresenta pendências aos participantes e disponibiliza resultados e exportação aos administradores.">
+
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script
+  src="./js/theme-toggle.js?v=7.2.0"
+></script>
+
+<script
+  src="./js/search_navigation.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/search_data.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/search_ranker.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/search_controller.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/c_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/bash_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/aliki.js?v=7.2.0"
+  defer
+></script>
+
+<link
+  href="./css/rdoc.css?v=7.2.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="class has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="./index.html" class="navbar-brand">
+    CAMAAR - Documentação do Código
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation" hidden>
+  
+
+
+
+
+
+  
+
+  
+<div id="parent-class-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-ancestors"></use></svg>
+      </span>
+      <span class="nav-section-title">Ancestors</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+    <ul><li><a href="ApplicationController.html">ApplicationController</a><ul><li>ActionController::Base</li></ul></li></ul>
+  </details>
+</div>
+
+
+  
+
+  
+
+  
+
+
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-instance-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Instance Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-i-authorize_formulario_access-21">authorize_formulario_access!</a></li>
+
+        <li ><a href="#method-i-cabecalho_csv">cabecalho_csv</a></li>
+
+        <li ><a href="#method-i-create">create</a></li>
+
+        <li ><a href="#method-i-destroy">destroy</a></li>
+
+        <li ><a href="#method-i-exportar_csv">exportar_csv</a></li>
+
+        <li ><a href="#method-i-formulario_params">formulario_params</a></li>
+
+        <li ><a href="#method-i-formularios_pendentes_para">formularios_pendentes_para</a></li>
+
+        <li ><a href="#method-i-gerar_csv">gerar_csv</a></li>
+
+        <li ><a href="#method-i-index">index</a></li>
+
+        <li ><a href="#method-i-linha_csv">linha_csv</a></li>
+
+        <li ><a href="#method-i-new">new</a></li>
+
+        <li ><a href="#method-i-papel_por_turma">papel_por_turma</a></li>
+
+        <li ><a href="#method-i-render_create_failure">render_create_failure</a></li>
+
+        <li ><a href="#method-i-render_create_success">render_create_success</a></li>
+
+        <li ><a href="#method-i-set_formulario">set_formulario</a></li>
+
+        <li ><a href="#method-i-show">show</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><code><a href="./ApplicationController.html">ApplicationController</a></code></li><li><code><a href="./ApplicationHelper.html">ApplicationHelper</a></code></li><li><code><a href="./ApplicationJob.html">ApplicationJob</a></code></li><li><code><a href="./ApplicationMailer.html">ApplicationMailer</a></code></li><li><code><a href="./ApplicationRecord.html">ApplicationRecord</a></code></li><li><code><a href="./ClassMembership.html">ClassMembership</a></code></li><li><code><a href="./CourseClass.html">CourseClass</a></code></li><li><code><a href="./CourseClassesController.html">CourseClassesController</a></code></li><li><code><a href="./DashboardController.html">DashboardController</a></code></li><li><code><a href="./Department.html">Department</a></code></li><li><code><a href="./Formulario.html">Formulario</a></code></li><li><details><summary><code><a href="./Formularios.html">Formularios</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Formularios/CreateFromTemplate.html">CreateFromTemplate</a></code></li></ul></details></li><li><code><a href="./FormulariosController.html">FormulariosController</a></code></li><li><code><a href="./FormulariosHelper.html">FormulariosHelper</a></code></li><li><code><a href="./ImportInconsistency.html">ImportInconsistency</a></code></li><li><details><summary><code><a href="./Imports.html">Imports</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Imports/SigaaController.html">SigaaController</a></code></li></ul></details></li><li><code><a href="./PasswordResetsController.html">PasswordResetsController</a></code></li><li><code><a href="./PasswordSetupsController.html">PasswordSetupsController</a></code></li><li><code><a href="./Questao.html">Questao</a></code></li><li><code><a href="./RespostaController.html">RespostaController</a></code></li><li><code><a href="./RespostaHelper.html">RespostaHelper</a></code></li><li><code><a href="./Respostum.html">Respostum</a></code></li><li><code><a href="./SessionsController.html">SessionsController</a></code></li><li><details><summary><code><a href="./Sigaa.html">Sigaa</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Sigaa/ClassMembersImporter.html">ClassMembersImporter</a></code></li><li><code><a href="./Sigaa/ClassesImporter.html">ClassesImporter</a></code></li><li><code><a href="./Sigaa/DataSynchronizer.html">DataSynchronizer</a></code></li></ul></details></li><li><code><a href="./Submissao.html">Submissao</a></code></li><li><code><a href="./Template.html">Template</a></code></li><li><code><a href="./TemplatesController.html">TemplatesController</a></code></li><li><code><a href="./TemplatesHelper.html">TemplatesHelper</a></code></li><li><code><a href="./User.html">User</a></code></li><li><code><a href="./UserMailer.html">UserMailer</a></code></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main" aria-labelledby="class-formularioscontroller">
+  
+  
+
+  <span id="class-FormulariosController" class="legacy-anchor"></span>
+  <h1 id="class-formularioscontroller" class="anchor-link class">
+    class FormulariosController
+  </h1>
+
+  <section class="description">
+    
+<p>Gerencia formulários de avaliação, apresenta pendências aos participantes e disponibiliza resultados e exportação aos administradores.</p>
+
+  </section>
+
+
+  <span id="5Buntitled-5D" class="legacy-anchor"></span>
+  <section class="documentation-section anchor-link">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <section id="public-instance-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-instance-untitled-methods"><a href="#public-instance-untitled-methods">Public Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-create" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-create" title="Link to this method">
+                <span class="method-name">create</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="create-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">Formularios</span><span class="ruby-operator">::</span><span class="ruby-constant">CreateFromTemplate</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">admin:</span> <span class="ruby-identifier">current_admin</span>, <span class="ruby-value">params:</span> <span class="ruby-identifier">formulario_params</span>).<span class="ruby-identifier">call</span>
+  <span class="ruby-ivar">@formulario</span> = <span class="ruby-identifier">result</span>.<span class="ruby-identifier">formulario</span>
+
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">success?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">render_create_success</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">render_create_failure</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Cria um formulário a partir de um template e clona suas questões.</p>
+
+<p>Não recebe argumentos explícitos; utiliza os atributos permitidos da requisição.</p>
+
+<p>Retorna uma resposta de redirecionamento em caso de sucesso ou uma resposta com status de conteúdo não processável quando houver erros.</p>
+
+<p>Efeitos colaterais: persiste o formulário e suas questões ou renderiza novamente a tela com as mensagens de validação.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-destroy" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-destroy" title="Link to this method">
+                <span class="method-name">destroy</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="destroy-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
+  <span class="ruby-ivar">@formulario</span>.<span class="ruby-identifier">destroy!</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">formularios_path</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&quot;Formulário deletado com sucesso.&quot;</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:see_other</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Exclui o formulário carregado e seus registros dependentes.</p>
+
+<p>Não recebe argumentos explícitos; usa o formulário carregado por <code>params[:id]</code>.</p>
+
+<p>Retorna uma resposta de redirecionamento com status +303 See Other+.</p>
+
+<p>Efeitos colaterais: remove registros do banco e define uma mensagem de sucesso.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-exportar_csv" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-exportar_csv" title="Link to this method">
+                <span class="method-name">exportar_csv</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="exportar_csv-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">exportar_csv</span>
+  <span class="ruby-identifier">send_data</span> <span class="ruby-identifier">gerar_csv</span>,
+            <span class="ruby-value">filename:</span> <span class="ruby-node">&quot;respostas_formulario_#{@formulario.id}.csv&quot;</span>,
+            <span class="ruby-value">type:</span> <span class="ruby-string">&quot;text/csv&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Exporta as questões e respostas do formulário em um arquivo CSV.</p>
+
+<p>Não recebe argumentos explícitos; usa o formulário carregado por <code>params[:id]</code>.</p>
+
+<p>Retorna a resposta de arquivo produzida por <code>send_data</code>.</p>
+
+<p>Efeitos colaterais: consulta respostas e envia dados CSV para download pelo cliente.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-index" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-index" title="Link to this method">
+                <span class="method-name">index</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="index-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
+  <span class="ruby-comment"># Issue 110: Visualizar os formulários criados (Listagem geral)</span>
+  <span class="ruby-ivar">@formularios</span> = <span class="ruby-identifier">current_admin</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">current_admin</span>.<span class="ruby-identifier">formularios</span> <span class="ruby-operator">:</span> []
+
+  <span class="ruby-comment"># Issue 109: Visualizar os formulários não respondidos das turmas, respeitando</span>
+  <span class="ruby-comment"># o papel (discente/docente) do usuário em cada turma</span>
+  <span class="ruby-ivar">@formularios_pendentes</span> = <span class="ruby-identifier">current_user</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">formularios_pendentes_para</span>(<span class="ruby-identifier">current_user</span>) <span class="ruby-operator">:</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Lista os formulários do administrador ou as avaliações pendentes do participante.</p>
+
+<p>Não recebe argumentos.</p>
+
+<p>Retorna a resposta HTML ou JSON construída pelo Rails.</p>
+
+<p>Efeitos colaterais: consulta o banco e define +@formularios+ e +@formularios_pendentes+ para a view.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-new" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="new-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
+  <span class="ruby-ivar">@formulario</span> = <span class="ruby-constant">Formulario</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@templates</span> = <span class="ruby-identifier">current_admin</span>.<span class="ruby-identifier">templates</span>
+  <span class="ruby-ivar">@course_classes</span> = <span class="ruby-constant">CourseClass</span>.<span class="ruby-identifier">all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Prepara a tela de criação de um formulário.</p>
+
+<p>Não recebe argumentos.</p>
+
+<p>Retorna a resposta HTML construída pelo Rails.</p>
+
+<p>Efeitos colaterais: instancia um formulário, consulta templates e turmas e define as coleções usadas pela view.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-show" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-show" title="Link to this method">
+                <span class="method-name">show</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="show-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_admin</span>
+    <span class="ruby-ivar">@resultados</span> = <span class="ruby-ivar">@formulario</span>.<span class="ruby-identifier">questaos</span>.<span class="ruby-identifier">includes</span>(<span class="ruby-value">respostas:</span> { <span class="ruby-value">submissao:</span> <span class="ruby-value">:user</span> })
+    <span class="ruby-ivar">@tem_submissoes</span> = <span class="ruby-constant">Submissao</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">formulario:</span> <span class="ruby-ivar">@formulario</span>).<span class="ruby-identifier">exists?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Exibe um formulário para resposta ou, para administradores, seus resultados.</p>
+
+<p>Não recebe argumentos explícitos; usa o formulário carregado por <code>params[:id]</code>.</p>
+
+<p>Retorna a resposta HTML ou JSON construída pelo Rails.</p>
+
+<p>Efeitos colaterais: consulta submissões e respostas e define variáveis para a view.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+     <section id="private-instance-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="private-instance-untitled-methods"><a href="#private-instance-untitled-methods">Private Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-authorize_formulario_access-21" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-authorize_formulario_access-21" title="Link to this method">
+                <span class="method-name">authorize_formulario_access!</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="authorize_formulario_access-21-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">authorize_formulario_access!</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">formularios_path</span>, <span class="ruby-value">alert:</span> <span class="ruby-string">&quot;Você não tem acesso a esse formulário&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@formulario</span>.<span class="ruby-identifier">admin_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">current_admin</span>.<span class="ruby-identifier">id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Verifica se o formulário pertence ao administrador atual.</p>
+
+<p>Não recebe argumentos explícitos; utiliza +@formulario+ e <code>current_admin</code>.</p>
+
+<p>Retorna <code>nil</code> quando autorizado ou o resultado do redirecionamento quando negado.</p>
+
+<p>Efeitos colaterais: pode redirecionar para a listagem e definir uma mensagem de alerta.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-cabecalho_csv" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-cabecalho_csv" title="Link to this method">
+                <span class="method-name">cabecalho_csv</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="cabecalho_csv-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cabecalho_csv</span>
+  [ <span class="ruby-string">&quot;ID da Pergunta&quot;</span>, <span class="ruby-string">&quot;Enunciado&quot;</span>, <span class="ruby-string">&quot;Tipo&quot;</span>, <span class="ruby-string">&quot;Respostas&quot;</span> ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-formulario_params" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-formulario_params" title="Link to this method">
+                <span class="method-name">formulario_params</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="formulario_params-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">formulario_params</span>
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">expect</span>(<span class="ruby-value">formulario:</span> [ <span class="ruby-value">:title</span>, <span class="ruby-value">:status</span>, <span class="ruby-value">:template_id</span>, <span class="ruby-value">:course_class_id</span> ])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Filtra os atributos aceitos para criação de formulário.</p>
+
+<p>Não recebe argumentos explícitos; lê <code>params[:formulario]</code>.</p>
+
+<p>Retorna ActionController::Parameters com os atributos permitidos.</p>
+
+<p>Efeitos colaterais: pode lançar ActionController::ParameterMissing quando a chave obrigatória não estiver presente.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-formularios_pendentes_para" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-formularios_pendentes_para" title="Link to this method">
+                <span class="method-name">formularios_pendentes_para</span>
+                <span class="method-args">(user)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="formularios_pendentes_para-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">formularios_pendentes_para</span>(<span class="ruby-identifier">user</span>)
+  <span class="ruby-identifier">formularios_respondidos_ids</span> = <span class="ruby-constant">Submissao</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">user:</span> <span class="ruby-identifier">user</span>).<span class="ruby-identifier">select</span>(<span class="ruby-value">:formulario_id</span>)
+  <span class="ruby-identifier">mapa</span> = <span class="ruby-identifier">papel_por_turma</span>(<span class="ruby-identifier">user</span>)
+
+  <span class="ruby-constant">Formulario</span>
+    .<span class="ruby-identifier">where</span>(<span class="ruby-value">course_class_id:</span> <span class="ruby-identifier">mapa</span>.<span class="ruby-identifier">keys</span>)
+    .<span class="ruby-identifier">where</span>.<span class="ruby-identifier">not</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">formularios_respondidos_ids</span>)
+    .<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">formulario</span><span class="ruby-operator">|</span> <span class="ruby-identifier">mapa</span>[<span class="ruby-identifier">formulario</span>.<span class="ruby-identifier">course_class_id</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">formulario</span>.<span class="ruby-identifier">target_role</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Localiza formulários ainda não respondidos e compatíveis com o papel do usuário em cada turma.</p>
+
+<span id="method-i-formularios_pendentes_para-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-formularios_pendentes_para-argumentos"><a href="#method-i-formularios_pendentes_para-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>user</code></dt>
+<dd>
+<p><a href="User.html"><code>User</code></a> participante cujas pendências serão consultadas.</p>
+</dd></dl>
+
+<span id="method-i-formularios_pendentes_para-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-formularios_pendentes_para-retorno"><a href="#method-i-formularios_pendentes_para-retorno">Retorno</a></h3>
+
+<p>Retorna um Array de objetos <a href="Formulario.html"><code>Formulario</code></a> pendentes.</p>
+
+<span id="method-i-formularios_pendentes_para-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-formularios_pendentes_para-efeitos-colaterais"><a href="#method-i-formularios_pendentes_para-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Consulta submissões, vínculos e formulários no banco de dados.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-gerar_csv" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-gerar_csv" title="Link to this method">
+                <span class="method-name">gerar_csv</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="gerar_csv-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gerar_csv</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;csv&quot;</span>
+  <span class="ruby-constant">CSV</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-value">headers:</span> <span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">csv</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">csv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">cabecalho_csv</span>
+    <span class="ruby-ivar">@formulario</span>.<span class="ruby-identifier">questaos</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">q</span><span class="ruby-operator">|</span> <span class="ruby-identifier">csv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">linha_csv</span>(<span class="ruby-identifier">q</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-linha_csv" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-linha_csv" title="Link to this method">
+                <span class="method-name">linha_csv</span>
+                <span class="method-args">(questao)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="linha_csv-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 180</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">linha_csv</span>(<span class="ruby-identifier">questao</span>)
+  <span class="ruby-identifier">valores</span> = <span class="ruby-identifier">questao</span>.<span class="ruby-identifier">respostas</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">helpers</span>.<span class="ruby-identifier">formatar_resposta</span>(<span class="ruby-identifier">r</span>, <span class="ruby-identifier">questao</span>.<span class="ruby-identifier">tipo</span>) }
+  [ <span class="ruby-identifier">questao</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">questao</span>.<span class="ruby-identifier">enunciado</span>, <span class="ruby-identifier">questao</span>.<span class="ruby-identifier">tipo</span>, <span class="ruby-identifier">valores</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;; &quot;</span>) ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-papel_por_turma" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-papel_por_turma" title="Link to this method">
+                <span class="method-name">papel_por_turma</span>
+                <span class="method-args">(user)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="papel_por_turma-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">papel_por_turma</span>(<span class="ruby-identifier">user</span>)
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">class_memberships</span>.<span class="ruby-identifier">each_with_object</span>({}) { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span>, <span class="ruby-identifier">h</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">m</span>.<span class="ruby-identifier">course_class_id</span>] = <span class="ruby-identifier">m</span>.<span class="ruby-identifier">role</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-render_create_failure" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-render_create_failure" title="Link to this method">
+                <span class="method-name">render_create_failure</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="render_create_failure-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">render_create_failure</span>
+  <span class="ruby-ivar">@templates</span> = <span class="ruby-identifier">current_admin</span>.<span class="ruby-identifier">templates</span>
+  <span class="ruby-ivar">@course_classes</span> = <span class="ruby-constant">CourseClass</span>.<span class="ruby-identifier">all</span>
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:unprocessable_content</span> }
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@formulario</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:unprocessable_content</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-render_create_success" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-render_create_success" title="Link to this method">
+                <span class="method-name">render_create_success</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="render_create_success-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">render_create_success</span>
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">formularios_path</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&quot;Formulário gerado com sucesso!&quot;</span> }
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:created</span>, <span class="ruby-value">location:</span> <span class="ruby-ivar">@formulario</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-set_formulario" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-set_formulario" title="Link to this method">
+                <span class="method-name">set_formulario</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="set_formulario-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/formularios_controller.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_formulario</span>
+  <span class="ruby-ivar">@formulario</span> = <span class="ruby-constant">Formulario</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>.<span class="ruby-identifier">expect</span>(<span class="ruby-value">:id</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Carrega o formulário indicado na rota.</p>
+
+<p>Não recebe argumentos explícitos; utiliza <code>params[:id]</code>.</p>
+
+<p>Retorna o <a href="Formulario.html"><code>Formulario</code></a> encontrado.</p>
+
+<p>Efeitos colaterais: consulta o banco, define +@formulario+ e lança ActiveRecord::RecordNotFound quando o identificador não existe.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+  </section>
+
+</main>
+
+<aside class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 7.2.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+

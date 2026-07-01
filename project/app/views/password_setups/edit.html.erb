@@ -1,0 +1,15 @@
+<h1>Definir senha</h1>
+
+<%= form_with model: @user, url: password_setup_path(@token), method: :patch do |form| %>
+  <div class="form-group">
+    <%= form.label :password, "Nova senha" %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :password_confirmation, "Confirmacao de senha" %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <%= form.submit "Definir senha", class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,42 @@
+<% content_for :title, "Avaliações" %>
+
+<h1>Bem-vindo(a), <%= current_user.name %></h1>
+
+<% if current_admin %>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Importação de Dados do SIGAA</h3>
+      <p class="card-subtitle">Sincronize turmas, matérias e participantes</p>
+      <%= link_to "Acessar", imports_sigaa_path, class: "btn btn-secondary" %>
+    </div>
+    <div class="card">
+      <h3>Templates</h3>
+      <p class="card-subtitle">Gerencie os modelos de avaliação</p>
+      <%= link_to "Acessar", templates_path, class: "btn btn-secondary" %>
+    </div>
+    <div class="card">
+      <h3>Formulários</h3>
+      <p class="card-subtitle">Gerencie os formulários criados</p>
+      <%= link_to "Acessar", formularios_path, class: "btn btn-secondary" %>
+    </div>
+    <div class="card">
+      <h3>Turmas</h3>
+      <p class="card-subtitle">Gerencie as turmas do seu departamento</p>
+      <%= link_to "Acessar", course_classes_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+<% else %>
+  <% if current_user.course_classes.empty? %>
+    <p>Você ainda não está matriculado em nenhuma turma.</p>
+  <% else %>
+    <div class="card-grid">
+      <% current_user.course_classes.each do |course_class| %>
+        <div class="card">
+          <h3><%= course_class.name %></h3>
+          <p class="card-subtitle">Semestre <%= course_class.semester %></p>
+          <p class="card-footer">Professor: <%= course_class.class_memberships.find_by(role: :docente)&.user&.name || "Não definido" %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

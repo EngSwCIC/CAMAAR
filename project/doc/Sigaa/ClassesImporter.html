@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>class Sigaa::ClassesImporter - CAMAAR - Documentação do Código</title>
+
+
+  <meta
+    name="keywords"
+    content="ruby,class,Sigaa::ClassesImporter"
+  >
+
+    <meta
+      name="description"
+      content="class Sigaa::ClassesImporter: Importa as turmas de um semestre, criando registros novos e atualizando nome ou horário de turmas existentes."
+    >
+
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="class Sigaa::ClassesImporter - CAMAAR - Documentação do Código">
+
+
+
+    <meta property="og:description" content="Importa as turmas de um semestre, criando registros novos e atualizando nome ou horário de turmas existentes.">
+
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="class Sigaa::ClassesImporter - CAMAAR - Documentação do Código">
+
+
+
+    <meta name="twitter:description" content="Importa as turmas de um semestre, criando registros novos e atualizando nome ou horário de turmas existentes.">
+
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script
+  src="../js/theme-toggle.js?v=7.2.0"
+></script>
+
+<script
+  src="../js/search_navigation.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/search_data.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/search_ranker.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/search_controller.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/c_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/bash_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/aliki.js?v=7.2.0"
+  defer
+></script>
+
+<link
+  href="../css/rdoc.css?v=7.2.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="class has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="../index.html" class="navbar-brand">
+    CAMAAR - Documentação do Código
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation" hidden>
+  
+
+
+
+
+
+  
+
+  
+<div id="parent-class-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-ancestors"></use></svg>
+      </span>
+      <span class="nav-section-title">Ancestors</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+    <ul><li>Object</li></ul>
+  </details>
+</div>
+
+
+  
+
+  
+
+  
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-class-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Class Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-c-new">new</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-instance-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Instance Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-i-call">call</a></li>
+
+        <li ><a href="#method-i-course_class_attributes_changed-3F">course_class_attributes_changed?</a></li>
+
+        <li ><a href="#method-i-department_for">department_for</a></li>
+
+        <li ><a href="#method-i-entries_for_semester">entries_for_semester</a></li>
+
+        <li ><a href="#method-i-extract_class_attrs">extract_class_attrs</a></li>
+
+        <li ><a href="#method-i-find_course_class">find_course_class</a></li>
+
+        <li ><a href="#method-i-resolve_department_code">resolve_department_code</a></li>
+
+        <li ><a href="#method-i-sync_course_class">sync_course_class</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><code><a href="../ApplicationController.html">ApplicationController</a></code></li><li><code><a href="../ApplicationHelper.html">ApplicationHelper</a></code></li><li><code><a href="../ApplicationJob.html">ApplicationJob</a></code></li><li><code><a href="../ApplicationMailer.html">ApplicationMailer</a></code></li><li><code><a href="../ApplicationRecord.html">ApplicationRecord</a></code></li><li><code><a href="../ClassMembership.html">ClassMembership</a></code></li><li><code><a href="../CourseClass.html">CourseClass</a></code></li><li><code><a href="../CourseClassesController.html">CourseClassesController</a></code></li><li><code><a href="../DashboardController.html">DashboardController</a></code></li><li><code><a href="../Department.html">Department</a></code></li><li><code><a href="../Formulario.html">Formulario</a></code></li><li><details><summary><code><a href="../Formularios.html">Formularios</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Formularios/CreateFromTemplate.html">CreateFromTemplate</a></code></li></ul></details></li><li><code><a href="../FormulariosController.html">FormulariosController</a></code></li><li><code><a href="../FormulariosHelper.html">FormulariosHelper</a></code></li><li><code><a href="../ImportInconsistency.html">ImportInconsistency</a></code></li><li><details><summary><code><a href="../Imports.html">Imports</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Imports/SigaaController.html">SigaaController</a></code></li></ul></details></li><li><code><a href="../PasswordResetsController.html">PasswordResetsController</a></code></li><li><code><a href="../PasswordSetupsController.html">PasswordSetupsController</a></code></li><li><code><a href="../Questao.html">Questao</a></code></li><li><code><a href="../RespostaController.html">RespostaController</a></code></li><li><code><a href="../RespostaHelper.html">RespostaHelper</a></code></li><li><code><a href="../Respostum.html">Respostum</a></code></li><li><code><a href="../SessionsController.html">SessionsController</a></code></li><li><details><summary><code><a href="../Sigaa.html">Sigaa</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Sigaa/ClassMembersImporter.html">ClassMembersImporter</a></code></li><li><code><a href="../Sigaa/ClassesImporter.html">ClassesImporter</a></code></li><li><code><a href="../Sigaa/DataSynchronizer.html">DataSynchronizer</a></code></li></ul></details></li><li><code><a href="../Submissao.html">Submissao</a></code></li><li><code><a href="../Template.html">Template</a></code></li><li><code><a href="../TemplatesController.html">TemplatesController</a></code></li><li><code><a href="../TemplatesHelper.html">TemplatesHelper</a></code></li><li><code><a href="../User.html">User</a></code></li><li><code><a href="../UserMailer.html">UserMailer</a></code></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main" aria-labelledby="class-sigaa-classesimporter">
+  
+  
+    <ol role="navigation" aria-label="Breadcrumb navigation" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../Sigaa.html">Sigaa</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>ClassesImporter</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <span id="class-Sigaa::ClassesImporter" class="legacy-anchor"></span>
+  <h1 id="class-sigaa-classesimporter" class="anchor-link class">
+    class Sigaa::ClassesImporter
+  </h1>
+
+  <section class="description">
+    
+<p>Importa as turmas de um semestre, criando registros novos e atualizando nome ou horário de turmas existentes.</p>
+
+  </section>
+
+
+  <span id="5Buntitled-5D" class="legacy-anchor"></span>
+  <section class="documentation-section anchor-link">
+
+
+
+
+
+    <section class="constants-list">
+      <header>
+        <h3 id="untitled-constants"><a href="#untitled-constants">Constants</a></h3>
+      </header>
+      <dl>
+
+        <dt id="DEFAULT_PATH">DEFAULT_PATH</dt>
+
+        <dd>
+
+          <p>Caminho padrão do arquivo JSON de turmas na raiz do repositório.</p>
+        </dd>
+
+
+        <dt id="Result">Result</dt>
+
+        <dd>
+
+          <p>Resultado imutável com as quantidades de turmas criadas e atualizadas.</p>
+        </dd>
+
+
+      </dl>
+    </section>
+
+
+
+    <section class="attribute-method-details method-section">
+      <header>
+        <h3 id="untitled-attributes"><a href="#untitled-attributes">Attributes</a></h3>
+      </header>
+
+
+      <div id="attribute-i-imported_by" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-imported_by" title="Link to this attribute">
+            <span class="method-name">imported_by</span>
+            <span class="attribute-access-type">[R]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+
+
+        <p>Caminho de origem, semestre selecionado e administrador que iniciou a importação.</p>
+
+        </div>
+      </div>
+
+      <div id="attribute-i-path" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-path" title="Link to this attribute">
+            <span class="method-name">path</span>
+            <span class="attribute-access-type">[R]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+
+
+        <p>Caminho de origem, semestre selecionado e administrador que iniciou a importação.</p>
+
+        </div>
+      </div>
+
+      <div id="attribute-i-semester" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-semester" title="Link to this attribute">
+            <span class="method-name">semester</span>
+            <span class="attribute-access-type">[R]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+
+
+        <p>Caminho de origem, semestre selecionado e administrador que iniciou a importação.</p>
+
+        </div>
+      </div>
+
+    </section>
+
+
+
+
+
+
+     <section id="public-class-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-class-untitled-methods"><a href="#public-class-untitled-methods">Public Class Methods</a></h3>
+       </header>
+
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">(path: DEFAULT_PATH, semester:, imported_by: nil)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="new-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/classes_importer.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">path:</span> <span class="ruby-constant">DEFAULT_PATH</span>, <span class="ruby-value">semester:</span>, <span class="ruby-value">imported_by:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@path</span> = <span class="ruby-identifier">path</span>
+  <span class="ruby-ivar">@semester</span> = <span class="ruby-identifier">semester</span>
+  <span class="ruby-ivar">@imported_by</span> = <span class="ruby-identifier">imported_by</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Inicializa o importador de turmas.</p>
+
+<span id="method-c-new-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-c-new-argumentos"><a href="#method-c-new-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>path:DEFAULT_PATH</code></dt>
+<dd>
+<p>Caminho do arquivo JSON; utiliza <a href="ClassesImporter.html#DEFAULT_PATH"><code>DEFAULT_PATH</code></a> por padrão.</p>
+</dd><dt><code>semester:</code></dt>
+<dd>
+<p>Período letivo que será importado.</p>
+</dd><dt><code>imported_by:nil</code></dt>
+<dd>
+<p><a href="../User.html"><code>User</code></a> administrador que iniciou a importação ou <code>nil</code>.</p>
+</dd></dl>
+
+<span id="method-c-new-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-c-new-retorno"><a href="#method-c-new-retorno">Retorno</a></h3>
+
+<p>Retorna uma nova instância de <a href="ClassesImporter.html"><code>Sigaa::ClassesImporter</code></a>.</p>
+
+<span id="method-c-new-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-c-new-efeitos-colaterais"><a href="#method-c-new-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Armazena os argumentos em memória; não lê o arquivo nem persiste registros.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+
+
+
+     <section id="public-instance-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-instance-untitled-methods"><a href="#public-instance-untitled-methods">Public Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-call" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-call" title="Link to this method">
+                <span class="method-name">call</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="call-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/classes_importer.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call</span>
+  <span class="ruby-identifier">counts</span> = { <span class="ruby-value">created:</span> <span class="ruby-value">0</span>, <span class="ruby-value">updated:</span> <span class="ruby-value">0</span> }
+
+  <span class="ruby-identifier">entries_for_semester</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">attrs</span> = <span class="ruby-identifier">extract_class_attrs</span>(<span class="ruby-identifier">entry</span>)
+    <span class="ruby-identifier">course_class</span> = <span class="ruby-identifier">find_course_class</span>(<span class="ruby-identifier">attrs</span>)
+    <span class="ruby-identifier">sync_course_class</span>(<span class="ruby-identifier">course_class</span>, <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">counts</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Result</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">created_count:</span> <span class="ruby-identifier">counts</span>[<span class="ruby-value">:created</span>], <span class="ruby-value">updated_count:</span> <span class="ruby-identifier">counts</span>[<span class="ruby-value">:updated</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Sincroniza as turmas do semestre configurado.</p>
+
+<p>Não recebe argumentos.</p>
+
+<p>Retorna <a href="ClassesImporter.html#Result"><code>Result</code></a> com as quantidades de registros criados e atualizados.</p>
+
+<p>Efeitos colaterais: lê o JSON e cria ou atualiza departamentos, turmas e, quando necessário, o departamento do administrador.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+     <section id="private-instance-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="private-instance-untitled-methods"><a href="#private-instance-untitled-methods">Private Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-course_class_attributes_changed-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-course_class_attributes_changed-3F" title="Link to this method">
+                <span class="method-name">course_class_attributes_changed?</span>
+                <span class="method-args">(course_class, attrs)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="course_class_attributes_changed-3F-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/classes_importer.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">course_class_attributes_changed?</span>(<span class="ruby-identifier">course_class</span>, <span class="ruby-identifier">attrs</span>)
+  <span class="ruby-identifier">course_class</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:name</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">course_class</span>.<span class="ruby-identifier">time</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:time</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Verifica se nome ou horário de uma turma existente precisam ser atualizados.</p>
+
+<span id="method-i-course_class_attributes_changed-3F-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-course_class_attributes_changed-3F-argumentos"><a href="#method-i-course_class_attributes_changed-3F-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><a href="../app/models/course_class_rb.html">course_class</a></dt>
+<dd>
+<p><a href="../CourseClass.html"><code>CourseClass</code></a> atualmente persistida.</p>
+</dd><dt><code>attrs</code></dt>
+<dd>
+<p>Hash com os atributos importados.</p>
+</dd></dl>
+
+<span id="method-i-course_class_attributes_changed-3F-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-course_class_attributes_changed-3F-retorno"><a href="#method-i-course_class_attributes_changed-3F-retorno">Retorno</a></h3>
+
+<p>Retorna <code>true</code> quando nome ou horário diferem e <code>false</code> quando são iguais.</p>
+
+<span id="method-i-course_class_attributes_changed-3F-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-course_class_attributes_changed-3F-efeitos-colaterais"><a href="#method-i-course_class_attributes_changed-3F-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Não possui efeitos colaterais.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-department_for" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-department_for" title="Link to this method">
+                <span class="method-name">department_for</span>
+                <span class="method-args">(code)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="department_for-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/classes_importer.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">department_for</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-identifier">department_code</span> = <span class="ruby-identifier">resolve_department_code</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-identifier">department</span> = <span class="ruby-constant">Department</span>.<span class="ruby-identifier">find_or_create_by!</span>(<span class="ruby-value">code:</span> <span class="ruby-identifier">department_code</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">dept</span><span class="ruby-operator">|</span> <span class="ruby-identifier">dept</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">department_code</span> }
+  <span class="ruby-identifier">imported_by</span>.<span class="ruby-identifier">update!</span>(<span class="ruby-value">department:</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">imported_by</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">imported_by</span>.<span class="ruby-identifier">department_id</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">department</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Obtém ou cria o departamento ao qual um código de disciplina pertence.</p>
+
+<span id="method-i-department_for-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-department_for-argumentos"><a href="#method-i-department_for-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>code</code></dt>
+<dd>
+<p>Código da disciplina usado como alternativa para inferir o departamento.</p>
+</dd></dl>
+
+<span id="method-i-department_for-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-department_for-retorno"><a href="#method-i-department_for-retorno">Retorno</a></h3>
+
+<p>Retorna o <a href="../Department.html"><code>Department</code></a> encontrado ou criado.</p>
+
+<span id="method-i-department_for-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-department_for-efeitos-colaterais"><a href="#method-i-department_for-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Pode criar um departamento e associá-lo ao administrador no banco de dados.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-entries_for_semester" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-entries_for_semester" title="Link to this method">
+                <span class="method-name">entries_for_semester</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="entries_for_semester-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/classes_importer.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">entries_for_semester</span>
+  <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>)).<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">dig</span>(<span class="ruby-string">&quot;class&quot;</span>, <span class="ruby-string">&quot;semester&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">semester</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Seleciona do arquivo apenas as entradas do semestre configurado.</p>
+
+<p>Não recebe argumentos.</p>
+
+<p>Retorna um Array de hashes provenientes do JSON.</p>
+
+<p>Efeitos colaterais: lê o arquivo indicado por <code>path</code> e pode lançar erros de leitura ou JSON::ParserError.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-extract_class_attrs" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-extract_class_attrs" title="Link to this method">
+                <span class="method-name">extract_class_attrs</span>
+                <span class="method-args">(entry)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="extract_class_attrs-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/classes_importer.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extract_class_attrs</span>(<span class="ruby-identifier">entry</span>)
+  <span class="ruby-identifier">class_info</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;class&quot;</span>)
+  {
+    <span class="ruby-value">code:</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;code&quot;</span>),
+    <span class="ruby-value">name:</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;name&quot;</span>),
+    <span class="ruby-value">class_code:</span> <span class="ruby-identifier">class_info</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;classCode&quot;</span>),
+    <span class="ruby-value">semester:</span> <span class="ruby-identifier">class_info</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;semester&quot;</span>),
+    <span class="ruby-value">time:</span> <span class="ruby-identifier">class_info</span>[<span class="ruby-string">&quot;time&quot;</span>]
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Converte uma entrada do JSON nos atributos aceitos por <a href="../CourseClass.html"><code>CourseClass</code></a>.</p>
+
+<span id="method-i-extract_class_attrs-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-extract_class_attrs-argumentos"><a href="#method-i-extract_class_attrs-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>entry</code></dt>
+<dd>
+<p>Hash de uma disciplina e sua turma no formato exportado pelo SIGAA.</p>
+</dd></dl>
+
+<span id="method-i-extract_class_attrs-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-extract_class_attrs-retorno"><a href="#method-i-extract_class_attrs-retorno">Retorno</a></h3>
+
+<p>Retorna um Hash com <code>code</code>, <code>name</code>, <code>class_code</code>, <code>semester</code> e <code>time</code>.</p>
+
+<span id="method-i-extract_class_attrs-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-extract_class_attrs-efeitos-colaterais"><a href="#method-i-extract_class_attrs-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Não altera dados; pode lançar KeyError quando faltam chaves obrigatórias.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-find_course_class" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-find_course_class" title="Link to this method">
+                <span class="method-name">find_course_class</span>
+                <span class="method-args">(attrs)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="find_course_class-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/classes_importer.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_course_class</span>(<span class="ruby-identifier">attrs</span>)
+  <span class="ruby-constant">CourseClass</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">code:</span> <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:code</span>], <span class="ruby-value">class_code:</span> <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:class_code</span>], <span class="ruby-value">semester:</span> <span class="ruby-identifier">attrs</span>[<span class="ruby-value">:semester</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-resolve_department_code" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-resolve_department_code" title="Link to this method">
+                <span class="method-name">resolve_department_code</span>
+                <span class="method-args">(code)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="resolve_department_code-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/classes_importer.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">resolve_department_code</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-identifier">imported_by</span>&amp;.<span class="ruby-identifier">department</span>&amp;.<span class="ruby-identifier">code</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_s</span>[<span class="ruby-regexp">/\A[A-Za-z]+/</span>]&amp;.<span class="ruby-identifier">upcase</span> <span class="ruby-operator">||</span> <span class="ruby-string">&quot;GERAL&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-sync_course_class" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-sync_course_class" title="Link to this method">
+                <span class="method-name">sync_course_class</span>
+                <span class="method-args">(course_class, attrs, counts)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="sync_course_class-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/sigaa/classes_importer.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sync_course_class</span>(<span class="ruby-identifier">course_class</span>, <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">counts</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">course_class</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-constant">CourseClass</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">department:</span> <span class="ruby-identifier">department_for</span>(<span class="ruby-identifier">attrs</span>[<span class="ruby-value">:code</span>])))
+    <span class="ruby-identifier">counts</span>[<span class="ruby-value">:created</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">course_class_attributes_changed?</span>(<span class="ruby-identifier">course_class</span>, <span class="ruby-identifier">attrs</span>)
+    <span class="ruby-identifier">course_class</span>.<span class="ruby-identifier">update!</span>(<span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-value">:name</span>, <span class="ruby-value">:time</span>))
+    <span class="ruby-identifier">counts</span>[<span class="ruby-value">:updated</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+  </section>
+
+</main>
+
+<aside class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 7.2.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+

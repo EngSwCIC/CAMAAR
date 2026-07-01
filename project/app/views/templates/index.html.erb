@@ -1,0 +1,21 @@
+<% content_for :title, "Meus Templates" %>
+
+<h1>Meus Templates</h1>
+
+<div id="templates" class="card-grid">
+  <% @templates.each do |template| %>
+    <div class="card">
+      <h3><%= template.title %></h3>
+      <p class="card-subtitle">Público-alvo: <%= template.target_role %></p>
+      <p class="card-subtitle">Questões: <%= template.questaos.count %></p>
+
+      <div>
+        <%= link_to "Editar", edit_template_path(template), class: "btn btn-secondary" %>
+        <%= link_to "Deletar", template_path(template), class: "btn btn-secondary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>
+<%= link_to "Novo template", new_template_path, class: "btn btn-primary" %>

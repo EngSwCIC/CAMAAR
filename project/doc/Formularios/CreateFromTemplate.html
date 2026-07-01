@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>class Formularios::CreateFromTemplate - CAMAAR - Documentação do Código</title>
+
+
+  <meta
+    name="keywords"
+    content="ruby,class,Formularios::CreateFromTemplate"
+  >
+
+    <meta
+      name="description"
+      content="class Formularios::CreateFromTemplate: Cria um formulário e copia as questões do template selecionado para manter uma versão independente da avaliação."
+    >
+
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="class Formularios::CreateFromTemplate - CAMAAR - Documentação do Código">
+
+
+
+    <meta property="og:description" content="Cria um formulário e copia as questões do template selecionado para manter uma versão independente da avaliação.">
+
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="class Formularios::CreateFromTemplate - CAMAAR - Documentação do Código">
+
+
+
+    <meta name="twitter:description" content="Cria um formulário e copia as questões do template selecionado para manter uma versão independente da avaliação.">
+
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script
+  src="../js/theme-toggle.js?v=7.2.0"
+></script>
+
+<script
+  src="../js/search_navigation.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/search_data.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/search_ranker.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/search_controller.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/c_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/bash_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/aliki.js?v=7.2.0"
+  defer
+></script>
+
+<link
+  href="../css/rdoc.css?v=7.2.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="class has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="../index.html" class="navbar-brand">
+    CAMAAR - Documentação do Código
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation" hidden>
+  
+
+
+
+
+
+  
+
+  
+<div id="parent-class-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-ancestors"></use></svg>
+      </span>
+      <span class="nav-section-title">Ancestors</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+    <ul><li>Object</li></ul>
+  </details>
+</div>
+
+
+  
+
+  
+
+  
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-class-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Class Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-c-new">new</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-instance-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Instance Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-i-call">call</a></li>
+
+        <li ><a href="#method-i-clone_questoes">clone_questoes</a></li>
+
+        <li ><a href="#method-i-template">template</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><code><a href="../ApplicationController.html">ApplicationController</a></code></li><li><code><a href="../ApplicationHelper.html">ApplicationHelper</a></code></li><li><code><a href="../ApplicationJob.html">ApplicationJob</a></code></li><li><code><a href="../ApplicationMailer.html">ApplicationMailer</a></code></li><li><code><a href="../ApplicationRecord.html">ApplicationRecord</a></code></li><li><code><a href="../ClassMembership.html">ClassMembership</a></code></li><li><code><a href="../CourseClass.html">CourseClass</a></code></li><li><code><a href="../CourseClassesController.html">CourseClassesController</a></code></li><li><code><a href="../DashboardController.html">DashboardController</a></code></li><li><code><a href="../Department.html">Department</a></code></li><li><code><a href="../Formulario.html">Formulario</a></code></li><li><details><summary><code><a href="../Formularios.html">Formularios</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Formularios/CreateFromTemplate.html">CreateFromTemplate</a></code></li></ul></details></li><li><code><a href="../FormulariosController.html">FormulariosController</a></code></li><li><code><a href="../FormulariosHelper.html">FormulariosHelper</a></code></li><li><code><a href="../ImportInconsistency.html">ImportInconsistency</a></code></li><li><details><summary><code><a href="../Imports.html">Imports</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Imports/SigaaController.html">SigaaController</a></code></li></ul></details></li><li><code><a href="../PasswordResetsController.html">PasswordResetsController</a></code></li><li><code><a href="../PasswordSetupsController.html">PasswordSetupsController</a></code></li><li><code><a href="../Questao.html">Questao</a></code></li><li><code><a href="../RespostaController.html">RespostaController</a></code></li><li><code><a href="../RespostaHelper.html">RespostaHelper</a></code></li><li><code><a href="../Respostum.html">Respostum</a></code></li><li><code><a href="../SessionsController.html">SessionsController</a></code></li><li><details><summary><code><a href="../Sigaa.html">Sigaa</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Sigaa/ClassMembersImporter.html">ClassMembersImporter</a></code></li><li><code><a href="../Sigaa/ClassesImporter.html">ClassesImporter</a></code></li><li><code><a href="../Sigaa/DataSynchronizer.html">DataSynchronizer</a></code></li></ul></details></li><li><code><a href="../Submissao.html">Submissao</a></code></li><li><code><a href="../Template.html">Template</a></code></li><li><code><a href="../TemplatesController.html">TemplatesController</a></code></li><li><code><a href="../TemplatesHelper.html">TemplatesHelper</a></code></li><li><code><a href="../User.html">User</a></code></li><li><code><a href="../UserMailer.html">UserMailer</a></code></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main" aria-labelledby="class-formularios-createfromtemplate">
+  
+  
+    <ol role="navigation" aria-label="Breadcrumb navigation" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../Formularios.html">Formularios</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>CreateFromTemplate</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <span id="class-Formularios::CreateFromTemplate" class="legacy-anchor"></span>
+  <h1 id="class-formularios-createfromtemplate" class="anchor-link class">
+    class Formularios::CreateFromTemplate
+  </h1>
+
+  <section class="description">
+    
+<p>Cria um formulário e copia as questões do template selecionado para manter uma versão independente da avaliação.</p>
+
+  </section>
+
+
+  <span id="5Buntitled-5D" class="legacy-anchor"></span>
+  <section class="documentation-section anchor-link">
+
+
+
+
+
+    <section class="constants-list">
+      <header>
+        <h3 id="untitled-constants"><a href="#untitled-constants">Constants</a></h3>
+      </header>
+      <dl>
+
+        <dt id="Result">Result</dt>
+
+        <dd>
+
+          <p>Resultado imutável contendo o formulário processado e o estado da operação.</p>
+        </dd>
+
+
+      </dl>
+    </section>
+
+
+
+
+
+
+
+
+     <section id="public-class-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-class-untitled-methods"><a href="#public-class-untitled-methods">Public Class Methods</a></h3>
+       </header>
+
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">(admin:, params:)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="new-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/formularios/create_from_template.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">admin:</span>, <span class="ruby-value">params:</span>)
+  <span class="ruby-ivar">@admin</span> = <span class="ruby-identifier">admin</span>
+  <span class="ruby-ivar">@params</span> = <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Inicializa o serviço com o administrador e os atributos do formulário.</p>
+
+<span id="method-c-new-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-c-new-argumentos"><a href="#method-c-new-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>admin:</code></dt>
+<dd>
+<p><a href="../User.html"><code>User</code></a> administrador responsável pelo novo formulário.</p>
+</dd><dt><code>params:</code></dt>
+<dd>
+<p>Hash ou ActionController::Parameters com os atributos permitidos.</p>
+</dd></dl>
+
+<span id="method-c-new-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-c-new-retorno"><a href="#method-c-new-retorno">Retorno</a></h3>
+
+<p>Retorna uma nova instância de <a href="CreateFromTemplate.html"><code>Formularios::CreateFromTemplate</code></a>.</p>
+
+<span id="method-c-new-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-c-new-efeitos-colaterais"><a href="#method-c-new-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Armazena os argumentos em memória; não persiste registros.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+
+
+
+     <section id="public-instance-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-instance-untitled-methods"><a href="#public-instance-untitled-methods">Public Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-call" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-call" title="Link to this method">
+                <span class="method-name">call</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="call-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/formularios/create_from_template.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call</span>
+  <span class="ruby-identifier">formulario</span> = <span class="ruby-constant">Formulario</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@params</span>)
+  <span class="ruby-identifier">formulario</span>.<span class="ruby-identifier">admin</span> = <span class="ruby-ivar">@admin</span>
+  <span class="ruby-identifier">formulario</span>.<span class="ruby-identifier">target_role</span> = <span class="ruby-identifier">template</span>&amp;.<span class="ruby-identifier">target_role</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">formulario</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">clone_questoes</span>(<span class="ruby-identifier">formulario</span>)
+    <span class="ruby-constant">Result</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">formulario:</span>, <span class="ruby-value">success?:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Result</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">formulario:</span>, <span class="ruby-value">success?:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Persiste o formulário e clona as questões quando os dados são válidos.</p>
+
+<p>Não recebe argumentos.</p>
+
+<p>Retorna <a href="CreateFromTemplate.html#Result"><code>Result</code></a> com o <a href="../Formulario.html"><code>Formulario</code></a> processado e <code>success?</code> igual a <code>true</code> ou <code>false</code>.</p>
+
+<p>Efeitos colaterais: cria o formulário e suas questões no banco quando as validações são satisfeitas.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+     <section id="private-instance-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="private-instance-untitled-methods"><a href="#private-instance-untitled-methods">Private Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-clone_questoes" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-clone_questoes" title="Link to this method">
+                <span class="method-name">clone_questoes</span>
+                <span class="method-args">(formulario)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="clone_questoes-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/formularios/create_from_template.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clone_questoes</span>(<span class="ruby-identifier">formulario</span>)
+  <span class="ruby-identifier">template</span>&amp;.<span class="ruby-identifier">questaos</span>&amp;.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">questao</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">formulario</span>.<span class="ruby-identifier">questaos</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-value">enunciado:</span> <span class="ruby-identifier">questao</span>.<span class="ruby-identifier">enunciado</span>, <span class="ruby-value">tipo:</span> <span class="ruby-identifier">questao</span>.<span class="ruby-identifier">tipo</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Copia para o formulário todas as questões do template selecionado.</p>
+
+<span id="method-i-clone_questoes-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-clone_questoes-argumentos"><a href="#method-i-clone_questoes-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>formulario</code></dt>
+<dd>
+<p><a href="../Formulario.html"><code>Formulario</code></a> que receberá as novas questões.</p>
+</dd></dl>
+
+<span id="method-i-clone_questoes-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-clone_questoes-retorno"><a href="#method-i-clone_questoes-retorno">Retorno</a></h3>
+
+<p>Retorna a coleção de questões percorrida ou <code>nil</code> quando não existe template.</p>
+
+<span id="method-i-clone_questoes-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-clone_questoes-efeitos-colaterais"><a href="#method-i-clone_questoes-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Cria uma <a href="../Questao.html"><code>Questao</code></a> no banco para cada questão do template e pode lançar uma exceção de persistência.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-template" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-template" title="Link to this method">
+                <span class="method-name">template</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="template-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/services/formularios/create_from_template.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">template</span>
+  <span class="ruby-constant">Template</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">id:</span> <span class="ruby-ivar">@params</span>[<span class="ruby-value">:template_id</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Localiza o template selecionado nos parâmetros do serviço.</p>
+
+<p>Não recebe argumentos.</p>
+
+<p>Retorna o <a href="../Template.html"><code>Template</code></a> encontrado ou <code>nil</code> quando o identificador é inválido.</p>
+
+<p>Efeitos colaterais: consulta o banco de dados.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+  </section>
+
+</main>
+
+<aside class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 7.2.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+

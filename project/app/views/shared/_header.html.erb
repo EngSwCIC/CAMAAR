@@ -1,0 +1,19 @@
+<header class="app-header">
+  <div class="app-header__title">
+    <span class="app-header__menu-icon" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </span>
+    <span><%= content_for(:title) || "CAMAAR" %></span>
+  </div>
+
+  <div class="app-header__search">
+    <input type="search" placeholder="Buscar..." disabled>
+  </div>
+
+  <details class="app-header__avatar-wrapper">
+    <summary class="app-header__avatar"><%= current_user.name.first.upcase %></summary>
+    <div class="app-header__menu">
+      <%= button_to "Logout", logout_path, method: :delete %>
+    </div>
+  </details>
+</header>

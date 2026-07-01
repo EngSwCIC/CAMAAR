@@ -1,0 +1,24 @@
+<% content_for :title, @course_class.name %>
+
+<h1><%= @course_class.name %></h1>
+<p><strong>Departamento:</strong> <%= @course_class.department.name %></p>
+<p><strong>Semestre:</strong> <%= @course_class.semester %></p>
+
+<h2>Avaliações da turma</h2>
+
+<% if @formularios.empty? %>
+  <p>Nenhum formulário de avaliação foi criado para esta turma ainda.</p>
+<% else %>
+  <div class="card-grid">
+    <% @formularios.each do |formulario| %>
+      <div class="card">
+        <h3><%= formulario.title %></h3>
+        <p class="card-subtitle">Status: <%= formulario.status %></p>
+        <p class="card-subtitle"><%= pluralize(Submissao.where(formulario: formulario).count, "resposta recebida") %></p>
+        <%= link_to "Ver Resultados", formulario_path(formulario), class: "btn btn-secondary" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to "Voltar para Gerenciamento de Turmas", course_classes_path, class: "btn-link" %>

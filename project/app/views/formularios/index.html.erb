@@ -1,0 +1,39 @@
+<% content_for :title, "Formulários" %>
+
+<h1>Formulários</h1>
+
+<% if current_user.admin? %>
+  <% if @formularios.empty? %>
+    <p>Você ainda não possui formulários criados para as suas turmas.</p>
+  <% else %>
+    <div id="formularios" class="card-grid">
+      <% @formularios.each do |formulario| %>
+        <div class="card formulario-item">
+          <h3><%= formulario.title %></h3>
+          <p class="card-subtitle">Turma: <%= formulario.course_class&.name %></p>
+          <p class="card-subtitle">Status: <%= formulario.status %></p>
+          <%= link_to "Ver Detalhes", formulario, class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <br>
+  <%= link_to "Novo formulário", new_formulario_path, class: "btn btn-primary" %>
+
+<% else %>
+  <h2>Avaliações Pendentes</h2>
+
+  <% if @formularios_pendentes.empty? %>
+    <p>Você não possui nenhuma avaliação pendente no momento.</p>
+  <% else %>
+    <div id="formularios_pendentes" class="card-grid">
+      <% @formularios_pendentes.each do |formulario| %>
+        <div class="card formulario-item">
+          <h3><%= formulario.title %></h3>
+          <%= link_to "Responder Avaliação", formulario, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,10 @@
+<h1>Esqueci minha senha</h1>
+
+<%= form_with scope: :password_reset, url: password_resets_path do |form| %>
+  <div class="form-group">
+    <%= form.label :email, "Email" %>
+    <%= form.email_field :email %>
+  </div>
+
+  <%= form.submit "Solicitar redefinicao de senha", class: "btn btn-primary" %>
+<% end %>

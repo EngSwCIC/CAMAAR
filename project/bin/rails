@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+if ENV["RAILS_ENV"] == "test"
+  ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../Gemfile", __dir__)
+  require "bundler/setup"
+  require "simplecov"
+  SimpleCov.start
+end
+
+APP_PATH = File.expand_path("../config/application", __dir__)
+require_relative "../config/boot"
+require "rails/commands"

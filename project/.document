@@ -1,0 +1,7 @@
+# Ruby production code documented by RDoc.
+app/controllers
+app/helpers
+app/jobs
+app/mailers
+app/models
+app/services

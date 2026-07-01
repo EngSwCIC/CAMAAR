@@ -1,0 +1,366 @@
+/*
+ * Paleta e componentes extraídos do design no Figma (arquivo qV0Hu3b33wICdccabr5U7E).
+ * Com Propshaft os assets são servidos sem pré-processamento: a cascata segue a
+ * ordem normal do CSS, então mantenha a ordem das seções abaixo.
+ */
+
+:root {
+  --color-primary: #6C2365;
+  --color-primary-dark: #551B50;
+  --color-accent: #22C55E;
+  --color-accent-dark: #1AA34B;
+  --color-bg: #DBDBDB;
+  --color-surface: #FFFFFF;
+  --color-text: #1F2937;
+  --color-text-muted: #6B7280;
+  --color-border: #D1D5DB;
+  --color-danger: #DC2626;
+  --radius: 10px;
+  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Flash messages */
+.flash {
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  font-weight: 500;
+}
+
+.flash-notice {
+  background: #DCFCE7;
+  color: #166534;
+}
+
+.flash-alert {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+/* Layout autenticado: header + sidebar + conteúdo */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 12px 24px;
+}
+
+.app-header__title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.app-header__menu-icon {
+  width: 24px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.app-header__menu-icon span {
+  display: block;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 1px;
+}
+
+.app-header__search {
+  flex: 1;
+  max-width: 360px;
+}
+
+.app-header__search input {
+  width: 100%;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.app-header__avatar-wrapper {
+  position: relative;
+}
+
+.app-header__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.app-header__menu {
+  position: absolute;
+  right: 0;
+  top: 48px;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  min-width: 140px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.app-header__menu a,
+.app-header__menu button {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.app-header__menu a:hover,
+.app-header__menu button:hover {
+  background: var(--color-bg);
+}
+
+.app-body {
+  flex: 1;
+  display: flex;
+}
+
+.app-sidebar {
+  width: 220px;
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+}
+
+.app-sidebar__item {
+  display: block;
+  padding: 16px 20px;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app-sidebar__item.active {
+  background: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.app-content {
+  flex: 1;
+  padding: 24px;
+}
+
+/* Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 16px 20px;
+}
+
+.card h3 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+}
+
+.card .card-subtitle {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.card .card-footer {
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* Botões */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-surface);
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-dark);
+}
+
+.btn-secondary {
+  background: var(--color-surface);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.btn-link {
+  background: none;
+  color: var(--color-primary);
+  padding: 0;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* Formulários */
+.form-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  font-size: 1rem;
+}
+
+.form-errors {
+  background: #FEE2E2;
+  color: #991B1B;
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.questao-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 16px 20px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 24px;
+  flex-direction: row;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+}
+
+/* Resultados de formulário */
+.resultados-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.resultado-questao ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+/* Tela de autenticação (login / recuperação de senha) */
+.auth-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+}
+
+.auth-panel {
+  display: flex;
+  width: 900px;
+  max-width: 95vw;
+  min-height: 520px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.auth-panel__form {
+  flex: 1;
+  background: var(--color-surface);
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-panel__form h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+
+.auth-panel__welcome {
+  flex: 1;
+  background: var(--color-primary);
+  color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 48px;
+}
+
+.auth-panel__back {
+  margin-top: 16px;
+}

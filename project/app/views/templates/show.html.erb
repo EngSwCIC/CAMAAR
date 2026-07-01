@@ -1,0 +1,26 @@
+<% content_for :title, @template.title %>
+
+<h1><%= @template.title %></h1>
+
+<p><strong>Público-alvo:</strong> <%= @template.target_role %></p>
+
+<h2>Questões</h2>
+
+<ul>
+  <% @template.questaos.each do |questao| %>
+    <li><%= questao.enunciado %> (<%= questao.tipo %>)</li>
+  <% end %>
+</ul>
+
+<div>
+  <%= link_to "Editar", edit_template_path(@template), class: "btn btn-secondary" %>
+</div>
+
+<div class="card">
+  <p>Tem certeza que deseja deletar este template?</p>
+  <%= button_to "Confirmar", template_path(@template), method: :delete, class: "btn btn-primary" %>
+</div>
+
+<div>
+  <%= link_to "Voltar para templates", templates_path, class: "btn-link" %>
+</div>

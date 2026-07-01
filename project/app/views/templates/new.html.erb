@@ -1,0 +1,11 @@
+<% content_for :title, "Novo template" %>
+
+<h1>Novo template</h1>
+
+<%= render "form", template: @template, questoes_attrs: @questoes_attrs %>
+
+<br>
+
+<div>
+  <%= link_to "Voltar para templates", templates_path, class: "btn-link" %>
+</div>

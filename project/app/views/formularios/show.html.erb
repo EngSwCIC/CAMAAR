@@ -1,0 +1,74 @@
+<% content_for :title, @formulario.title %>
+
+<h1><%= @formulario.title %></h1>
+<p>Turma: <%= @formulario.course_class&.name %></p>
+
+<hr>
+
+<% if current_admin %>
+  <%# -- VISÃO DO ADMINISTRADOR -- %>
+  <h3>Resultados</h3>
+
+  <% if @tem_submissoes %>
+    <%= link_to "Exportar Resultados (CSV)", exportar_csv_formulario_path(@formulario, format: :csv), class: "btn btn-primary" %>
+
+    <div class="resultados-lista">
+      <% @resultados.each do |questao| %>
+        <div class="card resultado-questao">
+          <h4><%= questao.enunciado %></h4>
+
+          <% if questao.respostas.empty? %>
+            <p class="card-subtitle">Nenhuma resposta registrada para esta questão.</p>
+          <% else %>
+            <ul>
+              <% questao.respostas.each do |resposta| %>
+                <li><strong><%= resposta.submissao.user.name %>:</strong> <%= formatar_resposta(resposta, questao.tipo) %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>Não é possível exportar o relatório pois nenhuma resposta foi registrada. Aguarde os participantes responderem.</p>
+  <% end %>
+
+  <br>
+  <%= link_to "Voltar para listagem", formularios_path, class: "btn-link" %>
+
+  <div class="card">
+    <p>Tem certeza que deseja deletar este formulário?</p>
+    <%= button_to "Deletar formulário", formulario_path(@formulario), method: :delete, class: "btn btn-secondary" %>
+  </div>
+
+<% else %>
+  <%# -- VISÃO DO PARTICIPANTE RESPONDENDO -- %>
+  <h3>Responda o Questionário</h3>
+
+  <%= form_with scope: :respostum, url: resposta_path, method: :post do |f| %>
+    <%= f.hidden_field :formulario_id, value: @formulario.id %>
+
+    <% @formulario.questaos.each do |questao| %>
+      <div class="form-group questao-card">
+        <label><%= questao.enunciado %></label>
+
+        <% case questao.tipo %>
+        <% when "rating" %>
+          <%= number_field_tag "respostum[respostas][#{questao.id}][valor]", nil, in: 1..5, required: true %>
+        <% when "boolean" %>
+          <div class="radio-group">
+            <label><%= radio_button_tag "respostum[respostas][#{questao.id}][valor]", "1" %> Sim</label>
+            <label><%= radio_button_tag "respostum[respostas][#{questao.id}][valor]", "0" %> Não</label>
+          </div>
+        <% else %>
+          <%= text_area_tag "respostum[respostas][#{questao.id}][valor]", nil %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= f.submit "Enviar Resposta", class: "btn btn-primary" %>
+  <% end %>
+
+  <br>
+  <%= link_to "Voltar", formularios_path, class: "btn-link" %>
+<% end %>

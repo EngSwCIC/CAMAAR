@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>class RespostaController - CAMAAR - Documentação do Código</title>
+
+
+  <meta
+    name="keywords"
+    content="ruby,class,RespostaController"
+  >
+
+    <meta
+      name="description"
+      content="class RespostaController: Recebe e persiste as respostas de um participante a um formulário de avaliação."
+    >
+
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="class RespostaController - CAMAAR - Documentação do Código">
+
+
+
+    <meta property="og:description" content="Recebe e persiste as respostas de um participante a um formulário de avaliação.">
+
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="class RespostaController - CAMAAR - Documentação do Código">
+
+
+
+    <meta name="twitter:description" content="Recebe e persiste as respostas de um participante a um formulário de avaliação.">
+
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script
+  src="./js/theme-toggle.js?v=7.2.0"
+></script>
+
+<script
+  src="./js/search_navigation.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/search_data.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/search_ranker.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/search_controller.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/c_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/bash_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/aliki.js?v=7.2.0"
+  defer
+></script>
+
+<link
+  href="./css/rdoc.css?v=7.2.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="class has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="./index.html" class="navbar-brand">
+    CAMAAR - Documentação do Código
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation" hidden>
+  
+
+
+
+
+
+  
+
+  
+<div id="parent-class-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-ancestors"></use></svg>
+      </span>
+      <span class="nav-section-title">Ancestors</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+    <ul><li><a href="ApplicationController.html">ApplicationController</a><ul><li>ActionController::Base</li></ul></li></ul>
+  </details>
+</div>
+
+
+  
+
+  
+
+  
+
+
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-instance-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Instance Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-i-atribuir_valor">atribuir_valor</a></li>
+
+        <li ><a href="#method-i-carregar_formulario_e_respostas">carregar_formulario_e_respostas</a></li>
+
+        <li ><a href="#method-i-create">create</a></li>
+
+        <li ><a href="#method-i-questao_em_branco-3F">questao_em_branco?</a></li>
+
+        <li ><a href="#method-i-redirect_para_formulario_com_alerta">redirect_para_formulario_com_alerta</a></li>
+
+        <li ><a href="#method-i-salvar_respostas">salvar_respostas</a></li>
+
+        <li ><a href="#method-i-valor_para">valor_para</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><code><a href="./ApplicationController.html">ApplicationController</a></code></li><li><code><a href="./ApplicationHelper.html">ApplicationHelper</a></code></li><li><code><a href="./ApplicationJob.html">ApplicationJob</a></code></li><li><code><a href="./ApplicationMailer.html">ApplicationMailer</a></code></li><li><code><a href="./ApplicationRecord.html">ApplicationRecord</a></code></li><li><code><a href="./ClassMembership.html">ClassMembership</a></code></li><li><code><a href="./CourseClass.html">CourseClass</a></code></li><li><code><a href="./CourseClassesController.html">CourseClassesController</a></code></li><li><code><a href="./DashboardController.html">DashboardController</a></code></li><li><code><a href="./Department.html">Department</a></code></li><li><code><a href="./Formulario.html">Formulario</a></code></li><li><details><summary><code><a href="./Formularios.html">Formularios</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Formularios/CreateFromTemplate.html">CreateFromTemplate</a></code></li></ul></details></li><li><code><a href="./FormulariosController.html">FormulariosController</a></code></li><li><code><a href="./FormulariosHelper.html">FormulariosHelper</a></code></li><li><code><a href="./ImportInconsistency.html">ImportInconsistency</a></code></li><li><details><summary><code><a href="./Imports.html">Imports</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Imports/SigaaController.html">SigaaController</a></code></li></ul></details></li><li><code><a href="./PasswordResetsController.html">PasswordResetsController</a></code></li><li><code><a href="./PasswordSetupsController.html">PasswordSetupsController</a></code></li><li><code><a href="./Questao.html">Questao</a></code></li><li><code><a href="./RespostaController.html">RespostaController</a></code></li><li><code><a href="./RespostaHelper.html">RespostaHelper</a></code></li><li><code><a href="./Respostum.html">Respostum</a></code></li><li><code><a href="./SessionsController.html">SessionsController</a></code></li><li><details><summary><code><a href="./Sigaa.html">Sigaa</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Sigaa/ClassMembersImporter.html">ClassMembersImporter</a></code></li><li><code><a href="./Sigaa/ClassesImporter.html">ClassesImporter</a></code></li><li><code><a href="./Sigaa/DataSynchronizer.html">DataSynchronizer</a></code></li></ul></details></li><li><code><a href="./Submissao.html">Submissao</a></code></li><li><code><a href="./Template.html">Template</a></code></li><li><code><a href="./TemplatesController.html">TemplatesController</a></code></li><li><code><a href="./TemplatesHelper.html">TemplatesHelper</a></code></li><li><code><a href="./User.html">User</a></code></li><li><code><a href="./UserMailer.html">UserMailer</a></code></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main" aria-labelledby="class-respostacontroller">
+  
+  
+
+  <span id="class-RespostaController" class="legacy-anchor"></span>
+  <h1 id="class-respostacontroller" class="anchor-link class">
+    class RespostaController
+  </h1>
+
+  <section class="description">
+    
+<p>Recebe e persiste as respostas de um participante a um formulário de avaliação.</p>
+
+  </section>
+
+
+  <span id="5Buntitled-5D" class="legacy-anchor"></span>
+  <section class="documentation-section anchor-link">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <section id="public-instance-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-instance-untitled-methods"><a href="#public-instance-untitled-methods">Public Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-create" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-create" title="Link to this method">
+                <span class="method-name">create</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="create-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/resposta_controller.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
+  <span class="ruby-identifier">carregar_formulario_e_respostas</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">redirect_para_formulario_com_alerta</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">questao_em_branco?</span>
+
+  <span class="ruby-identifier">submissao</span> = <span class="ruby-constant">Submissao</span>.<span class="ruby-identifier">find_or_create_by!</span>(<span class="ruby-value">user:</span> <span class="ruby-identifier">current_user</span>, <span class="ruby-value">formulario:</span> <span class="ruby-ivar">@formulario</span>)
+  <span class="ruby-identifier">salvar_respostas</span>(<span class="ruby-identifier">submissao</span>)
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">formularios_path</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&quot;Avaliação submetida com sucesso&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Registra uma submissão completa para o formulário informado.</p>
+
+<p>Não recebe argumentos explícitos; utiliza <code>params[:respostum]</code>.</p>
+
+<p>Retorna uma resposta de redirecionamento ao formulário quando há campos em branco ou à listagem após uma submissão válida.</p>
+
+<p>Efeitos colaterais: cria ou atualiza submissão e respostas em transação e define mensagens de sucesso ou validação.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+     <section id="private-instance-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="private-instance-untitled-methods"><a href="#private-instance-untitled-methods">Private Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-atribuir_valor" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-atribuir_valor" title="Link to this method">
+                <span class="method-name">atribuir_valor</span>
+                <span class="method-args">(respostum, questao)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="atribuir_valor-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/resposta_controller.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">atribuir_valor</span>(<span class="ruby-identifier">respostum</span>, <span class="ruby-identifier">questao</span>)
+  <span class="ruby-identifier">valor</span> = <span class="ruby-identifier">valor_para</span>(<span class="ruby-identifier">questao</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">questao</span>.<span class="ruby-identifier">tipo</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;text&quot;</span>
+    <span class="ruby-identifier">respostum</span>.<span class="ruby-identifier">valor_texto</span> = <span class="ruby-identifier">valor</span>
+    <span class="ruby-identifier">respostum</span>.<span class="ruby-identifier">valor_numerico</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">respostum</span>.<span class="ruby-identifier">valor_numerico</span> = <span class="ruby-identifier">valor</span>
+    <span class="ruby-identifier">respostum</span>.<span class="ruby-identifier">valor_texto</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Atribui o valor textual ou numérico correto conforme o tipo da questão.</p>
+
+<span id="method-i-atribuir_valor-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-atribuir_valor-argumentos"><a href="#method-i-atribuir_valor-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>respostum</code></dt>
+<dd>
+<p><a href="Respostum.html"><code>Respostum</code></a> que receberá o valor.</p>
+</dd><dt><code>questao</code></dt>
+<dd>
+<p><a href="Questao.html"><code>Questao</code></a> que define o tipo e a origem do valor.</p>
+</dd></dl>
+
+<span id="method-i-atribuir_valor-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-atribuir_valor-retorno"><a href="#method-i-atribuir_valor-retorno">Retorno</a></h3>
+
+<p>Retorna <code>nil</code> após concluir as atribuições.</p>
+
+<span id="method-i-atribuir_valor-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-atribuir_valor-efeitos-colaterais"><a href="#method-i-atribuir_valor-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Altera em memória <code>valor_texto</code> e <code>valor_numerico</code> da resposta; a persistência ocorre posteriormente na ação <a href="RespostaController.html#method-i-create"><code>create</code></a>.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-carregar_formulario_e_respostas" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-carregar_formulario_e_respostas" title="Link to this method">
+                <span class="method-name">carregar_formulario_e_respostas</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="carregar_formulario_e_respostas-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/resposta_controller.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">carregar_formulario_e_respostas</span>
+  <span class="ruby-ivar">@formulario</span> = <span class="ruby-constant">Formulario</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:respostum</span>][<span class="ruby-value">:formulario_id</span>])
+  <span class="ruby-ivar">@respostas_params</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:respostum</span>][<span class="ruby-value">:respostas</span>] <span class="ruby-operator">||</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-questao_em_branco-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-questao_em_branco-3F" title="Link to this method">
+                <span class="method-name">questao_em_branco?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="questao_em_branco-3F-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/resposta_controller.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">questao_em_branco?</span>
+  <span class="ruby-ivar">@formulario</span>.<span class="ruby-identifier">questaos</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">questao</span><span class="ruby-operator">|</span> <span class="ruby-identifier">valor_para</span>(<span class="ruby-identifier">questao</span>).<span class="ruby-identifier">blank?</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Verifica se alguma questão do formulário deixou de receber valor.</p>
+
+<p>Não recebe argumentos explícitos; utiliza +@formulario+ e +@respostas_params+.</p>
+
+<p>Retorna <code>true</code> quando ao menos uma resposta está em branco e <code>false</code> caso contrário.</p>
+
+<p>Efeitos colaterais: carrega as questões do formulário quando necessário.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-redirect_para_formulario_com_alerta" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-redirect_para_formulario_com_alerta" title="Link to this method">
+                <span class="method-name">redirect_para_formulario_com_alerta</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="redirect_para_formulario_com_alerta-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/resposta_controller.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">redirect_para_formulario_com_alerta</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">formulario_path</span>(<span class="ruby-ivar">@formulario</span>), <span class="ruby-value">alert:</span> <span class="ruby-string">&quot;Por favor, preencha todas as questões obrigatórias&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-salvar_respostas" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-salvar_respostas" title="Link to this method">
+                <span class="method-name">salvar_respostas</span>
+                <span class="method-args">(submissao)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="salvar_respostas-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/resposta_controller.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">salvar_respostas</span>(<span class="ruby-identifier">submissao</span>)
+  <span class="ruby-constant">Respostum</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@formulario</span>.<span class="ruby-identifier">questaos</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">questao</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">respostum</span> = <span class="ruby-constant">Respostum</span>.<span class="ruby-identifier">find_or_initialize_by</span>(<span class="ruby-value">submissao:</span> <span class="ruby-identifier">submissao</span>, <span class="ruby-value">questao:</span> <span class="ruby-identifier">questao</span>)
+      <span class="ruby-identifier">atribuir_valor</span>(<span class="ruby-identifier">respostum</span>, <span class="ruby-identifier">questao</span>)
+      <span class="ruby-identifier">respostum</span>.<span class="ruby-identifier">save!</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-valor_para" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-valor_para" title="Link to this method">
+                <span class="method-name">valor_para</span>
+                <span class="method-args">(questao)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="valor_para-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/controllers/resposta_controller.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valor_para</span>(<span class="ruby-identifier">questao</span>)
+  <span class="ruby-ivar">@respostas_params</span>.<span class="ruby-identifier">dig</span>(<span class="ruby-identifier">questao</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-string">&quot;valor&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Obtém o valor enviado para uma questão específica.</p>
+
+<span id="method-i-valor_para-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-valor_para-argumentos"><a href="#method-i-valor_para-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>questao</code></dt>
+<dd>
+<p><a href="Questao.html"><code>Questao</code></a> cujo identificador será procurado nos parâmetros.</p>
+</dd></dl>
+
+<span id="method-i-valor_para-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-valor_para-retorno"><a href="#method-i-valor_para-retorno">Retorno</a></h3>
+
+<p>Retorna o valor enviado como String ou <code>nil</code> quando ele não está presente.</p>
+
+<span id="method-i-valor_para-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-valor_para-efeitos-colaterais"><a href="#method-i-valor_para-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Não possui efeitos colaterais.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+  </section>
+
+</main>
+
+<aside class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 7.2.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+

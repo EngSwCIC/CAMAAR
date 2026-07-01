@@ -1,0 +1,10 @@
+<nav class="app-sidebar" aria-label="Menu lateral">
+  <% if current_admin %>
+    <%= link_to "Importação de Dados do SIGAA", imports_sigaa_path, class: "app-sidebar__item #{'active' if current_page?(imports_sigaa_path)}" %>
+    <%= link_to "Gerenciar templates", templates_path, class: "app-sidebar__item #{'active' if current_page?(templates_path)}" %>
+    <%= link_to "Gerenciar formularios", formularios_path, class: "app-sidebar__item #{'active' if current_page?(formularios_path)}" %>
+    <%= link_to "Turmas", course_classes_path, class: "app-sidebar__item #{'active' if current_page?(course_classes_path)}" %>
+  <% else %>
+    <%= link_to "Formularios pendentes", formularios_path, class: "app-sidebar__item #{'active' if current_page?(formularios_path)}" %>
+  <% end %>
+</nav>

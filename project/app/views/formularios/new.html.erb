@@ -1,0 +1,11 @@
+<% content_for :title, "Novo formulário" %>
+
+<h1>Novo formulário</h1>
+
+<%= render "form", formulario: @formulario %>
+
+<br>
+
+<div>
+  <%= link_to "Voltar para formulários", formularios_path, class: "btn-link" %>
+</div>

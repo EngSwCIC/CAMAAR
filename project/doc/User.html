@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>class User - CAMAAR - Documentação do Código</title>
+
+
+  <meta
+    name="keywords"
+    content="ruby,class,User"
+  >
+
+    <meta
+      name="description"
+      content="class User: Representa administradores e participantes autenticáveis do CAMAAR. Também administra os tokens temporários usados nos fluxos de senha."
+    >
+
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="class User - CAMAAR - Documentação do Código">
+
+
+
+    <meta property="og:description" content="Representa administradores e participantes autenticáveis do CAMAAR. Também administra os tokens temporários usados nos fluxos de senha.">
+
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="class User - CAMAAR - Documentação do Código">
+
+
+
+    <meta name="twitter:description" content="Representa administradores e participantes autenticáveis do CAMAAR. Também administra os tokens temporários usados nos fluxos de senha.">
+
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script
+  src="./js/theme-toggle.js?v=7.2.0"
+></script>
+
+<script
+  src="./js/search_navigation.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/search_data.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/search_ranker.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/search_controller.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/c_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/bash_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="./js/aliki.js?v=7.2.0"
+  defer
+></script>
+
+<link
+  href="./css/rdoc.css?v=7.2.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="class has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="./index.html" class="navbar-brand">
+    CAMAAR - Documentação do Código
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation" hidden>
+  
+
+
+
+
+
+  
+
+  
+<div id="parent-class-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-ancestors"></use></svg>
+      </span>
+      <span class="nav-section-title">Ancestors</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+    <ul><li><a href="ApplicationRecord.html">ApplicationRecord</a><ul><li>ActiveRecord::Base</li></ul></li></ul>
+  </details>
+</div>
+
+
+  
+
+  
+
+  
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-class-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Class Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-c-find_by_reset_token">find_by_reset_token</a></li>
+
+        <li ><a href="#method-c-find_by_setup_token">find_by_setup_token</a></li>
+
+        <li ><a href="#method-c-find_for_login">find_for_login</a></li>
+
+        <li ><a href="#method-c-find_valid_token">find_valid_token</a></li>
+
+        <li ><a href="#method-c-token_digest">token_digest</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-instance-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Instance Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-i-apply_new_password-21">apply_new_password!</a></li>
+
+        <li ><a href="#method-i-generate_password_reset_token-21">generate_password_reset_token!</a></li>
+
+        <li ><a href="#method-i-generate_password_setup_token-21">generate_password_setup_token!</a></li>
+
+        <li ><a href="#method-i-password_defined-3F">password_defined?</a></li>
+
+        <li ><a href="#method-i-pending_password_setup-3F">pending_password_setup?</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><code><a href="./ApplicationController.html">ApplicationController</a></code></li><li><code><a href="./ApplicationHelper.html">ApplicationHelper</a></code></li><li><code><a href="./ApplicationJob.html">ApplicationJob</a></code></li><li><code><a href="./ApplicationMailer.html">ApplicationMailer</a></code></li><li><code><a href="./ApplicationRecord.html">ApplicationRecord</a></code></li><li><code><a href="./ClassMembership.html">ClassMembership</a></code></li><li><code><a href="./CourseClass.html">CourseClass</a></code></li><li><code><a href="./CourseClassesController.html">CourseClassesController</a></code></li><li><code><a href="./DashboardController.html">DashboardController</a></code></li><li><code><a href="./Department.html">Department</a></code></li><li><code><a href="./Formulario.html">Formulario</a></code></li><li><details><summary><code><a href="./Formularios.html">Formularios</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Formularios/CreateFromTemplate.html">CreateFromTemplate</a></code></li></ul></details></li><li><code><a href="./FormulariosController.html">FormulariosController</a></code></li><li><code><a href="./FormulariosHelper.html">FormulariosHelper</a></code></li><li><code><a href="./ImportInconsistency.html">ImportInconsistency</a></code></li><li><details><summary><code><a href="./Imports.html">Imports</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Imports/SigaaController.html">SigaaController</a></code></li></ul></details></li><li><code><a href="./PasswordResetsController.html">PasswordResetsController</a></code></li><li><code><a href="./PasswordSetupsController.html">PasswordSetupsController</a></code></li><li><code><a href="./Questao.html">Questao</a></code></li><li><code><a href="./RespostaController.html">RespostaController</a></code></li><li><code><a href="./RespostaHelper.html">RespostaHelper</a></code></li><li><code><a href="./Respostum.html">Respostum</a></code></li><li><code><a href="./SessionsController.html">SessionsController</a></code></li><li><details><summary><code><a href="./Sigaa.html">Sigaa</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Sigaa/ClassMembersImporter.html">ClassMembersImporter</a></code></li><li><code><a href="./Sigaa/ClassesImporter.html">ClassesImporter</a></code></li><li><code><a href="./Sigaa/DataSynchronizer.html">DataSynchronizer</a></code></li></ul></details></li><li><code><a href="./Submissao.html">Submissao</a></code></li><li><code><a href="./Template.html">Template</a></code></li><li><code><a href="./TemplatesController.html">TemplatesController</a></code></li><li><code><a href="./TemplatesHelper.html">TemplatesHelper</a></code></li><li><code><a href="./User.html">User</a></code></li><li><code><a href="./UserMailer.html">UserMailer</a></code></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main" aria-labelledby="class-user">
+  
+  
+
+  <span id="class-User" class="legacy-anchor"></span>
+  <h1 id="class-user" class="anchor-link class">
+    class User
+  </h1>
+
+  <section class="description">
+    
+<p>Representa administradores e participantes autenticáveis do CAMAAR. Também administra os tokens temporários usados nos fluxos de senha.</p>
+
+  </section>
+
+
+  <span id="5Buntitled-5D" class="legacy-anchor"></span>
+  <section class="documentation-section anchor-link">
+
+
+
+
+
+    <section class="constants-list">
+      <header>
+        <h3 id="untitled-constants"><a href="#untitled-constants">Constants</a></h3>
+      </header>
+      <dl>
+
+        <dt id="PASSWORD_RESET_TTL">PASSWORD_RESET_TTL</dt>
+
+        <dd>
+
+          <p>Período durante o qual o link de redefinição de senha permanece válido.</p>
+        </dd>
+
+
+        <dt id="PASSWORD_SETUP_TTL">PASSWORD_SETUP_TTL</dt>
+
+        <dd>
+
+          <p>Período durante o qual o link de definição da primeira senha permanece válido.</p>
+        </dd>
+
+
+      </dl>
+    </section>
+
+
+
+
+
+
+
+
+     <section id="public-class-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-class-untitled-methods"><a href="#public-class-untitled-methods">Public Class Methods</a></h3>
+       </header>
+
+
+      <div id="method-c-find_by_reset_token" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-c-find_by_reset_token" title="Link to this method">
+                <span class="method-name">find_by_reset_token</span>
+                <span class="method-args">(token)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="find_by_reset_token-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/models/user.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">find_by_reset_token</span>(<span class="ruby-identifier">token</span>)
+  <span class="ruby-identifier">find_valid_token</span>(<span class="ruby-value">:password_reset_token_digest</span>, <span class="ruby-value">:password_reset_sent_at</span>, <span class="ruby-identifier">token</span>, <span class="ruby-constant">PASSWORD_RESET_TTL</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Localiza o usuário de um token válido de redefinição de senha.</p>
+
+<span id="method-c-find_by_reset_token-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-c-find_by_reset_token-argumentos"><a href="#method-c-find_by_reset_token-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>token</code></dt>
+<dd>
+<p>Token em texto puro recebido pelo usuário.</p>
+</dd></dl>
+
+<span id="method-c-find_by_reset_token-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-c-find_by_reset_token-retorno"><a href="#method-c-find_by_reset_token-retorno">Retorno</a></h3>
+
+<p>Retorna o <a href="User.html"><code>User</code></a> correspondente ou <code>nil</code> quando o token é inexistente ou expirou.</p>
+
+<span id="method-c-find_by_reset_token-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-c-find_by_reset_token-efeitos-colaterais"><a href="#method-c-find_by_reset_token-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Consulta o banco de dados.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-c-find_by_setup_token" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-c-find_by_setup_token" title="Link to this method">
+                <span class="method-name">find_by_setup_token</span>
+                <span class="method-args">(token)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="find_by_setup_token-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/models/user.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">find_by_setup_token</span>(<span class="ruby-identifier">token</span>)
+  <span class="ruby-identifier">find_valid_token</span>(<span class="ruby-value">:password_setup_token_digest</span>, <span class="ruby-value">:password_setup_sent_at</span>, <span class="ruby-identifier">token</span>, <span class="ruby-constant">PASSWORD_SETUP_TTL</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Localiza o usuário de um token válido de definição inicial de senha.</p>
+
+<span id="method-c-find_by_setup_token-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-c-find_by_setup_token-argumentos"><a href="#method-c-find_by_setup_token-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>token</code></dt>
+<dd>
+<p>Token em texto puro recebido pelo usuário.</p>
+</dd></dl>
+
+<span id="method-c-find_by_setup_token-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-c-find_by_setup_token-retorno"><a href="#method-c-find_by_setup_token-retorno">Retorno</a></h3>
+
+<p>Retorna o <a href="User.html"><code>User</code></a> correspondente ou <code>nil</code> quando o token é inexistente ou expirou.</p>
+
+<span id="method-c-find_by_setup_token-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-c-find_by_setup_token-efeitos-colaterais"><a href="#method-c-find_by_setup_token-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Consulta o banco de dados.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-c-find_for_login" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-c-find_for_login" title="Link to this method">
+                <span class="method-name">find_for_login</span>
+                <span class="method-args">(identifier)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="find_for_login-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/models/user.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">find_for_login</span>(<span class="ruby-identifier">identifier</span>)
+  <span class="ruby-identifier">normalized</span> = <span class="ruby-identifier">identifier</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>
+  <span class="ruby-identifier">find_by</span>(<span class="ruby-value">email:</span> <span class="ruby-identifier">normalized</span>.<span class="ruby-identifier">downcase</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">find_by</span>(<span class="ruby-value">registration:</span> <span class="ruby-identifier">normalized</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Localiza um usuário por e-mail ou matrícula para autenticação.</p>
+
+<span id="method-c-find_for_login-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-c-find_for_login-argumentos"><a href="#method-c-find_for_login-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>identifier</code></dt>
+<dd>
+<p>E-mail ou matrícula informada no login.</p>
+</dd></dl>
+
+<span id="method-c-find_for_login-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-c-find_for_login-retorno"><a href="#method-c-find_for_login-retorno">Retorno</a></h3>
+
+<p>Retorna o <a href="User.html"><code>User</code></a> encontrado ou <code>nil</code> quando não há correspondência.</p>
+
+<span id="method-c-find_for_login-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-c-find_for_login-efeitos-colaterais"><a href="#method-c-find_for_login-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Consulta o banco de dados.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-c-token_digest" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-c-token_digest" title="Link to this method">
+                <span class="method-name">token_digest</span>
+                <span class="method-args">(token)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="token_digest-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/models/user.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">token_digest</span>(<span class="ruby-identifier">token</span>)
+  <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA256</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-identifier">token</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Calcula o digest SHA-256 usado para armazenar tokens sem guardar o texto puro.</p>
+
+<span id="method-c-token_digest-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-c-token_digest-argumentos"><a href="#method-c-token_digest-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>token</code></dt>
+<dd>
+<p>Valor que será convertido para String e processado.</p>
+</dd></dl>
+
+<span id="method-c-token_digest-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-c-token_digest-retorno"><a href="#method-c-token_digest-retorno">Retorno</a></h3>
+
+<p>Retorna uma String hexadecimal com o digest SHA-256.</p>
+
+<span id="method-c-token_digest-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-c-token_digest-efeitos-colaterais"><a href="#method-c-token_digest-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Não possui efeitos colaterais.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+     <section id="private-class-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="private-class-untitled-methods"><a href="#private-class-untitled-methods">Private Class Methods</a></h3>
+       </header>
+
+
+      <div id="method-c-find_valid_token" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-c-find_valid_token" title="Link to this method">
+                <span class="method-name">find_valid_token</span>
+                <span class="method-args">(digest_column, sent_at_column, token, ttl)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="find_valid_token-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/models/user.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">find_valid_token</span>(<span class="ruby-identifier">digest_column</span>, <span class="ruby-identifier">sent_at_column</span>, <span class="ruby-identifier">token</span>, <span class="ruby-identifier">ttl</span>)
+  <span class="ruby-identifier">user</span> = <span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">digest_column</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">token_digest</span>(<span class="ruby-identifier">token</span>))
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">user</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">sent_at_column</span>).<span class="ruby-identifier">blank?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">sent_at_column</span>) <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">ttl</span>.<span class="ruby-identifier">ago</span>
+
+  <span class="ruby-identifier">user</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Localiza um usuário por digest e confirma se o token ainda está dentro do prazo.</p>
+
+<span id="method-c-find_valid_token-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-c-find_valid_token-argumentos"><a href="#method-c-find_valid_token-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>digest_column</code></dt>
+<dd>
+<p>Nome da coluna que armazena o digest do token.</p>
+</dd><dt><code>sent_at_column</code></dt>
+<dd>
+<p>Nome da coluna que registra quando o token foi criado.</p>
+</dd><dt><code>token</code></dt>
+<dd>
+<p>Token em texto puro usado na busca.</p>
+</dd><dt><code>ttl</code></dt>
+<dd>
+<p>Duração máxima de validade do token.</p>
+</dd></dl>
+
+<span id="method-c-find_valid_token-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-c-find_valid_token-retorno"><a href="#method-c-find_valid_token-retorno">Retorno</a></h3>
+
+<p>Retorna o <a href="User.html"><code>User</code></a> associado ou <code>nil</code> quando não existe registro, data de envio ou validade.</p>
+
+<span id="method-c-find_valid_token-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-c-find_valid_token-efeitos-colaterais"><a href="#method-c-find_valid_token-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Consulta o banco de dados.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+
+     <section id="public-instance-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-instance-untitled-methods"><a href="#public-instance-untitled-methods">Public Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-apply_new_password-21" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-apply_new_password-21" title="Link to this method">
+                <span class="method-name">apply_new_password!</span>
+                <span class="method-args">(new_password)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="apply_new_password-21-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/models/user.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">apply_new_password!</span>(<span class="ruby-identifier">new_password</span>)
+  <span class="ruby-identifier">update!</span>(
+    <span class="ruby-value">password:</span> <span class="ruby-identifier">new_password</span>,
+    <span class="ruby-value">password_setup_token_digest:</span> <span class="ruby-keyword">nil</span>,
+    <span class="ruby-value">password_setup_sent_at:</span> <span class="ruby-keyword">nil</span>,
+    <span class="ruby-value">password_reset_token_digest:</span> <span class="ruby-keyword">nil</span>,
+    <span class="ruby-value">password_reset_sent_at:</span> <span class="ruby-keyword">nil</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Substitui a senha do usuário e invalida todos os tokens de senha existentes.</p>
+
+<span id="method-i-apply_new_password-21-label-Argumentos" class="legacy-anchor"></span>
+<h3 id="method-i-apply_new_password-21-argumentos"><a href="#method-i-apply_new_password-21-argumentos">Argumentos</a></h3>
+<dl class="rdoc-list note-list"><dt><code>new_password</code></dt>
+<dd>
+<p>Nova senha em texto puro que será processada por <code>has_secure_password</code>.</p>
+</dd></dl>
+
+<span id="method-i-apply_new_password-21-label-Retorno" class="legacy-anchor"></span>
+<h3 id="method-i-apply_new_password-21-retorno"><a href="#method-i-apply_new_password-21-retorno">Retorno</a></h3>
+
+<p>Retorna <code>true</code> quando a atualização é concluída.</p>
+
+<span id="method-i-apply_new_password-21-label-Efeitos+colaterais" class="legacy-anchor"></span>
+<h3 id="method-i-apply_new_password-21-efeitos-colaterais"><a href="#method-i-apply_new_password-21-efeitos-colaterais">Efeitos colaterais</a></h3>
+
+<p>Atualiza a senha e limpa os tokens no banco; pode lançar ActiveRecord::RecordInvalid.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-generate_password_reset_token-21" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-generate_password_reset_token-21" title="Link to this method">
+                <span class="method-name">generate_password_reset_token!</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="generate_password_reset_token-21-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/models/user.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_password_reset_token!</span>
+  <span class="ruby-identifier">token</span> = <span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">urlsafe_base64</span>(<span class="ruby-value">32</span>)
+  <span class="ruby-identifier">update!</span>(<span class="ruby-value">password_reset_token_digest:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">token_digest</span>(<span class="ruby-identifier">token</span>), <span class="ruby-value">password_reset_sent_at:</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">current</span>)
+  <span class="ruby-identifier">token</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Gera e persiste um token temporário para redefinição de senha.</p>
+
+<p>Não recebe argumentos.</p>
+
+<p>Retorna o token em texto puro que deve ser enviado ao usuário.</p>
+
+<p>Efeitos colaterais: atualiza o digest e o horário do token no banco e pode lançar ActiveRecord::RecordInvalid quando a persistência falha.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-generate_password_setup_token-21" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-generate_password_setup_token-21" title="Link to this method">
+                <span class="method-name">generate_password_setup_token!</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="generate_password_setup_token-21-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/models/user.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_password_setup_token!</span>
+  <span class="ruby-identifier">token</span> = <span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">urlsafe_base64</span>(<span class="ruby-value">32</span>)
+  <span class="ruby-identifier">update!</span>(<span class="ruby-value">password_setup_token_digest:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">token_digest</span>(<span class="ruby-identifier">token</span>), <span class="ruby-value">password_setup_sent_at:</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">current</span>)
+  <span class="ruby-identifier">token</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Gera e persiste um token temporário para definição da primeira senha.</p>
+
+<p>Não recebe argumentos.</p>
+
+<p>Retorna o token em texto puro que deve ser enviado ao usuário.</p>
+
+<p>Efeitos colaterais: atualiza o digest e o horário do token no banco e pode lançar ActiveRecord::RecordInvalid quando a persistência falha.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-password_defined-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-password_defined-3F" title="Link to this method">
+                <span class="method-name">password_defined?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="password_defined-3F-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/models/user.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">password_defined?</span>
+  <span class="ruby-identifier">password_digest</span>.<span class="ruby-identifier">present?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Informa se o usuário já possui uma senha armazenada.</p>
+
+<p>Não recebe argumentos.</p>
+
+<p>Retorna <code>true</code> quando <code>password_digest</code> está preenchido e <code>false</code> caso contrário.</p>
+
+<p>Efeitos colaterais: não possui efeitos colaterais.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-pending_password_setup-3F" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-pending_password_setup-3F" title="Link to this method">
+                <span class="method-name">pending_password_setup?</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="pending_password_setup-3F-source">
+            <pre class="ruby"><span class="ruby-comment"># File app/models/user.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pending_password_setup?</span>
+  <span class="ruby-operator">!</span><span class="ruby-identifier">password_defined?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Informa se o usuário ainda precisa definir sua primeira senha.</p>
+
+<p>Não recebe argumentos.</p>
+
+<p>Retorna <code>true</code> quando não há senha definida e <code>false</code> caso contrário.</p>
+
+<p>Efeitos colaterais: não possui efeitos colaterais.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+  </section>
+
+</main>
+
+<aside class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 7.2.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+
