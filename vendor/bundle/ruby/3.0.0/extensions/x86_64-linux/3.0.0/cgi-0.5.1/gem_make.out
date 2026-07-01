@@ -1,0 +1,15 @@
+current directory: /home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/cgi-0.5.1/ext/cgi/escape
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20260608-10247-vvplys.rb extconf.rb
+creating Makefile
+
+current directory: /home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/cgi-0.5.1/ext/cgi/escape
+make DESTDIR\= clean
+
+current directory: /home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/cgi-0.5.1/ext/cgi/escape
+make DESTDIR\=
+compiling escape.c
+linking shared-object cgi/escape.so
+
+current directory: /home/galvao/Codas/CAMAAR/vendor/bundle/ruby/3.0.0/gems/cgi-0.5.1/ext/cgi/escape
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 escape.so ./.gem.20260608-10247-icu0c2/cgi

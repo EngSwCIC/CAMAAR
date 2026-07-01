@@ -1,0 +1,27 @@
+<% content_for :page_title, "Gerenciamento - Templates" %>
+
+<section class="template-grid" aria-label="Templates de formulários">
+  <% @templates.each do |template| %>
+    <div class="template-card">
+      <div class="template-card__header">
+        <div>
+          <p class="template-card__name"><%= template.nome %></p>
+          <p class="template-card__meta">semestre</p>
+        </div>
+        <details class="template-card__menu">
+          <summary class="template-card__menu-trigger" aria-label="Opções do template">&#8942;&#8942;</summary>
+          <div class="template-card__dropdown">
+            <%= link_to "Editar", edit_admin_template_path(template), class: "template-card__dropdown-item" %>
+            <%= button_to "Excluir", admin_template_path(template), method: :delete,
+                  data: { confirm: "Tem certeza que deseja excluir este template?" },
+                  class: "template-card__dropdown-item template-card__dropdown-item--danger" %>
+          </div>
+        </details>
+      </div>
+    </div>
+  <% end %>
+
+  <%= link_to new_admin_template_path, class: "template-card template-card--new" do %>
+    <span class="template-card__plus">+</span>
+  <% end %>
+</section>

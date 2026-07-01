@@ -1,0 +1,9 @@
+<% content_for :page_title, "Gerenciamento" %>
+
+<div class="import-wrapper">
+  <p class="import-info">
+    O sistema processará os arquivos <strong>classes.json</strong> e <strong>class_members.json</strong>
+    que estão armazenados no servidor.
+  </p>
+  <%= button_to "Importar dados", admin_imports_path, method: :post, class: "admin-action-btn" %>
+</div>

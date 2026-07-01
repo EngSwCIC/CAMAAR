@@ -1,0 +1,39 @@
+<div class="login-page">
+	<div class="login-shell">
+		<section class="login-card">
+			<div class="login-form-panel">
+				<h1 class="login-title">LOGIN</h1>
+
+				<% if flash[:alert].present? %>
+					<div class="login-flash login-flash--alert"><%= flash[:alert] %></div>
+				<% end %>
+
+				<% if flash[:notice].present? %>
+					<div class="login-flash login-flash--notice"><%= flash[:notice] %></div>
+				<% end %>
+
+				<%= form_with url: login_path, method: :post, local: true, class: "login-form" do %>
+					<div class="login-field">
+						<%= label_tag :login, "Email" %>
+						<%= text_field_tag :login, nil, placeholder: "aluno@aluno.unb.br", autocomplete: "username", autofocus: true %>
+					</div>
+
+					<div class="login-field">
+						<%= label_tag :password, "Senha" %>
+						<%= password_field_tag :password, nil, placeholder: "Password", autocomplete: "current-password" %>
+					</div>
+
+					<%= submit_tag "Entrar", class: "login-submit" %>
+				<% end %>
+			</div>
+
+			<aside class="login-welcome-panel" aria-label="Bem-vindo ao Camaar">
+				<div class="login-welcome-copy">
+					<span>Bem vindo</span>
+					<span>ao</span>
+					<span>Camaar</span>
+				</div>
+			</aside>
+		</section>
+	</div>
+</div>

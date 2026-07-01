@@ -1,0 +1,61 @@
+<div class="avaliacao-form-page">
+	<input type="checkbox" id="student-sidebar-toggle" class="student-sidebar-toggle" />
+
+	<aside class="student-sidebar" aria-label="Menu do aluno">
+		<div class="student-sidebar__title">Menu Lateral</div>
+
+		<nav class="student-sidebar__menu">
+			<%= link_to "Avaliações", avaliacoes_path, class: "student-sidebar__item student-sidebar__item--active" %>
+			<%= button_to "Sair", logout_path, method: :delete, class: "student-sidebar__button" %>
+		</nav>
+	</aside>
+
+	<label for="student-sidebar-toggle" class="student-sidebar__backdrop" aria-hidden="true"></label>
+
+	<header class="avaliacao-form-topbar">
+		<label for="student-sidebar-toggle" class="menu-trigger" aria-label="Abrir navegação">
+			<span></span>
+			<span></span>
+			<span></span>
+		</label>
+
+		<div class="avaliacao-form-title">
+			A avaliação - <%= @formulario.turma.disciplina.nome.presence || "Nome da matéria" %> - <%= @formulario.turma.semestre.presence || "Semestre" %>
+		</div>
+
+		<div class="avaliacao-form-avatar" aria-label="Usuário">
+			<span><%= current_pessoa.nome.to_s.first.to_s.upcase.presence || "U" %></span>
+		</div>
+	</header>
+
+	<main class="avaliacao-form-stage">
+		<%= form_with url: responder_formulario_path(@formulario), method: :post, local: true, class: "avaliacao-form" do %>
+			<div class="avaliacao-form-panel">
+				<% @questoes.each do |questao| %>
+					<section class="avaliacao-question-card">
+						<h2><%= questao.enunciado.presence || "Pergunta" %></h2>
+
+						<% if questao.try(:radio?) %>
+							<div class="avaliacao-options">
+								<% Array(questao.opcoes).each_with_index do |opcao, index| %>
+									<label class="avaliacao-option">
+										<%= radio_button_tag "respostas[#{questao.id}]", opcao, false, id: "questao_#{questao.id}_#{index}" %>
+										<span><%= opcao %></span>
+									</label>
+								<% end %>
+							</div>
+						<% else %>
+							<div class="avaliacao-text-field">
+								<%= text_field_tag "respostas[#{questao.id}]", nil, placeholder: "Sua resposta...", class: "avaliacao-text-input" %>
+							</div>
+						<% end %>
+					</section>
+				<% end %>
+
+				<div class="submit-btn-container" style="margin-top: 20px;">
+					<%= submit_tag "Submeter Avaliação", class: "avaliacao-submit" %>
+				</div>
+			</div>
+		<% end %>
+	</main>
+</div>

@@ -1,0 +1,45 @@
+<% content_for :page_title, "Gerenciamento" %>
+
+<div class="envio-form-wrapper">
+  <%= form_with url: admin_formularios_path, method: :post, local: true, html: { class: "envio-form" } do |f| %>
+    <div class="envio-form__row">
+      <label class="envio-form__label">Template</label>
+      <%= select_tag :template_id,
+            options_from_collection_for_select(@templates, "id", "nome"),
+            include_blank: "template",
+            class: "envio-form__select" %>
+      <label class="envio-form__label">Semestre</label>
+      <%= text_field_tag :semestre, nil, placeholder: "semestre", class: "envio-form__input envio-form__input--sm" %>
+    </div>
+
+    <table class="envio-turmas-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Nome</th>
+          <th>Semestre</th>
+          <th>Código</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @turmas.each do |turma| %>
+          <tr>
+            <td>
+              <label class="envio-checkbox">
+                <%= check_box_tag "turma_ids[]", turma.id, false,
+                      id: "turma_#{turma.id}", class: "envio-checkbox__input" %>
+              </label>
+            </td>
+            <td><%= turma.disciplina&.nome.presence || "—" %></td>
+            <td><%= turma.semestre.presence || "—" %></td>
+            <td><%= turma.codigo %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <div class="envio-form__footer">
+      <%= submit_tag "Enviar", class: "envio-form__submit" %>
+    </div>
+  <% end %>
+</div>

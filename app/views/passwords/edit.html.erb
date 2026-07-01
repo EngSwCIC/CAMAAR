@@ -1,0 +1,34 @@
+<div class="login-page">
+  <div class="login-shell">
+    <section class="login-card">
+      <div class="login-form-panel">
+        <h1 class="login-title">Redefinir Senha</h1>
+
+        <% if flash[:alert].present? %>
+          <div class="login-flash login-flash--alert"><%= flash[:alert] %></div>
+        <% end %>
+
+        <%= form_with model: @pessoa, url: password_path(params[:id]), method: :patch, local: true, class: "login-form" do |f| %>
+          <div class="login-field">
+            <%= f.label :password, "Senha" %>
+            <%= f.password_field :password %>
+          </div>
+
+          <div class="login-field">
+            <%= f.label :password_confirmation, "Confirmar Senha" %>
+            <%= f.password_field :password_confirmation %>
+          </div>
+
+          <%= f.submit "Salvar Senha", class: "login-submit" %>
+        <% end %>
+      </div>
+
+      <aside class="login-welcome-panel" aria-label="Definir Senha">
+        <div class="login-welcome-copy">
+          <span>Defina sua</span>
+          <span>nova senha</span>
+        </div>
+      </aside>
+    </section>
+  </div>
+</div>
