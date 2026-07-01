@@ -1,0 +1,31 @@
+/* Management cards. */
+
+.management-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+}
+
+.management-card {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+.management-card h2 {
+  color: var(--camaar-ink);
+  margin: 0 0 10px;
+}
+
+.management-card p {
+  color: var(--camaar-muted);
+  line-height: 1.55;
+  margin: 0 0 22px;
+}
+
+.management-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}

@@ -1,0 +1,42 @@
+<article
+  class="app-card template-form__card<%= " template-form__card--removable" if removable %>"
+  data-template-id="<%= template.id %>">
+  <%= link_to template_path(template), class: "template-form__card-link" do %>
+    <div class="template-form__card-content">
+      <h3 class="template-form__card-title"><%= template.titulo %></h3>
+      <p class="template-form__card-description"><%= template.descricao %></p>
+    </div>
+
+    <div class="template-form__card-info">
+      <div class="template-form__card-info-item">
+        <span>📋</span>
+        <strong><%= template.questoes.count %></strong>
+        <%= template.questoes.count == 1 ? "questão" : "questões" %>
+      </div>
+      <div class="template-form__card-info-item">
+        <span>📝</span>
+        <strong><%= template.formularios.count %></strong>
+        <%= template.formularios.count == 1 ? "formulário" : "formulários" %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if removable %>
+    <%= button_to(
+          template_path(template),
+          method: :delete,
+          class: "template-form__card-delete",
+          title: "Excluir #{template.titulo}",
+          aria: { label: "Excluir template #{template.titulo}" },
+          form: {
+            class: "template-form__card-delete-form",
+            data: {
+              turbo_confirm: "Excluir o template '#{template.titulo}'? Esta ação não pode ser desfeita."
+            }
+          }
+        ) do %>
+      <span class="visually-hidden">Excluir template <%= template.titulo %></span>
+      <%= image_tag "icons/trash.svg", alt: "", width: 16, height: 16 %>
+    <% end %>
+  <% end %>
+</article>

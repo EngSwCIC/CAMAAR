@@ -1,0 +1,51 @@
+/* Pending evaluations and questionnaire response elements. */
+
+.pending-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pending-card {
+  padding: 18px;
+}
+
+.pending-card--link {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.pending-card--link:hover,
+.pending-card--link:focus {
+  box-shadow: 0 16px 34px rgba(76, 18, 70, 0.13);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.pending-card p {
+  color: var(--camaar-muted);
+  margin: 6px 0;
+}
+
+.evaluation-question {
+  margin-bottom: 18px;
+  padding: 20px;
+}
+
+.evaluation-question__title {
+  color: var(--camaar-ink);
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.evaluation-options {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}

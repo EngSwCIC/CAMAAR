@@ -1,0 +1,36 @@
+<main class="auth-page">
+
+  <%= render "layouts/dashboard_shared/flash" %>
+  <div class="auth-shell">
+    <section class="app-panel auth-card">
+      <h2>Primeiro Acesso</h2>
+      <p class="auth-card__description">Insira seus dados para receber o link de ativação da sua conta.</p>
+
+      <form action="<%= cadastro_path %>" method="POST" class="auth-form">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+        <div class="app-field">
+          <label for="matricula">Matrícula:</label>
+          <input type="text" id="matricula" name="matricula" placeholder="Digite sua matrícula do SIGAA" autocomplete="username">
+        </div>
+
+        <div class="app-field">
+          <label for="email">E-mail institucional:</label>
+          <input type="email" id="email" name="email" placeholder="exemplo@gmail.com" autocomplete="email">
+        </div>
+
+        <button type="submit" class="app-button app-button--accent">Enviar e-mail de solicitação de cadastro</button>
+      </form>
+
+      <div class="auth-links">
+        <%= link_to "Voltar para o Login", root_path, class: "link-voltar" %>
+      </div>
+    </section>
+
+    <aside class="auth-intro">
+      <h1>CAMAAR</h1>
+      <p>Se os seus dados estiverem homologados e importados do sistema institucional, você receberá uma mensagem para criar sua senha e ativar seu perfil.</p>
+      <p>Por segurança, <strong>o link de confirmação expira em 10 minutos</strong> após a solicitação.</p>
+    </aside>
+  </div>
+</main>

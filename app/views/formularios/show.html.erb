@@ -1,0 +1,32 @@
+<main class="app-page">
+  <header class="app-page__header">
+    <h1>Relatório do Formulário</h1>
+    <p>Exporte as respostas para análise em formato CSV.</p>
+  </header>
+
+  <section class="app-panel">
+    <dl class="app-details">
+      <div>
+        <dt>Template</dt>
+        <dd><%= @formulario.template&.titulo || "Template removido" %></dd>
+      </div>
+      <div>
+        <dt>Turma</dt>
+        <dd><%= @formulario.turma.nome_exibicao %></dd>
+      </div>
+      <div>
+        <dt>Público-alvo</dt>
+        <dd><%= @formulario.docentes? ? "Docentes" : "Discentes" %></dd>
+      </div>
+      <div>
+        <dt>Respostas recebidas</dt>
+        <dd><%= @formulario.avaliacoes.respondidas.count %></dd>
+      </div>
+    </dl>
+
+    <div class="app-actions">
+      <%= link_to "Voltar aos formulários", formularios_path, class: "app-button app-button--secondary" %>
+      <%= link_to "Exportar CSV", exportar_csv_formulario_path(@formulario), class: "app-button app-button--accent" %>
+    </div>
+  </section>
+</main>

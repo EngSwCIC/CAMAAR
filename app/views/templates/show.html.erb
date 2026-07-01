@@ -1,0 +1,52 @@
+<main class="app-page template-page">
+  <header class="app-page__header app-page__header--split">
+    <h1><%= @template.titulo %></h1>
+    <%= link_to "Usar em Formulário", new_formulario_path(template_id: @template.id), class: "app-button app-button--accent" %>
+  </header>
+
+  <p class="template-show__description"><%= @template.descricao %></p>
+
+  <hr>
+
+  <div class="template-form__questions">
+    <% @template.questoes_ordenadas.each do |utilizacao| %>
+      <div class="template-question">
+        <div class="template-question__content">
+          <div class="template-question__header">
+            <div class="template-question__header-number">
+              Questão <span><%= utilizacao.numero %></span>
+            </div>
+
+            <p><strong><%= utilizacao.questao.discursiva? ? "Discursiva" : "Objetiva" %></strong></p>
+          </div>
+
+          <%= simple_format(utilizacao.questao.enunciado) %>
+
+          <% if utilizacao.questao.objetiva? && utilizacao.questao.opcoes.any? %>
+            <fieldset class="template-options">
+              <legend>Opções</legend>
+
+              <div class="template-options__list">
+                <% utilizacao.questao.opcoes.ordenadas.each do |opcao| %>
+                  <div class="template-option">
+                    <div class="template-option__content">
+                      <span class="template-option__label">
+                        <%= (opcao.numero.to_i + 96).chr %>
+                      </span>
+                      <p><%= opcao.texto %></p>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </fieldset>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="app-actions template-form__actions">
+    <%= link_to "Voltar aos templates", templates_path, class: "app-button app-button--secondary" %>
+    <%= link_to "Editar", edit_template_path(@template), class: "app-button" %>
+  </div>
+</main>

@@ -1,0 +1,34 @@
+<main class="app-page">
+  <header class="app-page__header">
+    <h1>Gerenciamento</h1>
+    <p>Administre dados acadêmicos, templates, formulários e resultados.</p>
+  </header>
+
+  <section class="management-grid">
+    <article class="app-panel management-card">
+      <h2>Dados acadêmicos</h2>
+      <p>Sincronize os dados institucionais e envie convites de cadastro.</p>
+      <div class="management-card__actions">
+        <%= button_to "Importar dados", importar_dados_path, class: "app-button app-button--accent" %>
+        <%= button_to "Enviar solicitações de cadastro", enviar_solicitacoes_path, class: "app-button app-button--secondary" %>
+      </div>
+    </article>
+
+    <article class="app-panel management-card">
+      <h2>Avaliações</h2>
+      <p>Monte templates e publique formulários para as turmas do departamento.</p>
+      <div class="management-card__actions">
+        <%= link_to "Gerenciar templates", templates_path, class: "app-button app-button--secondary" %>
+        <%= link_to "Criar formulário", new_formulario_path, class: "app-button app-button--secondary" %>
+      </div>
+    </article>
+
+    <article class="app-panel management-card">
+      <h2>Resultados</h2>
+      <p>Consulte os formulários publicados e exporte as respostas disponíveis.</p>
+      <div class="management-card__actions">
+        <%= link_to "Ver formulários e resultados", formularios_path, class: "app-button" %>
+      </div>
+    </article>
+  </section>
+</main>

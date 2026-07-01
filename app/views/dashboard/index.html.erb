@@ -1,0 +1,42 @@
+<main class="app-page">
+  <header class="app-page__header">
+    <h1>Olá, <%= current_user.nome %></h1>
+    <p>Acesse as atividades e ferramentas disponíveis para o seu perfil.</p>
+  </header>
+
+  <section class="app-panel">
+    <div class="app-section-heading">
+      <div>
+        <h2>Avaliações pendentes</h2>
+        <p>Formulários das suas turmas que ainda aguardam resposta.</p>
+      </div>
+      <%= link_to "Ver todas", avaliacoes_pendentes_path, class: "app-button app-button--secondary" %>
+    </div>
+
+    <% if @avaliacoes_pendentes.any? %>
+      <div class="pending-grid">
+        <% @avaliacoes_pendentes.each do |avaliacao| %>
+          <%= link_to responder_avaliacao_path(avaliacao), class: "pending-card pending-card--link" do %>
+            <strong><%= avaliacao.formulario.template&.titulo || "Avaliação" %></strong>
+            <p><%= avaliacao.formulario.turma.nome_exibicao %></p>
+            <span class="status-pill">Não respondido</span>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="app-empty-state">Nenhum formulário pendente foi encontrado.</p>
+    <% end %>
+  </section>
+
+  <% if current_user.administrador? %>
+    <section class="app-panel">
+      <div class="app-section-heading">
+        <div>
+          <h2>Administração</h2>
+          <p>Crie templates, publique formulários e acompanhe resultados.</p>
+        </div>
+        <%= link_to "Abrir gerenciamento", gerenciamento_path, class: "app-button app-button--accent" %>
+      </div>
+    </section>
+  <% end %>
+</main>

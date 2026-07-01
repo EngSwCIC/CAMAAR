@@ -1,0 +1,15 @@
+<main class="app-page template-page">
+  <header class="app-page__header">
+    <h1>Criar Formulário</h1>
+    <p>Escolha um template, filtre e selecione as turmas que receberão a avaliação.</p>
+  </header>
+
+  <%= render "form", 
+             templates_proprios: @templates_proprios, 
+             templates_outros: @templates_outros, 
+             template_selecionado: @template_selecionado,
+             materias: @materias, 
+             materia_selecionada: @materia_selecionada, 
+             turmas: @turmas,
+             professores: @professores %>
+</main>

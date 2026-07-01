@@ -1,0 +1,76 @@
+<%
+  flash_dialogs = []
+
+  if flash[:success].present?
+    flash_dialogs << {
+      type: "success",
+      title: "Sucesso",
+      message: flash[:success],
+      icon: "✓",
+      timeout: 6500
+    }
+  end
+
+  if flash[:error].present? || flash[:alert].present?
+    flash_dialogs << {
+      type: "error",
+      title: flash[:error].present? ? "Erro" : "Atenção",
+      message: flash[:error] || flash[:alert],
+      details: flash[:error_list],
+      icon: "!",
+      timeout: flash[:error_list].present? ? 12000 : 8500
+    }
+  end
+
+  if flash[:notice].present?
+    flash_dialogs << {
+      type: "notice",
+      title: "Aviso",
+      message: flash[:notice],
+      icon: "i",
+      timeout: 6500
+    }
+  end
+%>
+
+<% if flash_dialogs.any? %>
+  <div class="app-flash-stack" aria-live="polite" aria-atomic="false">
+    <% flash_dialogs.each_with_index do |dialog, index| %>
+      <% dialog_id = "flash-dialog-#{dialog[:type]}-#{index}" %>
+      <% body_id = "#{dialog_id}-body" %>
+
+      <dialog
+        class="app-flash-dialog app-flash-dialog--<%= dialog[:type] %>"
+        open
+        aria-labelledby="<%= dialog_id %>-title"
+        aria-describedby="<%= body_id %>"
+        data-controller="flash-dialog"
+        data-flash-dialog-timeout-value="<%= dialog[:timeout] %>"
+        data-action="mouseenter->flash-dialog#pause mouseleave->flash-dialog#resume focusin->flash-dialog#pause focusout->flash-dialog#resume">
+        <div class="app-flash-dialog__icon" aria-hidden="true"><%= dialog[:icon] %></div>
+
+        <div class="app-flash-dialog__content">
+          <h2 id="<%= dialog_id %>-title"><%= dialog[:title] %></h2>
+
+          <div id="<%= body_id %>">
+            <p><%= sanitize(dialog[:message].to_s) %></p>
+
+            <% if dialog[:details].present? %>
+              <ul>
+                <% dialog[:details].each do |erro| %>
+                  <li><%= erro %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="app-flash-dialog__close"
+          aria-label="Fechar notificação"
+          data-action="flash-dialog#dismiss">&times;</button>
+      </dialog>
+    <% end %>
+  </div>
+<% end %>

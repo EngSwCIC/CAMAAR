@@ -1,0 +1,163 @@
+<% utilizacao_persistida = edicao && utilizacao_form.object.persisted? %>
+
+<div class="template-question" data-controller="template-question" data-template-form-question data-template-form-question-index="<%= utilizacao_form.index %>" <%= "hidden" if utilizacao_form.object.marked_for_destruction? %>>
+  <% if utilizacao_persistida %>
+    <%= utilizacao_form.hidden_field :id, data: { template_form_utilizacao_id: true } %>
+    <%= utilizacao_form.hidden_field :_destroy, value: utilizacao_form.object.marked_for_destruction? ? "1" : "0", data: { template_form_question_destroy: true } %>
+  <% end %>
+
+  <%= utilizacao_form.hidden_field :parent_id %>
+  <%= utilizacao_form.hidden_field :numero, data: { template_form_question_number: true } %>
+
+  <div class="template-question__content">
+    <div class="template-question__header">
+      <div class="template-question__header-number">
+        Questão <span data-template-form-question-position></span>
+      </div>
+
+    <%= utilizacao_form.fields_for :questao do |questao_form| %>
+      <% questao_persistida = edicao && questao_form.object.persisted? %>
+
+      <% if questao_persistida %>
+        <%= questao_form.hidden_field :id, data: { template_form_questao_id: true } %>
+      <% end %>
+
+      <% tipo_menu_id = "template-question-type-menu-#{utilizacao_form.index}" %>
+      <% tipos_de_questao = [
+           ["Tipo de questão", ""],
+           ["Discursiva", "discursiva"],
+           ["Objetiva", "objetiva"]
+         ] %>
+      <% tipo_atual = tipos_de_questao.find { |_, value| value == questao_form.object.tipo.to_s } %>
+
+      <div
+        class="app-select"
+        data-controller="dropdown"
+        data-dropdown-placeholder-value="Tipo de questão"
+        data-action="click@window->dropdown#closeFromOutside keydown.esc@window->dropdown#closeOnEscape">
+        <%= questao_form.select(
+              :tipo,
+              tipos_de_questao.drop(1),
+              { prompt: "Tipo de questão" },
+              class: "app-select__native",
+              data: {
+                action: "
+                  change->dropdown#syncLabel
+                  change->template-question#toggleOptions
+                  change->template-form#ensureObjectiveOptions
+                ",
+                dropdown_target: "native",
+                template_question_target: "tipo"
+              },
+              required: true,
+              aria: { label: "Tipo de questão" }
+            ) %>
+
+        <button
+          type="button"
+          class="app-select__trigger"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-controls="<%= tipo_menu_id %>"
+          data-dropdown-target="trigger"
+          data-action="click->dropdown#toggle keydown.down->dropdown#openWithKeyboard keydown.up->dropdown#openWithKeyboard">
+          <span data-dropdown-target="label"><%= tipo_atual&.first || "Tipo de questão" %></span>
+
+          <svg class="app-select__arrow" viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              d="m4 6 4 4 4-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.75" />
+          </svg>
+        </button>
+
+        <div
+          id="<%= tipo_menu_id %>"
+          class="app-select__menu"
+          role="listbox"
+          aria-label="Tipo de questão"
+          data-dropdown-target="menu"
+          data-action="keydown->dropdown#navigate"
+          hidden>
+          <% tipos_de_questao.each do |label, value| %>
+            <% selecionada = questao_form.object.tipo.to_s == value %>
+            <button
+              type="button"
+              class="app-select__option <%= "is-selected" if selecionada %>"
+              role="option"
+              aria-selected="<%= selecionada %>"
+              data-dropdown-target="option"
+              data-dropdown-value="<%= value %>"
+              data-action="dropdown#select"><%= label %></button>
+          <% end %>
+        </div>
+      </div>
+      </div>
+
+      <div class="template-form__field">
+        <%= questao_form.label :enunciado %>
+        <%= questao_form.text_area :enunciado, rows: 3, class: "app-control" %>
+      </div>
+
+      <% opcoes_visiveis = questao_form.object.objetiva? || questao_form.object.opcoes.any? %>
+      <div data-template-question-target="opcoes" <%= "hidden" unless opcoes_visiveis %>>
+        <fieldset class="template-options">
+          <legend>Opções</legend>
+
+          <div class="template-options__list" data-template-form-options>
+            <% opcoes_ordenadas = questao_form.object.opcoes.sort_by { |opcao| [opcao.numero || 0, opcao.id || 0] } %>
+
+            <%= questao_form.fields_for :opcoes, opcoes_ordenadas do |opcao_form| %>
+              <%= render "option_fields", opcao_form: opcao_form, edicao: edicao %>
+            <% end %>
+          </div>
+
+          <%= button_tag(
+                type: "button",
+                class: "template-form__icon-button template-form__add-option-button",
+                data: { action: "template-form#addOption" },
+                title: "Adicionar opção",
+                aria: { label: "Adicionar opção" }
+              ) do %>
+            <%= image_tag "icons/plus.svg", alt: "", width: 16, height: 16 %>
+          <% end %>
+          </fieldset>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="template-question__actions">
+    <%= button_tag(
+          type: "button",
+          class: "template-form__icon-button",
+          data: { action: "template-form#moveQuestionUp" },
+          title: "Mover questão para cima",
+          aria: { label: "Mover questão para cima" }
+        ) do %>
+      <%= image_tag "icons/arrow-up.svg", alt: "", width: 16, height: 16 %>
+    <% end %>
+
+    <%= button_tag(
+          type: "button",
+          class: "template-form__icon-button",
+          data: { action: "template-form#moveQuestionDown" },
+          title: "Mover questão para baixo",
+          aria: { label: "Mover questão para baixo" }
+        ) do %>
+      <%= image_tag "icons/arrow-down.svg", alt: "", width: 16, height: 16 %>
+    <% end %>
+
+    <%= button_tag(
+          type: "button",
+          class: "template-form__icon-button template-form__icon-button--danger",
+          data: { action: "template-form#destroyQuestion" },
+          title: "Remover questão",
+          aria: { label: "Remover questão" }
+        ) do %>
+      <%= image_tag "icons/trash.svg", alt: "", width: 16, height: 16 %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<header class="topbar">
+  <button
+    type="button"
+    class="hamburger-btn"
+    aria-label="Abrir ou fechar menu"
+    aria-controls="app-sidebar"
+    aria-expanded="true"
+    data-app-shell-target="menuButton"
+    data-action="app-shell#toggleSidebar">
+    <span aria-hidden="true">&#9776;</span>
+  </button>
+
+  <div class="search-container"
+      data-controller="search"
+      data-search-url-value="<%= sugestoes_pesquisa_path %>"
+      data-action="click@window->search#closeIfOutside"
+      role="search">
+    <%= form_with url: pesquisa_path, method: :get do %>
+      <%= label_tag :q, "Pesquisar no CAMAAR", class: "visually-hidden" %>
+      <%= search_field_tag :q, params[:q],
+            placeholder: "Pesquisar...",
+            autocomplete: "off",
+            data: {
+              search_target: "input",
+              action: "input->search#query keydown->search#navigate"
+            } %>
+
+      <% if current_user.administrador? %>
+        <% tipos_atuais = params[:filtro_ativo].present? ? Array(params[:tipos]) : %w[avaliacoes templates formularios] %>
+        <% sem_templates = params[:sem_templates] == "1" %>
+
+        <%= hidden_field_tag :filtro_ativo, "1" %>
+        <% if sem_templates %>
+          <%= hidden_field_tag :sem_templates, "1", data: { search_target: "semTemplatesField" } %>
+        <% end %>
+        <% if params[:turma_id].present? %>
+          <%= hidden_field_tag :turma_id, params[:turma_id], data: { search_target: "turmaIdField" } %>
+        <% end %>
+
+        <button type="button" class="search-filter-btn" aria-label="Filtrar tipos de resultado"
+                data-search-target="filterButton" data-action="click->search#toggleFilter">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="7" y1="12" x2="17" y2="12"></line>
+            <line x1="10" y1="18" x2="14" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="search-filter-menu" data-search-target="filterMenu" hidden>
+          <label for="tipo_avaliacoes">
+            <%= check_box_tag "tipos[]", "avaliacoes", tipos_atuais.include?("avaliacoes"), id: "tipo_avaliacoes", data: { action: "change->search#query" } %>
+            Avaliações
+          </label>
+          <label for="tipo_templates" class="<%= "is-disabled" if sem_templates %>">
+            <%= check_box_tag "tipos[]", "templates", tipos_atuais.include?("templates") && !sem_templates, id: "tipo_templates", disabled: sem_templates, data: { action: "change->search#query" } %>
+            Templates
+          </label>
+          <label for="tipo_formularios">
+            <%= check_box_tag "tipos[]", "formularios", tipos_atuais.include?("formularios"), id: "tipo_formularios", data: { action: "change->search#query" } %>
+            Formulários
+          </label>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="search-suggestions" data-search-target="results" hidden></div>
+  </div>
+
+  <details
+    class="user-dropdown"
+    data-controller="user-menu"
+    data-action="click@window->user-menu#closeFromOutside keydown.esc@window->user-menu#closeOnEscape">
+    <summary class="user-avatar" aria-label="Abrir menu do usuário">
+      <%= current_user.nome.first.upcase %>
+    </summary>
+
+    <div class="dropdown-menu">
+      <div class="dropdown-info">
+        <p class="user-name"><strong><%= current_user.nome %></strong></p>
+        <p class="user-detail">Matrícula: <%= current_user.matricula %></p>
+        <p class="user-detail">E-mail: <%= current_user.email %></p>
+      </div>
+      <div class="dropdown-divider"></div>
+
+      <%= link_to "Sair da conta", logout_path, data: { turbo_method: :delete }, class: "logout-btn" %>
+    </div>
+  </details>
+</header>

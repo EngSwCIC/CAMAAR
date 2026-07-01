@@ -1,0 +1,12 @@
+<main class="app-page">
+  <header class="app-page__header">
+    <h1>Gerenciamento</h1>
+    <p>Logado como <strong><%= current_user.nome %></strong>.</p>
+  </header>
+
+  <section class="app-panel">
+    <div class="app-actions">
+      <%= button_to "Sair", session_path, method: :delete, class: "app-button app-button--secondary" %>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,114 @@
+<% edicao = template.persisted? %>
+
+<%= form_with(
+      model: template,
+      class: "template-form",
+      data: { controller: "template-form", action: "submit->template-form#renumberAll" }
+    ) do |f| %>
+  <% if template.errors.any? %>
+    <div data-controller="error-dialog">
+      <dialog
+        class="app-dialog app-dialog--error"
+        aria-labelledby="form-error-dialog-title"
+        data-error-dialog-target="dialog"
+        data-action="click->error-dialog#closeFromBackdrop">
+        <div class="app-dialog__panel">
+          <div class="app-dialog__icon" aria-hidden="true">!</div>
+
+          <div class="app-dialog__content">
+            <h2 id="form-error-dialog-title">Não foi possível salvar</h2>
+            <p>Revise os campos abaixo e tente novamente:</p>
+
+            <ul>
+              <% template.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+
+          <button
+            type="button"
+            class="app-dialog__close"
+            aria-label="Fechar mensagem de erro"
+            data-action="error-dialog#close">×</button>
+        </div>
+
+        <div class="app-dialog__actions">
+          <button
+            type="button"
+            class="app-button"
+            data-action="error-dialog#close">Corrigir campos</button>
+        </div>
+      </dialog>
+    </div>
+  <% end %>
+
+  <details class="template-form__metadata" open>
+    <summary class="template-form__metadata-summary">
+      Dados do template
+    </summary>
+
+    <div class="template-form__metadata-fields">
+      <div class="template-form__field">
+        <%= f.label :titulo %>
+        <%= f.text_field :titulo, class: "app-control" %>
+      </div>
+
+      <div class="template-form__field">
+        <%= f.label :descricao %>
+        <%= f.text_area :descricao, class: "app-control" %>
+      </div>
+    </div>
+  </details>
+
+  <hr>
+
+  <h3>Questões</h3>
+
+  <div class="template-form__questions" data-template-form-target="questions">
+    <% utilizacoes_ordenadas = template.utilizacoes_questoes.sort_by { |utilizacao| [utilizacao.numero || 0, utilizacao.id || 0] } %>
+
+    <%= f.fields_for :utilizacoes_questoes, utilizacoes_ordenadas do |utilizacao_form| %>
+      <%= render "question_fields", utilizacao_form: utilizacao_form, edicao: edicao %>
+    <% end %>
+  </div>
+
+  <%= button_tag(
+        type: "button",
+        class: "template-form__icon-button template-form__add-button template-form__add-question-button",
+        data: { action: "template-form#addQuestion" },
+        title: "Adicionar questão",
+        aria: { label: "Adicionar questão" }
+      ) do %>
+    <%= image_tag "icons/plus.svg", alt: "", width: 24, height: 24 %>
+  <% end %>
+
+  <% nova_utilizacao = UtilizacaoQuestao.new %>
+  <% nova_utilizacao.build_questao(tipo: nil) %>
+
+  <template data-template-form-target="questionTemplate">
+    <%= f.fields_for :utilizacoes_questoes, nova_utilizacao, child_index: "NEW_QUESTION" do |utilizacao_form| %>
+      <%= render "question_fields", utilizacao_form: utilizacao_form, edicao: edicao %>
+    <% end %>
+  </template>
+
+  <% nova_opcao = Opcao.new %>
+
+  <template data-template-form-target="optionTemplate">
+    <%= f.fields_for :utilizacoes_questoes, nova_utilizacao, child_index: "NEW_QUESTION" do |utilizacao_form| %>
+      <%= utilizacao_form.fields_for :questao, nova_utilizacao.questao do |questao_form| %>
+        <%= questao_form.fields_for :opcoes, nova_opcao, child_index: "NEW_OPTION" do |opcao_form| %>
+          <%= render "option_fields", opcao_form: opcao_form, edicao: edicao %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </template>
+
+  <div class="app-actions template-form__actions">
+    <%= link_to "Voltar aos templates", templates_path, class: "app-button app-button--secondary" %>
+    <%= f.submit(
+          template.persisted? ? "Atualizar template" : "Criar template",
+          class: "app-button"
+        ) %>
+  </div>
+<% end %>

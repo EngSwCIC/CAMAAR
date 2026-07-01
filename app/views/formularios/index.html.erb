@@ -1,0 +1,44 @@
+<main class="app-page template-page">
+  <header class="app-page__header">
+    <h1>Formulários</h1>
+  </header>
+
+  <%# 1. Seção: Meus Formulários %>
+  <section id="meus-formularios" class="template-section">
+    <h2>Meus Formulários</h2>
+
+    <% if @user_formularios.any? %>
+      <div class="app-card-grid template-form__cards">
+        <% @user_formularios.each do |f| %>
+          <%= render "card", formulario: f %>
+        <% end %>
+        <%= link_to new_formulario_path, class: "app-card app-card--create template-form__add-template-button", title: "Criar novo formulário", aria: { label: "Criar novo formulário" } do %>
+          <%= image_tag "icons/plus.svg", alt: "", width: 24, height: 24 %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="app-card-grid template-form__cards template-form__cards--empty">
+        <p class="app-empty-state template-form__empty-state">Nenhum formulário criado por você foi encontrado</p>
+        <%= link_to new_formulario_path, class: "app-floating-action app-floating-action--inline template-form__floating-action", title: "Criar novo formulário", aria: { label: "Criar novo formulário" } do %>
+          <%= image_tag "icons/plus.svg", alt: "", width: 24, height: 24 %>
+        <% end %>
+      </div>
+    <% end %>
+  </section>
+
+  <%# 2. Seção: Outros Formulários %>
+  <section class="template-section">
+    <h2>Outros Formulários</h2>
+    <p class="template-section__subtitle">De Administradores do seu Departamento</p>
+    
+    <div class="template-form__cards <%= 'template-form__cards--empty' if @other_formularios.empty? %>">
+      <% if @other_formularios.any? %>
+        <% @other_formularios.each do |f| %>
+          <%= render "card", formulario: f %>
+        <% end %>
+      <% else %>
+        <p class="app-empty-state template-form__empty-state">Nenhum formulário de outros administradores encontrado</p>
+      <% end %>
+    </div>
+  </section>
+</main>

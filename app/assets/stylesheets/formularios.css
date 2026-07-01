@@ -1,0 +1,677 @@
+.formulario-builder__field {
+  gap: 12px;
+  margin-bottom: 0;
+}
+
+.formulario-form-panel__body {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.formulario-step {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 34px minmax(0, 1fr);
+  position: relative;
+}
+
+.formulario-step+.formulario-step {
+  border-top: 1px solid rgba(231, 222, 232, 0.8);
+  padding-top: 24px;
+}
+
+.formulario-step__marker {
+  align-items: center;
+  background: var(--camaar-brand-soft);
+  border: 1px solid #E9D5E7;
+  border-radius: 999px;
+  color: var(--camaar-brand);
+  display: inline-flex;
+  font-size: 0.86rem;
+  font-weight: 800;
+  height: 34px;
+  justify-content: center;
+  line-height: 1;
+  width: 34px;
+}
+
+.formulario-step__content {
+  min-width: 0;
+}
+
+.formulario-builder__field:last-child {
+  margin-bottom: 0;
+}
+
+.formulario-builder__field--compact {
+  max-width: 520px;
+}
+
+.formulario-builder__field>label,
+.formulario-builder__field-header label,
+.formulario-section-box__heading label {
+  color: var(--camaar-brand-dark);
+}
+
+.formulario-builder__field-header {
+  align-items: flex-start;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+}
+
+.formulario-builder__field-header p,
+.formulario-builder__field>p,
+.formulario-section-box__heading p {
+  color: var(--camaar-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  margin: 6px 0 0;
+}
+
+.formulario-template-picker {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}
+
+.formulario-template-picker__section-header {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.formulario-template-picker__section-header h3 {
+  color: var(--camaar-brand-dark);
+  font-size: 0.94rem;
+  margin: 0;
+}
+
+.formulario-template-picker__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 286px;
+  overflow-y: auto;
+  padding: 4px 4px 8px 0;
+  scrollbar-color: var(--camaar-border-strong) transparent;
+}
+
+.formulario-choice-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+}
+
+.formulario-template-base__header {
+  align-items: flex-start;
+}
+
+.formulario-publico-segmented {
+  border: 0;
+  margin: 0;
+  min-width: min(260px, 100%);
+  padding: 0;
+}
+
+.formulario-publico-segmented__legend {
+  color: var(--camaar-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.formulario-publico-segmented__options {
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid var(--camaar-border);
+  border-radius: 999px;
+  display: grid;
+  gap: 3px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 3px;
+}
+
+.formulario-publico-segmented__option {
+  cursor: pointer;
+  min-width: 0;
+  position: relative;
+}
+
+.formulario-publico-segmented__option input {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.formulario-publico-segmented__option span {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--camaar-muted);
+  display: flex;
+  font-size: 0.86rem;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0.55rem 0.9rem;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    color 0.18s ease;
+  white-space: nowrap;
+}
+
+.formulario-publico-segmented__option:hover span,
+.formulario-publico-segmented__option input:focus-visible+span {
+  background: var(--camaar-brand-soft);
+  color: var(--camaar-brand-dark);
+}
+
+.formulario-publico-segmented__option input:focus-visible+span {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.14);
+}
+
+.formulario-publico-segmented__option input:checked+span {
+  background: var(--camaar-accent-soft);
+  border-color: var(--camaar-accent);
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.12);
+  color: var(--camaar-accent-dark);
+}
+
+.formulario-template-base__header .formulario-publico-segmented {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.formulario-classes {
+  position: relative;
+}
+
+.formulario-section-box {
+  align-items: stretch;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: visible;
+  padding: 0;
+  position: relative;
+}
+
+.formulario-section-box:has(.app-select.is-open) {
+  z-index: 30;
+}
+
+.formulario-section-box__header {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+}
+
+.formulario-section-box__heading {
+  min-width: 0;
+}
+
+.formulario-section-box__heading label {
+  color: var(--camaar-brand-dark);
+  display: block;
+  font-size: 1.08rem;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+}
+
+.formulario-section-box__heading p {
+  color: var(--camaar-muted);
+  margin: 0;
+}
+
+.formulario-classes__content {
+  align-items: flex-start;
+  display: flex;
+  gap: 16px;
+  min-width: 0;
+}
+
+.formulario-classes__list {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  order: 1;
+  overflow-y: auto;
+  padding: 4px 2px 6px 0;
+  scrollbar-color: var(--camaar-border-strong) transparent;
+  transition:
+    flex-basis 0.32s ease,
+    min-width 0.32s ease;
+}
+
+.formulario-classes__empty {
+  margin: 0;
+}
+
+.formulario-class-filter__toolbar {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  justify-content: flex-end;
+  min-height: 42px;
+}
+
+.formulario-class-filter__button {
+  align-items: center;
+  background: var(--camaar-surface);
+  border: 1px solid var(--camaar-border);
+  border-radius: 50%;
+  color: var(--camaar-brand);
+  cursor: pointer;
+  display: inline-flex;
+  flex: 0 0 42px;
+  height: 42px;
+  justify-content: center;
+  position: relative;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+  width: 42px;
+}
+
+.formulario-class-filter__button-icon {
+  align-items: center;
+  display: inline-flex;
+  inset: 0;
+  justify-content: center;
+  position: absolute;
+  transition:
+    opacity 0.18s ease,
+    transform 0.24s ease;
+}
+
+.formulario-class-filter__button-icon--close {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.8);
+}
+
+.formulario-class-filter__button.is-active .formulario-class-filter__button-icon--filter {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.8);
+}
+
+.formulario-class-filter__button.is-active .formulario-class-filter__button-icon--close {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.formulario-class-filter__button:hover,
+.formulario-class-filter__button:focus,
+.formulario-class-filter__button.is-active {
+  background: var(--camaar-accent-soft);
+  border-color: var(--camaar-accent);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12);
+  color: var(--camaar-accent-dark);
+  outline: none;
+}
+
+.formulario-class-filter__menu {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid var(--camaar-border);
+  border-width: 0;
+  border-radius: 12px;
+  box-shadow: none;
+  display: flex;
+  flex: 0 0 0;
+  flex-direction: column;
+  gap: 8px;
+  height: 0;
+  max-height: 0;
+  max-width: 0;
+  min-height: 0;
+  min-width: 0;
+  opacity: 0;
+  order: 2;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0;
+  pointer-events: none;
+  scrollbar-color: var(--camaar-border-strong) transparent;
+  transform: translateX(10px);
+  transition:
+    border-width 0.32s ease,
+    box-shadow 0.32s ease,
+    flex-basis 0.32s ease,
+    height 0.32s ease,
+    max-height 0.32s ease,
+    max-width 0.32s ease,
+    min-height 0.32s ease,
+    min-width 0.32s ease,
+    opacity 0.2s ease,
+    padding 0.32s ease,
+    transform 0.32s ease;
+  visibility: hidden;
+}
+
+.formulario-class-filter__menu[hidden] {
+  display: none;
+}
+
+.formulario-class-filter__menu.is-open,
+.formulario-class-filter__menu.is-closing {
+  visibility: visible;
+}
+
+.formulario-class-filter__menu.is-open {
+  border-width: 1px;
+  box-shadow: 0 18px 34px rgba(76, 18, 70, 0.16);
+  flex-basis: clamp(300px, 32%, 360px);
+  height: clamp(112px, var(--class-filter-panel-height, 112px), 430px);
+  max-height: min(70vh, 430px);
+  max-width: 360px;
+  min-height: 112px;
+  min-width: 300px;
+  opacity: 1;
+  padding: 10px;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.formulario-class-filter__menu.is-closing {
+  pointer-events: none;
+}
+
+.formulario-class-filter__section {
+  border: 1px solid #E9D5E7;
+  border-radius: 10px;
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+
+.formulario-class-filter__section summary {
+  align-items: center;
+  background: var(--camaar-brand-soft);
+  color: var(--camaar-brand-dark);
+  cursor: pointer;
+  display: flex;
+  font-size: 0.84rem;
+  font-weight: 800;
+  justify-content: space-between;
+  list-style: none;
+  padding: 10px 12px;
+}
+
+.formulario-class-filter__section summary::-webkit-details-marker {
+  display: none;
+}
+
+.formulario-class-filter__section summary::after {
+  content: "+";
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.formulario-class-filter__section[open] summary::after {
+  content: "-";
+}
+
+.formulario-class-filter__search {
+  background: var(--camaar-surface);
+  border: 1px solid var(--camaar-border);
+  border-radius: 9px;
+  color: var(--camaar-ink);
+  margin: 10px 10px 6px;
+  min-height: 38px;
+  padding: 0.55rem 0.7rem;
+  width: calc(100% - 20px);
+}
+
+.formulario-class-filter__search:focus {
+  border-color: var(--camaar-accent);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+  outline: none;
+}
+
+.formulario-class-filter__options {
+  display: grid;
+  gap: 5px;
+  max-height: 190px;
+  overflow-y: auto;
+  padding: 4px 10px 10px;
+  scrollbar-color: var(--camaar-border-strong) transparent;
+}
+
+.formulario-class-filter__item {
+  align-items: flex-start;
+  appearance: none;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  color: var(--camaar-ink);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font: inherit;
+  gap: 3px;
+  line-height: 1.35;
+  padding: 10px 12px 10px 34px;
+  position: relative;
+  text-align: left;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+  width: 100%;
+}
+
+.formulario-class-filter__item::before {
+  border: 1px solid #D8BFD6;
+  border-radius: 6px;
+  content: "";
+  height: 14px;
+  left: 12px;
+  position: absolute;
+  top: 12px;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  width: 14px;
+}
+
+.formulario-class-filter__item::after {
+  border: solid var(--camaar-surface);
+  border-width: 0 2px 2px 0;
+  content: "";
+  height: 7px;
+  left: 17px;
+  opacity: 0;
+  position: absolute;
+  top: 14px;
+  transform: rotate(45deg) scale(0.7);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  width: 4px;
+}
+
+.formulario-class-filter__item[hidden] {
+  display: none;
+}
+
+.formulario-class-filter__item:hover,
+.formulario-class-filter__item:focus,
+.formulario-class-filter__item.is-selected {
+  background: var(--camaar-brand-soft);
+  border-color: #E9D5E7;
+  color: var(--camaar-brand-dark);
+  outline: none;
+}
+
+.formulario-class-filter__item.is-selected::before {
+  background: var(--camaar-accent);
+  border-color: var(--camaar-accent);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+}
+
+.formulario-class-filter__item.is-selected::after {
+  opacity: 1;
+  transform: rotate(45deg) scale(1);
+}
+
+.formulario-class-filter__item small {
+  color: var(--camaar-accent-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.formulario-class-filter__empty {
+  color: var(--camaar-muted);
+  font-size: 0.84rem;
+  margin: 2px 0 0;
+  padding: 8px 10px;
+}
+
+.formulario-choice-grid--classes {
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+}
+
+.formulario-choice-card--class span {
+  gap: 5px;
+  padding: 12px;
+}
+
+.formulario-choice-card--class[hidden],
+.formulario-classes__empty[hidden] {
+  display: none;
+}
+
+.formulario-choice-card--class input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.formulario-choice-card--class input[type="checkbox"]:focus-visible+span {
+  border-color: var(--camaar-accent);
+  box-shadow: var(--camaar-focus-ring);
+}
+
+.formulario-choice-card--class input[type="checkbox"]:checked+span {
+  background:
+    linear-gradient(145deg, rgba(236, 253, 245, 0.98), rgba(209, 250, 229, 0.94)),
+    var(--camaar-accent-soft);
+  border-color: var(--camaar-accent);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.16);
+}
+
+.formulario-choice-card--class input[type="checkbox"]:checked+span strong {
+  color: var(--camaar-accent-dark);
+}
+
+.formulario-choice-card--class small {
+  color: var(--camaar-accent-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+
+@media (max-width: 640px) {
+  .formulario-form-panel {
+    padding: 16px;
+  }
+
+  .formulario-form-panel__body {
+    gap: 22px;
+  }
+
+  .formulario-step {
+    gap: 10px;
+    grid-template-columns: 1fr;
+  }
+
+  .formulario-step+.formulario-step {
+    padding-top: 20px;
+  }
+
+  .formulario-step__marker {
+    height: 30px;
+    width: 30px;
+  }
+
+  .formulario-builder__field-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .formulario-template-picker__list {
+    max-height: 306px;
+  }
+
+  .formulario-section-box {
+    height: auto;
+    max-height: none;
+  }
+
+  .formulario-section-box__header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .formulario-template-base__header .formulario-publico-segmented {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .formulario-classes__content {
+    flex-direction: column;
+  }
+
+  .formulario-class-filter__toolbar {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .formulario-class-filter__label {
+    max-width: none;
+  }
+
+  .formulario-class-filter__menu {
+    flex-basis: 0;
+    height: 0;
+    max-height: 0;
+    max-width: none;
+    order: 1;
+    transform: translateY(-8px);
+    width: 100%;
+  }
+
+  .formulario-class-filter__menu.is-open {
+    flex-basis: auto;
+    height: clamp(112px, var(--class-filter-panel-height, 112px), 380px);
+    max-height: min(70vh, 380px);
+    max-width: none;
+    min-height: 112px;
+    min-width: 0;
+    transform: translateY(0);
+  }
+
+  .formulario-classes__list {
+    order: 2;
+  }
+}

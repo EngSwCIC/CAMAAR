@@ -1,0 +1,33 @@
+<main class="app-page">
+  <header class="app-page__header">
+    <h1>Avaliações Pendentes</h1>
+    <p>Responda às avaliações disponíveis para as suas turmas.</p>
+  </header>
+
+  <section class="app-panel">
+    <% if @avaliacoes_pendentes.any? %>
+      <div class="app-table-wrap">
+        <table class="app-table">
+          <thead>
+            <tr>
+              <th>Turma</th>
+              <th>Status</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @avaliacoes_pendentes.each do |avaliacao| %>
+              <tr>
+                <td><%= avaliacao.formulario.turma.nome_exibicao %></td>
+                <td><span class="status-pill">Não respondido</span></td>
+                <td><%= link_to "Responder", responder_avaliacao_path(avaliacao), class: "app-button" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% else %>
+      <p class="app-empty-state">Nenhum formulário pendente foi encontrado.</p>
+    <% end %>
+  </section>
+</main>

@@ -1,0 +1,70 @@
+<main class="app-page">
+  <header class="app-page__header">
+    <h1>Pesquisa</h1>
+    <% if @termo.present? %>
+      <p>Resultados para “<%= @termo %>”.</p>
+    <% else %>
+      <p>Digite um termo para pesquisar no CAMAAR.</p>
+    <% end %>
+  </header>
+
+  <% if @termo.blank? %>
+    <p class="app-empty-state">Informe o que deseja encontrar no campo de pesquisa.</p>
+  <% else %>
+    <% if @tipos_selecionados.include?("avaliacoes") %>
+      <section class="app-panel search-results">
+        <h2>Avaliações pendentes</h2>
+        <% if @avaliacoes.any? %>
+          <div class="search-results__list">
+            <% @avaliacoes.each do |avaliacao| %>
+              <%= link_to responder_avaliacao_path(avaliacao), class: "search-result" do %>
+                <strong><%= avaliacao.formulario.template&.titulo || "Avaliação" %></strong>
+                <span><%= avaliacao.formulario.turma.nome_exibicao %></span>
+              <% end %>
+            <% end %>
+          </div>
+        <% else %>
+          <p class="app-empty-state">Nenhuma avaliação pendente encontrada.</p>
+        <% end %>
+      </section>
+    <% end %>
+
+    <% if current_user.administrador? %>
+      <% if @tipos_selecionados.include?("templates") %>
+        <section class="app-panel search-results">
+          <h2>Templates</h2>
+          <% if @templates.any? %>
+            <div class="search-results__list">
+              <% @templates.each do |template| %>
+                <%= link_to template_path(template), class: "search-result" do %>
+                  <strong><%= template.titulo %></strong>
+                  <span><%= template.descricao.presence || "Sem descrição" %></span>
+                <% end %>
+              <% end %>
+            </div>
+          <% else %>
+            <p class="app-empty-state">Nenhum template encontrado.</p>
+          <% end %>
+        </section>
+      <% end %>
+
+      <% if @tipos_selecionados.include?("formularios") %>
+        <section class="app-panel search-results">
+          <h2>Formulários</h2>
+          <% if @formularios.any? %>
+            <div class="search-results__list">
+              <% @formularios.each do |formulario| %>
+                <%= link_to formulario_path(formulario), class: "search-result" do %>
+                  <strong><%= formulario.template&.titulo || "Template removido" %></strong>
+                  <span><%= formulario.turma.nome_exibicao %></span>
+                <% end %>
+              <% end %>
+            </div>
+          <% else %>
+            <p class="app-empty-state">Nenhum formulário encontrado.</p>
+          <% end %>
+        </section>
+      <% end %>
+    <% end %>
+  <% end %>
+</main>

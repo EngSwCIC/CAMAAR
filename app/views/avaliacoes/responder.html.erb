@@ -1,0 +1,36 @@
+<main class="app-page">
+  <header class="app-page__header">
+    <h1>Responder Avaliação</h1>
+    <p>Turma: <strong><%= @formulario.turma.materia.nome %></strong></p>
+  </header>
+
+  <%= form_with url: submeter_avaliacao_path(@avaliacao), method: :post, class: "app-form" do |f| %>
+    <% @questoes.each_with_index do |questao, i| %>
+      <section class="questao evaluation-question" id="questao-<%= questao.id %>">
+        <p class="evaluation-question__title"><%= i + 1 %>. <%= questao.enunciado %></p>
+
+        <% if questao.discursiva? %>
+          <div class="app-field">
+            <textarea name="respostas[<%= questao.id %>][texto]"
+                      placeholder="Digite sua resposta"></textarea>
+          </div>
+        <% else %>
+          <div class="evaluation-options">
+            <% questao.opcoes.ordenadas.each do |opcao| %>
+              <label class="choice-card">
+                <input type="radio"
+                       name="respostas[<%= questao.id %>][opcao_id]"
+                       value="<%= opcao.id %>">
+                <span><%= opcao.texto %></span>
+              </label>
+            <% end %>
+          </div>
+        <% end %>
+      </section>
+    <% end %>
+
+    <div class="app-actions">
+      <%= f.submit "Confirmar envio", class: "app-button app-button--accent" %>
+    </div>
+  <% end %>
+</main>

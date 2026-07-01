@@ -1,0 +1,36 @@
+<main class="auth-page">
+
+  <%= render "layouts/dashboard_shared/flash" %>
+  <div class="auth-shell">
+    <section class="app-panel auth-card">
+      <h2>Acessar conta</h2>
+      <p class="auth-card__description">Entre com suas credenciais institucionais.</p>
+
+      <form action="<%= login_path %>" method="POST" class="auth-form">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+        <div class="app-field">
+          <label for="identificador">Matrícula ou E-mail:</label>
+          <input type="text" id="identificador" name="identificador" placeholder="Digite seu e-mail ou matrícula" autocomplete="username" required>
+        </div>
+
+        <div class="app-field">
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" placeholder="Digite sua senha" autocomplete="current-password" required>
+        </div>
+
+        <button type="submit" class="app-button">Entrar</button>
+      </form>
+
+      <div class="auth-links">
+        <%= link_to "É sua primeira vez? Cadastre-se", cadastro_path, class: "link-cadastro" %>
+        <%= link_to "Esqueceu sua senha? Redefinir senha", solicitar_redef_senha_path, class: "link-recuperacao" %>
+      </div>
+    </section>
+
+    <aside class="auth-intro">
+      <h1>Bem-vindo ao CAMAAR</h1>
+      <p>O sistema de gerenciamento e acompanhamento de atividades acadêmicas. Acesse sua conta para entrar no sistema.</p>
+    </aside>
+  </div>
+</main>

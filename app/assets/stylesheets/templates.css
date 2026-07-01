@@ -1,0 +1,400 @@
+/* Template listing, editor, nested questions, and options. */
+
+.template-show__description {
+  margin-top: 0.5rem;
+  max-width: 48rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.template-page h2,
+.template-page>h3,
+.template-form>h3 {
+  color: var(--camaar-ink);
+}
+
+.template-page h2 {
+  font-size: clamp(20px, 2.5vw, 26px);
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+}
+
+.template-section__subtitle {
+  color: var(--camaar-muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin: -10px 0 18px;
+}
+
+.template-page>hr,
+.template-form>hr {
+  background: linear-gradient(90deg, transparent, var(--camaar-border), transparent);
+  border: 0;
+  height: 1px;
+  margin: 26px 0;
+}
+
+.template-form {
+  max-width: none;
+  width: 100%;
+}
+
+.template-form__metadata-summary {
+  align-items: center;
+  color: var(--camaar-brand);
+  cursor: pointer;
+  display: flex;
+  font-weight: 700;
+  justify-content: space-between;
+  list-style: none;
+  padding: 16px 18px;
+  transition: background-color 0.2s ease;
+}
+
+.template-form__metadata-summary::-webkit-details-marker {
+  display: none;
+}
+
+.template-form__metadata-summary::after {
+  content: "+";
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.template-form__metadata[open] .template-form__metadata-summary::after {
+  content: "-";
+}
+
+.template-form__metadata[open] .template-form__metadata-summary {
+  background: linear-gradient(90deg, var(--camaar-brand-soft), var(--camaar-accent-soft));
+}
+
+.template-form__metadata-fields {
+  border-top: 1px solid var(--camaar-border);
+  padding: 18px;
+}
+
+.template-form__field {
+  display: flex;
+  flex-direction: column;
+}
+
+.template-form__field--compact {
+  max-width: 240px;
+}
+
+.template-form__field label {
+  color: var(--camaar-ink);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.template-form textarea {
+  min-height: 92px;
+  resize: vertical;
+}
+
+.template-form__questions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.template-question {
+  align-items: flex-start;
+  display: flex;
+  gap: 14px;
+  padding: 18px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.template-question[hidden],
+.template-option[hidden] {
+  display: none;
+}
+
+.template-question:focus-within {
+  border-color: rgba(16, 185, 129, 0.58);
+  border-left-color: var(--camaar-accent);
+  box-shadow: 0 14px 34px rgba(16, 185, 129, 0.10);
+}
+
+.template-question__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.template-question__header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.template-question__header-number {
+  background: var(--camaar-brand-soft);
+  border: 1px solid #E9D5E7;
+  border-radius: 999px;
+  color: var(--camaar-brand);
+  display: inline-flex;
+  font-weight: 700;
+  padding: 6px 15px;
+  gap: 0.25rem;
+}
+
+.template-question__actions,
+.template-option__actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 8px;
+}
+
+.template-question__actions {
+  flex-direction: column;
+}
+
+.template-form__card-delete {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.template-form__add-option-button {
+  margin-top: 0.75rem;
+  width: 100%;
+  padding: 27px 0px;
+  border-radius: 10px;
+}
+
+.template-form__add-question-button {
+  background: linear-gradient(145deg, var(--camaar-accent-soft), #D1FAE5);
+  border-color: #6EE7B7;
+  border-radius: 18px;
+  box-shadow: 0 8px 18px rgba(16, 185, 129, 0.18);
+  display: flex;
+  height: 58px;
+  margin: 8px auto 24px;
+  width: 58px;
+}
+
+.template-form__add-question-button:hover,
+.template-form__add-question-button:focus {
+  background: #D1FAE5;
+  border-color: var(--camaar-accent);
+  box-shadow: 0 10px 22px rgba(16, 185, 129, 0.24);
+}
+
+.template-form__actions {
+  margin-top: 16px;
+  padding-bottom: clamp(2rem, 6vh, 4rem);
+}
+
+.template-options {
+  background: rgba(236, 253, 245, 0.58);
+  border: 1px solid #CDEEDD;
+  border-radius: 12px;
+  margin: 12px 0;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.template-options legend {
+  color: var(--camaar-accent-dark);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 6px;
+}
+
+.template-options__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.template-option {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid #D7F1E4;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0px 15px;
+}
+
+.template-option__content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.template-option__label {
+  color: var(--camaar-accent-dark);
+  display: contents;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.template-form__cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 320px));
+  margin: 24px 0;
+}
+
+
+.template-form__cards--empty {
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr);
+  margin-bottom: 0;
+}
+
+.template-form__card-link {
+  color: inherit;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  padding: 20px;
+  text-decoration: none;
+}
+
+.template-form__card-link:focus {
+  outline: none;
+}
+
+.template-form__card--removable .template-form__card-link {
+  padding-right: 64px;
+}
+
+.template-form__card-delete-form {
+  margin: 0;
+  position: absolute;
+  right: 0.875rem;
+  bottom: 16px;
+  z-index: 2;
+}
+
+.template-form__card-delete {
+  background: #FFF7F7;
+  border: 1px solid #F6C8C8;
+  border-radius: 9px;
+  height: 36px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  width: 36px;
+}
+
+.template-form__card-delete img {
+  display: block;
+  opacity: 0.72;
+}
+
+.template-form__card-delete:hover,
+.template-form__card-delete:focus {
+  background: #FEE2E2;
+  border-color: #F87171;
+  outline: none;
+}
+
+.template-form__card-delete:hover img,
+.template-form__card-delete:focus img {
+  opacity: 1;
+}
+
+.template-form__card-content {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.template-form__card-title {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: var(--camaar-brand-dark);
+  display: -webkit-box;
+  font-size: 18px;
+  font-weight: 700;
+  line-clamp: 2;
+  margin: 0 0 8px 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  text-overflow: ellipsis;
+}
+
+.template-form__card-description {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  color: var(--camaar-muted);
+  display: -webkit-box;
+  font-size: 13px;
+  line-clamp: 3;
+  line-height: 1.4;
+  margin: 0 0 16px 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  text-overflow: ellipsis;
+}
+
+.template-form__card-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.template-form__card-info-item strong {
+  color: currentColor;
+  font-weight: 700;
+}
+
+.template-form__empty-state {
+  grid-column: 1 / -1;
+  margin: 24px 0;
+  width: 100%;
+}
+
+.template-form__cards--empty .template-form__empty-state {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .template-question {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .template-question__actions {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .template-form__add-template-button {
+    min-height: 180px;
+  }
+
+  .template-form__card-title {
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+
+  .template-form__card-description {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+}

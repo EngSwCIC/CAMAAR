@@ -1,0 +1,22 @@
+<main class="app-page">
+  <header class="app-page__header">
+    <h1>Formulários Pendentes</h1>
+    <p>Acompanhe as avaliações que ainda precisam da sua resposta.</p>
+  </header>
+
+  <section class="app-panel">
+    <% if @pendencias.any? %>
+      <ul class="pending-grid">
+        <% @pendencias.each do |pendencia| %>
+          <li class="pending-card">
+            <p><strong><%= pendencia.formulario.turma.nome_exibicao %></strong></p>
+            <p><%= pendencia.formulario.template&.titulo || "Avaliação" %></p>
+            <span class="status-pill">Não respondido</span>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p class="app-empty-state">Nenhum formulário pendente foi encontrado.</p>
+    <% end %>
+  </section>
+</main>

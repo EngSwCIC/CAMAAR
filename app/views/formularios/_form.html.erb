@@ -1,0 +1,311 @@
+<% # Formulário de Submissão %>
+<%= form_with url: formularios_path, class: "template-form" do |form| %>
+  <div class="formulario-form-panel">
+    <div class="formulario-form-panel__body">
+      
+      <% # Seleção de Template %>
+      <div class="formulario-step formulario-step--template">
+        <div class="formulario-step__marker" aria-hidden="true">1</div>
+
+        <div class="formulario-step__content">
+          <div class="template-form__field formulario-builder__field">
+            <div class="formulario-section-box">
+              <div class="formulario-section-box__header formulario-template-base__header">
+                <div class="formulario-section-box__heading">
+                  <label>Template base</label>
+                  <p>Escolha o modelo que será usado para criar os formulários das turmas selecionadas.</p>
+                </div>
+
+                <%= render "publico_alvo_select", menu_id: "formulario-publico-alvo-menu", show_label: false %>
+              </div>
+
+              <% if templates_proprios.empty? && templates_outros.empty? %>
+                <p class="app-empty-state">Nenhum template disponível. Crie um template antes de montar um formulário.</p>
+              <% else %>
+                <div class="formulario-template-picker">
+                  <% if templates_proprios.any? %>
+                    <section class="formulario-template-picker__section">
+                      <div class="formulario-template-picker__section-header">
+                        <h3>Meus templates</h3>
+                        <span><%= pluralize(templates_proprios.size, "template", "templates") %></span>
+                      </div>
+
+                      <div class="formulario-template-picker__list" role="radiogroup" aria-label="Meus templates">
+                      <% templates_proprios.each do |template| %>
+                          <label class="formulario-template-card">
+                            <%= radio_button_tag :template_id,
+                                                 template.id,
+                                                 template.id.to_s == template_selecionado.to_s,
+                                                 required: true,
+                                                 onchange: "const url = new URL(window.location.href); url.searchParams.set('template_id', this.value); history.replaceState(null, '', url.toString());" %>
+                            <span class="formulario-template-card__body">
+                              <strong><%= template.titulo %></strong>
+                              <span><%= template.descricao.presence || "Sem descrição cadastrada." %></span>
+                              <small>Criado em <%= l(template.criado_em.to_date) %></small>
+                            </span>
+                          </label>
+                      <% end %>
+                      </div>
+                    </section>
+                  <% end %>
+
+                  <% if templates_outros.any? %>
+                    <section class="formulario-template-picker__section">
+                      <div class="formulario-template-picker__section-header">
+                        <h3>Templates de outros admins</h3>
+                        <span><%= pluralize(templates_outros.size, "template", "templates") %></span>
+                      </div>
+
+                      <div class="formulario-template-picker__list" role="radiogroup" aria-label="Templates de outros admins">
+                      <% templates_outros.each do |template| %>
+                          <label class="formulario-template-card">
+                            <%= radio_button_tag :template_id,
+                                                 template.id,
+                                                 template.id.to_s == template_selecionado.to_s,
+                                                 required: true,
+                                                 onchange: "const url = new URL(window.location.href); url.searchParams.set('template_id', this.value); history.replaceState(null, '', url.toString());" %>
+                            <span class="formulario-template-card__body">
+                              <strong><%= template.titulo %></strong>
+                              <span><%= template.descricao.presence || "Sem descrição cadastrada." %></span>
+                              <small>Por <%= template.adm.nome %> em <%= l(template.criado_em.to_date) %></small>
+                            </span>
+                          </label>
+                      <% end %>
+                      </div>
+                    </section>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% # Seleção de Turmas %>
+      <% materia_atual = materias.find { |materia| materia.id.to_s == materia_selecionada.to_s } %>
+      <div class="formulario-step formulario-step--classes">
+        <div class="formulario-step__marker" aria-hidden="true">2</div>
+
+        <div class="formulario-step__content">
+          <div
+            class="template-form__field formulario-builder__field formulario-classes"
+            data-controller="class-filter"
+            data-class-filter-selected-materia-ids-value="<%= materia_atual&.id %>"
+            data-class-filter-selected-professor-ids-value=""
+            data-action="click@window->class-filter#closeFromOutside keydown.esc@window->class-filter#closeOnEscape">
+            <div class="formulario-section-box formulario-classes__box">
+              <div class="formulario-section-box__header formulario-classes__box-header">
+                <div class="formulario-section-box__heading formulario-classes__heading">
+                  <label>Selecione as turmas alvo</label>
+                  <p>Apenas turmas vigentes do departamento são exibidas abaixo.</p>
+                </div>
+
+                <% if turmas.any? %>
+                  <div class="formulario-class-filter__toolbar">
+                    <span class="formulario-class-filter__label" data-class-filter-target="label">
+                      <%= materia_atual&.nome || "Todas as matérias" %> · Todos professores
+                    </span>
+
+                    <button
+                      type="button"
+                      class="formulario-class-filter__button"
+                      aria-label="Filtrar turmas"
+                      aria-expanded="false"
+                      aria-haspopup="menu"
+                      aria-controls="formulario-class-filter-menu"
+                      title="Filtrar turmas"
+                      data-class-filter-target="button"
+                      data-action="class-filter#toggle">
+                      <span class="formulario-class-filter__button-icon formulario-class-filter__button-icon--filter">
+                        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                          <path
+                            d="M4 6h16M7 12h10M10 18h4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-width="2" />
+                        </svg>
+                      </span>
+                      <span class="formulario-class-filter__button-icon formulario-class-filter__button-icon--close">
+                        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                          <path
+                            d="M6 6l12 12M18 6L6 18"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-width="2" />
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                <% end %>
+              </div>
+
+              <% if turmas.any? %>
+                <div class="formulario-classes__content">
+                  <div
+                    id="formulario-class-filter-menu"
+                    class="formulario-class-filter__menu"
+                    role="menu"
+                    data-class-filter-target="menu"
+                    hidden>
+                    <details class="formulario-class-filter__section" data-class-filter-target="section">
+                      <summary>Matéria</summary>
+
+                      <label class="visually-hidden" for="class-filter-materia-search">Pesquisar matéria</label>
+                      <input
+                        id="class-filter-materia-search"
+                        class="formulario-class-filter__search"
+                        type="search"
+                        placeholder="Pesquisar matéria"
+                        autocomplete="off"
+                        data-class-filter-target="searchInput"
+                        data-filter-scope="materia"
+                        data-action="input->class-filter#searchOptions">
+
+                      <div class="formulario-class-filter__options">
+                        <button
+                          type="button"
+                          class="formulario-class-filter__item"
+                          role="menuitemcheckbox"
+                          aria-checked="<%= materia_atual.blank? %>"
+                          data-class-filter-target="filterItem"
+                          data-filter-type="materia"
+                          data-filter-scope="materia"
+                          data-filter-default="true"
+                          data-filter-value=""
+                          data-filter-label="Todas as matérias"
+                          data-filter-text="todas as matérias"
+                          data-action="class-filter#filter">
+                          Todas as matérias
+                        </button>
+
+                        <% materias.each do |materia| %>
+                          <button
+                            type="button"
+                            class="formulario-class-filter__item"
+                            role="menuitemcheckbox"
+                            aria-checked="<%= materia.id == materia_atual&.id %>"
+                            data-class-filter-target="filterItem"
+                            data-filter-type="materia"
+                            data-filter-scope="materia"
+                            data-filter-value="<%= materia.id %>"
+                            data-filter-label="<%= materia.nome %>"
+                            data-filter-text="<%= "#{materia.nome} #{materia.codigo}".downcase %>"
+                            data-action="class-filter#filter">
+                            <strong><%= materia.nome %></strong>
+                            <small><%= materia.codigo %></small>
+                          </button>
+                        <% end %>
+
+                        <p
+                          class="formulario-class-filter__empty"
+                          data-class-filter-target="sectionEmpty"
+                          data-filter-scope="materia"
+                          hidden>
+                          Nenhuma matéria encontrada.
+                        </p>
+                      </div>
+                    </details>
+
+                    <details class="formulario-class-filter__section" data-class-filter-target="section">
+                      <summary>Professor</summary>
+
+                      <label class="visually-hidden" for="class-filter-professor-search">Pesquisar professor</label>
+                      <input
+                        id="class-filter-professor-search"
+                        class="formulario-class-filter__search"
+                        type="search"
+                        placeholder="Pesquisar professor"
+                        autocomplete="off"
+                        data-class-filter-target="searchInput"
+                        data-filter-scope="professor"
+                        data-action="input->class-filter#searchOptions">
+
+                      <div class="formulario-class-filter__options">
+                        <button
+                          type="button"
+                          class="formulario-class-filter__item"
+                          role="menuitemcheckbox"
+                          aria-checked="true"
+                          data-class-filter-target="filterItem"
+                          data-filter-type="professor"
+                          data-filter-scope="professor"
+                          data-filter-default="true"
+                          data-filter-value=""
+                          data-filter-label="Todos professores"
+                          data-filter-text="todos professores"
+                          data-action="class-filter#filter">
+                          Todos professores
+                        </button>
+
+                        <% professores.each do |professor| %>
+                          <button
+                            type="button"
+                            class="formulario-class-filter__item"
+                            role="menuitemcheckbox"
+                            aria-checked="false"
+                            data-class-filter-target="filterItem"
+                            data-filter-type="professor"
+                            data-filter-scope="professor"
+                            data-filter-value="<%= professor.id %>"
+                            data-filter-label="<%= professor.nome %>"
+                            data-filter-text="<%= "#{professor.nome} #{professor.email} #{professor.matricula}".downcase %>"
+                            data-action="class-filter#filter">
+                            <strong><%= professor.nome %></strong>
+                            <small><%= professor.email %></small>
+                          </button>
+                        <% end %>
+
+                        <p
+                          class="formulario-class-filter__empty"
+                          data-class-filter-target="sectionEmpty"
+                          data-filter-scope="professor"
+                          hidden>
+                          Nenhum professor encontrado.
+                        </p>
+                      </div>
+                    </details>
+                  </div>
+
+                  <div class="formulario-classes__list" data-class-filter-target="list">
+                    <div class="formulario-choice-grid formulario-choice-grid--classes">
+                      <% turmas.each do |turma| %>
+                        <% docentes = turma.participacoes_turma.select(&:docente?).map(&:usuario).uniq %>
+                        <label
+                          class="formulario-choice-card formulario-choice-card--class"
+                          data-class-filter-target="classCard"
+                          data-materia-id="<%= turma.materia_id %>"
+                          data-professor-ids="<%= docentes.map(&:id).join(" ") %>">
+                          <%= check_box_tag "turma_ids[]", turma.id, false, id: "turma_#{turma.id}" %>
+                          <span>
+                            <strong><%= turma.nome_exibicao %></strong>
+                            <small>
+                              <%= [turma.materia.codigo, docentes.map(&:nome).presence&.join(", ")].compact.join(" · ") %>
+                            </small>
+                          </span>
+                        </label>
+                      <% end %>
+                    </div>
+
+                    <p class="app-empty-state formulario-classes__empty" data-class-filter-target="emptyState" hidden>
+                      Nenhuma turma encontrada para os filtros selecionados.
+                    </p>
+                  </div>
+                </div>
+              <% else %>
+                <p class="app-empty-state formulario-classes__empty">Nenhuma turma encontrada no semestre atual.</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="app-actions template-form__actions">
+    <%= link_to "Voltar", formularios_path, class: "app-button app-button--secondary" %>
+    <%= form.submit "Publicar formulário", class: "app-button app-button--accent" %>
+  </div>
+<% end %>

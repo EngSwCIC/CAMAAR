@@ -1,0 +1,27 @@
+<aside id="app-sidebar" class="sidebar" data-app-shell-target="sidebar">
+  <%= link_to "CAMAAR", avaliacoes_path, class: "sidebar-brand" %>
+
+  <ul class="sidebar-menu">
+    <li class="<%= 'active' if current_page?(avaliacoes_path) %>">
+      <%= link_to "Início", avaliacoes_path %>
+    </li>
+
+    <li class="<%= 'active' if controller_name == 'avaliacoes' %>">
+      <%= link_to "Avaliações pendentes", avaliacoes_pendentes_path %>
+    </li>
+
+    <% if current_user&.administrador? %>
+      <li class="<%= 'active' if controller_name == 'templates' %>">
+        <%= link_to "Templates", templates_path %>
+      </li>
+
+      <li class="<%= 'active' if controller_name == 'formularios' %>">
+        <%= link_to "Formulários", formularios_path %>
+      </li>
+
+      <li class="<%= 'active' if current_page?(gerenciamento_path) %>">
+        <%= link_to "Gerenciamento", gerenciamento_path %>
+      </li>
+    <% end %>
+  </ul>
+</aside>

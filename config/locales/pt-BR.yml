@@ -1,0 +1,13 @@
+"pt-BR":
+  activerecord:
+    models:
+      template: "Template"
+      questao: "Questão"
+      utilizacao_questao: "Utilização de Questão"
+      formulario: "Formulário"
+    attributes:
+      template:
+        titulo: "Título"
+        descricao: "Descrição"
+      "template/utilizacoes_questoes/questao":
+        opcoes: "Opções"

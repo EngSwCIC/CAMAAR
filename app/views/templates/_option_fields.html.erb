@@ -1,0 +1,57 @@
+<% opcao_persistida = edicao && opcao_form.object.persisted? %>
+
+<div class="template-option" data-template-form-option <%= "hidden" if opcao_form.object.marked_for_destruction? %>>
+  <% if opcao_persistida %>
+    <%= opcao_form.hidden_field :id, data: { template_form_opcao_id: true } %>
+    <%= opcao_form.hidden_field :_destroy, value: opcao_form.object.marked_for_destruction? ? "1" : "0", data: { template_form_option_destroy: true } %>
+  <% end %>
+
+  <%= opcao_form.hidden_field :numero, data: { template_form_option_number: true } %>
+
+  <div class="template-option__content">
+    <span class="template-option__label">
+      <span data-template-form-option-position>
+        <%= letra_da_opcao(opcao_form.object.numero) %>
+      </span>
+    </span>
+
+    <%= opcao_form.text_field(
+          :texto,
+          class: "app-control",
+          placeholder: "Opção #{opcao_form.object.numero || 1}",
+          data: { template_form_option_text: true }
+        ) %>
+  </div>
+
+  <div class="template-option__actions">
+    <%= button_tag(
+          type: "button",
+          class: "template-form__icon-button",
+          data: { action: "template-form#moveOptionUp" },
+          title: "Mover opção para cima",
+          aria: { label: "Mover opção para cima" }
+        ) do %>
+      <%= image_tag "icons/arrow-up.svg", alt: "", width: 16, height: 16 %>
+    <% end %>
+
+    <%= button_tag(
+          type: "button",
+          class: "template-form__icon-button",
+          data: { action: "template-form#moveOptionDown" },
+          title: "Mover opção para baixo",
+          aria: { label: "Mover opção para baixo" }
+        ) do %>
+      <%= image_tag "icons/arrow-down.svg", alt: "", width: 16, height: 16 %>
+    <% end %>
+
+    <%= button_tag(
+          type: "button",
+          class: "template-form__icon-button template-form__icon-button--danger",
+          data: { action: "template-form#destroyOption" },
+          title: "Remover opção",
+          aria: { label: "Remover opção" }
+        ) do %>
+      <%= image_tag "icons/trash.svg", alt: "", width: 16, height: 16 %>
+    <% end %>
+  </div>
+</div>

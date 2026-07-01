@@ -1,0 +1,69 @@
+:root {
+  --camaar-accent: #10B981;
+  --camaar-accent-dark: #047857;
+  --camaar-accent-soft: #ECFDF5;
+  --camaar-brand: #6A1B60;
+  --camaar-brand-dark: #4C1246;
+  --camaar-brand-soft: #F7EDF6;
+  --camaar-border: #E7DEE8;
+  --camaar-border-strong: #CFA9CB;
+  --camaar-blue-border: #BFDBFE;
+  --camaar-blue-soft: #EFF6FF;
+  --camaar-blue-text: #1E40AF;
+  --camaar-danger-border: #FECACA;
+  --camaar-danger-soft: #FEF2F2;
+  --camaar-danger-text: #991B1B;
+  --camaar-focus-ring: 0 0 0 4px rgba(16, 185, 129, 0.14);
+  --camaar-ink: #251F27;
+  --camaar-muted: #6F6672;
+  --camaar-radius-sm: 8px;
+  --camaar-radius-md: 10px;
+  --camaar-radius-lg: 12px;
+  --camaar-radius-xl: 14px;
+  --camaar-radius-2xl: 18px;
+  --camaar-shadow-card: 0 10px 26px rgba(76, 18, 70, 0.07);
+  --camaar-shadow-card-hover: 0 18px 36px rgba(106, 27, 96, 0.14);
+  --camaar-shadow-panel: 0 16px 40px rgba(76, 18, 70, 0.07);
+  --camaar-shadow-subtle: 0 8px 18px rgba(76, 18, 70, 0.035);
+  --camaar-surface: #FFFFFF;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--camaar-ink);
+  font-family:
+    "IBM Plex Sans",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family:
+    "Fira Code",
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Consolas,
+    monospace;
+}

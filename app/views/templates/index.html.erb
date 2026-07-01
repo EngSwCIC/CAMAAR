@@ -1,0 +1,41 @@
+<main class="app-page template-page">
+  <header class="app-page__header">
+    <h1>Templates</h1>
+  </header>
+
+  <section id="meus-templates" class="template-section">
+    <h2>Meus templates</h2>
+
+    <% if @user_templates.any? %>
+      <div class="app-card-grid template-form__cards">
+        <% @user_templates.each do |t| %>
+          <%= render "card", template: t, removable: true %>
+        <% end %>
+        <%= link_to new_template_path, class: "app-card app-card--create template-form__add-template-button", title: "Criar novo template", aria: { label: "Criar novo template" } do %>
+          <%= image_tag "icons/plus.svg", alt: "", width: 24, height: 24 %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="app-card-grid template-form__cards template-form__cards--empty">
+        <p class="app-empty-state template-form__empty-state">Nenhum template foi encontrado</p>
+        <%= link_to new_template_path, class: "app-floating-action app-floating-action--inline template-form__floating-action", title: "Criar novo template", aria: { label: "Criar novo template" } do %>
+          <%= image_tag "icons/plus.svg", alt: "", width: 24, height: 24 %>
+        <% end %>
+      </div>
+    <% end %>
+  </section>
+
+  <section class="template-section">
+    <h2>Outros Templates</h2>
+    <% if @other_templates.any? %>
+      <div class="app-card-grid template-form__cards">
+        <% @other_templates.each do |t| %>
+          <%= render "card", template: t, removable: false %>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="app-empty-state template-form__empty-state">Nenhum template de outros administradores encontrado</p>
+    <% end %>
+  </section>
+
+</main>

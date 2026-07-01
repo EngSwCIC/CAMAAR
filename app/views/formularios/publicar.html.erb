@@ -1,0 +1,29 @@
+<main class="app-page">
+  <header class="app-page__header">
+    <h1>Publicar Formulário</h1>
+    <p>Revise os dados e defina quem responderá à avaliação.</p>
+  </header>
+
+  <section class="app-panel">
+    <h2>Resumo</h2>
+    <div class="summary-list">
+      <p><strong>Template:</strong> <%= @template.titulo %></p>
+      <p><strong>Turmas:</strong></p>
+      <ul>
+        <% @turmas.each do |turma| %>
+          <li><%= turma.nome_exibicao %></li>
+        <% end %>
+      </ul>
+    </div>
+  </section>
+
+  <%= form_with url: formularios_path, class: "app-panel app-form" do |form| %>
+    <div class="app-field formulario-builder__field--compact">
+      <%= render "publico_alvo_select", menu_id: "publicar-publico-alvo-menu" %>
+    </div>
+
+    <div class="app-actions">
+      <%= form.submit "Confirmar Publicação", class: "app-button app-button--accent" %>
+    </div>
+  <% end %>
+</main>

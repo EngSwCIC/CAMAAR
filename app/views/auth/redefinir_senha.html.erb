@@ -1,0 +1,32 @@
+<main class="auth-page">
+
+  <%= render "layouts/dashboard_shared/flash" %>
+  <div class="auth-shell">
+    <section class="app-panel auth-card">
+      <h2>Nova Senha</h2>
+      <p class="auth-card__description">Digite e confirme a sua nova senha de acesso.</p>
+
+      <form action="<%= redefinir_senha_path %>" method="POST" class="auth-form">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <input type="hidden" name="token" value="<%= params[:token] %>">
+
+        <div class="app-field">
+          <label for="password">Nova Senha:</label>
+          <input type="password" id="password" name="senha" placeholder="No mínimo 8 caracteres" autocomplete="new-password" required>
+        </div>
+
+        <div class="app-field">
+          <label for="password_confirmation">Confirme a Nova Senha:</label>
+          <input type="password" id="password_confirmation" name="senha_confirmacao" placeholder="Digite a senha novamente" autocomplete="new-password" required>
+        </div>
+
+        <button type="submit" class="app-button">Alterar Senha</button>
+      </form>
+    </section>
+
+    <aside class="auth-intro">
+      <h1>CAMAAR</h1>
+      <p>Após alterar sua senha, você será redirecionado ao login para acessar o sistema com as novas credenciais.</p>
+    </aside>
+  </div>
+</main>

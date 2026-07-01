@@ -1,0 +1,30 @@
+<main class="auth-page">
+
+  <%= render "layouts/dashboard_shared/flash" %>
+  <div class="auth-shell">
+    <section class="app-panel auth-card">
+      <h2>Recuperar Senha</h2>
+      <p class="auth-card__description">Insira o e-mail associado à sua conta para receber as instruções de redefinição.</p>
+
+      <form action="<%= solicitar_redef_senha_path %>" method="POST" class="auth-form">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+        <div class="app-field">
+          <label for="email">E-mail cadastrado:</label>
+          <input type="email" id="email" name="email" placeholder="exemplo@gmail.com" autocomplete="email" required>
+        </div>
+
+        <button type="submit" class="app-button">Enviar e-mail de redefinição</button>
+      </form>
+
+      <div class="auth-links">
+        <%= link_to "Voltar para o Login", root_path, class: "link-voltar" %>
+      </div>
+    </section>
+
+    <aside class="auth-intro">
+      <h1>CAMAAR</h1>
+      <p>Por segurança, os links expiram após um curto período. Se não receber o e-mail em alguns minutos, verifique sua caixa de spam.</p>
+    </aside>
+  </div>
+</main>

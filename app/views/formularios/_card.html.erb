@@ -1,0 +1,21 @@
+<article class="template-form__card" data-formulario-id="<%= formulario.id %>">
+  <%= link_to formulario_path(formulario), class: "template-form__card-link" do %>
+    <div class="template-form__card-content">
+      <%# Proteção com &. caso o template de origem tenha sido excluído %>
+      <h3 class="template-form__card-title"><%= formulario.template&.titulo || "Template removido" %></h3>
+      <p class="template-form__card-description"><%= formulario.turma.nome_exibicao %></p>
+    </div>
+
+    <div class="template-form__card-info">
+      <div class="template-form__card-info-item">
+        <span>👥</span>
+        <strong><%= formulario.docentes? ? "Docentes" : "Discentes" %></strong>
+      </div>
+      <div class="template-form__card-info-item">
+        <span>📋</span>
+        <strong><%= formulario.avaliacoes.pendentes.count %></strong>
+        <%= formulario.avaliacoes.pendentes.count == 1 ? "pendente" : "pendentes" %>
+      </div>
+    </div>
+  <% end %>
+</article>

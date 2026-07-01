@@ -1,0 +1,20 @@
+<% show_label = local_assigns.fetch(:show_label, true) %>
+<% publico_alvo_options = [
+     ["Docentes", "docentes"],
+     ["Discentes", "discentes"]
+   ] %>
+
+<fieldset class="formulario-publico-segmented" aria-label="Público-alvo">
+  <legend class="formulario-publico-segmented__legend <%= "visually-hidden" unless show_label %>">
+    Público-alvo
+  </legend>
+
+  <div class="formulario-publico-segmented__options">
+    <% publico_alvo_options.each do |label, value| %>
+      <label class="formulario-publico-segmented__option">
+        <%= radio_button_tag :publico_alvo, value, false, required: true %>
+        <span><%= label %></span>
+      </label>
+    <% end %>
+  </div>
+</fieldset>

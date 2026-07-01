@@ -1,0 +1,91 @@
+---
+glob: "app/views/**/*.erb"
+
+exclude:
+  - "vendor/**/*"
+  - "node_modules/**/*"
+  - "tmp/**/*"
+  - "log/**/*"
+
+EnableDefaultLinters: true
+
+linters:
+  AllowedScriptType:
+    enabled: true
+    allow_blank: true
+    allowed_types:
+      - "application/json"
+      - "text/html"
+      - "text/javascript"
+
+  ClosingErbTagIndent:
+    enabled: true
+
+  CommentSyntax:
+    enabled: true
+
+  ExtraNewline:
+    enabled: true
+
+  FinalNewline:
+    enabled: true
+
+  NoJavascriptTagHelper:
+    enabled: true
+
+  ParserErrors:
+    enabled: true
+
+  RequireInputAutocomplete:
+    enabled: true
+
+  RightTrim:
+    enabled: true
+
+  ErbSafety:
+    enabled: true
+
+  NoUnusedDisable:
+    enabled: true
+
+  Rubocop:
+    enabled: true
+    only:
+      - Lint/Debugger
+      - Lint/DuplicateBranch
+      - Lint/DuplicateHashKey
+      - Lint/RedundantSafeNavigation
+      - Lint/UselessAssignment
+      - Style/HashSyntax
+    rubocop_config:
+      inherit_gem:
+        rubocop-rails-omakase: rubocop.yml
+
+  SelfClosingTag:
+    enabled: true
+    enforced_style: "never"
+
+  SpaceAroundErbTag:
+    enabled: true
+
+  SpaceIndentation:
+    enabled: true
+    tab_width: 2
+
+  SpaceInHtmlTag:
+    enabled: true
+
+  TrailingWhitespace:
+    enabled: true
+
+  HardCodedString:
+    enabled: false
+
+  PartialInstanceVariable:
+    enabled: false
+
+  RequireScriptNonce:
+    enabled: false
+
+  StrictLocals:
+    enabled: false

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Camaar" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Camaar">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <%= stylesheet_link_tag(
+      "application",
+      "components",
+      "dashboard",
+      "authentication",
+      "evaluations",
+      "management",
+      "templates",
+      "formularios",
+      "data-turbo-track": "reload"
+    ) %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <% if current_user.present? %>
+      <div
+        class="dashboard-container"
+        data-controller="app-shell"
+        data-action="keydown@window->app-shell#closeOnEscape">
+        <%= render "layouts/dashboard_shared/sidebar" %>
+        <button
+          type="button"
+          class="sidebar-backdrop"
+          aria-label="Fechar menu"
+          data-app-shell-target="backdrop"
+          data-action="app-shell#closeSidebar"
+          hidden></button>
+
+        <div class="main-content">
+          <%= render "layouts/dashboard_shared/topbar" %>
+          <%= render "layouts/dashboard_shared/flash" %>
+          <%= yield %>
+        </div>
+      </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<main class="auth-page">
+
+  <%= render "layouts/dashboard_shared/flash" %>
+  <div class="auth-shell">
+    <section class="app-panel auth-card">
+      <h2>Criar Sua Senha</h2>
+      <p class="auth-card__description">Quase lá! Defina a senha de acesso para a sua conta do CAMAAR.</p>
+
+      <form action="/cadastro/confirmar" method="POST" class="auth-form">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <input type="hidden" name="token" value="<%= params[:token] %>">
+
+        <div class="app-field">
+          <label for="password">Senha:</label>
+          <input type="password" id="password" name="senha" placeholder="No mínimo 8 caracteres" autocomplete="new-password">
+        </div>
+
+        <div class="app-field">
+          <label for="password_confirmation">Confirme a Senha:</label>
+          <input type="password" id="password_confirmation" name="senha_confirmacao" placeholder="Digite a senha novamente" autocomplete="new-password">
+        </div>
+
+        <button type="submit" class="app-button">Concluir Cadastro</button>
+      </form>
+    </section>
+
+    <aside class="auth-intro">
+      <h1>CAMAAR</h1>
+      <p>Sua senha deve ser estritamente pessoal. Evite sequências óbvias ou dados públicos como matrícula ou data de nascimento.</p>
+    </aside>
+  </div>
+</main>
