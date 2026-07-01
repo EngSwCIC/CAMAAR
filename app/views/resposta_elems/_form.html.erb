@@ -1,0 +1,37 @@
+<%= form_with(model: resposta_elem) do |form| %>
+  <% if resposta_elem.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(resposta_elem.errors.count, "error") %> prohibited this resposta_elem from being saved:</h2>
+
+      <ul>
+        <% resposta_elem.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :texto_resposta, style: "display: block" %>
+    <%= form.textarea :texto_resposta %>
+  </div>
+
+  <div>
+    <%= form.label :resposta_form_id, style: "display: block" %>
+    <%= form.text_field :resposta_form_id %>
+  </div>
+
+  <div>
+    <%= form.label :elemento_form_id, style: "display: block" %>
+    <%= form.text_field :elemento_form_id %>
+  </div>
+
+  <div>
+    <%= form.label :campo_form_id, style: "display: block" %>
+    <%= form.text_field :campo_form_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+paths:
+  - app/
+exclude_paths:
+  - spec/
+  - test/
+  - features/
+  - vendor/
+  - db/
+  - config/
+  - bin/
+  - lib/
+  - doc/

@@ -1,0 +1,19 @@
+<div class="password-reset-container">
+  <div class="password-reset-box">
+
+    <h1>Redefinição de senha</h1>
+
+    <%= form_with url: redefinir_senha_path do %>
+
+      <div class="field">
+        <%= label_tag :email, "Email" %>
+        <%= email_field_tag :email %>
+      </div>
+
+      <%= submit_tag "Solicitar redefinição",
+                     class: "btn-submit" %>
+
+    <% end %>
+
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<%# app/views/usuarios/avaliacoes.html.erb %>
+
+<div style="display: flex; flex-direction: column; height: 100vh; overflow: hidden; font-family: 'Roboto', 'Poppins', sans-serif; background: #DBDBDB;">
+
+  <%# ── Header ── %>
+  <header style="height: 60px; min-height: 60px; background: #FFFFFF; box-shadow: 0px 11px 10.7px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; padding: 0 20px; z-index: 10;">
+    
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <h1 style="font-size: 24px; font-weight: 400; color: #000000; margin: 0;">Avaliações</h1>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <div style="width: 271px; height: 40px; border: 1px solid #8E8E8E; border-radius: 47px; display: flex; align-items: center; padding: 0 15px; box-sizing: border-box;">
+        <input type="text" placeholder="Pesquisar..." style="border: none; background: transparent; outline: none; width: 100%; font-family: 'Roboto', sans-serif; font-size: 14px;">
+      </div>
+
+      <div style="position: relative;">
+        <div
+          style="width: 44px; height: 44px; background: #6C2365; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #FFFFFF; font-size: 24px; font-weight: 500; cursor: pointer;"
+        >
+          U
+        </div>
+        <div id="avatar-menu" style="display: none; position: absolute; right: 0; top: 52px; background: #FFFFFF; border: 1px solid #D9D9D9; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.12); z-index: 100; min-width: 120px;">
+          <%= link_to "Logout", logout_path, data: { turbo_method: :delete },
+                style: "display: block; padding: 10px 16px; font-size: 14px; color: #000000; text-decoration: none;" %>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <%# ── Conteúdo ── %>
+  <main style="flex: 1; background: #DBDBDB; padding: 25px 43px; overflow-y: auto;">
+
+    <% if notice.present? %>
+      <div style="background: #D1FAE5; border: 1px solid #6EE7B7; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; color: #065F46; font-size: 14px;">
+        <%= notice %>
+      </div>
+    <% end %>
+
+    <% if alert.present? %>
+      <div style="background: #FEE2E2; border: 1px solid #FCA5A5; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; color: #B91C1C; font-size: 14px;">
+        <%= alert %>
+      </div>
+    <% end %>
+
+    <% if @avaliacoes.present? %>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, 278px); gap: 24px; justify-content: flex-start;">
+
+        <% @avaliacoes.each do |formulario| %>
+          <% turma = formulario.turma %>
+          <% disciplina = turma.disciplina %>
+          <% professor = turma.docentes.first %>
+
+          <%= link_to usuarios_responder_formulario_path(@usuario, formulario),
+                style: "width: 278px; background: #FFFFFF; border-radius: 8px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; min-height: 130px; text-decoration: none; color: inherit; box-sizing: border-box;" do %>
+
+            <div>
+              <p style="font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: 500; margin: 0; color: #000000; line-height: 1.2;">
+                <%= disciplina.nome %>
+              </p>
+              <p style="font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: 400; margin: 4px 0 0 0; color: #000000;">
+                <%= turma.semestre %><%= " — #{turma.horario}" if turma.horario.present? %>
+              </p>
+            </div>
+
+            <div style="margin-top: 20px; padding-top: 12px; border-top: 1px solid #D9D9D9;">
+              <p style="font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 500; margin: 0; color: #000000;">
+                <%= professor&.nome || "Professor(a) não alocado(a)" %>
+              </p>
+            </div>
+
+          <% end %>
+        <% end %>
+
+      </div>
+    <% else %>
+      <div style="background: #FFFFFF; border-radius: 8px; height: 300px; display: flex; align-items: center; justify-content: center;">
+        <p style="font-family: 'Roboto', sans-serif; font-size: 16px; color: #8E8E8E;">Nenhuma avaliação disponível para você no momento.</p>
+      </div>
+    <% end %>
+
+  </main>
+
+</div>

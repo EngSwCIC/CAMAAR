@@ -1,0 +1,24 @@
+<%
+  colunas_dinamicas = ElementoForm.where(formulario_id: @formulario.id)
+                                  .order(:ordem)
+                                  .pluck(:enunciado)
+
+  cabecalho = ["Usuário da Resposta", "Data de Submissão"] + colunas_dinamicas
+-%>
+<%= raw CSV.generate_line(cabecalho) -%>
+<% @respostas.each do |resposta| -%>
+<%
+  respostas_do_usuario = resposta.resposta_elems.index_by { |re| re.elemento_form.enunciado }
+  
+  linha = [
+    resposta.usuario&.nome || "Anônimo",
+    resposta.created_at.strftime("%d/%m/%Y %H:%M")
+  ]
+  
+  colunas_dinamicas.each do |enunciado|
+    resposta_do_campo = respostas_do_usuario[enunciado]
+    linha << resposta_do_campo&.texto_resposta
+  end
+-%>
+<%= raw CSV.generate_line(linha) -%>
+<% end -%>

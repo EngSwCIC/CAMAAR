@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>20260601120000_add_definicao_senha_to_usuarios.html - RDoc Documentation</title>
+
+
+  <meta name="keywords" content="ruby,documentation,20260601120000_add_definicao_senha_to_usuarios.html">
+  <meta
+    name="description"
+    content="20260601120000_add_definicao_senha_to_usuarios.html: www. w3."
+  >
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="20260601120000_add_definicao_senha_to_usuarios.html - RDoc Documentation">
+
+
+
+    <meta property="og:description" content="www. w3.">
+
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="20260601120000_add_definicao_senha_to_usuarios.html - RDoc Documentation">
+
+
+
+    <meta name="twitter:description" content="www. w3.">
+
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../";
+  var index_rel_prefix = "../../../../";
+</script>
+
+<script
+  src="../../../../js/theme-toggle.js?v=7.2.0"
+></script>
+
+<script
+  src="../../../../js/search_navigation.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../../../js/search_data.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../../../js/search_ranker.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../../../js/search_controller.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../../../js/c_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../../../js/bash_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../../../js/aliki.js?v=7.2.0"
+  defer
+></script>
+
+<link
+  href="../../../../css/rdoc.css?v=7.2.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="file has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="../../../../index.html" class="navbar-brand">
+    RDoc Documentation
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation" hidden>
+  
+
+
+
+
+
+
+  <div id="fileindex-section" class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg>
+            <use href="#icon-file"></use>
+          </svg>
+        </span>
+
+        <span class="nav-section-title">Pages</span>
+
+        <span class="nav-section-chevron">
+          <svg>
+            <use href="#icon-chevron"></use>
+          </svg>
+        </span>
+      </summary>
+
+      <ul class="nav-list">
+
+
+
+
+
+
+            <li>
+              <a href="../../../../Dockerfile.html">
+                Dockerfile
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="../../../../Gemfile.html">
+                Gemfile
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="../../../../Gemfile_lock.html">
+                Gemfile.lock
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="../../../../README_md.html">
+                README
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="../../../../Rakefile.html">
+                Rakefile
+              </a>
+            </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  app
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="../../../../app/assets/stylesheets/application_css.html">
+                      application.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/assets/stylesheets/gerenciamento_css.html">
+                      gerenciamento.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/assets/stylesheets/login_css.html">
+                      login.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/assets/stylesheets/redefinir_senha_css.html">
+                      redefinir_senha.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/javascript/application_js.html">
+                      application.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/javascript/controllers/application_js.html">
+                      application.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/javascript/controllers/hello_controller_js.html">
+                      hello_controller.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/javascript/controllers/index_js.html">
+                      index.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/campo_forms/_campo_form_json_jbuilder.html">
+                      _campo_form.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/campo_forms/index_json_jbuilder.html">
+                      index.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/campo_forms/show_json_jbuilder.html">
+                      show.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/campos/_campo_json_jbuilder.html">
+                      _campo.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/campos/index_json_jbuilder.html">
+                      index.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/campos/show_json_jbuilder.html">
+                      show.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/cursos/_curso_json_jbuilder.html">
+                      _curso.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/cursos/index_json_jbuilder.html">
+                      index.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/cursos/show_json_jbuilder.html">
+                      show.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/departamentos/_departamento_json_jbuilder.html">
+                      _departamento.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/departamentos/index_json_jbuilder.html">
+                      index.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/departamentos/show_json_jbuilder.html">
+                      show.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/discentes/_discente_json_jbuilder.html">
+                      _discente.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/discentes/index_json_jbuilder.html">
+                      index.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/discentes/show_json_jbuilder.html">
+                      show.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/disciplinas/_disciplina_json_jbuilder.html">
+                      _disciplina.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/disciplinas/index_json_jbuilder.html">
+                      index.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/disciplinas/show_json_jbuilder.html">
+                      show.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/docentes/_docente_json_jbuilder.html">
+                      _docente.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/docentes/index_json_jbuilder.html">
+                      index.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/docentes/show_json_jbuilder.html">
+                      show.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/elemento_forms/_elemento_form_json_jbuilder.html">
+                      _elemento_form.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/elemento_forms/index_json_jbuilder.html">
+                      index.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/elemento_forms/show_json_jbuilder.html">
+                      show.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/elementos/_elemento_json_jbuilder.html">
+                      _elemento.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/elementos/index_json_jbuilder.html">
+                      index.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/elementos/show_json_jbuilder.html">
+                      show.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/formularios/_formulario_json_jbuilder.html">
+                      _formulario.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/formularios/index_json_jbuilder.html">
+                      index.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/formularios/show_json_jbuilder.html">
+                      show.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/pwa/service-worker_js.html">
+                      service-worker.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/resposta_elems/_resposta_elem_json_jbuilder.html">
+                      _resposta_elem.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/resposta_elems/index_json_jbuilder.html">
+                      index.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/resposta_elems/show_json_jbuilder.html">
+                      show.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/resposta_forms/_resposta_form_json_jbuilder.html">
+                      _resposta_form.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/resposta_forms/index_json_jbuilder.html">
+                      index.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/resposta_forms/show_json_jbuilder.html">
+                      show.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/templates/_template_json_jbuilder.html">
+                      _template.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/templates/index_json_jbuilder.html">
+                      index.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/templates/show_json_jbuilder.html">
+                      show.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/turmas/_turma_json_jbuilder.html">
+                      _turma.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/turmas/index_json_jbuilder.html">
+                      index.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/turmas/show_json_jbuilder.html">
+                      show.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/usuarios/_usuario_json_jbuilder.html">
+                      _usuario.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/usuarios/index_json_jbuilder.html">
+                      index.json.jbuilder
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../app/views/usuarios/show_json_jbuilder.html">
+                      show.json.jbuilder
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+            <li>
+              <a href="../../../../bin/docker-entrypoint.html">
+                docker-entrypoint
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="../../../../class_members_json.html">
+                class_members.json
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="../../../../classes_json.html">
+                classes.json
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="../../../../config_ru.html">
+                config.ru
+              </a>
+            </li>
+
+
+
+
+            <li>
+              <a href="../../../../config/credentials_yml_enc.html">
+                credentials.yml.enc
+              </a>
+            </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  coverage
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="../../../../coverage/assets/0_13_2/application_css.html">
+                      application.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../coverage/assets/0_13_2/application_js.html">
+                      application.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../coverage/index_html.html">
+                      index.html
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  features
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="../../../../features/atualizar_dados_sigaa_feature.html">
+                      atualizar_dados_sigaa.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../features/cadastro_sigaa_feature.html">
+                      cadastro_sigaa.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../features/create_template_feature.html">
+                      create_template.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../features/criar_formulario_feature.html">
+                      criar_formulario.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../features/criar_formulario_template_feature.html">
+                      criar_formulario_template.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../features/definicao_senha_feature.html">
+                      definicao_senha.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../features/edit_delete_template_feature.html">
+                      edit_delete_template.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../features/gerar_relatorio_csv_feature.html">
+                      gerar_relatorio_csv.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../features/importar_dados_sigaa_feature.html">
+                      importar_dados_sigaa.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../features/login_feature.html">
+                      login.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../features/redefinicao_senha_feature.html">
+                      redefinicao_senha.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../features/responder_formulario_feature.html">
+                      responder_formulario.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../features/view_template_feature.html">
+                      view_template.feature
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+            <li>
+              <a href="../../../../lib/tasks/cucumber_rake.html">
+                cucumber.rake
+              </a>
+            </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  log
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="../../../../log/development_log.html">
+                      development.log
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../log/test_log.html">
+                      test.log
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  public
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="../../../../public/400_html.html">
+                      400.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../public/404_html.html">
+                      404.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../public/406-unsupported-browser_html.html">
+                      406-unsupported-browser.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../public/422_html.html">
+                      422.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../public/500_html.html">
+                      500.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../public/robots_txt.html">
+                      robots
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+
+          <li>
+            <details  open>
+              <summary>
+                
+                  tmp
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="../../../../tmp/local_secret_txt.html">
+                      local_secret
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/restart_txt.html">
+                      restart
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/admin_controller_html.html">
+                      admin_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/application_controller_html.html">
+                      application_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/campo_forms_controller_html.html">
+                      campo_forms_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/campos_controller_html.html">
+                      campos_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/cursos_controller_html.html">
+                      cursos_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/definicao_senhas_controller_html.html">
+                      definicao_senhas_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/departamentos_controller_html.html">
+                      departamentos_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/discentes_controller_html.html">
+                      discentes_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/disciplinas_controller_html.html">
+                      disciplinas_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/docentes_controller_html.html">
+                      docentes_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/elemento_forms_controller_html.html">
+                      elemento_forms_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/elementos_controller_html.html">
+                      elementos_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/formularios_controller_html.html">
+                      formularios_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/home_controller_html.html">
+                      home_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/redefinicao_senhas_controller_html.html">
+                      redefinicao_senhas_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/resposta_elems_controller_html.html">
+                      resposta_elems_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/resposta_forms_controller_html.html">
+                      resposta_forms_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/sessions_controller_html.html">
+                      sessions_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/templates_controller_html.html">
+                      templates_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/turmas_controller_html.html">
+                      turmas_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/controllers/usuarios_controller_html.html">
+                      usuarios_controller.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/admin_helper_html.html">
+                      admin_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/application_helper_html.html">
+                      application_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/campo_forms_helper_html.html">
+                      campo_forms_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/campos_helper_html.html">
+                      campos_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/cursos_helper_html.html">
+                      cursos_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/departamentos_helper_html.html">
+                      departamentos_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/discentes_helper_html.html">
+                      discentes_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/disciplinas_helper_html.html">
+                      disciplinas_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/docentes_helper_html.html">
+                      docentes_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/elemento_forms_helper_html.html">
+                      elemento_forms_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/elementos_helper_html.html">
+                      elementos_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/formularios_helper_html.html">
+                      formularios_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/resposta_elems_helper_html.html">
+                      resposta_elems_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/resposta_forms_helper_html.html">
+                      resposta_forms_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/templates_helper_html.html">
+                      templates_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/turmas_helper_html.html">
+                      turmas_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/helpers/usuarios_helper_html.html">
+                      usuarios_helper.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/jobs/application_job_html.html">
+                      application_job.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/mailers/application_mailer_html.html">
+                      application_mailer.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/mailers/usuario_mailer_html.html">
+                      usuario_mailer.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/administrador_html.html">
+                      administrador.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/application_record_html.html">
+                      application_record.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/campo_html.html">
+                      campo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/campo_form_html.html">
+                      campo_form.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/curso_html.html">
+                      curso.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/departamento_html.html">
+                      departamento.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/discente_html.html">
+                      discente.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/disciplina_html.html">
+                      disciplina.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/docente_html.html">
+                      docente.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/elemento_html.html">
+                      elemento.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/elemento_form_html.html">
+                      elemento_form.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/formulario_html.html">
+                      formulario.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/resposta_elem_html.html">
+                      resposta_elem.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/resposta_form_html.html">
+                      resposta_form.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/template_html.html">
+                      template.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/turma_html.html">
+                      turma.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/models/usuario_html.html">
+                      usuario.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/app/services/sigaa_importer_html.html">
+                      sigaa_importer.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/assets/javascripts/application_js.html">
+                      application.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/assets/stylesheets/application_css.html">
+                      application.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/assets/vendor/javascripts/bootstrap_min_js.html">
+                      bootstrap.min.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/assets/vendor/javascripts/highcharts_src-4_0_1_js.html">
+                      highcharts.src-4.0.1.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_filtertable_min_js.html">
+                      jquery.filtertable.min.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_min_js.html">
+                      jquery.min.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_scrollTo_min_js.html">
+                      jquery.scrollTo.min.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_js.html">
+                      jquery.tablesorter.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_min_js.html">
+                      jquery.tablesorter.min.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_timeago_js.html">
+                      jquery.timeago.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/assets/vendor/javascripts/prettify_js.html">
+                      prettify.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/bootstrap_min_css.html">
+                      bootstrap.min.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/font-awesome_min_css.html">
+                      font-awesome.min.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/prettify_css.html">
+                      prettify.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/prettify_custom_theme_css.html">
+                      prettify.custom_theme.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/code_index_html.html">
+                      code_index.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/config/application_html.html">
+                      application.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/config/boot_html.html">
+                      boot.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/config/ci_html.html">
+                      ci.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/config/environment_html.html">
+                      environment.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/config/environments/development_html.html">
+                      development.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/config/environments/production_html.html">
+                      production.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/config/environments/test_html.html">
+                      test.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/config/importmap_html.html">
+                      importmap.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/config/initializers/assets_html.html">
+                      assets.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/config/initializers/content_security_policy_html.html">
+                      content_security_policy.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/config/initializers/filter_parameter_logging_html.html">
+                      filter_parameter_logging.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/config/initializers/inflections_html.html">
+                      inflections.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/config/puma_html.html">
+                      puma.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/config/routes_html.html">
+                      routes.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/cable_schema_html.html">
+                      cable_schema.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/cache_schema_html.html">
+                      cache_schema.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260527234832_create_departamentos_html.html">
+                      20260527234832_create_departamentos.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260527234834_create_cursos_html.html">
+                      20260527234834_create_cursos.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260527234836_create_disciplinas_html.html">
+                      20260527234836_create_disciplinas.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260527234838_create_turmas_html.html">
+                      20260527234838_create_turmas.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260527235010_create_usuarios_html.html">
+                      20260527235010_create_usuarios.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260527235026_create_templates_html.html">
+                      20260527235026_create_templates.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260527235028_create_elementos_html.html">
+                      20260527235028_create_elementos.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260527235031_create_campos_html.html">
+                      20260527235031_create_campos.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260527235053_create_formularios_html.html">
+                      20260527235053_create_formularios.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260527235055_create_elemento_forms_html.html">
+                      20260527235055_create_elemento_forms.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260527235057_create_campo_forms_html.html">
+                      20260527235057_create_campo_forms.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260527235101_create_resposta_forms_html.html">
+                      20260527235101_create_resposta_forms.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260527235104_create_resposta_elems_html.html">
+                      20260527235104_create_resposta_elems.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260528000107_create_join_table_discente_turma_html.html">
+                      20260528000107_create_join_table_discente_turma.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260528000109_create_join_table_docente_turma_html.html">
+                      20260528000109_create_join_table_docente_turma.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260528002258_ajusta_nulos_para_sti_html.html">
+                      20260528002258_ajusta_nulos_para_sti.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260601120000_add_definicao_senha_to_usuarios_html.html">
+                      20260601120000_add_definicao_senha_to_usuarios.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260602090000_add_redefinicao_senha_to_usuarios_html.html">
+                      20260602090000_add_redefinicao_senha_to_usuarios.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260615105458_add_usuario_to_templates_html.html">
+                      20260615105458_add_usuario_to_templates.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260616193744_add_titulo_to_formularios_and_make_turma_optional_html.html">
+                      20260616193744_add_titulo_to_formularios_and_make_turma_optional.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/migrate/20260616201400_add_tipo_to_elemento_forms_html.html">
+                      20260616201400_add_tipo_to_elemento_forms.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/queue_schema_html.html">
+                      queue_schema.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/schema_html.html">
+                      schema.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/db/seeds_html.html">
+                      seeds.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/features/step_definitions/atualizar_dados_sigaa_steps_html.html">
+                      atualizar_dados_sigaa_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/features/step_definitions/cadastro_steps_html.html">
+                      cadastro_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/features/step_definitions/criar_formulario_steps_html.html">
+                      criar_formulario_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/features/step_definitions/criar_formulario_template_steps_html.html">
+                      criar_formulario_template_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/features/step_definitions/exportar_csv_steps_html.html">
+                      exportar_csv_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/features/step_definitions/importar_dados_sigaa_steps_html.html">
+                      importar_dados_sigaa_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/features/step_definitions/login_steps_html.html">
+                      login_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/features/step_definitions/responder_formulario_steps_html.html">
+                      responder_formulario_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/features/step_definitions/senha_steps_html.html">
+                      senha_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/features/step_definitions/template_steps_html.html">
+                      template_steps.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/features/support/env_html.html">
+                      env.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/overview_html.html">
+                      overview.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/simple_cov_index_html.html">
+                      simple_cov_index.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../../../tmp/rubycritic/smells_index_html.html">
+                      smells_index.html
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><code><a href="../../../../AddDefinicaoSenhaToUsuarios.html">AddDefinicaoSenhaToUsuarios</a></code></li><li><code><a href="../../../../AddRedefinicaoSenhaToUsuarios.html">AddRedefinicaoSenhaToUsuarios</a></code></li><li><code><a href="../../../../AddTipoToElementoForms.html">AddTipoToElementoForms</a></code></li><li><code><a href="../../../../AddTituloToFormulariosAndMakeTurmaOptional.html">AddTituloToFormulariosAndMakeTurmaOptional</a></code></li><li><code><a href="../../../../AddUsuarioToTemplates.html">AddUsuarioToTemplates</a></code></li><li><code><a href="../../../../AdminController.html">AdminController</a></code></li><li><code><a href="../../../../AdminHelper.html">AdminHelper</a></code></li><li><code><a href="../../../../Administrador.html">Administrador</a></code></li><li><code><a href="../../../../AjustaNulosParaSti.html">AjustaNulosParaSti</a></code></li><li><code><a href="../../../../ApplicationController.html">ApplicationController</a></code></li><li><code><a href="../../../../ApplicationHelper.html">ApplicationHelper</a></code></li><li><code><a href="../../../../ApplicationJob.html">ApplicationJob</a></code></li><li><code><a href="../../../../ApplicationMailer.html">ApplicationMailer</a></code></li><li><code><a href="../../../../ApplicationRecord.html">ApplicationRecord</a></code></li><li><details><summary><code><a href="../../../../Camaar.html">Camaar</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../../../Camaar/Application.html">Application</a></code></li></ul></details></li><li><code><a href="../../../../Campo.html">Campo</a></code></li><li><code><a href="../../../../CampoForm.html">CampoForm</a></code></li><li><code><a href="../../../../CampoFormsController.html">CampoFormsController</a></code></li><li><code><a href="../../../../CampoFormsHelper.html">CampoFormsHelper</a></code></li><li><code><a href="../../../../CamposController.html">CamposController</a></code></li><li><code><a href="../../../../CamposHelper.html">CamposHelper</a></code></li><li><code><a href="../../../../CreateCampoForms.html">CreateCampoForms</a></code></li><li><code><a href="../../../../CreateCampos.html">CreateCampos</a></code></li><li><code><a href="../../../../CreateCursos.html">CreateCursos</a></code></li><li><code><a href="../../../../CreateDepartamentos.html">CreateDepartamentos</a></code></li><li><code><a href="../../../../CreateDisciplinas.html">CreateDisciplinas</a></code></li><li><code><a href="../../../../CreateElementoForms.html">CreateElementoForms</a></code></li><li><code><a href="../../../../CreateElementos.html">CreateElementos</a></code></li><li><code><a href="../../../../CreateFormularios.html">CreateFormularios</a></code></li><li><code><a href="../../../../CreateJoinTableDiscenteTurma.html">CreateJoinTableDiscenteTurma</a></code></li><li><code><a href="../../../../CreateJoinTableDocenteTurma.html">CreateJoinTableDocenteTurma</a></code></li><li><code><a href="../../../../CreateRespostaElems.html">CreateRespostaElems</a></code></li><li><code><a href="../../../../CreateRespostaForms.html">CreateRespostaForms</a></code></li><li><code><a href="../../../../CreateTemplates.html">CreateTemplates</a></code></li><li><code><a href="../../../../CreateTurmas.html">CreateTurmas</a></code></li><li><code><a href="../../../../CreateUsuarios.html">CreateUsuarios</a></code></li><li><code><a href="../../../../Curso.html">Curso</a></code></li><li><code><a href="../../../../CursosController.html">CursosController</a></code></li><li><code><a href="../../../../CursosHelper.html">CursosHelper</a></code></li><li><code><a href="../../../../DefinicaoSenhasController.html">DefinicaoSenhasController</a></code></li><li><code><a href="../../../../Departamento.html">Departamento</a></code></li><li><code><a href="../../../../DepartamentosController.html">DepartamentosController</a></code></li><li><code><a href="../../../../DepartamentosHelper.html">DepartamentosHelper</a></code></li><li><code><a href="../../../../Discente.html">Discente</a></code></li><li><code><a href="../../../../DiscentesController.html">DiscentesController</a></code></li><li><code><a href="../../../../DiscentesHelper.html">DiscentesHelper</a></code></li><li><code><a href="../../../../Disciplina.html">Disciplina</a></code></li><li><code><a href="../../../../DisciplinasController.html">DisciplinasController</a></code></li><li><code><a href="../../../../DisciplinasHelper.html">DisciplinasHelper</a></code></li><li><code><a href="../../../../Docente.html">Docente</a></code></li><li><code><a href="../../../../DocentesController.html">DocentesController</a></code></li><li><code><a href="../../../../DocentesHelper.html">DocentesHelper</a></code></li><li><code><a href="../../../../Elemento.html">Elemento</a></code></li><li><code><a href="../../../../ElementoForm.html">ElementoForm</a></code></li><li><code><a href="../../../../ElementoFormsController.html">ElementoFormsController</a></code></li><li><code><a href="../../../../ElementoFormsHelper.html">ElementoFormsHelper</a></code></li><li><code><a href="../../../../ElementosController.html">ElementosController</a></code></li><li><code><a href="../../../../ElementosHelper.html">ElementosHelper</a></code></li><li><code><a href="../../../../Formulario.html">Formulario</a></code></li><li><code><a href="../../../../FormulariosController.html">FormulariosController</a></code></li><li><code><a href="../../../../FormulariosHelper.html">FormulariosHelper</a></code></li><li><code><a href="../../../../HomeController.html">HomeController</a></code></li><li><code><a href="../../../../Object.html">Object</a></code></li><li><code><a href="../../../../RedefinicaoSenhasController.html">RedefinicaoSenhasController</a></code></li><li><code><a href="../../../../RespostaElem.html">RespostaElem</a></code></li><li><code><a href="../../../../RespostaElemsController.html">RespostaElemsController</a></code></li><li><code><a href="../../../../RespostaElemsHelper.html">RespostaElemsHelper</a></code></li><li><code><a href="../../../../RespostaForm.html">RespostaForm</a></code></li><li><code><a href="../../../../RespostaFormsController.html">RespostaFormsController</a></code></li><li><code><a href="../../../../RespostaFormsHelper.html">RespostaFormsHelper</a></code></li><li><code><a href="../../../../SessionsController.html">SessionsController</a></code></li><li><code><a href="../../../../SigaaImporter.html">SigaaImporter</a></code></li><li><code><a href="../../../../Template.html">Template</a></code></li><li><code><a href="../../../../TemplatesController.html">TemplatesController</a></code></li><li><code><a href="../../../../TemplatesHelper.html">TemplatesHelper</a></code></li><li><code><a href="../../../../Turma.html">Turma</a></code></li><li><code><a href="../../../../TurmasController.html">TurmasController</a></code></li><li><code><a href="../../../../TurmasHelper.html">TurmasHelper</a></code></li><li><code><a href="../../../../Usuario.html">Usuario</a></code></li><li><code><a href="../../../../UsuarioMailer.html">UsuarioMailer</a></code></li><li><code><a href="../../../../UsuariosController.html">UsuariosController</a></code></li><li><code><a href="../../../../UsuariosHelper.html">UsuariosHelper</a></code></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main" aria-label="Page tmp/rubycritic/db/migrate/20260601120000_add_definicao_senha_to_usuarios.html">
+
+<p>&lt;!DOCTYPE html&gt; &lt;html xmlns=“<a href="http://www.w3.org/1999/xhtml">www.w3.org/1999/xhtml</a>”&gt;</p>
+
+<pre>&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;title&gt;Ruby Critic - Home&lt;/title&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+  &lt;!-- StyleSheets --&gt;
+  &lt;link href=&quot;../../assets/vendor/stylesheets/bootstrap.min.css&quot; media=&quot;screen, projection, print&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+  &lt;link href=&quot;../../assets/vendor/stylesheets/font-awesome.min.css&quot; media=&quot;screen, projection, print&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+  &lt;link href=&quot;../../assets/vendor/stylesheets/prettify.custom_theme.css&quot; media=&quot;screen, projection, print&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+  &lt;link href=&quot;../../assets/stylesheets/application.css&quot; media=&quot;screen, projection, print&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;header class=&quot;navbar navbar-default navbar-fixed-top&quot;&gt;
+    &lt;a href=&quot;#menu-toggle&quot; class=&quot;btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left&quot; id=&quot;menu-toggle&quot;&gt;&lt;i class=&quot;fa fa-bars&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;a href=&quot;../../overview.html&quot;&gt;&lt;img src=&quot;../../assets/images/logo.png&quot; alt=&quot;Ruby Critic Logo&quot; title=&quot;Ruby Critic Logo&quot; width=&quot;55&quot;&gt;&lt;span class=&quot;logo&quot;&gt;RUBYCRITIC&lt;/span&gt;&lt;/a&gt;
+
+  &lt;/header&gt;
+  &lt;div id=&quot;wrapper&quot;&gt;
+    &lt;!-- Sidebar --&gt;
+    &lt;aside id=&quot;sidebar-wrapper&quot;&gt;
+      &lt;ul class=&quot;sidebar-nav&quot;&gt;
+        &lt;li class=&quot;sidebar-item&quot;&gt;
+          &lt;a href=&quot;../../overview.html&quot; class=&quot;project-nav-item overview-nav&quot;&gt;&lt;i class=&quot;fa fa-dashboard&quot;&gt;&lt;/i&gt;Overview&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;sidebar-item&quot;&gt;
+          &lt;a href=&quot;../../code_index.html&quot; class=&quot;project-nav-item code-index-nav&quot;&gt;&lt;i class=&quot;fa fa-code&quot;&gt;&lt;/i&gt;Code&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;sidebar-item&quot;&gt;
+          &lt;a href=&quot;../../smells_index.html&quot; class=&quot;project-nav-item smells-index-nav&quot;&gt;&lt;i class=&quot;fa fa-warning&quot;&gt;&lt;/i&gt;Smells&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;sidebar-item&quot;&gt;
+          &lt;a href=&quot;../../simple_cov_index.html&quot; class=&quot;project-nav-item coverage-index-nav&quot;&gt;&lt;i class=&quot;fa fa-umbrella&quot;&gt;&lt;/i&gt;Coverage&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/aside&gt;
+    &lt;!-- /#sidebar-wrapper --&gt;
+    &lt;div id=&quot;page-content-wrapper&quot;&gt;
+      &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+&lt;!--Page Title --&gt;
+&lt;div class=&quot;Page_Title&quot;&gt;
+  &lt;div class=&quot;file-time&quot;&gt;
+    &lt;span class=&quot;committed-at&quot;&gt;
+
+        Updated &lt;time class=&#39;js-timeago&#39; datetime=&#39;2026-06-02 16:50:28 -0300&#39;&gt;2026-06-02 16:50:28 -0300&lt;/time&gt;
+
+    &lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;h3&gt;&lt;small&gt;db/migrate /&lt;/small&gt; 20260601120000_add_definicao_senha_to_usuarios.rb&lt;/h3&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!--End Page Title --&gt;
+&lt;div class=&quot;Content_Wrapper&quot;&gt;
+  &lt;!-- code detail --&gt;
+  &lt;div class=&quot;code-top-detail clearfix row&quot;&gt;
+    &lt;div class=&quot;col-md-8&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-md-1&quot;&gt;
+          &lt;div class=&quot;rating a big&quot;&gt;
+            A
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;code-statistics col-md-11&quot;&gt;
+          &lt;div class=&quot;col-md-3&quot;&gt;
+            &lt;div&gt;&lt;span class=&quot;metric&quot;&gt;8&lt;/span&gt;&lt;small&gt; lines of codes&lt;/small&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;span class=&quot;metric&quot;&gt;1&lt;/span&gt;&lt;small&gt; methods&lt;/small&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-md-3&quot;&gt;
+            &lt;div&gt;&lt;span class=&quot;metric&quot;&gt;3.0&lt;/span&gt;&lt;small&gt; complexity/method&lt;/small&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;span class=&quot;metric&quot;&gt;1&lt;/span&gt;&lt;small&gt; churn&lt;/small&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-md-3&quot;&gt;
+            &lt;div&gt;&lt;span class=&quot;metric&quot;&gt;3.0&lt;/span&gt;&lt;small&gt; complexity&lt;/small&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;span class=&quot;metric&quot;&gt;16&lt;/span&gt;&lt;small&gt; duplications&lt;/small&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-md-4&quot;&gt;
+      &lt;div class=&quot;code-tabs&quot;&gt;
+        &lt;ul class=&quot;nav nav-pills right-to-left&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot; id=&quot;toggle-code&quot; class=&quot;toggle-button button&quot;&gt;code&lt;/a&gt;&lt;/li&gt;
+          &lt;li class=&quot;active&quot;&gt;
+            &lt;a href=&quot;#&quot; id=&quot;toggle-smells&quot; class=&quot;toggle-button button&quot;&gt;
+              2
+              smells
+            &lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;code class=&quot;prettyprint linenums lang-ruby file-code js-file-code&quot;&gt;class AddDefinicaoSenhaToUsuarios &amp;lt; ActiveRecord::Migration[8.1]&lt;ol class=&quot;nocode errors smells&quot;&gt;  &lt;li&gt;    &lt;div class=&quot;description&quot;&gt;      &lt;div class=&quot;heading&quot;&gt;        &lt;span&gt;          &lt;i class=&quot;fa fa-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;          &lt;a href=&quot;https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md&quot; target=&quot;_blank&quot;&gt;&lt;b&gt;IrresponsibleModule&lt;/b&gt;&lt;/a&gt;        &lt;/span&gt;      &lt;/div&gt;      &lt;span&gt;AddDefinicaoSenhaToUsuarios has no descriptive comment&lt;/span&gt;          &lt;/div&gt;  &lt;/li&gt;&lt;/ol&gt;
+def change&lt;ol class=&quot;nocode errors smells&quot;&gt;  &lt;li&gt;    &lt;div class=&quot;description&quot;&gt;      &lt;div class=&quot;heading&quot;&gt;        &lt;span&gt;          &lt;i class=&quot;fa fa-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;          &lt;a href=&quot;http://docs.seattlerb.org/flay/&quot; target=&quot;_blank&quot;&gt;&lt;b&gt;DuplicateCode&lt;/b&gt;&lt;/a&gt;        &lt;/span&gt;      &lt;/div&gt;      &lt;span&gt;Similar code found in 2 nodes&lt;/span&gt;              &lt;span&gt;Locations:&lt;/span&gt;                  &lt;a href=&quot;20260601120000_add_definicao_senha_to_usuarios.html#L2&quot; class=&quot;js-smell-location&quot;&gt;0&lt;/a&gt;                  &lt;a href=&quot;20260602090000_add_redefinicao_senha_to_usuarios.html#L2&quot; class=&quot;js-smell-location&quot;&gt;1&lt;/a&gt;                  &lt;/div&gt;  &lt;/li&gt;&lt;/ol&gt;
+  add_column :usuarios, :definicao_senha_token, :string
+  add_column :usuarios, :definicao_senha_sent_at, :datetime
+
+  add_index :usuarios, :definicao_senha_token, unique: true
+end</pre>
+
+<p>end &lt;/code&gt;</p>
+
+<pre>&lt;/div&gt;</pre>
+
+<p>&lt;/div&gt;</p>
+
+<pre>      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- JavaScripts --&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/jquery.tablesorter.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/jquery.scrollTo.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/jquery.timeago.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/highcharts.src-4.0.1.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/prettify.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/javascripts/application.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/jquery.filtertable.min.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;</pre>
+
+<p>&lt;/html&gt;</p>
+
+</main>
+
+<aside class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 7.2.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+

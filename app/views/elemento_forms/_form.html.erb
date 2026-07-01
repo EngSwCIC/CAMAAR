@@ -1,0 +1,32 @@
+<%= form_with(model: elemento_form) do |form| %>
+  <% if elemento_form.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(elemento_form.errors.count, "error") %> prohibited this elemento_form from being saved:</h2>
+
+      <ul>
+        <% elemento_form.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :ordem, style: "display: block" %>
+    <%= form.number_field :ordem %>
+  </div>
+
+  <div>
+    <%= form.label :enunciado, style: "display: block" %>
+    <%= form.text_field :enunciado %>
+  </div>
+
+  <div>
+    <%= form.label :formulario_id, style: "display: block" %>
+    <%= form.text_field :formulario_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

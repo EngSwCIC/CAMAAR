@@ -1,0 +1,17 @@
+<h1>Definição de senha</h1>
+
+<%= form_with url: definicao_senha_path(token: params[:token]), method: :patch do %>
+  <div>
+    <%= label_tag :senha, "Nova senha" %>
+    <%= password_field_tag :senha %>
+  </div>
+
+  <div>
+    <%= label_tag :senha_confirmation, "Confirmar senha" %>
+    <%= password_field_tag :senha_confirmation %>
+  </div>
+
+  <div>
+    <%= submit_tag "Definir senha" %>
+  </div>
+<% end %>

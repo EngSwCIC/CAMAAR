@@ -1,0 +1,27 @@
+<div class="figma-card">
+  <h2 style="font-family: 'Poppins', sans-serif; font-size: 20px; margin-bottom: 20px;">
+    Sincronizar dados do SIGAA
+  </h2>
+
+  <%= form_with local: true, url: admin_sincronizar_sigaa_path, method: :post, multipart: true do |f| %>
+    <div style="margin-bottom: 20px;">
+      <%= f.label :acao, "Tipo de sincronização:", style: "display: block; margin-bottom: 10px;" %>
+      <%= f.select :acao, [["Importar dados", "importar"], ["Atualizar dados", "atualizar"]], {}, class: "form-control" %>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <%= f.label :arquivo_classes, "Arquivo de turmas (classes.json):", style: "display: block; margin-bottom: 10px;" %>
+      <%= f.file_field :arquivo_classes, accept: "application/json", required: true %>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <%= f.label :arquivo_membros, "Arquivo de membros (class_members.json):", style: "display: block; margin-bottom: 10px;" %>
+      <%= f.file_field :arquivo_membros, accept: "application/json", required: true %>
+    </div>
+
+    <div style="margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+      <%= f.submit "Sincronizar", class: "btn-figma" %>
+      <%= link_to "Cancelar", admin_gerenciamento_path, class: "btn-figma" %>
+    </div>
+  <% end %>
+</div>

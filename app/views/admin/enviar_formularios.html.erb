@@ -1,0 +1,57 @@
+<div class="modal-overlay">
+  <div class="figma-form-card" style="width: 760px; max-height: 80vh; overflow-y: auto;">
+    <%= form_with url: admin_enviar_formularios_path(@admin), method: :post do |f| %>
+      <div class="form-group" style="margin-bottom: 10px;">
+        <label class="figma-label" for="template_id">Template:</label>
+        <select name="template_id" id="template_id" class="figma-dropdown" style="width: 220px;">
+          <option value="">Template</option>
+          <% @templates.each do |template| %>
+            <option value="<%= template.id %>"><%= template.nome %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+          <tr>
+            <th style="width: 40px;"></th>
+            <th style="text-align: left; color: #8E8E8E; font-weight: 400; padding: 8px 12px; font-size: 14px;">Nome</th>
+            <th style="text-align: left; color: #8E8E8E; font-weight: 400; padding: 8px 12px; font-size: 14px;">Semestre</th>
+            <th style="text-align: left; color: #8E8E8E; font-weight: 400; padding: 8px 12px; font-size: 14px;">Código</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @turmas.each do |turma| %>
+            <tr style="border-top: 1px solid #E0E0E0;">
+              <td style="padding: 10px 12px; text-align: center;">
+                <input type="checkbox"
+                       name="turma_ids[]"
+                       id="turma_ids_<%= turma.id %>"
+                       value="<%= turma.id %>"
+                       style="width: 18px; height: 18px; accent-color: #22C55E; cursor: pointer;">
+              </td>
+              <td style="padding: 10px 12px; font-size: 14px;"><%= turma.disciplina.nome %></td>
+              <td style="padding: 10px 12px; font-size: 14px;"><%= turma.semestre %></td>
+              <td style="padding: 10px 12px; font-size: 14px;"><%= turma.disciplina.codigo %></td>
+            </tr>
+          <% end %>
+          <% if @turmas.empty? %>
+            <tr>
+              <td colspan="4" style="text-align: center; padding: 20px; color: #8E8E8E; font-size: 14px;">
+                Nenhuma turma cadastrada.
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <div class="submit-row" style="margin-top: 30px;">
+        <%= f.submit "Criar Formulário", class: "btn-figma-success" %>
+      </div>
+    <% end %>
+
+    <div class="cancel-row" style="margin-top: 12px;">
+      <%= link_to "Cancelar", admin_gerenciamento_path(@admin), class: "btn-cancel" %>
+    </div>
+  </div>
+</div>

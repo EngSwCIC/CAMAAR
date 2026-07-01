@@ -1,0 +1,105 @@
+<%# app/views/usuarios/responder_formulario.html.erb %>
+
+<%
+  titulo_header = if @formulario.titulo.present?
+    "Avaliação - #{@formulario.titulo}"
+  elsif @formulario.turma
+    partes = [@formulario.turma.disciplina&.nome, @formulario.turma.semestre].compact
+    partes.any? ? "Avaliação - #{partes.join(' - ')}" : "Avaliação"
+  else
+    "Avaliação"
+  end
+%>
+
+<div style="display: flex; flex-direction: column; height: 100vh; overflow: hidden; font-family: 'Roboto', 'Poppins', sans-serif; background: #DBDBDB;">
+
+  <%# ── Header ── %>
+  <header style="height: 60px; min-height: 60px; background: #FFFFFF; box-shadow: 0px 11px 10.7px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; padding: 0 20px; z-index: 10;">
+
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <%= link_to usuarios_avaliacoes_path(@usuario),
+            style: "display: flex; align-items: center; color: #000000; text-decoration: none; font-size: 22px; line-height: 1;" do %>
+        &#9776;
+      <% end %>
+      <h1 style="font-size: 18px; font-weight: 400; color: #000000; margin: 0;">
+        <%= titulo_header %>
+      </h1>
+    </div>
+
+    <div style="width: 44px; height: 44px; background: #6C2365; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #FFFFFF; font-size: 24px; font-weight: 500;">
+      U
+    </div>
+
+  </header>
+
+  <%# ── Conteúdo ── %>
+  <main style="flex: 1; background: #DBDBDB; padding: 32px 43px 100px; overflow-y: auto;">
+
+    <% if flash[:alert] %>
+      <div style="background: #FEE2E2; border: 1px solid #FCA5A5; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; color: #B91C1C; font-size: 14px;">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
+    <%= form_with url: usuarios_submeter_resposta_path(@usuario, @formulario),
+                  method: :post,
+                  id: "formulario-resposta",
+                  style: "display: flex; flex-direction: column; gap: 16px;" do |f| %>
+
+      <% if @formulario.elemento_forms.empty? %>
+        <div style="background: #D9D9D9; border-radius: 8px; padding: 40px; text-align: center;">
+          <p style="color: #5A5A5A; font-size: 16px; margin: 0;">Este formulário não possui perguntas.</p>
+        </div>
+      <% end %>
+
+      <% @formulario.elemento_forms.order(:ordem).each do |ef| %>
+        <div style="background: #D9D9D9; border-radius: 8px; padding: 24px;">
+
+          <p style="font-size: 15px; font-weight: 500; color: #000000; margin: 0 0 16px 0;">
+            <%= ef.enunciado %>
+          </p>
+
+          <% if ef.tipo == "Texto" %>
+            <input
+              type="text"
+              name="respostas[<%= ef.id %>]"
+              placeholder="Placeholder"
+              required
+              style="width: 100%; border: none; border-bottom: 1px solid #5A5A5A; background: transparent; padding: 6px 0; font-family: 'Roboto', sans-serif; font-size: 14px; color: #000000; outline: none; box-sizing: border-box;"
+            >
+
+          <% else %>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <% ef.campo_forms.order(:ordem).each do |campo| %>
+                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 14px; color: #000000;">
+                  <input
+                    type="radio"
+                    name="respostas[<%= ef.id %>]"
+                    value="<%= campo.id %>"
+                    required
+                    style="accent-color: #6C2365; width: 16px; height: 16px; cursor: pointer; flex-shrink: 0;"
+                  >
+                  <%= campo.enunciado %>
+                </label>
+              <% end %>
+            </div>
+          <% end %>
+
+        </div>
+      <% end %>
+
+    <% end %>
+
+  </main>
+
+  <% if @formulario.elemento_forms.any? %>
+    <button
+      type="submit"
+      form="formulario-resposta"
+      style="position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; background: #6C2365; color: #FFFFFF; border: none; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 20px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.25); z-index: 100;"
+    >
+      &#9658;
+    </button>
+  <% end %>
+
+</div>

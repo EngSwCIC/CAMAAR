@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CAMAAR - Gerenciamento</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "gerenciamento", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <div class="admin-container">
+      
+      <header class="admin-header">
+        <div class="header-left">
+          <h1 class="tab-name">Visão Geral</h1>
+        </div>
+        <div class="header-right">
+          
+          <div class="search-container">
+            <input type="text" class="search-input" placeholder="Pesquisar...">
+          </div>
+
+          <div class="user-avatar">U</div> 
+        </div>
+      </header>
+
+      <div class="admin-body">
+        
+        <aside class="admin-sidebar">
+          <div class="sidebar-header"></div>
+          
+          <a href="<%= admin_avaliacoes_path(@admin) %>" class="menu-item <%= 'active' if request.path.include?('/avaliacoes') %>">
+            Avaliações
+          </a>
+          
+          <a href="<%= admin_gerenciamento_path(@admin) %>" class="menu-item <%= 'active' if request.path.include?('/gerenciamento') || request.path.include?('/template') %>">
+            Gerenciamento
+          </a>
+        </aside>
+
+        <main class="admin-content">
+        <% flash.each do |type, message| %>
+            <div class="flash-message <%= type %>" style="padding: 15px; margin-bottom: 20px; border-radius: 5px; width: 100%; max-width: 462px; text-align: center;">
+            <%= message %>
+            </div>
+        <% end %>
+          <%= yield %>
+        </main>
+        
+      </div>
+    </div>
+  </body>
+</html>

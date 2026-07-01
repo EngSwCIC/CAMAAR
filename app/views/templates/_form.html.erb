@@ -1,0 +1,231 @@
+<div class="modal-overlay">
+  <div class="figma-form-card" id="dynamic-form-container">
+    
+    <% if @template.errors.any? %>
+      <div class="error-messages" style="color: #DC2626; background: #FEF2F2; padding: 12px; border-radius: 6px; margin-bottom: 15px; font-size: 13px; font-family: 'Inter', sans-serif;">
+        <strong>Não foi possível salvar o template:</strong>
+        <ul style="margin-top: 5px; padding-left: 20px;">
+          <% @template.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_with model: @template, 
+                  url: @template.persisted? ? admin_template_path(@admin, @template) : admin_templates_path(@admin),
+                  method: @template.persisted? ? :patch : :post, 
+                  data: { turbo_frame: "_top" },
+                  class: "figma-form-content" do |f| %>
+      
+      <div class="form-header-group">
+        <%= f.label :nome, "Nome do template:", class: "figma-label" %>
+        <%= f.text_field :nome, placeholder: "Digite o nome...", class: "figma-input-line" %>
+      </div>
+
+      <div id="questions-container" style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
+        
+        <%= f.fields_for :elementos do |elemento_form| %>
+          <div class="question-block" data-element-index="<%= elemento_form.index || Time.now.to_i %>">
+            
+            <%= elemento_form.hidden_field :ordem, class: "question-order-input", value: (elemento_form.object.ordem || 1) %>
+            <%= elemento_form.hidden_field :_destroy, class: "destroy-question-input" %>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 class="question-title">Questão <span class="question-number"></span></h3>
+              <button type="button" onclick="window.removeQuestion(this)" style="color: #DC2626; border: none; background: none; cursor: pointer; font-size: 12px; text-decoration: underline; font-family: 'Inter', sans-serif;">Excluir Questão</button>
+            </div>
+            
+            <div class="question-row">
+              <label class="figma-label-small">Texto:</label>
+              <%= elemento_form.text_field :enunciado, placeholder: "Digite a pergunta...", class: "figma-input-line-full" %>
+            </div>
+
+            <div class="options-container">
+              <% index_opcao = 0 %>
+              <%= elemento_form.fields_for :campos do |campo_form| %>
+                
+                <div class="question-row tipo-row" style="<%= 'display:none;' if index_opcao > 0 %>">
+                  <label class="figma-label-small">Tipo:</label>
+                  <%= campo_form.select :tipo_elemento, ["Texto", "Múltipla Escolha"], {}, { class: "figma-dropdown select-tipo", onchange: "window.toggleOptionsVisibility(this)" } %>
+                </div>
+                
+                <div class="question-row option-row" style="margin-top: 10px;">
+                  <label class="figma-label-small"><%= index_opcao == 0 ? "Opção:" : "" %></label>
+                  
+                  <%= campo_form.hidden_field :ordem, value: (campo_form.object.ordem || (index_opcao + 1)) %>
+                  <%= campo_form.hidden_field :_destroy, class: "destroy-option-input" %>
+                  
+                  <%= campo_form.text_field :enunciado, placeholder: "Opção #{index_opcao + 1}...", class: "figma-input-line-full" %>
+                  <button type="button" onclick="window.removeOption(this)" style="color: #DC2626; border: none; background: none; cursor: pointer; font-size: 18px; line-height: 1; padding: 0 0 0 8px;">&times;</button>
+                </div>
+                <% index_opcao += 1 %>
+              <% end %>
+            </div>
+
+            <button type="button" class="btn-add-option" onclick="window.addOptionField(this)" style="margin-left: 65px; margin-top: 5px; font-size: 11px; cursor: pointer; border: 1px dashed #A0A0A0; background: #FAFAFA; padding: 4px 8px; border-radius: 4px; color: #555;">
+              + Adicionar Opção
+            </button>
+          </div>
+        <% end %>
+      </div>
+
+      <button type="button" class="add-question-btn" onclick="window.addQuestionBlock(this)">
+        <span>+</span>
+      </button>
+
+      <div class="submit-row">
+        <%= f.submit @template.persisted? ? "Salvar" : "Criar", class: "btn-figma-success" %>
+      </div>
+
+      <div class="cancel-row">
+        <%= link_to "Cancelar", admin_templates_path(@admin), data: { turbo_frame: "_top" }, class: "btn-cancel" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+<template id="question-blueprint">
+  <div class="question-block" data-element-index="NEW_ELEMENT_INDEX" style="margin-top: 15px; border-top: 1px dashed #E0E0E0; padding-top: 15px;">
+    
+    <input type="hidden" name="template[elementos_attributes][NEW_ELEMENT_INDEX][ordem]" class="question-order-input" value="1">
+    <input type="hidden" name="template[elementos_attributes][NEW_ELEMENT_INDEX][_destroy]" class="destroy-question-input" value="0">
+    
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h3 class="question-title">Questão <span class="question-number"></span></h3>
+      <button type="button" onclick="window.removeQuestion(this)" style="color: #DC2626; border: none; background: none; cursor: pointer; font-size: 12px; text-decoration: underline; font-family: 'Inter', sans-serif;">Excluir Questão</button>
+    </div>
+    
+    <div class="question-row">
+      <label class="figma-label-small">Texto:</label>
+      <input type="text" name="template[elementos_attributes][NEW_ELEMENT_INDEX][enunciado]" placeholder="Digite a pergunta..." class="figma-input-line-full">
+    </div>
+
+    <div class="options-container">
+      <div class="question-row tipo-row">
+        <label class="figma-label-small">Tipo:</label>
+        <select name="template[elementos_attributes][NEW_ELEMENT_INDEX][campos_attributes][0][tipo_elemento]" class="figma-dropdown select-tipo" onchange="window.toggleOptionsVisibility(this)">
+          <option value="Texto">Texto</option>
+          <option value="Múltipla Escolha">Múltipla Escolha</option>
+        </select>
+      </div>
+      
+      <div class="question-row option-row" style="margin-top: 10px;">
+        <label class="figma-label-small">Opção:</label>
+        <input type="hidden" name="template[elementos_attributes][NEW_ELEMENT_INDEX][campos_attributes][0][ordem]" value="1">
+        <input type="hidden" name="template[elementos_attributes][NEW_ELEMENT_INDEX][campos_attributes][0][_destroy]" class="destroy-option-input" value="0">
+        
+        <input type="text" name="template[elementos_attributes][NEW_ELEMENT_INDEX][campos_attributes][0][enunciado]" placeholder="Opção 1..." class="figma-input-line-full">
+        <button type="button" onclick="window.removeOption(this)" style="color: #DC2626; border: none; background: none; cursor: pointer; font-size: 18px; line-height: 1; padding: 0 0 0 8px;">&times;</button>
+      </div>
+    </div>
+
+    <button type="button" class="btn-add-option" onclick="window.addOptionField(this)" style="margin-left: 65px; margin-top: 5px; font-size: 11px; cursor: pointer; border: 1px dashed #A0A0A0; background: #FAFAFA; padding: 4px 8px; border-radius: 4px; color: #555;">
+      + Adicionar Opção
+    </button>
+  </div>
+</template>
+
+<script>
+  window.templateFormFunctions = window.templateFormFunctions || (function() {
+    
+    window.updateQuestionNumbers = function() {
+      const activeBlocks = document.querySelectorAll('.question-block:not(.deleted-block)');
+      
+      activeBlocks.forEach((block, index) => {
+        const currentNumber = index + 1;
+        
+        const numberSpan = block.querySelector('.question-number');
+        if (numberSpan) numberSpan.textContent = currentNumber;
+        
+        const orderInput = block.querySelector('.question-order-input');
+        if (orderInput) orderInput.value = currentNumber;
+      });
+    };
+
+    window.toggleOptionsVisibility = function(selectElement) {
+      const block = selectElement.closest('.question-block');
+      if (!block) return;
+      
+      const optionRows = block.querySelectorAll('.option-row:not(.deleted-option)');
+      const btnAddOption = block.querySelector('.btn-add-option');
+      
+      if (selectElement.value === 'Texto') {
+        optionRows.forEach(row => row.style.display = 'none');
+        if (btnAddOption) btnAddOption.style.display = 'none';
+      } else {
+        optionRows.forEach(row => row.style.display = 'flex');
+        if (btnAddOption) btnAddOption.style.display = 'inline-block';
+      }
+    };
+
+    window.addQuestionBlock = function(buttonElement) {
+      const questionsContainer = document.getElementById("questions-container");
+      const blueprint = document.getElementById("question-blueprint");
+      if (!questionsContainer || !blueprint) return;
+      
+      const uniqueIndex = Date.now();
+      let htmlContent = blueprint.innerHTML.replace(/NEW_ELEMENT_INDEX/g, uniqueIndex);
+      
+      questionsContainer.insertAdjacentHTML('beforeend', htmlContent);
+      
+      const newBlock = questionsContainer.lastElementChild;
+      window.toggleOptionsVisibility(newBlock.querySelector('.select-tipo'));
+      
+      window.updateQuestionNumbers();
+    };
+
+    window.addOptionField = function(buttonElement) {
+      const block = buttonElement.closest('.question-block');
+      if (!block) return;
+      
+      const optionsContainer = block.querySelector('.options-container');
+      const elementIndex = block.getAttribute('data-element-index');
+      const optionIndex = Date.now();
+      const tipoVal = block.querySelector('.select-tipo').value;
+      const orderValue = optionsContainer.querySelectorAll('.option-row:not(.deleted-option)').length + 1;
+
+      const optionHtml = `
+        <div class="question-row option-row" style="display: flex; margin-top: 10px;">
+          <label class="figma-label-small"></label>
+          <input type="hidden" name="template[elementos_attributes][${elementIndex}][campos_attributes][${optionIndex}][ordem]" value="${orderValue}">
+          <input type="hidden" name="template[elementos_attributes][${elementIndex}][campos_attributes][${optionIndex}][_destroy]" class="destroy-option-input" value="0">
+          <input type="hidden" name="template[elementos_attributes][${elementIndex}][campos_attributes][${optionIndex}][tipo_elemento]" value="${tipoVal}" class="hidden-tipo-input">
+          <input type="text" name="template[elementos_attributes][${elementIndex}][campos_attributes][${optionIndex}][enunciado]" placeholder="Opção ${orderValue}..." class="figma-input-line-full">
+          <button type="button" onclick="window.removeOption(this)" style="color: #DC2626; border: none; background: none; cursor: pointer; font-size: 18px; line-height: 1; padding: 0 0 0 8px;">&times;</button>
+        </div>
+      `;
+      optionsContainer.insertAdjacentHTML('beforeend', optionHtml);
+    };
+
+    window.removeQuestion = function(buttonElement) {
+      const block = buttonElement.closest('.question-block');
+      if (!block) return;
+      
+      const destroyInput = block.querySelector('.destroy-question-input');
+      if (destroyInput) destroyInput.value = '1';
+      
+      block.style.display = 'none';
+      block.classList.add('deleted-block');
+      
+      window.updateQuestionNumbers();
+    };
+
+    window.removeOption = function(buttonElement) {
+      const row = buttonElement.closest('.option-row');
+      if (!row) return;
+      
+      const destroyInput = row.querySelector('.destroy-option-input');
+      if (destroyInput) destroyInput.value = '1';
+      
+      row.style.display = 'none';
+      row.classList.add('deleted-option');
+    };
+
+    return true;
+  })();
+
+  document.querySelectorAll('.select-tipo').forEach(select => window.toggleOptionsVisibility(select));
+  window.updateQuestionNumbers(); // Enumera as que vieram do banco
+</script>
