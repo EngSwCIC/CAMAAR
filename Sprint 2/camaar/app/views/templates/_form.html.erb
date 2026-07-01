@@ -1,0 +1,81 @@
+<%= form_with model: template, html: { id: "template-form" } do |f| %>
+  <% if template.errors.any? %>
+    <div class="alert-error" style="margin-bottom:20px;">
+      <% template.errors.full_messages.each do |msg| %>
+        <div><%= msg %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div style="margin-bottom:20px;">
+    <%= f.label :titulo, "Título", style: "display:block; font-size:0.85rem; color:#555; margin-bottom:6px; font-weight:600;" %>
+    <%= f.text_field :titulo,
+          placeholder: "Ex: Avaliação de Turma",
+          style: "width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:3px; font-size:0.88rem;" %>
+  </div>
+
+  <div style="margin-bottom:20px;">
+    <p style="font-size:0.85rem; color:#555; font-weight:600; margin-bottom:12px;">Questões</p>
+
+    <div id="questoes-list">
+      <%= f.fields_for :questoes do |q| %>
+        <div class="questao-item" style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px;">
+          <%= q.hidden_field :id %>
+          <%= q.hidden_field :_destroy, class: "destroy-field", value: false %>
+          <%= q.text_area :enunciado,
+                placeholder: "Enunciado da questão",
+                rows: 2,
+                style: "flex:1; padding:8px 10px; border:1px solid #ddd; border-radius:3px; font-size:0.88rem; resize:vertical;" %>
+          <button type="button" onclick="removerQuestao(this)"
+                  style="background:none; border:1px solid #e74c3c; color:#e74c3c; border-radius:3px; padding:4px 10px; font-size:0.8rem; cursor:pointer; white-space:nowrap; margin-top:2px;">
+            Remover
+          </button>
+        </div>
+      <% end %>
+    </div>
+
+    <button type="button" id="add-questao"
+            style="background:none; border:1px solid #6B2482; color:#6B2482; border-radius:3px; padding:6px 14px; font-size:0.85rem; cursor:pointer; margin-top:4px;">
+      + Adicionar Questão
+    </button>
+  </div>
+
+  <div style="display:flex; gap:12px; margin-top:24px;">
+    <%= f.submit template.new_record? ? "Criar Template" : "Salvar Alterações",
+          style: "background:#27ae60; color:white; padding:9px 20px; border:none; border-radius:3px; font-size:0.88rem; cursor:pointer;" %>
+    <%= link_to "Cancelar", templates_path,
+          style: "padding:9px 16px; color:#666; font-size:0.88rem; text-decoration:none;" %>
+  </div>
+<% end %>
+
+<script>
+  var questaoIndex = document.querySelectorAll('.questao-item').length;
+
+  document.getElementById('add-questao').addEventListener('click', function() {
+    var list = document.getElementById('questoes-list');
+    var div = document.createElement('div');
+    div.className = 'questao-item';
+    div.style.cssText = 'display:flex; gap:10px; align-items:flex-start; margin-bottom:10px;';
+    div.innerHTML =
+      '<input type="hidden" name="template[questoes_attributes][' + questaoIndex + '][_destroy]" value="false">' +
+      '<textarea name="template[questoes_attributes][' + questaoIndex + '][enunciado]" ' +
+        'placeholder="Enunciado da questão" rows="2" ' +
+        'style="flex:1; padding:8px 10px; border:1px solid #ddd; border-radius:3px; font-size:0.88rem; resize:vertical;"></textarea>' +
+      '<button type="button" onclick="removerQuestao(this)" ' +
+        'style="background:none; border:1px solid #e74c3c; color:#e74c3c; border-radius:3px; padding:4px 10px; font-size:0.8rem; cursor:pointer; white-space:nowrap; margin-top:2px;">' +
+        'Remover</button>';
+    list.appendChild(div);
+    questaoIndex++;
+  });
+
+  function removerQuestao(btn) {
+    var item = btn.closest('.questao-item');
+    var destroyField = item.querySelector('.destroy-field');
+    if (destroyField) {
+      destroyField.value = '1';
+      item.style.display = 'none';
+    } else {
+      item.remove();
+    }
+  }
+</script>

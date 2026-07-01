@@ -1,0 +1,30 @@
+<div class="auth-card">
+  <div class="auth-card__form">
+    <h2 class="auth-title">Redefinir senha</h2>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="field">
+        <%= f.label :password, "Nova senha" %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "Mínimo 6 caracteres" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, "Confirmar nova senha" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Repita a senha" %>
+      </div>
+
+      <%= f.submit "Redefinir senha", class: "btn-primary" %>
+    <% end %>
+
+    <div class="auth-links">
+      <%= link_to "Voltar para o login", new_user_session_path %>
+    </div>
+  </div>
+
+  <div class="auth-card__welcome">
+    Bem vindo ao Camaar
+  </div>
+</div>

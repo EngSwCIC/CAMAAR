@@ -1,0 +1,31 @@
+<div style="margin-bottom:24px;">
+  <h1 style="font-size:1.4rem; color:#333; margin-bottom:4px;">Resultados: <%= @avaliacao.template.titulo %></h1>
+  <p style="color:#888; font-size:0.85rem;">
+    Turma: <strong><%= @avaliacao.turma.disciplina.nome %> - <%= @avaliacao.turma.codigo %></strong>
+    &nbsp;|&nbsp; Público: <strong style="text-transform:capitalize;"><%= @avaliacao.tipo %></strong>
+    &nbsp;|&nbsp; <%= @total_respostas %> respondente(s)
+  </p>
+</div>
+
+<% @questoes.each_with_index do |questao, i| %>
+  <div style="background:#fff; padding:24px; border-radius:4px; box-shadow:0 1px 6px rgba(0,0,0,0.08); margin-bottom:16px;">
+    <p style="font-size:0.92rem; color:#333; font-weight:600; margin-bottom:16px;">
+      <%= i + 1 %>. <%= questao.enunciado %>
+    </p>
+
+    <% respostas = questao.respostas.where(avaliacao: @avaliacao) %>
+    <% if respostas.empty? %>
+      <p style="color:#aaa; font-size:0.85rem;">Nenhuma resposta recebida ainda.</p>
+    <% else %>
+      <% respostas.each_with_index do |resposta, j| %>
+        <div style="padding:10px 14px; background:<%= j.odd? ? '#fafafa' : '#f5f0f7' %>; border-radius:3px; margin-bottom:6px; font-size:0.87rem; color:#444;">
+          <%= resposta.texto %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<div style="margin-top:8px;">
+  <%= link_to "← Voltar", avaliacoes_path, style: "color:#6B2482; font-size:0.88rem; text-decoration:none;" %>
+</div>

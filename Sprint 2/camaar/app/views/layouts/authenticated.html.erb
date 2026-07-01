@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CAMAAR</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background-color: #f0f0f0;
+        min-height: 100vh;
+        display: flex;
+      }
+
+      .sidebar {
+        width: 220px;
+        min-height: 100vh;
+        background-color: #6B2482;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        flex-shrink: 0;
+      }
+
+      .sidebar__logo {
+        padding: 24px 20px;
+        color: white;
+        font-size: 1.3rem;
+        font-weight: 700;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+      }
+
+      .sidebar__user {
+        padding: 16px 20px;
+        color: rgba(255,255,255,0.8);
+        font-size: 0.82rem;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+      }
+
+      .sidebar__user strong {
+        display: block;
+        color: white;
+        font-size: 0.9rem;
+        margin-bottom: 2px;
+      }
+
+      .sidebar__nav {
+        flex: 1;
+        padding: 12px 0;
+      }
+
+      .sidebar__nav a {
+        display: block;
+        padding: 10px 20px;
+        color: rgba(255,255,255,0.85);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: background 0.15s;
+      }
+
+      .sidebar__nav a:hover {
+        background-color: rgba(255,255,255,0.1);
+        color: white;
+      }
+
+      .sidebar__nav .nav-section {
+        padding: 8px 20px 4px;
+        color: rgba(255,255,255,0.45);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 8px;
+      }
+
+      .sidebar__logout {
+        padding: 16px 20px;
+        border-top: 1px solid rgba(255,255,255,0.15);
+      }
+
+      .sidebar__logout a {
+        color: rgba(255,255,255,0.7);
+        text-decoration: none;
+        font-size: 0.85rem;
+      }
+
+      .sidebar__logout a:hover { color: white; }
+
+      .main-content {
+        flex: 1;
+        padding: 32px;
+        overflow-y: auto;
+      }
+
+      .alert-notice {
+        background: #d4edda;
+        border: 1px solid #c3e6cb;
+        color: #155724;
+        padding: 10px 16px;
+        border-radius: 3px;
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+      }
+
+      .alert-error {
+        background: #fdecea;
+        border: 1px solid #f5c6cb;
+        color: #721c24;
+        padding: 10px 16px;
+        border-radius: 3px;
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar__logo">CAMAAR</div>
+
+      <div class="sidebar__user">
+        <strong><%= current_user.name %></strong>
+        <%= current_user.role == 'admin' ? 'Administrador' : 'Usuário' %>
+      </div>
+
+      <nav class="sidebar__nav">
+        <span class="nav-section">Menu</span>
+        <%= link_to "Início", dashboard_path %>
+
+        <% if current_user.admin? %>
+          <span class="nav-section">Gerenciamento</span>
+          <%= link_to "Turmas do Departamento", admin_turmas_path %>
+          <%= link_to "Templates", templates_path %>
+          <span class="nav-section">Formulários</span>
+          <%= link_to "Formulários de Avaliação", avaliacoes_path %>
+          <%= link_to "Novo Formulário", new_avaliacao_path %>
+        <% else %>
+          <span class="nav-section">Formulários</span>
+          <%= link_to "Formulários para Responder", avaliacoes_path %>
+        <% end %>
+      </nav>
+
+      <div class="sidebar__logout">
+        <%= link_to "Sair", destroy_user_session_path, data: { turbo_method: :delete } %>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <% if notice.present? %>
+        <div class="alert-notice"><%= notice %></div>
+      <% end %>
+      <% if alert.present? %>
+        <div class="alert-error"><%= alert %></div>
+      <% end %>
+      <%= yield %>
+    </main>
+  </body>
+</html>

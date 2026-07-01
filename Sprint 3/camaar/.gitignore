@@ -1,0 +1,33 @@
+# Gems instaladas localmente
+/vendor/bundle
+
+# Arquivos de log e temporários
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+
+# Banco de dados
+/db/*.sqlite3
+/db/*.sqlite3-shm
+/db/*.sqlite3-wal
+/storage/*.sqlite3
+/storage/*.sqlite3-*
+/tmp/cache/
+
+# Storage e cache
+/storage/
+/tmp/cache/
+/tmp/pids/
+/tmp/sockets/
+
+# Credenciais
+/config/master.key
+/config/credentials/*.key
+
+# Cobertura de testes
+/coverage/
+
+# Node modules
+/node_modules

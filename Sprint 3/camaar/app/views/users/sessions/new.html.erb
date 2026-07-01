@@ -1,0 +1,43 @@
+<div class="auth-card">
+  <div class="auth-card__form">
+    <h2 class="auth-title">Login</h2>
+
+    <%= form_with(model: resource, local: true, url: session_path(resource_name)) do |f| %>
+      <% if resource.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(resource.errors.count, "error") %> proibiu este usuário de ser salvo:</h2>
+          <ul>
+            <% resource.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :login, "E-mail ou Matrícula" %>
+        <%= f.text_field :login, autofocus: true, placeholder: "email@unb.br ou matrícula", autocomplete: "username" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, "Senha" %>
+        <%= f.password_field :password, placeholder: "Senha", autocomplete: "current-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, "Lembrar-me" %>
+      </div>
+
+      <%= f.submit "Entrar", class: "btn-primary" %>
+    <% end %>
+
+    <div class="auth-links">
+      <%= link_to "Esqueci minha senha", new_user_password_path %>
+    </div>
+  </div>
+
+  <div class="auth-card__welcome">
+    Bem vindo ao Camaar
+  </div>
+</div>

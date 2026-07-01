@@ -1,0 +1,31 @@
+<div style="margin-bottom: 24px;">
+  <h1 style="font-size:1.4rem; color:#333; margin-bottom:4px;">Turmas do Departamento</h1>
+  <p style="color:#888; font-size:0.85rem;">Departamento: <strong><%= current_user.department %></strong></p>
+</div>
+
+<% if @turmas.empty? %>
+  <p style="color:#888; font-size:0.9rem;">Nenhuma turma encontrada para o seu departamento.</p>
+<% else %>
+  <table style="width:100%; border-collapse:collapse; background:#fff; border-radius:4px; overflow:hidden; box-shadow:0 1px 6px rgba(0,0,0,0.08);">
+    <thead>
+      <tr style="background:#6B2482; color:white; font-size:0.82rem; text-transform:uppercase; letter-spacing:0.5px;">
+        <th style="padding:12px 16px; text-align:left;">Disciplina</th>
+        <th style="padding:12px 16px; text-align:left;">Código</th>
+        <th style="padding:12px 16px; text-align:left;">Turma</th>
+        <th style="padding:12px 16px; text-align:left;">Semestre</th>
+        <th style="padding:12px 16px; text-align:left;">Horário</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @turmas.each_with_index do |turma, i| %>
+        <tr style="border-bottom:1px solid #f0f0f0; font-size:0.88rem; background:<%= i.odd? ? '#fafafa' : '#fff' %>;">
+          <td style="padding:12px 16px; color:#333;"><%= turma.disciplina.nome %></td>
+          <td style="padding:12px 16px; color:#666;"><%= turma.disciplina.codigo %></td>
+          <td style="padding:12px 16px; color:#666;"><%= turma.codigo %></td>
+          <td style="padding:12px 16px; color:#666;"><%= turma.semestre %></td>
+          <td style="padding:12px 16px; color:#666;"><%= turma.horario %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

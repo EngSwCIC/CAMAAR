@@ -1,0 +1,21 @@
+<div style="margin-bottom:24px; display:flex; align-items:center; justify-content:space-between;">
+  <div>
+    <h1 style="font-size:1.4rem; color:#333; margin-bottom:4px;"><%= @template.titulo %></h1>
+    <p style="color:#888; font-size:0.85rem;"><%= pluralize(@template.questoes.size, "questão", "questões") %></p>
+  </div>
+  <div style="display:flex; gap:10px;">
+    <%= link_to "Editar", edit_template_path(@template),
+          style: "background:#6B2482; color:white; padding:8px 16px; border-radius:4px; text-decoration:none; font-size:0.88rem;" %>
+    <%= link_to "Voltar", templates_path,
+          style: "padding:8px 16px; color:#666; font-size:0.88rem; text-decoration:none;" %>
+  </div>
+</div>
+
+<div style="background:#fff; border-radius:4px; box-shadow:0 1px 6px rgba(0,0,0,0.08); padding:24px; max-width:640px;">
+  <% @template.questoes.each_with_index do |questao, i| %>
+    <div style="padding:14px 0; border-bottom:1px solid #f0f0f0;">
+      <span style="font-size:0.75rem; color:#aaa; text-transform:uppercase; letter-spacing:0.5px;">Questão <%= i + 1 %></span>
+      <p style="color:#333; font-size:0.9rem; margin-top:4px;"><%= questao.enunciado %></p>
+    </div>
+  <% end %>
+</div>

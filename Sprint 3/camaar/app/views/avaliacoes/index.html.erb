@@ -1,0 +1,51 @@
+<div style="margin-bottom:24px; display:flex; align-items:center; justify-content:space-between;">
+  <div>
+    <h1 style="font-size:1.4rem; color:#333; margin-bottom:4px;">
+      <%= current_user.admin? ? "Formulários de Avaliação" : "Formulários para Responder" %>
+    </h1>
+    <p style="color:#888; font-size:0.85rem;">
+      <%= current_user.admin? ? "Todos os formulários criados" : "Formulários pendentes das suas turmas" %>
+    </p>
+  </div>
+  <% if current_user.admin? %>
+    <%= link_to "Novo Formulário", new_avaliacao_path,
+          style: "background:#6B2482; color:white; padding:8px 16px; border-radius:4px; text-decoration:none; font-size:0.88rem;" %>
+  <% end %>
+</div>
+
+<% if @avaliacoes.empty? %>
+  <p style="color:#888; font-size:0.9rem;">Nenhum formulário disponível.</p>
+<% else %>
+  <table style="width:100%; border-collapse:collapse; background:#fff; border-radius:4px; overflow:hidden; box-shadow:0 1px 6px rgba(0,0,0,0.08);">
+    <thead>
+      <tr style="background:#6B2482; color:white; font-size:0.82rem; text-transform:uppercase; letter-spacing:0.5px;">
+        <th style="padding:12px 16px; text-align:left;">Template</th>
+        <th style="padding:12px 16px; text-align:left;">Turma</th>
+        <th style="padding:12px 16px; text-align:left;">Tipo</th>
+        <th style="padding:12px 16px; text-align:left;">Início</th>
+        <th style="padding:12px 16px; text-align:left;">Fim</th>
+        <th style="padding:12px 16px; text-align:left;">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @avaliacoes.each_with_index do |av, i| %>
+        <tr style="border-bottom:1px solid #f0f0f0; font-size:0.88rem; background:<%= i.odd? ? '#fafafa' : '#fff' %>;">
+          <td style="padding:12px 16px; color:#333;"><%= av.template.titulo %></td>
+          <td style="padding:12px 16px; color:#666;"><%= av.turma.disciplina.nome %> - <%= av.turma.codigo %></td>
+          <td style="padding:12px 16px; color:#666; text-transform:capitalize;"><%= av.tipo %></td>
+          <td style="padding:12px 16px; color:#666;"><%= av.data_inicio&.strftime('%d/%m/%Y') %></td>
+          <td style="padding:12px 16px; color:#666;"><%= av.data_fim&.strftime('%d/%m/%Y') %></td>
+          <td style="padding:12px 16px;">
+            <% if current_user.admin? %>
+              <%= link_to "Resultados", resultados_avaliacao_path(av),
+                    style: "color:#6B2482; font-size:0.85rem; text-decoration:none; margin-right:8px;" %>
+            <% else %>
+              <%= link_to "Responder", responder_avaliacao_path(av),
+                    style: "color:#6B2482; font-size:0.85rem; text-decoration:none;" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

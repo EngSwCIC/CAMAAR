@@ -1,0 +1,27 @@
+<div style="margin-bottom:24px; display: flex; justify-content: space-between; align-items: center;">
+  <div>
+    <h1 style="font-size:1.4rem; color:#333; margin-bottom:4px;">Templates de Avaliação</h1>
+    <p style="color:#888; font-size:0.85rem;">Lista de todos os templates registados no sistema</p>
+  </div>
+  
+  <%= link_to "Novo Template", new_template_path, style: "background-color: #2563eb; color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px; font-weight: bold;" %>
+</div>
+
+<div style="background:#fff; border-radius:4px; padding:24px; box-shadow:0 1px 6px rgba(0,0,0,0.08);">
+  <div id="templates">
+    <% if @templates.any? %>
+      <% @templates.each do |template| %>
+        <div style="border-bottom: 1px solid #eee; padding-bottom: 12px; margin-bottom: 12px;">
+          <p><strong>Nome/ID:</strong> <%= template.id %></p> 
+          
+          <div style="margin-top: 8px;">
+            <%= link_to "Ver", template, style: "margin-right: 8px; color: #2563eb; text-decoration: none;" %>
+            <%= link_to "Editar", edit_template_path(template), style: "margin-right: 8px; color: #2563eb; text-decoration: none;" %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p style="color:#888;">Nenhum template encontrado.</p>
+    <% end %>
+  </div>
+</div>

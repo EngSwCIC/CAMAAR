@@ -1,0 +1,29 @@
+<div style="margin-bottom:24px;">
+  <h1 style="font-size:1.4rem; color:#333; margin-bottom:4px;"><%= @avaliacao.template.titulo %></h1>
+  <p style="color:#888; font-size:0.85rem;">
+    Turma: <strong><%= @avaliacao.turma.disciplina.nome %> - <%= @avaliacao.turma.codigo %></strong>
+    &nbsp;|&nbsp; Prazo até <%= @avaliacao.data_fim&.strftime('%d/%m/%Y') %>
+  </p>
+</div>
+
+<div style="background:#fff; padding:28px; border-radius:4px; box-shadow:0 1px 6px rgba(0,0,0,0.08); max-width:680px;">
+  <%= form_with url: submeter_avaliacao_path(@avaliacao), method: :post do |f| %>
+    <% @questoes.each_with_index do |questao, i| %>
+      <div style="margin-bottom:24px; padding-bottom:24px; border-bottom:<%= i < @questoes.size - 1 ? '1px solid #f0f0f0' : 'none' %>;">
+        <p style="font-size:0.92rem; color:#333; font-weight:600; margin-bottom:10px;">
+          <%= i + 1 %>. <%= questao.enunciado %>
+        </p>
+        <textarea name="respostas[<%= questao.id %>]" required
+          style="width:100%; padding:10px; border:1px solid #ddd; border-radius:3px; font-size:0.88rem; min-height:80px; resize:vertical; font-family:inherit;"
+          placeholder="Sua resposta..."></textarea>
+      </div>
+    <% end %>
+
+    <div style="display:flex; gap:12px; margin-top:8px;">
+      <%= f.submit "Enviar Respostas",
+            style: "background:#6B2482; color:white; padding:9px 20px; border:none; border-radius:3px; font-size:0.88rem; cursor:pointer;" %>
+      <%= link_to "Cancelar", avaliacoes_path,
+            style: "padding:9px 16px; color:#666; font-size:0.88rem; text-decoration:none;" %>
+    </div>
+  <% end %>
+</div>

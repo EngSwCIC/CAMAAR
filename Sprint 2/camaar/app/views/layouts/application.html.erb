@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CAMAAR</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background-color: #e0e0e0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .auth-card {
+        display: flex;
+        width: 520px;
+        min-height: 320px;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      }
+
+      .auth-card__form {
+        flex: 1;
+        background: #ffffff;
+        padding: 40px 36px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .auth-card__welcome {
+        width: 200px;
+        background-color: #6B2482;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 24px;
+        text-align: center;
+        color: white;
+        font-size: 1.6rem;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+
+      h2.auth-title {
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+        color: #222;
+      }
+
+      .field { margin-bottom: 16px; }
+
+      .field label {
+        display: block;
+        font-size: 0.82rem;
+        color: #555;
+        margin-bottom: 4px;
+      }
+
+      .field input {
+        width: 100%;
+        padding: 9px 12px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 0.9rem;
+        outline: none;
+        color: #333;
+      }
+
+      .field input:focus { border-color: #6B2482; }
+
+      .btn-primary {
+        width: 100%;
+        padding: 10px;
+        background-color: #2ecc71;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 8px;
+      }
+
+      .btn-primary:hover { background-color: #27ae60; }
+
+      .auth-links {
+        margin-top: 14px;
+        font-size: 0.78rem;
+        text-align: center;
+        color: #777;
+      }
+
+      .auth-links a { color: #6B2482; text-decoration: none; }
+      .auth-links a:hover { text-decoration: underline; }
+
+      .alert-error {
+        background: #fdecea;
+        border: 1px solid #f5c6cb;
+        color: #721c24;
+        padding: 8px 12px;
+        border-radius: 3px;
+        font-size: 0.82rem;
+        margin-bottom: 14px;
+      }
+
+      .alert-notice {
+        background: #d4edda;
+        border: 1px solid #c3e6cb;
+        color: #155724;
+        padding: 8px 12px;
+        border-radius: 3px;
+        font-size: 0.82rem;
+        margin-bottom: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <% if notice.present? %>
+      <div style="position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:999" class="alert-notice"><%= notice %></div>
+    <% end %>
+    <% if alert.present? %>
+      <div style="position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:999" class="alert-error"><%= alert %></div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

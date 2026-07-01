@@ -1,0 +1,9 @@
+AllCops:
+  NewCops: disable
+  TargetRubyVersion: 3.0
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/AbcSize:
+  Max: 20
