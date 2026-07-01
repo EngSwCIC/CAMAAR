@@ -1,0 +1,35 @@
+<% content_for :title, "Responder: #{@formulario.titulo}" %>
+
+<div class="breadcrumb">
+  <%= link_to "Formulários", formularios_path %> ›
+  <%= link_to @formulario.titulo, formulario_path(@formulario) %> ›
+  Responder
+</div>
+
+<h1><%= @formulario.titulo %></h1>
+
+<%= form_with url: envio_formularios_path(formulario_id: @formulario.id), method: :post, data: { turbo: false } do |f| %>
+  <%= hidden_field_tag :formulario_id, @formulario.id %>
+
+  <% @questoes.each_with_index do |questao, i| %>
+    <div class="questao-item">
+      <p><strong><%= i + 1 %>.</strong> <%= questao.enunciado %></p>
+
+      <% if questao.aberta? %>
+        <%= text_area_tag "respostas[#{questao.id}]", nil,
+              placeholder: "Sua resposta...",
+              required: true,
+              rows: 3 %>
+      <% else %>
+        <% questao.opcao_questoes.each do |opcao| %>
+          <label>
+            <%= radio_button_tag "respostas[#{questao.id}]", opcao.texto %>
+            <%= opcao.texto %>
+          </label>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= submit_tag "Enviar avaliação", class: "btn btn-primary" %>
+<% end %>

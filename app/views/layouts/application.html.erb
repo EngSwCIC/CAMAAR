@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAMAAR – <%= content_for?(:title) ? yield(:title) + " · " : "" %>CIC/UnB</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  <style>
+    :root {
+      --verde-unb:    #007A33;
+      --verde-escuro: #005525;
+      --verde-claro:  #E8F5EE;
+      --azul-cic:     #1A3A5C;
+      --texto:        #1C1C1C;
+      --texto-suave:  #5A6472;
+      --borda:        #D8DFE8;
+      --fundo:        #F5F7FA;
+      --branco:       #FFFFFF;
+      --aberto:       #007A33;
+      --fechado:      #9CA3AF;
+      --respondido:   #1A3A5C;
+      --alerta:       #D97706;
+      --erro:         #DC2626;
+      --radius:       10px;
+      --shadow-sm:    0 1px 3px rgba(0,0,0,.08);
+      --shadow-md:    0 4px 16px rgba(0,0,0,.10);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--fundo);
+      color: var(--texto);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── HEADER ─── */
+    .header {
+      background: var(--azul-cic);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      box-shadow: var(--shadow-md);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #fff;
+      letter-spacing: .04em;
+      text-decoration: none;
+    }
+
+    .header-logo span {
+      color: #6EE7A8;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .header-nav a {
+      color: rgba(255,255,255,.75);
+      text-decoration: none;
+      font-size: .875rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+
+    .header-nav a:hover { color: #fff; }
+
+    .header-user {
+      display: flex;
+      align-items: center;
+      gap: .625rem;
+      padding: .375rem .875rem;
+      background: rgba(255,255,255,.12);
+      border-radius: 999px;
+      font-size: .82rem;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .header-user-avatar {
+      width: 28px;
+      height: 28px;
+      background: #6EE7A8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--verde-escuro);
+    }
+
+    /* ─── MAIN ─── */
+    .main {
+      flex: 1;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+    }
+
+    /* ─── FLASH ─── */
+    .flash {
+      padding: .875rem 1.25rem;
+      border-radius: var(--radius);
+      margin-bottom: 1.5rem;
+      font-size: .9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .flash-notice { background: var(--verde-claro); color: var(--verde-escuro); border-left: 4px solid var(--verde-unb); }
+    .flash-alert  { background: #FEF3C7; color: #92400E; border-left: 4px solid var(--alerta); }
+    .flash-error  { background: #FEE2E2; color: #991B1B; border-left: 4px solid var(--erro); }
+
+    /* ─── PAGE HEADER ─── */
+    .page-header {
+      margin-bottom: 2rem;
+    }
+
+    .page-header h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.75rem;
+      color: var(--azul-cic);
+      line-height: 1.2;
+    }
+
+    .page-header p {
+      color: var(--texto-suave);
+      font-size: .925rem;
+      margin-top: .375rem;
+    }
+
+    /* ─── BOTÕES ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .6rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: .875rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all .2s;
+    }
+
+    .btn-primary {
+      background: var(--verde-unb);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: var(--verde-escuro); transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: var(--branco);
+      color: var(--azul-cic);
+      border: 1.5px solid var(--borda);
+    }
+
+    .btn-secondary:hover { background: var(--fundo); }
+
+    .btn-disabled {
+      background: var(--borda);
+      color: var(--texto-suave);
+      cursor: not-allowed;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--azul-cic);
+      color: rgba(255,255,255,.5);
+      text-align: center;
+      font-size: .75rem;
+      padding: 1rem;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <%= link_to root_path, class: "header-logo" do %>
+      CAMAAR <span>·</span> CIC
+    <% end %>
+
+    <nav class="header-nav">
+      <% if discente_logado? %>
+        <%= link_to "Meus Formulários", formularios_path %>
+      <% end %>
+      <% if admin_logado? %>
+        <%= link_to "Gerenciamento", turmas_path %>
+      <% end %>
+
+      <div class="header-user">
+        <div class="header-user-avatar">
+          <%= usuario_logado&.nome&.first&.upcase %>
+        </div>
+        <%= usuario_logado&.nome&.split&.first %>
+      </div>
+
+      <%= link_to "Sair", logout_path, data: { turbo_method: :delete }, style: "font-size:.8rem; color:rgba(255,255,255,.5);" %>
+    </nav>
+  </header>
+
+  <main class="main">
+    <% if flash[:notice] %>
+      <div class="flash flash-notice">✓ <%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="flash flash-alert">⚠ <%= flash[:alert] %></div>
+    <% end %>
+    <% if flash[:error] %>
+      <div class="flash flash-error">✕ <%= flash[:error] %></div>
+    <% end %>
+
+    <%= yield %>
+  </main>
+
+  <footer class="footer">
+    CAMAAR © <%= Time.current.year %> · Departamento de Ciência da Computação · UnB
+  </footer>
+
+</body>
+</html>

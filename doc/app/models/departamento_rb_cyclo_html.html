@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>departamento.rb_cyclo.html - RDoc Documentation</title>
+
+
+  <meta name="keywords" content="ruby,documentation,departamento.rb_cyclo.html">
+  <meta
+    name="description"
+    content="departamento.rb_cyclo.html: auto; } . class_complexity&gt;."
+  >
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="departamento.rb_cyclo.html - RDoc Documentation">
+
+
+
+    <meta property="og:description" content="auto; } . class_complexity&gt;.">
+
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="departamento.rb_cyclo.html - RDoc Documentation">
+
+
+
+    <meta name="twitter:description" content="auto; } . class_complexity&gt;.">
+
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script
+  src="../../js/theme-toggle.js?v=8.0.0"
+></script>
+
+<script
+  src="../../js/search_navigation.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="../../js/search_data.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="../../js/search_ranker.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="../../js/search_controller.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="../../js/c_highlighter.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="../../js/bash_highlighter.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="../../js/aliki.js?v=8.0.0"
+  defer
+></script>
+
+<link
+  href="../../css/rdoc.css?v=8.0.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="file has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="../../index.html" class="navbar-brand">
+    RDoc Documentation
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="false" aria-controls="sidebar-navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="sidebar-navigation" role="navigation" hidden>
+  
+
+
+
+
+
+
+  <div id="fileindex-section" class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg>
+            <use href="#icon-file"></use>
+          </svg>
+        </span>
+
+        <span class="nav-section-title">Pages</span>
+
+        <span class="nav-section-chevron">
+          <svg>
+            <use href="#icon-chevron"></use>
+          </svg>
+        </span>
+      </summary>
+
+      <ul class="nav-list">
+
+
+
+
+
+
+
+          <li>
+            <details  open>
+              <summary>
+                
+                  app
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="../../app/models/admin_rb_cyclo_html.html">
+                      admin.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/application_record_rb_cyclo_html.html">
+                      application_record.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/departamento_rb_cyclo_html.html">
+                      departamento.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/discente_rb_cyclo_html.html">
+                      discente.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/disciplina_rb_cyclo_html.html">
+                      disciplina.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/docente_rb_cyclo_html.html">
+                      docente.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/envio_formulario_rb_cyclo_html.html">
+                      envio_formulario.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/formulario_rb_cyclo_html.html">
+                      formulario.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/matricula_rb_cyclo_html.html">
+                      matricula.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/opcao_questao_rb_cyclo_html.html">
+                      opcao_questao.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/questao_rb_cyclo_html.html">
+                      questao.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/questao_template_rb_cyclo_html.html">
+                      questao_template.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/resposta_rb_cyclo_html.html">
+                      resposta.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/template_rb_cyclo_html.html">
+                      template.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/turma_rb_cyclo_html.html">
+                      turma.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/user_rb_cyclo_html.html">
+                      user.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="../../app/models/usuario_rb_cyclo_html.html">
+                      usuario.rb_cyclo.html
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><code><a href="../../Admin.html">Admin</a></code></li><li><code><a href="../../ApplicationRecord.html">ApplicationRecord</a></code></li><li><code><a href="../../Departamento.html">Departamento</a></code></li><li><code><a href="../../Discente.html">Discente</a></code></li><li><code><a href="../../Disciplina.html">Disciplina</a></code></li><li><code><a href="../../Docente.html">Docente</a></code></li><li><code><a href="../../EnvioFormulario.html">EnvioFormulario</a></code></li><li><code><a href="../../Formulario.html">Formulario</a></code></li><li><code><a href="../../Matricula.html">Matricula</a></code></li><li><code><a href="../../OpcaoQuestao.html">OpcaoQuestao</a></code></li><li><code><a href="../../Questao.html">Questao</a></code></li><li><code><a href="../../QuestaoTemplate.html">QuestaoTemplate</a></code></li><li><code><a href="../../Resposta.html">Resposta</a></code></li><li><code><a href="../../Template.html">Template</a></code></li><li><code><a href="../../Turma.html">Turma</a></code></li><li><code><a href="../../User.html">User</a></code></li><li><code><a href="../../Usuario.html">Usuario</a></code></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main" aria-label="Page app/models/departamento.rb_cyclo.html">
+
+<p>&lt;html&gt;&lt;head&gt;&lt;title&gt;Cyclometric Complexity&lt;/title&gt;&lt;/head&gt; &lt;style&gt; body {</p>
+
+<pre>margin: 20px;
+padding: 0;
+font-size: 12px;
+font-family: bitstream vera sans, verdana, arial, sans serif;
+background-color: #efefef;</pre>
+
+<p>}</p>
+
+<p>table {</p>
+
+<pre>border-collapse: collapse;
+/*border-spacing: 0;*/
+border: 1px solid #666;
+background-color: #fff;
+margin-bottom: 20px;</pre>
+
+<p>}</p>
+
+<p>table, th, th+th, td, td+td  {</p>
+
+<pre>border: 1px solid #ccc;</pre>
+
+<p>}</p>
+
+<p>table th {</p>
+
+<pre>font-size: 12px;
+color: #fc0;
+padding: 4px 0;
+background-color: #336;</pre>
+
+<p>}</p>
+
+<p>th, td {</p>
+
+<pre>padding: 4px 10px;</pre>
+
+<p>}</p>
+
+<p>td { </p>
+
+<pre>font-size: 13px;</pre>
+
+<p>}</p>
+
+<p>.class_name {</p>
+
+<pre>font-size: 17px;
+margin: 20px 0 0;</pre>
+
+<p>}</p>
+
+<p>.class_complexity { margin: 0 auto; }</p>
+
+<p>.class_complexity&gt;.class_complexity {</p>
+
+<pre>margin: 0;</pre>
+
+<p>}</p>
+
+<p>.class_total_complexity, .class_total_lines, .start_token_count, .file_count {</p>
+
+<pre>font-size: 13px;
+font-weight: bold;</pre>
+
+<p>}</p>
+
+<p>.class_total_complexity, .class_total_lines {</p>
+
+<pre>color: #c00;</pre>
+
+<p>}</p>
+
+<p>.start_token_count, .file_count {</p>
+
+<pre>color: #333;</pre>
+
+<p>}</p>
+
+<p>.warning {</p>
+
+<pre>background-color: yellow;</pre>
+
+<p>}</p>
+
+<p>.error {</p>
+
+<pre>background-color: #f00;</pre>
+
+<p>} &lt;/style&gt; &lt;body&gt; &lt;div class=“class_complexity”&gt; &lt;h2 class=“class_name”&gt;Global : &lt;/h2&gt; &lt;div class=“class_total_complexity”&gt;Total Complexity: 0&lt;/div&gt; &lt;div class=“class_total_lines”&gt;Total Lines: 1&lt;/div&gt; &lt;table width=“100%” border=“1”&gt; &lt;tr&gt;&lt;th&gt;Method&lt;/th&gt;&lt;th&gt;Complexity&lt;/th&gt;&lt;th&gt;# Lines&lt;/th&gt;&lt;/tr&gt; &lt;/table&gt; &lt;/div&gt; &lt;div class=“class_complexity”&gt; &lt;h2 class=“class_name”&gt;Class : <a href="../../Departamento.html"><code>Departamento</code></a>&lt;/h2&gt; &lt;div class=“class_total_complexity”&gt;Total Complexity: 0&lt;/div&gt; &lt;div class=“class_total_lines”&gt;Total Lines: 6&lt;/div&gt; &lt;table width=“100%” border=“1”&gt; &lt;tr&gt;&lt;th&gt;Method&lt;/th&gt;&lt;th&gt;Complexity&lt;/th&gt;&lt;th&gt;# Lines&lt;/th&gt;&lt;/tr&gt; &lt;/table&gt; &lt;/div&gt; &lt;/body&gt; &lt;/html&gt;</p>
+
+</main>
+
+<aside id="table-of-contents" class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 8.0.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+

@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>class Object - RDoc Documentation</title>
+
+
+  <meta
+    name="keywords"
+    content="ruby,class,Object"
+  >
+
+    <meta
+      name="description"
+      content="Documentation for the Object class"
+    >
+
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="class Object - RDoc Documentation">
+
+
+
+    <meta
+      property="og:description"
+      content="Documentation for Object class - API reference and code examples"
+    >
+
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="class Object - RDoc Documentation">
+
+
+
+    <meta
+      name="twitter:description"
+      content="Documentation for Object class - API reference and code examples"
+    >
+
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script
+  src="./js/theme-toggle.js?v=8.0.0"
+></script>
+
+<script
+  src="./js/search_navigation.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="./js/search_data.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="./js/search_ranker.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="./js/search_controller.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="./js/c_highlighter.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="./js/bash_highlighter.js?v=8.0.0"
+  defer
+></script>
+
+<script
+  src="./js/aliki.js?v=8.0.0"
+  defer
+></script>
+
+<link
+  href="./css/rdoc.css?v=8.0.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="class has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="./index.html" class="navbar-brand">
+    RDoc Documentation
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="false" aria-controls="sidebar-navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="sidebar-navigation" role="navigation" hidden>
+  
+
+
+
+
+  <div id="fileindex-section" class="nav-section">
+    <details class="nav-section-collapsible" >
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg>
+            <use href="#icon-file"></use>
+          </svg>
+        </span>
+
+        <span class="nav-section-title">Pages</span>
+
+        <span class="nav-section-chevron">
+          <svg>
+            <use href="#icon-chevron"></use>
+          </svg>
+        </span>
+      </summary>
+
+      <ul class="nav-list">
+
+
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  app
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="./app/assets/stylesheets/admin_css.html">
+                      admin.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/assets/stylesheets/admin_gerenciamento_css.html">
+                      admin_gerenciamento.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/assets/stylesheets/application_css.html">
+                      application.css
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/controllers/application_controller_rb_cyclo_html.html">
+                      application_controller.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/controllers/dashboards_controller_rb_cyclo_html.html">
+                      dashboards_controller.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/controllers/envio_formularios_controller_rb_cyclo_html.html">
+                      envio_formularios_controller.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/controllers/formularios_controller_rb_cyclo_html.html">
+                      formularios_controller.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/controllers/passwords_controller_rb_cyclo_html.html">
+                      passwords_controller.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/controllers/sessions_controller_rb_cyclo_html.html">
+                      sessions_controller.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/controllers/templates_controller_rb_cyclo_html.html">
+                      templates_controller.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/controllers/turmas_controller_rb_cyclo_html.html">
+                      turmas_controller.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/helpers/application_helper_rb_cyclo_html.html">
+                      application_helper.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/helpers/dashboards_helper_rb_cyclo_html.html">
+                      dashboards_helper.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/helpers/sessions_helper_rb_cyclo_html.html">
+                      sessions_helper.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/javascript/admin_controller_js.html">
+                      admin_controller.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/javascript/application_js.html">
+                      application.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/javascript/controllers/application_js.html">
+                      application.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/javascript/controllers/hello_controller_js.html">
+                      hello_controller.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/javascript/controllers/index_js.html">
+                      index.js
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/jobs/application_job_rb_cyclo_html.html">
+                      application_job.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/mailers/application_mailer_rb_cyclo_html.html">
+                      application_mailer.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/mailers/user_mailer_rb_cyclo_html.html">
+                      user_mailer.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/admin_rb_cyclo_html.html">
+                      admin.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/application_record_rb_cyclo_html.html">
+                      application_record.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/departamento_rb_cyclo_html.html">
+                      departamento.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/discente_rb_cyclo_html.html">
+                      discente.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/disciplina_rb_cyclo_html.html">
+                      disciplina.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/docente_rb_cyclo_html.html">
+                      docente.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/envio_formulario_rb_cyclo_html.html">
+                      envio_formulario.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/formulario_rb_cyclo_html.html">
+                      formulario.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/matricula_rb_cyclo_html.html">
+                      matricula.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/opcao_questao_rb_cyclo_html.html">
+                      opcao_questao.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/questao_rb_cyclo_html.html">
+                      questao.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/questao_template_rb_cyclo_html.html">
+                      questao_template.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/resposta_rb_cyclo_html.html">
+                      resposta.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/template_rb_cyclo_html.html">
+                      template.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/turma_rb_cyclo_html.html">
+                      turma.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/user_rb_cyclo_html.html">
+                      user.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/models/usuario_rb_cyclo_html.html">
+                      usuario.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/services/importer/academic_data_importer_rb_cyclo_html.html">
+                      academic_data_importer.rb_cyclo.html
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./app/views/pwa/service-worker_js.html">
+                      service-worker.js
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+
+
+
+
+          <li>
+            <details >
+              <summary>
+                
+                  features
+                  
+                
+              </summary>
+
+              <ul class="link-list">
+
+                  <li>
+                    <a href="./features/atualizar_bd_SIGAA_feature.html">
+                      atualizar_bd_SIGAA.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/cadastrar_usuarios_feature.html">
+                      cadastrar_usuarios.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/criar_formulario_avaliacao_feature.html">
+                      criar_formulario_avaliacao.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/criar_formulario_docentes_discentes_feature.html">
+                      criar_formulario_docentes_discentes.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/criar_template_formulario_feature.html">
+                      criar_template_formulario.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/definicao_senha_feature.html">
+                      definicao_senha.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/edit_delete_template_feature.html">
+                      edit_delete_template.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/gerar_relatorio_feature.html">
+                      gerar_relatorio.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/gerenciamento_departamento_feature.html">
+                      gerenciamento_departamento.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/importar_dados_SIGAA_feature.html">
+                      importar_dados_SIGAA.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/redefinicao_senha_feature.html">
+                      redefinicao_senha.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/responder_formulario_feature.html">
+                      responder_formulario.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/sistema_login_feature.html">
+                      sistema_login.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/visualizar_resultados_feature.html">
+                      visualizar_resultados.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/visualizar_templates_feature.html">
+                      visualizar_templates.feature
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="./features/vizualisar_formularios_feature.html">
+                      vizualisar_formularios.feature
+                    </a>
+                  </li>
+
+              </ul>
+            </details>
+          </li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  
+
+  
+<div id="parent-class-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-ancestors"></use></svg>
+      </span>
+      <span class="nav-section-title">Ancestors</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+    <ul><li>BasicObject</li></ul>
+  </details>
+</div>
+
+
+  
+
+  
+
+  
+
+
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-instance-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Instance Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-i-criar_grafo_formulario">criar_grafo_formulario</a></li>
+
+        <li ><a href="#method-i-fazer_login">fazer_login</a></li>
+
+        <li ><a href="#method-i-fazer_login_discente_resp">fazer_login_discente_resp</a></li>
+
+        <li ><a href="#method-i-parsear_turma_str">parsear_turma_str</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><code><a href="./Admin.html">Admin</a></code></li><li><code><a href="./ApplicationController.html">ApplicationController</a></code></li><li><code><a href="./ApplicationHelper.html">ApplicationHelper</a></code></li><li><code><a href="./ApplicationJob.html">ApplicationJob</a></code></li><li><code><a href="./ApplicationMailer.html">ApplicationMailer</a></code></li><li><code><a href="./ApplicationRecord.html">ApplicationRecord</a></code></li><li><code><a href="./DashboardsController.html">DashboardsController</a></code></li><li><code><a href="./DashboardsHelper.html">DashboardsHelper</a></code></li><li><code><a href="./Departamento.html">Departamento</a></code></li><li><code><a href="./Discente.html">Discente</a></code></li><li><code><a href="./Disciplina.html">Disciplina</a></code></li><li><code><a href="./Docente.html">Docente</a></code></li><li><code><a href="./EnvioFormulario.html">EnvioFormulario</a></code></li><li><code><a href="./EnvioFormulariosController.html">EnvioFormulariosController</a></code></li><li><code><a href="./Formulario.html">Formulario</a></code></li><li><code><a href="./FormulariosController.html">FormulariosController</a></code></li><li><details><summary><code><a href="./Importer.html">Importer</a></code></summary><ul class="link-list nav-list"><li><code><a href="./Importer/AcademicDataImporter.html">AcademicDataImporter</a></code></li></ul></details></li><li><code><a href="./Matricula.html">Matricula</a></code></li><li><code><a href="./Object.html">Object</a></code></li><li><code><a href="./OpcaoQuestao.html">OpcaoQuestao</a></code></li><li><code><a href="./PasswordsController.html">PasswordsController</a></code></li><li><code><a href="./Questao.html">Questao</a></code></li><li><code><a href="./QuestaoTemplate.html">QuestaoTemplate</a></code></li><li><code><a href="./Resposta.html">Resposta</a></code></li><li><code><a href="./SessionsController.html">SessionsController</a></code></li><li><code><a href="./SessionsHelper.html">SessionsHelper</a></code></li><li><code><a href="./Template.html">Template</a></code></li><li><code><a href="./TemplatesController.html">TemplatesController</a></code></li><li><code><a href="./Turma.html">Turma</a></code></li><li><code><a href="./TurmasController.html">TurmasController</a></code></li><li><code><a href="./User.html">User</a></code></li><li><code><a href="./UserMailer.html">UserMailer</a></code></li><li><code><a href="./Usuario.html">Usuario</a></code></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main" aria-labelledby="class-object">
+  
+  
+
+  <span id="class-Object" class="legacy-anchor"></span>
+  <h1 id="class-object" class="anchor-link class page-title">
+    <span class="page-title-kind">class</span>
+    <span class="page-title-name">Object</span>
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+
+  <span id="5Buntitled-5D" class="legacy-anchor"></span>
+  <section class="documentation-section anchor-link">
+
+
+
+
+
+    <section class="constants-list">
+      <header>
+        <h3 id="untitled-constants"><a href="#untitled-constants">Constants</a></h3>
+      </header>
+      <dl>
+
+        <dt id="SENHA_ADMIN">SENHA_ADMIN</dt>
+
+        <dd>
+
+          
+        </dd>
+
+
+        <dt id="SENHA_DISCENTE_RESP">SENHA_DISCENTE_RESP</dt>
+
+        <dd>
+
+          
+        </dd>
+
+
+        <dt id="SENHA_VALIDA">SENHA_VALIDA</dt>
+
+        <dd>
+
+          
+        </dd>
+
+
+      </dl>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <section id="public-instance-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-instance-untitled-methods"><a href="#public-instance-untitled-methods">Public Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-criar_grafo_formulario" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-criar_grafo_formulario" title="Link to this method">
+                  <span class="method-name">criar_grafo_formulario</span>
+                  <span class="method-args">(turma_str)</span>
+                </a>
+              </div>
+
+
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="criar_grafo_formulario-source">
+            <pre class="ruby"><span class="ruby-comment"># File features/step_definitions/responder_formulario_steps.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">criar_grafo_formulario</span>(<span class="ruby-identifier">turma_str</span>)
+  <span class="ruby-identifier">dados</span> = <span class="ruby-identifier">parsear_turma_str</span>(<span class="ruby-identifier">turma_str</span>)
+
+  <span class="ruby-ivar">@departamento</span> = <span class="ruby-constant">Departamento</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-value">nome</span><span class="ruby-value">:</span> <span class="ruby-string">&quot;</span><span class="ruby-string">Dept BDD </span><span class="ruby-string">#{</span><span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">hex</span>(<span class="ruby-value">4</span>)<span class="ruby-string">}</span><span class="ruby-string">&quot;</span>)
+
+  <span class="ruby-comment"># Docente para o Template (modelo original BDD)</span>
+  <span class="ruby-identifier">usuario_docente</span> = <span class="ruby-constant">Usuario</span>.<span class="ruby-identifier">create!</span>(
+    <span class="ruby-value">login</span><span class="ruby-value">:</span> <span class="ruby-string">&quot;</span><span class="ruby-string">docente_</span><span class="ruby-string">#{</span><span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">hex</span>(<span class="ruby-value">4</span>)<span class="ruby-string">}</span><span class="ruby-string">&quot;</span>,
+    <span class="ruby-value">email</span><span class="ruby-value">:</span> <span class="ruby-string">&quot;</span><span class="ruby-string">docente_</span><span class="ruby-string">#{</span><span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">hex</span>(<span class="ruby-value">4</span>)<span class="ruby-string">}</span><span class="ruby-string">@camaar.com</span><span class="ruby-string">&quot;</span>,
+    <span class="ruby-value">nome</span><span class="ruby-value">:</span> <span class="ruby-string">&quot;</span><span class="ruby-string">Docente BDD</span><span class="ruby-string">&quot;</span>,
+    <span class="ruby-value">perfil</span><span class="ruby-value">:</span> <span class="ruby-value">:</span><span class="ruby-value">docente</span>,
+    <span class="ruby-value">password</span><span class="ruby-value">:</span> <span class="ruby-constant">SENHA_DISCENTE_RESP</span>
+  )
+  <span class="ruby-ivar">@docente</span> = <span class="ruby-constant">Docente</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-value">usuario</span><span class="ruby-value">:</span> <span class="ruby-identifier">usuario_docente</span>, <span class="ruby-value">departamento</span><span class="ruby-value">:</span> <span class="ruby-ivar">@departamento</span>)
+
+  <span class="ruby-comment"># Turma com schema Team B (departamento + codigo + nome)</span>
+  <span class="ruby-ivar">@turma</span> = <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">create!</span>(
+    <span class="ruby-value">codigo</span><span class="ruby-value">:</span> <span class="ruby-identifier">dados</span>[<span class="ruby-value">:</span><span class="ruby-value">codigo</span>],
+    <span class="ruby-value">nome</span><span class="ruby-value">:</span> <span class="ruby-identifier">dados</span>[<span class="ruby-value">:</span><span class="ruby-value">nome</span>],
+    <span class="ruby-value">departamento</span><span class="ruby-value">:</span> <span class="ruby-ivar">@departamento</span>
+  )
+
+  <span class="ruby-comment"># Discente (modelo original BDD: belongs_to :usuario, has_many :matriculas)</span>
+  <span class="ruby-identifier">usuario_discente</span> = <span class="ruby-constant">Usuario</span>.<span class="ruby-identifier">create!</span>(
+    <span class="ruby-value">login</span><span class="ruby-value">:</span> <span class="ruby-string">&quot;</span><span class="ruby-string">discente_</span><span class="ruby-string">#{</span><span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">hex</span>(<span class="ruby-value">4</span>)<span class="ruby-string">}</span><span class="ruby-string">&quot;</span>,
+    <span class="ruby-value">email</span><span class="ruby-value">:</span> <span class="ruby-string">&quot;</span><span class="ruby-string">discente_</span><span class="ruby-string">#{</span><span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">hex</span>(<span class="ruby-value">4</span>)<span class="ruby-string">}</span><span class="ruby-string">@camaar.com</span><span class="ruby-string">&quot;</span>,
+    <span class="ruby-value">nome</span><span class="ruby-value">:</span> <span class="ruby-string">&quot;</span><span class="ruby-string">Discente BDD</span><span class="ruby-string">&quot;</span>,
+    <span class="ruby-value">perfil</span><span class="ruby-value">:</span> <span class="ruby-value">:</span><span class="ruby-value">discente</span>,
+    <span class="ruby-value">password</span><span class="ruby-value">:</span> <span class="ruby-constant">SENHA_DISCENTE_RESP</span>
+  )
+  <span class="ruby-ivar">@discente</span> = <span class="ruby-constant">Discente</span>.<span class="ruby-identifier">create!</span>(
+    <span class="ruby-value">usuario</span><span class="ruby-value">:</span> <span class="ruby-identifier">usuario_discente</span>,
+    <span class="ruby-value">matricula</span><span class="ruby-value">:</span> <span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">random_number</span>(<span class="ruby-value">10_000_000</span>..<span class="ruby-value">99_999_999</span>).<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-value">curso</span><span class="ruby-value">:</span> <span class="ruby-string">&quot;</span><span class="ruby-string">Ciência da Computação</span><span class="ruby-string">&quot;</span>
+  )
+  <span class="ruby-constant">Matricula</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-value">discente</span><span class="ruby-value">:</span> <span class="ruby-ivar">@discente</span>, <span class="ruby-value">turma</span><span class="ruby-value">:</span> <span class="ruby-ivar">@turma</span>)
+
+  <span class="ruby-comment"># Template e questões (modelo original BDD)</span>
+  <span class="ruby-ivar">@template</span> = <span class="ruby-constant">Template</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-value">titulo</span><span class="ruby-value">:</span> <span class="ruby-string">&quot;</span><span class="ruby-string">Avaliação BDD </span><span class="ruby-string">#{</span><span class="ruby-identifier">dados</span>[<span class="ruby-value">:</span><span class="ruby-value">nome</span>]<span class="ruby-string">}</span><span class="ruby-string">&quot;</span>, <span class="ruby-value">docente</span><span class="ruby-value">:</span> <span class="ruby-ivar">@docente</span>)
+
+  <span class="ruby-identifier">questao_template</span> = <span class="ruby-constant">QuestaoTemplate</span>.<span class="ruby-identifier">create!</span>(
+    <span class="ruby-value">enunciado</span><span class="ruby-value">:</span> <span class="ruby-string">&quot;</span><span class="ruby-string">Avaliação do Docente</span><span class="ruby-string">&quot;</span>,
+    <span class="ruby-value">tipo</span><span class="ruby-value">:</span> <span class="ruby-value">:</span><span class="ruby-value">aberta</span>,
+    <span class="ruby-value">template</span><span class="ruby-value">:</span> <span class="ruby-ivar">@template</span>
+  )
+
+  <span class="ruby-ivar">@formulario</span> = <span class="ruby-constant">Formulario</span>.<span class="ruby-identifier">create!</span>(
+    <span class="ruby-value">titulo</span><span class="ruby-value">:</span> <span class="ruby-string">&quot;</span><span class="ruby-string">Avaliação - </span><span class="ruby-string">#{</span><span class="ruby-identifier">dados</span>[<span class="ruby-value">:</span><span class="ruby-value">nome</span>]<span class="ruby-string">}</span><span class="ruby-string">&quot;</span>,
+    <span class="ruby-value">turma</span><span class="ruby-value">:</span> <span class="ruby-ivar">@turma</span>,
+    <span class="ruby-value">template</span><span class="ruby-value">:</span> <span class="ruby-ivar">@template</span>,
+    <span class="ruby-value">prazo</span><span class="ruby-value">:</span> <span class="ruby-value">7</span>.<span class="ruby-identifier">days</span>.<span class="ruby-identifier">from_now</span>
+  )
+
+  <span class="ruby-ivar">@questao_principal</span> = <span class="ruby-constant">Questao</span>.<span class="ruby-identifier">create!</span>(
+    <span class="ruby-value">formulario</span><span class="ruby-value">:</span> <span class="ruby-ivar">@formulario</span>,
+    <span class="ruby-value">questao_template</span><span class="ruby-value">:</span> <span class="ruby-identifier">questao_template</span>,
+    <span class="ruby-value">enunciado</span><span class="ruby-value">:</span> <span class="ruby-string">&quot;</span><span class="ruby-string">Avaliação do Docente</span><span class="ruby-string">&quot;</span>,
+    <span class="ruby-value">tipo</span><span class="ruby-value">:</span> <span class="ruby-value">:</span><span class="ruby-value">aberta</span>
+  )
+
+  <span class="ruby-comment"># User para autenticação via SessionsController (usa User, não Usuario)</span>
+  <span class="ruby-ivar">@auth_user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create!</span>(
+    <span class="ruby-value">nome</span><span class="ruby-value">:</span> <span class="ruby-identifier">usuario_discente</span>.<span class="ruby-identifier">nome</span>,
+    <span class="ruby-value">email</span><span class="ruby-value">:</span> <span class="ruby-identifier">usuario_discente</span>.<span class="ruby-identifier">email</span>,
+    <span class="ruby-value">matricula</span><span class="ruby-value">:</span> <span class="ruby-ivar">@discente</span>.<span class="ruby-identifier">matricula</span>,
+    <span class="ruby-value">perfil</span><span class="ruby-value">:</span> <span class="ruby-string">&quot;</span><span class="ruby-string">Discente</span><span class="ruby-string">&quot;</span>,
+    <span class="ruby-value">password</span><span class="ruby-value">:</span> <span class="ruby-constant">SENHA_DISCENTE_RESP</span>,
+    <span class="ruby-value">password_confirmation</span><span class="ruby-value">:</span> <span class="ruby-constant">SENHA_DISCENTE_RESP</span>,
+    <span class="ruby-value">primeiro_acesso</span><span class="ruby-value">:</span> <span class="ruby-keyword">false</span>
+  )
+
+  <span class="ruby-ivar">@auth_user</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-fazer_login" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-fazer_login" title="Link to this method">
+                  <span class="method-name">fazer_login</span>
+                  <span class="method-args">(user)</span>
+                </a>
+              </div>
+
+
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="fazer_login-source">
+            <pre class="ruby"><span class="ruby-comment"># File features/step_definitions/gerenciamento_departamento_steps.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fazer_login</span>(<span class="ruby-identifier">user</span>)
+  <span class="ruby-identifier">visit</span> <span class="ruby-identifier">login_path</span>
+  <span class="ruby-identifier">fill_in</span> <span class="ruby-string">&quot;</span><span class="ruby-string">E-mail ou matrícula</span><span class="ruby-string">&quot;</span>, <span class="ruby-value">with</span><span class="ruby-value">:</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>
+  <span class="ruby-identifier">fill_in</span> <span class="ruby-string">&quot;</span><span class="ruby-string">Senha</span><span class="ruby-string">&quot;</span>, <span class="ruby-value">with</span><span class="ruby-value">:</span> <span class="ruby-constant">SENHA_ADMIN</span>
+  <span class="ruby-identifier">click_button</span> <span class="ruby-string">&quot;</span><span class="ruby-string">Entrar</span><span class="ruby-string">&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-fazer_login_discente_resp" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-fazer_login_discente_resp" title="Link to this method">
+                  <span class="method-name">fazer_login_discente_resp</span>
+                  <span class="method-args">(email)</span>
+                </a>
+              </div>
+
+
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="fazer_login_discente_resp-source">
+            <pre class="ruby"><span class="ruby-comment"># File features/step_definitions/responder_formulario_steps.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fazer_login_discente_resp</span>(<span class="ruby-identifier">email</span>)
+  <span class="ruby-identifier">visit</span> <span class="ruby-identifier">login_path</span>
+  <span class="ruby-identifier">fill_in</span> <span class="ruby-string">&quot;</span><span class="ruby-string">E-mail ou matrícula</span><span class="ruby-string">&quot;</span>, <span class="ruby-value">with</span><span class="ruby-value">:</span> <span class="ruby-identifier">email</span>
+  <span class="ruby-identifier">fill_in</span> <span class="ruby-string">&quot;</span><span class="ruby-string">Senha</span><span class="ruby-string">&quot;</span>, <span class="ruby-value">with</span><span class="ruby-value">:</span> <span class="ruby-constant">SENHA_DISCENTE_RESP</span>
+  <span class="ruby-identifier">click_button</span> <span class="ruby-string">&quot;</span><span class="ruby-string">Entrar</span><span class="ruby-string">&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>─── Helpers ──────────────────────────────────────────────────────────────────</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-parsear_turma_str" class="method-detail anchor-link ">
+        <div class="method-header">
+          <div class="method-heading-group">
+
+              <div class="method-heading">
+                <a href="#method-i-parsear_turma_str" title="Link to this method">
+                  <span class="method-name">parsear_turma_str</span>
+                  <span class="method-args">(turma_str)</span>
+                </a>
+              </div>
+
+
+
+          </div>
+
+
+            <div class="method-controls">
+              <details class="method-source-toggle">
+                <summary><span class="method-source-icon" aria-hidden="true">{}</span> Source</summary>
+              </details>
+            </div>
+
+        </div>
+
+
+          <div class="method-source-code" id="parsear_turma_str-source">
+            <pre class="ruby"><span class="ruby-comment"># File features/step_definitions/responder_formulario_steps.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parsear_turma_str</span>(<span class="ruby-identifier">turma_str</span>)
+  <span class="ruby-identifier">partes</span> = <span class="ruby-identifier">turma_str</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;</span><span class="ruby-string"> - </span><span class="ruby-string">&quot;</span>, <span class="ruby-value">2</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:</span><span class="ruby-value">strip</span>)
+  { <span class="ruby-value">codigo</span><span class="ruby-value">:</span> <span class="ruby-identifier">partes</span>[<span class="ruby-value">0</span>], <span class="ruby-value">nome</span><span class="ruby-value">:</span> <span class="ruby-identifier">partes</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">partes</span>[<span class="ruby-value">0</span>] }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+  </section>
+
+</main>
+
+<aside id="table-of-contents" class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 8.0.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+

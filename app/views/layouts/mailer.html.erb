@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Olá, <%= @usuario.nome %>!</h1>
+
+    <p>Para acessar o sistema CAMAAR defina a sua senha</p>
+
+    <p>
+      <%= link_to 'Definir Minha Senha', @url_definir_senha %>
+    </p>
+    
+  </body>
+</html>

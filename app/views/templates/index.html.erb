@@ -1,0 +1,61 @@
+<div class="templates-layout">
+  <aside class="templates-sidebar">
+    <nav>
+      <%= link_to "Avaliações", "#", class: "templates-sidebar-link" %>
+      <%= link_to "Gerenciamento", templates_path, class: "templates-sidebar-link active" %>
+    </nav>
+  </aside>
+
+  <main class="templates-main">
+    <header class="templates-header">
+      <div class="templates-menu-icon">☰</div>
+      <h1>Gerenciamento - Templates</h1>
+
+      <div class="templates-header-actions">
+        <input type="text" class="templates-search" aria-label="Buscar templates">
+        <div class="templates-user-icon">U</div>
+      </div>
+    </header>
+
+    <% if alert.present? %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
+    <section class="templates-content">
+      <% if @templates.any? %>
+        <div class="templates-grid">
+          <% @templates.each do |template| %>
+            <article class="template-card">
+              <div class="template-card-content">
+                <h2><%= template.nome %></h2>
+                <p><%= template.semestre %></p>
+              </div>
+
+              <div class="template-card-actions">
+                <span class="template-icon" aria-label="Editar template" title="Editar">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 17.25V20h2.75L17.81 8.94l-2.75-2.75L4 17.25Z" />
+                    <path d="M19.71 7.04a1 1 0 0 0 0-1.41l-1.34-1.34a1 1 0 0 0-1.41 0l-1.05 1.05 2.75 2.75 1.05-1.05Z" />
+                  </svg>
+                </span>
+
+                <span class="template-icon" aria-label="Deletar template" title="Deletar">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 21c-.55 0-1.02-.2-1.41-.59A1.92 1.92 0 0 1 5 19V7h14v12c0 .55-.2 1.02-.59 1.41A1.92 1.92 0 0 1 17 21H7Z" />
+                    <path d="M4 6V4h5V3h6v1h5v2H4Z" />
+                    <path d="M9 18h2V9H9v9Z" fill="#ffffff" />
+                    <path d="M13 18h2V9h-2v9Z" fill="#ffffff" />
+                  </svg>
+                </span>
+              </div>
+            </article>
+          <% end %>
+        </div>
+      <% else %>
+        <p class="empty-templates-message">
+          Apenas a opção de criação de um novo template está disponível.
+        </p>
+      <% end %>
+    </section>
+  </main>
+</div>
