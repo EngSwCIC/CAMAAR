@@ -1,0 +1,44 @@
+
+
+<% content_for :stylesheet, stylesheet_link_tag("admin", "data-turbo-track": "reload") %>
+<% content_for :stylesheet, stylesheet_link_tag("admin_gerenciamento", "data-turbo-track": "reload") %>
+
+<section class="conteudo-admin" id="Gerenciamento">
+  <h1>Painel de Gerenciamento</h1>
+    <p>Aqui você pode gerenciar as configurações do painel administrativo.</p>
+  
+  <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+    
+    <ul class="ger-menu">
+
+      <li class="ger-link"> 
+        <label class="ger-btn" for="arquivo_json" role="button" style="cursor: pointer;">Importar Dados</label>      </li>
+
+      <li class="ger-link"> 
+        <a class="ger-btn" href="#" role="button">Editar templates</a>
+      </li>
+
+      <li class="ger-link"> 
+        <a class="ger-btn" href="#" role="button">Enviar Formulários</a>
+      </li>
+
+      <li class="ger-link"> 
+        <a class="ger-btn" href="#" role="button">Resultados</a>
+      </li>
+    
+    </ul>
+
+    
+  </div>
+
+    <form action="/admin/importar_json" enctype="multipart/form-data" method="post" id="secao_importa">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <fieldset style="border: none; padding: 0; margin: 0;">
+        <input type="file" id="arquivo_json" name="json" accept=".json" style="display: none;" onchange="this.form.submit();" />
+
+        <button type="submit" id="botao_enviar_oculto" style="display: none;">Enviar</button>
+      
+      </fieldset>
+    </form>
+    
+</section>

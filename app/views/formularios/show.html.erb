@@ -1,0 +1,239 @@
+<% content_for :title, @formulario.titulo %>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .82rem;
+    color: var(--texto-suave);
+    margin-bottom: 1.5rem;
+  }
+
+  .breadcrumb a { color: var(--verde-unb); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb-sep { opacity: .4; }
+
+  .formulario-header-card {
+    background: var(--azul-cic);
+    border-radius: var(--radius);
+    padding: 2rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .formulario-header-card::after {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.05);
+  }
+
+  .formulario-header-card h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: .75rem;
+  }
+
+  .formulario-header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .header-meta-item {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: .85rem;
+    color: rgba(255,255,255,.75);
+  }
+
+  .prazo-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    background: rgba(255,255,255,.15);
+    border-radius: 999px;
+    padding: .3rem .875rem;
+    font-size: .82rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .prazo-chip.urgente { background: rgba(220,38,38,.3); }
+
+  /* ─── QUESTÕES PREVIEW ─── */
+  .questoes-section {
+    background: var(--branco);
+    border: 1.5px solid var(--borda);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .questoes-section-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1.5px solid var(--borda);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--fundo);
+  }
+
+  .questoes-section-header h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--azul-cic);
+  }
+
+  .questoes-count {
+    font-size: .8rem;
+    color: var(--texto-suave);
+    background: var(--borda);
+    padding: .2rem .6rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .questao-preview {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--borda);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .questao-preview:last-child { border-bottom: none; }
+
+  .questao-num {
+    width: 28px;
+    height: 28px;
+    background: var(--verde-claro);
+    color: var(--verde-escuro);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .78rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .questao-content { flex: 1; }
+
+  .questao-enunciado {
+    font-size: .9rem;
+    color: var(--texto);
+    line-height: 1.5;
+  }
+
+  .questao-tipo {
+    display: inline-flex;
+    align-items: center;
+    margin-top: .4rem;
+    font-size: .73rem;
+    font-weight: 600;
+    color: var(--texto-suave);
+    background: var(--fundo);
+    padding: .2rem .5rem;
+    border-radius: 4px;
+    border: 1px solid var(--borda);
+    gap: .3rem;
+  }
+
+  /* ─── CTA ─── */
+  .cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--verde-claro);
+    border: 1.5px solid #B2DFC5;
+    border-radius: var(--radius);
+  }
+
+  .cta-text {
+    font-size: .9rem;
+    font-weight: 500;
+    color: var(--verde-escuro);
+  }
+
+  .cta-text strong { font-weight: 700; }
+</style>
+
+<%# Breadcrumb %>
+<div class="breadcrumb">
+  <%= link_to "Formulários", formularios_path %>
+  <span class="breadcrumb-sep">›</span>
+  <span><%= @formulario.titulo %></span>
+</div>
+
+<%# Header do formulário %>
+<div class="formulario-header-card">
+  <h1><%= @formulario.titulo %></h1>
+  <div class="formulario-header-meta">
+    <span class="header-meta-item">
+      📚 <%= @formulario.turma.disciplina.nome %> · Turma <%= @formulario.turma.codigo %>
+    </span>
+    <span class="header-meta-item">
+      🎓 <%= @formulario.turma.semestre %>
+    </span>
+    <% if @formulario.prazo %>
+      <% dias = (@formulario.prazo.to_date - Date.today).to_i %>
+      <span class="prazo-chip <%= dias <= 2 ? 'urgente' : '' %>">
+        ⏱ Prazo: <%= @formulario.prazo.strftime("%d/%m/%Y às %H:%M") %>
+        <% if dias == 0 %> · Hoje!
+        <% elsif dias == 1 %> · Amanhã
+        <% elsif dias > 0 %> · <%= dias %> dias
+        <% end %>
+      </span>
+    <% end %>
+  </div>
+</div>
+
+<%# Preview das questões %>
+<div class="questoes-section">
+  <div class="questoes-section-header">
+    <h2>Questões do formulário</h2>
+    <span class="questoes-count"><%= @questoes.count %> questões</span>
+  </div>
+
+  <% @questoes.each_with_index do |questao, i| %>
+    <div class="questao-preview">
+      <div class="questao-num"><%= i + 1 %></div>
+      <div class="questao-content">
+        <div class="questao-enunciado"><%= questao.enunciado %></div>
+        <span class="questao-tipo">
+          <% if questao.aberta? %>
+            ✏️ Resposta aberta
+          <% else %>
+            ☑️ Múltipla escolha · <%= questao.opcao_questoes.count %> opções
+          <% end %>
+        </span>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%# CTA para responder %>
+<div class="cta-row">
+  <div class="cta-text">
+    Pronto para responder? <strong>Todas as questões são obrigatórias.</strong>
+  </div>
+  <div style="display:flex; gap:.75rem; flex-wrap:wrap;">
+    <%= link_to "← Voltar", formularios_path, class: "btn btn-secondary" %>
+    <%= link_to "Responder formulário →", new_envio_formulario_path(formulario_id: @formulario.id), class: "btn btn-primary" %>
+  </div>
+</div>

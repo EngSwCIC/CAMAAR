@@ -1,0 +1,59 @@
+.conteudo-admin{
+    display: block;
+    box-sizing: border-box;
+    justify-content: center; 
+    align-items: center;     
+    min-height: 80vh;        
+    width: 100%;
+}
+
+.btn-group-vertical{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+
+    flex-grow: 1;
+    width: 100%;
+    padding: 20px;
+
+}
+
+.ger-menu{
+    padding-top: 10px;
+    padding-left: 320px;
+    padding-bottom: 10px;
+    list-style: none;
+    width: 100%;
+}
+
+
+
+ul li.ger-link{
+    
+    width: 100%;
+    max-width:320px;
+    padding: 5px;
+}
+
+ul li.ger-link .ger-btn {
+    display: block;            /* Faz o link se comportar como um bloco */
+    width: 100%;               /* Força o botão a ocupar todos os 320px do pai */
+    text-align: center;        /* Centraliza o texto dentro do botão */
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+ul li.ger-link .ger-btn:hover {
+    background-color: #e2e6ea;
+    border-color: #dae0e5;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
+}

@@ -1,0 +1,67 @@
+<%# app/views/formularios/_formulario_card.html.erb %>
+<%# Variáveis: formulario (Formulario), status (:aberto | :respondido | :fechado) %>
+
+<% dias_restantes = formulario.prazo ? ((formulario.prazo.to_date - Date.today).to_i) : nil %>
+
+<div class="formulario-card <%= status %>">
+  <div class="formulario-info">
+    <div class="formulario-titulo"><%= formulario.titulo %></div>
+    <div class="formulario-meta">
+      <%# Turma %>
+      <span class="meta-item">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 14A6 6 0 118 2a6 6 0 010 12z"/></svg>
+        <%= formulario.turma.disciplina.nome %> · Turma <%= formulario.turma.codigo %>
+      </span>
+
+      <%# Prazo %>
+      <% if formulario.prazo %>
+        <span class="meta-item <%= dias_restantes && dias_restantes <= 2 ? 'prazo-urgente' : (dias_restantes && dias_restantes <= 7 ? 'prazo-normal' : '') %>">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm.75 8.75H4.5a.75.75 0 010-1.5h3.5V3.75a.75.75 0 011.5 0V8a.75.75 0 01-.75.75z"/></svg>
+          <% if status == :respondido %>
+            Encerrava <%= formulario.prazo.strftime("%d/%m/%Y") %>
+          <% elsif formulario.fechado? %>
+            Encerrou <%= formulario.prazo.strftime("%d/%m/%Y") %>
+          <% elsif dias_restantes == 0 %>
+            Encerra hoje!
+          <% elsif dias_restantes == 1 %>
+            Encerra amanhã
+          <% elsif dias_restantes && dias_restantes <= 7 %>
+            <%= dias_restantes %> dias restantes
+          <% else %>
+            Prazo: <%= formulario.prazo.strftime("%d/%m/%Y") %>
+          <% end %>
+        </span>
+      <% else %>
+        <span class="meta-item">Sem prazo definido</span>
+      <% end %>
+
+      <%# Número de questões %>
+      <span class="meta-item">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h12v12H2V2zm1.5 1.5v9h9v-9h-9zM8 5a1 1 0 110 2 1 1 0 010-2zm-.75 3h1.5v3h-1.5V8z"/></svg>
+        <%= formulario.questoes.count %> questões
+      </span>
+    </div>
+  </div>
+
+  <%# Badge de status %>
+  <% case status
+     when :aberto %>
+    <span class="status-badge badge-aberto">Aberto</span>
+  <% when :respondido %>
+    <span class="status-badge badge-respondido">Respondido</span>
+  <% when :fechado %>
+    <span class="status-badge badge-fechado">Encerrado</span>
+  <% end %>
+
+  <%# Botão de ação %>
+  <div class="formulario-actions">
+    <% case status
+       when :aberto %>
+      <%= link_to "Responder →", formulario_path(formulario), class: "btn btn-primary" %>
+    <% when :respondido %>
+      <%= link_to "Ver resposta", minha_resposta_formulario_path(formulario), class: "btn btn-secondary" %>
+    <% when :fechado %>
+      <span class="btn btn-disabled">Encerrado</span>
+    <% end %>
+  </div>
+</div>

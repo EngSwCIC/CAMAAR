@@ -1,0 +1,15 @@
+<div class="dashboard-page">
+  <main class="dashboard-content">
+    <h1>Turmas do Departamento</h1>
+
+    <% if @turmas.any? %>
+      <ul class="turmas-list">
+        <% @turmas.each do |turma| %>
+          <li><%= link_to "#{turma.codigo} - #{turma.nome}", turma_path(turma) %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>Não há dados disponíveis</p>
+    <% end %>
+  </main>
+</div>

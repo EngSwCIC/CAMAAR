@@ -1,0 +1,192 @@
+<% content_for :title, "Minha Resposta · #{@formulario.titulo}" %>
+
+<style>
+  .resposta-header-card {
+    background: linear-gradient(135deg, #1A3A5C 0%, #2A5A8C 100%);
+    border-radius: var(--radius);
+    padding: 1.75rem 2rem;
+    color: #fff;
+    margin-bottom: 1.75rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .resposta-header-card h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  .resposta-header-card p {
+    font-size: .85rem;
+    color: rgba(255,255,255,.7);
+    margin-top: .3rem;
+  }
+
+  .enviado-em-badge {
+    background: rgba(255,255,255,.15);
+    border-radius: var(--radius);
+    padding: .75rem 1.25rem;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .enviado-em-badge .label {
+    font-size: .72rem;
+    font-weight: 600;
+    color: rgba(255,255,255,.6);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+
+  .enviado-em-badge .valor {
+    font-family: 'Syne', sans-serif;
+    font-size: .95rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: .2rem;
+  }
+
+  /* ─── RESPOSTAS ─── */
+  .respostas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .resposta-item {
+    background: var(--branco);
+    border: 1.5px solid var(--borda);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .resposta-item-header {
+    background: var(--fundo);
+    border-bottom: 1px solid var(--borda);
+    padding: .875rem 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: .875rem;
+  }
+
+  .resposta-num {
+    width: 26px;
+    height: 26px;
+    background: var(--azul-cic);
+    color: #fff;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .resposta-enunciado {
+    font-size: .88rem;
+    color: var(--texto);
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .resposta-conteudo {
+    padding: 1rem 1.25rem;
+    font-size: .9rem;
+    color: var(--texto);
+    line-height: 1.6;
+    background: var(--branco);
+  }
+
+  .resposta-conteudo.multipla {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--verde-escuro);
+    font-weight: 500;
+  }
+
+  .resposta-conteudo.multipla::before {
+    content: '✓';
+    width: 20px;
+    height: 20px;
+    background: var(--verde-claro);
+    color: var(--verde-unb);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .7rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .readonly-banner {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .875rem 1.25rem;
+    background: #EFF6FF;
+    border: 1.5px solid #BFDBFE;
+    border-radius: var(--radius);
+    margin-bottom: 1.5rem;
+    font-size: .85rem;
+    color: #1E40AF;
+    font-weight: 500;
+  }
+</style>
+
+<%# Breadcrumb %>
+<div class="breadcrumb">
+  <%= link_to "Formulários", formularios_path %>
+  <span class="breadcrumb-sep">›</span>
+  <%= link_to @formulario.titulo, formulario_path(@formulario) %>
+  <span class="breadcrumb-sep">›</span>
+  <span>Minha resposta</span>
+</div>
+
+<%# Banner read-only %>
+<div class="readonly-banner">
+  🔒 Esta é sua resposta enviada. Não é possível editar após o envio.
+</div>
+
+<%# Header ─── %>
+<div class="resposta-header-card">
+  <div>
+    <h1><%= @formulario.titulo %></h1>
+    <p>📚 <%= @formulario.turma.disciplina.nome %> · Turma <%= @formulario.turma.codigo %></p>
+  </div>
+  <% if @envio.enviado_em %>
+    <div class="enviado-em-badge">
+      <div class="label">Enviado em</div>
+      <div class="valor"><%= @envio.enviado_em.strftime("%d/%m/%Y") %></div>
+      <div style="font-size:.78rem; color:rgba(255,255,255,.6); margin-top:.15rem;">
+        <%= @envio.enviado_em.strftime("%H:%M") %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%# Respostas ─── %>
+<div class="respostas-list">
+  <% @respostas.each_with_index do |resposta, i| %>
+    <div class="resposta-item">
+      <div class="resposta-item-header">
+        <div class="resposta-num"><%= i + 1 %></div>
+        <div class="resposta-enunciado"><%= resposta.questao.enunciado %></div>
+      </div>
+      <div class="resposta-conteudo <%= resposta.questao.multipla? ? 'multipla' : '' %>">
+        <%= resposta.conteudo %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "← Voltar para formulários", formularios_path, class: "btn btn-secondary" %>
